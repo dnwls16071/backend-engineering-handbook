@@ -1,3 +1,5 @@
+Bundled icon assets use PNG format, preserving the original artwork.
+
 Jenkins logo: Jenkins project (https://www.jenkins.io/), CC BY-SA 3.0.
 https://creativecommons.org/licenses/by-sa/3.0/
 Original artwork: https://www.jenkins.io/images/logos/jenkins/jenkins.svg
@@ -17,3 +19,9 @@ CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 https://github.com/kubernetes/community/tree/main/icons
 
 All marks identify the technologies discussed; they do not indicate endorsement.
+
+Helm logo: The Helm Authors / The Linux Foundation.
+https://github.com/cncf/artwork/tree/main/projects/helm
+
+Kustomize icon: Kubernetes SIG CLI / Kustomize project.
+https://github.com/kubernetes-sigs/kustomize/blob/master/site/static/favicons/favicon-256.png
