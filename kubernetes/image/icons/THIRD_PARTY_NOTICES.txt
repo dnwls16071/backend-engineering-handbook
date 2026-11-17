@@ -1,0 +1,19 @@
+Jenkins logo: Jenkins project (https://www.jenkins.io/), CC BY-SA 3.0.
+https://creativecommons.org/licenses/by-sa/3.0/
+Original artwork: https://www.jenkins.io/images/logos/jenkins/jenkins.svg
+The logo is reproduced without changes to its artwork.
+
+GitHub Mark: GitHub, Inc. https://brand.github.com/foundations/logo
+https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+
+Docker mark: Docker, Inc. https://www.docker.com/company/newsroom/media-resources/
+https://www.docker.com/app/uploads/2026/05/docker-mark-deep-blue.svg
+
+Kubernetes logo: The Kubernetes Authors / The Linux Foundation.
+https://github.com/cncf/artwork/tree/main/projects/kubernetes
+
+Kubernetes resource icons (Service, Deployment): Kubernetes community.
+CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+https://github.com/kubernetes/community/tree/main/icons
+
+All marks identify the technologies discussed; they do not indicate endorsement.
