@@ -15,7 +15,7 @@ public record TaskSearchCondition(String title, String projectName,
 public record TaskRow(Long id, String title, String projectName, Integer priority) {}
 ```
 
-리포지토리는 주입받은 트랜잭션 연동 `EntityManager`로 저장과 검색을 처리한다. 스프링 빈은 공유 프록시를 주입받고, 실제 영속성 컨텍스트는 트랜잭션 범위에서 사용한다.
+리포지토리는 주입받은 트랜잭션 연동 `EntityManager`로 저장과 검색을 처리한다. 스프링 빈은 공유 프록시를 주입받고, 실제 영속성 컨텍스트는 트랜잭션 범위에서 사용한다. [Spring Framework 6.2 · 공유 EntityManager](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/orm/jpa/SharedEntityManagerCreator.html) · [Querydsl 5.0 · EntityManager를 사용하는 JPAQueryFactory](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/JPAQueryFactory.java)
 
 ```java
 @Repository
@@ -78,7 +78,7 @@ final class TaskFilters {
 }
 ```
 
-`minPriority`와 `maxPriority`를 함께 받는 API라면 하한이 상한보다 큰 요청을 조회 전에 검증한다. 프로젝트 조건이 없으면 LEFT JOIN이 프로젝트에 연결되지 않은 작업도 보존한다. 프로젝트 이름이 입력되면 해당 이름에 일치하는 작업만 반환한다. `TaskRow`로 직접 조회하므로 결과 행을 만드는 데 필요한 열을 명시할 수 있다.
+`minPriority`와 `maxPriority`를 함께 받는 API라면 하한이 상한보다 큰 요청을 조회 전에 검증한다. 프로젝트 조건이 없으면 LEFT JOIN이 프로젝트에 연결되지 않은 작업도 보존한다. 프로젝트 이름이 입력되면 해당 이름에 일치하는 작업만 반환한다. `TaskRow`로 직접 조회하므로 결과 행을 만드는 데 필요한 열을 명시할 수 있다. [Querydsl 5.0 · 생성자 프로젝션](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/types/Projections.java)
 
 ## 3. 조회 API와 실행 확인
 

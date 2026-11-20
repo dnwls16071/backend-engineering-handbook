@@ -1,10 +1,10 @@
 # Querydsl 5 Configuration for Spring Boot
 
-Spring Boot 3.x의 JPA는 `jakarta.persistence`를 사용한다. Querydsl 5.0을 사용할 때는 런타임의 JPA 라이브러리와 빌드 단계의 어노테이션 프로세서를 모두 Jakarta 환경에 맞춘다.
+Spring Boot 3.x의 JPA는 `jakarta.persistence`를 사용한다. Querydsl 5.0을 사용할 때는 런타임의 JPA 라이브러리와 빌드 단계의 어노테이션 프로세서를 모두 Jakarta 환경에 맞춘다. [Querydsl 5.0 릴리스 · Jakarta 지원](https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_5_0_0)
 
 ## 1. Spring Boot 3.x와 Gradle 연결
 
-아래 예제는 Spring Boot 3.x와 `io.spring.dependency-management` 플러그인이 적용된 Java 프로젝트의 `build.gradle`에 추가한다. Java 17 이상을 사용한다. `querydsl.version`을 지정하면 Spring Boot가 관리하는 Querydsl 모듈도 지정한 버전에 맞춰진다.
+아래 예제는 Spring Boot 3.x와 `io.spring.dependency-management` 플러그인이 적용된 Java 프로젝트의 `build.gradle`에 추가한다. Java 17 이상을 사용한다. `querydsl.version`을 지정하면 Spring Boot가 관리하는 Querydsl 모듈도 지정한 버전에 맞춰진다. [Spring Boot 3.5 · Gradle 관리 버전 변경](https://docs.spring.io/spring-boot/3.5/gradle-plugin/managing-dependencies.html#managing-dependencies.dependency-management-plugin.customizing)
 
 ```groovy
 def querydslVersion = '5.0.0'
@@ -24,7 +24,7 @@ dependencies {
 ./gradlew clean compileJava
 ```
 
-기본 Gradle Java 소스 레이아웃이라면 `build/generated/sources/annotationProcessor/java/main`에서 `QTask.java` 같은 생성 파일을 확인할 수 있다. 엔티티를 바꾸면 다시 컴파일한다. 생성물이 없다면 엔티티의 `@Entity` import, APT의 `jakarta` 분류자, 프로세서 클래스패스의 JPA API를 함께 확인한다.
+기본 Gradle Java 소스 레이아웃이라면 `build/generated/sources/annotationProcessor/java/main`에서 `QTask.java` 같은 생성 파일을 확인할 수 있다. 엔티티를 바꾸면 다시 컴파일한다. 생성물이 없다면 엔티티의 `@Entity` import, APT의 `jakarta` 분류자, 프로세서 클래스패스의 JPA API를 함께 확인한다. [Spring Data JPA 3.5 · Querydsl 어노테이션 처리](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/core-extensions.html)
 
 ## 2. Spring Boot 2.6·2.7과 3.x 비교
 
@@ -41,11 +41,11 @@ dependencies {
 import org.springframework.data.support.PageableExecutionUtils;
 ```
 
-기존 예제의 `org.springframework.data.repository.support.PageableExecutionUtils` import를 위 패키지로 바꾼다. `getPage()`는 내용과 페이지 정보로 전체 건수를 계산할 수 있으면 카운트 실행을 생략한다. 검색 조건이 들어간 사용 예는 [04번 문서](04_spring_data_jpa_querydsl_repositories_and_pagination.md)에서 다룬다.
+기존 예제의 `org.springframework.data.repository.support.PageableExecutionUtils` import를 위 패키지로 바꾼다. `getPage()`는 내용과 페이지 정보로 전체 건수를 계산할 수 있으면 카운트 실행을 생략한다. 검색 조건이 들어간 사용 예는 [04번 문서](04_spring_data_jpa_querydsl_repositories_and_pagination.md)에서 다룬다. [Spring Data Commons 3.5 · PageableExecutionUtils](https://docs.spring.io/spring-data/jpa/reference/data-commons/3.5/api/java/org/springframework/data/support/PageableExecutionUtils.html)
 
 ## 4. fetchResults()와 fetchCount() 전환
 
-Querydsl 5.0의 JPA 쿼리에서는 `fetchResults()`와 `fetchCount()`가 deprecated 처리되어 있다. JPQL은 임의의 조회를 `FROM` 서브쿼리로 감싸 카운트하는 방식을 지원하지 않는다. 여러 `GROUP BY` 식이나 `HAVING`이 포함된 쿼리에서는 Querydsl이 결과를 메모리에 가져와 집계할 수 있다.
+Querydsl 5.0의 JPA 쿼리에서는 `fetchResults()`와 `fetchCount()`가 deprecated 처리되어 있다. JPQL은 임의의 조회를 `FROM` 서브쿼리로 감싸 카운트하는 방식을 지원하지 않는다. 여러 `GROUP BY` 식이나 `HAVING`이 포함된 쿼리에서는 Querydsl이 결과를 메모리에 가져와 집계할 수 있다. [Querydsl 5.0 · 카운트 API의 사용 중단 안내](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/CHANGELOG.md#user-content-deprecations) · [Querydsl 5.0 · AbstractJPAQuery 구현](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/AbstractJPAQuery.java)
 
 데이터는 `fetch()`로 가져오고, 건수는 같은 대상을 세는 쿼리에 집계식을 명시한다.
 

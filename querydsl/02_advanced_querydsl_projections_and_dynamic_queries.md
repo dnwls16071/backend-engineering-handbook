@@ -37,7 +37,7 @@ List<TaskSummary> summaries = queryFactory
     .fetch();
 ```
 
-DTO 생성자에 `@QueryProjection`을 붙여 `QTaskSummary`를 생성하면 `select(new QTaskSummary(task.id, task.title))`로 조회할 수 있다. 이 방식은 타입이 다른 인자 전달을 컴파일 단계에서 확인한다. 같은 타입인 두 인자의 순서가 바뀌는 문제는 DTO와 쿼리의 의미를 대조해 검토한다.
+DTO 생성자에 `@QueryProjection`을 붙여 `QTaskSummary`를 생성하면 `select(new QTaskSummary(task.id, task.title))`로 조회할 수 있다. 이 방식은 타입이 다른 인자 전달을 컴파일 단계에서 확인한다. 같은 타입인 두 인자의 순서가 바뀌는 문제는 DTO와 쿼리의 의미를 대조해 검토한다. [Querydsl 5.0 · DTO 프로젝션 API](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/types/Projections.java) · [Querydsl 5.0 · QueryProjection](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/annotations/QueryProjection.java)
 
 ## 2. 입력에 따라 달라지는 검색 조건
 
@@ -53,7 +53,7 @@ if (minPriority != null) {
 List<Task> matches = queryFactory.selectFrom(task).where(filters).fetch();
 ```
 
-`BooleanBuilder`는 조건을 단계별로 누적하는 데 편하다. 여러 조회에 같은 조건을 사용한다면 `BooleanExpression`을 반환하는 메서드로 옮기고 `where(titleContains(titleParam), priorityGoe(minPriority))`처럼 전달한다. Querydsl은 `where`에 전달된 `null`을 건너뛴다. 직접 `and()`를 호출해 조합할 때는 메서드 호출의 왼쪽 값이 `null`일 수 있는지 확인한다.
+`BooleanBuilder`는 조건을 단계별로 누적하는 데 편하다. 여러 조회에 같은 조건을 사용한다면 `BooleanExpression`을 반환하는 메서드로 옮기고 `where(titleContains(titleParam), priorityGoe(minPriority))`처럼 전달한다. Querydsl은 `where`에 전달된 `null`을 건너뛴다. 직접 `and()`를 호출해 조합할 때는 메서드 호출의 왼쪽 값이 `null`일 수 있는지 확인한다. [Querydsl 5.0 · BooleanBuilder](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/BooleanBuilder.java) · [Querydsl 5.0 · null 조건 처리](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/DefaultQueryMetadata.java)
 
 ## 3. 일괄 갱신과 삭제
 
@@ -67,7 +67,7 @@ long changed = queryFactory
 entityManager.clear();
 ```
 
-벌크 작업은 쓰기 트랜잭션에서 실행한다. 엔티티를 건별로 바꾸는 대신 DB에서 여러 행을 직접 수정한다. 실행 전 `flush()`로 대기 중인 변경을 반영하고 실행 후 `clear()`로 이전 상태를 가진 관리 엔티티를 분리한다. 같은 방식으로 `delete(task).where(...).execute()`를 실행할 수 있으며, 수정·삭제 범위를 확인해야 한다.
+벌크 작업은 쓰기 트랜잭션에서 실행한다. 엔티티를 건별로 바꾸는 대신 DB에서 여러 행을 직접 수정한다. 실행 전 `flush()`로 대기 중인 변경을 반영하고 실행 후 `clear()`로 이전 상태를 가진 관리 엔티티를 분리한다. 같은 방식으로 `delete(task).where(...).execute()`를 실행할 수 있으며, 수정·삭제 범위를 확인해야 한다. [Querydsl 5.0 · 벌크 갱신 API](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/JPAUpdateClause.java) · [Jakarta Persistence 3.1 · 벌크 갱신과 삭제](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636)
 
 ## 4. 함수 호출
 

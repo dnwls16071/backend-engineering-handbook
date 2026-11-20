@@ -1,6 +1,6 @@
 # Querydsl JPA Fundamentals
 
-Querydsl JPA는 자바 표현식으로 JPQL 쿼리를 구성한다. 생성된 Q 타입으로 필드와 값의 자료형을 확인할 수 있고, 같은 조건을 여러 쿼리에서 재사용할 수 있다. 실행 시에는 JPA 구현체가 JPQL을 SQL로 번역한다.
+Querydsl JPA는 자바 표현식으로 JPQL 쿼리를 구성한다. 생성된 Q 타입으로 필드와 값의 자료형을 확인할 수 있고, 같은 조건을 여러 쿼리에서 재사용할 수 있다. 실행 시에는 JPA 구현체가 JPQL을 SQL로 번역한다. [Querydsl 5.0 · JPAQueryFactory](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/JPAQueryFactory.java)
 
 이 문서의 예제는 **Java 17, Spring Boot 3.x, Querydsl 5.0**을 기준으로 한다. `Task`에는 `id`, `title`, `priority`, `completed`와 지연 로딩으로 설정한 선택적 다대일 관계 `project`가 있다. `Project`에는 `id`와 `name`이 있다. `QTask.task`와 `QProject.project`는 생성된 Q 타입의 기본 인스턴스다. Q 타입 생성은 [06번 문서](06_querydsl_5_configuration_for_spring_boot.md)에서 다룬다.
 
@@ -19,7 +19,7 @@ List<Task> tasks = queryFactory
     .fetch();
 ```
 
-쉼표로 전달한 `where` 조건은 AND로 결합된다. `eq`, `in`, `between`, `contains`처럼 경로 타입에 맞는 비교를 사용할 수 있다. NULL을 찾는 조건은 `isNull()` 또는 `isNotNull()`으로 표현한다. 여러 행의 우선순위가 같을 수 있으므로 페이징 정렬에는 `id`처럼 순서를 확정할 수 있는 기준을 덧붙인다.
+쉼표로 전달한 `where` 조건은 AND로 결합된다. `eq`, `in`, `between`, `contains`처럼 경로 타입에 맞는 비교를 사용할 수 있다. NULL을 찾는 조건은 `isNull()` 또는 `isNotNull()`으로 표현한다. 여러 행의 우선순위가 같을 수 있으므로 페이징 정렬에는 `id`처럼 순서를 확정할 수 있는 기준을 덧붙인다. [Querydsl 5.0 · 쿼리 조건 결합](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/DefaultQueryMetadata.java)
 
 | 조회 방식 | 결과 |
 | --- | --- |
@@ -55,7 +55,7 @@ List<Task> loaded = queryFactory
     .fetch();
 ```
 
-페치 조인은 작업과 프로젝트를 같은 조회에서 로딩한다. 여러 작업의 지연 로딩 프로젝트에 접근하면서 추가 쿼리가 반복되는 상황에 쓸 수 있다. 컬렉션 페치 조인은 루트 행을 늘릴 수 있으므로 `offset`·`limit`와 함께 쓸 때 생성된 SQL과 결과 범위를 확인해야 한다.
+페치 조인은 작업과 프로젝트를 같은 조회에서 로딩한다. 여러 작업의 지연 로딩 프로젝트에 접근하면서 추가 쿼리가 반복되는 상황에 쓸 수 있다. 컬렉션 페치 조인은 루트 행을 늘릴 수 있으므로 `offset`·`limit`와 함께 쓸 때 생성된 SQL과 결과 범위를 확인해야 한다. [Querydsl 5.0 · fetchJoin()](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/JPAQueryBase.java) · [Hibernate 6.6 · 페치 조인과 페이징](https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#explicit-fetch-join)
 
 ## 3. 집계, 서브쿼리, 조건식
 
@@ -78,7 +78,7 @@ List<Task> highestPriority = queryFactory
     .fetch();
 ```
 
-`where`는 집계 전 행을, `having`은 집계 후 그룹을 줄인다. 서브쿼리에 같은 엔티티를 다시 사용하면 별도 별칭을 준다. `JPAExpressions`로 `IN`이나 `EXISTS` 조건도 구성할 수 있다. JPQL에서 서브쿼리를 둘 수 있는 위치에는 제약이 있으므로, `SELECT` 등에서 사용하려면 구현체 지원 범위를 확인한다.
+`where`는 집계 전 행을, `having`은 집계 후 그룹을 줄인다. 서브쿼리에 같은 엔티티를 다시 사용하면 별도 별칭을 준다. `JPAExpressions`로 `IN`이나 `EXISTS` 조건도 구성할 수 있다. JPQL에서 서브쿼리를 둘 수 있는 위치에는 제약이 있으므로, `SELECT` 등에서 사용하려면 구현체 지원 범위를 확인한다. [Querydsl 5.0 · JPAExpressions](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/JPAExpressions.java) · [Jakarta Persistence 3.1 · JPQL 서브쿼리](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5196)
 
 `CaseBuilder`는 진행 중인 작업에 0, 완료 작업에 1을 부여하는 등 조건부 값을 만든다. `new CaseBuilder().when(task.completed.isFalse()).then(0).otherwise(1)`을 변수에 두면 `select`와 `orderBy`에서 공유할 수 있다.
 

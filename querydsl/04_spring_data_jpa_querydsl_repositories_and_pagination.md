@@ -16,7 +16,7 @@ public interface TaskSearchRepository {
 public interface TaskRepository extends JpaRepository<Task, Long>, TaskSearchRepository {}
 ```
 
-`TaskSearchRepositoryImpl`은 프래그먼트 이름인 `TaskSearchRepository` 뒤에 기본 접미사인 `Impl`을 붙인 것이다. 이 구현을 리포지토리 스캔 범위에 두면 `TaskRepository`로 기본 CRUD와 `searchPage()`를 함께 사용할 수 있다.
+`TaskSearchRepositoryImpl`은 프래그먼트 이름인 `TaskSearchRepository` 뒤에 기본 접미사인 `Impl`을 붙인 것이다. 이 구현을 리포지토리 스캔 범위에 두면 `TaskRepository`로 기본 CRUD와 `searchPage()`를 함께 사용할 수 있다. [Spring Data JPA 3.5 · 리포지토리 프래그먼트](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)
 
 ## 2. 내용과 카운트 쿼리 나누기
 
@@ -77,12 +77,12 @@ public class TaskSearchRepositoryImpl implements TaskSearchRepository {
 }
 ```
 
-`PageableExecutionUtils`는 `org.springframework.data.support`에서 가져온다. 첫 페이지가 페이지 크기보다 작거나, 다음 페이지에서 일부 결과만 있어 끝을 확인할 수 있는 경우에는 내용 개수와 오프셋으로 전체 건수를 계산한다. 범위를 벗어난 빈 페이지처럼 내용만으로 전체 건수를 추론하기 어려우면 카운트 쿼리를 실행할 수 있다.
+`PageableExecutionUtils`는 `org.springframework.data.support`에서 가져온다. 첫 페이지가 페이지 크기보다 작거나, 다음 페이지에서 일부 결과만 있어 끝을 확인할 수 있는 경우에는 내용 개수와 오프셋으로 전체 건수를 계산한다. 범위를 벗어난 빈 페이지처럼 내용만으로 전체 건수를 추론하기 어려우면 카운트 쿼리를 실행할 수 있다. [Spring Data Commons 3.5 · PageableExecutionUtils](https://docs.spring.io/spring-data/jpa/reference/data-commons/3.5/api/java/org/springframework/data/support/PageableExecutionUtils.html) · [Spring Data Commons 3.5 · 카운트 생략 조건](https://github.com/spring-projects/spring-data-commons/blob/3.5.4/src/main/java/org/springframework/data/support/PageableExecutionUtils.java)
 
 페이징 결과의 `totalElements`는 현재 페이지에 들어 있는 행 수와 다르다. 데이터와 카운트 쿼리는 같은 검색 범위를 표현해야 한다. 다대일 조인이 출력에만 필요하면 카운트에서 뺄 수 있다. 일대다 조인으로 루트 행이 늘어나는 쿼리는 무엇을 한 건으로 셀지 먼저 정하고, 필요하면 `countDistinct()` 또는 별도의 집계 쿼리를 사용한다.
 
 ## 3. 요청의 페이징과 정렬
 
-`GET /tasks?page=0&size=20&sort=priority,desc`는 첫 페이지에 최대 20개 결과를 요청한다. Spring MVC에서 받은 `Pageable`을 전달하면 예제의 정렬 허용 목록이 필드 이름을 타입이 정해진 경로로 변환한다. `id`를 마지막 정렬 기준으로 추가하면 우선순위가 같은 작업도 순서가 정해진다.
+`GET /tasks?page=0&size=20&sort=priority,desc`는 첫 페이지에 최대 20개 결과를 요청한다. Spring MVC에서 받은 `Pageable`을 전달하면 예제의 정렬 허용 목록이 필드 이름을 타입이 정해진 경로로 변환한다. `id`를 마지막 정렬 기준으로 추가하면 우선순위가 같은 작업도 순서가 정해진다. [Spring Data JPA 3.5 · 웹에서 Pageable과 Sort 바인딩](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/core-extensions.html#core.web.basic.paging-and-sorting)
 
 예제는 필드와 오름차순·내림차순을 지원한다. 연관 엔티티 필드, 대소문자 구분, NULL 순서를 API로 제공한다면 허용 조건과 동작을 명시해 매핑한다. 전체 건수가 필요 없는 API에는 `Slice`로 다음 페이지가 있는지만 응답하는 방식도 선택할 수 있다.

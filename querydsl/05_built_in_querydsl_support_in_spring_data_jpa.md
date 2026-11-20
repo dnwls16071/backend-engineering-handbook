@@ -9,7 +9,7 @@ public interface TaskRepository extends JpaRepository<Task, Long>,
         TaskSearchRepository, QuerydslPredicateExecutor<Task> {}
 ```
 
-위 코드는 [04번 문서](04_spring_data_jpa_querydsl_repositories_and_pagination.md)의 `TaskRepository`에 실행기 인터페이스를 추가한 형태다. `findOne()`, `findAll()`, `count()`, `exists()`에 Querydsl `Predicate`를 전달할 수 있다.
+위 코드는 [04번 문서](04_spring_data_jpa_querydsl_repositories_and_pagination.md)의 `TaskRepository`에 실행기 인터페이스를 추가한 형태다. `findOne()`, `findAll()`, `count()`, `exists()`에 Querydsl `Predicate`를 전달할 수 있다. [Spring Data JPA 3.5 · QuerydslPredicateExecutor](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/core-extensions.html#core.extensions.querydsl)
 
 ```java
 QTask task = QTask.task;
@@ -23,7 +23,7 @@ Page<Task> page = taskRepository.findAll(
 
 ## 2. Querydsl Web 바인딩
 
-Spring Data Web 지원을 활성화한 MVC 컨트롤러에서는 `@QuerydslPredicate(root = Task.class) Predicate predicate`를 인자로 받을 수 있다. `?title=plan` 같은 쿼리 문자열을 조건식으로 바꾼다. 검색 가능 필드와 문자열 비교 방식은 `QuerydslBinderCustomizer`에서 지정할 수 있다.
+Spring Data Web 지원을 활성화한 MVC 컨트롤러에서는 `@QuerydslPredicate(root = Task.class) Predicate predicate`를 인자로 받을 수 있다. `?title=plan` 같은 쿼리 문자열을 조건식으로 바꾼다. 검색 가능 필드와 문자열 비교 방식은 `QuerydslBinderCustomizer`에서 지정할 수 있다. [Spring Data JPA 3.5 · Querydsl Web 바인딩](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/core-extensions.html#core.web.type-safe)
 
 `TaskRepository`가 `QuerydslBinderCustomizer<QTask>`를 상속하도록 추가하고, 그 안에 `customize()`를 구현한다.
 
@@ -53,6 +53,6 @@ public interface TaskRepository extends JpaRepository<Task, Long>,
 | `QuerydslRepositorySupport` | `EntityManager`, `from()`과 `Querydsl.applyPagination()` 사용 | 기존 리포지토리에 기반 클래스가 이미 사용되는 경우 |
 | `JPAQueryFactory`를 사용하는 프래그먼트 | 조회 열, 조인, 정렬, 카운트 쿼리를 명시 | DTO 조회나 관계·집계가 있는 조회 |
 
-`QuerydslRepositorySupport`는 기반 클래스에서 `EntityManager`와 페이징 보조 API를 제공한다. `applyPagination()`은 `Pageable`의 오프셋, 크기와 정렬을 쿼리에 반영한다. 계산식이나 여러 연관 경로를 정렬에 사용한다면, 조회에 맞는 Q 경로와 정렬식을 직접 매핑할 수 있다.
+`QuerydslRepositorySupport`는 기반 클래스에서 `EntityManager`와 페이징 보조 API를 제공한다. `applyPagination()`은 `Pageable`의 오프셋, 크기와 정렬을 쿼리에 반영한다. 계산식이나 여러 연관 경로를 정렬에 사용한다면, 조회에 맞는 Q 경로와 정렬식을 직접 매핑할 수 있다. [Spring Data JPA 3.5 · QuerydslRepositorySupport](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/QuerydslRepositorySupport.html) · [Spring Data JPA 3.5 · 페이징 적용 API](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/Querydsl.html)
 
 여러 프래그먼트에서 페이징 조립 코드가 반복되면 공통 지원 메서드를 만들 수 있다. 데이터 쿼리와 카운트 쿼리는 호출하는 쪽에서 각각 전달하도록 두면 조회별 범위와 집계를 검토하기 쉽다.
