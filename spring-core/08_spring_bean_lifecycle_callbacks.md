@@ -12,6 +12,10 @@
 
 서로 다른 메서드로 세 방식을 함께 등록하면 초기화와 종료에서 각각 애노테이션 콜백, 인터페이스 콜백, 설정한 메서드 순으로 실행된다. 같은 메서드를 여러 방식으로 지정한 경우 컨테이너가 한 번만 호출한다. Spring Framework 6.x에서 두 콜백 애노테이션은 `jakarta.annotation` 패키지를 사용한다. [Spring Framework 6.2 · 생명주기 콜백 조합](https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-nature.html) · [Spring Framework 6.2 · PostConstruct와 PreDestroy](https://docs.spring.io/spring-framework/reference/6.2/core/beans/annotation-config/postconstruct-and-predestroy-annotations.html)
 
+![관리 싱글톤의 콜백 실행 순서. 주입 후 PostConstruct, afterPropertiesSet, 설정 초기화 메서드를 호출하고 컨텍스트 정상 종료 시 PreDestroy, DisposableBean.destroy, 설정 종료 메서드를 호출한다.](image/08_singleton_initialization_and_destruction.png)
+
+그림의 구현 근거 · [AbstractAutowireCapableBeanFactory 초기화](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java#L1684-L1754) · [InitDestroyAnnotationBeanPostProcessor 애노테이션 콜백](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.java#L198-L236) · [CommonAnnotationBeanPostProcessor의 Jakarta 콜백 등록](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessor.java#L193-L207) · [컨텍스트 종료와 싱글톤 소멸](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L1095-L1155) · [DisposableBeanAdapter 종료 콜백](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java#L183-L243)
+
 ## 2. 초기화·종료 메서드를 설정으로 연결
 
 ```java

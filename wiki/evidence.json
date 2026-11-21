@@ -858,5 +858,175 @@
       "url": "https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/PartTreeJpaQuery.java",
       "locator": "Dynamic Projections 및 Using Projections with JPA의 Derived queries. PartTreeJpaQuery, JpaQueryCreator.complete 및 AbstractJpaQuery.doExecute의 동적 타입 선택과 결과 처리"
     }
+  },
+  {
+    "page": "spring-core/01_object_oriented_design_and_spring.md",
+    "claim": "![의존관계 역전에서는 OrderService가 DiscountPolicy 계약에 의존한다. 구성 코드가 정책 구현을 선택하면 Spring IoC 컨테이너가 생성자를 통해 연결하고, 주문 실행에서는 서비스가 주입된 정책의 discountFor를 호출한다.](image/01_discount_policy_dependency_inversion.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17과 Spring Framework 6.2의 생성자 주입을 적용한 주문 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html",
+      "locator": "Dependency Injection → Constructor-based Dependency Injection"
+    }
+  },
+  {
+    "page": "spring-core/02_modeling_orders_and_discount_policies.md",
+    "claim": "![순수 Java OrderService.price는 음수 금액을 예외로 거절한다. 0원 이상이면 금액과 1,000원 중 작은 값을 할인액으로 계산해 PricedOrder를 반환하며, 호출자는 total()로 결제 금액을 얻는다. 20,000원과 600원의 결제 금액은 각각 19,000원과 0원이다.](image/02_plain_java_order_pricing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17의 OrderService.price 예제와 Math.min(int, int) 동작",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/testing/unit.html",
+      "locator": "Unit Testing → POJO를 Spring 컨테이너 없이 인스턴스화해 테스트"
+    }
+  },
+  {
+    "page": "spring-core/02_modeling_orders_and_discount_policies.md",
+    "claim": "그림의 구현 근거 · [Java 17 · Math.min(int, int)](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html#min(int,int))",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17의 OrderService.price 예제와 Math.min(int, int) 동작",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Math.html#min(int,int)",
+      "locator": "Math.min(int, int) → 두 int 인수 중 작은 값 반환"
+    }
+  },
+  {
+    "page": "spring-core/03_dependency_injection_and_spring_configuration.md",
+    "claim": "![Spring BeanFactory 안에서 ConstructorResolver가 orderService의 DiscountPolicy 매개변수를 기술하고 DefaultListableBeanFactory가 discountPolicy 빈 참조를 찾아 반환한다. Spring이 그 참조를 인수 배열에 넣어 팩토리 메서드를 호출하면, OrderingConfig가 같은 참조를 OrderService 생성자로 전달한다.](image/03_bean_method_parameter_resolution.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 @Bean 매개변수 주입, proxyBeanMethods = false 예제. 내부 호출은 6.2.19 소스 기준.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/java/bean-annotation.html",
+      "locator": "Using the @Bean Annotation → Bean Dependencies"
+    }
+  },
+  {
+    "page": "spring-core/03_dependency_injection_and_spring_configuration.md",
+    "claim": "그림의 구현 근거 · [Spring Framework 6.2.19 · ConstructorResolver](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java#L484-L614) · [매개변수 기술과 resolveDependency 위임](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java#L729-L856) · [DefaultListableBeanFactory의 의존관계 해결](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1534-L1666) · [SimpleInstantiationStrategy의 리플렉션 호출](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java#L152-L163)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 @Bean 매개변수 주입, proxyBeanMethods = false 예제. 내부 호출은 6.2.19 소스 기준.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java#L484-L614",
+      "locator": "ConstructorResolver.instantiateUsingFactoryMethod 및 instantiate → 인수 결정 후 팩토리 호출"
+    }
+  },
+  {
+    "page": "spring-core/04_spring_container_and_bean_definitions.md",
+    "claim": "![OrderingConfig의 orderService 정의는 DefaultListableBeanFactory의 beanDefinitionMap에 등록되고, 이 예제의 싱글톤 객체는 초기화 중 생성되어 singletonObjects에 저장된다.](image/04_bean_definition_and_singleton_storage.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 AnnotationConfigApplicationContext와 OrderingConfig 예제의 지연 초기화 없는 일반 싱글톤. 내부 저장 필드와 등록 경로는 v6.2.19 기준.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/definition.html",
+      "locator": "Bean Overview의 BeanDefinition 메타데이터 소개와 외부에서 만든 싱글톤을 등록하는 API 설명"
+    }
+  },
+  {
+    "page": "spring-core/04_spring_container_and_bean_definitions.md",
+    "claim": "그림의 구현 근거 · [빈 정의 저장소](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L185-L198) · [싱글톤 객체 저장소](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java#L78-L95) · [컨텍스트 내부의 빈 팩토리](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/GenericApplicationContext.java#L103-L122) · [싱글톤 사전 생성](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L983-L992)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 AnnotationConfigApplicationContext와 OrderingConfig 예제의 지연 초기화 없는 일반 싱글톤. 내부 저장 필드와 등록 경로는 v6.2.19 기준.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L185-L198",
+      "locator": "DefaultListableBeanFactory의 이름별 BeanDefinition 저장 필드 beanDefinitionMap"
+    }
+  },
+  {
+    "page": "spring-core/05_spring_singletons_and_configuration_proxies.md",
+    "claim": "![전체 모드에서 CGLIB의 BeanMethodInterceptor는 빈 사이의 호출을 BeanFactory 조회로 보낸다. 컨테이너가 해당 빈을 생성하려고 호출하면 원래 본문을 실행한다. 간소화 모드의 직접 호출은 본문의 new를 실행한다.](image/05_configuration_bean_method_dispatch.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 컨테이너에 등록된 Java 설정의 비정적 @Bean 메서드. 그림은 일반 Bean 반환 예제이며, 분기 구현은 v6.2.19 기준.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/java/basic-concepts.html",
+      "locator": "Basic Concepts의 “@Configuration classes with or without local calls between @Bean methods?” 절"
+    }
+  },
+  {
+    "page": "spring-core/05_spring_singletons_and_configuration_proxies.md",
+    "claim": "그림의 구현 근거 · [빈 메서드 가로채기와 조회](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java#L386-L432) · [호출 중인 팩토리 메서드 비교](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java#L507-L517) · [현재 팩토리 메서드 기록](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java#L76-L98)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 컨테이너에 등록된 Java 설정의 비정적 @Bean 메서드. 그림은 일반 Bean 반환 예제이며, 분기 구현은 v6.2.19 기준.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java#L386-L432",
+      "locator": "BeanMethodInterceptor.intercept의 invokeSuper 분기와 resolveBeanReference의 BeanFactory.getBean 호출"
+    }
+  },
+  {
+    "page": "spring-core/06_spring_component_scanning.md",
+    "claim": "![기준 패키지의 클래스 파일에서 메타데이터를 읽고, 필터·조건과 클래스 요건을 통과한 후보의 이름·스코프를 정해 빈 정의를 등록한다. DiscountPolicy 의존성은 컨테이너가 ScannedOrderFacade를 생성할 때 해결한다.](image/06_component_scanning_registration_flow.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 컴포넌트 인덱스를 사용하지 않는 일반 클래스패스 탐색과 ScannedOrderFacade 예제. 내부 구현과 단계 순서는 v6.2.19 기준.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/classpath-scanning.html",
+      "locator": "Classpath Scanning and Managed Components의 후보 정의 소개, Using Filters to Customize Scanning, Naming Autodetected Components, Providing a Scope for Autodetected Components"
+    }
+  },
+  {
+    "page": "spring-core/06_spring_component_scanning.md",
+    "claim": "그림의 구현 근거 · [클래스 파일의 후보 메타데이터 읽기](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java#L451-L479) · [후보 필터 순서와 클래스 요건](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java#L532-L579) · [이름과 스코프 결정 후 빈 정의 등록](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java#L273-L296) · [스캔의 기준 패키지 결정](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ComponentScanAnnotationParser.java#L108-L128)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 컴포넌트 인덱스를 사용하지 않는 일반 클래스패스 탐색과 ScannedOrderFacade 예제. 내부 구현과 단계 순서는 v6.2.19 기준.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java#L451-L479",
+      "locator": "scanCandidateComponents의 클래스패스 리소스 검색, MetadataReader 조회, ScannedGenericBeanDefinition 생성과 후보 검증"
+    }
+  },
+  {
+    "page": "spring-core/07_spring_autowiring_and_dependency_resolution.md",
+    "claim": "![QuoteComparator 인자별 자동 주입 흐름. fixed에는 한정자로 남긴 fixedDiscountPolicy를, preferred에는 유일한 Primary인 percentageDiscountPolicy를 전달한다.](image/07_quote_comparator_dependency_resolution.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 · PolicySelectionConfig의 @Bean 메서드에서 DiscountPolicy 단일 값 인자를 각각 해석하는 경로",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/annotation-config/autowired-qualifiers.html",
+      "locator": "Fine-tuning Annotation-based Autowiring with Qualifiers · narrowing type matches, bean-name fallback, and 6.2 shortcut resolution"
+    }
+  },
+  {
+    "page": "spring-core/07_spring_autowiring_and_dependency_resolution.md",
+    "claim": "그림의 구현 근거 · [DefaultListableBeanFactory 후보 탐색과 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1589-L1665) · [QualifierAnnotationAutowireCandidateResolver 한정자 비교](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/annotation/QualifierAnnotationAutowireCandidateResolver.java#L285-L306) · [DefaultListableBeanFactory의 @Primary 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1917-L2009) · [이름 일치 단축 경로의 @Primary 충돌 확인](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L2151-L2167)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 · PolicySelectionConfig의 @Bean 메서드에서 DiscountPolicy 단일 값 인자를 각각 해석하는 경로",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1589-L1665",
+      "locator": "doResolveDependency() · 이름 일치 단축 경로, 후보 탐색, 복수·단일 후보 분기"
+    }
+  },
+  {
+    "page": "spring-core/08_spring_bean_lifecycle_callbacks.md",
+    "claim": "![관리 싱글톤의 콜백 실행 순서. 주입 후 PostConstruct, afterPropertiesSet, 설정 초기화 메서드를 호출하고 컨텍스트 정상 종료 시 PreDestroy, DisposableBean.destroy, 설정 종료 메서드를 호출한다.](image/08_singleton_initialization_and_destruction.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 · Jakarta 생명주기 애노테이션을 처리하는 컨텍스트에서 서로 다른 콜백을 지정한 관리 싱글톤의 생성과 정상 종료",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-nature.html",
+      "locator": "Lifecycle Callbacks → Combining Lifecycle Mechanisms · distinct initialization and destruction callback ordering"
+    }
+  },
+  {
+    "page": "spring-core/08_spring_bean_lifecycle_callbacks.md",
+    "claim": "그림의 구현 근거 · [AbstractAutowireCapableBeanFactory 초기화](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java#L1684-L1754) · [InitDestroyAnnotationBeanPostProcessor 애노테이션 콜백](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.java#L198-L236) · [CommonAnnotationBeanPostProcessor의 Jakarta 콜백 등록](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/CommonAnnotationBeanPostProcessor.java#L193-L207) · [컨텍스트 종료와 싱글톤 소멸](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L1095-L1155) · [DisposableBeanAdapter 종료 콜백](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java#L183-L243)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 · Jakarta 생명주기 애노테이션을 처리하는 컨텍스트에서 서로 다른 콜백을 지정한 관리 싱글톤의 생성과 정상 종료",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java#L1684-L1754",
+      "locator": "initializeBean()과 invokeInitMethods() · Aware, 전처리, 인터페이스와 설정 콜백, 후처리"
+    }
+  },
+  {
+    "page": "spring-core/09_spring_bean_scopes_and_scoped_proxies.md",
+    "claim": "![싱글톤에 주입된 요청 스코프 프록시는 호출마다 SimpleBeanTargetSource를 통해 BeanFactory에서 대상 빈을 조회한다. 요청 스코프는 현재 요청 속성에서 이미 만든 대상을 재사용하거나 새로 만들어 저장한다.](image/09_request_scoped_proxy_target_lookup.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 Servlet 웹 애플리케이션의 활성 요청 컨텍스트와 기본 클래스 기반 RequestScope 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-scopes.html#beans-factory-scopes-other-injection",
+      "locator": "Scoped Beans as Dependencies와 Request scope. ScopedProxyFactoryBean.setBeanFactory, SimpleBeanTargetSource.getTarget, AbstractRequestAttributesScope.get의 요청별 대상 조회와 캐시"
+    }
+  },
+  {
+    "page": "spring-core/09_spring_bean_scopes_and_scoped_proxies.md",
+    "claim": "그림의 구현 근거 · [ScopedProxyFactoryBean](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java) · [SimpleBeanTargetSource](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/target/SimpleBeanTargetSource.java) · [AbstractRequestAttributesScope](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-web/src/main/java/org/springframework/web/context/request/AbstractRequestAttributesScope.java)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 Servlet 웹 애플리케이션의 활성 요청 컨텍스트와 기본 클래스 기반 RequestScope 예시",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java",
+      "locator": "setBeanFactory와 프록시에 설정한 TargetSource"
+    }
   }
 ]

@@ -47,6 +47,10 @@ public class PolicySelectionConfig {
 
 타입 후보가 여럿이고 별도의 선택 단서가 없다면 주입점 이름과 빈 이름이 일치하는 후보를 찾을 수 있다. Java 생성자나 메서드의 매개변수 이름으로 이 동작을 쓰려면 `-parameters` 옵션으로 컴파일한다. 외부 이름 변경에 영향받지 않게 하려면 의도에 맞는 한정자를 명시할 수 있다. [Spring Framework 6.2 · 주입점 이름과 후보 선택](https://docs.spring.io/spring-framework/reference/6.2/core/beans/annotation-config/autowired-qualifiers.html)
 
+![QuoteComparator 인자별 자동 주입 흐름. fixed에는 한정자로 남긴 fixedDiscountPolicy를, preferred에는 유일한 Primary인 percentageDiscountPolicy를 전달한다.](image/07_quote_comparator_dependency_resolution.png)
+
+그림의 구현 근거 · [DefaultListableBeanFactory 후보 탐색과 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1589-L1665) · [QualifierAnnotationAutowireCandidateResolver 한정자 비교](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/annotation/QualifierAnnotationAutowireCandidateResolver.java#L285-L306) · [DefaultListableBeanFactory의 @Primary 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L1917-L2009) · [이름 일치 단축 경로의 @Primary 충돌 확인](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L2151-L2167)
+
 ## 3. 모든 구현을 받는 방법
 
 `List<DiscountPolicy>`를 받으면 타입이 맞는 후보들을 함께 주입한다. 순서가 중요하면 `@Order`나 `Ordered`로 우선순위를 표현한다. `Map<String, DiscountPolicy>`는 키가 빈 이름이고 값이 정책 인스턴스이므로, 실행 시점에 정책 이름을 받아 선택하는 데 활용할 수 있다. 단일 값 주입에 사용하는 `@Primary`는 컬렉션에서 다른 후보를 제외하지 않는다. [Spring Framework 6.2 · 배열, 컬렉션, 맵 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/annotation-config/autowired.html) · [Spring Framework 6.2 · Primary API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/context/annotation/Primary.html)

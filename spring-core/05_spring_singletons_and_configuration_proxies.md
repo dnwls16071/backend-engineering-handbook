@@ -40,3 +40,7 @@ public class FullOrderingConfig {
 `@Configuration(proxyBeanMethods = false)`에서는 빈 메서드끼리 직접 호출해도 컨테이너가 호출을 가로채지 않는다. 위 예에서 메서드를 직접 호출하면 본문의 `new PercentageDiscountPolicy()`가 다시 실행된다. 컨테이너에 등록된 빈 자체는 여전히 지정한 스코프를 따른다.
 
 빈 사이의 의존관계는 `OrderService orderService(DiscountPolicy discountPolicy)`처럼 메서드 매개변수로 받으면 된다. 이 경우 구성 클래스 프록시 여부와 관계없이 컨테이너가 해당 의존 빈을 찾아 전달한다. [Spring Framework 6.2 · Java 설정의 전체 모드와 간소화 모드](https://docs.spring.io/spring-framework/reference/6.2/core/beans/java/basic-concepts.html)
+
+![전체 모드에서 CGLIB의 BeanMethodInterceptor는 빈 사이의 호출을 BeanFactory 조회로 보낸다. 컨테이너가 해당 빈을 생성하려고 호출하면 원래 본문을 실행한다. 간소화 모드의 직접 호출은 본문의 new를 실행한다.](image/05_configuration_bean_method_dispatch.png)
+
+그림의 구현 근거 · [빈 메서드 가로채기와 조회](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java#L386-L432) · [호출 중인 팩토리 메서드 비교](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java#L507-L517) · [현재 팩토리 메서드 기록](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java#L76-L98)

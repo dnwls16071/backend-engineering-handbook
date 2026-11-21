@@ -78,3 +78,7 @@ public class RequestStamp {
 ```
 
 `@RequestScope`의 기본값은 클래스 기반 프록시다. 싱글톤에 `RequestStamp`를 주입하면 호출이 들어올 때 프록시가 현재 요청의 실제 객체에 위임한다. 같은 요청의 여러 호출은 같은 식별자를 얻고, 다음 요청은 다른 인스턴스에서 새 값을 얻는다. 요청이 활성화되지 않은 스레드에서는 프록시로 실제 객체를 조회할 수 없다. [Spring Framework 6.2 · RequestScope API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/web/context/annotation/RequestScope.html) · [Spring Framework 6.2 · 스코프 빈의 의존관계와 프록시](https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-scopes.html#beans-factory-scopes-other-injection)
+
+![싱글톤에 주입된 요청 스코프 프록시는 호출마다 SimpleBeanTargetSource를 통해 BeanFactory에서 대상 빈을 조회한다. 요청 스코프는 현재 요청 속성에서 이미 만든 대상을 재사용하거나 새로 만들어 저장한다.](image/09_request_scoped_proxy_target_lookup.png)
+
+그림의 구현 근거 · [ScopedProxyFactoryBean](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java) · [SimpleBeanTargetSource](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/target/SimpleBeanTargetSource.java) · [AbstractRequestAttributesScope](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-web/src/main/java/org/springframework/web/context/request/AbstractRequestAttributesScope.java)

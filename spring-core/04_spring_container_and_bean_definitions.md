@@ -6,6 +6,10 @@
 
 컨테이너는 먼저 설정을 읽어 `BeanDefinition`을 등록한다. 정의에는 빈 클래스나 팩토리 메서드, 스코프, 의존관계, 초기화·종료 메서드 같은 생성 정보가 들어갈 수 있다. 빈 인스턴스는 이 정의에 따라 만들어진 실제 객체다. 일반적인 지연 초기화 설정이 없는 싱글톤은 컨텍스트가 초기화될 때 생성된다. [Spring Framework 6.2 · 빈 정의](https://docs.spring.io/spring-framework/reference/6.2/core/beans/definition.html) · [Spring Framework 6.2 · 지연 초기화](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-lazy-init.html)
 
+![OrderingConfig의 orderService 정의는 DefaultListableBeanFactory의 beanDefinitionMap에 등록되고, 이 예제의 싱글톤 객체는 초기화 중 생성되어 singletonObjects에 저장된다.](image/04_bean_definition_and_singleton_storage.png)
+
+그림의 구현 근거 · [빈 정의 저장소](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java#L185-L198) · [싱글톤 객체 저장소](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java#L78-L95) · [컨텍스트 내부의 빈 팩토리](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/GenericApplicationContext.java#L103-L122) · [싱글톤 사전 생성](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java#L983-L992)
+
 ```java
 try (var context = new AnnotationConfigApplicationContext(OrderingConfig.class)) {
     var factory = context.getBeanFactory();
