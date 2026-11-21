@@ -25,6 +25,10 @@ NGINX는 클라이언트 연결을 받은 뒤, `proxy_pass`로 지정한 업스�
 
 **공식 문서** [NGINX WebSocket 프록시](https://nginx.org/en/docs/http/websocket.html) · [proxy_read_timeout](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout)
 
+![클라이언트의 HTTP/1.1 업그레이드 요청을 받은 NGINX는 업스트림에 Upgrade와 Connection을 명시한다. 업스트림이 101을 반환하면 터널을 통해 Python 서버에 텍스트 ping을 보내고 같은 내용을 받는다.](image/04_websocket_upgrade_and_frame_tunnel.png)
+
+그림의 근거 · [WebSocket 업그레이드](https://nginx.org/en/docs/http/websocket.html) · [업스트림 읽기 대기](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout)
+
 ## 3. 업스트림 로드 밸런싱 방식 5가지
 
 | 방식 | 설정 | 선택 기준 |
@@ -207,6 +211,10 @@ CONF
 nginx -p "$lab_dir/" -c nginx.conf -t &&
     nginx -p "$lab_dir/" -c nginx.conf
 ```
+
+![실습에서 curl은 NGINX와 TLS 및 HTTP/2로 연결한다. NGINX는 /api/ 접두어를 치환하고, app_pool에서 고른 Python 백엔드 하나에 별도의 HTTP/1.1 요청을 보낸다.](image/04_https_termination_and_upstream_request_routing.png)
+
+그림의 근거 · [HTTPS와 인증서](https://nginx.org/en/docs/http/configuring_https_servers.html) · [HTTP/2 협상](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2) · [업스트림 URI와 HTTP 버전](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [기본 로드 밸런싱](https://nginx.org/en/docs/http/load_balancing.html)
 
 ### HTTP, WebSocket, HTTPS 확인
 

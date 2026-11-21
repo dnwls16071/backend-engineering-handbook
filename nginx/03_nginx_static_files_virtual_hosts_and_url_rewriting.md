@@ -25,6 +25,10 @@ URL 구조가 디렉터리 구조와 같으면 `root`가 간단하다. URL 접�
 
 **공식 문서** [NGINX의 요청 처리 순서](https://nginx.org/en/docs/http/request_processing.html) · [server_name 규칙](https://nginx.org/en/docs/http/server_names.html) · [listen과 default_server](https://nginx.org/en/docs/http/ngx_http_core_module.html#listen)
 
+![예제의 같은 주소와 포트에서 Host가 docs.test이면 요청 URI로 파일 경로를 고르고, status.test이면 별도 응답을 보낸다. 이름이 일치하지 않으면 default_server가 404를 반환한다. root는 URI 경로를 덧붙이고 alias는 일치한 접두어를 바꾼다.](image/03_virtual_server_selection_and_static_paths.png)
+
+그림의 근거 · [가상 서버 선택](https://nginx.org/en/docs/http/request_processing.html) · [root 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#root) · [alias 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#alias)
+
 ## 3. 클라이언트 리다이렉트와 내부 rewrite
 
 | 목적 | 지시어 | 동작 |
@@ -38,6 +42,10 @@ URL 구조가 디렉터리 구조와 같으면 `root`가 간단하다. URL 접�
 정규식으로 URI를 바꾸는 `rewrite`는 `last`로 새 `location`을 찾게 하거나 `break`로 현재 블록에서 처리를 이어갈 수 있다. `last`로 돌아간 위치에서 같은 규칙이 반복 적용되면, NGINX는 URI 재검색을 최대 10회 시도한 뒤 500을 반환할 수 있다.
 
 **공식 문서** [NGINX rewrite 모듈](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) · [$args와 $is_args](https://nginx.org/en/docs/http/ngx_http_core_module.html#variables) · [RFC 9110 리다이렉션 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-redirection-3xx)
+
+![실습에서 /old-guide는 308과 Location을 보내고, 클라이언트가 이를 따르면 /guide.txt로 새 요청을 보낸다. /internal-guide는 rewrite last가 NGINX 내부에서 /guide.txt로 URI를 바꾸고 location을 다시 선택해 원래 요청에 응답한다.](image/03_redirect_round_trip_vs_internal_rewrite.png)
+
+그림의 근거 · [rewrite 동작](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) · [HTTP 308](https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect) · [상대 Location](https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect)
 
 ## 4. 실습 · 같은 포트에서 두 사이트와 URL 두 가지 처리하기
 

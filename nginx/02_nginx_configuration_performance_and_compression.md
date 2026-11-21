@@ -36,6 +36,10 @@ NGINX 설정은 지시어를 어느 블록에 두느냐에 따라 적용 범위�
 
 **공식 문서** [include 지시어](https://nginx.org/en/docs/ngx_core_module.html#include) · [NGINX 명령줄 옵션](https://nginx.org/en/docs/switches.html)
 
+![NGINX의 main 안에서 events와 http가 분리되고, 실습의 http 안에서 include가 server 블록을 읽는다. 기본 add_header 규칙에서 /app.css는 server 헤더를 상속하고, /health는 location에 선언한 헤더 목록을 사용한다.](image/02_configuration_contexts_and_header_inheritance.png)
+
+그림의 근거 · [설정 파일 구조](https://nginx.org/en/docs/beginners_guide.html#conf_structure) · [include 범위](https://nginx.org/en/docs/ngx_core_module.html#include) · [헤더 상속](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)
+
 ## 4. 워커 수와 연결 한도 설정
 
 | 지시어 | 조정할 때 볼 항목 |
@@ -149,6 +153,10 @@ curl -fsS -H 'Accept-Encoding: gzip' -D - -o /dev/null \
 ```
 
 두 번째 요청에서 `Content-Encoding: gzip`과 `Vary: Accept-Encoding`을 확인하고 본문 전송량을 비교한다. 헤더가 아직 나오지 않으면 리로드 후 새 워커가 응답할 때 다시 요청한다. 로컬 NGINX 1.31.3에서 예제 CSS는 8,090바이트에서 538바이트로 줄었다. 동일한 텍스트가 반복되는 예제 파일은 압축률이 높으므로 실제 성능을 평가할 때는 서비스에서 제공하는 파일로 다시 측정한다.
+
+![같은 CSS 응답에 대해 identity 요청은 압축한 본문을 받지 않는다. gzip을 지원하는 요청은 실습의 MIME 타입과 길이 조건을 충족해 압축되며, 응답 헤더와 받은 본문 크기로 차이를 확인한다.](image/02_gzip_filter_accept_encoding_comparison.png)
+
+그림의 근거 · [gzip 필터와 헤더](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) · [인코딩 협상](https://www.rfc-editor.org/rfc/rfc9110.html#name-accept-encoding)
 
 실습을 마치면 `nginx -p "$lab_dir/" -c nginx.conf -s quit`으로 실습 인스턴스를 종료한다.
 

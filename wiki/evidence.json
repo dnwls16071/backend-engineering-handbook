@@ -3434,5 +3434,425 @@
       "end": 65,
       "quote": "Spring Batch 5.2.2와 Docker의 PostgreSQL 17에서 이 JUnit 테스트가 통과했다. 첫 실행에서 DB 제약 위반이 발생해 ID 1·2만 남았고, 같은 JobInstance로 재시작하자 ID 1~4가 모두 한 번씩 저장됐다."
     }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "![NGINX 마스터는 설정을 읽고 워커를 관리한다. 워커의 이벤트 루프는 연결 A와 C처럼 읽기 또는 쓰기가 준비된 연결을 처리하고, 대기 중인 연결은 다음 통지를 기다린다.](image/01_master_workers_and_connection_event_loop.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 마스터·워커 프로세스 모델 및 Linux epoll, macOS kqueue 예시",
+    "source": {
+      "url": "https://nginx.org/en/docs/beginners_guide.html",
+      "locator": "Beginner’s Guide의 마스터와 워커 및 이벤트 기반 모델 소개"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "그림의 근거 · [마스터와 워커의 역할](https://nginx.org/en/docs/beginners_guide.html) · [연결 처리 방식](https://nginx.org/en/docs/events.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 마스터·워커 프로세스 모델 및 Linux epoll, macOS kqueue 예시",
+    "source": {
+      "url": "https://nginx.org/en/docs/beginners_guide.html",
+      "locator": "Beginner’s Guide의 마스터와 워커 및 이벤트 기반 모델 소개"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "![NGINX 마스터는 설정을 읽고 워커를 관리한다. 워커의 이벤트 루프는 연결 A와 C처럼 읽기 또는 쓰기가 준비된 연결을 처리하고, 대기 중인 연결은 다음 통지를 기다린다.](image/01_master_workers_and_connection_event_loop.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 마스터·워커 프로세스 모델 및 Linux epoll, macOS kqueue 예시",
+    "source": {
+      "url": "https://nginx.org/en/docs/events.html",
+      "locator": "kqueue와 epoll 이벤트 처리 지원 플랫폼"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "그림의 근거 · [마스터와 워커의 역할](https://nginx.org/en/docs/beginners_guide.html) · [연결 처리 방식](https://nginx.org/en/docs/events.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 마스터·워커 프로세스 모델 및 Linux epoll, macOS kqueue 예시",
+    "source": {
+      "url": "https://nginx.org/en/docs/events.html",
+      "locator": "kqueue와 epoll 이벤트 처리 지원 플랫폼"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "![nginx -t를 통과하면 실습에서 리로드를 요청한다. 마스터가 새 설정 적용에 실패하면 기존 설정이 유지된다. 성공하면 새 워커가 시작되고, 기존 워커는 새 연결 수락을 멈춘 뒤 기존 클라이언트 처리를 마치고 종료한다.](image/01_graceful_reload_worker_handoff.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 HUP 설정 리로드와 실습의 nginx -t && nginx -s reload",
+    "source": {
+      "url": "https://nginx.org/en/docs/control.html#reconfiguration",
+      "locator": "Changing Configuration의 리슨 소켓, 롤백과 기존 워커 종료"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "그림의 근거 · [설정 리로드](https://nginx.org/en/docs/control.html#reconfiguration) · [설정 검사 옵션](https://nginx.org/en/docs/switches.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 HUP 설정 리로드와 실습의 nginx -t && nginx -s reload",
+    "source": {
+      "url": "https://nginx.org/en/docs/control.html#reconfiguration",
+      "locator": "Changing Configuration의 리슨 소켓, 롤백과 기존 워커 종료"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "![nginx -t를 통과하면 실습에서 리로드를 요청한다. 마스터가 새 설정 적용에 실패하면 기존 설정이 유지된다. 성공하면 새 워커가 시작되고, 기존 워커는 새 연결 수락을 멈춘 뒤 기존 클라이언트 처리를 마치고 종료한다.](image/01_graceful_reload_worker_handoff.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 HUP 설정 리로드와 실습의 nginx -t && nginx -s reload",
+    "source": {
+      "url": "https://nginx.org/en/docs/switches.html",
+      "locator": "Command-line parameters의 -t와 -s reload"
+    }
+  },
+  {
+    "page": "nginx/01_nginx_architecture_setup_and_graceful_reloads.md",
+    "claim": "그림의 근거 · [설정 리로드](https://nginx.org/en/docs/control.html#reconfiguration) · [설정 검사 옵션](https://nginx.org/en/docs/switches.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스의 HUP 설정 리로드와 실습의 nginx -t && nginx -s reload",
+    "source": {
+      "url": "https://nginx.org/en/docs/switches.html",
+      "locator": "Command-line parameters의 -t와 -s reload"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "![NGINX의 main 안에서 events와 http가 분리되고, 실습의 http 안에서 include가 server 블록을 읽는다. 기본 add_header 규칙에서 /app.css는 server 헤더를 상속하고, /health는 location에 선언한 헤더 목록을 사용한다.](image/02_configuration_contexts_and_header_inheritance.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/beginners_guide.html#conf_structure",
+      "locator": "Configuration File’s Structure의 main, events, http, server, location 관계"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "그림의 근거 · [설정 파일 구조](https://nginx.org/en/docs/beginners_guide.html#conf_structure) · [include 범위](https://nginx.org/en/docs/ngx_core_module.html#include) · [헤더 상속](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/beginners_guide.html#conf_structure",
+      "locator": "Configuration File’s Structure의 main, events, http, server, location 관계"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "![NGINX의 main 안에서 events와 http가 분리되고, 실습의 http 안에서 include가 server 블록을 읽는다. 기본 add_header 규칙에서 /app.css는 server 헤더를 상속하고, /health는 location에 선언한 헤더 목록을 사용한다.](image/02_configuration_contexts_and_header_inheritance.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/ngx_core_module.html#include",
+      "locator": "include 지시어와 올바른 문법 및 지시어"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "그림의 근거 · [설정 파일 구조](https://nginx.org/en/docs/beginners_guide.html#conf_structure) · [include 범위](https://nginx.org/en/docs/ngx_core_module.html#include) · [헤더 상속](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/ngx_core_module.html#include",
+      "locator": "include 지시어와 올바른 문법 및 지시어"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "![NGINX의 main 안에서 events와 http가 분리되고, 실습의 http 안에서 include가 server 블록을 읽는다. 기본 add_header 규칙에서 /app.css는 server 헤더를 상속하고, /health는 location에 선언한 헤더 목록을 사용한다.](image/02_configuration_contexts_and_header_inheritance.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header",
+      "locator": "add_header의 현재 블록 선언 유무에 따른 기본 상속 규칙"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "그림의 근거 · [설정 파일 구조](https://nginx.org/en/docs/beginners_guide.html#conf_structure) · [include 범위](https://nginx.org/en/docs/ngx_core_module.html#include) · [헤더 상속](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 18081 포트 실습과 기본 add_header 상속 규칙",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header",
+      "locator": "add_header의 현재 블록 선언 유무에 따른 기본 상속 규칙"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "![같은 CSS 응답에 대해 identity 요청은 압축한 본문을 받지 않는다. gzip을 지원하는 요청은 실습의 MIME 타입과 길이 조건을 충족해 압축되며, 응답 헤더와 받은 본문 크기로 차이를 확인한다.](image/02_gzip_filter_accept_encoding_comparison.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "gzip을 켠 직접 연결 실습의 /app.css, Content-Length 확인, gzip_vary on",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_gzip_module.html",
+      "locator": "gzip, gzip_min_length, gzip_types, gzip_vary 지시어"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "그림의 근거 · [gzip 필터와 헤더](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) · [인코딩 협상](https://www.rfc-editor.org/rfc/rfc9110.html#name-accept-encoding)",
+    "checked_on": "2026-11-21",
+    "applies_to": "gzip을 켠 직접 연결 실습의 /app.css, Content-Length 확인, gzip_vary on",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_gzip_module.html",
+      "locator": "gzip, gzip_min_length, gzip_types, gzip_vary 지시어"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "![같은 CSS 응답에 대해 identity 요청은 압축한 본문을 받지 않는다. gzip을 지원하는 요청은 실습의 MIME 타입과 길이 조건을 충족해 압축되며, 응답 헤더와 받은 본문 크기로 차이를 확인한다.](image/02_gzip_filter_accept_encoding_comparison.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "gzip을 켠 직접 연결 실습의 /app.css, Content-Length 확인, gzip_vary on",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-accept-encoding",
+      "locator": "Accept-Encoding과 identity 인코딩 지정"
+    }
+  },
+  {
+    "page": "nginx/02_nginx_configuration_performance_and_compression.md",
+    "claim": "그림의 근거 · [gzip 필터와 헤더](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) · [인코딩 협상](https://www.rfc-editor.org/rfc/rfc9110.html#name-accept-encoding)",
+    "checked_on": "2026-11-21",
+    "applies_to": "gzip을 켠 직접 연결 실습의 /app.css, Content-Length 확인, gzip_vary on",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-accept-encoding",
+      "locator": "Accept-Encoding과 identity 인코딩 지정"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![예제의 같은 주소와 포트에서 Host가 docs.test이면 요청 URI로 파일 경로를 고르고, status.test이면 별도 응답을 보낸다. 이름이 일치하지 않으면 default_server가 404를 반환한다. root는 URI 경로를 덧붙이고 alias는 일치한 접두어를 바꾼다.](image/03_virtual_server_selection_and_static_paths.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/request_processing.html",
+      "locator": "Name-based virtual servers의 주소·포트, Host 및 기본 서버 선택"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [가상 서버 선택](https://nginx.org/en/docs/http/request_processing.html) · [root 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#root) · [alias 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#alias)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/request_processing.html",
+      "locator": "Name-based virtual servers의 주소·포트, Host 및 기본 서버 선택"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![예제의 같은 주소와 포트에서 Host가 docs.test이면 요청 URI로 파일 경로를 고르고, status.test이면 별도 응답을 보낸다. 이름이 일치하지 않으면 default_server가 404를 반환한다. root는 URI 경로를 덧붙이고 alias는 일치한 접두어를 바꾼다.](image/03_virtual_server_selection_and_static_paths.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#root",
+      "locator": "root에 요청 URI를 덧붙이는 파일 경로 계산"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [가상 서버 선택](https://nginx.org/en/docs/http/request_processing.html) · [root 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#root) · [alias 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#alias)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#root",
+      "locator": "root에 요청 URI를 덧붙이는 파일 경로 계산"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![예제의 같은 주소와 포트에서 Host가 docs.test이면 요청 URI로 파일 경로를 고르고, status.test이면 별도 응답을 보낸다. 이름이 일치하지 않으면 default_server가 404를 반환한다. root는 URI 경로를 덧붙이고 alias는 일치한 접두어를 바꾼다.](image/03_virtual_server_selection_and_static_paths.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#alias",
+      "locator": "alias가 지정된 location의 붙임 경로 예제"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [가상 서버 선택](https://nginx.org/en/docs/http/request_processing.html) · [root 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#root) · [alias 경로 매핑](https://nginx.org/en/docs/http/ngx_http_core_module.html#alias)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX 오픈소스 HTTP 가상 서버와 문서의 18082 포트 root·alias·기본 서버 예제",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#alias",
+      "locator": "alias가 지정된 location의 붙임 경로 예제"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![실습에서 /old-guide는 308과 Location을 보내고, 클라이언트가 이를 따르면 /guide.txt로 새 요청을 보낸다. /internal-guide는 rewrite last가 NGINX 내부에서 /guide.txt로 URI를 바꾸고 location을 다시 선택해 원래 요청에 응답한다.](image/03_redirect_round_trip_vs_internal_rewrite.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_rewrite_module.html",
+      "locator": "return, rewrite last 및 break 지시어"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [rewrite 동작](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) · [HTTP 308](https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect) · [상대 Location](https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_rewrite_module.html",
+      "locator": "return, rewrite last 및 break 지시어"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![실습에서 /old-guide는 308과 Location을 보내고, 클라이언트가 이를 따르면 /guide.txt로 새 요청을 보낸다. /internal-guide는 rewrite last가 NGINX 내부에서 /guide.txt로 URI를 바꾸고 location을 다시 선택해 원래 요청에 응답한다.](image/03_redirect_round_trip_vs_internal_rewrite.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect",
+      "locator": "308 Permanent Redirect와 Location으로의 자동 리다이렉트"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [rewrite 동작](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) · [HTTP 308](https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect) · [상대 Location](https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect",
+      "locator": "308 Permanent Redirect와 Location으로의 자동 리다이렉트"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "![실습에서 /old-guide는 308과 Location을 보내고, 클라이언트가 이를 따르면 /guide.txt로 새 요청을 보낸다. /internal-guide는 rewrite last가 NGINX 내부에서 /guide.txt로 URI를 바꾸고 location을 다시 선택해 원래 요청에 응답한다.](image/03_redirect_round_trip_vs_internal_rewrite.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect",
+      "locator": "absolute_redirect off의 상대 리다이렉트 응답"
+    }
+  },
+  {
+    "page": "nginx/03_nginx_static_files_virtual_hosts_and_url_rewriting.md",
+    "claim": "그림의 근거 · [rewrite 동작](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) · [HTTP 308](https://www.rfc-editor.org/rfc/rfc9110.html#name-308-permanent-redirect) · [상대 Location](https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect)",
+    "checked_on": "2026-11-21",
+    "applies_to": "docs.test 실습의 return 308, rewrite last·break 및 상대 Location 헤더",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect",
+      "locator": "absolute_redirect off의 상대 리다이렉트 응답"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![실습에서 curl은 NGINX와 TLS 및 HTTP/2로 연결한다. NGINX는 /api/ 접두어를 치환하고, app_pool에서 고른 Python 백엔드 하나에 별도의 HTTP/1.1 요청을 보낸다.](image/04_https_termination_and_upstream_request_routing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/configuring_https_servers.html",
+      "locator": "HTTPS 서버 구성과 인증서·개인 키"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [HTTPS와 인증서](https://nginx.org/en/docs/http/configuring_https_servers.html) · [HTTP/2 협상](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2) · [업스트림 URI와 HTTP 버전](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [기본 로드 밸런싱](https://nginx.org/en/docs/http/load_balancing.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/configuring_https_servers.html",
+      "locator": "HTTPS 서버 구성과 인증서·개인 키"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![실습에서 curl은 NGINX와 TLS 및 HTTP/2로 연결한다. NGINX는 /api/ 접두어를 치환하고, app_pool에서 고른 Python 백엔드 하나에 별도의 HTTP/1.1 요청을 보낸다.](image/04_https_termination_and_upstream_request_routing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2",
+      "locator": "http2 지시어 및 TLS ALPN 요구 사항"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [HTTPS와 인증서](https://nginx.org/en/docs/http/configuring_https_servers.html) · [HTTP/2 협상](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2) · [업스트림 URI와 HTTP 버전](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [기본 로드 밸런싱](https://nginx.org/en/docs/http/load_balancing.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2",
+      "locator": "http2 지시어 및 TLS ALPN 요구 사항"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![실습에서 curl은 NGINX와 TLS 및 HTTP/2로 연결한다. NGINX는 /api/ 접두어를 치환하고, app_pool에서 고른 Python 백엔드 하나에 별도의 HTTP/1.1 요청을 보낸다.](image/04_https_termination_and_upstream_request_routing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+      "locator": "proxy_pass의 URI 치환 규칙과 같은 모듈의 proxy_http_version"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [HTTPS와 인증서](https://nginx.org/en/docs/http/configuring_https_servers.html) · [HTTP/2 협상](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2) · [업스트림 URI와 HTTP 버전](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [기본 로드 밸런싱](https://nginx.org/en/docs/http/load_balancing.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+      "locator": "proxy_pass의 URI 치환 규칙과 같은 모듈의 proxy_http_version"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![실습에서 curl은 NGINX와 TLS 및 HTTP/2로 연결한다. NGINX는 /api/ 접두어를 치환하고, app_pool에서 고른 Python 백엔드 하나에 별도의 HTTP/1.1 요청을 보낸다.](image/04_https_termination_and_upstream_request_routing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/load_balancing.html",
+      "locator": "별도 방식 지정이 없을 때 Round Robin"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [HTTPS와 인증서](https://nginx.org/en/docs/http/configuring_https_servers.html) · [HTTP/2 협상](https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2) · [업스트림 URI와 HTTP 버전](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [기본 로드 밸런싱](https://nginx.org/en/docs/http/load_balancing.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "SSL·HTTP/2 모듈을 사용하는 NGINX 1.25.1 이상 및 실습의 http2 on과 proxy_http_version 1.1",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/load_balancing.html",
+      "locator": "별도 방식 지정이 없을 때 Round Robin"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![클라이언트의 HTTP/1.1 업그레이드 요청을 받은 NGINX는 업스트림에 Upgrade와 Connection을 명시한다. 업스트림이 101을 반환하면 터널을 통해 Python 서버에 텍스트 ping을 보내고 같은 내용을 받는다.](image/04_websocket_upgrade_and_frame_tunnel.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX HTTP/1.1 WebSocket 프록시 및 실습의 Python 에코 서버, proxy_read_timeout 75s",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/websocket.html",
+      "locator": "업스트림 101 응답과 Upgrade, Connection 요청 헤더 전달"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [WebSocket 업그레이드](https://nginx.org/en/docs/http/websocket.html) · [업스트림 읽기 대기](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX HTTP/1.1 WebSocket 프록시 및 실습의 Python 에코 서버, proxy_read_timeout 75s",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/websocket.html",
+      "locator": "업스트림 101 응답과 Upgrade, Connection 요청 헤더 전달"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "![클라이언트의 HTTP/1.1 업그레이드 요청을 받은 NGINX는 업스트림에 Upgrade와 Connection을 명시한다. 업스트림이 101을 반환하면 터널을 통해 Python 서버에 텍스트 ping을 보내고 같은 내용을 받는다.](image/04_websocket_upgrade_and_frame_tunnel.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX HTTP/1.1 WebSocket 프록시 및 실습의 Python 에코 서버, proxy_read_timeout 75s",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout",
+      "locator": "연속된 두 읽기 동작 사이의 제한 시간"
+    }
+  },
+  {
+    "page": "nginx/04_nginx_reverse_proxy_load_balancing_and_https.md",
+    "claim": "그림의 근거 · [WebSocket 업그레이드](https://nginx.org/en/docs/http/websocket.html) · [업스트림 읽기 대기](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout)",
+    "checked_on": "2026-11-21",
+    "applies_to": "NGINX HTTP/1.1 WebSocket 프록시 및 실습의 Python 에코 서버, proxy_read_timeout 75s",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout",
+      "locator": "연속된 두 읽기 동작 사이의 제한 시간"
+    }
   }
 ]
