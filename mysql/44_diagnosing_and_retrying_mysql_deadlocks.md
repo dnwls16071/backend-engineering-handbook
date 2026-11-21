@@ -15,6 +15,10 @@ SELECT @@GLOBAL.innodb_deadlock_detect,
 2. 각 트랜잭션의 실행 SQL, 보유한 락, 기다리는 락에서 테이블·인덱스·레코드와 락 모드를 대조한다. 누가 누구를 기다렸고 어느 트랜잭션이 롤백됐는지 확인한다. 기록에 나타난 문장보다 앞서 실행한 SQL이 락을 잡았을 수 있으므로 요청의 트랜잭션 로그도 함께 본다. [MySQL 교착 상태 예제](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlock-example.html)
 3. 반복 발생해 최근 한 건으로 부족하면 `innodb_print_all_deadlocks`를 진단 기간에 활성화해 서버 오류 로그에서 각 사건을 수집한다. 현재 이어지는 InnoDB 데이터 락 대기는 Performance Schema의 `data_lock_waits`에서 살핀다. [MySQL 교착 상태 대응](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks-handling.html) · [MySQL data_lock_waits](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-data-lock-waits-table.html)
 
+![InnoDB는 데드락 1213의 희생 트랜잭션을 모두 롤백하고 기본 설정의 행 락 대기 1205에서는 기다리던 문장만 롤백한다. 후자의 업무 전체를 다시 실행하려면 이전 변경과 잠금을 정리하고 새 트랜잭션을 시작한다.](image/44_deadlock_and_timeout_rollback_boundaries.png)
+
+그림의 근거 · [InnoDB 오류별 롤백](https://dev.mysql.com/doc/refman/8.4/en/innodb-error-handling.html) · [MySQL 서버 오류](https://dev.mysql.com/doc/mysql-errors/8.4/en/server-error-reference.html#error_er_lock_deadlock)
+
 ## 오류에 따라 재시도 범위를 정한다
 
 | 오류 | InnoDB의 롤백 범위 | 애플리케이션 처리 |

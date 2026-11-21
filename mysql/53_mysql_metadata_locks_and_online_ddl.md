@@ -8,6 +8,10 @@ MySQL 8.4에서 테이블 정의를 보호하는 메타데이터 락의 대기 �
 
 격리된 실습 스키마에서 `CREATE TABLE mdl_lab (id INT PRIMARY KEY) ENGINE=InnoDB`를 실행한다. 세션 A에서 `START TRANSACTION; SELECT * FROM mdl_lab;`을 실행하고 열린 채 둔다. B에서 `SET SESSION lock_wait_timeout = 5` 후 `ALTER TABLE mdl_lab ADD COLUMN memo VARCHAR(60), ALGORITHM=INSTANT`를 실행한다. B가 대기하는 동안 C에서 같은 SELECT를 실행해 차단되는지 관찰한다. A를 롤백하면 락이 풀린다. A를 계속 열어 뒀다면 B는 대기 한도에 도달해 실패할 수 있다.
 
+![세션 A가 공유 메타데이터 락을 보유하면 B의 ALTER가 배타 요청을 대기한다. 그 요청이 대기열에 들어간 뒤에는 같은 테이블을 조회하려는 세션 C도 기다릴 수 있다.](image/53_metadata_lock_queue_blocks_later_selects.png)
+
+그림의 근거 · [온라인 DDL의 대기 예](https://dev.mysql.com/doc/refman/8.4/en/innodb-online-ddl-performance.html) · [메타데이터 대기 세션](https://dev.mysql.com/doc/refman/8.4/en/sys-schema-table-lock-waits.html)
+
 ## 2. 앞에서 열린 트랜잭션 찾기
 
 현재 실행 중인 SQL이 없어도 열린 트랜잭션은 조회한 테이블의 메타데이터 락을 보유할 수 있다. 대기 관계에서 차단 세션과 테이블을 찾고, 해당 연결의 트랜잭션과 요청 시작 시간을 대조한다. `waiting_pid`와 `blocking_pid`는 MySQL 연결 ID다. 내부 Performance Schema 스레드 ID와 혼동하지 않는다. [sys.schema_table_lock_waits](https://dev.mysql.com/doc/refman/8.4/en/sys-schema-table-lock-waits.html)

@@ -29,6 +29,10 @@ WHERE tenant_id = 42
 
 예제에서는 계획의 `partitions`에 `p_202611`이 선택되는지 본다. 그 파티션 안에서 접근하는 행은 인덱스 설계에 따라 달라진다. 날짜 조건 없이 이벤트 ID만 찾으면 여러 파티션을 확인할 수 있다. [RANGE COLUMNS 파티셔닝](https://dev.mysql.com/doc/refman/8.4/en/partitioning-columns-range.html) · [MySQL EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
 
+![11월 날짜 범위 조건은 예제의 RANGE COLUMNS 파티션에서 p_202611을 대상으로 삼는다. EXPLAIN의 partitions와 key로 선택된 파티션과 그 안의 접근 인덱스를 각각 확인한다.](image/47_date_partition_pruning_and_local_index_access.png)
+
+그림의 근거 · [파티션 프루닝](https://dev.mysql.com/doc/refman/8.4/en/partitioning-pruning.html) · [RANGE COLUMNS 경계](https://dev.mysql.com/doc/refman/8.4/en/partitioning-columns-range.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 제약과 보관 운영
 
 - MySQL에서는 기본 키를 포함한 모든 유일 키에 파티셔닝 표현식이 사용하는 열이 있어야 한다. 예제의 `(event_date, event_id)`는 두 열의 조합을 유일하게 만든다. 이벤트 ID가 날짜와 무관하게 유일해야 하는 시스템이라면 이 제약을 별도로 설계한다. [파티션 키와 유일 키 제약](https://dev.mysql.com/doc/refman/8.4/en/partitioning-limitations-partitioning-keys-unique-keys.html)

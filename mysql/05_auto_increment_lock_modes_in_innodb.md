@@ -10,6 +10,10 @@ InnoDB의 `AUTO_INCREMENT`는 삽입 시 자동으로 번호를 할당한다. `i
 
 실패나 롤백으로 이미 할당한 번호가 비어 있을 수 있다. 번호는 행을 식별하는 데 쓰고, 커밋 순서나 번호가 연속이어야 하는 업무 규칙은 별도로 표현한다. 문장 기반 복제가 필요한 환경에서 interleaved 모드는 재실행 시 번호 할당의 결정성을 보장하지 않으므로 복제 형식도 확인한다. [AUTO_INCREMENT Handling in InnoDB](https://dev.mysql.com/doc/refman/8.4/en/innodb-auto-increment-handling.html)
 
+![InnoDB AUTO_INCREMENT의 세 잠금 모드와 번호를 할당한 뒤 롤백해 공백이 생기는 예](image/05_auto_increment_lock_modes_in_innodb.png)
+
+그림의 근거 · [모드와 롤백 번호 공백](https://dev.mysql.com/doc/refman/8.4/en/innodb-auto-increment-handling.html) · [행 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)
+
 ## 실습 · 현재 모드와 번호 공백 확인
 
 실습 환경은 MySQL 8.4(InnoDB)다. 현재 설정을 조회하고 롤백 이후 새 행에 부여되는 번호를 관찰한다.

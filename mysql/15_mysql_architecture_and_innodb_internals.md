@@ -2,6 +2,10 @@
 
 MySQL 서버는 연결과 권한, SQL 해석, 실행 계획과 연산자를 관리한다. 스토리지 엔진은 테이블의 저장 형식과 인덱스 접근, 트랜잭션 지원을 맡는다. InnoDB는 클러스터드 인덱스와 세컨더리 인덱스를 사용하고, 트랜잭션과 MVCC를 지원한다. 실습 환경은 MySQL 8.4(InnoDB)다. [InnoDB Architecture](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html) · [Clustered and Secondary Indexes](../database-performance/06_clustered_and_secondary_indexes.md)
 
+![MySQL 서버의 SQL 계층과 바이너리 로그, InnoDB의 SELECT·쓰기 경로, 버퍼 풀과 redo·undo·데이터 파일의 관계](image/15_innodb_read_and_write_paths.png)
+
+그림의 근거 · [MySQL의 서버·스토리지 엔진 구조](https://dev.mysql.com/doc/refman/8.4/en/pluggable-storage-overview.html) · [InnoDB 메모리·디스크 구조](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html) · [버퍼 풀 페이지 기록](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool-flushing.html) · [일관된 읽기와 스냅샷](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [Undo 로그](https://dev.mysql.com/doc/refman/8.4/en/innodb-undo-logs.html) · [Redo 로그 버퍼](https://dev.mysql.com/doc/refman/8.4/en/innodb-redo-log-buffer.html) · [Redo 로그 파일](https://dev.mysql.com/doc/refman/8.4/en/innodb-redo-log.html) · [서버 바이너리 로그](https://dev.mysql.com/doc/refman/8.4/en/binary-log.html)
+
 ## 1. 메모리와 로그가 하는 일
 
 | 구성 요소 | 역할 |

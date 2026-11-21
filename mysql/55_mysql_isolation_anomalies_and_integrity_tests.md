@@ -10,6 +10,10 @@ MySQL 8.4 InnoDB에서 같은 행의 갱신을 덮어쓰는 경우와 서로 다
 
 당직자 두 명 중 최소 한 명이 남아야 하는 업무에서 A와 B가 모두 두 명을 읽은 뒤 각자 자신의 행을 비활성화하면, 같은 행에 대한 쓰기 충돌 없이 두 사람 모두 빠질 수 있다. 두 행의 변경이 각자 유효해 보여도 두 결정이 의존한 조건을 합치면 불변식이 깨진다. 두 사람 모두 상대 트랜잭션이 커밋하기 전에 읽으면 READ COMMITTED로 바꿔도 이 순서는 가능하다.
 
+![두 요청이 10을 읽고 같은 행에 9를 쓰면 차감 하나가 덮어써질 수 있다. 두 당직자가 각각 상대가 남는다고 보고 다른 행을 갱신하면 당직자가 0명이 될 수 있다. 여러 행의 조건은 공통 가드나 관련 행을 잠근 뒤 다시 읽어 판단한다.](image/55_lost_update_vs_write_skew.png)
+
+그림의 근거 · [일관 읽기의 스냅샷](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [트랜잭션 격리 수준](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html) · [최신 상태를 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
+
 ## 3. 정합성 조건에 따라 제어 방법 고르기
 
 | 보호할 조건 | 설계 예 |

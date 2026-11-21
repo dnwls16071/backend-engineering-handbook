@@ -2,6 +2,10 @@
 
 CRUD의 Create는 `INSERT`로 행을 추가하는 작업이다. `CREATE TABLE`은 테이블 구조를 정의하는 DDL이다. CRUD를 튜닝할 때는 읽기 범위와 반환량, 쓰기가 변경하는 행의 수와 트랜잭션 범위를 확인한다. 실습 환경은 MySQL 8.4(InnoDB)이며 [13번의 주문 테이블](13_practical_database_design_and_data_modeling.md)을 사용한다. [SQL Statements](https://dev.mysql.com/doc/refman/8.4/en/sql-statements.html)
 
+![주문 CRUD에서 다중 행 쓰기, 월간 범위 읽기, 주문 단위 순위와 집계, 기본 키 및 이전 상태로 조건을 지정한 갱신과 삭제](image/14_optimizing_crud_queries_in_mysql.png)
+
+그림의 근거 · [다중 행 INSERT](https://dev.mysql.com/doc/refman/8.4/en/insert-optimization.html) · [범위 읽기](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [순위와 파티션](https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html) · [UPDATE 대상과 변경 건수](https://dev.mysql.com/doc/refman/8.4/en/update.html) · [DELETE의 대상 조건](https://dev.mysql.com/doc/refman/8.4/en/delete.html)
+
 ## 1. INSERT · 필요한 행을 한 번에 기록
 
 함께 저장되어야 하는 주문과 주문 항목은 같은 트랜잭션으로 묶는다. 같은 테이블에 여러 행을 넣을 때 다중 행 INSERT로 문장 전송과 처리 횟수를 줄일 수 있다. 큰 배치는 트랜잭션과 롤백 비용도 함께 늘어나는지 측정한다. [Optimizing INSERT Statements](https://dev.mysql.com/doc/refman/8.4/en/insert-optimization.html) · [Optimizing Single-Row and Bulk Inserts](04_optimizing_single_row_and_bulk_inserts.md)

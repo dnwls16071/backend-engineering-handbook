@@ -12,6 +12,10 @@
 
 [Bulk Data Loading for InnoDB Tables](https://dev.mysql.com/doc/refman/8.4/en/optimizing-innodb-bulk-data-loading.html) · [LOAD DATA Statement](https://dev.mysql.com/doc/refman/8.4/en/load-data.html)
 
+![센서 읽기 세 건을 단건 문장 세 번 또는 다중 행 문장 한 번으로 보내고 같은 트랜잭션에서 기록하는 흐름](image/04_optimizing_single_row_and_bulk_inserts.png)
+
+그림의 근거 · [문장 전송 비용](https://dev.mysql.com/doc/refman/8.4/en/insert-optimization.html) · [적재와 인덱스 갱신](https://dev.mysql.com/doc/refman/8.4/en/optimizing-innodb-bulk-data-loading.html)
+
 ## 실습 · 한 문장에 여러 행 전달하기
 
 실습 환경은 MySQL 8.4(InnoDB)다. 다음 예시는 한 문장으로 여러 행을 보내는 형태다. 같은 수의 행을 단건 문장으로 보낼 때와 비교하려면 두 방식의 커밋 횟수를 맞춘 뒤, 배치를 별도로 조정해 각 요소의 효과를 측정한다.

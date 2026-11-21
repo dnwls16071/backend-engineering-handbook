@@ -2,6 +2,10 @@
 
 SQL을 읽을 때 먼저 결과가 무엇을 한 행으로 표현하는지 확인할 수 있도록 작성한다. 이름과 별칭으로 테이블 역할을 표시하고, 조회 컬럼을 명시하며, 조인 관계와 조회 범위를 구분한다. 여러 단계로 계산할 때는 그 중간 결과의 의미를 설명하는 CTE 이름을 사용한다. [MySQL WITH 구문](https://dev.mysql.com/doc/refman/8.4/en/with.html)
 
+![테넌트 42의 월간 주문을 이름 있는 CTE로 정의하고 주문 단위에서 고객 단위로 집계해 정렬하는 흐름](image/36_writing_readable_sql_queries.png)
+
+그림의 근거 · [WITH와 CTE의 이름 및 범위](https://dev.mysql.com/doc/refman/8.4/en/with.html) · [CTE 병합과 구체화](https://dev.mysql.com/doc/refman/8.4/en/derived-table-optimization.html) · [COUNT 집계](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html#function_count)
+
 ## 행의 단위와 필터를 드러낸다
 
 다음 쿼리는 테넌트의 11월 주문을 먼저 정의하고, 고객당 한 행으로 집계한다. 날짜 범위의 종료는 포함하지 않아 시각이나 소수 초 정밀도가 달라져도 월 경계가 분명하다.

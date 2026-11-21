@@ -2,6 +2,10 @@
 
 MySQL 8.4의 InnoDB 잠금 조회는 충돌하는 행 잠금을 기본적으로 기다린다. `NOWAIT`는 충돌 시 즉시 오류 `3572` (`ER_LOCK_NOWAIT`)를 반환하고, `SKIP LOCKED`는 잠긴 행을 결과에서 건너뛴다. 두 옵션은 `FOR UPDATE` 또는 `FOR SHARE` 뒤에 쓰며, `OF`로 잠글 테이블을 지정하면 `OF` 목록 뒤에 쓴다. 잠금 절은 `ORDER BY`와 `LIMIT` 뒤에 온다. [MySQL SELECT 구문](https://dev.mysql.com/doc/refman/8.4/en/select.html) · [MySQL 오류 3572](https://dev.mysql.com/doc/mysql-errors/8.4/en/server-error-reference.html#error_er_lock_nowait)
 
+![작업 41의 행 잠금이 충돌할 때 기본 FOR UPDATE는 기다리고 NOWAIT는 오류 3572를 반환하며 SKIP LOCKED는 작업 42로 넘어가는 비교](image/41_locking_reads_with_nowait_and_skip_locked.png)
+
+그림의 근거 · [InnoDB 잠금 조회 옵션](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [NOWAIT의 오류 3572](https://dev.mysql.com/doc/mysql-errors/8.4/en/server-error-reference.html#error_er_lock_nowait) · [메타데이터 잠금의 범위](https://dev.mysql.com/doc/refman/8.4/en/metadata-locking.html)
+
 ## 작업 하나를 선점한다
 
 `jobs`는 `job_id`를 기본 키로, `(status, job_id)`를 보조 인덱스로 가진 InnoDB 작업 테이블이다. `EXPLAIN`에서 상태 조건과 정렬에 이 인덱스를 사용하는지 확인한다. 잠금 범위는 실제로 스캔한 인덱스 레코드와 격리 수준의 영향을 받는다. [InnoDB의 문장별 잠금 범위](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)

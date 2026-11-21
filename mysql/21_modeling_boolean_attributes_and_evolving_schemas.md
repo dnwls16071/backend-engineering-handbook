@@ -17,6 +17,10 @@
 
 [Entity-Attribute-Value Modeling](../database-design/20_entity_attribute_value_modeling.md) · [EAV Modeling Guidelines](https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/) · [MySQL JSON Data Type](https://dev.mysql.com/doc/refman/8.4/en/json.html)
 
+![계정·플래그 정의를 외래 키로 참조하는 플래그 값과 LEFT JOIN 결과의 동의 1, 거부 0, 미응답 NULL](image/21_boolean_flag_rows_and_absence.png)
+
+그림의 근거 · [MySQL 외래 키](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [MySQL CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html) · [MySQL LEFT JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+
 ## 3. 실습 · 명시적 거부와 값의 부재
 
 다음은 알림 설정처럼 불리언 속성만 허용하는 EAV 예제다. 플래그 정의와 계정의 외래 키도 함께 유지한다.

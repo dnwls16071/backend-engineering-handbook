@@ -2,6 +2,10 @@
 
 준비된 문장은 SQL 구조를 먼저 정하고 실행할 때 값을 바인딩한다. 같은 형태의 쿼리를 반복할 때 서버 측 문장 준비를 재사용할 수 있고, 입력값을 SQL 구문과 분리해 전달한다. 드라이버 설정에 따라 서버 측 준비 여부가 달라지므로 성능 효과는 실제 요청과 실행 빈도로 확인한다. [MySQL 준비된 문장](https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html)
 
+![같은 세션에서 SQL 문장을 준비하고 테넌트와 페이지 크기 값을 바인딩해 실행한 뒤 해제하는 시퀀스](image/35_prepared_statements_and_parameter_binding.png)
+
+그림의 근거 · [SQL 수준 준비된 문장 개요](https://dev.mysql.com/doc/refman/8.4/en/sql-prepared-statements.html) · [매개변수와 세션 범위](https://dev.mysql.com/doc/refman/8.4/en/prepare.html) · [EXECUTE USING](https://dev.mysql.com/doc/refman/8.4/en/execute.html)
+
 ## `mysql` 클라이언트에서 값 바인딩
 
 ```sql

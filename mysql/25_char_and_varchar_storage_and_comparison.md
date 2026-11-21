@@ -12,6 +12,10 @@ MySQL 8.4에서 `CHAR(n)`과 `VARCHAR(n)`의 `n`은 최대 문자 수다. 문자
 
 `VARCHAR`의 길이 정보는 열에 가능한 최대 바이트 길이가 255를 넘는지에 따라 달라진다. 고정 길이 타입도 InnoDB에서 행 형식과 최대 바이트 길이에 따라 가변 길이처럼 인코딩될 수 있다. [문자열 저장 요구량](https://dev.mysql.com/doc/refman/8.4/en/storage-requirements.html#data-types-storage-reqs-strings) · [InnoDB 행 형식](https://dev.mysql.com/doc/refman/8.4/en/innodb-row-format.html)
 
+![동일한 뒤 공백 입력을 받은 CHAR과 VARCHAR의 HEX 조회 차이, PAD SPACE와 NO PAD 콜레이션의 비교 차이](image/25_char_varchar_trailing_space.png)
+
+그림의 근거 · [MySQL CHAR와 VARCHAR](https://dev.mysql.com/doc/refman/8.4/en/char.html) · [MySQL 비교 시 뒤 공백](https://dev.mysql.com/doc/refman/8.4/en/charset-binary-collations.html)
+
 ## 공백 비교 확인
 
 같은 `'AB '`를 두 열에 넣은 다음 조회된 바이트를 확인한다. 아래 예제는 기본 SQL 모드에서 `CHAR`가 `4142`, `VARCHAR`가 `414220`을 반환한다.

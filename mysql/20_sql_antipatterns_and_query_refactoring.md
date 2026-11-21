@@ -24,6 +24,10 @@ ORDER BY t.task_id;
 
 위 예시는 정의되지 않은 코드도 결과에 남긴다. 공통 조회 계약이 필요하면 영구 차원 테이블을 참조하는 뷰로 노출하고 소비자가 쓰는 열을 명시한다. [Reference Data and Code Tables](../database-design/13_reference_data_and_code_tables.md) · [CREATE VIEW Statement](https://dev.mysql.com/doc/refman/8.4/en/create-view.html)
 
+![함수 인덱스가 없는 실습에서 DATE 함수 조건과 created_at의 반개방 범위 조건을 비교하는 그림](image/20_date_expression_vs_btree_range.png)
+
+그림의 근거 · [MySQL B-tree 범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)
+
 ## 2. 인덱스 열에 함수 적용 · 원본 값의 범위로 변경
 
 `DATE(created_at) = '2025-03-01'`처럼 인덱스 열에 함수를 적용하면 해당 원본 키의 범위를 바로 찾기 어려울 수 있다. 같은 날짜를 원본 시간의 반개방 구간으로 표현하고 두 계획을 비교한다. 시간대 변환이 필요한 경우에는 경계 시각을 저장 기준에 맞춰 먼저 계산한다. 표현식 자체로 반복 검색해야 한다면 MySQL 함수 인덱스 또는 인덱싱한 생성 열을 검토한다. [Range Optimization](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [Generated Column Index Optimization](https://dev.mysql.com/doc/refman/8.4/en/generated-column-index-optimizations.html)

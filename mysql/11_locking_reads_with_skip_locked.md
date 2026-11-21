@@ -10,6 +10,10 @@
 
 `NOWAIT`과 `SKIP LOCKED`는 행 수준 잠금에 적용한다. 건너뛴 행이 빠진 결과는 전체 데이터를 일관되게 읽어야 하는 조회에 적합하지 않다. MySQL 매뉴얼은 이 옵션을 포함한 문장이 문장 기반 복제에서 안전하지 않다고 설명한다. [Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 
+![세션 A가 잠근 작업 1을 세션 B가 건너뛰어 작업 2를 잠그고 각 트랜잭션에서 RUNNING으로 기록하는 순서](image/11_locking_reads_with_skip_locked.png)
+
+그림의 근거 · [SKIP LOCKED 동작](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [세컨더리와 클러스터드 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)
+
 ## 실습 · 두 세션에서 서로 다른 작업 선점
 
 실습 환경은 MySQL 8.4(InnoDB)다. 같은 스키마의 두 세션을 사용한다. 먼저 테이블과 작업을 한 번 만든다.

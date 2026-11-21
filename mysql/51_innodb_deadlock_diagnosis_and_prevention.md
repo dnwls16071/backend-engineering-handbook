@@ -18,6 +18,10 @@ SHOW ENGINE INNODB STATUS;
 
 한 경로가 10번, 20번 순으로 갱신하고 다른 경로가 20번, 10번 순으로 갱신하면 순환할 수 있다. 같은 테이블의 여러 행을 갱신하는 모든 경로에서 ID를 정렬하고, 실제로 해당 순서대로 한 행씩 갱신하거나 잠근다. IN 목록의 작성 순서만으로 엔진의 락 획득 순서를 보장할 수는 없다. [InnoDB 데드락 최소화](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks-handling.html)
 
+![A가 10을 가진 채 20을, B가 20을 가진 채 10을 기다리면 순환이 생긴다. 두 경로가 실제로 10부터 잠그도록 맞추면 예제의 역순 대기를 피할 수 있다.](image/51_deadlock_wait_cycle_and_consistent_key_order.png)
+
+그림의 근거 · [데드락과 접근 순서](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks-handling.html) · [데드락 감지](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlock-detection.html)
+
 ## 4. 유형 2 · 존재 확인과 INSERT를 유일 키로 묶기
 
 존재 여부를 잠금 읽기로 확인한 뒤 없으면 INSERT하는 흐름에서는 여러 트랜잭션이 같은 빈 구간에 진입할 수 있다. 업무 키에 UNIQUE를 두고 한 INSERT 또는 업서트로 조건을 판정한다. 동일 키를 반복 호출할 때 어떤 값을 유지하거나 바꿀지 먼저 정한다. 업서트도 중복 확인과 갱신을 잠그므로 여러 키를 역순으로 처리하면 여전히 데드락이 날 수 있다. [InnoDB INSERT 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html) · [MySQL 업서트](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html)

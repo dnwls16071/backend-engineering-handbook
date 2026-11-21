@@ -10,6 +10,10 @@ UNION
 SELECT 7, 'REFUNDED';
 ```
 
+![주문 ID와 상태가 모두 같은 PAID 행만 UNION에서 중복 제거되고 REFUNDED 행은 남으며 UNION ALL에서는 세 행이 유지되는 비교](image/42_union_and_union_all.png)
+
+그림의 근거 · [집합 연산의 중복, 열 대응 및 정렬](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html)
+
 ## 열 타입과 정렬을 맞춘다
 
 - 각 쿼리의 열 개수는 같아야 하며, 열은 위치로 대응한다. 결과 열 이름은 첫 쿼리에서 가져오고, 타입과 길이는 모든 쿼리의 해당 열을 고려해 결정한다. 문자 열의 중복 여부는 결과 콜레이션의 영향을 받으므로 대소문자나 악센트의 구분이 중요하면 `CAST`나 `CONVERT`로 타입과 문자 집합을 맞추고 같은 `COLLATE`를 지정한다. 같은 위치의 `NULL`도 중복 판단에서 같은 값으로 취급한다. [MySQL 집합 연산의 결과 열](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html) · [MySQL 문자 집합 변환](https://dev.mysql.com/doc/refman/8.4/en/cast-functions.html) · [MySQL의 NULL 처리](https://dev.mysql.com/doc/refman/8.4/en/problems-with-null.html)

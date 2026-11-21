@@ -16,6 +16,10 @@ SET remaining = remaining - 1, version = version + 1
 WHERE coupon_id = 7 AND remaining > 0;
 ```
 
+![잔여량 1인 같은 카운터에 두 조건부 UPDATE가 들어오면 먼저 락을 얻은 요청이 차감과 발급을 커밋한다. 뒤의 요청은 같은 행의 락을 기다린 뒤 남은 값 0에서 조건을 만족하지 못해 0행을 변경한다.](image/54_hot_row_conditional_update_for_last_coupon.png)
+
+그림의 근거 · [SQL별 InnoDB 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html) · [UPDATE의 변경 결과](https://dev.mysql.com/doc/refman/8.4/en/update.html) · [차감과 발급 커밋](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html)
+
 ## 3. 비관적·낙관적·원자적 갱신 실측 계획
 
 | 방식 | 같은 경합에서 비교할 점 |

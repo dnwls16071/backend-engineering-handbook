@@ -8,6 +8,10 @@ MySQL 8.4의 서버 기본값은 `utf8mb4`와 `utf8mb4_0900_ai_ci`다. 별도 �
 
 문자열 리터럴의 기본 콜레이션은 `collation_connection`의 영향을 받는다. 표현식에서는 강제성(coercibility) 값이 작은 쪽이 우선이어서 명시적 `COLLATE`(0), 컬럼(2), 리터럴(4) 순으로 적용된다. 우선순위가 같은 서로 다른 콜레이션은 문자 집합과 콜레이션 조합에 따라 하나를 선택하거나 `Illegal mix of collations` 오류를 낸다. 문자열 컬럼에 변환이나 다른 `COLLATE`를 적용하면 기존 인덱스로 탐색하지 못할 수 있으므로, 자주 비교하는 컬럼의 문자 집합과 콜레이션을 맞추고 `EXPLAIN`으로 확인한다. [MySQL 연결 콜레이션](https://dev.mysql.com/doc/refman/8.4/en/charset-connection.html) · [MySQL 콜레이션 강제성](https://dev.mysql.com/doc/refman/8.4/en/charset-collation-coercibility.html) · [MySQL의 인덱스 사용](https://dev.mysql.com/doc/refman/8.4/en/mysql-indexes.html)
 
+![Cafe와 café의 동등 비교가 utf8mb4_0900_as_cs와 utf8mb4_0900_ai_ci에서 달라져 유일 키 변경 전 중복 검사가 필요한 이유](image/37_mysql_collations_and_string_comparison.png)
+
+그림의 근거 · [악센트와 대소문자 구분](https://dev.mysql.com/doc/refman/8.4/en/charset-collation-names.html) · [표현식의 콜레이션 강제성](https://dev.mysql.com/doc/refman/8.4/en/charset-collation-coercibility.html) · [유일 인덱스의 중복 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-index.html#unique-indexes)
+
 ## 콜레이션을 바꾸기 전에 중복을 확인한다
 
 `Cafe`와 `café`는 `utf8mb4_0900_as_cs`에서 서로 다른 값으로 저장된다. `utf8mb4_0900_ai_ci`에서는 같게 비교되므로 `GROUP BY`에 대상 콜레이션을 지정하면 전환 후 `UNIQUE` 키가 충돌할 그룹을 미리 찾을 수 있다.

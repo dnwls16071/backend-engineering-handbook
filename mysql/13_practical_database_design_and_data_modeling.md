@@ -2,6 +2,10 @@
 
 데이터 모델은 서비스에서 지켜야 하는 규칙과 자주 실행하는 조회를 함께 표현한다. 개념 모델에서 고객, 주문, 주문 항목의 관계를 그린 뒤 논리 모델에서 기본 키와 외래 키를 정한다. 물리 모델에서는 자료형, 제약, 인덱스를 실제 접근 패턴과 검증 결과에 맞춘다. [Database Design Fundamentals](../database-design/01_database_design_fundamentals.md) · [Physical Database Modeling](../database-design/10_physical_database_modeling.md)
 
+![주문과 주문 항목의 일대다 관계에서 복합 기본 키와 외래 키가 무결성을 보장하고 주문 인덱스가 고객별 목록과 단건 조회를 지원하는 구조](image/13_practical_database_design_and_data_modeling.png)
+
+그림의 근거 · [외래 키 규칙](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [복합 인덱스 선행 키](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [복합 인덱스의 정렬](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [클러스터드 리프와 원본 행](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)
+
 ## 1. 업무 규칙과 설계 패턴
 
 | 업무 요구 | 모델에 반영하는 방법 |

@@ -2,6 +2,10 @@
 
 `VARCHAR(n)`은 최대 문자 수가 명확한 이름이나 코드에 적합하다. `TEXT` 계열은 본문처럼 값이 길거나 길이 편차가 큰 입력에 사용하며, 각 타입의 최대 용량을 바이트로 계산한다. `TEXT`의 최대값은 65,535바이트다. `utf8mb4`에서는 문자별 바이트 수가 달라 같은 문자 수라도 저장 크기가 달라진다. [MySQL의 BLOB과 TEXT 타입](https://dev.mysql.com/doc/refman/8.4/en/blob.html) · [문자열 저장 요구량](https://dev.mysql.com/doc/refman/8.4/en/storage-requirements.html)
 
+![InnoDB 제목 인덱스, 기본 키가 가리키는 클러스터드 레코드, DYNAMIC에서 긴 본문을 담을 수 있는 외부 페이지](image/26_varchar_text_and_overflow_pages.png)
+
+그림의 근거 · [InnoDB DYNAMIC 행 형식](https://dev.mysql.com/doc/refman/8.4/en/innodb-row-format.html) · [InnoDB 클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [MySQL BLOB과 TEXT](https://dev.mysql.com/doc/refman/8.4/en/blob.html) · [MySQL 문자열 저장 요구량](https://dev.mysql.com/doc/refman/8.4/en/storage-requirements.html)
+
 ## 행 길이와 인덱스
 
 - MySQL의 최대 행 크기는 65,535바이트다. `VARCHAR`의 선언 크기는 다른 열과 이 한도를 공유한다. `TEXT` 열은 값 전체 대신 내부 참조 정보가 이 한도에 포함된다. [MySQL의 테이블과 행 크기 제한](https://dev.mysql.com/doc/refman/8.4/en/column-count-limit.html)

@@ -2,6 +2,10 @@
 
 교착 상태는 트랜잭션들이 서로가 가진 잠금을 기다려 대기 관계가 순환할 때 발생한다. InnoDB의 교착 상태 감지가 켜져 있으면 교착을 끊기 위해 트랜잭션 하나를 롤백한다. 애플리케이션은 해당 오류(`1213`)를 받으면 업무 트랜잭션 전체를 처음부터 다시 시도할 수 있어야 한다. 기본 설정에서 잠금 대기 시간 초과(`1205`)는 시간 초과가 난 문장만 롤백하므로 두 오류의 처리 범위를 구분한다. [Deadlocks in InnoDB](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [InnoDB Error Handling](https://dev.mysql.com/doc/refman/8.4/en/innodb-error-handling.html)
 
+![서로 반대 순서로 PK 101과 102를 잠그는 두 InnoDB 세션의 교착 순서와 1213 및 1205의 롤백 범위](image/09_reproducing_and_handling_innodb_deadlocks.png)
+
+그림의 근거 · [교착 상태와 감지](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [롤백 범위](https://dev.mysql.com/doc/refman/8.4/en/innodb-error-handling.html) · [고유 키 레코드 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)
+
 ## 실습 · 두 행을 반대 순서로 갱신
 
 실습 환경은 MySQL 8.4(InnoDB)다. 같은 실습 스키마에 연결된 세션 두 개를 준비한다. 초기화는 한 세션에서 실행한다.

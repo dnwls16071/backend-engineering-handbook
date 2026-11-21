@@ -2,6 +2,10 @@
 
 복제는 동일한 데이터의 사본을 운영하고, 파티셔닝은 한 테이블의 행을 여러 구간으로 관리하며, 샤딩은 행을 여러 서버에 나눠 저장한다. 처리량을 높이거나 저장 부담을 줄일 때 어느 작업을 분산하려는지부터 정한다. 실습 환경은 MySQL 8.4(InnoDB)다. [Replication](https://dev.mysql.com/doc/refman/8.4/en/replication.html) · [Partitioning Overview](https://dev.mysql.com/doc/refman/8.4/en/partitioning-overview.html) · [Vitess Sharding](https://vitess.io/docs/reference/features/sharding/)
 
+![MySQL 소스와 레플리카의 이벤트 복제, 한 테이블의 2월 파티션 선택, 테넌트 키에 따른 샤드 라우팅을 비교](image/16_replication_partitioning_and_sharding.png)
+
+그림의 근거 · [MySQL 복제 구현](https://dev.mysql.com/doc/refman/8.4/en/replication-implementation.html) · [MySQL 파티션 프루닝](https://dev.mysql.com/doc/refman/8.4/en/partitioning-pruning.html) · [Vitess 샤드 라우팅](https://vitess.io/docs/24.0/reference/features/sharding/)
+
 ## 1. 복제와 읽기 트래픽 분산
 
 소스가 바이너리 로그에 변경을 기록하면 레플리카가 이벤트를 받아 적용한다. GTID는 트랜잭션을 고유하게 식별해 복제에서 어떤 트랜잭션이 적용됐는지 추적하는 데 쓰인다. 읽기를 레플리카로 보내면 소스의 부하를 줄일 수 있다. 변경 직후 그 변경을 반드시 읽어야 하는 요청은 소스로 보내거나, 사용하려는 레플리카가 해당 트랜잭션을 적용했는지 확인한다. [Replication with GTIDs](https://dev.mysql.com/doc/refman/8.4/en/replication-gtids.html)

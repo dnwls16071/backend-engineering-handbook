@@ -49,6 +49,10 @@ redo에는 장애 뒤 페이지 변경을 다시 적용하는 데 필요한 정�
 
 InnoDB는 버퍼 풀의 LRU 목록을 새 페이지 구역과 오래된 페이지 구역으로 나눈다. 새로 읽어 온 페이지는 중간 지점에 들어가며 접근 패턴에 따라 앞쪽으로 이동할 수 있다. 큰 테이블 스캔이 평소 사용하는 페이지를 밀어낼 수 있으므로 누적 읽기 지표의 구간별 증가량을 워크로드와 비교한다. [Buffer Pool](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)
 
+![Redo가 선행하는 변경 페이지 기록, 더블라이트 사본, 장애 후 페이지 사본 복원과 redo 재적용 및 미커밋 트랜잭션 롤백](image/24_wal_doublewrite_and_crash_recovery.png)
+
+그림의 근거 · [InnoDB 더블라이트 버퍼](https://dev.mysql.com/doc/refman/8.4/en/innodb-doublewrite-buffer.html) · [MySQL 8.4.8 페이지 플러시 구현](https://raw.githubusercontent.com/mysql/mysql-server/mysql-8.4.8/storage/innobase/buf/buf0flu.cc) · [InnoDB 체크포인트](https://dev.mysql.com/doc/refman/8.4/en/innodb-checkpoints.html) · [InnoDB 크래시 복구](https://dev.mysql.com/doc/refman/8.4/en/innodb-recovery.html) · [InnoDB Undo 로그](https://dev.mysql.com/doc/refman/8.4/en/innodb-undo-logs.html) · [InnoDB Redo 로그](https://dev.mysql.com/doc/refman/8.4/en/innodb-redo-log.html)
+
 ## 8. WAL, 더블라이트와 fsync
 
 WAL(Write-Ahead Logging)은 데이터 페이지보다 복구에 필요한 redo를 먼저 안정적인 저장소에 남긴다는 규칙이다. 더블라이트 버퍼는 데이터 파일에 페이지를 쓰는 도중 중단되어 일부만 기록되는 경우 복구 가능한 페이지 사본을 제공한다. 두 메커니즘은 장애 복구에서 다른 역할을 맡는다. [Redo Log](https://dev.mysql.com/doc/refman/8.4/en/innodb-redo-log.html) · [Doublewrite Buffer](https://dev.mysql.com/doc/refman/8.4/en/innodb-doublewrite-buffer.html)

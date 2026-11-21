@@ -2,6 +2,10 @@
 
 주문 서비스에서 결제와 주문 상태의 원본은 MySQL에 저장한다. 주문 검색, 알림, 집계에는 각각 다른 읽기 방식과 처리 지연이 허용된다. 원본 변경과 후속 작업을 연결할 때는 커밋 경계, 처리 위치, 실패 후 재시도 방법을 명시한다.
 
+![주문과 아웃박스의 한 트랜잭션, Debezium CDC와 Elasticsearch 검색 문서 반영, Redis 캐시 미스와 MySQL 원본 조회](image/17_order_commit_outbox_and_read_models.png)
+
+그림의 근거 · [트랜잭셔널 아웃박스](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Debezium MySQL CDC](https://debezium.io/documentation/reference/stable/connectors/mysql.html) · [캐시 어사이드 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+
 ## 1. 스트리밍 변경 데이터 처리
 
 변경 데이터 캡처(CDC)는 MySQL 바이너리 로그에서 커밋된 삽입·수정·삭제를 읽어 하류 시스템에 전달할 수 있다. Debezium의 MySQL 커넥터는 필요에 따라 초기 스냅샷을 만들고 바이너리 로그의 위치를 이어서 읽는다. 운영에서는 처리 위치, 이벤트가 발생한 뒤 반영되기까지의 지연, 소스에서 필요한 로그를 보존하는 기간을 관찰한다. 재시작이나 재처리에서 동일한 변경이 도착할 수 있으므로 소비자가 중복을 처리할 수 있어야 한다. [Debezium MySQL Connector](https://debezium.io/documentation/reference/stable/connectors/mysql.html)

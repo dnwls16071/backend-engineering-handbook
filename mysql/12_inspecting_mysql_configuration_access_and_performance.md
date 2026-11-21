@@ -2,6 +2,10 @@
 
 운영 중인 MySQL을 조사할 때는 서버와 세션에 적용된 설정, 접속 계정이 가진 권한, 실제 쿼리에서 관찰되는 비용을 확인한다. 실습 환경은 MySQL 8.4(InnoDB)다.
 
+![MySQL 운영 시 서버 기본값과 세션 설정, 실제 사용자와 활성 역할, 서버 지표에서 문장 다이제스트와 실행 계획으로 이어지는 조사 흐름](image/12_inspecting_mysql_configuration_access_and_performance.png)
+
+그림의 근거 · [글로벌값과 세션값](https://dev.mysql.com/doc/refman/8.4/en/using-system-variables.html) · [계정 표기](https://dev.mysql.com/doc/refman/8.4/en/account-names.html) · [역할 활성화](https://dev.mysql.com/doc/refman/8.4/en/roles.html) · [상태 카운터](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html) · [정규화 문장의 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html) · [실행 계획과 실측](https://dev.mysql.com/doc/refman/8.4/en/explain.html)
+
 ## 1. 글로벌 설정과 세션 설정
 
 `SHOW GLOBAL VARIABLES`는 서버 설정을, `SHOW SESSION VARIABLES`는 현재 연결에 적용된 설정을 보여 준다. 글로벌·세션 범위를 모두 지원하는 변수의 글로벌 값을 바꾸면 새 연결이 그 값을 상속하지만, 이미 열려 있는 연결의 세션 값은 독립적이다. 동적 글로벌 변수의 `SET GLOBAL` 변경은 실행 중인 서버에 적용된다. `SET PERSIST`는 지원되는 설정을 실행 중인 서버에 적용하고 이후 재시작에도 쓰도록 저장한다. 변경 전에 변수의 범위와 동적 변경 지원 여부를 확인한다. [Using System Variables](https://dev.mysql.com/doc/refman/8.4/en/using-system-variables.html) · [Persisted System Variables](https://dev.mysql.com/doc/refman/8.4/en/persisted-system-variables.html)

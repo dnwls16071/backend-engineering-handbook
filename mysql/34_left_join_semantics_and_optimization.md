@@ -2,6 +2,10 @@
 
 `LEFT JOIN`은 왼쪽 행을 보존하고 오른쪽에 일치 행이 없으면 그 열들을 `NULL`로 채운다. 오른쪽 테이블 조건을 `ON`에 두면 일치의 범위를 좁히고, `WHERE`에 두면 조인 결과를 거른다. 의미가 달라지므로 인덱스 변경 전에 일치 행이 없는 경우까지 확인한다. [MySQL 외부 조인 최적화](https://dev.mysql.com/doc/refman/8.4/en/outer-join-optimization.html) · [MySQL 외부 조인 단순화](https://dev.mysql.com/doc/refman/8.4/en/outer-join-simplification.html)
 
+![LEFT JOIN에서 결제 상태 조건을 ON에 둬 일치하지 않는 고객의 주문 수가 0이 되는 경우와 WHERE에 둬 고객이 사라지는 경우의 비교](image/34_left_join_semantics_and_optimization.png)
+
+그림의 근거 · [ON의 일치 판정과 오른쪽 NULL 행](https://dev.mysql.com/doc/refman/8.4/en/outer-join-optimization.html) · [NULL 행을 제거하는 WHERE 조건](https://dev.mysql.com/doc/refman/8.4/en/outer-join-simplification.html) · [NULL을 제외하는 COUNT](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html#function_count)
+
 ## 주문이 없는 고객도 집계에 포함한다
 
 ```sql

@@ -2,6 +2,10 @@
 
 캘린더는 한 번 열리는 일정, 여러 날에 걸친 종일 일정, 반복 일정과 개별 발생의 예외를 표현한다. Google Calendar API가 공개한 날짜·시각·반복 의미를 바탕으로 예제 데이터 모델을 설계한다. 실습 환경은 MySQL 8.4(InnoDB)다. [Google Calendar Concepts](https://developers.google.com/workspace/calendar/api/concepts/events-calendars) · [Google Calendar Events Resource](https://developers.google.com/workspace/calendar/api/v3/reference/events)
 
+![3월 8~9일 종일 일정의 종료 날짜 경계와 뉴욕 금요일 정오 반복 시리즈의 원래 발생 및 이동 후 UTC 슬롯](image/22_calendar_all_day_and_recurring_slots.png)
+
+그림의 근거 · [Google Calendar 이벤트 필드](https://developers.google.com/workspace/calendar/api/v3/reference/events) · [Google Calendar 기간 필터](https://developers.google.com/workspace/calendar/api/v3/reference/events/list) · [Google Calendar 반복 발생과 예외](https://developers.google.com/workspace/calendar/api/guides/recurringevents)
+
 ## 1. 논리 모델과 종일 일정
 
 일정에는 캘린더, 일정 ID, 표시 제목, 일정 종류, 시작과 종료가 있다. 종일 일정은 날짜로 저장하고 시각 일정은 시간대가 있는 시각으로 해석한다. Google Calendar API의 `start.date`와 `end.date`는 종일 일정에 쓰이며, 종료 날짜는 포함하지 않는다. 3월 8일과 9일에 걸친 일정은 `[2025-03-08, 2025-03-10)`이다. 조회 구간과 겹치는 조건은 `start < window_end AND end > window_start`로 표현할 수 있다. [Google Calendar Events Resource](https://developers.google.com/workspace/calendar/api/v3/reference/events) · [Events List Filters](https://developers.google.com/workspace/calendar/api/v3/reference/events/list)

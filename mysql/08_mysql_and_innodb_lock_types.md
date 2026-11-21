@@ -13,6 +13,10 @@ MySQL에서는 잠금이 보호하는 대상을 먼저 구분한다. SQL 서버�
 
 일반 `SELECT`는 `READ COMMITTED`나 `REPEATABLE READ`에서 보통 MVCC 스냅샷을 읽는다. `FOR SHARE`, `FOR UPDATE`와 쓰기 문장은 잠금을 획득하며, 잠금 범위는 검색 조건, 실제 접근 경로와 격리 수준에 따라 달라진다. InnoDB의 `READ COMMITTED`에서는 검색과 인덱스 스캔의 갭 잠금을 대부분 사용하지 않지만 외래 키와 중복 키 검사에서는 사용할 수 있다. [Locks Set by SQL Statements](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html) · [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)
 
+![SQL 서버 메타데이터 잠금과 InnoDB 테이블 의도 잠금 및 B-tree 레코드·갭·넥스트 키 잠금의 보호 범위](image/08_mysql_and_innodb_lock_types.png)
+
+그림의 근거 · [메타데이터 잠금과 DDL 대기](https://dev.mysql.com/doc/refman/8.4/en/metadata-locking.html) · [InnoDB 잠금과 구간](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html) · [잠금 확인 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-lock-tables.html)
+
 ## 대기 원인 조회
 
 실습 환경은 MySQL 8.4(InnoDB)다. Performance Schema 조회 권한이 있는 세션에서 다음 테이블을 확인한다.

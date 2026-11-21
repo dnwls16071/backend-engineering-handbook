@@ -14,6 +14,10 @@
 
 중첩 루프는 바깥 입력의 각 행을 기준으로 안쪽 입력을 탐색한다. 안쪽 조인 열에 인덱스가 있으면 반복 탐색에서 읽는 범위를 줄일 수 있다. 외부 조인의 중첩 루프를 설명할 때는 안쪽에서 일치 행을 찾았는지 표시하는 플래그를 사용한다. MySQL의 `MATCH() AGAINST()`는 FULLTEXT 검색을 위한 별도 SQL 기능이다. [MySQL JOIN Syntax](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [Nested Join Optimization](https://dev.mysql.com/doc/refman/8.4/en/nested-join-optimization.html) · [Full-Text Search Functions](https://dev.mysql.com/doc/refman/8.4/en/fulltext-search.html) · [Join Algorithms and Join Order Optimization](../database-performance/11_join_algorithms_and_join_order_optimization.md)
 
+![열린 작업 조건을 LEFT JOIN의 ON에 둘 때 API·WEB·TOOLS를 남기는 결과와 WHERE에 둘 때 API만 남기는 결과](image/19_left_join_on_vs_where.png)
+
+그림의 근거 · [MySQL LEFT JOIN의 NULL 보완](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [MySQL 외부 조인 단순화](https://dev.mysql.com/doc/refman/8.4/en/outer-join-simplification.html)
+
 ## 2. LEFT JOIN의 ON 조건과 WHERE 조건
 
 ```sql

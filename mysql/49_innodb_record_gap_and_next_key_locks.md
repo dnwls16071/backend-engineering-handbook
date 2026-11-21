@@ -14,6 +14,10 @@ InnoDB는 인덱스 레코드에 레코드 락을 건다. 존재하는 행을 �
 
 갭 락은 인덱스 키 사이의 빈 구간에 새 키를 삽입하지 못하게 한다. 같은 갭의 갭 락끼리는 공존할 수 있다. 넥스트키 락은 레코드 락과 그 직전 갭 락을 함께 잡는다. 키가 10, 20, 30이라면 20에 대한 넥스트키 락의 예는 `(10, 20]`이다. 경계의 실제 잠금은 선택한 인덱스와 스캔 범위를 확인한다. 유일 키 등호 검색이라도 찾는 행이 없으면 REPEATABLE READ의 잠금 읽기에서 갭이 잠길 수 있다. [InnoDB 갭과 넥스트키 락](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html)
 
+![인덱스 키 10, 20, 30에서 키 20을 보호하는 레코드 락과 사이 구간 (10, 20)의 갭 락을 구별한다. 둘을 합친 20의 넥스트키 락은 10 초과부터 20 이하를 보호한다.](image/49_innodb_key_gap_and_next_key_boundaries.png)
+
+그림의 근거 · [레코드·갭·넥스트키 락](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html) · [격리 수준별 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)
+
 ## 4. 격리 수준에 따라 달라지는 잠금 범위
 
 InnoDB REPEATABLE READ에서 범위 잠금 읽기는 범위에 대한 새 삽입을 막을 수 있다. READ COMMITTED에서는 검색과 인덱스 스캔에 갭 락을 일반적으로 쓰지 않으며, 외래 키 검사와 중복 키 검사는 예외다. READ COMMITTED에서 조건을 만족하지 않는 레코드 락은 WHERE 평가 후 풀릴 수 있다. 같은 변경을 여러 격리 수준에서 실행해 조회 결과와 대기를 함께 비교한다. [InnoDB 트랜잭션 격리 수준](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)

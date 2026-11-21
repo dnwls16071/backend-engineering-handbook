@@ -14,6 +14,10 @@
 
 `EXPLAIN`에서 비유일 키의 동등 조회는 `ref`, 구간 읽기는 `range`로 나타날 수 있다. `index`는 인덱스 전체 스캔이다. `key`에 인덱스 이름이 있는 경우에도 `type`, `key_len`, 예상 행 수를 같이 확인하면 탐색 범위를 구분할 수 있다. [Range Optimization](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN Output Format](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
 
+![복합 세컨더리 B-tree가 허브와 상태, 출고 시각 순으로 키를 배치해 조건별 탐색 범위를 좁히는 예](image/01_composite_indexes_and_access_types.png)
+
+그림의 근거 · [선행 키](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [복합 탐색 범위](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [B-tree 리프](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [세컨더리 키 구성](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)
+
 ## 실습 · 접근 유형 비교
 
 실습 환경은 MySQL 8.4(InnoDB)다. 아래 테이블은 02·03번 문서에서도 사용한다. 계획 선택은 데이터의 크기와 분포에 따라 달라진다.

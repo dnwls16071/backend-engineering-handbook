@@ -13,6 +13,10 @@
 
 자식 열에는 외래 키를 검사할 인덱스가 필요하다. 쓸 수 있는 인덱스가 없으면 MySQL이 자식 쪽에 생성한다. 부모 참조 키를 기본 키나 유일 키로 정의하면 참조 대상이 명확하다. `foreign_key_checks`를 끈 동안 추가한 데이터는 값을 다시 켜도 자동으로 재검사되지 않는다. [MySQL FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
+![부서·직원·프로필의 외래 키 관계와 부서 삭제 시 SET NULL, 직원 삭제 시 프로필 CASCADE의 결과 비교](image/23_foreign_key_relationships_and_delete_actions.png)
+
+그림의 근거 · [MySQL 외래 키와 참조 동작](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 2. 실습 · 선택적 참조와 일대일 제약
 
 ```sql

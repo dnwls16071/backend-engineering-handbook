@@ -2,6 +2,10 @@
 
 저장 함수는 하나의 값을 반환하고, `SELECT`나 다른 SQL 표현식에서 호출할 수 있다. 여러 호출자가 동일한 계산을 DB에서 사용해야 할 때 실행 위치와 타입을 명시할 수 있다. 결과 집합을 반환하거나 트랜잭션을 제어하는 작업에는 프로시저나 애플리케이션 경계를 검토한다. [CREATE FUNCTION과 CREATE PROCEDURE](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [MySQL 저장 프로그램 제약](https://dev.mysql.com/doc/refman/8.4/en/stored-program-restrictions.html)
 
+![MySQL의 SELECT 표현식에서 net_price를 호출하고 할인율을 적용한 DECIMAL 값 85.00을 반환하는 흐름](image/29_mysql_stored_functions.png)
+
+그림의 근거 · [저장 함수의 호출과 특성](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html)
+
 ## 부작용 없는 계산 함수
 
 ```sql

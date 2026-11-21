@@ -11,6 +11,10 @@
 
 InnoDB는 트랜잭션마다 보이는 행이 다를 수 있어 정확한 행 수를 하나의 값으로 보관하지 않는다. 조건 없는 단순 집계에서는 일반적으로 작은 보조 인덱스를 순회하고, 보조 인덱스가 없다면 클러스터형 인덱스를 사용한다. `COUNT(*)`를 `COUNT(1)`로 바꿔도 이 처리 방식은 같다. [MySQL 집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
 
+![NULL과 중복이 섞인 네 행에서 COUNT, COUNT(user_id), COUNT DISTINCT 결과와 두 가지 복합 인덱스 후보](image/27_count_semantics_and_index_choices.png)
+
+그림의 근거 · [MySQL COUNT 집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) · [MySQL GROUP BY 인덱스 최적화](https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html) · [MySQL 인덱스 범위 접근](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)
+
 ## 조건과 인덱스를 맞춘다
 
 `visit_events`에 `(tenant_id, visited_at)`과 `(tenant_id, user_id)` 인덱스가 있다고 가정한다.

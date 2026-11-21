@@ -6,9 +6,13 @@
 | --- | --- |
 | InnoDB B-tree 인덱스 | 정렬된 키로 동등·범위 검색을 한다. 세컨더리 인덱스에 쿼리에 필요한 값이 있으면 그 인덱스에서 결과를 만들 수 있다. |
 | Elasticsearch 역색인 | 용어에서 그 용어가 있는 문서로 찾는다. 기본적으로 `text` 필드는 분석기를 거쳐 전문 검색에 적합한 용어를 만든다. |
-| Elasticsearch doc values | 문서에서 필드 값으로 읽는 열 지향 구조다. 많은 필드 유형에서 정렬과 집계에 쓰이며, 분석되는 `text` 필드는 이를 지원하지 않는다. |
+| Elasticsearch doc values | 문서에서 필드 값을 읽는 열 지향 구조다. `keyword`처럼 지원되는 필드에서 정렬과 집계에 쓰인다. |
 
 [InnoDB Clustered and Secondary Indexes](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [Elasticsearch Text Field](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/text) · [Elasticsearch Doc Values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values)
+
+![InnoDB의 세컨더리 리프와 클러스터드 리프를 오가는 조회를 Elasticsearch의 역색인 및 keyword doc values 경로와 비교](image/02_covering_indexes_and_elasticsearch_indexing.png)
+
+그림의 근거 · [클러스터드·세컨더리 구조](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [커버링 계획](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [text 분석기](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/text) · [역색인과 doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values)
 
 ## 실습 · SELECT 열에 따라 달라지는 커버링
 

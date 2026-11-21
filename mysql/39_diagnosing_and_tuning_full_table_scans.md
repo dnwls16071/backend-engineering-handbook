@@ -7,6 +7,10 @@
 - 테이블이 작거나 조건에 맞는 행이 많으면 전체를 읽는 편이 저렴할 수 있다. 예를 들어 주문 대부분이 `PAID`라면 상태 인덱스에서 각 주문의 원본 행을 다시 읽는 비용이 크다. 예상 행 수가 실제 분포와 크게 다르면 `ANALYZE TABLE`로 인덱스 통계를 갱신한 뒤 계획을 비교한다. [MySQL 전체 테이블 스캔](https://dev.mysql.com/doc/refman/8.4/en/table-scan-avoidance.html) · [MySQL ANALYZE TABLE](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html)
 - 조건에 맞는 인덱스가 있는지 확인한다. 인덱스 컬럼을 `DATE()`로 감싸거나 `CAST()`로 타입을 바꾸면 일반 인덱스로 탐색할 구간을 만들기 어려울 수 있다. 문자열 컬럼을 숫자와 비교하는 암시적 변환도 문자열 인덱스를 통한 탐색을 막는다. 입력값 타입을 컬럼과 맞추고, 함수가 필요한 조건은 범위 조건이나 함수 기반 인덱스를 검토한다. [MySQL 범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [MySQL 표현식 타입 변환](https://dev.mysql.com/doc/refman/8.4/en/type-conversion.html) · [Generated Columns and Functional Indexes](32_generated_columns_and_functional_indexes.md)
 
+![DATE로 감싼 조건과 DATETIME의 반개방 범위 조건이 같은 24행을 반환하면서 서로 다른 읽기 경로를 가질 수 있음을 비교](image/39_diagnosing_and_tuning_full_table_scans.png)
+
+그림의 근거 · [B-tree 범위 조건](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [테이블 스캔 선택 상황](https://dev.mysql.com/doc/refman/8.4/en/table-scan-avoidance.html) · [실행 시 수집하는 지표](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze)
+
 ## 날짜 조건 전후의 실제 읽기 비교
 
 [Composite Indexes and Access Types](01_composite_indexes_and_access_types.md)의 `mysql_lab_dispatches` 실습 데이터에서 `DATETIME` 컬럼을 비교한다. 두 쿼리는 같은 날짜에 출고한 행을 반환하며, `notes`를 조회하므로 시각 인덱스만으로 결과를 만들 수 없다.

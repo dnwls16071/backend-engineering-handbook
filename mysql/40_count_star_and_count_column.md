@@ -2,6 +2,10 @@
 
 `COUNT(*)`는 필터와 조인을 거친 모든 행을 센다. `COUNT(column)`은 그중 지정한 열의 값이 `NULL`이 아닌 행만 센다. 같은 값이 여러 행에 있으면 그만큼 세며, 그룹 없는 집계에서 입력이 비어 있으면 둘 다 `0`을 반환한다. [MySQL 8.4 집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
 
+![LEFT JOIN으로 생긴 NULL 행이나 결제 시각이 비어 있는 주문에 대해 COUNT(*), COUNT(order_id), COUNT(paid_at)의 집계값이 달라지는 비교](image/40_count_star_and_count_column.png)
+
+그림의 근거 · [COUNT(*)와 COUNT(expr)의 입력](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html#function_count) · [외부 조인에서의 NULL 보완 행](https://dev.mysql.com/doc/refman/8.4/en/outer-join-optimization.html)
+
 ## LEFT JOIN에서 자식 행 수를 센다
 
 `orders.order_id`는 기본 키이고 `orders.paid_at`은 `NULL`을 허용한다고 가정한다. 주문이 없는 고객까지 포함해 고객별 주문 수와 결제 시각이 기록된 주문 수를 구한다.

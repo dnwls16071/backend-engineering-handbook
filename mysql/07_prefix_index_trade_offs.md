@@ -10,6 +10,10 @@ MySQL의 접두어 인덱스는 문자열 또는 바이너리 열의 앞부분�
 
 [Column Indexes](https://dev.mysql.com/doc/refman/8.4/en/column-indexes.html) · [CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html) · [ORDER BY Optimization](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html)
 
+![문자열 앞 11자가 같은 출고 행을 접두어 세컨더리 인덱스에서 찾고, 클러스터드 리프의 전체 값으로 일치 여부를 검사하는 과정](image/07_prefix_index_trade_offs.png)
+
+그림의 근거 · [접두어 길이와 후보](https://dev.mysql.com/doc/refman/8.4/en/column-indexes.html) · [문자 길이와 바이트 한도](https://dev.mysql.com/doc/refman/8.4/en/create-index.html) · [PK로 원본 행 탐색](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)
+
 ## 실습 · 길이별로 구별되는 값의 비율 비교
 
 실습 환경은 MySQL 8.4(InnoDB)다. [01번의 출고 테이블](01_composite_indexes_and_access_types.md)에서 `notes`를 예로 사용한다.

@@ -20,6 +20,10 @@ InnoDB의 행 락 대기 `1205`는 기본 설정에서 대기한 문장만 롤�
 
 Spring에서 이 경계를 만들려면 트랜잭션 없는 조정 코드가 별도 트랜잭션 서비스나 `TransactionTemplate`을 순차적으로 호출할 수 있다. 이미 열려 있는 외부 트랜잭션 안에서 `REQUIRES_NEW`를 쓰면 바깥 트랜잭션의 락과 연결은 유지될 수 있다. [Spring 트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html)
 
+![외부 응답을 기다리는 트랜잭션이 행 락과 DB 연결을 보유하면, 같은 행을 쓰는 요청도 연결을 빌린 채 대기해 앱 풀을 채울 수 있다. 예제에서는 PENDING 커밋과 결과 커밋 사이에 외부 결제 호출을 둔다.](image/52_lock_wait_pool_exhaustion_and_payment_boundaries.png)
+
+그림의 근거 · [행 락과 대기 관계](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [DB 트랜잭션 경계](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html) · [트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html)
+
 ## 5. 긴 트랜잭션과 실제 차단 세션 찾기
 
 ```sql

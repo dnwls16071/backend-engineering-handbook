@@ -2,6 +2,10 @@
 
 InnoDB의 `SELECT ... FOR UPDATE`는 검색한 인덱스 레코드에 쓰기와 같은 방식으로 잠금을 잡는다. 같은 행을 갱신하려는 다른 트랜잭션이나 충돌하는 잠금 조회는 기다릴 수 있다. 명시적 트랜잭션에서 조회와 갱신을 수행하고, 커밋 또는 롤백으로 잠금을 푼다. [InnoDB 잠금 조회](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 
+![InnoDB에서 작업 42의 상태를 SELECT FOR UPDATE로 읽고 READY면 RUNNING으로 바꿔 커밋하며, 다른 상태면 롤백하는 흐름](image/31_locking_reads_with_select_for_update.png)
+
+그림의 근거 · [잠금 조회 및 해제 시점](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [고유 키 검색의 잠금 범위](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)
+
 ## 읽고 검증한 뒤 변경한다
 
 `jobs.job_id`가 기본 키일 때 다음 흐름은 한 작업의 상태를 보호한다. 애플리케이션은 조회 결과가 없거나 `READY` 상태가 아니면 롤백한다.

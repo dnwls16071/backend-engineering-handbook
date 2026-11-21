@@ -23,6 +23,10 @@ FROM event_payloads ORDER BY event_id;
 
 1번은 문서가 SQL `NULL`이고 `has_priority`도 SQL `NULL`이다. 2번은 경로가 없어 `has_priority`가 `0`이다. 3번은 경로가 있으므로 `has_priority`가 `1`이고 `JSON_TYPE()`은 문자열 `'NULL'`을 반환한다. 기본 설정의 `JSON_VALUE()`는 세 경우 모두 SQL `NULL`을 반환한다. `->`는 JSON 값을 추출하고 `->>`는 추출한 값의 따옴표를 벗긴다. 숫자로 비교하려면 `JSON_VALUE()`에 반환 타입을 지정한다. [MySQL JSON 검색 함수](https://dev.mysql.com/doc/refman/8.4/en/json-search-functions.html) · [MySQL JSON 속성 함수](https://dev.mysql.com/doc/refman/8.4/en/json-attribute-functions.html)
 
+![JSON 문서 자체의 SQL NULL, 경로 누락, 경로에 있는 JSON null은 JSON_CONTAINS_PATH와 JSON_TYPE으로 구별한다. 검색 인덱스는 우선순위의 스칼라 표현식과 태그 배열의 멤버십에 맞춰 선택한다.](image/43_json_null_states_and_path_indexes.png)
+
+그림의 근거 · [JSON 검색 함수](https://dev.mysql.com/doc/refman/8.4/en/json-search-functions.html) · [JSON 타입 구별](https://dev.mysql.com/doc/refman/8.4/en/json-attribute-functions.html#function_json-type) · [다중 값 인덱스](https://dev.mysql.com/doc/refman/8.4/en/create-index.html#create-index-multi-valued)
+
 ## 검색 조건에 맞게 인덱스를 만든다
 
 ```sql

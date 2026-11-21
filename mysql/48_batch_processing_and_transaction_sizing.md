@@ -27,6 +27,10 @@ COMMIT;
 
 앱은 조회된 키 목록과 그 마지막 키를 바인딩한다. 결과가 비어 있으면 진행 행의 잠금을 풀고 실행을 완료한다. 대상 주문이 삭제될 수 있다면 누락을 건너뛸지 배치를 실패시킬지 먼저 정한다. 데이터 변경과 진행 위치를 함께 커밋하므로, 커밋 응답이 끊겼을 때도 같은 실행 행을 다시 읽어 다음 범위를 정할 수 있다. 실행 중 후보 집합이 계속 변한다면 이미 지나간 키의 새 후보나 늦게 커밋한 행이 빠질 수 있어, 대상 고정이나 별도 재조정 규칙이 필요하다. [InnoDB 잠금 조회](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [InnoDB 커밋과 롤백](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html)
 
+![진행 행을 잠그고 다음 대상 키만 갱신한 뒤 완료 키를 업무 변경과 같은 트랜잭션에서 커밋한다. 커밋 응답을 잃으면 저장된 완료 키를 다시 읽어 재개 위치를 결정한다.](image/48_batch_chunk_and_checkpoint_commit.png)
+
+그림의 근거 · [진행 행 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [커밋과 롤백](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html)
+
 ## 처리량과 서비스 지연의 균형을 맞춘다
 
 `500`은 예시다. 배치당 잠금 시간, 커밋 지연, 적용 행 수, 복제 반영 지연, 서비스 p95를 비교해 크기와 실행 간격을 조절한다. 큰 범위를 잠금으로 잡지 않도록 접근 인덱스를 확인하고, 데드락은 해당 트랜잭션을 새로 시작해 후보와 진행 위치부터 다시 읽는다. 외부 메시지까지 발행해야 하면 트랜잭션 안에 발행할 이벤트를 기록하고, 재전송 시 중복을 처리할 수 있게 구성한다. [MySQL 데드락 대응](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks-handling.html) · [MySQL 복제 상태 확인](https://dev.mysql.com/doc/refman/8.4/en/replication-administration-status.html) · [Production Data Processing and System Design](17_production_data_processing_and_system_design.md)

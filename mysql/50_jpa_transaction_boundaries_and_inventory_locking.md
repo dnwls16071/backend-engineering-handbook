@@ -10,6 +10,10 @@ Spring Data JPA 3.5, Hibernate 6.6, MySQL 8.4 InnoDB를 기준으로 애플리�
 
 관리 엔티티의 필드를 변경해도 그 시점에 UPDATE가 실행된다는 보장은 없다. 플러시는 변경을 SQL로 동기화한다. Hibernate의 기본 AUTO 모드에서는 해당 변경이 영향을 주는 JPQL/HQL 조회 앞이나 커밋 전에 플러시가 일어날 수 있다. 명시적 `flush()`로 SQL 실행이 앞당겨지면 그 SQL의 락을 더 일찍 획득할 수 있다. 플러시 후에도 실제 트랜잭션이 끝날 때까지 락이 남을 수 있다. [Hibernate AUTO 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing-auto) · [영속성 컨텍스트와 플러시](../high-performance-spring-persistence/05_persistence_context_flushing_and_dirty_checking.md)
 
+![Spring 트랜잭션 안에서 관리 엔티티를 수정한 후 Hibernate 플러시가 UPDATE를 실행한다. UPDATE는 InnoDB에서 실제 접근한 인덱스에 따라 락을 획득하고, 쓰기 락의 해제는 트랜잭션 종료에 맞춰 일어난다.](image/50_jpa_flush_and_innodb_lock_lifetime.png)
+
+그림의 근거 · [Spring 선언적 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Hibernate AUTO 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing-auto) · [UPDATE가 잡는 락](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html) · [트랜잭션 종료](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html)
+
 ## 3. PESSIMISTIC_WRITE가 잠그는 범위
 
 Spring Data의 `@Lock(LockModeType.PESSIMISTIC_WRITE)`는 쿼리의 잠금 모드를 지정한다. 활성 트랜잭션 안에서 실행하고 Hibernate가 만든 SQL과 DB 실행 계획을 확인한다. 같은 애너테이션이어도 PK 한 건과 인덱스 없는 상태 범위의 물리 잠금은 다를 수 있다. 연관 테이블까지 잠그는지는 조인 SQL, JPA 잠금 범위, 방언 등에 따라 확인한다. [Spring Data JPA 잠금](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/locking.html) · [InnoDB SQL 문장별 잠금](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)

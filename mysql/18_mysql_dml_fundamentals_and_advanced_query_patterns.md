@@ -81,6 +81,10 @@ LIMIT 1;
 ROLLBACK;
 ```
 
+![프로젝트 작업 실습에서 완료 상태를 그룹으로 집계하는 쿼리와 ROW_NUMBER로 최신 작업을 선택하는 쿼리의 결과](image/18_task_grouping_and_latest_row.png)
+
+그림의 근거 · [MySQL SELECT의 WHERE와 HAVING](https://dev.mysql.com/doc/refman/8.4/en/select.html) · [MySQL 윈도 함수 개념](https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html) · [MySQL ROW_NUMBER](https://dev.mysql.com/doc/refman/8.4/en/window-function-descriptions.html)
+
 ## 4. SELECT · 행 필터, 그룹 필터, 순위
 
 `WHERE`는 그룹을 만들기 전 행을 필터링하고, `HAVING`은 집계된 그룹을 필터링한다. 윈도 함수는 각 행을 유지하면서 그룹별 순위나 누계를 계산할 수 있다. 순위를 조건으로 조회하려면 아래처럼 CTE로 결과를 만든 후 바깥에서 비교한다. [SELECT Statement](https://dev.mysql.com/doc/refman/8.4/en/select.html) · [Window Functions](https://dev.mysql.com/doc/refman/8.4/en/window-functions.html)

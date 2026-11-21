@@ -2,6 +2,10 @@
 
 생성 컬럼은 다른 열을 사용한 계산 결과를 스키마에 정의한다. `VIRTUAL`은 클러스터형 레코드에 값을 보관하지 않고 필요할 때 계산하며, `STORED`는 쓰기 시 계산한 값을 저장한다. InnoDB는 가상 컬럼에도 보조 인덱스를 만들 수 있고, 그 인덱스에는 계산된 키가 저장된다. [MySQL 생성 컬럼](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [InnoDB 가상 컬럼 보조 인덱스](https://dev.mysql.com/doc/refman/8.4/en/create-table-secondary-indexes.html)
 
+![계산식에서 이름 있는 가상 생성 컬럼 또는 함수 기반 키의 숨겨진 가상 컬럼을 거쳐 InnoDB 보조 인덱스에 계산된 키가 저장되는 구조](image/32_generated_columns_and_functional_indexes.png)
+
+그림의 근거 · [가상 생성 컬럼의 보조 인덱스](https://dev.mysql.com/doc/refman/8.4/en/create-table-secondary-indexes.html) · [함수 기반 키의 숨겨진 가상 생성 컬럼](https://dev.mysql.com/doc/refman/8.4/en/create-index.html#create-index-functional-key-parts) · [VIRTUAL과 STORED](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [옵티마이저의 인덱스 표현식 일치](https://dev.mysql.com/doc/refman/8.4/en/generated-column-index-optimizations.html)
+
 ## 계산 결과가 조회에 필요할 때
 
 ```sql

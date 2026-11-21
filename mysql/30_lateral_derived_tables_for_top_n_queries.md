@@ -2,6 +2,10 @@
 
 `LATERAL`을 붙인 파생 테이블은 같은 `FROM` 절에서 앞에 나온 테이블의 열을 사용할 수 있다. 고객별 최근 주문처럼 바깥 행마다 조회 범위와 건수를 정해야 할 때 적합하다. [MySQL LATERAL 파생 테이블](https://dev.mysql.com/doc/refman/8.4/en/lateral-derived-tables.html)
 
+![바깥 customers의 각 고객 ID로 주문을 제한하고 최근 두 건을 선택하며, 주문 없는 고객은 NULL 주문 열이 있는 한 행으로 남기는 LEFT JOIN LATERAL](image/30_lateral_derived_tables_for_top_n_queries.png)
+
+그림의 근거 · [LATERAL의 바깥 행 참조](https://dev.mysql.com/doc/refman/8.4/en/lateral-derived-tables.html) · [SELECT의 정렬과 LIMIT](https://dev.mysql.com/doc/refman/8.4/en/select.html)
+
 ## 고객마다 최근 두 건 조회
 
 ```sql
