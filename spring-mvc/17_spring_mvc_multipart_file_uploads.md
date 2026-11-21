@@ -23,6 +23,8 @@
 
 `@RequestPart`로 DTO를 받으면 해당 파트의 미디어 타입에 맞는 메시지 컨버터가 값을 읽는다. `MultipartFile`의 임시 데이터는 요청이 끝나면 정리될 수 있으므로 이후에도 필요한 파일은 요청 중 저장소로 옮긴다. [Spring Framework 6.2 · Multipart](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/multipart-forms.html) · [Spring Framework 6.2 API · MultipartFile](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/web/multipart/MultipartFile.html)
 
+![멀티파트 요청의 메타데이터와 파일은 별도 파트다. 멀티파트 처리 이후 JSON 파트는 미디어 타입에 맞는 메시지 컨버터로 DTO가 되고, 파일 파트는 MultipartFile로 받아 필요하면 요청 중 저장소로 옮긴다.](image/17_multipart_parts_to_controller.png)
+
 ## 2. 크기 제한과 저장 경로 분리하기
 
 Spring Boot에서 파일 하나의 상한과 멀티파트 요청 전체의 상한을 각각 지정할 수 있다. 아래 예에서는 파일 하나를 최대 5MB로 제한하고, 폼 필드와 멀티파트 형식에 필요한 여유를 포함해 전체를 6MB로 제한한다. 한도를 넘는 요청은 컨트롤러가 호출되기 전에 거부될 수 있다. [Spring Boot 3.5 · 멀티파트 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html#application-properties.web.spring.servlet.multipart.max-file-size)

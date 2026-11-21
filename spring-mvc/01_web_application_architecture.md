@@ -4,6 +4,8 @@
 
 웹 서버는 정적 파일을 제공하거나 리버스 프록시로 요청을 전달할 수 있다. 웹 애플리케이션 서버는 애플리케이션 코드를 실행해 요청을 처리한다. Tomcat은 HTTP 커넥터와 서블릿 컨테이너를 포함하므로 HTTP 요청을 직접 받을 수도 있다. 앞단에 별도 웹 서버를 두는 구성에서는 정적 파일 제공, TLS 종료, 요청 분산을 앞단에 맡길 수 있다. [Apache Tomcat 10.1 · HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [NGINX 리버스 프록시와 부하 분산](../nginx/04_nginx_reverse_proxy_load_balancing_and_https.md)
 
+![브라우저가 리버스 프록시를 거치거나 Tomcat의 HTTP 커넥터에 직접 접속하며, Tomcat 내부의 서블릿 컨테이너에서 서블릿이 애플리케이션 코드를 호출하는 배치 구조](image/01_tomcat_deployment.png)
+
 ```text
 브라우저 → 리버스 프록시(선택) → Tomcat HTTP 커넥터 → 서블릿 → 애플리케이션 코드
 ```

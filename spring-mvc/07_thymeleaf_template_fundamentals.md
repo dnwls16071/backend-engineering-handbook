@@ -34,3 +34,5 @@ Spring 통합에서는 변수 평가에 SpringEL을 사용한다. `#strings`나 
 ## 3. 템플릿 조각과 레이아웃
 
 `th:fragment="header"`로 공통 헤더를 정의하고, `th:replace="~{layout/header :: header}"`로 호출 위치 전체를 헤더로 바꾼다. `th:insert`는 호출 요소 안에 조각을 삽입한다. 제목이나 본문 영역이 페이지마다 다르면 레이아웃 조각의 인자로 다른 조각을 넘길 수 있다. `th:block`은 최종 HTML에 자체 요소를 남기지 않고 여러 요소에 한 번에 반복이나 조건을 적용한다. [Thymeleaf 3.1 · 템플릿 레이아웃](https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#template-layout)
+
+![공통 헤더 조각을 호출한 뒤 th:replace는 헤더만 남기고 th:insert는 호출 요소인 div 안에 헤더를 두는 HTML 구조](image/07_thymeleaf_fragment_composition.png)

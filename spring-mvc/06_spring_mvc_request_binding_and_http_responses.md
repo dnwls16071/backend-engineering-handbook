@@ -26,6 +26,8 @@ Spring MVC는 URL과 HTTP 메서드에 더해 파라미터, 헤더, 미디어 �
 
 반환값 핸들러는 반환 타입과 애너테이션을 보고 처리 방식을 결정한다. 메시지 컨버터는 본문을 읽거나 쓸 때 대상 Java 타입과 미디어 타입을 확인한다. [Spring Boot 3.5 · 정적 콘텐츠](https://docs.spring.io/spring-boot/3.5/reference/web/servlet.html#web.servlet.spring-mvc.static-content) · [Spring Framework 6.2 · 반환 타입](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/return-types.html) · [Spring Framework 6.2 · ResponseEntity](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/responseentity.html)
 
+![쿼리와 폼 필드 바인딩 및 JSON 본문 변환을 요청 쪽에, 뷰의 HTML 렌더링 및 메시지 컨버터의 본문 작성을 응답 쪽에 표시한 그림](image/06_request_arguments_and_responses.png)
+
 ## 3. JSON으로 메모 생성하고 조회하기
 
 `POST /api/notes`에 `{"title":"Read HTTP"}`와 `Content-Type: application/json`을 보내면 서버는 `201 Created`, 새 메모의 `Location`, JSON 본문을 반환한다. `Location`으로 GET을 요청하면 생성한 메모를 조회할 수 있다. 예제는 실행 중에만 유지되는 메모리 저장소를 사용한다. [RFC 9110 · 201 Created](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.2)

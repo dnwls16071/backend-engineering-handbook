@@ -4,6 +4,8 @@
 
 Spring MVC는 처리 중 예외가 생기면 먼저 등록된 `HandlerExceptionResolver`에 해결을 요청한다. 미해결 예외가 컨테이너에 전달되거나 애플리케이션이 `sendError()`를 호출하면 서블릿 컨테이너의 오류 페이지 처리 경로로 이어질 수 있다. `setStatus()`는 응답 상태 코드만 지정한다. 오류 화면을 생성하려면 오류 페이지 매핑을 사용하거나 애플리케이션에서 본문을 직접 작성한다. [Spring Framework 6.2 · 예외 처리](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/exceptionhandlers.html) · [Jakarta Servlet 6.0 · 오류 처리](https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0)
 
+![Spring MVC의 리졸버는 응답이나 뷰로 예외를 직접 해결할 수 있다. 미해결 예외가 컨테이너에 전달되거나 sendError가 호출되면 컨테이너는 오류 페이지를 찾고, 오류 경로가 매핑돼 있으면 ERROR 디스패치로 전달한다.](image/14_servlet_error_dispatch.png)
+
 ```text
 원래 요청 → 컨트롤러에서 미해결 예외 발생
           → 컨테이너의 ERROR 디스패치 → 오류 처리 경로 → 오류 응답

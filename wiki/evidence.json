@@ -428,5 +428,175 @@
       "url": "https://docs.spring.io/spring-authorization-server/reference/protocol-endpoints.html",
       "locator": "Protocol Endpoints의 OAuth2 Authorization, Token, Revocation, Introspection, JWK Set, Authorization Server Metadata 및 OpenID Connect 엔드포인트"
     }
+  },
+  {
+    "page": "spring-mvc/01_web_application_architecture.md",
+    "claim": "![브라우저가 리버스 프록시를 거치거나 Tomcat의 HTTP 커넥터에 직접 접속하며, Tomcat 내부의 서블릿 컨테이너에서 서블릿이 애플리케이션 코드를 호출하는 배치 구조](image/01_tomcat_deployment.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Apache Tomcat 10.1 · HTTP 커넥터를 포함한 서블릿 배치 예시",
+    "source": {
+      "url": "https://tomcat.apache.org/tomcat-10.1-doc/config/http.html",
+      "locator": "The HTTP Connector → Introduction"
+    }
+  },
+  {
+    "page": "spring-mvc/02_jakarta_servlets_and_http_messages.md",
+    "claim": "![컨테이너가 GET /echo 요청을 EchoServlet의 service와 doGet으로 처리하고 HTTP 응답을 반환하는 순서와 인스턴스의 init 및 destroy 호출 시점](image/02_servlet_http_lifecycle.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Servlet 6.0 · 문서의 동기 GET /echo 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0",
+      "locator": "§1.3 An Example, §2.1.1 HTTP Specific Request Handling Methods, §2.3 Servlet Life Cycle, §3.1 HTTP Protocol Parameters 및 §8.1.1 @WebServlet"
+    }
+  },
+  {
+    "page": "spring-mvc/03_servlets_jsp_and_mvc_pattern.md",
+    "claim": "![메모 목록 요청에서 서블릿 컨트롤러가 요청 속성에 모델을 저장하고 같은 요청을 JSP로 포워드하면 JSP가 모델을 읽어 HTML을 렌더링하는 구조](image/03_servlet_jsp_mvc_roles.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Servlet 6.0의 요청 속성과 내부 포워드 · 문서의 Jakarta Pages 3.1 메모 목록 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0",
+      "locator": "§3.3 Attributes, §9.4 The Forward Method 및 §10.5 Directory Structure"
+    }
+  },
+  {
+    "page": "spring-mvc/04_building_a_front_controller_framework.md",
+    "claim": "![학습용 MiniFrontController가 PageHandler의 뷰 이름과 모델을 받아 JSP에 포워드하는 구조와, Spring MVC의 DispatcherServlet이 매핑·실행·뷰 해석을 구성 요소에 위임하는 구조](image/04_front_controller_delegation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 · 서블릿 기반 MVC의 뷰 렌더링 경로 및 문서의 MiniFrontController 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet.html",
+      "locator": "DispatcherServlet 소개 · 하위 항목 Special Bean Types 및 Processing"
+    }
+  },
+  {
+    "page": "spring-mvc/05_spring_mvc_request_dispatch_and_view_resolution.md",
+    "claim": "![메모 목록 화면 요청을 받은 DispatcherServlet이 핸들러 매핑과 호출, 논리 뷰 이름 해석, 모델 렌더링을 위임하는 구조](image/05_dispatcher_servlet_delegates.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 서블릿 MVC에서 컨트롤러가 논리 뷰 이름을 반환하는 화면 요청 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/special-bean-types.html",
+      "locator": "Special Bean Types의 DispatcherServlet 위임과 HandlerMapping, HandlerAdapter, ViewResolver 행"
+    }
+  },
+  {
+    "page": "spring-mvc/06_spring_mvc_request_binding_and_http_responses.md",
+    "claim": "![쿼리와 폼 필드 바인딩 및 JSON 본문 변환을 요청 쪽에, 뷰의 HTML 렌더링 및 메시지 컨버터의 본문 작성을 응답 쪽에 표시한 그림](image/06_request_arguments_and_responses.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 서블릿 MVC 애너테이션 기반 컨트롤러 및 JSON 메시지 컨버터가 등록된 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/return-types.html",
+      "locator": "Return Values 표의 String, View, @ResponseBody, ResponseEntity 행과 같은 장의 Method Arguments 표"
+    }
+  },
+  {
+    "page": "spring-mvc/07_thymeleaf_template_fundamentals.md",
+    "claim": "![공통 헤더 조각을 호출한 뒤 th:replace는 헤더만 남기고 th:insert는 호출 요소인 div 안에 헤더를 두는 HTML 구조](image/07_thymeleaf_fragment_composition.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Thymeleaf 3.1 표준 방언으로 HTML 템플릿 조각을 포함하는 예시",
+    "source": {
+      "url": "https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#template-layout",
+      "locator": "8.1 Including template fragments의 Defining and referencing fragments 및 Difference between th:insert and th:replace"
+    }
+  },
+  {
+    "page": "spring-mvc/08_thymeleaf_spring_integration_and_forms.md",
+    "claim": "![메모 폼의 GET과 POST가 noteForm과 폴더 선택지를 공유하고, POST 바인딩 오류가 있으면 같은 Thymeleaf 폼에 입력값과 오류를 표시하는 흐름](image/08_thymeleaf_form_redisplay.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Thymeleaf 3.1 Spring 통합 및 Spring Framework 6.2 MVC에서 POST 오류 시 동일 폼 뷰를 반환하는 예시",
+    "source": {
+      "url": "https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#validation-and-error-messages",
+      "locator": "4.4 The Controller의 Model Attributes와 Mapped methods, 6.1–6.2 폼 객체와 입력, 7.1 Field errors"
+    }
+  },
+  {
+    "page": "spring-mvc/09_spring_mvc_messages_and_internationalization.md",
+    "claim": "![LocaleResolver가 정한 요청 로케일과 Thymeleaf 메시지 코드로 MessageSource가 번들을 조회해 한국어 문구를 표시하는 흐름](image/09_locale_message_resolution.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 Servlet MVC, Spring Boot 3.5 메시지 번들, Thymeleaf 3.1",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/localeresolver.html",
+      "locator": "Locale, Header Resolver, Cookie Resolver, Session Resolver"
+    }
+  },
+  {
+    "page": "spring-mvc/10_spring_mvc_form_validation_and_binding_errors.md",
+    "claim": "![정원 요청 폼의 타입 변환과 BindingResult 확인 이후, 오류가 있으면 같은 폼을 표시하고 통과하면 저장 후 리다이렉트하는 흐름](image/10_form_binding_outcomes.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 Servlet MVC 폼의 바인딩 및 검증 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/modelattrib-method-args.html",
+      "locator": "@ModelAttribute: BindingResult argument immediately next to @ModelAttribute, form return example"
+    }
+  },
+  {
+    "page": "spring-mvc/11_spring_mvc_bean_validation.md",
+    "claim": "![예약 요청 DTO의 필드 제약과 @Valid로 따라가는 연락처 객체의 제약을 보여 주는 객체 관계도](image/11_bean_validation_object_graph.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Bean Validation 3.0 객체·필드 제약과 @Valid 연쇄 검증",
+    "source": {
+      "url": "https://jakarta.ee/specifications/bean-validation/3.0/",
+      "locator": "Specification document, §5.1.2 Field and property validation, §5.1.3 Graph validation, §5.7.1 Object graph validation"
+    }
+  },
+  {
+    "page": "spring-mvc/12_login_with_cookies_and_http_sessions.md",
+    "claim": "![로그인 성공 시 서버가 세션에 로그인 상태를 저장하고 브라우저가 이후 요청에 JSESSIONID 쿠키를 보내 해당 세션을 조회하는 시퀀스](image/12_session_cookie_lifecycle.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Servlet 6.0 쿠키 기반 세션 추적 및 Spring Security 6.5 세션 기반 로그인 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0",
+      "locator": "§7.1.1 Cookies, §7.2 Creating a Session, §7.4 Binding Attributes into a Session"
+    }
+  },
+  {
+    "page": "spring-mvc/13_servlet_filters_and_spring_mvc_interceptors.md",
+    "claim": "![동기 HTML 요청에서 서블릿 필터가 DispatcherServlet 호출을 감싼다. 핸들러를 찾은 뒤 preHandle, 컨트롤러, postHandle, 뷰 렌더링, afterCompletion을 거쳐 필터 체인 호출이 반환된다.](image/13_filter_interceptor_lifecycle.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Servlet 6.0과 Spring MVC 6.2에서 등록한 인터셉터가 preHandle을 통과한 동기 HTML 응답",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/handlermapping-interceptor.html",
+      "locator": "Interception의 preHandle, postHandle, afterCompletion과 인접 Jakarta Servlet 6.0 §6.2.1 필터 체인 호출·반환 절차"
+    }
+  },
+  {
+    "page": "spring-mvc/14_servlet_exception_dispatch_and_error_pages.md",
+    "claim": "![Spring MVC의 리졸버는 응답이나 뷰로 예외를 직접 해결할 수 있다. 미해결 예외가 컨테이너에 전달되거나 sendError가 호출되면 컨테이너는 오류 페이지를 찾고, 오류 경로가 매핑돼 있으면 ERROR 디스패치로 전달한다.](image/14_servlet_error_dispatch.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring MVC 6.2와 Jakarta Servlet 6.0에서 오류 경로가 매핑된 커밋 전 응답의 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0",
+      "locator": "Jakarta Servlet §10.9 Error Handling의 Error Pages와 Error Filters. 앞 문단의 Spring MVC Exception Resolution은 리졸버 경계를 설명한다."
+    }
+  },
+  {
+    "page": "spring-mvc/15_spring_mvc_api_exception_handling.md",
+    "claim": "![메모 API의 예외를 ExceptionHandlerExceptionResolver가 일치하는 REST 어드바이스에 넘긴다. 예외 처리기가 반환한 ProblemDetail은 메시지 컨버터를 거쳐 404 JSON 오류 응답이 된다.](image/15_rest_exception_to_problem_detail.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring MVC 6.2의 메모 API 예제에서 REST 어드바이스가 상태 404인 객체를 반환하고 JSON 변환이 선택된 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-ann-rest-exceptions.html",
+      "locator": "Error Responses의 ProblemDetail Rendering과 Content Negotiation, 그리고 메모 문서에 연결된 @ExceptionHandler 예외 매핑"
+    }
+  },
+  {
+    "page": "spring-mvc/16_spring_mvc_type_conversion_and_formatting.md",
+    "claim": "![경로와 쿼리 문자열은 ConversionService로 대상 타입을 만들고, 폼 필드는 Formatter로 로케일에 따라 파싱하거나 출력한다. JSON 본문은 별도의 HTTP 메시지 컨버터가 읽고 쓴다.](image/16_conversion_formatting_boundaries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2와 Thymeleaf 3.1을 사용하는 MVC 예시. JSON은 Jackson 컨버터가 등록된 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/requestbody.html",
+      "locator": "@RequestBody의 HttpMessageConverter 설명, 문서 내 Field Formatting의 Formatter SPI와 MVC Conversion 설정"
+    }
+  },
+  {
+    "page": "spring-mvc/17_spring_mvc_multipart_file_uploads.md",
+    "claim": "![멀티파트 요청의 메타데이터와 파일은 별도 파트다. 멀티파트 처리 이후 JSON 파트는 미디어 타입에 맞는 메시지 컨버터로 DTO가 되고, 파일 파트는 MultipartFile로 받아 필요하면 요청 중 저장소로 옮긴다.](image/17_multipart_parts_to_controller.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 Servlet MVC에서 MultipartResolver가 구성된 JSON 파트와 MultipartFile 업로드 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/multipart-forms.html",
+      "locator": "Multipart의 @RequestPart 예시와 파트별 HttpMessageConverter, 인접 MultipartFile Javadoc의 요청 종료 후 임시 저장 정리"
+    }
   }
 ]

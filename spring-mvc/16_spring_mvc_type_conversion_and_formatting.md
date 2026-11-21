@@ -36,3 +36,5 @@ public class NoteIdConverter implements Converter<String, NoteIdConverter.NoteId
 ## 3. JSON 변환과 폼 변환의 적용 위치
 
 경로, 쿼리, 폼의 문자열 변환과 Thymeleaf 폼의 필드 출력에는 Spring의 변환 및 포맷팅 설정이 사용된다. JSON 요청과 응답의 형식은 [HTTP 메시지 컨버터](06_spring_mvc_request_binding_and_http_responses.md)가 결정한다. 예를 들어 Jackson이 JSON 본문을 읽는 경우 날짜의 JSON 형식은 Jackson 쪽에서 설정한다. [Thymeleaf 3.1 · 변환 서비스](https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html) · [Spring Framework 6.2 · @RequestBody](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/requestbody.html)
+
+![경로와 쿼리 문자열은 ConversionService로 대상 타입을 만들고, 폼 필드는 Formatter로 로케일에 따라 파싱하거나 출력한다. JSON 본문은 별도의 HTTP 메시지 컨버터가 읽고 쓴다.](image/16_conversion_formatting_boundaries.png)

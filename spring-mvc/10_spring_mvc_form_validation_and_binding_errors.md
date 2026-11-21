@@ -4,6 +4,8 @@
 
 Spring MVC는 요청 파라미터를 폼 객체에 바인딩하면서 문자열을 대상 타입으로 바꾼다. 숫자 필드에 `abc`를 넣으면 변환에 실패해 `typeMismatch` 오류가 생길 수 있다. 변환된 값이 허용 범위를 벗어나거나 두 필드의 조합이 규칙에 어긋나면 검증 오류를 추가한다. 컨트롤러가 이 오류를 받아 폼을 다시 렌더링하려면 `BindingResult`를 해당 `@ModelAttribute` 바로 뒤에 선언한다. [Spring Framework 6.2 · 모델 속성 바인딩](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/modelattrib-method-args.html) · [Spring Framework 6.2 · MVC 검증](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-validation.html)
 
+![정원 요청 폼의 타입 변환과 BindingResult 확인 이후, 오류가 있으면 같은 폼을 표시하고 통과하면 저장 후 리다이렉트하는 흐름](image/10_form_binding_outcomes.png)
+
 | 오류 범위 | 표현 | 처리 |
 | --- | --- | --- |
 | 필드 | `FieldError` | `rejectValue("minimum", "capacity.minimum")`로 해당 입력 옆에 표시 |

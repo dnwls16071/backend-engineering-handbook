@@ -26,4 +26,6 @@ Thymeleaf에서는 `#{notes.title}`로 메시지를 읽고, `#{notes.summary(${n
 
 예를 들어 `ko-KR`로 조회하면 메시지 번들의 `messages_ko_KR.properties`, `messages_ko.properties`, 기본 번들 순으로 후보를 좁힐 수 있다. 서버의 시스템 로케일에 따라 달라지는 폴백을 끄려면 Boot에서 `spring.messages.fallback-to-system-locale=false`를 설정한다. [Spring Boot 3.5 · 국제화](https://docs.spring.io/spring-boot/3.5/reference/features/internationalization.html) · [Spring Framework 6.2 · LocaleResolver](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/localeresolver.html)
 
+![LocaleResolver가 정한 요청 로케일과 Thymeleaf 메시지 코드로 MessageSource가 번들을 조회해 한국어 문구를 표시하는 흐름](image/09_locale_message_resolution.png)
+
 언어 선택 UI를 붙일 때는 쿠키 또는 세션 기반 리졸버와 `LocaleChangeInterceptor`를 구성할 수 있다. 예를 들어 `?lang=ko`를 해석해 선택을 다음 요청에 유지한다. 헤더 기반 리졸버에서는 브라우저가 보낸 값을 읽으며 서버에서 언어 설정을 갱신하려면 변경을 지원하는 리졸버를 사용한다. [Spring Framework 6.2 · LocaleResolver와 LocaleChangeInterceptor](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/localeresolver.html)

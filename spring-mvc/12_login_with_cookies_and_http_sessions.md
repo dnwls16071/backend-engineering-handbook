@@ -4,6 +4,8 @@
 
 쿠키는 브라우저가 보관하고 범위가 맞는 요청에 포함하는 값이다. 로그인 세션을 사용하면 브라우저는 보통 `JSESSIONID` 같은 세션 식별자를 보내고, 서버는 해당 식별자로 로그인 상태를 찾는다. 쿠키에는 임의 변경이 가능한 사용자 ID나 권한을 인증 근거로 저장하지 않는다. 세션에 로그인 상태를 저장할 때는 이후 요청에 필요한 최소 정보만 유지한다. [Jakarta Servlet 6.0 · 세션](https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0) · [Spring Security 6.5 · 인증과 세션 관리](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/session-management.html)
 
+![로그인 성공 시 서버가 세션에 로그인 상태를 저장하고 브라우저가 이후 요청에 JSESSIONID 쿠키를 보내 해당 세션을 조회하는 시퀀스](image/12_session_cookie_lifecycle.png)
+
 | 단계 | 처리 |
 | --- | --- |
 | 로그인 | 자격 증명을 확인한 뒤 필요한 세션을 만들고, 기존 세션을 계속 사용할 경우 식별자를 바꾼다. |

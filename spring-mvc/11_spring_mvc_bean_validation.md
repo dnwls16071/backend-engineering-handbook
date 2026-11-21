@@ -4,6 +4,8 @@
 
 Jakarta Bean Validation은 `@NotBlank`, `@NotNull`, `@Min` 등의 애너테이션으로 규칙을 표현한다. Spring Boot에서는 `spring-boot-starter-validation`으로 구현체를 추가할 수 있다. `@Min`은 `null`을 허용하므로 필수 숫자에는 `@NotNull`도 적용한다. 중첩 객체의 제약까지 평가하려면 해당 위치에 `@Valid`를 붙인다. [Jakarta Bean Validation 3.0](https://jakarta.ee/specifications/bean-validation/3.0/) · [Spring Boot 3.5 · Validation](https://docs.spring.io/spring-boot/3.5/reference/io/validation.html)
 
+![예약 요청 DTO의 필드 제약과 @Valid로 따라가는 연락처 객체의 제약을 보여 주는 객체 관계도](image/11_bean_validation_object_graph.png)
+
 ```java
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

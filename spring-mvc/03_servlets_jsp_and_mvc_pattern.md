@@ -14,6 +14,8 @@
 
 메모 목록을 요청 속성에 저장한 뒤 `RequestDispatcher.forward()`로 JSP를 호출한다. 포워드는 서버 내부에서 같은 요청을 넘기므로 JSP가 `notes` 속성을 읽을 수 있다. `/WEB-INF/views/` 아래에 둔 JSP는 내부 포워드로 접근한다. [Jakarta Servlet 6.0 · 요청 전달과 WEB-INF](https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0)
 
+![메모 목록 요청에서 서블릿 컨트롤러가 요청 속성에 모델을 저장하고 같은 요청을 JSP로 포워드하면 JSP가 모델을 읽어 HTML을 렌더링하는 구조](image/03_servlet_jsp_mvc_roles.png)
+
 ```java
 request.setAttribute("notes", List.of("Read HTTP", "Review MVC"));
 request.getRequestDispatcher("/WEB-INF/views/notes.jsp").forward(request, response);

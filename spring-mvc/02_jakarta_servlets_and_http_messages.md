@@ -4,6 +4,8 @@
 
 이 문서에서는 Jakarta Servlet 6.0의 `jakarta.servlet` API를 사용한다. `@WebServlet("/echo")`로 URL을 매핑하면 컨테이너가 요청에 맞는 서블릿을 찾아 호출한다. 컨테이너는 인스턴스별로 `init()`을 실행한 뒤 요청마다 `service()`를 호출한다. `HttpServlet`의 `service()`는 GET, POST 등을 `doGet()`, `doPost()` 같은 메서드로 분기한다. 인스턴스를 서비스에서 제거할 때는 `destroy()`를 호출한다. 인스턴스가 여러 요청을 동시에 처리할 수 있으므로 요청 상태는 지역 변수나 요청 객체에 둔다. [Jakarta Servlet 6.0 · 서블릿 생명주기와 매핑](https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0)
 
+![컨테이너가 GET /echo 요청을 EchoServlet의 service와 doGet으로 처리하고 HTTP 응답을 반환하는 순서와 인스턴스의 init 및 destroy 호출 시점](image/02_servlet_http_lifecycle.png)
+
 ## 2. 요청 데이터 읽기
 
 | 요청 데이터 | 서블릿 API |

@@ -4,6 +4,8 @@
 
 서블릿 필터는 컨테이너의 필터 체인에서 실행된다. 필터는 `chain.doFilter(...)`를 호출해 다음 필터나 서블릿으로 요청을 보내고, 반환된 뒤에도 처리를 수행할 수 있다. 경로와 디스패치 유형은 필터 등록에서 결정한다. Spring MVC 인터셉터는 `DispatcherServlet`이 핸들러를 찾은 후에 실행되므로 선택된 핸들러 정보에 접근할 수 있다. [Jakarta Servlet 6.0 · 필터](https://jakarta.ee/specifications/servlet/6.0/jakarta-servlet-spec-6.0) · [Spring Framework 6.2 · 핸들러 인터셉터](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/handlermapping-interceptor.html)
 
+![동기 HTML 요청에서 서블릿 필터가 DispatcherServlet 호출을 감싼다. 핸들러를 찾은 뒤 preHandle, 컨트롤러, postHandle, 뷰 렌더링, afterCompletion을 거쳐 필터 체인 호출이 반환된다.](image/13_filter_interceptor_lifecycle.png)
+
 ```text
 HTTP 요청 → 서블릿 필터 체인 → DispatcherServlet → 핸들러 매핑 → 인터셉터 → 컨트롤러
 ```

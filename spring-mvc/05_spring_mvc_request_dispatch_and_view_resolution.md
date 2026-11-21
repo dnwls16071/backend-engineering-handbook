@@ -4,6 +4,8 @@
 
 `DispatcherServlet`은 Spring MVC의 프런트 컨트롤러다. 요청이 들어오면 다음 컴포넌트에 역할을 위임한다. [Spring Framework 6.2 · 처리 순서](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/sequence.html) · [Spring Framework 6.2 · 특수 빈](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet/special-bean-types.html)
 
+![메모 목록 화면 요청을 받은 DispatcherServlet이 핸들러 매핑과 호출, 논리 뷰 이름 해석, 모델 렌더링을 위임하는 구조](image/05_dispatcher_servlet_delegates.png)
+
 | 순서 | 컴포넌트 | 역할 |
 | --- | --- | --- |
 | 1 | `HandlerMapping` | 요청에 맞는 핸들러와 적용할 인터셉터를 찾는다. |

@@ -16,6 +16,8 @@ Spring MVC는 `HandlerExceptionResolver` 체인에 예외를 전달한다. 기�
 
 Spring의 `ProblemDetail`은 RFC 9457의 `type`, `title`, `status`, `detail`, `instance`를 표현하고 확장 필드를 추가할 수 있다. JSON 응답 미디어 타입은 `application/problem+json`이다. 클라이언트는 사람이 읽는 `detail` 문구에 의존하지 않고 `type` 같은 식별자로 오류를 구분할 수 있다. [RFC 9457 · Problem Details](https://www.rfc-editor.org/rfc/rfc9457.html) · [Spring Framework 6.2 · 오류 응답](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-ann-rest-exceptions.html)
 
+![메모 API의 예외를 ExceptionHandlerExceptionResolver가 일치하는 REST 어드바이스에 넘긴다. 예외 처리기가 반환한 ProblemDetail은 메시지 컨버터를 거쳐 404 JSON 오류 응답이 된다.](image/15_rest_exception_to_problem_detail.png)
+
 ```java
 import java.net.URI;
 

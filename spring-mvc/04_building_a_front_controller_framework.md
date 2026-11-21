@@ -4,6 +4,8 @@
 
 프런트 컨트롤러는 여러 URL의 공통 진입점이다. 요청을 받아 경로에 맞는 핸들러를 찾고, 핸들러가 반환한 결과로 뷰를 렌더링한다. 라우팅, 모델 전달, 뷰 경로 결정이 공통 코드가 되고, 개별 핸들러는 화면에 필요한 데이터를 결정한다. Spring MVC의 `DispatcherServlet`도 같은 패턴을 사용한다. [Spring Framework 6.2 · DispatcherServlet](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-servlet.html)
 
+![학습용 MiniFrontController가 PageHandler의 뷰 이름과 모델을 받아 JSP에 포워드하는 구조와, Spring MVC의 DispatcherServlet이 매핑·실행·뷰 해석을 구성 요소에 위임하는 구조](image/04_front_controller_delegation.png)
+
 | 단계 | 공통화하는 부분 |
 | --- | --- |
 | 프런트 컨트롤러 | URL 매핑과 핸들러 실행을 하나의 서블릿에서 처리한다. |
