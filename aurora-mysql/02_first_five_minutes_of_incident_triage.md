@@ -12,7 +12,7 @@ UTC 기준으로 느려진 API와 오류 시작을 표시한다. 503이 로드 �
 
 ## 3. Top SQL과 대기 이벤트로 범위 좁히기
 
-Database Insights에서 해당 인스턴스와 장애 구간의 DB Load를 대기 및 SQL로 분할한다. 행 락이 크면 [차단 세션](09_locks_deadlocks_connection_pools_and_retries.md)을 보고, CPU 비중이 크면 호출 수와 실행당 비용을 분리한다. 연결에 권한이 있다면 아래 쿼리로 현재 표시되는 비유휴 연결을 확인한다. 한 시점의 스냅샷은 장애 구간의 AAS와 별개다. [Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [MySQL Performance Schema threads](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-threads-table.html)
+Database Insights에서 해당 인스턴스와 장애 구간의 DB Load를 대기 및 SQL로 분할한다. 행 락이 크면 [차단 세션](06_locks_deadlocks_connection_pools_and_retries.md)을 보고, CPU 비중이 크면 호출 수와 실행당 비용을 분리한다. 연결에 권한이 있다면 아래 쿼리로 현재 표시되는 비유휴 연결을 확인한다. 한 시점의 스냅샷은 장애 구간의 AAS와 별개다. [Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [MySQL Performance Schema threads](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-threads-table.html)
 
 ```sql
 SELECT PROCESSLIST_ID, PROCESSLIST_DB, PROCESSLIST_COMMAND,
