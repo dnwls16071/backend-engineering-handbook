@@ -6,6 +6,10 @@
 
 하루치 상품 데이터를 적재하는 작업이라면 먼저 처리할 기준일, 입력 파일 버전, 기대 출력 표를 정한다. 정상 데이터 몇 건과 검증에 실패할 데이터 한 건으로 시작한다. Job의 종료 상태와 업무 테이블의 결과를 함께 확인한 다음, 입력을 늘리거나 스케줄을 연결한다.
 
+![기준일과 입력 버전으로 작은 카탈로그 Job을 시작해 검사, 청크 적재, 결과 검증을 이어 간다. 정상과 실패 후 재시작에서 업무 테이블과 JobRepository의 결과를 함께 조회한다.](image/17_reliable_first_batch_job_with_two_outputs.png)
+
+그림의 근거 · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)
+
 | 질문 | 작은 실습에서 확인할 내용 |
 | --- | --- |
 | 무엇을 한 번의 작업으로 볼까? | 기준일과 입력 버전으로 `JobInstance`를 구분한다. |

@@ -4,6 +4,10 @@
 
 `ItemProcessor<I, O>`는 읽은 항목 하나를 검증하거나 출력 모델로 변환한다. 비활성 상품처럼 정상 입력이지만 저장할 필요가 없는 항목에는 `null`을 반환한다. 필수 값이 비었거나 가격이 음수인 행은 예외로 분류하고, [스킵 정책](09_spring_batch_repeat_retry_and_skip.md)에 따라 처리한다. 필터링 건수와 스킵 건수는 별도로 기록된다. [Spring Batch 5.2 · Item Processing](https://docs.spring.io/spring-batch/reference/5.2/processor.html)
 
+![활성 상품의 출력 객체는 Writer에 전달하고 비활성 상품은 null을 반환해 필터링한다. 검증 예외는 설정한 오류 정책을 따르며 롤백 뒤 동일 항목이 다시 들어올 수 있다.](image/08_processor_output_filter_and_exception.png)
+
+그림의 근거 · [ItemProcessor](https://docs.spring.io/spring-batch/reference/5.2/processor.html) · [Step Skip 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html)
+
 ```java
 import org.springframework.batch.item.ItemProcessor;
 

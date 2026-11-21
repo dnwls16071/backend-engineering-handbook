@@ -4,9 +4,9 @@
 
 청크 Step은 `ItemReader`로 항목을 하나씩 읽고 선택적으로 `ItemProcessor`로 변환한다. `ItemWriter`는 청크의 출력 항목을 받아 한 번에 기록한다. 기본적인 청크 흐름에서는 정해 둔 개수만큼 읽거나 입력이 끝나면 쓰기를 수행하고 트랜잭션을 커밋한다. [Spring Batch 5.2 · Chunk-oriented Processing](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html)
 
-```text
-청크 트랜잭션 시작 → 항목 읽기와 변환 → 청크 쓰기 → 체크포인트 갱신과 커밋
-```
+![청크의 입력을 읽고 변환한 뒤 살아남은 항목을 Writer에 보낸다. 성공하면 메타데이터와 체크포인트가 갱신되어 커밋된다. 쓰기 오류로 롤백하면 해당 청크의 DB 변경이 취소되고 이전 커밋은 유지된다.](image/05_chunk_transaction_commit_and_rollback.png)
+
+그림의 근거 · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)
 
 청크 크기는 읽는 입력 항목을 기준으로 한다. 변환 중 일부가 필터링되면 Writer가 받는 항목 수는 줄어든다. 입력의 마지막 청크도 설정값보다 작을 수 있다. 쓰기에 실패해 트랜잭션이 롤백되면 해당 청크의 DB 변경은 되돌아가고, 이전에 커밋한 청크는 남는다. 재시도 설정에 따라 동일한 항목을 다시 처리할 수 있다. [Spring Batch 5.2 · Chunk Step Configuration](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring.html) · [Spring Batch 5.2 · Controlling Rollback](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)
 

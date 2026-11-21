@@ -11,6 +11,10 @@
 
 [Spring Batch 5.2 · Configuring a JobRepository](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-repository.html) · [Spring Batch 5.2 · Configuring a Step for Restart](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)
 
+![JDBC 저장소는 JobInstance에서 실행 시도를 연결하고, 각 JobExecution에는 파라미터, Job 컨텍스트와 StepExecution이 연결된다. Step 컨텍스트에는 청크 위치를 저장한다.](image/13_jdbc_metadata_tables_and_context_boundaries.png)
+
+그림의 근거 · [JDBC 메타데이터 스키마](https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [TaskletStep](https://docs.spring.io/spring-batch/reference/5.2/step/tasklet.html)
+
 ## 2. Tasklet 호출과 청크 커밋의 차이
 
 | 실행 방식 | 트랜잭션 단위 | 카탈로그 예 |

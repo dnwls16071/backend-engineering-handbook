@@ -4,6 +4,10 @@
 
 프로세서는 대표 입력만으로 필터링과 검증을 테스트할 수 있다. Job 통합 테스트는 메타데이터 저장소와 대상 테이블을 준비한 뒤 실제 실행 결과를 조회한다. 성공 여부에 더해 읽기·필터·쓰기 건수와 저장된 행을 확인한다. 재시작 테스트는 같은 식별 파라미터로 실패를 재현한 뒤 다시 실행해, 커밋한 이전 청크가 중복 처리되지 않는지 확인한다. [Spring Batch 5.2 · Unit Testing](https://docs.spring.io/spring-batch/reference/5.2/testing.html) · [배치 저장소 통합 테스트](../spring-db/08_spring_data_access_integration_testing.md)
 
+![단위·Step·전체 Job 테스트에서 서로 다른 범위를 확인한다. 운영에서는 JobExplorer로 상태를 조회하고 JobRegistry로 정의를 찾으며 JobOperator의 중지 요청 뒤 실제 상태를 확인한다.](image/12_batch_test_layers_and_operations_lookup.png)
+
+그림의 근거 · [Spring Batch 테스트](https://docs.spring.io/spring-batch/reference/5.2/testing.html) · [메타데이터 운영 API](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html)
+
 ## 2. 가져오기 Job 실행 테스트
 
 `spring-batch-test`를 추가하면 `@SpringBatchTest`에서 `JobLauncherTestUtils`와 `JobRepositoryTestUtils`를 사용할 수 있다. 아래 테스트는 [Job](02_spring_batch_job_configuration_and_execution.md), 실행 파라미터로 생성하는 [Reader](06_spring_batch_item_readers_and_checkpoints.md)와 [Writer](07_spring_batch_item_writers_and_output.md)를 등록한 Boot 테스트 구성을 전제로 한다. `catalog_stage` 테이블은 테스트 데이터베이스에 초기화한다. [Spring Batch 5.2 · Testing a Job](https://docs.spring.io/spring-batch/reference/5.2/testing.html)

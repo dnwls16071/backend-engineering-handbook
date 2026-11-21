@@ -13,6 +13,10 @@
 
 청크의 `beforeChunk()`는 트랜잭션이 시작된 뒤 읽기 전에 호출되고, `afterChunk()`는 커밋 뒤에 호출된다. `ItemWriteListener.afterWrite(...)`는 쓰기 호출 성공 뒤, 트랜잭션 커밋 전에 실행된다. 실패한 시도와 커밋된 기록을 구분하려면 사용하는 리스너의 호출 시점을 확인한다. [Spring Batch 5.2 · Intercepting Step Execution](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html) · [Spring Batch 5.2.2 API · ChunkListener](https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/core/ChunkListener.html)
 
+![beforeChunk는 트랜잭션 시작 후 읽기 전에, afterWrite는 쓰기 반환 뒤 커밋 전에 호출된다. afterChunk는 성공 커밋 뒤 실행되며 스킵 콜백은 해당 청크의 커밋 전에 실행된다.](image/11_chunk_listener_commit_and_rollback_timing.png)
+
+그림의 근거 · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html) · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java)
+
 ## 2. 스킵 결과로 Flow 분기하기
 
 아래 리스너는 Step이 성공했고 스킵이 있는 경우에만 종료 코드를 추가한다. [스킵을 허용하는 Step](09_spring_batch_repeat_retry_and_skip.md)에 `listener(...)`로 등록하면 [조건 분기 Flow](04_spring_batch_flow_and_conditional_transitions.md)에서 검토 Step으로 보낼 수 있다.

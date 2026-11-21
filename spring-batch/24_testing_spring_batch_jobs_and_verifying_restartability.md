@@ -64,6 +64,10 @@ class CatalogRestartTest {
 
 Spring Batch 5.2.2와 Docker의 PostgreSQL 17에서 이 JUnit 테스트가 통과했다. 첫 실행에서 DB 제약 위반이 발생해 ID 1·2만 남았고, 같은 JobInstance로 재시작하자 ID 1~4가 모두 한 번씩 저장됐다.
 
+![DB 제약 위반 뒤 첫 청크의 ID 1과 2만 남는다. 같은 인스턴스로 새 실행을 시작하면 ID 3과 4를 저장한다. 두 실행 ID와 인스턴스 ID, 상태, 최종 업무 행을 모두 확인한다.](image/24_restartability_integration_test_database_evidence.png)
+
+그림의 근거 · [Spring Batch 테스트](https://docs.spring.io/spring-batch/reference/5.2/testing.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)
+
 ## 3. 마지막 검증에서 볼 항목
 
 - **정상 실행**. 예상한 Step을 지나고 출력 행 수와 업무 키가 기대값과 일치한다.

@@ -65,3 +65,7 @@ public class CatalogRangePartitioner implements Partitioner {
 - 원격 구성에서는 메시지 재전달, 워커 중단, 응답 유실을 각각 재현하고 최종 업무 키 목록을 기준으로 누락과 중복을 검증한다.
 
 Spring Batch 5.2.2와 PostgreSQL 17에서 상품 6의 쓰기 직후 오류를 발생시켰다. 첫 실행은 상품 여덟 건을 커밋했다. 재시작에서는 완료한 두 파티션을 건너뛰고 실패한 파티션이 상품 6만 기록해, 최종 테이블에 고유 상품 아홉 건이 남았다.
+
+![로컬 예제에서는 완료한 두 파티션을 건너뛰고 실패한 파티션은 ID 6만 이어서 적재한다. 원격 파티션은 실행 요청을 보내 워커가 범위를 읽고, 원격 청킹은 매니저가 읽은 항목을 워커로 전송한다.](image/23_partition_restart_and_remote_payloads.png)
+
+그림의 근거 · [Spring Batch Integration 원격 실행](https://docs.spring.io/spring-batch/reference/5.2/spring-batch-integration/sub-elements.html) · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)

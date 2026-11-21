@@ -15,6 +15,10 @@ Spring Batch는 배치 작업의 정의, 입력으로 구별한 작업 단위, �
 
 기준일과 입력 파일 경로를 식별 파라미터로 두고, 요청자 ID는 운영 기록용 비식별 파라미터로 둘 수 있다. 실패한 작업을 재시작할 때는 같은 식별 값을 사용하고, 체크포인트에 대응하는 입력의 내용과 순서를 유지한다. [Spring Batch 5.2 · JobParameters와 JobInstance](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [재시작과 Job 실행](02_spring_batch_job_configuration_and_execution.md)
 
+![Job 이름과 식별 파라미터로 JobInstance를 구별한다. 첫 시도와 실패 후 재시작은 같은 인스턴스에 서로 다른 JobExecution을 만들며, 단계마다 StepExecution과 체크포인트를 관리한다.](image/01_job_instance_and_execution_hierarchy.png)
+
+그림의 근거 · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [JDBC 메타데이터 스키마](https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html)
+
 ## 2. 실행 컨텍스트와 저장소
 
 `ExecutionContext`에는 재시작 때 이어서 처리할 위치나 다음 단계에서 필요한 작은 값을 저장할 수 있다. Step 컨텍스트는 커밋 경계에서 저장되고, Job 컨텍스트는 단계 사이에서 저장된다. 예를 들어 CSV에서 처리한 위치는 해당 Step에, 다음 Step으로 넘길 결과 파일 위치는 Job 컨텍스트에 둘 수 있다. [Spring Batch 5.2 · ExecutionContext](https://docs.spring.io/spring-batch/reference/5.2/domain.html)

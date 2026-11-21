@@ -61,6 +61,10 @@ public class CatalogPagingConfiguration {
 
 `@EnableScheduling`을 활성화하고 `@Scheduled` 메서드가 처리할 기준일과 그날의 입력 버전을 정한 뒤 `JobLauncher.run(...)`을 호출하도록 한다. cron 시간대, 재실행, 휴일·누락일 정책을 업무 달력에 맞춘다. 예를 들어 서울 시간으로 전날 마감 데이터를 처리한다면 크론과 기준일 계산에 `Asia/Seoul`을 함께 사용한다. [Spring Framework · Task Execution and Scheduling](https://docs.spring.io/spring-framework/reference/integration/scheduling.html)
 
+![예시 스케줄러가 업무 기준일과 입력 버전으로 Job을 시작한다. JdbcPagingItemReader는 기준일과 ID 정렬로 페이지를 읽고 Writer의 커밋 간격은 청크에서 별도로 정한다.](image/14_scheduled_business_date_to_paged_database_chunk.png)
+
+그림의 근거 · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html) · [Spring Scheduler](https://docs.spring.io/spring-framework/reference/integration/scheduling.html)
+
 여러 인스턴스에서 스케줄러가 각각 실행될 수 있다. 공유 JobRepository로 동일 JobInstance의 실행을 조정하고, 스케줄 실행자를 하나로 제한해야 하면 외부 스케줄러나 별도 분산 조정을 사용한다. 실패 작업을 이어갈 때는 원래 식별 파라미터를 유지한다. 매 실행 시각을 새 식별 파라미터로 추가하면 동일 기준일에도 새 인스턴스가 시작된다.
 
 관련 문서 [Spring Batch Item Readers and Checkpoints](06_spring_batch_item_readers_and_checkpoints.md) · [Spring Batch Item Writers and Output](07_spring_batch_item_writers_and_output.md)

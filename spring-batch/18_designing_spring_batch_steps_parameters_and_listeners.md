@@ -30,6 +30,10 @@ Job 이름과 식별 파라미터를 합쳐 `JobInstance`를 구분한다. 실�
 
 `ItemStream`을 구현한 Step 스코프 빈은 반환 타입으로 `ItemStream` 또는 구체 Reader 타입을 노출해 `open`·`update`·`close`가 호출되게 한다. Spring Batch 5.2는 멀티스레드·파티션 Step에서 `@JobScope` 사용을 권장하지 않는다. [Spring Batch 5.2 · Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html)
 
+![기준일과 입력 버전은 같은 인스턴스를 찾는 값이며 요청자는 비식별 값이다. StepScope Reader에 실행 값을 연결하고 리스너에서는 실행 ID, 상태, 단계별 건수를 확인한다.](image/18_job_parameters_scope_and_execution_listeners.png)
+
+그림의 근거 · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)
+
 ## 3. 리스너로 실패 지점과 실행 결과를 확인하기
 
 | 리스너 | 관측 목적 |

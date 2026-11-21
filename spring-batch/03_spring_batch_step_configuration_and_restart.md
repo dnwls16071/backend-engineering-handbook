@@ -15,6 +15,10 @@
 
 실패한 Job을 재시작하면 이전에 완료한 Step은 기본적으로 건너뛴다. 입력 검사처럼 재실행해야 하는 단계는 `allowStartIfComplete(true)`를 지정한다. `startLimit(n)`으로 같은 JobInstance에서 해당 Step을 시작할 수 있는 횟수를 제한할 수 있다. [Spring Batch 5.2 · Configuring a Step for Restart](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)
 
+![같은 실패 JobInstance를 다시 시작하면 완료 Step은 기본적으로 건너뛴다. allowStartIfComplete를 설정한 검사 Step은 다시 실행할 수 있고, 재시작할 수 있는 실패 Step은 저장 위치를 복원할 수 있다.](image/03_step_restart_policies_and_checkpoint.png)
+
+그림의 근거 · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)
+
 ```java
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.repository.JobRepository;

@@ -13,6 +13,10 @@ Spring Batch 5.2의 청크 Step을 따라가며 **어느 항목까지 커밋됐�
 
 정상 청크에서 쓰기가 끝나면 `TaskletStep`이 Stream의 상태를 갱신하고 실행 메타데이터를 저장한 뒤 트랜잭션이 커밋된다. `afterWrite`는 커밋 전이고, 성공한 청크의 `afterChunk`는 커밋 뒤다. 업무 데이터와 메타데이터가 같은 트랜잭션에 참여하도록 구성하면 마지막 체크포인트와 DB 결과를 일치시킬 수 있다. [Spring Batch 5.2.2 · TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java) · [ChunkOrientedTasklet 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/item/ChunkOrientedTasklet.java) · [리스너 호출 시점](15_spring_batch_flow_listeners_and_fault_tolerance.md#2-리스너의-호출-시점과-기록-범위)
 
+![TaskletStep이 트랜잭션 안에서 ChunkOrientedTasklet을 실행한다. ChunkProvider가 읽은 입력은 ChunkProcessor에서 변환하고 Writer로 전달된다. Stream과 저장소를 갱신해 커밋하면 체크포인트가 확정된다.](image/21_taskletstep_internal_chunk_checkpoint_commit.png)
+
+그림의 근거 · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java) · [5.2.2 ChunkOrientedTasklet 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/item/ChunkOrientedTasklet.java) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)
+
 ## 2. ItemStream으로 체크포인트를 저장한다
 
 | 호출 | Reader·Writer가 할 일 |

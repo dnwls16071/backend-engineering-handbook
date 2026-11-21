@@ -18,6 +18,10 @@ Spring Batch 5.2에서 `ItemWriter.write(...)`는 `Chunk<? extends T>`를 받는
 
 다음 예제는 단계와 같은 트랜잭션에 참여하는 `DataSource`를 사용한다. `businessDate`는 문서의 [Job 파라미터](02_spring_batch_job_configuration_and_execution.md)에서 전달한다.
 
+![JdbcBatchItemWriter가 승인된 출력 항목을 기준일과 SKU로 바인딩해 catalog_stage에 기록한다. 업무 쓰기는 청크 커밋이나 롤백에 따르고, 스테이징 결과는 검증 후에 공개할 수 있다.](image/07_jdbc_writer_staging_commit_and_publication.png)
+
+그림의 근거 · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)
+
 ```sql
 CREATE TABLE catalog_stage (
     business_date DATE NOT NULL,

@@ -82,6 +82,10 @@ public class CatalogFileItems {
 
 ## 3. 실패 후 파일을 이어 쓰고 완성본을 공개한다
 
+![CSV와 JSON은 상품 모델에 매핑해 각 포맷 Writer로 내보낸다. 실패 후 동일 인스턴스로 다시 시작할 때 원본과 임시 파일을 유지하고, 성공 뒤 포맷과 건수를 확인해 최종 경로에 공개한다.](image/19_csv_json_file_restart_and_publication.png)
+
+그림의 근거 · [FlatFileItemReader](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html) · [FlatFileItemWriter](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-writer.html) · [JSON Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/json-reading-writing.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)
+
 1. [Docker Compose의 PostgreSQL](13_spring_batch_execution_metadata_and_transaction_boundaries.md#3-docker의-postgresql에서-실행-기록-읽기)을 JobRepository에 연결한다. 작업마다 원본 파일 버전과 출력 임시 경로를 고정한다.
 2. 청크 길이를 2로 지정하고 세 번째 레코드에서 일부러 실패시킨다. 같은 식별 파라미터와 원본·출력 경로로 재시작해 Reader와 Writer가 마지막 커밋 위치부터 이어가는지 확인한다. 재시작 동안 임시 파일을 삭제하거나 수동으로 덧붙이지 않는다.
 3. Job이 성공하면 CSV 헤더와 행 수, JSON 배열 파싱과 항목 수를 확인하고 임시 파일을 최종 경로로 옮긴다. 같은 파일시스템에서 원자적 이름 변경을 지원한다면 소비자가 반만 작성된 파일을 읽지 않도록 활용할 수 있다.

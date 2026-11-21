@@ -49,3 +49,7 @@ public class CatalogCsvReaders {
 ## 3. 입력 상태를 이어서 사용하기
 
 파일 파싱 오류는 행 번호와 함께 `FlatFileParseException`으로 나타날 수 있다. [스킵 정책](09_spring_batch_repeat_retry_and_skip.md)에서 건별로 처리할 오류를 정한다. 재시작할 때는 같은 파일 내용과 순서를 유지한다. 여러 파일을 처리한다면 파일 집합과 정렬도 고정한다. 커스텀 래퍼가 내부 리더의 `ItemStream`을 노출하지 않으면 Step에 별도로 등록해 수명주기를 연결한다. [Spring Batch 5.2 · Flat File Exception Handling](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html) · [Spring Batch 5.2 · ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)
+
+![StepScope가 CSV 경로를 읽고 FlatFileItemReader가 행을 매핑한다. ItemStream은 open에서 저장 위치를 읽고 update에서 다음 재시작 위치를 기록한다. 같은 원본과 순서로 재시작한다.](image/06_csv_reader_lifecycle_and_resume_position.png)
+
+그림의 근거 · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html) · [FlatFileItemReader](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html) · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html)

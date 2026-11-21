@@ -30,6 +30,10 @@ MongoDB Writer는 활성 트랜잭션이 있으면 쓰기를 커밋 직전까지
 
 `ItemWriterAdapter`는 청크를 받아 항목별로 대상 메서드를 호출한다. 아래 예제는 기존 JDBC 저장 메서드를 배치 Writer로 재사용한다. `catalog_projection` 테이블의 `sku`가 기본 키이고, `JdbcTemplate`이 Step의 트랜잭션에 참여하는 구성을 전제로 한다. 여러 행을 전송하는 비용이 병목이라면 청크 단위 `JdbcBatchItemWriter`를 검토한다. [Spring Batch 5.2.2 · ItemWriterAdapter](https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/item/adapter/ItemWriterAdapter.html) · [PostgreSQL · INSERT](https://www.postgresql.org/docs/17/sql-insert.html)
 
+![JDBC 위임 Writer는 대상 메서드가 같은 트랜잭션을 쓰면 현재 청크 SQL을 롤백할 수 있다. MongoDB와 Redis를 별도 저장소로 쓸 때에는 메타데이터 커밋과 업무 결과를 별도로 검증한다.](image/20_database_delegate_writer_and_external_state.png)
+
+그림의 근거 · [5.2.2 ItemWriterAdapter API](https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/item/adapter/ItemWriterAdapter.html) · [5.2.2 RedisItemReader 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/redis/RedisItemReader.java) · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)
+
 ```java
 import org.springframework.batch.item.adapter.ItemWriterAdapter;
 import org.springframework.jdbc.core.JdbcTemplate;

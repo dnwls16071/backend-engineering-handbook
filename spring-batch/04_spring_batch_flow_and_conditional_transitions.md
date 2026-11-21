@@ -14,6 +14,10 @@
 
 [Step 리스너](11_spring_batch_execution_listeners.md)에서 스킵이 있는 성공 결과를 `COMPLETED_WITH_SKIPS`로 지정한다. Flow는 이 코드를 검토 Step으로 연결한다. 와일드카드 분기는 명시한 성공 코드 이외의 결과를 실패로 처리한다.
 
+![load의 종료 코드가 COMPLETED_WITH_SKIPS이면 review, COMPLETED이면 publish로 이동한다. 예제의 나머지 종료 코드는 fail 전이로 Job을 실패 처리한다.](image/04_exit_status_to_review_publish_or_fail.png)
+
+그림의 근거 · [Step 흐름 제어](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)
+
 ```java
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

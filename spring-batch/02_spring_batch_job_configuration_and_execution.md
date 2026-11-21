@@ -33,4 +33,8 @@ public class CatalogJobPlan {
 
 `JobLauncher.run(job, parameters)`가 호출되면 JobRepository가 동일한 [JobInstance](01_spring_batch_domain_model.md)의 실행 상태를 확인한다. 같은 인스턴스가 이미 실행 중이면 중복 실행을 거부한다. 예제처럼 식별 파라미터가 있는 Job은 완료한 인스턴스를 같은 식별 값으로 다시 실행하면 `JobInstanceAlreadyCompleteException`이 발생한다. 실패한 인스턴스는 Job과 Step의 재시작 정책에 따라 실행을 이어갈 수 있다. `preventRestart()`는 해당 Job을 재시작 불가로 정의한다. [Spring Batch 5.2 · Running a Job](https://docs.spring.io/spring-batch/reference/5.2/job/running.html) · [Spring Batch 5.2 · Restartability](https://docs.spring.io/spring-batch/reference/5.2/job/configuring.html)
 
+![JobLauncher가 요청하면 저장소가 같은 인스턴스의 기존 상태를 확인한다. 실행 중이거나 완료된 인스턴스는 같은 식별값의 시작을 거부한다. 실행 가능한 요청은 입력 검사, 적재, 대사 순으로 진행한다.](image/02_job_launch_and_instance_status_checks.png)
+
+그림의 근거 · [JobLauncher 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [Job 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring.html)
+
 `JobParametersIncrementer`는 다음 인스턴스에 사용할 파라미터를 정의한다. `RunIdIncrementer`의 식별 값이 증가하면 새 인스턴스가 된다. 같은 실패 건을 이어서 처리할 때는 원래 식별 값을 유지한다. 실행기에 비동기 `TaskExecutor`를 설정한 경우 반환한 실행 ID로 최종 결과를 별도로 조회한다. [Spring Batch 5.2 · Running a Job](https://docs.spring.io/spring-batch/reference/5.2/job/running.html) · [Spring Batch 5.2 · Advanced Metadata Usage](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html)

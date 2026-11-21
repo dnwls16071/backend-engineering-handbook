@@ -28,6 +28,10 @@
 
 6.x의 새 `ChunkOrientedStep`에서 Multi-threaded Step의 Reader와 Writer는 Step 스레드에서 순차 실행되고, Processor가 워커에서 병렬로 실행된다. 이 워커 또한 Step 스레드에 묶인 청크 트랜잭션에 참여하지 않는다. 버전 외에도 실제로 사용하는 Step 구현과 Builder를 확인한다. [Spring Batch 6 · New Concurrency Model](https://github.com/spring-projects/spring-batch/blob/v6.0.3/spring-batch-docs/modules/ROOT/pages/whatsnew.adoc) · [Spring Batch 6 · Scaling and Parallel Processing](https://github.com/spring-projects/spring-batch/blob/v6.0.3/spring-batch-docs/modules/ROOT/pages/scalability.adoc)
 
+![5.2에서는 워커가 청크 단위로 트랜잭션을 실행한다. 6.x의 새 ChunkOrientedStep 구성에서는 Step 스레드가 읽기와 쓰기를 맡고 워커가 항목 변환을 병렬로 실행한다.](image/16_chunk_concurrency_transaction_boundaries_5_2_and_6.png)
+
+그림의 근거 · [Spring Batch 6.0.3 병렬 처리](https://github.com/spring-projects/spring-batch/blob/v6.0.3/spring-batch-docs/modules/ROOT/pages/scalability.adoc) · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html)
+
 워커에서 청크 전체를 처리해야 하면 6.x의 Local Chunking을 검토할 수 있다. 이 경우 위임된 청크 처리기가 트랜잭션과 Retry·Skip 정책을 책임진다. 기존 Multi-threaded Step을 옮길 때에는 DB 커밋 위치, Reader 상태, 재시작 범위를 같은 장애 시나리오로 다시 확인한다.
 
 ## 3. 처리량과 정합성을 함께 검증하기

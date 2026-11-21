@@ -15,6 +15,10 @@
 
 예제는 준비한 `Partitioner`와 워커 Step을 로컬 실행기에 연결한다. `Partitioner`는 파티션 이름을 키로, 입력 파일 또는 시작·종료 키를 담은 `ExecutionContext`를 값으로 반환한다. 워커는 `@StepScope`에서 그 값을 읽는다. 재시작할 수 있도록 파티션 이름과 입력 범위를 안정적으로 유지한다. [Spring Batch 5.2 · Partitioning](https://docs.spring.io/spring-batch/reference/5.2/scalability.html)
 
+![Partitioner의 안정적인 이름과 입력 범위를 기준으로 로컬 워커를 시작한다. 각 파티션은 별도 StepExecution과 체크포인트를 가지며 실제 동시성은 실행기와 자원 한도의 영향을 받는다.](image/10_local_partition_worker_execution_contexts.png)
+
+그림의 근거 · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html)
+
 ```java
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.partition.support.Partitioner;

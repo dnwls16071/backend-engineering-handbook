@@ -15,6 +15,10 @@
 
 다음 Step은 일시적인 잠금 실패를 재시도하고, 파싱과 행 검증 오류는 스킵한다. 읽기·변환·쓰기 스킵 건수는 따로 기록되지만 `skipLimit(5)`는 합계에 적용된다. `retryLimit(3)`은 최초 시도를 포함한 시도 한도다. [Spring Batch 5.2 · Skip Logic](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html) · [Spring Batch 5.2 · Retry Logic](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/retry-logic.html) · [Spring Batch 5.2.2 API · FaultTolerantStepBuilder](https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/core/step/builder/FaultTolerantStepBuilder.html)
 
+![문서 예제는 일시적인 DB 잠금은 최초 시도를 포함해 세 번까지 시도하고, CSV 파싱과 행 검증 오류는 합계 다섯 건까지 스킵한다. 다른 오류는 해당 청크와 Step의 실패로 드러난다.](image/09_repeat_retry_and_skip_decisions.png)
+
+그림의 근거 · [Step Retry 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/retry-logic.html) · [Step Skip 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html) · [5.2.2 FaultTolerantStepBuilder 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/builder/FaultTolerantStepBuilder.java)
+
 ```java
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.repository.JobRepository;

@@ -13,6 +13,10 @@
 
 Step에서 만든 결과는 DB나 파일로 기록하고 뒤 Step에는 키나 경로를 전달한다. 같은 Step의 재시작 위치는 `ItemStream`과 Step `ExecutionContext`로 관리한다. 다음 Step이 작은 값을 읽어야 한다면 `ExecutionContextPromotionListener`로 선택한 키를 Job 컨텍스트에 올릴 수 있다. 승격이 필요한 종료 상태를 명시하고, 병렬 브랜치가 같은 공유 키를 덮어쓰지 않게 한다. [Spring Batch 5.2 · Controlling Step Flow](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html) · [Spring Batch 5.2 · Passing Data to Future Steps](https://docs.spring.io/spring-batch/reference/5.2/common-patterns.html)
 
+![Step 컨텍스트의 체크포인트는 해당 Step에 둔다. 다음 Step이 읽을 결과 경로나 키는 종료 상태 조건을 만족할 때 승격해 Job 컨텍스트로 전달한다.](image/15_step_context_promotion_for_following_steps.png)
+
+그림의 근거 · [다음 Step에 데이터 전달](https://docs.spring.io/spring-batch/reference/5.2/common-patterns.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)
+
 ## 2. 리스너의 호출 시점과 기록 범위
 
 | 관찰 대상 | 5.2에서 확인할 시점 |

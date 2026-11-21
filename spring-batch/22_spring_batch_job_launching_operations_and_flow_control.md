@@ -34,6 +34,10 @@ Spring Boot에서 `@EnableBatchProcessing`을 추가하거나 `DefaultBatchConfi
 
 오래 걸리는 실행을 요청 스레드에서 기다리지 않으려면 `TaskExecutorJobLauncher`에 비동기 실행기를 구성한다. 접수가 성공하면 `202 Accepted`와 실행 ID, 상태 조회 주소를 반환할 수 있다. 작업 결과는 이후 조회로 확인한다. 실행 가능한 Job과 파라미터를 서버에서 검증하고 실행·조회·중지 권한을 구분한다. [Spring Batch 5.2 · Configuring a JobLauncher](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html) · [Advanced Metadata Usage](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html) · [RFC 9110 · 202 Accepted](https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted)
 
+![비동기로 Job을 시작하면 예시 REST API는 실행 ID를 반환한다. 이후 상태를 조회하거나 중지를 요청하며, 실패 실행을 재시작하면 같은 인스턴스에서 새 실행 ID를 받는다.](image/22_asynchronous_job_id_operations.png)
+
+그림의 근거 · [JobLauncher 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html) · [메타데이터 운영 API](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html) · [Step 흐름 제어](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html)
+
 ## 4. Flow에 분기와 종료 조건을 둔다
 
 아래 Job은 입력 검사에 성공한 뒤 실행 모드를 읽는다. `validate`는 검사만 하고 종료하며, `full`은 적재 Step까지 실행한다. Step에서 `on(...)`은 `ExitStatus`를 매칭한다. Decider에서는 `FlowExecutionStatus`를 반환해 흐름을 선택한다. [Spring Batch 5.2 · Controlling Step Flow](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html)
