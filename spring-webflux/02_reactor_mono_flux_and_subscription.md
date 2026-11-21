@@ -42,6 +42,8 @@ public class DemandExample {
 }
 ```
 
+![BaseSubscriber가 구독 후 request(1)로 값을 하나씩 요청하고 두 번째 onNext 값을 처리한 뒤 cancel()을 상류로 전달하는 순서](image/reactor_request_and_cancel_sequence.png)
+
 람다로 구독한 경우 반환된 `Disposable`의 `dispose()`로 취소할 수 있다. 취소는 상류에 중단 의사를 전달한다. 비동기 경계에서는 이미 전달 중인 신호와 경합할 수 있으므로 취소와 자원 정리 동작을 테스트한다. `limitRate`는 상류로 보내는 요청을 묶음으로 조정한다. `buffer`, `flatMap` 같은 연산자는 자신이 받는 수요를 상류에 전달할 때 수량을 바꿀 수 있다. [Reactor · Cancelling a Subscribe and Reshaping Requests](https://projectreactor.io/docs/core/release/reference/coreFeatures/simple-ways-to-create-a-flux-or-mono-and-subscribe-to-it.html)
 
 WebFlux 컨트롤러에서는 조합한 `Publisher`를 반환한다. 프레임워크가 응답을 쓸 때 그 스트림을 구독하므로 요청 처리의 취소도 같은 실행 흐름에서 전파될 수 있다. [Spring Framework 6.2 · WebFlux Return Values](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/controller/ann-methods/return-types.html)

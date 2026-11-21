@@ -68,5 +68,65 @@
       "url": "https://developer.hashicorp.com/terraform/language/state/locking",
       "locator": "State Locking의 상태 쓰기 작업 자동 잠금 및 잠금 획득 실패 시 동작"
     }
+  },
+  {
+    "page": "spring-webflux/01_reactive_programming_and_webflux_fundamentals.md",
+    "claim": "![같은 Reactor Netty 이벤트 루프에서 요청 A가 논블로킹 I/O를 시작하면 준비된 요청 B를 처리할 수 있고, A가 같은 스레드에서 블로킹 JDBC를 호출하면 B가 대기하는 예시](image/webflux_event_loop_blocking_comparison.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 WebFlux를 Reactor Netty에서 실행하며 두 요청이 같은 이벤트 루프 스레드를 사용하는 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Concurrency Model과 Invoking a Blocking API의 이벤트 루프 작업자 및 블로킹 호출 설명"
+    }
+  },
+  {
+    "page": "spring-webflux/02_reactor_mono_flux_and_subscription.md",
+    "claim": "![BaseSubscriber가 구독 후 request(1)로 값을 하나씩 요청하고 두 번째 onNext 값을 처리한 뒤 cancel()을 상류로 전달하는 순서](image/reactor_request_and_cancel_sequence.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Project Reactor BaseSubscriber에서 두 값을 각각 요청하고 처리한 뒤 취소하는 readTwo 예시",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/release/reference/coreFeatures/simple-ways-to-create-a-flux-or-mono-and-subscribe-to-it.html",
+      "locator": "An Alternative to Lambdas: BaseSubscriber 및 On Backpressure and Ways to Reshape Requests의 요청과 취소 예제"
+    }
+  },
+  {
+    "page": "spring-webflux/01_reactive_programming_and_webflux_fundamentals.md",
+    "claim": "예시에서 클라이언트 A가 HTTP 응답을 기다리는 동안 같은 이벤트 루프 스레드는 준비된 요청 B를 처리할 수 있다. 외부 API 응답이 도착하면 리액티브 흐름에 선언해 둔 `map`이 결과를 변환하고 WebFlux가 A에 응답한다. [Spring Framework 6.2 · WebFlux Overview](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 WebFlux에서 논블로킹 WebClient 호출을 사용하고 두 요청이 같은 Reactor Netty 이벤트 루프를 공유하는 성공 흐름 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Concurrency Model의 논블로킹 작업자, Mutable State의 연산자 파이프라인, Threading Model의 WebClient 설명"
+    }
+  },
+  {
+    "page": "spring-webflux/01_reactive_programming_and_webflux_fundamentals.md",
+    "claim": "![요청 A의 외부 API 응답이 오기 전에 같은 이벤트 루프가 요청 B를 처리하고, 외부 API 결과가 도착하면 map으로 변환해 클라이언트 A에 응답하는 예시](image/reactive_programming_signal_flow.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 WebFlux에서 논블로킹 WebClient 호출을 사용하고 두 요청이 같은 Reactor Netty 이벤트 루프를 공유하는 성공 흐름 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Concurrency Model의 논블로킹 작업자, Mutable State의 연산자 파이프라인, Threading Model의 WebClient 설명"
+    }
+  },
+  {
+    "page": "spring-webflux/01_reactive_programming_and_webflux_fundamentals.md",
+    "claim": "Netty가 Java NIO 전송을 사용할 때 `NioEventLoop`의 한 스레드는 `Selector`로 등록된 여러 채널의 I/O 준비 상태를 확인하고, 준비된 채널의 핸들러와 작업 큐에 제출된 코드를 실행하는 과정을 반복한다. 준비된 I/O나 실행할 작업이 없으면 `Selector`에서 대기할 수 있고, 채널이 준비되거나 새 작업이 스레드를 깨우면 처리를 이어 간다. [Netty 4.1 · NioEventLoop](https://netty.io/4.1/xref/io/netty/channel/nio/NioEventLoop.html#504) · [Java NIO · Selector](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/channels/Selector.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Netty 4.1 NioEventLoop의 기본 선택 전략과 단일 스레드 실행",
+    "source": {
+      "url": "https://netty.io/4.1/xref/io/netty/channel/nio/NioEventLoop.html#504",
+      "locator": "NioEventLoop.run의 선택 전략, 작업이 없을 때 select 호출, 외부 작업에 대한 wakeup, processSelectedKeys 및 runAllTasks 실행과 반복"
+    }
+  },
+  {
+    "page": "spring-webflux/01_reactive_programming_and_webflux_fundamentals.md",
+    "claim": "![Java NIO 이벤트 루프 스레드가 Selector로 준비된 채널을 확인해 I/O와 큐의 작업을 처리한다. A의 외부 응답이 오기 전에 같은 루프에서 B를 처리하고, 결과가 도착하면 A의 처리를 이어 가는 예시](image/webflux_event_loop_internals.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring WebFlux에서 Netty 4.1 Java NIO 전송을 사용하고 클라이언트 A·B 및 WebClient의 외부 API 연결이 같은 이벤트 루프에 등록된 성공 흐름 예시",
+    "source": {
+      "url": "https://netty.io/4.1/xref/io/netty/channel/nio/NioEventLoop.html#504",
+      "locator": "NioEventLoop.run의 I/O 선택과 작업 실행, processSelectedKey의 채널별 I/O 처리. A와 B의 실행 순서는 세 채널을 같은 루프에 등록한 설명용 예시"
+    }
   }
 ]
