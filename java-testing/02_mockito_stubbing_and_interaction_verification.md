@@ -4,7 +4,7 @@ Mockito로 협력 객체의 응답을 제어하고, 테스트 대상이 어떤 �
 
 ## 1. Mockito 시작하기
 
-스텁은 조회 결과나 실패를 미리 지정한다. 호출 검증은 테스트를 실행한 뒤 어떤 요청이 있었는지 확인한다. 하나의 Mockito 모의 객체에서 두 기능을 함께 사용할 수 있다. [Mockito API](https://github.com/mockito/mockito/blob/v5.17.0/mockito-core/src/main/java/org/mockito/Mockito.java) · [Test Doubles and Mockito](../practical-testing/05_test_doubles_and_mockito.md)
+스텁은 조회 결과나 실패를 미리 지정한다. 호출 검증은 테스트를 실행한 뒤 어떤 요청이 있었는지 확인한다. 하나의 Mockito 모의 객체에서 두 기능을 함께 사용할 수 있다. [Mockito API](https://github.com/mockito/mockito/blob/v5.17.0/mockito-core/src/main/java/org/mockito/Mockito.java)
 
 [JUnit 5 문서](01_junit_5_fundamentals_and_extensions.md)의 Gradle 테스트 설정에 다음 의존성을 추가한다. 이 모듈은 Jupiter 확장과 Mockito 코어를 제공한다. 아래 Java 예제는 같은 테스트 패키지에 둔다. [MockitoExtension](https://github.com/mockito/mockito/blob/v5.17.0/mockito-extensions/mockito-junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java)
 
@@ -167,6 +167,10 @@ class ReservationPracticeTest {
     }
 }
 ```
+
+![Mockito가 재고 조회에 1과 5를 차례로 반환한다. MUG 두 개를 예약하는 첫 시도는 거부되고 두 번째 시도는 hold를 호출한다. verify와 ArgumentCaptor로 확보가 한 번 호출됐으며 요청 수량이 2인지 확인한다.](image/02_mockito_stubbing_and_call_verification.png)
+
+그림의 근거 · [Mockito 5.17.0 스터빙과 검증](https://github.com/mockito/mockito/blob/v5.17.0/mockito-core/src/main/java/org/mockito/Mockito.java) · [Mockito 5.17.0 ArgumentCaptor](https://github.com/mockito/mockito/blob/v5.17.0/mockito-core/src/main/java/org/mockito/ArgumentCaptor.java)
 
 ## 5. 호출 횟수와 인자를 검증
 

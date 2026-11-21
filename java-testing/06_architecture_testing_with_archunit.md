@@ -110,6 +110,10 @@ class OrderArchitectureTest {
 
 첫 규칙은 도메인 클래스에서 웹이나 저장소 패키지로 향하는 의존성을 검사한다. 패키지 패턴의 끝에 붙은 `..`는 해당 패키지와 하위 패키지를 포함한다. 두 번째 규칙은 웹 클래스가 `MapOrderStore` 구현에 직접 의존하는지 확인한다. 필드나 생성자 서명에 구현 타입을 사용해도 의존성으로 잡힌다. [ArchUnit Use Cases](https://www.archunit.org/use-cases) · [ArchUnit User Guide](https://www.archunit.org/userguide/html/000_Index.html)
 
+![웹의 OrderEndpoint와 저장소 구현 MapOrderStore는 도메인의 OrderStore 인터페이스를 사용한다. 웹의 생성자가 MapOrderStore를 직접 참조하면 ArchUnit이 컴파일된 클래스에서 위반을 찾아 JUnit 테스트를 실패시킨다.](image/06_archunit_dependency_and_violation.png)
+
+그림의 근거 · [ArchUnit 클래스 가져오기와 JUnit 통합](https://www.archunit.org/userguide/html/000_Index.html) · [ArchUnit 1.4.1 ClassFileImporter](https://raw.githubusercontent.com/TNG/ArchUnit/v1.4.1/archunit/src/main/java/com/tngtech/archunit/core/importer/ClassFileImporter.java)
+
 ## 4. 규칙이 위반을 발견하는지 확인
 
 `./gradlew test`로 두 규칙이 통과하는지 확인한 뒤, 다음 변경을 한 번에 하나씩 적용해 실패 메시지를 읽고 되돌린다.

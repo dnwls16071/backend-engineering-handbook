@@ -97,6 +97,10 @@ chaos:
       exceptionsActive: true
 ```
 
+![Spring Boot 로컬 실습에서 같은 GET 요청을 사용한다. 일반 실행은 200, 지연 프로필은 약 600~700ms가 추가된 200, 예외 프로필은 실습의 기본 오류 처리에서 500을 기대한다. 기본 프로필로 재실행하고 200을 다시 확인한다.](image/05_chaos_monkey_experiment_and_recovery.png)
+
+그림의 근거 · [Chaos Monkey 3.2.2 Watcher](https://raw.githubusercontent.com/codecentric/chaos-monkey-spring-boot/v3.2.2/chaos-monkey-docs/src/main/asciidoc/watcher.adoc) · [Chaos Monkey 3.2.2 Assault](https://raw.githubusercontent.com/codecentric/chaos-monkey-spring-boot/v3.2.2/chaos-monkey-docs/src/main/asciidoc/assaults.adoc) · [Spring Boot 3.4 오류 처리](https://docs.spring.io/spring-boot/3.4/reference/web/servlet.html#error-handling)
+
 ## 3. 정상 상태와 응답 지연 비교
 
 먼저 `./gradlew bootRun`으로 평상시 동작을 실행한다. 다른 터미널에서 HTTP 상태 코드와 전체 응답 시간을 확인한다.

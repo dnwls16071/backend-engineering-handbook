@@ -90,6 +90,10 @@ printf '%s\n' "$output_dir/report/index.html"
 
 보고서의 샘플 수와 오류율을 먼저 확인한다. 실습의 기대값은 샘플 50개와 오류율 0%다. 실행 명령의 종료 코드와 별도로 결과의 `success` 필드나 보고서 오류율을 확인한다. HTTP 오류나 타임아웃에 더해 응답 단언의 실패도 실패 샘플에 포함된다.
 
+![별도 부하 생성 서버의 JMeter가 테스트 대상 웹 서버에 HTTP 요청을 보낸다. 발생 요청률과 부하 생성기 자원 포화를 확인하고 테스트 대상의 응답 지표와 자원 상태를 같은 시간대에 비교한다.](image/jmeter_separate_load_generator_and_test_target.png)
+
+그림의 근거 · [Apache JMeter 실행 환경 분리](https://jmeter.apache.org/usermanual/remote-test.html) · [Apache JMeter 부하 테스트 권장 설정](https://jmeter.apache.org/usermanual/best-practices.html) · [AWS 부하 테스트와 모니터링](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf_process_culture_load_test.html)
+
 ## 5. 결과 읽기
 
 | 지표 | 해석 |
@@ -100,4 +104,4 @@ printf '%s\n' "$output_dir/report/index.html"
 | Throughput | 단위 시간당 처리한 샘플 수다. HTTP 요청 결과를 비교할 때는 초당 처리량과 동시 사용자 수를 구분한다. |
 | Error % | 실패로 기록된 샘플의 비율이다. 오류 응답이 빨리 반환되면 평균 시간이 낮아질 수 있으므로 응답 시간과 함께 읽는다. |
 
-로컬 정적 파일 실습은 요청·단언·보고서 흐름을 검증한다. 서비스 성능을 비교할 때는 동일한 입력과 부하 조건으로 반복하고, 응답 시간 및 오류율이 달라진 구간의 서버 CPU, 스레드, DB 지표를 함께 본다. [JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) · [JMeter Dashboard Report](https://jmeter.apache.org/usermanual/generating-dashboard.html) · [부하 테스트로 병목 지점 파악하기](../load_testing_guideline/02_bottleneck_identification.md)
+로컬 정적 파일 실습은 요청·단언·보고서 흐름을 검증한다. 서비스 성능을 비교할 때는 동일한 입력과 부하 조건으로 반복하고, 응답 시간 및 오류율이 달라진 구간의 서버 CPU, 스레드, DB 지표를 함께 본다. [JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) · [JMeter Dashboard Report](https://jmeter.apache.org/usermanual/generating-dashboard.html)

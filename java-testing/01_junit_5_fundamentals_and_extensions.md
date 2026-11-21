@@ -222,6 +222,10 @@ class FixedClockExtension implements ParameterResolver {
 }
 ```
 
+![JUnit Platform에서 Jupiter 엔진이 테스트를 실행한다. @ExtendWith로 등록한 FixedClockExtension이 Clock 인자를 지원하는지 확인하고 고정 Clock을 생성한다. Jupiter는 그 값을 테스트 메서드에 전달한다.](image/01_junit_parameter_resolver_execution.png)
+
+그림의 근거 · [JUnit 5.12.2 구성과 실행](https://docs.junit.org/5.12.2/user-guide/#overview) · [JUnit 5.12.2 인자 해석](https://docs.junit.org/5.12.2/user-guide/#extensions-parameter-resolution)
+
 ## 8. JUnit 4에서 점진적으로 전환
 
 같은 프로젝트에서 JUnit 4와 Jupiter 테스트가 공존해야 할 때는 JUnit 4 의존성과 Vintage 엔진을 함께 둘 수 있다. 새 테스트는 Jupiter로 작성하고 기존 테스트를 옮길 때 애너테이션, 단언의 인자 순서, 초기화 범위를 확인한다. 전환 후 실행된 테스트 목록을 비교하면 발견되지 않은 기존 테스트를 찾는 데 도움이 된다. [Migrating from JUnit 4](https://docs.junit.org/5.12.2/user-guide/#migrating-from-junit4)
@@ -235,5 +239,3 @@ class FixedClockExtension implements ParameterResolver {
 | `@Test(expected = ...)` | `assertThrows` |
 | `@Test(timeout = ...)` | `@Timeout` 또는 `assertTimeout`. 스레드와 타임아웃 동작을 확인한다. |
 | `@RunWith`, `@Rule`, `@ClassRule` | 용도에 따라 `@ExtendWith`, `@RegisterExtension`, `@TempDir` 등으로 전환한다. |
-
-실제 테스트의 경계값과 제어하기 어려운 의존을 다루는 예제는 [Unit Testing with JUnit 5](../practical-testing/01_unit_testing_with_junit_5.md)에 이어진다.

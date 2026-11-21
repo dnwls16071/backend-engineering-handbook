@@ -110,6 +110,10 @@ class SpringPostgresTest {
 
 Spring Boot에서 지원하는 서비스는 `spring-boot-testcontainers` 의존성을 추가하고 `@ServiceConnection`으로 연결 정보를 등록할 수 있다. 사용자 정의 속성이나 지원 범위 밖의 서비스에는 `@DynamicPropertySource`가 유용하다. 여러 테스트 클래스가 Spring 컨텍스트를 공유한다면 컨텍스트가 참조하는 컨테이너도 그 기간에 살아 있어야 한다. 컨테이너를 Spring 빈으로 관리하는 방식은 컨텍스트와 수명을 맞출 수 있다. [Spring Boot Testcontainers Support](https://docs.spring.io/spring-boot/3.4/reference/testing/testcontainers.html)
 
+![Jupiter 확장이 정적 PostgreSQL 컨테이너를 시작한다. DynamicPropertySource에 등록한 공급자가 매핑된 연결 정보를 Spring에 전달한다. JdbcTemplate이 컨테이너의 appdb에 연결하고 테스트 클래스가 끝나면 컨테이너를 종료한다.](image/03_testcontainers_postgresql_spring_connection.png)
+
+그림의 근거 · [Testcontainers 1.21.4 Jupiter 확장](https://github.com/testcontainers/testcontainers-java/blob/1.21.4/docs/test_framework_integration/junit_5.md) · [Testcontainers 1.21.4 네트워크](https://github.com/testcontainers/testcontainers-java/blob/1.21.4/docs/features/networking.md) · [Spring Framework 6.2 동적 속성](https://docs.spring.io/spring-framework/reference/6.2/testing/testcontext-framework/ctx-management/dynamic-property-sources.html)
+
 ## 4. Docker Compose로 테스트 환경 실행
 
 Compose 파일은 서비스 이미지, 환경 변수, 네트워크 관계와 헬스체크를 선언한다. 단일 PostgreSQL로 연결 방식을 확인한 뒤, 여러 서비스가 필요한 테스트에서는 같은 Compose 파일에 서비스와 의존 관계를 추가할 수 있다. 예제 파일은 모듈의 `src/test/resources/compose.yaml`에 둔다. [Testcontainers Docker Compose Module](https://java.testcontainers.org/modules/docker_compose/)
