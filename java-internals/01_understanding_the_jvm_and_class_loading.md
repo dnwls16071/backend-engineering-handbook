@@ -27,6 +27,10 @@ JVM 명세는 각 영역의 역할과 공유 범위를 정의한다. 메모리�
 
 예를 들어 `Order order = new Order();`에서 `order`의 참조는 호출 프레임의 지역 변수에 들어가고 `Order` 인스턴스는 힙에 놓인다. `Order`의 메서드 정보는 클래스 단위로 관리된다. [JVM 명세 §2.4](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.4) · [JVM 명세 §2.6](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6)
 
+![javac가 만든 클래스 파일을 JVM이 실행할 때 스레드별 프레임의 order 참조가 공유 힙의 Order 인스턴스를 가리키고, 클래스와 메서드 정보는 공유 영역에서 관리되는 구조](image/01_java_jvm_frame_heap_and_class_data.png)
+
+그림의 근거 · [JDK 21 javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html) · [JVMS 21 런타임 데이터 영역](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5) · [JVMS 21 호출 프레임](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6)
+
 ## 3. 로딩, 링크, 초기화
 
 | 단계 | JVM이 하는 일 |
@@ -41,11 +45,19 @@ JVM 명세는 각 영역의 역할과 공유 범위를 정의한다. 메모리�
 
 `new`로 인스턴스를 만들거나 정적 메서드를 호출하거나 일반 정적 필드를 처음 읽고 쓰면 해당 타입이 초기화된다. 정적 필드를 상속받아 참조할 때는 그 필드를 실제로 선언한 타입이 기준이다. `static final int LIMIT = 10;`처럼 상수 표현식으로 초기화한 기본형이나 `String` 상수를 읽을 때는 선언 타입의 초기화가 필요 없다. 클래스의 정적 초기화 코드가 실행되기 전에 상위 클래스와 기본 메서드를 선언한 상위 인터페이스의 초기화를 마친다. [Java 언어 명세 §12.4.1](https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1)
 
+![클래스가 먼저 로드·검증·준비되고 처음 필요한 사용에서 초기화되며, 심볼릭 참조 해석은 검증 시점이나 참조를 사용할 때까지 미룰 수 있는 흐름](image/01_java_class_loading_linking_and_initialization.png)
+
+그림의 근거 · [JVMS 21 링킹](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4) · [JVMS 21 초기화](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5) · [JLS 21 초기화 트리거](https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1)
+
 ## 4. 클래스 로더의 위임과 타입의 동일성
 
 Java 런타임의 내장 로더에는 핵심 클래스를 맡는 부트스트랩 로더, Java 플랫폼의 클래스를 맡는 플랫폼 로더, 일반적인 실행에서 애플리케이션 클래스패스의 클래스를 찾는 애플리케이션 로더가 있다. `ClassLoader.loadClass`의 기본 구현은 먼저 이미 로드한 클래스를 확인하고, 부모 로더에 위임한 다음, 부모가 찾지 못하면 자신의 `findClass`를 호출한다. [JDK ClassLoader](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html) · [ClassLoader.loadClass](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html#loadClass(java.lang.String,boolean))
 
 클래스를 직접 로드하거나 다른 로더에 위임해 정의를 반환한 로더를 개시 로더(initiating loader)라고 한다. 정의 로더(defining loader)는 클래스를 직접 정의한 로더다. 일반 클래스의 런타임 타입은 **바이너리 이름과 정의 로더의 조합**으로 결정된다. 같은 `.class` 파일을 로더 두 개가 각각 정의하면 별개 타입이 된다. 두 로더가 부모에 위임해 같은 정의를 받으면 `Class` 객체도 같다. [JVM 명세 §5.3](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3)
+
+![이미 로드한 클래스를 찾고 부모에 위임한 뒤 자체 검색하는 기본 흐름과, 두 자식 로더가 같은 Plugin 파일을 각각 정의해 형변환이 실패하는 실습 구조](image/01_java_class_loader_type_identity.png)
+
+그림의 근거 · [JDK 21 ClassLoader](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html) · [JVMS 21 클래스 정체성](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3) · [JDK 21 Class 타입 검사](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html)
 
 ## 5. JDK 21 이상에서 실행하기
 

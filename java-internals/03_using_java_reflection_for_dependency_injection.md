@@ -110,8 +110,16 @@ Hi, Java
 
 `Constructor.newInstance()`가 생성자를 실행하고 `Method.invoke()`가 메서드를 실행한다. 예제 끝의 `Field.set()`은 이미 만든 객체의 가변 필드를 바꾸는 별도 리플렉션 실습이다. 이 컨테이너에는 정확한 타입으로 등록한 인스턴스만 들어간다. Spring 컨테이너를 사용할 때는 후보가 여러 개인 경우의 선택 규칙, 빈의 범위와 수명 주기도 적용된다. [Oracle · Constructor](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html) · [Oracle · Method](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Method.html) · [Spring Framework · Constructor-Based DI](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html)
 
+![실습 컨테이너가 런타임 Inject 생성자를 고르고 접근을 확인한 뒤 NameProvider 매개변수 타입의 등록 객체를 찾아 생성자를 실행하는 순서와 Spring에서의 대응 단계](image/03_java_reflection_constructor_injection.png)
+
+그림의 근거 · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html) · [Spring 6.2 생성자 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html) · [Spring 생성자 후보 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html)
+
 ## 3. 접근 검사와 실패 지점
 
 멤버를 찾았더라도 호출하거나 값을 바꿀 권한이 따로 필요하다. 예제의 클래스들은 같은 모듈에 있다. 다른 명명 모듈의 비공개 멤버에 접근할 때는 대상 패키지가 호출자 모듈에 열려 있어야 하며, `trySetAccessible()`은 해당 접근을 열 수 없으면 `false`를 반환한다. JPMS의 `exports`는 공개 타입에 대한 일반 접근을 열고, `opens`는 패키지 내부에 대한 깊은 리플렉션 접근을 허용한다. [Oracle · AccessibleObject](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html) · [Java Language Specification · Module Declarations](https://docs.oracle.com/javase/specs/jls/se21/html/jls-7.html#jls-7.7)
 
 멤버 이름이나 매개변수 타입이 맞지 않으면 조회에서 `NoSuchMethodException`이나 `NoSuchFieldException`이 발생할 수 있다. 메서드나 생성자 본문이 예외를 던지면 호출 API는 이를 `InvocationTargetException`으로 감싸므로 `getCause()`에서 실제 실패를 확인한다. [Oracle · InvocationTargetException](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationTargetException.html)
+
+![리플렉션의 멤버 조회 실패, trySetAccessible이 false를 반환하는 접근 실패, 본문 예외가 InvocationTargetException으로 전파되는 호출 실패를 구분한 그림](image/03_java_reflection_lookup_access_and_invoke.png)
+
+그림의 근거 · [JDK 21 멤버 조회](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html) · [JDK 21 리플렉션 접근](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html) · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html)

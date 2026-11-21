@@ -14,6 +14,10 @@ JaCoCo는 원본 `.class`의 바이트코드로 제어 흐름을 분석한다. �
 
 `LineNumberTable`은 메서드 내 바이트코드 오프셋을 소스 줄에 대응시키는 선택적 클래스 파일 속성이다. `javac -g`로 컴파일하면 줄 번호가 들어가고 `-g:none`으로 컴파일하면 빠진다. 줄 번호가 없는 클래스에서도 명령과 분기는 집계할 수 있다. 한 줄에 여러 명령이 매핑되면 실행된 명령과 미실행 명령이 섞여 부분 커버리지로 표시될 수 있다. [JVM 명세 `LineNumberTable`](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-4.html#jvms-4.7.12) · [JaCoCo 커버리지 지표](https://www.jacoco.org/jacoco/trunk/doc/counters.html) · [JDK 21 `javac`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html)
 
+![JaCoCo가 원본 Rabbit 바이트코드를 분석해 프로브를 삽입하고, 실행 데이터와 같은 원본 바이트코드를 결합해 명령·분기·소스 줄 커버리지를 계산하는 흐름](image/02_java_jacoco_probe_to_coverage_report.png)
+
+그림의 근거 · [JaCoCo 제어 흐름 분석](https://www.jacoco.org/jacoco/trunk/doc/flow.html) · [JaCoCo 클래스 ID](https://www.jacoco.org/jacoco/trunk/doc/classids.html) · [JaCoCo 커버리지 집계](https://www.jacoco.org/jacoco/trunk/doc/counters.html)
+
 ## 2. `Rabbit`의 바이트코드 읽기
 
 JDK 21이 활성화된 빈 작업 디렉터리에서 아래 경로대로 파일을 만든다. 실습 애플리케이션은 `Rabbit.hop`에 전달한 값에 따라 `hide` 또는 `hop`을 출력한다.
@@ -126,6 +130,10 @@ find build/dump -name 'demo.Rabbit.[0-9]*.class' -exec javap -c -l {} \;
 | `-g` | `false` | 1/2 | 3 |
 | `-g` | `false`와 `true`의 실행 데이터 합산 | 2/2 | 3 |
 | `-g:none` | `false` | 1/2 | 0 |
+
+![시작 에이전트의 premain이 Instrumentation에 Byte Buddy 변환기를 등록하고, JVM이 Rabbit을 정의하기 전에 변환 바이트를 받아 사용하는 순서](image/02_java_agent_registration_and_class_transform.png)
+
+그림의 근거 · [JDK 21 시작 에이전트](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html) · [JDK 21 변환 콜백](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html) · [Byte Buddy 1.17.7 AgentBuilder](https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java)
 
 ## 4. `javap`, `Instrumentation`, 에이전트 시작 시점 정리
 

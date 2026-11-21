@@ -18,6 +18,10 @@ JSR 269는 컴파일 중 애너테이션과 Java 선언을 읽고 처리하는 A
 
 컴파일된 `Order.class`가 있는 디렉터리에서 `javap -p Order`로 메서드 목록을 확인할 수 있다. `Order.java`에 적용될 변환을 소스로 보려면 `Order.java`와 `lombok.jar`가 있는 디렉터리에서 `java -jar lombok.jar delombok -p Order.java`를 사용한다. [javap](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javap.html) · [Lombok Delombok](https://projectlombok.org/features/delombok)
 
+![표준 Filer 프로세서는 별도 OrderTypeName 소스와 클래스를 만들고 Lombok Getter는 javac의 Order AST에 getId를 추가해 기존 Order 클래스에 포함시키는 비교](image/05_java_standard_processing_and_lombok_ast.png)
+
+그림의 근거 · [표준 Filer API](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [Lombok 실행 경로](https://projectlombok.org/contributing/lombok-execution-path) · [Lombok javac Getter 구현](https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java)
+
 ## 3. JDK 23부터 프로세서 실행을 명시하기
 
 JDK 23부터 `javac`는 일반 클래스 경로에 있는 프로세서를 기본으로 찾아 실행하지 않는다. `-processor`로 실행할 프로세서 이름을 지정하거나, `--processor-path` 또는 `--processor-module-path`로 검색 경로를 설정할 수 있다. `-proc:full`은 애너테이션 처리와 컴파일을 모두 활성화하고, `-proc:only`는 애너테이션 처리까지만 수행한다. 실습은 프로세서의 위치와 이름을 모두 지정한다. [JDK 23 릴리스 노트](https://www.oracle.com/java/technologies/javase/23-relnote-issues.html) · [OpenJDK의 기본 정책 변경 안내](https://inside.java/2024/06/18/quality-heads-up/) · [javac 옵션](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#standard-options)
@@ -162,3 +166,7 @@ demo.Order
 mkdir -p build/no-processing
 javac -proc:none -classpath build/no-processing -d build/no-processing app/demo/*.java
 ```
+
+![TypeNameProcessor가 첫 컴파일 라운드에서 OrderTypeName 소스를 만들고, 생성된 소스를 두 번째 라운드에서 처리한 뒤 마지막 라운드를 거쳐 클래스 파일을 내보내는 흐름](image/05_java_annotation_processing_rounds.png)
+
+그림의 근거 · [javac 처리 라운드](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works) · [JDK 25 Filer](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [OpenJDK JDK 23 정책 변경](https://inside.java/2024/06/18/quality-heads-up/)

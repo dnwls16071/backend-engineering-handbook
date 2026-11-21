@@ -80,6 +80,10 @@ missing SKU
 
 핸들러가 `InvocationTargetException`을 벗기면 인터페이스의 `throws`에 선언된 `IOException`이 호출자에게 전달된다. 핸들러가 인터페이스에 선언되지 않은 체크 예외를 던지면 프록시 호출은 `UndeclaredThrowableException`으로 감싼다. 검증과 예외 변환을 적용할 때 인터페이스의 계약을 확인한다. [Oracle · InvocationHandler](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html) · [Oracle · UndeclaredThrowableException](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/UndeclaredThrowableException.html)
 
+![StockLookup 동적 프록시의 default available 본문이 프록시를 수신자로 실행되고 quantity 호출이 핸들러에 다시 들어와 실제 타깃으로 위임되는 순서](image/04_java_jdk_proxy_default_method_dispatch.png)
+
+그림의 근거 · [JDK 21 동적 프록시](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Proxy.html) · [JDK 21 default 메서드 위임](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html)
+
 ## 2. 클래스의 가상 메서드를 가로채기
 
 JDK 프록시는 인터페이스 구현 타입으로 사용할 수 있다. 호출자가 구체 클래스의 메서드를 호출해야 한다면 상속 가능한 클래스에 CGLIB 프록시를 적용할 수 있다. 하위 클래스가 재정의할 수 있는 메서드에 어드바이스가 적용된다. `final` 클래스는 상속할 수 없고, `final`과 `private` 메서드는 재정의할 수 없다. 대상이 자기 자신에게 `this`로 호출하면 Spring AOP 프록시를 지나지 않는다. 위 default 메서드 실습은 프록시를 수신자로 지정한 JDK API 예제다. [Spring Framework · Proxying Mechanisms](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [Spring AOP 자기 호출](../spring-advanced/12_spring_aop_proxy_limitations_and_self_invocation.md)
@@ -124,6 +128,14 @@ v1
 
 `status()`는 프록시의 재정의 지점을 통과한다. `version()` 호출은 동일한 프록시 객체에서 실행되지만 재정의 지점이 없으므로 기록이 생기지 않는다. [Spring Framework · Using ProxyFactory](https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html)
 
+![Spring CGLIB 프록시가 재정의 가능한 status 호출에 인터셉터를 적용하고 final version은 상속된 본문을 실행하는 실습 비교](image/04_java_spring_cglib_override_boundary.png)
+
+그림의 근거 · [Spring 6.2 프록시 구성](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [Spring 6.2 ProxyFactory](https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html)
+
 ## 3. Spring Data JPA 리포지토리에서 호출이 향하는 곳
 
 Spring Data는 리포지토리 인터페이스의 메타데이터를 읽고 리포지토리 팩토리로 프록시를 만든다. JPA의 기본 CRUD 메서드는 기본 구현체인 `SimpleJpaRepository`로 이어진다. 사용자가 선언한 쿼리 메서드는 전략에 따라 선언된 쿼리를 찾거나 메서드 이름에서 쿼리를 파생하고, 커스텀 리포지토리 프래그먼트의 메서드는 등록된 프래그먼트가 실행한다. 프록시를 조사할 때는 어떤 인터페이스를 구현했는지와 어떤 호출이 어느 구현에 위임되는지를 함께 본다. [Spring Data · RepositoryFactorySupport](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/core/support/RepositoryFactorySupport.html) · [Spring Data JPA · Query Methods](https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html) · [Spring Data JPA · Custom Repository Implementations](https://docs.spring.io/spring-data/jpa/reference/repositories/custom-implementations.html)
+
+![Spring Data JPA 리포지토리 프록시가 기본 CRUD를 SimpleJpaRepository에, 쿼리 메서드를 선언 쿼리나 파생 쿼리에, 커스텀 메서드를 등록 프래그먼트에 위임하는 구조](image/04_java_spring_data_repository_dispatch.png)
+
+그림의 근거 · [Spring Data JPA 팩토리](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html) · [Spring Data JPA 쿼리](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html) · [Spring Data 커스텀 구현](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)
