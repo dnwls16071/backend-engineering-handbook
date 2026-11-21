@@ -20,6 +20,8 @@
 | Refactor | 테스트가 통과하는 상태에서 이름, 중복, 책임을 다듬는다. | 관찰 가능한 동작은 유지되고 테스트가 계속 통과한다. |
 | 반복 | 완료한 항목을 표시하고 새로 발견한 시나리오를 목록에 추가한다. | 다음 항목으로 넘어갈 때 확인할 동작이 분명하다. |
 
+![404를 기대한 테스트가 200 응답으로 실패한 뒤, 404 반환을 구현하고 내부 구조를 정리하면서 같은 테스트를 다시 실행하는 흐름](image/tdd_404_red_green_refactor.png)
+
 실패 원인이 한 번에 좁혀지지 않으면 보폭을 줄인다. 익숙한 변경이며 실패 원인을 바로 설명할 수 있다면 보폭을 조금 넓혀도 된다. 탐색 중에 누락된 요구사항을 발견하면 목록에 먼저 기록한 뒤 진행 중인 주기를 마친다. 구조를 손볼 필요가 있을 때 Refactor 단계를 활용한다.
 
 **참고** [Kent Beck의 Test-Driven Development by Example](https://www.informit.com/store/test-driven-development-by-example-9780321146533) · [Martin Fowler의 TDD 설명](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
