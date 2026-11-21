@@ -4,6 +4,8 @@
 
 `AuthenticationEventPublisher`는 인증 성공과 실패를 Spring 이벤트로 전달하는 계약이다. `DefaultAuthenticationEventPublisher`를 사용하면 성공은 `AuthenticationSuccessEvent`로, 실패는 인증 예외 유형별 이벤트로 매핑할 수 있다. `ProviderManager`를 직접 만들 때는 그 매니저에 발행기가 설정됐는지 확인한다. [Spring Security 6.5 · Authentication Events](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/events.html)
 
+![인증 매니저의 성공이나 실패 결과를 발행기가 성공 이벤트 또는 매핑된 예외 유형별 실패 이벤트로 발행하고, 해당 이벤트를 구독한 Spring 리스너가 받는다.](image/10_authentication_event_publication.png)
+
 | 이벤트 | 관찰할 내용 |
 | --- | --- |
 | `AuthenticationSuccessEvent` | 인증 매니저가 자격 증명을 수락했다는 결과 |

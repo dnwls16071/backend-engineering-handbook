@@ -21,6 +21,8 @@ spring:
 
 `OpaqueTokenAuthenticationProvider`는 `OpaqueTokenIntrospector`에 검사 요청을 위임한다. Spring의 기본 흐름에서는 `active` 응답을 확인하고 받은 범위를 `SCOPE_` 권한으로 연결한다. 리소스 바인딩이나 사용자 속성을 추가로 확인해야 하면 인가 서버와 응답 계약을 정하고 인트로스펙터를 감싸 검증할 수 있다. [Spring Security 6.5 · Configuring Introspection and Authorities](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/opaque-token.html)
 
+![API가 받은 Bearer 토큰을 인가 서버에 확인하고, 활성 응답의 범위를 권한으로 매핑한 뒤 별도로 인가를 판정한다.](image/27_opaque_token_introspection.png)
+
 ## 3. 응답 지연과 폐기 반영 확인하기
 
 요청마다 인트로스펙션을 하면 인가 서버 응답 시간과 가용성이 API에 영향을 준다. 응답을 캐시한다면 캐시 수명 동안 폐기된 토큰이 계속 허용될 수 있는지를 평가한다. 조회 실패나 비활성 응답을 승인으로 취급하지 않도록 오류 정책을 정하고, 정상·비활성·통신 오류를 각각 테스트한다. [RFC 7662 · Security Considerations](https://www.rfc-editor.org/rfc/rfc7662.html#section-4)

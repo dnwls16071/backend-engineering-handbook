@@ -6,6 +6,8 @@ OpenID Connect(OIDC)는 OAuth 2.0 흐름에 사용자 인증 정보를 추가한
 
 ID 토큰의 대상은 애플리케이션 클라이언트다. 리소스 서버에는 해당 API에 발급된 액세스 토큰을 보낸다. UserInfo 호출도 액세스 토큰을 사용한다. UserInfo 결과를 로그인 정보에 합칠 때는 `sub`가 ID 토큰의 `sub`와 일치하는지 확인한다. [OpenID Connect Core 1.0 · ID Token and UserInfo](https://openid.net/specs/openid-connect-core-1_0.html)
 
+![OpenID Provider가 발급한 ID 토큰은 로그인 클라이언트가 검증해 로그인에 사용한다. 액세스 토큰은 발급된 대상에 맞춰 UserInfo나 API에 보내고, UserInfo 결과를 쓰기 전에 ID 토큰과 sub를 대조한다.](image/17_oidc_token_destinations.png)
+
 ## 2. ID 토큰 검증 항목
 
 | 클레임 또는 정보 | 확인할 내용 |

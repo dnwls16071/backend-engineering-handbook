@@ -8,6 +8,8 @@
 
 아래 예제는 기본 범위 매핑을 유지하고, 신뢰한 발급자와 합의한 `catalog_roles` 배열에서 알려진 역할만 권한으로 추가한다. `jwt.jwtAuthenticationConverter(CatalogJwtAuthorities.converter())`로 [JWT 체인](23_oauth2_resource_server_jwt_configuration.md)에 연결한다. [Spring Security 6.5 · Extracting Authorities Manually](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html)
 
+![JWT 범위는 기본 매핑으로 SCOPE 권한이 되고, 예제 변환기는 허용 목록에 있는 역할만 ROLE 권한으로 추가한다.](image/26_jwt_authorities_mapping.png)
+
 ```java
 import java.util.Collection;
 import java.util.LinkedHashSet;

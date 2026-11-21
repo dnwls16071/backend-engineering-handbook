@@ -16,6 +16,8 @@ Spring Authorization Server 1.5는 OAuth 2.0의 인가 요청과 토큰 발급·
 
 아래 구성에는 [등록 클라이언트 저장소](29_spring_authorization_server_domain_model.md), 사용자 저장소, `JWKSource` 및 필요한 `JwtDecoder` 빈을 함께 둔다. OIDC를 켠 경우 UserInfo 같은 보호된 프로토콜 엔드포인트에도 디코더가 사용된다. 브라우저 로그인과 프로토콜 요청은 각 체인의 매처가 구분한다. [Spring Authorization Server · Configuration Model](https://docs.spring.io/spring-authorization-server/reference/configuration-model.html)
 
+![인가 서버의 프로토콜 체인은 서버 설정, 등록 클라이언트 저장소와 키·디코더 구성을 사용한다. 별도 사용자 로그인 체인은 브라우저 폼 로그인을 처리한다.](image/28_authorization_server_filter_chains.png)
+
 ```java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -17,6 +17,8 @@
 
 인가 요청이 도착하면 서버가 등록된 클라이언트, 콜백, 지원 범위와 필요한 PKCE 설정을 검사한다. 코드 교환에서는 발급된 코드가 해당 클라이언트와 요청에 연결되는지 확인한다. 엔드포인트 설정에서 요청 변환기, 검증기, 인증 제공자, 응답 핸들러를 필요에 따라 확장할 수 있다. [RFC 6749 · Authorization Code](https://www.rfc-editor.org/rfc/rfc6749.html#section-4.1) · [RFC 9126 · PAR](https://www.rfc-editor.org/rfc/rfc9126.html) · [RFC 8628 · Device Authorization Grant](https://www.rfc-editor.org/rfc/rfc8628.html) · [Spring Authorization Server · Protocol Endpoints](https://docs.spring.io/spring-authorization-server/reference/protocol-endpoints.html)
 
+![인가 서버는 브라우저 인가, OAuth 클라이언트의 토큰 발급·폐기, 리소스 서버의 공개 키와 활성 상태 조회를 위한 엔드포인트를 제공한다. OAuth 서버 메타데이터는 별도로 게시하고, OIDC를 활성화하면 공급자 메타데이터와 UserInfo 등의 엔드포인트가 추가된다.](image/30_authorization_server_endpoint_map.png)
+
 ## 2. OIDC를 활성화한 경우
 
 | 기본 경로 | 역할 |

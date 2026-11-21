@@ -17,6 +17,8 @@
 
 아래 예제는 Spring Security의 기본 시간·issuer 검증을 유지하면서 대상 API와 만료 클레임의 존재를 검사한다. 디코더는 이 검증기를 실행하기 전에 설정한 키로 서명을 확인한다. [Spring Security 6.5 · Configuring Validation](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html)
 
+![토큰은 신뢰한 키로 서명을 확인한 뒤 클레임 정책을 검사한다. 서명이나 클레임 검증에 실패하면 인증을 거부하고, 두 검사를 통과한 토큰의 클레임을 인증에 사용한다.](image/24_jwt_validation_gates.png)
+
 ```java
 import java.time.Instant;
 import java.util.List;

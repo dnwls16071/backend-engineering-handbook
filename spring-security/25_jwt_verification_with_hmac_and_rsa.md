@@ -9,6 +9,8 @@
 
 HMAC 비밀 키를 가진 서버는 검증과 생성 모두 가능하므로 비밀을 공유할 범위를 정한다. `HS256`에는 최소 256비트 키를 사용한다. RSA에서는 발급자에 개인 키를 두고 리소스 서버에는 공개 키를 배포할 수 있다. `RS256`에 사용하는 RSA 키는 2048비트 이상이어야 한다. [RFC 7518 · JSON Web Algorithms](https://www.rfc-editor.org/rfc/rfc7518.html)
 
+![HS256은 발급자와 리소스 서버가 같은 공유 비밀 키를 사용하는 배치이고, RS256은 발급자가 개인 키를 보유하고 리소스 서버가 공개 키를 보유하는 배치다.](image/25_hmac_rsa_key_distribution.png)
+
 ## 2. 알고리즘을 서버 설정에서 고정하기
 
 아래 예제는 두 배포 방식의 디코더 팩터리다. 각각 신뢰한 경로에서 받은 키를 넣고 [issuer와 audience 검증](24_jwt_validation_fundamentals.md)을 연결한다. 서비스는 인가 서버와 합의한 구성 하나를 사용한다. [RFC 8725 · Algorithm Verification](https://www.rfc-editor.org/rfc/rfc8725.html) · [Spring Security 6.5 · Trusted Algorithms and Keys](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html)

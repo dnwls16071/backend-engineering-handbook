@@ -4,6 +4,8 @@
 
 기본 `SecurityContextHolder` 전략은 현재 스레드의 컨텍스트를 사용한다. 요청 처리에서 별도의 실행기로 작업을 보내면 작업 스레드에 인증이 자동으로 존재한다고 가정할 수 없다. Spring Security의 위임 실행기는 작업을 제출할 때 컨텍스트를 가져와 실행 전 적용하고, 완료 뒤 이전 컨텍스트를 복원하거나 정리한다. [Spring Security 6.5 · Concurrency Support](https://docs.spring.io/spring-security/reference/6.5/features/integrations/concurrency.html)
 
+![요청 스레드가 작업을 제출하면 위임 실행기가 현재 보안 컨텍스트를 작업에 묶는다. 작업 스레드는 실행 전에 이를 적용하고, 완료 뒤 이전 컨텍스트를 복원하거나 정리한다.](image/12_executor_context_lifecycle.png)
+
 | 비동기 방식 | 컨텍스트 처리 |
 | --- | --- |
 | Spring MVC가 실행하는 `Callable` | Spring Security의 MVC 통합이 이 작업에 현재 컨텍스트를 전달한다. |

@@ -18,4 +18,6 @@
 
 `DaoAuthenticationProvider`는 `UserDetailsService`로 사용자 정보를 조회하고, `PasswordEncoder`로 제출한 비밀번호와 저장된 해시를 비교한다. `UserDetails`는 사용자 이름, 저장된 비밀번호 형식, 권한, 계정 상태 등을 제공한다. 계정 잠금, 비활성화, 만료처럼 계정 상태를 나타내는 값도 인증 결과에 영향을 준다. [Spring Security 6.5 · DaoAuthenticationProvider](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/dao-authentication-provider.html)
 
+![ProviderManager가 DAO 인증 제공자에 인증을 위임한다. 제공자는 UserDetailsService에서 사용자 정보와 저장된 해시를 가져오고, PasswordEncoder로 제출된 비밀번호가 해시와 일치하는지 검증한 뒤 인증 결과를 반환한다.](image/03_dao_password_check.png)
+
 비밀번호를 저장할 때는 `PasswordEncoder.encode(...)`로 단방향 해시를 생성한다. `DelegatingPasswordEncoder`의 `{id}...` 형식은 저장된 해시에 사용할 알고리즘을 식별하게 해 준다. 인증 후에는 `ProviderManager`가 지원하는 결과 객체의 자격 증명을 기본적으로 지울 수 있으므로, 인증 결과나 감사 로그에 원래 비밀번호를 보관할 필요가 없다. [Spring Security 6.5 · Password Storage](https://docs.spring.io/spring-security/reference/6.5/features/authentication/password-storage.html) · [Spring Security 6.5 · ProviderManager](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/architecture.html)

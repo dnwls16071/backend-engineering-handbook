@@ -4,6 +4,8 @@
 
 출처는 스킴, 호스트, 포트로 구분한다. 브라우저가 특정 교차 출처 요청을 보내기 전에 `OPTIONS` 사전 요청으로 허용 여부를 물을 수 있다. 사전 요청에는 로그인 세션 쿠키가 없을 수 있으므로 CORS 처리는 Spring Security의 인증 판정보다 앞에서 이뤄져야 한다. `http.cors(...)`에서 Spring MVC의 CORS 구성이나 `CorsConfigurationSource`를 연결할 수 있다. [Spring Security 6.5 · CORS](https://docs.spring.io/spring-security/reference/6.5/servlet/integrations/cors.html)
 
+![브라우저가 쿠키 없이 보내는 OPTIONS 사전 요청은 CORS 처리에서 허용 여부를 확인한다. 허용 응답을 받은 브라우저가 본 요청을 전송하면 본 요청은 뒤쪽 보안 필터에서 인증 등 필요한 검사를 받는다.](image/07_cors_preflight_order.png)
+
 아래 예제는 서버 설정에 등록할 CORS 소스로, 카탈로그 UI의 출처와 실제 사용 메서드·헤더를 명시한다. 이 소스를 `http.cors(cors -> cors.configurationSource(CatalogCors.configurationSource()))`로 연결한다. 자격 증명을 포함하는 설정에서는 허용 출처를 구체적으로 지정한다. [Spring Framework 6.2 · CORS](https://docs.spring.io/spring-framework/reference/6.2/web/webmvc-cors.html)
 
 ```java

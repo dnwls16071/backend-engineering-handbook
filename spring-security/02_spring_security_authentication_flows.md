@@ -4,6 +4,8 @@
 
 폼 로그인에서 사용자가 `POST /login`으로 자격 증명을 제출하면 `UsernamePasswordAuthenticationFilter`가 인증을 요청한다. 인증 결과에 따라 `AuthenticationSuccessHandler` 또는 `AuthenticationFailureHandler`를 호출한다. 기본 폼 요청의 필드 이름은 `username`과 `password`이며, 커스텀 로그인 화면에서는 폼의 URL, 필드 이름, CSRF 토큰을 서버 설정에 맞춘다. [Spring Security 6.5 · Form Login](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/form.html)
 
+![POST /login의 사용자 이름과 비밀번호를 폼 로그인 필터가 인증 요청으로 바꾸고 AuthenticationManager에 맡긴다. 성공하면 컨텍스트에 인증을 설정한 뒤 성공 처리기를 호출하고, 실패하면 컨텍스트를 지운 뒤 실패 처리기를 호출한다.](image/02_form_login_result.png)
+
 | 방식 | 요청을 처리하는 필터와 결과 |
 | --- | --- |
 | 폼 로그인 | `UsernamePasswordAuthenticationFilter`가 로그인 폼을 읽는다. 성공 후 원래 요청이나 지정된 경로로 이동할 수 있다. |

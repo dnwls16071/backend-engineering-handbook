@@ -4,6 +4,8 @@
 
 인증이 완료된 `Authentication`에서 `GrantedAuthority` 목록을 읽을 수 있다. `AuthorizationManager<T>`는 인증을 가져오는 `Supplier<Authentication>`과 보호 대상 `T`를 받아 접근 허용 여부를 판정한다. HTTP에서는 요청이나 `RequestAuthorizationContext`가, 메서드 인가에서는 호출 또는 반환 결과가 판단의 입력이 된다. [Spring Security 6.5 · Authorization Architecture](https://docs.spring.io/spring-security/reference/6.5/servlet/authorization/architecture.html) · [Spring Security 6.5 API · AuthorizationManager](https://docs.spring.io/spring-security/reference/6.5/api/java/org/springframework/security/authorization/AuthorizationManager.html)
 
+![AuthorizationManager는 인증 조회와 보호 대상을 입력으로 받아 사용자 권한과 대상의 정책을 대조한다. 정책이 요구하는 권한을 충족하면 허용하며, 이 예시에서는 정책이 없거나 권한이 부족하면 거부한다.](image/09_authorization_entry_paths.png)
+
 ```text
 HTTP  → AuthorizationFilter → 요청 매처에 연결된 AuthorizationManager → 다음 필터 또는 거부
 메서드 → Spring AOP 프록시    → 인가 인터셉터 → AuthorizationManager → 메서드 실행 또는 거부

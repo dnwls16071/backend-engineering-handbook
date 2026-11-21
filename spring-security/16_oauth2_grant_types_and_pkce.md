@@ -21,4 +21,6 @@
 
 공개 클라이언트는 PKCE를 사용해야 하고, 기밀 클라이언트에도 PKCE가 권장된다. `state`를 사용하는 구성에서는 원래 브라우저 요청과 콜백을 연결해 값을 확인한다. 인가 서버는 등록된 리다이렉트 URI를 정해진 규칙에 맞춰 검증한다. [RFC 7636 · PKCE](https://www.rfc-editor.org/rfc/rfc7636.html) · [RFC 9700 · 보호 조치](https://www.rfc-editor.org/rfc/rfc9700.html)
 
+![클라이언트가 계산한 code_challenge는 브라우저의 인가 요청으로, 원래의 code_verifier는 코드 교환 요청으로 전달된다. 인가 서버는 코드에 연결된 챌린지와 계산 결과를 비교하고 일치할 때 토큰을 발급한다.](image/16_authorization_code_pkce.png)
+
 리프레시 토큰은 필요한 범위와 기간으로 발급한다. 공개 클라이언트에 발급하는 경우 인가 서버는 토큰 회전이나 발신자 제약을 적용해 재사용을 탐지하거나 제한한다. [RFC 9700 · Refresh Token Protection](https://www.rfc-editor.org/rfc/rfc9700.html#section-4.14)

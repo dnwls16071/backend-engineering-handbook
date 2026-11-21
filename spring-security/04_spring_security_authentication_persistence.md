@@ -15,6 +15,8 @@
 
 자체 MVC 로그인 처리에서 `AuthenticationManager`를 직접 호출한다면 성공 이후 [세션 인증 전략](05_spring_security_session_management.md)을 적용하고, 현재 컨텍스트와 저장소를 갱신한다. 아래 클래스에는 필터 체인과 같은 저장소, 해당 로그인에 적용할 세션 인증 전략을 주입한다. HTTP 성공 응답을 출력하기 전에 저장해야 세션 식별자 헤더도 전송할 수 있다. [Spring Security 6.5 · Explicit Saving](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/persistence.html) · [Spring Security 6.5 · Manual Authentication](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/session-management.html)
 
+![자체 로그인 처리가 인증 성공으로 만든 컨텍스트를 현재 요청에 연결하고 성공 응답 전에 세션 저장소에 저장한다. 다음 요청에서 컨텍스트 필터가 같은 저장소를 통해 저장된 컨텍스트를 현재 요청에서 사용할 수 있게 한다.](image/04_context_between_requests.png)
+
 ```java
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

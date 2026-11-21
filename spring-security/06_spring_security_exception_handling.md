@@ -14,6 +14,8 @@
 
 기억하기 인증으로 접근한 사용자가 더 높은 인증 수준을 요구하는 리소스에서 거절되면, `ExceptionTranslationFilter`는 인증 진입점을 호출해 다시 로그인하도록 할 수 있다. [Spring Security 6.5 · Handling Security Exceptions](https://docs.spring.io/spring-security/reference/6.5/servlet/architecture.html) · [Spring Security 6.5 · CSRF 처리](https://docs.spring.io/spring-security/reference/6.5/servlet/exploits/csrf.html)
 
+![ExceptionTranslationFilter는 AuthenticationException이나 익명·기억하기 인증 요청에서 발생한 AccessDeniedException을 인증 진입점에 넘긴다. 충분히 인증된 요청에서 권한이 부족해 AccessDeniedException이 발생하면 접근 거부 처리기로 넘긴다.](image/06_security_exception_routing.png)
+
 ## 2. 브라우저와 API의 응답 맞추기
 
 `http.exceptionHandling(...)`에서 진입점과 접근 거부 처리기를 설정할 수 있다. 브라우저 체인에서는 로그인 화면으로 보내고, 기계가 호출하는 API 체인에서는 계약에 맞는 상태 코드와 짧은 오류 본문을 반환할 수 있다. 카탈로그 API의 응답을 확인할 때는 인증 수단이 부족한 요청과 이미 인증했지만 권한이 부족한 요청을 각각 테스트한다. [Spring Security 6.5 · HTTP Basic](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/basic.html) · [Spring Security 6.5 API · HttpSecurity](https://docs.spring.io/spring-security/reference/6.5/api/java/org/springframework/security/config/annotation/web/builders/HttpSecurity.html)

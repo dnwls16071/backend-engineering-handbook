@@ -17,6 +17,8 @@
 
 `@EnableMethodSecurity`를 활성화하면 `@PreAuthorize`가 붙은 서비스 메서드는 프록시 진입 시 인가를 확인한다. 요청 경로와 별개로 호출 가능한 쓰기 서비스에 같은 권한 정책을 적용할 수 있다. 조건에 메서드 인자나 리소스 소유권을 사용할 때는 서버가 확인한 객체와 현재 인증 정보를 기준으로 판단한다. [Spring Security 6.5 · Method Security](https://docs.spring.io/spring-security/reference/6.5/servlet/authorization/method-security.html)
 
+![카탈로그 쓰기 요청은 먼저 HTTP 요청 인가를 받고, 통과하면 컨트롤러가 Spring 프록시를 통해 서비스를 호출한다. PreAuthorize의 메서드 인가까지 통과하면 서비스 메서드가 실행된다.](image/08_request_and_method_checks.png)
+
 ```java
 import org.springframework.security.access.prepost.PreAuthorize;
 

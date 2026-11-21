@@ -20,3 +20,5 @@ Authorization 헤더 → BearerTokenAuthenticationFilter → 인증 매니저
 | 유효한 토큰과 필요한 권한이 있음 | 애플리케이션이 요청을 처리 |
 
 API가 요청마다 Bearer 헤더로 인증한다면 `STATELESS` 정책으로 세션에 보안 컨텍스트를 유지하지 않도록 구성할 수 있다. 브라우저 로그인 화면과 같은 애플리케이션에 배치할 때는 [체인 매칭 순서](11_advanced_spring_security_configuration.md)를 확인한다. [RFC 6750 · WWW-Authenticate](https://www.rfc-editor.org/rfc/rfc6750.html#section-3) · [Spring Security 6.5 · Session Management](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/session-management.html)
+
+![리소스 서버는 토큰이 없거나 유효하지 않으면 Bearer 챌린지와 함께 401로 답한다. 토큰이 유효하면 API 권한을 확인하며 필요한 범위가 부족하면 403, 충분하면 요청을 처리한다.](image/22_bearer_authentication_outcomes.png)

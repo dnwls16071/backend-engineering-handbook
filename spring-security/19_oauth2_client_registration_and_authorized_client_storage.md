@@ -36,3 +36,5 @@ Spring Boot는 등록 속성이 있을 때 이를 읽어 `ClientRegistrationRepo
 | `OAuth2AuthorizedClientService` | 등록 ID와 주체 이름을 기준으로 승인된 클라이언트를 관리 |
 
 콜백을 처리할 서버가 최초 요청과 다른 경우에도 인가 요청 상태에 접근할 수 있어야 한다. 발급 토큰의 저장 위치를 고를 때는 토큰 수명, 삭제, 여러 인스턴스에서의 읽기 범위를 함께 정한다. [Spring Security 6.5 · Core Interfaces and Classes](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/core.html) · [Spring Security 6.5 · Authorization Request Repository](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/authorization-grants.html)
+
+![ClientRegistrationRepository는 등록 설정을, AuthorizationRequestRepository는 콜백에 필요한 인가 요청 상태를 관리한다. OAuth2AuthorizedClient는 등록과 주체에 발급된 토큰을 연결하며, 서비스는 등록 ID와 주체 이름으로 이를 조회한다.](image/19_registration_authorized_client.png)

@@ -15,6 +15,8 @@ Spring Boot는 의존성과 사용자 설정에 따라 서블릿 보안 자동 �
 
 HTTP Basic의 진입점은 일반적으로 `401`과 인증 챌린지 헤더를 보낸다. OAuth 로그인에서는 브라우저를 로그인 경로로 유도할 수 있다. Bearer 토큰 API에서는 `WWW-Authenticate: Bearer`가 인증 요구를 전달한다. 선택한 체인의 진입점이 클라이언트가 처리할 수 있는 응답을 내는지 확인한다. [Spring Security 6.5 · HTTP Basic](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/basic.html) · [Spring Security 6.5 · OAuth2 Login](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/core.html) · [Spring Security 6.5 · Bearer Tokens](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/bearer-tokens.html)
 
+![브라우저가 기본 로그인 페이지에서 등록된 공급자의 링크를 고르면 Spring Security는 인가 요청을 구성해 브라우저를 공급자의 인가 엔드포인트로 리다이렉트한다.](image/14_browser_oauth_login_entry.png)
+
 ## 3. 브라우저가 호출하는 경로
 
 교차 출처 호출에 필요한 CORS 사전 요청은 인증 판정보다 앞에서 처리한다. OAuth 리다이렉트는 브라우저의 탐색이고, JavaScript가 다른 출처의 API를 호출할 때는 CORS 설정이 관여한다. 세션 쿠키로 상태를 변경하는 엔드포인트에는 [CSRF 보호](07_spring_security_cors_csrf_and_samesite.md)도 적용한다. [Spring Security 6.5 · CORS](https://docs.spring.io/spring-security/reference/6.5/servlet/integrations/cors.html)

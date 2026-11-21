@@ -4,6 +4,8 @@
 
 카탈로그 포털은 브라우저 사용자를 로그인시키고, 사용자가 승인한 권한으로 카탈로그 API를 호출할 수 있다. Spring Security OAuth2 Client는 인가 요청, 콜백, 토큰 획득과 보관에 필요한 구성 요소를 제공한다. API가 들어오는 Bearer 토큰을 검증할 때는 [Resource Server](22_oauth2_resource_server_and_bearer_authentication.md) 구성에서 처리한다. [Spring Security 6.5 · OAuth2 Overview](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/index.html)
 
+![카탈로그 포털은 oauth2Login으로 브라우저 사용자를 인증하고 oauth2Client로 외부 호출용 토큰을 얻거나 관리한다. 카탈로그 API는 oauth2ResourceServer로 들어온 Bearer 토큰을 검증한다.](image/18_spring_oauth2_roles.png)
+
 | 구성 | 맡는 일 |
 | --- | --- |
 | `oauth2Login()` | OAuth 2.0 공급자 또는 OIDC를 이용해 현재 애플리케이션의 사용자 인증을 설정한다. |

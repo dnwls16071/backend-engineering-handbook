@@ -22,6 +22,8 @@ Spring Boot에서 `spring-boot-starter-security`를 추가하면 서블릿 웹 �
 
 `DelegatingFilterProxy`는 컨테이너의 필터 호출을 Spring 빈에 연결한다. `FilterChainProxy`는 여러 체인 중 처음으로 매치된 체인 하나를 실행한다. `securityMatcher(...)`는 체인 자체가 적용되는 요청을 정한다. `authorizeHttpRequests(...)` 안의 `requestMatchers(...)`는 선택된 체인에서 적용할 인가 규칙을 고른다. [Spring Security 6.5 · Servlet Architecture](https://docs.spring.io/spring-security/reference/6.5/servlet/architecture.html) · [Spring Security 6.5 · HTTP Security](https://docs.spring.io/spring-security/reference/6.5/servlet/configuration/java.html)
 
+![서블릿 컨테이너의 DelegatingFilterProxy는 Spring의 FilterChainProxy 빈에 요청을 위임한다. FilterChainProxy가 첫 매치인 API 체인이나 기본 체인 하나를 선택하고, 선택된 필터들을 통과한 요청은 애플리케이션으로 간다.](image/01_first_matching_chain.png)
+
 ## 3. 카탈로그의 기본 체인 등록하기
 
 아래 예제는 공개 안내 경로를 열고 카탈로그에 로그인을 요구한다. 사용자 조회는 별도로 등록한 `UserDetailsService` 또는 Boot가 제공한 기본 사용자에 연결할 수 있다.

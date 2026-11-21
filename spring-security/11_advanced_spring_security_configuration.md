@@ -49,6 +49,8 @@ public class CatalogSecurityChains {
 
 로그인이나 로그아웃 URL이 필터가 제공하는 경로라면 해당 URL도 그 필터가 있는 체인과 매치되어야 한다. 구성이 여러 개일 때는 공개 경로, 서비스 API, 로그인 경로를 각각 요청해 적용된 체인과 상태 코드를 확인한다. [Spring Security 6.5 · SecurityFilterChain Endpoints](https://docs.spring.io/spring-security/reference/6.5/servlet/configuration/java.html)
 
+![FilterChainProxy는 내부 API 경로가 첫 체인에 매치되면 Basic 체인을 사용한다. 이 체인은 권한을 가진 정확한 카탈로그 GET 요청만 허용한다. 첫 체인에 매치되지 않은 요청은 나머지 경로를 받는 폼 로그인 체인에서 정책을 평가한다.](image/11_catalog_filter_chain_selection.png)
+
 ## 2. 공통 설정을 커스텀 DSL로 묶기
 
 여러 서비스가 같은 필터 설정을 적용해야 하면 `AbstractHttpConfigurer`를 구현하고 `http.with(...)`로 연결할 수 있다. `init(...)`에서는 필요한 다른 configurer를 추가하고, `configure(...)`에서는 공유 객체를 가져와 필터를 구성한다. 필터가 인증에 의존한다면 그 인증 필터 이후에 등록한다. `addFilterAt(...)`로 같은 위치에 여러 필터를 두면 상대 순서가 보장되지 않으므로 순서가 중요한 경우 기준 필터를 명시한다. [Spring Security 6.5 · Custom DSLs](https://docs.spring.io/spring-security/reference/6.5/servlet/configuration/java.html) · [Spring Security 6.5 API · HttpSecurity](https://docs.spring.io/spring-security/reference/6.5/api/java/org/springframework/security/config/annotation/web/builders/HttpSecurity.html)

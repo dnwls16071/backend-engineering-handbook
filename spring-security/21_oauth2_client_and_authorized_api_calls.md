@@ -14,6 +14,8 @@
 
 `OAuth2ClientHttpRequestInterceptor`는 지정한 등록 ID로 승인된 클라이언트를 찾아 외부 요청에 Bearer 헤더를 붙인다. 아래 클라이언트는 [등록 설정](19_oauth2_client_registration_and_authorized_client_storage.md)의 `catalog-ui`를 선택하고 목적지를 고정한다. [Spring Security 6.5 · Authorized Client Features](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/authorized-clients.html)
 
+![RestClient의 인터셉터가 등록 ID와 주체를 바탕으로 매니저에 승인된 클라이언트를 요청한다. 지원되는 방식으로 토큰을 얻거나 재인가할 수 있으며, 승인된 클라이언트의 액세스 토큰을 Bearer 헤더로 카탈로그 API에 전송한다.](image/21_rest_client_bearer.png)
+
 ```java
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.client.web.client.OAuth2ClientHttpRequestInterceptor;

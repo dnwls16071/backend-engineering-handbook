@@ -13,6 +13,8 @@
 
 인가 서버가 보관하는 `RegisteredClient`와 클라이언트 앱이 보관하는 `ClientRegistration`은 각각의 입장에서 계약을 표현한다. `RegisteredClient.id`는 저장소 내부 식별자이고, `clientId`는 OAuth 요청에서 사용하는 클라이언트 식별자다. [Spring Authorization Server · Core Model](https://docs.spring.io/spring-authorization-server/reference/core-model-components.html) · [Spring Security 6.5 · ClientRegistration](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/core.html)
 
+![인가 상태와 사용자 동의 모델은 모두 registeredClientId로 RegisteredClient의 내부 id를 참조한다. 각 모델은 별도의 인가 서비스와 동의 서비스에서 관리된다.](image/29_authorization_server_stored_state.png)
+
 ## 2. 코드 흐름을 사용하는 카탈로그 포털 등록하기
 
 아래 팩터리의 `encodedSecret`은 서버가 사용하는 `PasswordEncoder` 형식으로 저장한 비밀 값이다. 브라우저가 돌아올 URI와 제공할 scope를 각 등록에 지정한다. [Spring Authorization Server · RegisteredClient](https://docs.spring.io/spring-authorization-server/reference/core-model-components.html)

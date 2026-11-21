@@ -128,5 +128,305 @@
       "url": "https://netty.io/4.1/xref/io/netty/channel/nio/NioEventLoop.html#504",
       "locator": "NioEventLoop.run의 I/O 선택과 작업 실행, processSelectedKey의 채널별 I/O 처리. A와 B의 실행 순서는 세 채널을 같은 루프에 등록한 설명용 예시"
     }
+  },
+  {
+    "page": "spring-security/01_spring_security_initialization_and_filter_chains.md",
+    "claim": "![서블릿 컨테이너의 DelegatingFilterProxy는 Spring의 FilterChainProxy 빈에 요청을 위임한다. FilterChainProxy가 첫 매치인 API 체인이나 기본 체인 하나를 선택하고, 선택된 필터들을 통과한 요청은 애플리케이션으로 간다.](image/01_first_matching_chain.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 Servlet 구성에서 /api/** 체인이 나머지 요청을 처리하는 기본 체인보다 앞서는 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/architecture.html",
+      "locator": "Servlet Architecture의 DelegatingFilterProxy, FilterChainProxy, SecurityFilterChain과 복수 체인 예시"
+    }
+  },
+  {
+    "page": "spring-security/02_spring_security_authentication_flows.md",
+    "claim": "![POST /login의 사용자 이름과 비밀번호를 폼 로그인 필터가 인증 요청으로 바꾸고 AuthenticationManager에 맡긴다. 성공하면 컨텍스트에 인증을 설정한 뒤 성공 처리기를 호출하고, 실패하면 컨텍스트를 지운 뒤 실패 처리기를 호출한다.](image/02_form_login_result.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿 폼 로그인, 기본 로그인 처리 경로와 필드",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/form.html",
+      "locator": "Form Login, Figure 2 (Authenticating Username and Password), and default HTML form requirements"
+    }
+  },
+  {
+    "page": "spring-security/03_spring_security_authentication_architecture.md",
+    "claim": "![ProviderManager가 DAO 인증 제공자에 인증을 위임한다. 제공자는 UserDetailsService에서 사용자 정보와 저장된 해시를 가져오고, PasswordEncoder로 제출된 비밀번호가 해시와 일치하는지 검증한 뒤 인증 결과를 반환한다.](image/03_dao_password_check.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿, DaoAuthenticationProvider가 선택되고 인증에 성공한 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/passwords/dao-authentication-provider.html",
+      "locator": "Figure 1 (DaoAuthenticationProvider Usage), steps 2–5"
+    }
+  },
+  {
+    "page": "spring-security/04_spring_security_authentication_persistence.md",
+    "claim": "![자체 로그인 처리가 인증 성공으로 만든 컨텍스트를 현재 요청에 연결하고 성공 응답 전에 세션 저장소에 저장한다. 다음 요청에서 컨텍스트 필터가 같은 저장소를 통해 저장된 컨텍스트를 현재 요청에서 사용할 수 있게 한다.](image/04_context_between_requests.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿, 명시적 저장을 사용하는 자체 로그인과 세션 기반 컨텍스트 저장소",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/persistence.html",
+      "locator": "SecurityContextHolderFilter and Explicit Saving of SecurityContext"
+    }
+  },
+  {
+    "page": "spring-security/05_spring_security_session_management.md",
+    "claim": "![이미 세션 한도에 도달한 상태에서 다시 로그인하면 기본 설정은 새 로그인을 허용하고 기존 세션을 만료 대상으로 표시하며, maxSessionsPreventsLogin(true)는 새 로그인을 거부하고 기존 세션을 유지한다.](image/05_concurrent_login_policy.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿의 동시 세션 제어, maximumSessions(1) 설정 및 기존 활성 세션이 있는 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/session-management.html",
+      "locator": "Configuring Concurrent Session Control의 최대 세션 기본 동작과 maxSessionsPreventsLogin(true) 예시"
+    }
+  },
+  {
+    "page": "spring-security/06_spring_security_exception_handling.md",
+    "claim": "![ExceptionTranslationFilter는 AuthenticationException이나 익명·기억하기 인증 요청에서 발생한 AccessDeniedException을 인증 진입점에 넘긴다. 충분히 인증된 요청에서 권한이 부족해 AccessDeniedException이 발생하면 접근 거부 처리기로 넘긴다.](image/06_security_exception_routing.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿의 ExceptionTranslationFilter, 익명 요청과 완전 인증 요청을 예시로 사용",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/architecture.html",
+      "locator": "Handling Security Exceptions, ExceptionTranslationFilter pseudocode and steps 1–3"
+    }
+  },
+  {
+    "page": "spring-security/07_spring_security_cors_csrf_and_samesite.md",
+    "claim": "![브라우저가 쿠키 없이 보내는 OPTIONS 사전 요청은 CORS 처리에서 허용 여부를 확인한다. 허용 응답을 받은 브라우저가 본 요청을 전송하면 본 요청은 뒤쪽 보안 필터에서 인증 등 필요한 검사를 받는다.](image/07_cors_preflight_order.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿, CORS가 통합되어 있고 브라우저가 사전 요청을 하는 교차 출처 요청 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/integrations/cors.html",
+      "locator": "CORS, first two paragraphs on pre-flight requests and CorsFilter ordering"
+    }
+  },
+  {
+    "page": "spring-security/08_spring_security_request_and_method_authorization.md",
+    "claim": "![카탈로그 쓰기 요청은 먼저 HTTP 요청 인가를 받고, 통과하면 컨트롤러가 Spring 프록시를 통해 서비스를 호출한다. PreAuthorize의 메서드 인가까지 통과하면 서비스 메서드가 실행된다.](image/08_request_and_method_checks.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 Servlet 요청 인가와 활성화된 프록시 기반 메서드 인가를 함께 적용한 카탈로그 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authorization/method-security.html",
+      "locator": "Method Security의 How Method Security Works, Authorizing Method Invocation with @PreAuthorize, Comparing Request-level vs Method-level Authorization"
+    }
+  },
+  {
+    "page": "spring-security/09_spring_security_authorization_architecture.md",
+    "claim": "![AuthorizationManager는 인증 조회와 보호 대상을 입력으로 받아 사용자 권한과 대상의 정책을 대조한다. 정책이 요구하는 권한을 충족하면 허용하며, 이 예시에서는 정책이 없거나 권한이 부족하면 거부한다.](image/09_authorization_entry_paths.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 AuthorizationManager와 카탈로그의 명시적인 기본 거부 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authorization/architecture.html",
+      "locator": "The AuthorizationManager and Custom Authorization Managers. 예제는 문서의 규칙 미정의 시 거부 정책을 가정한다."
+    }
+  },
+  {
+    "page": "spring-security/10_spring_security_authentication_and_authorization_events.md",
+    "claim": "![인증 매니저의 성공이나 실패 결과를 발행기가 성공 이벤트 또는 매핑된 예외 유형별 실패 이벤트로 발행하고, 해당 이벤트를 구독한 Spring 리스너가 받는다.](image/10_authentication_event_publication.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5에서 DefaultAuthenticationEventPublisher가 설정된 인증 매니저와 매핑된 실패 예외",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/events.html",
+      "locator": "Authentication Events, success listener and failure-event mappings"
+    }
+  },
+  {
+    "page": "spring-security/11_advanced_spring_security_configuration.md",
+    "claim": "![FilterChainProxy는 내부 API 경로가 첫 체인에 매치되면 Basic 체인을 사용한다. 이 체인은 권한을 가진 정확한 카탈로그 GET 요청만 허용한다. 첫 체인에 매치되지 않은 요청은 나머지 경로를 받는 폼 로그인 체인에서 정책을 평가한다.](image/11_catalog_filter_chain_selection.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿과 본문의 @Order(1) 내부 API 체인 및 @Order(2) 웹 체인 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/configuration/java.html",
+      "locator": "Multiple HttpSecurity Instances; Choosing securityMatcher or requestMatchers"
+    }
+  },
+  {
+    "page": "spring-security/12_spring_security_context_propagation_in_async_tasks.md",
+    "claim": "![요청 스레드가 작업을 제출하면 위임 실행기가 현재 보안 컨텍스트를 작업에 묶는다. 작업 스레드는 실행 전에 이를 적용하고, 완료 뒤 이전 컨텍스트를 복원하거나 정리한다.](image/12_executor_context_lifecycle.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 기본 스레드 로컬 전략과 현재 컨텍스트를 사용하는 DelegatingSecurityContextExecutor 생성자",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/features/integrations/concurrency.html",
+      "locator": "DelegatingSecurityContextRunnable; DelegatingSecurityContextExecutor"
+    }
+  },
+  {
+    "page": "spring-security/13_practical_spring_security_for_account_login_and_dynamic_authorization.md",
+    "claim": "![관리자가 저장한 카탈로그 인가 정책은 커밋이 확인된 후 현재 정책 목록과 한 번에 교체한다. 그 다음 요청은 새 정책 목록 한 버전으로 평가한다.](image/13_catalog_policy_after_commit.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 커밋 후 이벤트를 사용하는 단일 인스턴스 카탈로그 정책 갱신 설계 예",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/event.html",
+      "locator": "Transaction-bound Events, AFTER_COMMIT phase"
+    }
+  },
+  {
+    "page": "spring-security/14_spring_security_fundamentals_for_oauth2.md",
+    "claim": "![브라우저가 기본 로그인 페이지에서 등록된 공급자의 링크를 고르면 Spring Security는 인가 요청을 구성해 브라우저를 공급자의 인가 엔드포인트로 리다이렉트한다.](image/14_browser_oauth_login_entry.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿 oauth2Login과 공급자 링크가 표시되는 기본 로그인 페이지의 예",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/core.html",
+      "locator": "OAuth 2.0 Login Core Configuration, login flow steps 2–3"
+    }
+  },
+  {
+    "page": "spring-security/15_oauth2_roles_clients_and_tokens.md",
+    "claim": "![사용자는 리소스 소유자, 포털은 OAuth 클라이언트, 토큰 발급 주체는 인가 서버, 카탈로그 API는 리소스 서버다. 포털은 인가 서버에 권한 부여 결과를 제시해 액세스 토큰을 받고 API에 제시한다.](image/15_catalog_oauth_role_flow.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "OAuth 2.0의 추상 흐름과 카탈로그 포털이 사용자 권한으로 API를 읽는 예",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc6749.html#section-1.1",
+      "locator": "RFC 6749 §1.1 Roles, §1.2 Protocol Flow와 §4.1 Authorization Code Grant. 화살표는 카탈로그 예시의 참여자 사이 관계를 표시한다."
+    }
+  },
+  {
+    "page": "spring-security/16_oauth2_grant_types_and_pkce.md",
+    "claim": "![클라이언트가 계산한 code_challenge는 브라우저의 인가 요청으로, 원래의 code_verifier는 코드 교환 요청으로 전달된다. 인가 서버는 코드에 연결된 챌린지와 계산 결과를 비교하고 일치할 때 토큰을 발급한다.](image/16_authorization_code_pkce.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "RFC 7636의 S256 PKCE 인가 코드 흐름",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc7636.html",
+      "locator": "§1.1 Protocol Flow, §4.1–4.6 Protocol"
+    }
+  },
+  {
+    "page": "spring-security/17_openid_connect_and_id_tokens.md",
+    "claim": "![OpenID Provider가 발급한 ID 토큰은 로그인 클라이언트가 검증해 로그인에 사용한다. 액세스 토큰은 발급된 대상에 맞춰 UserInfo나 API에 보내고, UserInfo 결과를 쓰기 전에 ID 토큰과 sub를 대조한다.](image/17_oidc_token_destinations.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "OpenID Connect Core 1.0의 ID 토큰 검증과 액세스 토큰 사용",
+    "source": {
+      "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "locator": "OpenID Connect Core 1.0 §2 ID Token, §3.1.3.3 Successful Token Response, §5.3 UserInfo Endpoint and §5.3.2 sub matching"
+    }
+  },
+  {
+    "page": "spring-security/18_spring_security_oauth2_client_overview.md",
+    "claim": "![카탈로그 포털은 oauth2Login으로 브라우저 사용자를 인증하고 oauth2Client로 외부 호출용 토큰을 얻거나 관리한다. 카탈로그 API는 oauth2ResourceServer로 들어온 Bearer 토큰을 검증한다.](image/18_spring_oauth2_roles.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5를 사용하는 카탈로그 포털과 별도 리소스 서버의 구성 예",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/index.html",
+      "locator": "Servlet OAuth 2.0 Overview의 OAuth2 Login, OAuth2 Client 및 OAuth2 Resource Server"
+    }
+  },
+  {
+    "page": "spring-security/19_oauth2_client_registration_and_authorized_client_storage.md",
+    "claim": "![ClientRegistrationRepository는 등록 설정을, AuthorizationRequestRepository는 콜백에 필요한 인가 요청 상태를 관리한다. OAuth2AuthorizedClient는 등록과 주체에 발급된 토큰을 연결하며, 서비스는 등록 ID와 주체 이름으로 이를 조회한다.](image/19_registration_authorized_client.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿 OAuth 2.0 Client의 등록과 승인 상태",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/core.html",
+      "locator": "OAuth2 Client Core의 ClientRegistrationRepository, OAuth2AuthorizedClient, OAuth2AuthorizedClientService 및 인접 Authorization Request Repository 공식 설명"
+    }
+  },
+  {
+    "page": "spring-security/20_oauth2_login_and_oidc_user_integration.md",
+    "claim": "![Spring Security는 콜백에서 받은 인가 코드를 토큰으로 교환한다. 일반 OAuth 2.0 로그인에서는 OAuth2UserService가 OAuth2User를 구성하고, OIDC 로그인에서는 ID 토큰을 검증하고 OidcUserService가 OidcUser를 구성한다.](image/20_oauth_login_principal.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 서블릿 oauth2Login의 인가 코드 콜백과 사용자 주체",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/advanced.html",
+      "locator": "Redirection Endpoint, Token Endpoint, OAuth 2.0 UserService, OpenID Connect 1.0 UserService"
+    }
+  },
+  {
+    "page": "spring-security/21_oauth2_client_and_authorized_api_calls.md",
+    "claim": "![RestClient의 인터셉터가 등록 ID와 주체를 바탕으로 매니저에 승인된 클라이언트를 요청한다. 지원되는 방식으로 토큰을 얻거나 재인가할 수 있으며, 승인된 클라이언트의 액세스 토큰을 Bearer 헤더로 카탈로그 API에 전송한다.](image/21_rest_client_bearer.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5, OAuth2ClientHttpRequestInterceptor와 OAuth2AuthorizedClientManager를 사용하는 RestClient 호출",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/client/authorized-clients.html",
+      "locator": "Providing the Access Token, RestClient integration, Resolving the Client Registration ID, Resolving the Principal"
+    }
+  },
+  {
+    "page": "spring-security/22_oauth2_resource_server_and_bearer_authentication.md",
+    "claim": "![리소스 서버는 토큰이 없거나 유효하지 않으면 Bearer 챌린지와 함께 401로 답한다. 토큰이 유효하면 API 권한을 확인하며 필요한 범위가 부족하면 403, 충분하면 요청을 처리한다.](image/22_bearer_authentication_outcomes.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "RFC 6750의 보호 API에서 누락·무효 Bearer 토큰과 부족한 scope를 처리하는 일반적인 응답",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc6750.html#section-3",
+      "locator": "§3 WWW-Authenticate Response Header Field, §3.1 Error Codes"
+    }
+  },
+  {
+    "page": "spring-security/23_oauth2_resource_server_jwt_configuration.md",
+    "claim": "![issuer만 지정하면 메타데이터에서 공개 키 주소를 발견할 수 있고, jwk-set-uri를 함께 지정하면 주소를 직접 사용한다. 두 구성에서 발급자 검증을 유지하며 예제의 대상 API도 확인한다.](image/23_jwt_trust_configuration.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5와 Spring Security 6.5의 JWT 리소스 서버. issuer와 audiences를 설정한 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html",
+      "locator": "Minimal Configuration, Specifying the Authorization Server JWK Set URI Directly, Supplying Audiences"
+    }
+  },
+  {
+    "page": "spring-security/24_jwt_validation_fundamentals.md",
+    "claim": "![토큰은 신뢰한 키로 서명을 확인한 뒤 클레임 정책을 검사한다. 서명이나 클레임 검증에 실패하면 인증을 거부하고, 두 검사를 통과한 토큰의 클레임을 인증에 사용한다.](image/24_jwt_validation_gates.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 NimbusJwtDecoder와 카탈로그 API 예제의 위임 클레임 검증기",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html",
+      "locator": "Spring Security 6.5 JWT Runtime Expectations, How JWT Authentication Works 및 Configuring Validation"
+    }
+  },
+  {
+    "page": "spring-security/25_jwt_verification_with_hmac_and_rsa.md",
+    "claim": "![HS256은 발급자와 리소스 서버가 같은 공유 비밀 키를 사용하는 배치이고, RS256은 발급자가 개인 키를 보유하고 리소스 서버가 공개 키를 보유하는 배치다.](image/25_hmac_rsa_key_distribution.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "RFC 7518의 HS256·RS256 서명 및 검증 키 배치",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc7518.html",
+      "locator": "RFC 7518 §3.2 HMAC with SHA-2 Functions와 §3.3 RSASSA-PKCS1-v1_5 with SHA-2 Functions"
+    }
+  },
+  {
+    "page": "spring-security/26_oauth2_resource_server_scopes_and_authorities.md",
+    "claim": "![JWT 범위는 기본 매핑으로 SCOPE 권한이 되고, 예제 변환기는 허용 목록에 있는 역할만 ROLE 권한으로 추가한다.](image/26_jwt_authorities_mapping.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 기본 범위 변환기와 catalog_roles 허용 목록을 추가한 사용자 정의 변환기",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html",
+      "locator": "Mapping Authorities와 Extracting Authorities Manually 및 카탈로그 변환 코드"
+    }
+  },
+  {
+    "page": "spring-security/27_oauth2_opaque_tokens_and_introspection.md",
+    "claim": "![API가 받은 Bearer 토큰을 인가 서버에 확인하고, 활성 응답의 범위를 권한으로 매핑한 뒤 별도로 인가를 판정한다.](image/27_opaque_token_introspection.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Security 6.5 Servlet 리소스 서버의 기본 OpaqueTokenIntrospector 흐름. 캐시는 가정하지 않음",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/opaque-token.html",
+      "locator": "Runtime Expectations 및 Configuring Authorization"
+    }
+  },
+  {
+    "page": "spring-security/28_spring_authorization_server_configuration.md",
+    "claim": "![인가 서버의 프로토콜 체인은 서버 설정, 등록 클라이언트 저장소와 키·디코더 구성을 사용한다. 별도 사용자 로그인 체인은 브라우저 폼 로그인을 처리한다.](image/28_authorization_server_filter_chains.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Authorization Server 1.5와 Spring Security 6.5의 두 체인 구성. UserInfo 검증은 OIDC를 활성화한 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-authorization-server/reference/configuration-model.html",
+      "locator": "Configuration Model의 OAuth2AuthorizationServerConfigurer와 설정 구성 요소, Default Configuration의 JWKSource 및 UserInfo JwtDecoder, Getting Started의 두 체인"
+    }
+  },
+  {
+    "page": "spring-security/29_spring_authorization_server_domain_model.md",
+    "claim": "![인가 상태와 사용자 동의 모델은 모두 registeredClientId로 RegisteredClient의 내부 id를 참조한다. 각 모델은 별도의 인가 서비스와 동의 서비스에서 관리된다.](image/29_authorization_server_stored_state.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Authorization Server 1.5의 핵심 모델 및 저장 서비스",
+    "source": {
+      "url": "https://docs.spring.io/spring-authorization-server/reference/core-model-components.html",
+      "locator": "Core Model / Components의 OAuth2Authorization과 OAuth2AuthorizationConsent 필드 설명, registeredClientId와 서비스별 저장 책임"
+    }
+  },
+  {
+    "page": "spring-security/30_spring_authorization_server_protocol_endpoints.md",
+    "claim": "![인가 서버는 브라우저 인가, OAuth 클라이언트의 토큰 발급·폐기, 리소스 서버의 공개 키와 활성 상태 조회를 위한 엔드포인트를 제공한다. OAuth 서버 메타데이터는 별도로 게시하고, OIDC를 활성화하면 공급자 메타데이터와 UserInfo 등의 엔드포인트가 추가된다.](image/30_authorization_server_endpoint_map.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Authorization Server 1.5의 대표 기본 경로. JWK Set과 OIDC 엔드포인트는 해당 구성이 활성화된 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-authorization-server/reference/protocol-endpoints.html",
+      "locator": "Protocol Endpoints의 OAuth2 Authorization, Token, Revocation, Introspection, JWK Set, Authorization Server Metadata 및 OpenID Connect 엔드포인트"
+    }
   }
 ]

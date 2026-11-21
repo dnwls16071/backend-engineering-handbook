@@ -15,6 +15,8 @@
 
 OIDC 로그인 전용 컨트롤러에서는 `@AuthenticationPrincipal OidcUser user`로 주체를 받을 수 있다. 일반 OAuth2 공급자도 지원한다면 `OAuth2User`를 기준으로 처리하고 공급자별 속성 이름을 매핑한다. 사용자와 로컬 권한 매핑은 신뢰한 공급자와 클레임을 기준으로 설정한다. [Spring Security 6.5 · OAuth2 UserService](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/advanced.html) · [Spring Security 6.5 · MVC Integration](https://docs.spring.io/spring-security/reference/6.5/servlet/integrations/mvc.html)
 
+![Spring Security는 콜백에서 받은 인가 코드를 토큰으로 교환한다. 일반 OAuth 2.0 로그인에서는 OAuth2UserService가 OAuth2User를 구성하고, OIDC 로그인에서는 ID 토큰을 검증하고 OidcUserService가 OidcUser를 구성한다.](image/20_oauth_login_principal.png)
+
 ## 3. 엔드포인트와 로그아웃 맞추기
 
 로그인 시작 URI나 콜백 경로를 바꿀 때는 로그인 링크, `authorizationEndpoint()` 또는 `redirectionEndpoint()` 설정, 등록의 리다이렉트 URI를 함께 맞춘다. `OAuth2AuthorizationRequestResolver`로 인가 요청을 확장할 경우 상태 확인과 PKCE 등 기존 보호 설정을 유지한다. 공급자 로그아웃까지 연결할 경우 `OidcClientInitiatedLogoutSuccessHandler`와 공급자에 등록한 로그아웃 후 리다이렉트 URI를 사용할 수 있다. [Spring Security 6.5 · Advanced Configuration](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/advanced.html) · [Spring Security 6.5 · OIDC Logout](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/login/logout.html)

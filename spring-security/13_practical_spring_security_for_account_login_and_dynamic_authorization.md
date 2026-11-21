@@ -23,4 +23,6 @@ JSON 로그인 경로에 필터를 연결할 때는 정해진 URL과 HTTP 메서
 
 인메모리 규칙으로 정책을 검증한 뒤 DB에서 읽는 구현으로 바꿀 수 있다. 경로 패턴과 우선순위를 검증한 새 정책 목록을 만들고, 저장 트랜잭션이 커밋된 다음 새 목록으로 한 번에 교체한다. 이렇게 하면 각 요청은 한 버전의 정책을 읽는다. 여러 인스턴스가 있다면 규칙 변경을 각 인스턴스에 전달하고, 새 규칙이 도착하지 않은 기간의 처리 방침을 정한다. [Spring Framework 6.2 · 트랜잭션에 연결된 이벤트](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/event.html)
 
+![관리자가 저장한 카탈로그 인가 정책은 커밋이 확인된 후 현재 정책 목록과 한 번에 교체한다. 그 다음 요청은 새 정책 목록 한 버전으로 평가한다.](image/13_catalog_policy_after_commit.png)
+
 역할과 경로의 매핑을 갱신하는 작업과, 기존 세션 안의 사용자 권한을 갱신하는 작업은 적용 시점이 다를 수 있다. 즉시 권한 회수가 필요한 경우 기존 인증 정보가 언제 교체되거나 세션이 언제 만료되는지도 확인한다. 테스트에서는 미인증, 권한 부족, 정책 변경 후 접근, 역할 계층 적용을 각각 확인한다. [Spring Security 6.5 · SecurityContext 저장](https://docs.spring.io/spring-security/reference/6.5/servlet/authentication/persistence.html) · [Spring Security 6.5 · Role Hierarchy](https://docs.spring.io/spring-security/reference/6.5/servlet/authorization/architecture.html)
