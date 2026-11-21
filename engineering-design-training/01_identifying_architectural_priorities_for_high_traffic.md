@@ -109,6 +109,10 @@
 - 필수 조건을 위반할 수 있는 가정은 채택 전에 검증한다. 채택 후 확인할 항목은 담당 역할, 확인 시점과 기준 미달 시 조치를 정한다.
 - 부하가 검증 범위를 벗어나거나 완료 기한·비용 기준을 넘으면 정책과 기술 선택을 재검토한다.
 
+![완료 조건과 실측으로 피크 대응안을 비교하고 접수와 업무 완료를 따로 검증하는 흐름](image/traffic_peak_design_priorities.png)
+
+그림의 근거 · [큐를 통한 유입과 처리 분리](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+
 ## 7. 관련 문서
 
 - [품질 요구사항: 구조를 바꾸는 조건과 숨은 기대 찾기](../architecture-quality/01_identifying_quality_requirements.md): 필수 조건과 미확인 요구를 찾고 설계 판단의 근거로 구체화하는 방법을 설명한다.

@@ -51,7 +51,9 @@
 
 - 동기 응답과 콜백이 모두 유실될 수 있다. PG가 시도별 조회를 제공하면 일정 시간 이상 `PENDING`·`UNKNOWN`인 건과 주문·PG 상태가 어긋난 건을 대조한다. 조회할 수 없다면 거래 내역 대사나 운영 절차를 정한다.
 
-<img src="image/payment_result_recovery_sequence.png" alt="PG 승인 후 응답이 유실되면 결과 미확인으로 기록하고 PG 재조회로 주문 완료 또는 취소·환불까지 처리하는 시퀀스" width="400">
+![PG 승인 응답 유실 후 같은 결제 시도를 조회해 주문을 확정하거나 승인 취소·환불로 종결하는 시퀀스](image/payment_result_recovery_sequence.png)
+
+그림의 근거 · [같은 의도를 식별하는 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [결제 상태 조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)
 
 - PG 승인·주문 미완료는 주문 확정 가능 여부를 다시 검사한다. 불가능하면 승인 취소·환불하고 고객에게 알린다. PG 실패·주문 완료는 원인을 확인하기 전 주문을 임의로 되돌리지 않는다.
 - PG 조회 한도, 미확인 건수와 복구 기한을 근거로 대조 작업의 간격·처리량을 정한다. 재조회 후에도 결과를 모르면 마지막 확인 시각을 남기고 운영 담당자에게 이관한다.

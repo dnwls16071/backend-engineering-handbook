@@ -24,7 +24,9 @@
 | 발행 후 DB에 `PAID` 저장 | 발행 직후 DB 저장 실패 | 후속 시스템이 완료되지 않은 주문을 처리할 수 있다. |
 | 실패 시 애플리케이션에서 재시도 | 재시도 기록 전 서버 중단 | 다시 실행할 주체와 근거가 사라질 수 있다. |
 
-<img src="image/outbox_dual_write_failure.png" alt="주문 DB 커밋 후 이벤트 발행 전에 서버가 중단되어 주문만 완료되고 배송 이벤트가 누락되는 흐름" width="400">
+![주문 DB 커밋 후 이벤트 발행 전에 서버가 중단되어 배송 이벤트가 누락되는 흐름](image/outbox_dual_write_failure.png)
+
+그림의 근거 · [이중 쓰기의 실패 구간](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
 - 브로커의 트랜잭션 기능만으로 주문 DB 변경까지 같은 로컬 트랜잭션에 포함되는지 가정하지 않는다. 실제 참여 자원과 보장 범위를 확인한다.
 - 처리 방식을 선택할 때는 같은 응답 시간·장애·누락 시나리오로 비교한다.
@@ -64,11 +66,15 @@
 - 외부 배송·알림 API 호출은 이 DB 트랜잭션에 포함되지 않는다. DB에 처리 이력을 남겼다는 사실만으로 외부 효과의 중복을 막을 수 없으므로, 호출 대상의 멱등 키나 결과 조회·보상 절차를 확인한다.
 - 중복 식별자의 보관 기간은 브로커 재전달과 운영 재처리 기간보다 짧지 않게 정한다. 이벤트 순서가 업무 결과에 중요하면 주문 ID별 순서 보장과 역순 수신 시 동작도 정한다.
 
-<img src="image/outbox_republish_and_idempotency.png" alt="브로커 수신 후 발행 완료 기록 전에 중단되면 같은 이벤트가 재발행되며 소비자가 처리 이력으로 중복 효과를 방지하는 흐름" width="400">
+![브로커 확인 후 Relay가 중단돼 같은 이벤트가 재발행되고 소비자가 중복 DB 변경을 생략하는 흐름](image/outbox_republish_and_idempotency.png)
+
+그림의 근거 · [중복 전달과 멱등 소비자](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [외부 호출 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
 
 ## 6. 최종 아키텍처의 경계와 완료 시점을 확인한다
 
-<img src="image/outbox_final_architecture.png" alt="주문 애플리케이션이 Orders와 Outbox를 같은 DB 트랜잭션으로 저장하고 Relay와 브로커를 거쳐 배송·포인트·알림 소비자에게 전달하는 최종 아키텍처" width="400">
+![주문과 Outbox의 단일 DB 커밋부터 Relay, 브로커, 소비자별 업무 완료까지의 구조](image/outbox_final_architecture.png)
+
+그림의 근거 · [Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
 - 위 그림은 결제 결과 확인 이후의 설명용 구성이다. 실선 화살표는 요청 또는 데이터 전달 방향이다. 주문 DB의 트랜잭션과 각 소비자 DB의 트랜잭션은 독립적이며, 브로커를 포함한 전체 흐름을 하나로 커밋하지 않는다.
 - 주문 애플리케이션은 주문 DB의 커밋을 확인한 뒤 주문 완료를 응답한다. 응답은 브로커 수신이나 배송·포인트·알림의 완료를 뜻하지 않는다. 이 응답 범위는 1절에서 확인한 업무 조건을 전제로 한다.

@@ -38,6 +38,10 @@
 - Spring AOP는 프록시 기반이므로 같은 객체 안에서 직접 호출한 메서드는 advice를 거치지 않는다. [Spring Framework — AOP Proxies](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)
 - 실행 순서와 예외 경로는 실제 프레임워크 구성에서 확인한다. Filter, Interceptor와 AOP를 항상 같은 순서로 모두 거친다고 가정하지 않는다.
 
+![Servlet 필터, MVC 인터셉터, Spring AOP 프록시의 적용 지점과 자체 호출 경로](image/spring_cross_cutting_execution_boundaries.png)
+
+그림의 근거 · [MVC Interceptors](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html) · [Spring AOP 프록시](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)
+
 ## 4. 공통 규칙을 어디에 배치할지 선택한다
 
 | 위치 | 적합한 범위 | 감수할 비용 |

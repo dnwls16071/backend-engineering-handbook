@@ -13,7 +13,9 @@
 
 - 명령을 한 경로에서 실행하는 것과 연결마다 전용 스레드를 두는 것은 별개의 문제다. Redis는 비차단 소켓과 I/O 다중화를 이용해 여러 연결 중 읽기·쓰기가 가능한 연결을 확인하고 처리한다. 준비되지 않은 연결을 기다리느라 명령 실행 경로를 계속 점유하지 않는다.
 
-<img src="image/redis_command_execution_boundary.png" alt="여러 클라이언트 연결의 준비 상태를 이벤트 루프가 확인하고, 준비된 명령은 한 명령 실행 경로에서 순서대로 처리하는 구조" width="400">
+![여러 연결의 준비를 이벤트 루프에서 처리하고 일반 명령을 직렬 실행하는 Redis 경계](image/redis_command_execution_boundary.png)
+
+그림의 근거 · [Redis 연결 처리](https://redis.io/docs/latest/develop/reference/clients/) · [명령 실행과 지연](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/) · [Redis 8 I/O 스레드](https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/)
 
 - 그림의 화살표는 연결 준비 알림에서 명령 실행까지의 흐름이다. I/O 다중화는 연결을 효율적으로 감시하는 방법이지, 한 인스턴스의 명령을 여러 CPU 코어에서 동시에 실행한다는 뜻이 아니다.
 - Linux에서는 `epoll` 같은 운영체제 기능을 사용할 수 있다. 구체적인 I/O 구현은 플랫폼과 Redis 버전에 따라 달라지므로 `epoll` 자체를 Redis의 속도나 명령 직렬화의 유일한 이유로 보지 않는다.

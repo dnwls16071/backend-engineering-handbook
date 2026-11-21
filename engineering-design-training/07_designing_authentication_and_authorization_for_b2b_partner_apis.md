@@ -53,7 +53,9 @@ Signature    = HMAC-SHA256(SecretKey, StringToSign)
 
 - 인증된 파트너 A에게 `order.cancel` 권한이 있어도 B의 주문 취소를 허용할 수는 없다. OWASP의 BOLA는 객체 식별자를 바꿔 다른 자원에 접근하는 인가 누락 위험을 설명한다.
 
-<img src="image/b2b_scope_and_ownership.png" alt="파트너 A가 취소 Scope 검사를 통과해도 B 소유 주문은 주문 서비스의 소유권 검사에서 거부되는 흐름" width="400">
+![파트너 A의 취소 기능 권한과 B 소유 주문에 대한 객체 인가를 따로 검사하는 흐름](image/b2b_scope_and_ownership.png)
+
+그림의 근거 · [객체 수준 권한 검사](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/)
 
 - 공통 인증·인가 계층은 `order.read`·`order.cancel` 같은 기능 권한을 확인한다. 주문 서비스는 인증 결과의 파트너 ID와 주문 DB의 소유 파트너를 대조하고, 주문 상태상 취소 가능한지도 검사한다. 조회·목록·일괄 처리에도 같은 자원 범위를 적용한다.
 - 호출자가 보낸 `partner_id`를 인증 결과로 사용하지 않는다. Gateway가 인증 결과를 전달한다면 외부의 동일 이름 헤더를 제거·재설정하고, 서비스 직접 접근을 차단하거나 서비스에서도 검증해 우회를 막는다.
@@ -61,7 +63,9 @@ Signature    = HMAC-SHA256(SecretKey, StringToSign)
 
 ## 5. 정상 키 교체와 사고 시 폐기를 구분한다
 
-<img src="image/b2b_key_rotation_and_revocation.png" alt="정상 키 교체는 구키와 신키의 제한된 중첩 기간을 두지만 유출 사고는 구키를 즉시 차단하고 새 키로 복구하는 절차" width="400">
+![정상 키 교체의 중첩 기간과 유출 사고에서의 폐기 및 반영 확인 절차](image/b2b_key_rotation_and_revocation.png)
+
+그림의 근거 · [키 수명과 유출 시 조치](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)
 
 - 정상 교체는 새 Key ID·Secret Key를 안전하게 전달하고, 제한된 기간 구키와 신키를 함께 허용한다. 파트너의 전환을 확인하거나 정한 종료 시각이 되면 구키를 폐기한다. 중첩 기간에는 두 키의 사용량을 구분해 추적한다.
 - 유출 사고에서는 정상 교체의 중첩 기간을 적용하지 않고 해당 키를 우선 차단한다. 파트너 전체를 중단할 조건, 새 키 전달·연동 복구와 피해 조사 절차를 보안·연동·운영 담당자가 정한다.
@@ -70,7 +74,9 @@ Signature    = HMAC-SHA256(SecretKey, StringToSign)
 
 ## 6. 최종 아키텍처의 책임과 신뢰 경계를 확인한다
 
-<img src="image/b2b_final_architecture.png" alt="외부 파트너가 TLS로 서명 요청을 보내고 공통 계층에서 키·서명·재전송·Scope를 검사한 뒤 주문 서비스가 소유권을 확인하는 최종 아키텍처" width="400">
+![TLS 요청이 서명, 시각, Nonce와 기능 권한을 통과한 뒤 주문 소유권을 확인하는 구조](image/b2b_final_architecture.png)
+
+그림의 근거 · [메시지 서명 구성과 재전송 방지](https://www.rfc-editor.org/rfc/rfc9421.html) · [객체 수준 권한 검사](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/)
 
 - 실선은 요청·업무 데이터 흐름, 점선은 검증 데이터 조회·등록을 뜻한다. 파트너 서버는 플랫폼의 신뢰 경계 밖에 있다. 공통 계층은 Gateway 또는 Backend Filter로 구현할 수 있으며, 이름보다 우회 없는 검증 경로와 신뢰할 수 있는 인증 결과 전달이 중요하다.
 - Partner Registry는 파트너·키·권한의 기준을, Secret Manager는 서명 비밀의 보관·접근을, Nonce Store는 재사용 확인을 맡는다. 주문 DB는 자원 소유권과 업무 상태의 기준이다.

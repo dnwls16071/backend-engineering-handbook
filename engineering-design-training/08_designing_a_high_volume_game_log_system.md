@@ -24,7 +24,9 @@
 
 ## 3. 수집 성공과 검색 성공을 다른 단계로 다룬다
 
-<img src="image/game_log_ingestion_and_usage_paths.png" alt="게임 클라이언트·서버·미들웨어에서 수집 API, 내구 버퍼, 전송·변환 작업자를 거쳐 검색 저장소와 원천 데이터 보관으로 나뉘는 경로" width="400">
+![게임 로그가 수집 API, 내구 버퍼, 전송 작업자를 거쳐 검색과 선택적 원천 보관으로 나뉘는 구조](image/game_log_ingestion_and_usage_paths.png)
+
+그림의 근거 · [버퍼가 수집과 처리를 분리하는 원리](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
 - 화살표는 이벤트 또는 조회 결과의 이동을 나타낸다. 원천 데이터 보관은 검색 저장소와 별도의 용도·보관 정책을 가진 선택적 경로다. 인증·접근 제어와 모니터링은 각 경계에 적용한다.
 - 수집 API는 입력 크기·형식·신원·전송량을 검증하고 이벤트 ID와 수신 결과를 다룬다. 버퍼는 유입과 색인 속도의 차이를 흡수한다. 전송·변환 작업자는 필드 검증·정규화·재시도·실패 격리를 맡는다. 검색 저장소는 조회와 집계를 제공한다.
@@ -55,7 +57,9 @@
 
 - 아래는 검증 계획이며 실제 시험 결과가 아니다. 업무·분석 담당자는 허용 지연과 누락 범위를, 운영·보안 담당자는 장애·보관·접근 기준을 확정해야 한다. 구현 전에는 부하 추정과 작은 실험으로 주요 가정을 확인하고, 구현 후에는 운영과 같은 설정·데이터 형태로 다시 측정한다.
 
-<img src="image/game_log_failure_recovery_paths.png" alt="수집 API가 내구 버퍼 저장을 확인한 뒤 응답하고, 검색 저장소 장애 시 처리 완료 표시를 보류한 후 복구·재시도하는 경로" width="400">
+![버퍼 저장 이후 수집 응답과 검색 장애 후 색인 재시도를 분리한 복구 경로](image/game_log_failure_recovery_paths.png)
+
+그림의 근거 · [버퍼 용량과 보관](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [이벤트 식별자로 안전하게 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
 
 | 상황 | 측정·판정할 항목 |
 | :--- | :--- |

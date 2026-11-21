@@ -20,7 +20,9 @@
 - `AVAILABLE → HELD → PAYMENT_PENDING → SOLD`를 결제 성공 경로로 둔다. `HELD`는 지정된 사용자에게 만료 전까지 부여한 임시 점유권이다.
 - A와 B가 모두 `AVAILABLE`을 읽은 뒤 각각 쓰면 둘 다 선점 성공으로 판단할 수 있다. 상태 확인과 변경을 DB의 조건부 갱신 한 번으로 판정한다.
 
-<img src="image/seat_hold_concurrent_requests.png" alt="사용자 A와 B가 같은 좌석을 요청했을 때 조건부 갱신 결과로 선점 성공을 판정하는 시퀀스" width="400">
+![사용자 A와 B가 같은 좌석을 요청했을 때 조건부 갱신 결과로 선점 성공을 판정하는 시퀀스](image/seat_hold_concurrent_requests.png)
+
+그림의 근거 · [조건부 UPDATE의 경합 처리](https://www.postgresql.org/docs/17/transaction-iso.html)
 
 ```sql
 UPDATE seat
@@ -51,7 +53,9 @@ UPDATE seat
 - PG 호출 전에 유효한 선점을 `HELD → PAYMENT_PENDING`으로 조건부 전이한다. 갱신 0건이면 결제를 시작하지 않는다.
 - `PAYMENT_PENDING`은 PG 호출을 준비하거나 시작했지만 결과가 확정되지 않은 상태다. 기존 `held_until`이 지나도 단순 만료 회수 대상으로 취급하지 않는다.
 
-<img src="image/seat_hold_expiration_race.png" alt="결제 시작 전이와 만료 회수 작업이 경합할 때 조건부 갱신으로 결과를 판정하는 시퀀스" width="400">
+![결제 시작 전이와 만료 회수 중 먼저 커밋한 쪽에 따라 달라지는 두 경로](image/seat_hold_expiration_race.png)
+
+그림의 근거 · [동시 갱신과 조건 재평가](https://www.postgresql.org/docs/17/transaction-iso.html)
 
 | 경합 결과 | 후속 처리 |
 | :--- | :--- |
@@ -74,6 +78,10 @@ UPDATE seat
 
 - `PAYMENT_PENDING`의 보류 기한은 `HELD`의 선점 기한과 별도로 정한다. 보류 기한이 지났다는 이유만으로 승인 가능성이 남은 결제를 실패로 확정하지 않는다.
 - PG 조회·콜백의 제공 범위와 최종 결과 확인 방법은 실제 계약으로 확인해야 한다. 결과가 늦게 도착하는 경우의 중복 판매·중복 청구 처리도 정한다.
+
+![좌석 선점, 만료 회수, 결제 진행과 승인·거절에 따른 상태 전이](image/seat_hold_state_transitions.png)
+
+그림의 근거 · [원자적 상태 갱신의 예](https://www.postgresql.org/docs/17/transaction-iso.html) · [PG 상태 재조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)
 
 ## 6. 같은 시나리오로 설계안을 검증한다
 

@@ -3,6 +3,10 @@
 - 분산 시스템의 설계를 처리 주체, 데이터 위치와 실행 시점의 세 관점으로 살펴본다.
 - 세 관점은 서로 배타적이지 않으며 한 시스템에서 함께 사용할 수 있다.
 
+![분산 시스템을 처리 주체, 데이터 배치, 실행 시간으로 나눈 예시](image/distributed_design_processing_state_and_time.png)
+
+그림의 근거 · [Scatter-Gather](https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html) · [복제](https://www.postgresql.org/docs/17/warm-standby.html) · [샤딩](https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding) · [대기열](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+
 ## 1. 단일 서버의 한계와 분산의 목적
 
 - Scale-up은 한 서버의 CPU·메모리 등 자원을 늘리고, Scale-out은 서버 수를 늘리는 방식이다.
