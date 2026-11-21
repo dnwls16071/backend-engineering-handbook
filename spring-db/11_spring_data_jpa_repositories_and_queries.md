@@ -35,6 +35,8 @@ public interface CatalogItemJpaRepository extends JpaRepository<CatalogItemEntit
 
 메서드 이름의 속성은 매핑된 엔티티 속성과 일치해야 한다. `Pageable`에는 페이지 크기와 정렬을 전달할 수 있다. 결과에 전체 개수가 필요하면 `Page`를 사용하며, 다음 페이지 유무만 필요하면 `Slice`를 고려한다. 선택 필터 조합이 많다면 [Querydsl 조건 조립](12_querydsl_dynamic_jpa_queries.md)처럼 조건을 코드로 구성할 수 있다. [Spring Data JPA 3.5 · Query Methods](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html) · [Spring Data JPA 3.5 · 쿼리 메서드와 페이징](../spring-data-jpa/02_spring_data_jpa_query_methods_and_pagination.md)
 
+![상품 저장소 예제에서 프록시는 메서드 이름을 해석한 파생 쿼리와 @Query에 선언한 JPQL을 실행한다. 각 예제 메서드가 선언한 반환 타입은 Page와 List다.](image/11_spring_data_jpa_declared_and_derived_queries.png)
+
 ## 3. 서비스에서 트랜잭션 범위 정하기
 
 기본 구현에서 상속한 읽기 CRUD 메서드는 `readOnly`를 사용하고, 변경 메서드는 일반 트랜잭션으로 실행된다. 직접 선언한 쿼리 메서드는 기본적으로 별도 트랜잭션 설정을 받지 않는다. 여러 저장소 작업을 함께 처리한다면 서비스 메서드에서 경계를 선언한다. 같은 트랜잭션에 참여하는 저장소 호출은 바깥 서비스가 시작한 작업에 포함된다. [Spring Data JPA 3.5 · Transactionality](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/transactions.html)

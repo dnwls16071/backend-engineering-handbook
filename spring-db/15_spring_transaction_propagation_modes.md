@@ -4,6 +4,8 @@
 
 서비스와 저장소가 각자 `@Transactional`로 선언하면 호출마다 논리 범위가 생길 수 있다. 물리 트랜잭션은 실제 DB 연결이 커밋하거나 롤백하는 단위다. 기본값인 `REQUIRED`로 내부 메서드를 호출하면 두 논리 범위가 같은 물리 트랜잭션에 참여하며, 마지막 커밋은 처음 시작한 바깥 경계에서 일어난다. [Spring Framework 6.2 · 트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html)
 
+![REQUIRED는 두 논리 범위가 같은 물리 트랜잭션을 공유한다. REQUIRES_NEW는 바깥 범위를 중단하고 별도 물리 트랜잭션을 시작한다. NESTED는 지원되는 JDBC 구성에서 같은 물리 트랜잭션 안에 저장점을 둔다.](image/15_propagation_physical_boundaries.png)
+
 | 전파 | 기존 트랜잭션이 있을 때 | 기존 트랜잭션이 없을 때 |
 | --- | --- | --- |
 | `REQUIRED` | 참여 | 시작 |

@@ -16,6 +16,8 @@ Spring의 `SQLExceptionTranslator`는 JDBC 예외를 공통 `DataAccessException
 
 `JdbcTemplate`은 연결과 문장을 준비하고 실행한 뒤 JDBC 자원을 정리한다. 애플리케이션은 SQL, 바인딩 값, 행을 객체로 변환할 규칙을 전달한다. 아래 저장소는 [계좌 테이블](01_jdbc_fundamentals_and_crud.md)과 [트랜잭션 서비스](04_spring_jdbc_transaction_management.md)에 연결한다. `update()`는 영향받은 행 수를, `query()`는 `RowMapper`가 변환한 결과 목록을 반환한다. [Spring Framework 6.2 · JdbcTemplate](https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/core.html)
 
+![계좌 저장소가 JdbcTemplate으로 SQL을 실행하고 변경 행 수나 조회 목록을 받거나, JDBC 예외가 DataAccessException으로 변환되어 전파되는 흐름](image/05_jdbc_template_exception_translation.png)
+
 ```java
 import java.util.Optional;
 

@@ -16,6 +16,8 @@
 
 `JpaTransactionManager`는 JPA 구현체의 연결을 노출할 수 있는 구성에서 같은 `DataSource`의 JDBC 접근도 지원한다. `JdbcTemplate`은 `DataSourceUtils`를 통해 Spring이 연결한 자원을 사용한다. MyBatis-Spring을 함께 사용한다면 매퍼 팩터리와 트랜잭션 관리에 사용하는 `DataSource`를 맞춘다. [Spring Framework 6.2 API · JpaTransactionManager](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html) · [Spring Framework 6.2 · JDBC 연결 관리](https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/connections.html) · [MyBatis-Spring · 트랜잭션](https://mybatis.org/spring/transactions.html)
 
+![JpaTransactionManager가 JPA의 JDBC 연결을 노출할 수 있으면 같은 DataSource의 JdbcTemplate이 그 트랜잭션에 참여한다. JPA에서 보류 중인 변경을 JDBC에서 읽어야 하면 먼저 플러시하고, 커밋·롤백은 바깥 경계에서 결정한다.](image/13_jpa_jdbc_shared_transaction.png)
+
 1. 바깥 서비스에서 쓰기 작업의 트랜잭션 경계를 시작한다.
 2. JPA 엔티티를 수정한 뒤 같은 작업에서 JDBC 조회가 수정 내용을 읽어야 하면 `EntityManager.flush()`를 호출한다.
 3. JDBC가 관리 중인 엔티티의 행을 갱신하면 이미 로드한 객체에는 이전 값이 남을 수 있다. 보존할 변경을 플러시한 후 필요한 엔티티를 `refresh()`하거나, 영속성 컨텍스트를 비우고 다시 조회한다.

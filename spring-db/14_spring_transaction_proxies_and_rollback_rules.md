@@ -23,4 +23,6 @@
 
 기본 규칙은 경계를 넘어 나온 `RuntimeException`과 `Error`에서 롤백한다. 체크 예외는 기본 규칙에서 커밋 대상이다. 예를 들어 상품 등록에 필수인 재고 확인이 체크 예외로 실패한다면 `@Transactional(rollbackFor = InventoryCheckException.class)`처럼 해당 타입을 지정할 수 있다. 정상 반환한 메서드의 결과는 커밋 절차로 이어지며, 이미 롤백 전용으로 표시됐거나 실제 커밋이 실패하면 오류가 호출자에게 전달된다. [Spring Framework 6.2 · 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html)
 
+![외부 호출을 받은 트랜잭션 프록시가 메서드 실행 전에 트랜잭션을 시작하고, 반환 결과나 경계를 넘어온 예외로 커밋 또는 롤백 절차를 선택한다. 기본 규칙은 RuntimeException과 Error에서 롤백하며 rollbackFor로 체크 예외를 포함할 수 있다.](image/14_transaction_proxy_outcomes.png)
+
 재고가 없음을 기록하고 등록 요청을 보류하는 업무라면 그 결과를 서비스 반환값으로 표현할 수 있다. 데이터 제약 위반 등 복구할 수 없는 실패는 예외를 경계 밖으로 전달하고, 호출자는 서비스 호출이 완료된 뒤 사용자 응답을 결정한다. [Spring Framework 6.2 · 선언적 트랜잭션 롤백](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html)

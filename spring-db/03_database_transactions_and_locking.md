@@ -4,6 +4,8 @@
 
 계좌 사이에서 금액을 옮기려면 출금과 입금이 한 작업 단위로 완료되어야 한다. 트랜잭션에서는 두 SQL이 모두 성공하면 커밋하고, 중간에 실패하면 롤백한다. JDBC의 새 연결은 기본적으로 자동 커밋 모드다. 여러 문장을 같은 로컬 트랜잭션에 포함하려면 같은 `Connection`에서 `setAutoCommit(false)`를 호출하고 `commit()` 또는 `rollback()`을 명시한다. 진행 중인 트랜잭션에서 자동 커밋 모드를 변경하면 트랜잭션이 커밋될 수 있다. [Java 17 · Connection](https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/Connection.html) · [MySQL 8.4 · InnoDB 커밋과 롤백](https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html)
 
+![하나의 JDBC 연결에서 출금과 입금을 실행한 뒤 커밋 또는 롤백하고, InnoDB에서 같은 행의 잠금을 기다리는 흐름](image/03_transfer_commit_and_rollback.png)
+
 | ACID 속성 | 계좌 이체에서의 의미 |
 | --- | --- |
 | 원자성 | 출금과 입금을 하나의 완료 단위로 묶는다. |

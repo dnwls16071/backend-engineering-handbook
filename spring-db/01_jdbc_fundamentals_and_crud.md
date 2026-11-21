@@ -37,6 +37,8 @@ CREATE TABLE account (
 
 `ResultSet`은 처음에 첫 행 앞에 있다. `next()`가 `true`일 때만 현재 행의 열을 읽을 수 있다. 아래 예제는 없는 계좌를 `Optional.empty()`로 표현하고, 모든 JDBC 자원을 `try-with-resources`로 닫는다. [Java 17 · ResultSet](https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/ResultSet.html) · [Java 17 · Connection](https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/Connection.html)
 
+![JDBC의 ResultSet.next() 결과에 따라 계좌나 빈 결과를 만들고 반환 전에 조회 자원을 닫는 흐름](image/01_jdbc_account_lookup.png)
+
 ```java
 import java.sql.Connection;
 import java.sql.DriverManager;

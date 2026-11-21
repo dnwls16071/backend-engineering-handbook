@@ -41,3 +41,5 @@ public class QuerydslCatalogSearch {
 ```
 
 정렬과 페이징은 조회 쿼리에 명시한다. 전체 개수가 필요하면 조회 조건과 맞는 별도 건수 쿼리를 작성한다. Querydsl 5의 JPA용 `fetchCount()`와 `fetchResults()`는 사용 중단 대상으로 지정됐으며, 복잡한 그룹화 쿼리의 건수 계산에서 메모리 집계가 일어날 수 있다. [Querydsl 5.0 · BooleanBuilder 소스](https://raw.githubusercontent.com/querydsl/querydsl/QUERYDSL_5_0_0/querydsl-core/src/main/java/com/querydsl/core/BooleanBuilder.java) · [Querydsl 5.0 · 카운트 API](https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/AbstractJPAQuery.java)
+
+![Querydsl에서 생성된 Q 타입으로 이름과 최대 가격 조건을 표현하고 입력된 조건만 결합해 JPQL로 실행하는 흐름](image/12_querydsl_optional_predicates_and_jpql.png)

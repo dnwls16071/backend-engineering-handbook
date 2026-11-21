@@ -4,6 +4,8 @@
 
 원격 데이터베이스에 새 물리 연결을 만들 때는 네트워크 연결, 인증, 서버 세션 설정이 필요하다. 커넥션 풀은 물리 연결을 보관하고 재사용한다. 애플리케이션이 받은 연결에 `close()`를 호출하면 일반적인 풀에서는 논리 연결이 닫히고 물리 연결은 다시 대여할 수 있게 된다. 서비스 중 연결을 사용한 코드는 `try-with-resources`로 반환하고, 풀 자체는 애플리케이션 종료 시 닫는다. [Java 17 · DataSource](https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/javax/sql/DataSource.html) · [HikariCP · 설정](https://github.com/brettwooldridge/HikariCP#configuration)
 
+![HikariDataSource가 저장소에 논리 연결을 대여하고 반환받으며 유휴 상태의 물리 연결을 재사용하는 구조](image/02_pool_connection_lifecycle.png)
+
 | 연결을 얻는 방식 | 동작 |
 | --- | --- |
 | `DriverManager.getConnection(...)` | 호출자가 URL과 연결 속성을 전달한다. |

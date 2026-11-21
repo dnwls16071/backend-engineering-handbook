@@ -4,6 +4,8 @@
 
 상품 목록에서는 이름과 최대 가격으로 상품을 검색한다. 상품 등록에서는 이름, 가격, 재고를 받고 생성한 식별자를 반환한다. 서비스는 이런 동작을 저장소 인터페이스로 호출하고, 구현체는 메모리 컬렉션이나 데이터베이스에서 데이터를 관리한다. 저장소를 Spring 빈으로 등록하면 서비스 생성자에 사용할 구현체를 주입할 수 있다. [Spring Framework 6.2 · 생성자 의존성 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html)
 
+![상품 서비스가 저장소 인터페이스를 호출하고 Spring 구성에서 고른 메모리 또는 JDBC 구현체를 생성자로 주입하는 구조](image/06_repository_contract_and_injection.png)
+
 | 구성 | 상품 등록 예 |
 | --- | --- |
 | 컨트롤러 | 요청을 받고 입력 형식을 확인한다. |

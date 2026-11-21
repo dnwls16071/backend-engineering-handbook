@@ -59,4 +59,6 @@ public interface CatalogMapper {
 
 `#{value}`는 JDBC 파라미터로 바인딩하고 `${value}`는 SQL 문자열에 값을 삽입한다. 사용자 검색 값에는 `#{...}`를 쓴다. 생성 키를 객체에 채우려면 JDBC 드라이버가 생성 키 조회를 지원하는 경우 `useGeneratedKeys="true"`와 `keyProperty`를 사용한다. 이 경우 키를 받을 객체에 값이 기록될 수 있어야 한다. [MyBatis 3 · 파라미터와 생성 키](https://mybatis.org/mybatis-3/sqlmap-xml.html) · [MyBatis 3 · Dynamic SQL](https://mybatis.org/mybatis-3/dynamic-sql.html)
 
+![MyBatis 상품 검색에서 매퍼 메서드와 XML을 연결하고 동적 SQL을 실행한 뒤 결과 행을 상품 객체로 매핑하는 흐름](image/09_mybatis_mapper_and_dynamic_sql.png)
+
 MyBatis-Spring에서 매퍼를 사용하면 Spring이 `SqlSession`의 생명주기와 트랜잭션을 관리한다. 매니저와 `SqlSessionFactory`가 같은 `DataSource`를 사용하도록 설정한다. [MyBatis-Spring · 트랜잭션](https://mybatis.org/spring/transactions.html)

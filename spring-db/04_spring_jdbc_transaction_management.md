@@ -11,6 +11,8 @@
 
 직접 JDBC를 처리하는 저장소는 `DataSourceUtils.getConnection(dataSource)`로 연결을 얻고 `finally`에서 `DataSourceUtils.releaseConnection(connection, dataSource)`으로 반납한다. 트랜잭션에 연결된 경우 최종 반납은 매니저가 처리한다. `JdbcTemplate`은 이 흐름을 내부에서 사용하므로 매니저와 같은 `DataSource`를 쓰면 저장소에 `Connection`을 매개변수로 전달하지 않아도 된다. 이 연결의 바인딩 범위는 현재 스레드이며, 별도로 시작한 스레드에는 그대로 전달되지 않는다. [Spring Framework 6.2 · DataSourceUtils](https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/connections.html) · [Spring Framework 6.2 · @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html)
 
+![트랜잭션 매니저가 DataSource의 JDBC 연결을 현재 스레드에 바인딩하고 JdbcTemplate이 DataSourceUtils를 통해 같은 연결을 쓰는 구조](image/04_spring_thread_bound_connection.png)
+
 ## 2. 트랜잭션 경계 표현하기
 
 | 방식 | 사용 방법 |

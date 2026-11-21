@@ -47,4 +47,6 @@ class JdbcCatalogSearchTest {
 
 테스트가 시작한 트랜잭션과 같은 스레드, 같은 매니저에 참여한 작업은 함께 롤백된다. 실제 HTTP 서버로 요청을 보내거나 애플리케이션이 `REQUIRES_NEW`에서 작업을 커밋하면 테스트 트랜잭션의 롤백 범위를 벗어날 수 있다. 그런 테스트는 별도 데이터베이스나 명시적 정리로 격리한다. [Spring Framework 6.2 · 테스트 관리 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/testing/testcontext-framework/tx.html) · [Spring Boot 3.5 · 웹 환경 테스트](https://docs.spring.io/spring-boot/3.5/reference/testing/spring-boot-applications.html)
 
+![JdbcTest 트랜잭션에서 테스트 행을 생성하고 저장소를 검증한 뒤 롤백하며, 서버 스레드의 트랜잭션과 REQUIRES_NEW 커밋은 이 롤백 범위 밖에 있는 구조](image/08_test_transaction_rollback_boundary.png)
+
 실제 커밋 결과를 확인하려면 `TestTransaction.flagForCommit()`과 `TestTransaction.end()`로 테스트 중 커밋을 끝낸 뒤 새 트랜잭션에서 조회할 수 있다. JPA의 제약 조건이나 SQL 실행을 테스트할 때는 `flush()`로 데이터베이스에 변경을 보내고 검증한다. [Spring Framework 6.2 · TestTransaction과 수동 플러시](https://docs.spring.io/spring-framework/reference/6.2/testing/testcontext-framework/tx.html)

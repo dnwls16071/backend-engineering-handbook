@@ -8,6 +8,8 @@
 
 [상품 테이블과 결과 레코드](06_data_access_architecture_and_repository_design.md)를 사용한다. 조건이 있을 때만 정해 둔 SQL 조각을 추가하고, 검색에 쓰는 값은 별도로 바인딩한다. 이 예제에서는 `%`와 `_`가 검색어에 포함되면 글자 그대로 검색한다. [Spring Framework 6.2 · NamedParameterJdbcTemplate](https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/core.html)
 
+![검색 조건으로 고른 SQL 조각과 별도로 만든 값 맵을 NamedParameterJdbcTemplate이 받아 JDBC 위치 파라미터로 변환하고 실행을 위임하는 흐름](image/07_named_parameters_and_dynamic_sql.png)
+
 ```java
 import java.util.ArrayList;
 import java.util.List;

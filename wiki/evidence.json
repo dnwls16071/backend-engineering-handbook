@@ -598,5 +598,165 @@
       "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/multipart-forms.html",
       "locator": "Multipart의 @RequestPart 예시와 파트별 HttpMessageConverter, 인접 MultipartFile Javadoc의 요청 종료 후 임시 저장 정리"
     }
+  },
+  {
+    "page": "spring-db/01_jdbc_fundamentals_and_crud.md",
+    "claim": "![JDBC의 ResultSet.next() 결과에 따라 계좌나 빈 결과를 만들고 반환 전에 조회 자원을 닫는 흐름](image/01_jdbc_account_lookup.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java SE 17 JDBC · 기본 키로 한 행을 조회하는 예제",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/ResultSet.html",
+      "locator": "Interface ResultSet — description and next()"
+    }
+  },
+  {
+    "page": "spring-db/02_connection_pooling_and_data_sources.md",
+    "claim": "![HikariDataSource가 저장소에 논리 연결을 대여하고 반환받으며 유휴 상태의 물리 연결을 재사용하는 구조](image/02_pool_connection_lifecycle.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java SE 17 JDBC · HikariDataSource를 사용하는 커넥션 풀 예제",
+    "source": {
+      "url": "https://github.com/brettwooldridge/HikariCP#configuration",
+      "locator": "Configuration — maximumPoolSize and connectionTimeout"
+    }
+  },
+  {
+    "page": "spring-db/03_database_transactions_and_locking.md",
+    "claim": "![하나의 JDBC 연결에서 출금과 입금을 실행한 뒤 커밋 또는 롤백하고, InnoDB에서 같은 행의 잠금을 기다리는 흐름](image/03_transfer_commit_and_rollback.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java SE 17 JDBC 로컬 트랜잭션 · MySQL 8.4 InnoDB의 충돌하는 행 잠금",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-autocommit-commit-rollback.html",
+      "locator": "§17.7.2.2 autocommit, Commit, and Rollback — transaction end and lock release"
+    }
+  },
+  {
+    "page": "spring-db/04_spring_jdbc_transaction_management.md",
+    "claim": "![트랜잭션 매니저가 DataSource의 JDBC 연결을 현재 스레드에 바인딩하고 JdbcTemplate이 DataSourceUtils를 통해 같은 연결을 쓰는 구조](image/04_spring_thread_bound_connection.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 · 단일 JDBC DataSource · 같은 스레드에서 실행되는 동기 트랜잭션",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/connections.html",
+      "locator": "Using DataSourceUtils and Using DataSourceTransactionManager / JdbcTransactionManager"
+    }
+  },
+  {
+    "page": "spring-db/05_spring_jdbc_exception_translation_and_jdbc_template.md",
+    "claim": "![계좌 저장소가 JdbcTemplate으로 SQL을 실행하고 변경 행 수나 조회 목록을 받거나, JDBC 예외가 DataAccessException으로 변환되어 전파되는 흐름](image/05_jdbc_template_exception_translation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 JDBC Core의 JdbcTemplate 실행, 결과 매핑, 예외 변환과 문서의 계좌 저장소 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/core.html",
+      "locator": "Using JdbcTemplate / Using SQLExceptionTranslator / Updating the Database"
+    }
+  },
+  {
+    "page": "spring-db/06_data_access_architecture_and_repository_design.md",
+    "claim": "![상품 서비스가 저장소 인터페이스를 호출하고 Spring 구성에서 고른 메모리 또는 JDBC 구현체를 생성자로 주입하는 구조](image/06_repository_contract_and_injection.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 생성자 의존성 주입과 문서의 상품 등록·검색 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html",
+      "locator": "Dependency Injection / Constructor-based Dependency Injection"
+    }
+  },
+  {
+    "page": "spring-db/07_jdbc_template_named_parameters_and_dynamic_sql.md",
+    "claim": "![검색 조건으로 고른 SQL 조각과 별도로 만든 값 맵을 NamedParameterJdbcTemplate이 받아 JDBC 위치 파라미터로 변환하고 실행을 위임하는 흐름](image/07_named_parameters_and_dynamic_sql.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 이름 기반 바인딩과 문서의 JdbcCatalogSearch 상품 검색 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/jdbc/core.html",
+      "locator": "Using NamedParameterJdbcTemplate"
+    }
+  },
+  {
+    "page": "spring-db/08_spring_data_access_integration_testing.md",
+    "claim": "![JdbcTest 트랜잭션에서 테스트 행을 생성하고 저장소를 검증한 뒤 롤백하며, 서버 스레드의 트랜잭션과 REQUIRES_NEW 커밋은 이 롤백 범위 밖에 있는 구조](image/08_test_transaction_rollback_boundary.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 TestContext와 Spring Boot 3.5 JdbcTest 기본 롤백. 실제 HTTP 서버는 별도 테스트 환경 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/testing/testcontext-framework/tx.html",
+      "locator": "Test-managed Transactions / Enabling and Disabling Transactions"
+    }
+  },
+  {
+    "page": "spring-db/09_mybatis_sql_mapping_and_dynamic_queries.md",
+    "claim": "![MyBatis 상품 검색에서 매퍼 메서드와 XML을 연결하고 동적 SQL을 실행한 뒤 결과 행을 상품 객체로 매핑하는 흐름](image/09_mybatis_mapper_and_dynamic_sql.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "MyBatis 3의 XML 매퍼, JDBC PreparedStatement와 상품 검색 예제",
+    "source": {
+      "url": "https://mybatis.org/mybatis-3/sqlmap-xml.html",
+      "locator": "Mapper XML Files의 select, Parameters, Result Maps의 constructor 및 Getting Started의 Exploring Mapped SQL Statements. <if>와 <where>는 같은 문단에 연결한 Dynamic SQL 문서의 if와 trim/where/set 절."
+    }
+  },
+  {
+    "page": "spring-db/10_jpa_entity_mapping_and_repository_operations.md",
+    "claim": "![JPA가 기본 키로 조회한 상품을 영속성 컨텍스트에서 관리하고 필드 변경을 플러시로 데이터베이스에 동기화하는 흐름](image/10_jpa_managed_entity_and_flush.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jakarta Persistence 3.1, 활성 쓰기 트랜잭션에 참여하는 영속성 컨텍스트와 상품 엔티티 예제",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1",
+      "locator": "Jakarta Persistence 3.1 §3.1의 EntityManager.find와 flush, §3.2.4 Synchronization to the Database, §11.1.9 Column Annotation."
+    }
+  },
+  {
+    "page": "spring-db/11_spring_data_jpa_repositories_and_queries.md",
+    "claim": "![상품 저장소 예제에서 프록시는 메서드 이름을 해석한 파생 쿼리와 @Query에 선언한 JPQL을 실행한다. 각 예제 메서드가 선언한 반환 타입은 Page와 List다.](image/11_spring_data_jpa_declared_and_derived_queries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5, 상품 저장소의 파생 조회 및 JPQL 조회 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html",
+      "locator": "JPA Query Methods의 Query Creation과 Using @Query, 연결된 Defining Query Methods의 Paging, Iterating Large Results, Sorting & Limiting."
+    }
+  },
+  {
+    "page": "spring-db/12_querydsl_dynamic_jpa_queries.md",
+    "claim": "![Querydsl에서 생성된 Q 타입으로 이름과 최대 가격 조건을 표현하고 입력된 조건만 결합해 JPQL로 실행하는 흐름](image/12_querydsl_optional_predicates_and_jpql.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Querydsl 5.0 JPA, Spring Boot 3.x의 Jakarta 분류자 및 상품 검색 예제",
+    "source": {
+      "url": "https://github.com/querydsl/querydsl/blob/QUERYDSL_5_0_0/querydsl-jpa/src/main/java/com/querydsl/jpa/impl/AbstractJPAQuery.java",
+      "locator": "AbstractJPAQuery의 createQuery(...)와 fetch(). 같은 문단의 BooleanBuilder.and(...) 및 1절의 JPAQueryFactory.selectFrom(...)과 Jakarta 지원 릴리스 노트."
+    }
+  },
+  {
+    "page": "spring-db/13_combining_spring_data_access_technologies.md",
+    "claim": "![JpaTransactionManager가 JPA의 JDBC 연결을 노출할 수 있으면 같은 DataSource의 JdbcTemplate이 그 트랜잭션에 참여한다. JPA에서 보류 중인 변경을 JDBC에서 읽어야 하면 먼저 플러시하고, 커밋·롤백은 바깥 경계에서 결정한다.](image/13_jpa_jdbc_shared_transaction.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 같은 DataSource와 연결 노출을 지원하는 JpaDialect를 사용하는 하나의 로컬 트랜잭션",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html",
+      "locator": "JpaTransactionManager 클래스 설명의 plain JDBC와 JpaDialect 요구 사항. 문서의 Spring-driven JPA Transactions 및 Jakarta Persistence flush 근거와 함께 적용"
+    }
+  },
+  {
+    "page": "spring-db/14_spring_transaction_proxies_and_rollback_rules.md",
+    "claim": "![외부 호출을 받은 트랜잭션 프록시가 메서드 실행 전에 트랜잭션을 시작하고, 반환 결과나 경계를 넘어온 예외로 커밋 또는 롤백 절차를 선택한다. 기본 규칙은 RuntimeException과 Error에서 롤백하며 rollbackFor로 체크 예외를 포함할 수 있다.](image/14_transaction_proxy_outcomes.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 선언적 프록시 모드. 호출 시 새 트랜잭션을 시작하며 별도 규칙이 없으면 기본 롤백 정책 적용",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html",
+      "locator": "Rolling Back a Declarative Transaction의 기본 롤백 규칙과 rollbackFor, 본문에 연결된 Using @Transactional의 프록시 호출 경계"
+    }
+  },
+  {
+    "page": "spring-db/15_spring_transaction_propagation_modes.md",
+    "claim": "![REQUIRED는 두 논리 범위가 같은 물리 트랜잭션을 공유한다. REQUIRES_NEW는 바깥 범위를 중단하고 별도 물리 트랜잭션을 시작한다. NESTED는 지원되는 JDBC 구성에서 같은 물리 트랜잭션 안에 저장점을 둔다.](image/15_propagation_physical_boundaries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 바깥 트랜잭션이 열린 JDBC 리소스 예시. NESTED는 JDBC 저장점 지원을 전제",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
+      "locator": "Understanding PROPAGATION_REQUIRED, PROPAGATION_REQUIRES_NEW, PROPAGATION_NESTED"
+    }
+  },
+  {
+    "page": "spring-db/16_spring_transaction_propagation_in_practice.md",
+    "claim": "![상품 등록의 바깥 트랜잭션을 일시 중단하고 별도 빈의 REQUIRES_NEW 경계에서 시도 행을 저장해 커밋한다. 바깥을 재개한 뒤 상품 등록이 롤백돼도 독립 트랜잭션의 시도 기록은 남는다.](image/16_requires_new_attempt_commit.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2에서 별도 프록시 빈을 호출하고 내부 시도 기록 커밋 후 외부가 롤백되는 경로",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
+      "locator": "Understanding PROPAGATION_REQUIRES_NEW의 독립 물리 트랜잭션과 자원, 본문 CatalogAttemptWriter의 요청 식별자 저장 예시"
+    }
   }
 ]

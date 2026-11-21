@@ -40,6 +40,8 @@ public class CatalogAttemptWriter {
 
 바깥 서비스에서 `record(...)`를 호출한 뒤 상품 등록 로직이 실패하면 요청 시도 행은 남고 상품 행은 롤백된다. 내부 호출에 실패해도 상품을 저장할 수 있는 업무라면 대상 예외만 외부 서비스에서 처리한다. 테스트에서는 상품과 시도 기록을 서로 다른 테이블에서 조회해 실제 커밋 결과를 각각 확인한다. [Spring Framework 6.2 · 트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html)
 
+![상품 등록의 바깥 트랜잭션을 일시 중단하고 별도 빈의 REQUIRES_NEW 경계에서 시도 행을 저장해 커밋한다. 바깥을 재개한 뒤 상품 등록이 롤백돼도 독립 트랜잭션의 시도 기록은 남는다.](image/16_requires_new_attempt_commit.png)
+
 ## 3. 커밋 후에 실행할 작업 구분하기
 
 상품 등록이 커밋된 뒤에만 알림을 보내야 한다면 `@TransactionalEventListener`의 `AFTER_COMMIT` 단계에 처리기를 연결할 수 있다. 전송할 이벤트도 상품과 함께 영속 저장해야 한다면 같은 트랜잭션에 아웃박스 행을 저장하고 별도 발행 작업에서 처리한다. [Spring Framework 6.2 · 트랜잭션에 연결된 이벤트](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/event.html) · [트랜잭셔널 아웃박스](../engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md)
