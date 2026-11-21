@@ -109,3 +109,7 @@ LLEN lab:likes:processing
 처리 목록 길이가 `0`이면 실습이 끝난다. 운영에서는 대기 건수와 가장 오래된 이벤트의 대기 시간으로 배치 지연을 확인한다. Redis 자체가 재시작되면 큐의 복구 범위는 RDB와 AOF 등 영속화 설정에 따라 달라진다.
 
 **공식 문서** [LREM](https://redis.io/docs/latest/commands/lrem/) · [Redis 영속화](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+
+![좋아요 이벤트는 Redis ready에서 processing으로 LMOVE하고 워커가 PostgreSQL에 반영한다. 커밋 후 원본으로 LREM한다. 커밋 직후 워커가 중단되면 원본을 회수해 재처리하며, 같은 게시물과 사용자의 좋아요는 중복 삽입되지 않아 집계가 유지된다.](image/04_list_queue_commit_and_recovery.png)
+
+그림의 근거 · [Redis LMOVE 작업 큐 패턴](https://redis.io/docs/latest/commands/lmove/) · [PostgreSQL INSERT](https://www.postgresql.org/docs/current/sql-insert.html)

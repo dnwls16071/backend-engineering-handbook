@@ -103,6 +103,10 @@ done
 
 처음 두 호출은 `1`과 `2`를 반환하고 다음 호출은 정원에 도달해 `0`을 반환한다. Lua는 스크립트 전체를 다른 명령이 끼어들지 않게 실행한다. 실행 중 다른 호출이 대기할 수 있으므로 스크립트의 작업량을 작게 유지한다.
 
+![Pipeline은 개별 응답을 기다리지 않고 명령을 전송해 네트워크 왕복 대기를 줄인다. MULTI/EXEC는 대기열의 명령을 다른 클라이언트 명령이 끼어들지 않게 실행한다. Lua는 조건을 읽고 쓰기를 결정하는 로직을 서버에서 통째로 실행한다.](image/13_pipeline_transaction_lua_execution_boundaries.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/develop/using-commands/pipelining/) · [Redis 트랜잭션 · 실행 순서와 격리](https://redis.io/docs/latest/develop/using-commands/transactions/) · [Redis Lua · 조건부 쓰기와 실행 경계](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [redis-py · 동시 사용 설정](https://redis.io/docs/latest/develop/clients/redis-py/transpipe/)
+
 **공식 문서** [Redis Lua 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Pipeline과 Lua의 차이](https://redis.io/docs/latest/develop/using-commands/pipelining/#pipelining-vs-scripting)
 
 ## 5. Streams로 메시지를 남기고 재처리하기

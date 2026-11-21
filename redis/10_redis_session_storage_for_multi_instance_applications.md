@@ -41,6 +41,10 @@ EXEC
 
 필드 저장과 키의 30분 만료를 한 트랜잭션에서 적용한다. 이 예제의 만료 기준은 세션을 만든 시점이다.
 
+![브라우저의 로그인 요청을 받은 애플리케이션 A가 Redis Hash와 만료 시간을 저장하고 세션 ID 쿠키를 발급한다. 같은 쿠키를 받은 애플리케이션 B가 같은 Redis의 유효한 세션에서 사용자 ID를 찾는다.](image/10_shared_session_across_app_instances.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/develop/use-cases/session-store/) · [MULTI/EXEC](https://redis.io/docs/latest/develop/using-commands/transactions/) · [EXPIRE](https://redis.io/docs/latest/commands/expire/) · [HGET](https://redis.io/docs/latest/commands/hget/)
+
 터미널 B에서는 쿠키를 통해 같은 세션 ID를 받았다고 가정하고 조회한다.
 
 ```text

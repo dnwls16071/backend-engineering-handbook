@@ -35,6 +35,10 @@ ZRANGE lab:search:daily:2026-11-19 0 9 REV WITHSCORES
 
 상위 세 키워드는 `redis 15`, `nginx 14`, `postgresql 13`이다. 인덱스는 0부터 시작하고 끝 인덱스도 포함하므로 `0 9`가 최대 10개를 반환한다. `REV`에서는 동점인 멤버도 바이트를 기준으로 사전식 내림차순으로 정렬한다. 따라서 `kubernetes`가 `docker`보다 앞선다.
 
+![날짜별 Sorted Set에서 ZINCRBY로 nginx의 점수를 11에서 14로 올린다. ZRANGE 0 9 REV WITHSCORES는 최대 10개를 높은 점수부터 조회한다. 상위 세 검색어는 redis, nginx, postgresql이며, 8점 동점인 kubernetes가 docker보다 앞선다.](image/06_search_ranking_score_updates_and_top_10.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/commands/zrange/) · [ZINCRBY](https://redis.io/docs/latest/commands/zincrby/)
+
 기록 요청마다 `ZINCRBY ... 1`을 실행한다. 아래는 `oauth` 검색 다섯 건을 한꺼번에 반영하는 예다.
 
 ```text

@@ -114,6 +114,10 @@ redis-cli GET lab:stock:42
 
 첫 차감의 `0`은 성공 후 남은 재고이고, 두 번째 결과 `-1`은 재고 부족이다. 저장된 재고는 `0`이다. Lua 예제와 락 해제 명령은 앞 절의 Redis와 같은 인스턴스에 접속해야 한다. 필요하면 `redis-cli` 뒤에 동일한 주소와 포트 옵션을 붙인다.
 
+![초기 재고가 1이면 별도 GET과 SET 사이에 요청이 섞여 두 요청이 성공으로 판단할 수 있다. 한 Redis 인스턴스의 Lua 스크립트에 수량 확인과 DECRBY를 넣으면 먼저 실행된 A가 재고 0을 반환하고 다음 B는 0을 읽어 차감 없이 부족을 나타내는 -1을 반환한다.](image/05_inventory_check_and_decrement.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [DECRBY](https://redis.io/docs/latest/commands/decrby/) · [GET](https://redis.io/docs/latest/commands/get/)
+
 재고의 원본이 DB라면 DB에서 `WHERE stock >= :quantity` 조건을 포함한 `UPDATE`를 수행하고, 갱신된 행 수로 성공 여부를 판단한다. 네트워크 재시도로 같은 업무 요청이 다시 도착할 수 있다면 요청 식별자에 따른 중복 처리 방지도 함께 설계한다.
 
 **공식 문서** [Lua 스크립트 원자 실행과 KEYS·ARGV](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [DECRBY](https://redis.io/docs/latest/commands/decrby/) · [PostgreSQL UPDATE](https://www.postgresql.org/docs/current/sql-update.html)

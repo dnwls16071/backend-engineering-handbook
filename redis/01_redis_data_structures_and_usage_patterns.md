@@ -4,6 +4,10 @@ Redis에서는 필요한 연산을 기준으로 자료구조를 고른다. 값 �
 
 아래 명령은 비어 있는 실습용 Redis에서 `redis-cli`로 실행한다. `ZRANGE ... REV`가 포함된 예제는 Redis 6.2 이상을 기준으로 한다.
 
+![Redis 키 공간에서 각 키의 값은 자료구조 하나를 가진다. String은 값과 카운터, List는 순서가 있는 큐, Set은 중복 없는 원소, Sorted Set은 점수순 조회, Hash는 필드 단위 변경에 사용한다.](image/01_keyspace_and_data_structure_choices.png)
+
+그림의 근거 · [Redis 자료구조 개요](https://redis.io/docs/latest/develop/data-types/) · [ZRANGE](https://redis.io/docs/latest/commands/zrange/)
+
 ## 1. String · 값 저장과 만료
 
 String은 텍스트, 직렬화한 JSON, 바이너리 데이터를 값 하나로 저장한다. 정수 문자열은 카운터 명령으로 증가시킬 수 있다. JSON을 String으로 저장하면 Redis는 그 내용을 값 전체로 다루므로, 필드 하나만 바꿀 때도 애플리케이션에서 역직렬화하고 새 값을 저장해야 한다.

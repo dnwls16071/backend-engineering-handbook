@@ -85,3 +85,7 @@ Sentinel은 비클러스터 구성의 Redis를 감시하고, Primary에 장애�
 Redis Cluster는 16,384개 해시 슬롯을 여러 Primary에 배분한다. 요청은 슬롯에 맞는 노드로 전달되므로 슬롯 관리와 리다이렉션을 지원하는 클라이언트가 필요하다. 각 Primary에 Replica를 추가하면 샤드별 장애 조치에 사용할 수 있다. [샤딩과 복제 동작](../cache/01_cache_fundamentals_and_redis_cluster.md)
 
 **공식 문서** [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) · [Redis Cluster 운영](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
+
+![Standalone의 단일 서버와 일반 복제의 Primary가 쓰기를 받는다. Sentinel 구성에서 클라이언트는 Sentinel에 현재 Primary 주소를 물은 뒤 그 서버에 쓰고, 장애 시 Sentinel이 Replica를 승격한다. Cluster는 16,384개 슬롯을 여러 Primary에 분산하며 클라이언트는 키의 슬롯을 담당하는 노드에 쓴다.](image/03_deployment_topologies_and_write_paths.png)
+
+그림의 근거 · [Redis 비동기 복제](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/)

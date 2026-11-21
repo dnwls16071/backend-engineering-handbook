@@ -2,6 +2,10 @@
 
 Redis Pub/Sub으로 현재 접속한 화면에 주문 알림을 보내고, Redis Streams로 작업자가 나중에 처리할 주문 이벤트를 저장한다. 예제는 비어 있는 실습용 Redis에서 `redis-cli`로 실행한다. 미처리 이벤트를 가져오는 `XAUTOCLAIM`은 Redis 6.2 이상에서 사용할 수 있다.
 
+![Pub/Sub은 발행 시 구독 중인 클라이언트에 알림을 보내며 연결이 끊겼던 구독자에게 다시 보내지 않는다. Streams에서 billing 그룹이 읽은 엔트리는 PEL에 남고, 미확인 시간이 지난 엔트리는 XAUTOCLAIM으로 다른 워커에 배정할 수 있다. XACK은 그룹의 PEL에서만 제거한다.](image/02_pubsub_and_streams_delivery.png)
+
+그림의 근거 · [Pub/Sub 전달 방식](https://redis.io/docs/latest/develop/pubsub/#delivery-semantics) · [XREADGROUP](https://redis.io/docs/latest/commands/xreadgroup/) · [XAUTOCLAIM](https://redis.io/docs/latest/commands/xautoclaim/) · [XACK](https://redis.io/docs/latest/commands/xack/)
+
 | 기준 | Pub/Sub | Streams |
 | --- | --- | --- |
 | 전송 단위 | 채널에 메시지를 발행한다. | Stream 키에 ID가 있는 엔트리를 추가한다. |

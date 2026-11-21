@@ -81,6 +81,10 @@ done
 
 10초 안에 실행하면 처음 다섯 요청은 허용되고 남은 횟수는 `4`에서 `0`으로 줄어든다. 여섯 번째 요청은 `[0, 0, 재시도까지 남은 밀리초]`를 반환한다. 첫 요청이 10초 범위를 벗어나면 다음 요청을 허용할 수 있다. 거절한 요청은 기록하거나 TTL을 갱신하지 않는다.
 
+![Redis Lua 안에서 TIME으로 현재 시각을 읽고 10초 전과 그 이전을 제거한 뒤 ZCARD로 센다. 5개 이상이면 새 기록이나 TTL 갱신 없이 가장 오래된 기록이 범위를 벗어날 때까지의 대기 시간을 반환한다. 5개 미만이면 ZADD NX 등록이 성공한 경우에만 TTL을 10초로 설정하고 요청을 허용한다.](image/07_atomic_sliding_window_rate_limit.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [ZREMRANGEBYSCORE](https://redis.io/docs/latest/commands/zremrangebyscore/) · [ZADD NX](https://redis.io/docs/latest/commands/zadd/) · [EXPIRE](https://redis.io/docs/latest/commands/expire/) · [HTTP 429](https://www.rfc-editor.org/rfc/rfc6585.html#section-4)
+
 API에서는 인증된 사용자 ID와 API 이름을 키에 포함하고, 실제 비즈니스 로직을 실행하기 전에 이 스크립트를 호출한다. 제한을 넘으면 HTTP `429 Too Many Requests`를 응답하고, `Retry-After`에 대기 시간을 초 단위로 올림해 넣을 수 있다. 허용 횟수는 제한기를 통과한 요청을 기준으로 센다.
 
 **공식 문서** [Redis CLI의 Lua 실행](https://redis.io/docs/latest/develop/tools/cli/#run-lua-scripts) · [HTTP 429](https://www.rfc-editor.org/rfc/rfc6585.html#section-4) · [Retry-After](https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after)

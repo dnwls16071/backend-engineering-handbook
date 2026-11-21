@@ -105,6 +105,10 @@ MEMORY USAGE lab:cmd:profile:7:timezone
 
 작은 Hash는 `listpack`으로 저장될 수 있고, 여러 필드를 한 키로 모으면 키마다 붙는 비용을 줄일 수 있다. 로컬 Redis 8.0.1에서 예제 Hash는 `listpack`으로 저장됐고 `MEMORY USAGE`는 136바이트였다. 세 String 키의 합은 264바이트였다. 필드 수, 값의 길이, Redis 설정에 따라 인코딩과 사용량이 달라진다. 프로필 전체를 JSON 하나로 저장하는 구조라면, 그 String 키를 기준으로 별도 측정한다.
 
+![같은 세 프로필 필드를 String 키 세 개 또는 Hash 키 하나로 저장한 Redis 8.0.1 실습이다. OBJECT ENCODING으로 Hash의 listpack을 확인했고, 이 실습에서 MEMORY USAGE는 String 키 세 개 합계 264바이트, Hash 키 136바이트였다.](image/11_redis_hash_listpack_and_string_key_memory.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) · [OBJECT ENCODING](https://redis.io/docs/latest/commands/object-encoding/) · [MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/)
+
 **공식 문서** [Redis Hashes](https://redis.io/docs/latest/develop/data-types/hashes/) · [Redis 메모리 최적화](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) · [MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/)
 
 ## 6. Sorted Set · 게임 리더보드

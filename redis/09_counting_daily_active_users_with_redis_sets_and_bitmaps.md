@@ -59,6 +59,10 @@ BITCOUNT lab:dau:bitmap:2026-11-19
 
 번호가 촘촘한 정수 사용자 ID에는 Bitmap이 메모리 면에서 유리할 수 있다. Redis는 지정한 오프셋에 닿을 때까지 문자열을 늘린다. 예를 들어 가장 큰 오프셋이 `205`면 문자열 본문은 26바이트다. 그날 방문자가 적어도 큰 사용자 번호를 그대로 오프셋으로 쓰면 공간이 늘어난다. UUID를 쓰거나 사용자 번호가 넓은 범위에 드문드문 분포하면 Set이 간단하다.
 
+![같은 날짜의 방문 101, 205, 101을 Set은 사용자 ID 두 개로 저장하고 Bitmap은 String의 101번과 205번 비트를 1로 저장한다. SCARD와 BITCOUNT 모두 2를 반환하며, 최대 오프셋 205까지의 String 본문은 26바이트다.](image/09_daily_active_users_set_and_bitmap.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/commands/setbit/) · [SADD](https://redis.io/docs/latest/commands/sadd/) · [SCARD](https://redis.io/docs/latest/commands/scard/) · [BITCOUNT](https://redis.io/docs/latest/commands/bitcount/)
+
 **공식 문서** [SCARD 복잡도](https://redis.io/docs/latest/commands/scard/) · [SETBIT 오프셋과 할당](https://redis.io/docs/latest/commands/setbit/) · [BITCOUNT 복잡도](https://redis.io/docs/latest/commands/bitcount/)
 
 ## 4. 날짜별 키로 일간 집계 분리하기

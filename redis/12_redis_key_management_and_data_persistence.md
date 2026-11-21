@@ -37,6 +37,10 @@ SCAN 0 MATCH 'lab:scan:session:*' COUNT 2
 
 Redis 7 이상에서는 AOF가 기본 파일과 증분 파일, 파일 목록을 담은 매니페스트로 구성된다. 복구용 AOF를 복사할 때는 이 파일들이 들어 있는 디렉터리를 일관된 상태로 보관한다. AOF 재작성 시 기본 파일에 RDB 형식을 쓸 수도 있다. 이 기본 파일은 AOF 구성 요소이고, RDB와 AOF를 함께 켜서 별도 스냅샷을 남기는 설정은 위 표의 병행 구성이다.
 
+![Redis 7 이상에서 RDB 전용 구성은 마지막 RDB 스냅샷을 읽는다. AOF가 활성화되면 RDB 병행 구성에서도 재시작 시 AOF를 사용한다. 매니페스트에 따라 Base 파일이 있으면 읽고 이후 Incremental AOF를 순서대로 재생한다.](image/12_rdb_aof_restart_recovery.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+
 RDB 저장과 AOF 재작성은 백그라운드 작업을 시작한다. 데이터 크기가 크거나 쓰기가 많으면 프로세스 생성, 디스크 I/O, 추가 메모리가 지연에 영향을 줄 수 있으므로 실행 중 지표를 확인한다.
 
 **공식 문서** [Redis 영속화 개요와 AOF 재작성](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) · [BGSAVE](https://redis.io/docs/latest/commands/bgsave/) · [BGREWRITEAOF](https://redis.io/docs/latest/commands/bgrewriteaof/)

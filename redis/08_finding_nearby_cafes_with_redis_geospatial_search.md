@@ -59,6 +59,10 @@ HMGET lab:cafe:office name address
 
 API에서는 현재 좌표의 범위를 검사하고, `GEOSEARCH` 결과를 받아 ID별로 상세 정보를 조회한다. 응답에는 카페 ID, 이름, 주소, 좌표와 거리를 담고 검색의 거리순을 유지한다. 반경 내에 카페가 없을 때는 빈 목록을 반환한다.
 
+![카페 좌표를 GEOADD로 인덱스에 기록한다. 현재 좌표에서 반경 1km로 GEOSEARCH하면 cafe:station 약 69m, cafe:office 약 662m 순으로 반환되며 cafe:north는 반경 밖이다. API는 각 결과의 카페 ID로 Redis Hash의 이름과 주소를 읽는다.](image/08_geosearch_radius_and_cafe_details.png)
+
+그림의 근거 · [Redis 공식 문서](https://redis.io/docs/latest/commands/geosearch/) · [GEOADD](https://redis.io/docs/latest/commands/geoadd/) · [HMGET](https://redis.io/docs/latest/commands/hmget/)
+
 카페가 이전하면 같은 ID의 좌표를 `GEOADD`로 갱신한다. 폐점한 카페의 위치를 인덱스에서 제거할 때는 `ZREM`을 사용한다. 위치와 상세 정보를 별도 키에 둔다면 매장 변경 시 두 데이터를 함께 관리한다. [Redis Hash 사용법](01_redis_data_structures_and_usage_patterns.md)
 
 **공식 문서** [HMGET](https://redis.io/docs/latest/commands/hmget/) · [ZREM](https://redis.io/docs/latest/commands/zrem/)
