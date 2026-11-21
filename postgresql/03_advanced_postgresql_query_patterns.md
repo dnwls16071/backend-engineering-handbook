@@ -134,6 +134,10 @@ ORDER BY booked_at, id;
 
 거래 `1002`와 `1003`은 반영 시각이 같다. 기본 프레임의 누적액은 두 행 모두 `59000.00`이다. `ROWS`와 ID를 함께 사용하면 거래별 누적액이 `62000.00`과 `59000.00`으로 구분된다.
 
+![계좌 101의 거래 1002를 계산할 때 ORDER BY booked_at의 기본 RANGE는 같은 시각인 1003까지 포함해 59000.00을 반환한다. booked_at, id로 정렬한 ROWS 현재 행 프레임은 1003을 포함하지 않아 62000.00을 반환한다. 두 계산 모두 거래 세 행을 유지한다.](image/03_window_frames_for_transactions_at_same_time.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS) · [윈도우 함수의 행 유지](https://www.postgresql.org/docs/18/tutorial-window.html)
+
 `NTILE(n)`은 정렬된 파티션의 행을 비슷한 개수의 그룹으로 나눈다. 예제는 통화별 거래액을 정렬한 다음, 거래 수 기준으로 두 그룹을 만든다.
 
 ```sql

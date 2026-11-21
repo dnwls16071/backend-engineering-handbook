@@ -148,4 +148,8 @@ ON CONFLICT (code) DO NOTHING;
 
 존재 여부를 먼저 조회하고 나중에 삽입하면 그사이에 다른 트랜잭션이 같은 키를 추가할 수 있다. `ON CONFLICT DO UPDATE`는 지정한 고유 키 충돌을 한 SQL 문에서 처리한다. `CHECK`와 외래 키 등 다른 제약 조건은 계속 적용된다.
 
+![상품 DESK-001을 제안하면 ON CONFLICT (sku)가 고유 SKU를 기준으로 삽입과 갱신을 가른다. 신규 SKU는 새 ID를 생성해 삽입한다. 이미 존재하는 실습 행에서는 EXCLUDED의 가격과 재고, 새 수정 시각을 저장하고 기존 ID와 갱신된 값을 반환한다.](image/01_product_upsert_by_unique_sku.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/sql-insert.html#SQL-ON-CONFLICT) · [IDENTITY가 생성하는 값](https://www.postgresql.org/docs/18/ddl-identity-columns.html) · [INSERT와 RETURNING](https://www.postgresql.org/docs/18/sql-insert.html)
+
 **공식 문서** [PostgreSQL INSERT의 ON CONFLICT 절](https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT)

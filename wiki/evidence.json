@@ -1718,5 +1718,445 @@
       "url": "https://github.com/redis/redis/blob/8.0/src/redis-cli.c",
       "locator": "clusterManagerCheckCluster의 슬롯 커버리지와 clusterManagerCommandRebalance의 simulate 옵션."
     }
+  },
+  {
+    "page": "postgresql/01_postgresql_tables_constraints_and_sql_basics.md",
+    "claim": "![상품 DESK-001을 제안하면 ON CONFLICT (sku)가 고유 SKU를 기준으로 삽입과 갱신을 가른다. 신규 SKU는 새 ID를 생성해 삽입한다. 이미 존재하는 실습 행에서는 EXCLUDED의 가격과 재고, 새 수정 시각을 저장하고 기존 ID와 갱신된 값을 반환한다.](image/01_product_upsert_by_unique_sku.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, products의 UNIQUE(sku)와 GENERATED ALWAYS AS IDENTITY. 다른 제약 오류가 없는 문서의 UPSERT 예제.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html#SQL-ON-CONFLICT",
+      "locator": "ON CONFLICT Clause의 conflict_target, EXCLUDED, atomic INSERT or UPDATE 및 RETURNING."
+    }
+  },
+  {
+    "page": "postgresql/01_postgresql_tables_constraints_and_sql_basics.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/sql-insert.html#SQL-ON-CONFLICT) · [IDENTITY가 생성하는 값](https://www.postgresql.org/docs/18/ddl-identity-columns.html) · [INSERT와 RETURNING](https://www.postgresql.org/docs/18/sql-insert.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, products의 UNIQUE(sku)와 GENERATED ALWAYS AS IDENTITY. 다른 제약 오류가 없는 문서의 UPSERT 예제.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html#SQL-ON-CONFLICT",
+      "locator": "ON CONFLICT Clause의 conflict_target, EXCLUDED, atomic INSERT or UPDATE 및 RETURNING."
+    }
+  },
+  {
+    "page": "postgresql/02_postgresql_sorting_aggregation_and_join_patterns.md",
+    "claim": "![같은 2월 조건을 LEFT JOIN의 ON에 넣으면 계좌 101, 102, 201, 202가 모두 남고 거래 수는 각각 2, 1, 0, 0이다. WHERE로 옮기면 3월 거래만 있는 201과 거래가 없는 202가 결과에서 빠진다.](image/02_left_join_date_filter_and_row_preservation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, 문서의 서울 2월 계좌별 거래 수 예제와 기간 조건만 WHERE로 옮긴 비교.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN",
+      "locator": "7.2.1.1 Joined Tables의 ON과 WHERE 비교 및 7.2.2 WHERE Clause."
+    }
+  },
+  {
+    "page": "postgresql/02_postgresql_sorting_aggregation_and_join_patterns.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN) · [COUNT(e.id)와 COUNT(*)](https://www.postgresql.org/docs/18/functions-aggregate.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, 문서의 서울 2월 계좌별 거래 수 예제와 기간 조건만 WHERE로 옮긴 비교.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN",
+      "locator": "7.2.1.1 Joined Tables의 ON과 WHERE 비교 및 7.2.2 WHERE Clause."
+    }
+  },
+  {
+    "page": "postgresql/03_advanced_postgresql_query_patterns.md",
+    "claim": "![계좌 101의 거래 1002를 계산할 때 ORDER BY booked_at의 기본 RANGE는 같은 시각인 1003까지 포함해 59000.00을 반환한다. booked_at, id로 정렬한 ROWS 현재 행 프레임은 1003을 포함하지 않아 62000.00을 반환한다. 두 계산 모두 거래 세 행을 유지한다.](image/03_window_frames_for_transactions_at_same_time.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, 계좌 101의 거래 1001·1002·1003에 대한 본문 누적액 예제.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS",
+      "locator": "4.2.8 Window Function Calls의 기본 RANGE, CURRENT ROW, peer 및 ROWS 프레임."
+    }
+  },
+  {
+    "page": "postgresql/03_advanced_postgresql_query_patterns.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS) · [윈도우 함수의 행 유지](https://www.postgresql.org/docs/18/tutorial-window.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18, 계좌 101의 거래 1001·1002·1003에 대한 본문 누적액 예제.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS",
+      "locator": "4.2.8 Window Function Calls의 기본 RANGE, CURRENT ROW, peer 및 ROWS 프레임."
+    }
+  },
+  {
+    "page": "postgresql/04_postgresql_jsonb_indexing_and_performance_tuning.md",
+    "claim": "![PostgreSQL 18.4 실습에서 JSONB 포함 검색은 jsonb_path_ops GIN의 Bitmap Index Scan으로 후보 위치를 모으고, Bitmap Heap Scan으로 실제 행을 읽어 포함 조건을 재검사한다. COUNT는 통과한 환불 이벤트 2,061건을 집계한다.](image/04_jsonb_gin_bitmap_and_heap_recheck.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4 payment_events 실습 데이터 20만 건과 jsonb_path_ops GIN에서 관측한 계획.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/datatype-json.html#JSON-INDEXING",
+      "locator": "JSONB Indexing의 jsonb_path_ops 해시 항목과 포함 연산. 해당 그림은 본문 실습에서 관측된 계획."
+    }
+  },
+  {
+    "page": "postgresql/04_postgresql_jsonb_indexing_and_performance_tuning.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/datatype-json.html#JSON-INDEXING) · [PostgreSQL 18 실행 계획](https://www.postgresql.org/docs/18/using-explain.html) · [PostgreSQL 18 JSONB GIN 소스](https://github.com/postgres/postgres/blob/REL_18_STABLE/src/backend/utils/adt/jsonb_gin.c)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4 payment_events 실습 데이터 20만 건과 jsonb_path_ops GIN에서 관측한 계획.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/datatype-json.html#JSON-INDEXING",
+      "locator": "JSONB Indexing의 jsonb_path_ops 해시 항목과 포함 연산. 해당 그림은 본문 실습에서 관측된 계획."
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "![키워드 점수와 벡터 코사인 거리에서 각각 상위 세 문서의 순위를 얻는다. FULL JOIN으로 한 목록에만 있는 ID도 유지하고 RRF로 순위 점수를 더해 실습 문서 ID 1, 3, 2, 4를 반환한다.](image/05_hybrid_search_candidate_ranks_and_rrf.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18 및 pgvector 지원 환경. 본문 4개 문서와 두 목록의 상위 3개 후보를 합치는 SQL.",
+    "source": {
+      "url": "https://github.com/pgvector/pgvector#hybrid-search",
+      "locator": "Hybrid Search에서 PostgreSQL 전문 검색과 결합, RRF를 이용한 결과 융합. 단계와 결과는 본문 SQL과 데이터."
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "그림의 근거 · [공식 문서](https://github.com/pgvector/pgvector#hybrid-search) · [PostgreSQL 전문 검색 순위](https://www.postgresql.org/docs/18/textsearch-controls.html#TEXTSEARCH-RANKING) · [PostgreSQL 조인](https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18 및 pgvector 지원 환경. 본문 4개 문서와 두 목록의 상위 3개 후보를 합치는 SQL.",
+    "source": {
+      "url": "https://github.com/pgvector/pgvector#hybrid-search",
+      "locator": "Hybrid Search에서 PostgreSQL 전문 검색과 결합, RRF를 이용한 결과 융합. 단계와 결과는 본문 SQL과 데이터."
+    }
+  },
+  {
+    "page": "postgresql/06_postgresql_extensions_with_postgis_and_pg_search.md",
+    "claim": "![PostGIS 지리 반경 쿼리에서 GiST를 쓰면 경계 상자로 후보를 좁힐 수 있고, 순차 스캔을 선택하면 테이블을 읽으며 조건을 평가한다. ST_DWithin을 통과한 Station Store와 Office Store를 ST_Distance의 미터 거리 순서로 반환한다.](image/06_postgis_gist_candidates_and_exact_distance.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostGIS geography(Point, 4326) 반경 1km 예시. 실제 접근 경로는 플래너 선택에 따름.",
+    "source": {
+      "url": "https://postgis.net/docs/ST_DWithin.html",
+      "locator": "Description의 geography 미터 단위와 경계 상자 비교를 이용한 인덱스 지원."
+    }
+  },
+  {
+    "page": "postgresql/06_postgresql_extensions_with_postgis_and_pg_search.md",
+    "claim": "그림의 근거 · [공식 문서](https://postgis.net/docs/ST_DWithin.html) · [PostGIS 거리 반환값](https://postgis.net/docs/ST_Distance.html) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostGIS geography(Point, 4326) 반경 1km 예시. 실제 접근 경로는 플래너 선택에 따름.",
+    "source": {
+      "url": "https://postgis.net/docs/ST_DWithin.html",
+      "locator": "Description의 geography 미터 단위와 경계 상자 비교를 이용한 인덱스 지원."
+    }
+  },
+  {
+    "page": "postgresql/07_distributed_postgresql_with_citus_and_pg_cron.md",
+    "claim": "![pg_cron이 코디네이터에서 완료된 직전 10분을 집계하는 SQL을 매분 실행한다. Citus는 코로케이션된 샤드에 작업을 전달하고 워커는 테넌트별 UTC 분 단위 건수를 계산하여 해당 결과 샤드에 업서트한다.](image/07_citus_cron_colocated_minute_rollup.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Citus 문서 13.0.1의 분산 INSERT SELECT 동작과 pg_cron의 매분 등록 작업. 각 워커는 보유 샤드를 나타내며 테넌트와 노드의 고정 매핑은 가정하지 않는다.",
+    "source": {
+      "url": "https://docs.citusdata.com/en/stable/develop/reference_dml.html#from-select-clause-distributed-rollups",
+      "locator": "From Select Clause (Distributed Rollups). 원본과 대상 테이블이 코로케이션되어 있고 SELECT와 INSERT에 분산 열을 넣는 경로."
+    }
+  },
+  {
+    "page": "postgresql/07_distributed_postgresql_with_citus_and_pg_cron.md",
+    "claim": "그림의 근거 · [공식 문서](https://docs.citusdata.com/en/stable/develop/reference_dml.html#from-select-clause-distributed-rollups) · [pg_cron 작업 실행](https://github.com/citusdata/pg_cron#how-pg_cron-works) · [Citus DDL과 코로케이션](https://docs.citusdata.com/en/stable/develop/reference_ddl.html) · [PostgreSQL UTC 분 경계](https://www.postgresql.org/docs/18/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Citus 문서 13.0.1의 분산 INSERT SELECT 동작과 pg_cron의 매분 등록 작업. 각 워커는 보유 샤드를 나타내며 테넌트와 노드의 고정 매핑은 가정하지 않는다.",
+    "source": {
+      "url": "https://docs.citusdata.com/en/stable/develop/reference_dml.html#from-select-clause-distributed-rollups",
+      "locator": "From Select Clause (Distributed Rollups). 원본과 대상 테이블이 코로케이션되어 있고 SELECT와 INSERT에 분산 열을 넣는 경로."
+    }
+  },
+  {
+    "page": "postgresql/08_mysql_to_postgresql_sql_semantics_and_migration.md",
+    "claim": "![빈 migration_demo.orders에 기존 ID 300·301을 명시해 넣으면 연결된 IDENTITY 시퀀스는 호출되지 않는다. 시퀀스를 max(id)인 301로 setval한 후 ID를 생략해 삽입하면 기본 증가폭 1에 따라 302가 생성된다.](image/08_identity_sequence_realign_after_import.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 빈 migration_demo.orders 실습 · BY DEFAULT IDENTITY의 기본 시퀀스, 기존 ID 300·301을 적재한 뒤 다른 세션이 시퀀스를 사용하지 않는 경우.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/functions-sequence.html",
+      "locator": "Sequence Manipulation Functions · nextval의 기본 시작값과 두 인자 setval의 is_called 동작"
+    }
+  },
+  {
+    "page": "postgresql/08_mysql_to_postgresql_sql_semantics_and_migration.md",
+    "claim": "그림의 근거 · [PostgreSQL 18 · IDENTITY의 명시 값과 자동 생성](https://www.postgresql.org/docs/18/ddl-identity-columns.html) · [PostgreSQL 18 · 연결된 시퀀스 찾기](https://www.postgresql.org/docs/18/functions-info.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 빈 migration_demo.orders 실습 · BY DEFAULT IDENTITY의 기본 시퀀스, 기존 ID 300·301을 적재한 뒤 다른 세션이 시퀀스를 사용하지 않는 경우.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-identity-columns.html",
+      "locator": "Identity Columns · BY DEFAULT와 명시한 값의 우선순위"
+    }
+  },
+  {
+    "page": "postgresql/09_postgresql_mvcc_vacuum_and_bloat_management.md",
+    "claim": "![pg_vacuum_demo에서 읽기 세션 A가 REPEATABLE READ로 첫 조회를 한 뒤 세션 B가 id=2의 payload를 a 200자에서 b 200자로 갱신하고 커밋한다. A 스냅샷이 이전 튜플을 볼 수 있는 동안 VACUUM은 그 튜플을 제거할 수 없다. A가 종료하고 다른 보존 조건이 없으면 이후 VACUUM이 같은 테이블에서 공간을 재사용할 수 있게 한다.](image/09_old_snapshot_vacuum_cleanup_horizon.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18에서 2절 pg_vacuum_demo의 id=2를 갱신하는 예. 첫 읽기로 스냅샷을 확보한 REPEATABLE READ 세션을 종료한 뒤 정리 보존 조건이 따로 없는 경우.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/routine-vacuuming.html#VACUUM-FOR-SPACE-RECOVERY",
+      "locator": "Recovering Disk Space · 보일 수 있는 이전 행 버전의 보존과 일반 VACUUM의 공간 재사용"
+    }
+  },
+  {
+    "page": "postgresql/09_postgresql_mvcc_vacuum_and_bloat_management.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/routine-vacuuming.html#VACUUM-FOR-SPACE-RECOVERY) · [PostgreSQL 18 · REPEATABLE READ 스냅샷](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18에서 2절 pg_vacuum_demo의 id=2를 갱신하는 예. 첫 읽기로 스냅샷을 확보한 REPEATABLE READ 세션을 종료한 뒤 정리 보존 조건이 따로 없는 경우.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/routine-vacuuming.html#VACUUM-FOR-SPACE-RECOVERY",
+      "locator": "Recovering Disk Space · 보일 수 있는 이전 행 버전의 보존과 일반 VACUUM의 공간 재사용"
+    }
+  },
+  {
+    "page": "postgresql/10_postgresql_transaction_isolation_and_locking.md",
+    "claim": "![세션 A는 Repeatable Read의 첫 조회에서 quantity 10을 읽는다. 같은 행을 B가 9로 갱신해 커밋하면 A의 UPDATE는 40001로 실패한다. A는 롤백한 뒤 새 트랜잭션에서 다시 읽고 조건을 계산할 수 있다.](image/10_repeatable_read_update_conflict.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18 Repeatable Read의 pg_lock_demo 실습. B가 먼저 갱신하고 커밋한 단일 행의 충돌.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ",
+      "locator": "Repeatable Read Isolation Level · 첫 명령 시점의 스냅샷과 동시 UPDATE에 대한 40001"
+    }
+  },
+  {
+    "page": "postgresql/10_postgresql_transaction_isolation_and_locking.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18 Repeatable Read의 pg_lock_demo 실습. B가 먼저 갱신하고 커밋한 단일 행의 충돌.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ",
+      "locator": "Repeatable Read Isolation Level · 첫 명령 시점의 스냅샷과 동시 UPDATE에 대한 40001"
+    }
+  },
+  {
+    "page": "postgresql/11_postgresql_execution_plans_and_query_diagnostics.md",
+    "claim": "![pg_plan_demo에서 값이 같은 두 열에 등호 조건을 적용하면 PostgreSQL 18.4 실습에서 독립 추정은 1행이었다. CREATE STATISTICS dependencies와 ANALYZE 후 예상은 100행으로 바뀌었다. 두 실행에서 실제 반환량은 100행, loops는 1이었다.](image/11_extended_statistics_row_estimates.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 문서의 10,000행 실습과 동일한 스키마, 데이터, ANALYZE, dependencies 설정에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/multivariate-statistics-examples.html",
+      "locator": "69.2.1 Functional Dependencies · 독립 가정으로 인한 과소 추정과 종속성 통계"
+    }
+  },
+  {
+    "page": "postgresql/11_postgresql_execution_plans_and_query_diagnostics.md",
+    "claim": "그림의 근거 · [EXPLAIN의 예상 행 수와 실제 행 수](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 문서의 10,000행 실습과 동일한 스키마, 데이터, ANALYZE, dependencies 설정에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/using-explain.html",
+      "locator": "EXPLAIN ANALYZE · rows와 actual rows 및 loops의 의미"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "![1월 10일 이상 1월 11일 미만 조건을 월별 파티션 경계와 비교하면 2월 파티션이 제외된다. 남은 1월 파티션에 별도로 접근 경로를 선택하며 PostgreSQL 18.4 실습에서는 Bitmap Index Scan과 Bitmap Heap Scan이 나타났다.](image/12_monthly_partition_pruning_and_scan.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4에서 enable_partition_pruning이 켜진 문서의 상수 조건 예제. Bitmap 스캔은 실습 환경의 관측 결과.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-partitioning.html#DDL-PARTITION-PRUNING",
+      "locator": "5.12.4 Partition Pruning · WHERE 조건, 파티션 경계와 접근 경로의 구분"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/ddl-partitioning.html#DDL-PARTITION-PRUNING) · [Bitmap Index Scan과 Bitmap Heap Scan](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4에서 enable_partition_pruning이 켜진 문서의 상수 조건 예제. Bitmap 스캔은 실습 환경의 관측 결과.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-partitioning.html#DDL-PARTITION-PRUNING",
+      "locator": "5.12.4 Partition Pruning · WHERE 조건, 파티션 경계와 접근 경로의 구분"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "아래 실습에서 T2는 트랜잭션 하나를 열고 같은 `SELECT`를 두 번 실행한다. T1의 커밋을 두 조회 사이에 배치해, T2가 각 문장 시작 시점에 볼 수 있는 잔액이 어떻게 바뀌는지 확인한다. [PostgreSQL 18 · READ COMMITTED](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 같은 트랜잭션의 연속 SELECT에 문장별 스냅샷 사용"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "![T1이 잔액 100을 80으로 갱신하고 트랜잭션을 열어 둔다. T2의 첫 SELECT는 스냅샷 1로 100을 읽는다. T1이 커밋한 뒤 같은 T2의 두 번째 SELECT가 스냅샷 2로 80을 읽는다.](image/mvcc_read_committed_visibility.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 다른 트랜잭션이 두 조회 사이에 커밋할 때의 결과"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "**1. T1에서 80으로 갱신한다.** `UPDATE`를 실행한 뒤 T1의 트랜잭션을 열어 둔다.",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 다른 트랜잭션의 미커밋 변경은 일반 조회에 보이지 않음"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "**2. T2에서 첫 `SELECT`를 실행한다.** 문장 시작 시점에 T1이 커밋 전이므로, 이전에 커밋된 `100`을 읽는다.",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 각 SELECT가 시작 시점의 스냅샷을 사용"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "**3. T1에서 `COMMIT`한다.** 이 시점부터 T1이 갱신한 `80`이 커밋된 버전이다.",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 다른 트랜잭션의 커밋과 다음 문장 가시성"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "**4. 같은 T2 트랜잭션에서 두 번째 `SELECT`를 실행한다.** 이번 문장의 새 스냅샷은 `80`을 읽는다. 결과를 확인한 뒤 T2도 `COMMIT`한다.",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18의 일반 SELECT. 이 문서의 두 세션과 mvcc_accounts 초기 잔액 100 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "13.2.1 Read Committed Isolation Level · 두 SELECT 사이에 커밋되면 두 번째 문장에 반영"
+    }
+  },
+  {
+    "page": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+    "claim": "같은 순서를 `REPEATABLE READ`로 비교하려면 먼저 잔액을 `100`으로 복원해 커밋하고, 2단계에서 T2의 격리 수준을 바꿔 실행한다. T2가 첫 조회에서 얻은 스냅샷을 재사용하므로 결과는 `100 → 100`이다. [PostgreSQL 18 · REPEATABLE READ](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18 Repeatable Read에서 T2가 첫 조회 후 같은 트랜잭션으로 두 번째 조회를 실행하는 실습.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ",
+      "locator": "13.2.2 Repeatable Read Isolation Level · 첫 트랜잭션 제어문이 아닌 문장의 스냅샷을 재사용"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "블록 0의 메타페이지에서 루트 블록을 찾는다. 루트와 중간 페이지에서는 **pivot**이 자식의 키 범위를 나누고, **downlink**가 자식 블록을 가리킨다. 오른쪽 끝이 아닌 페이지의 첫 항목인 **high key**는 그 페이지의 키 상한이다. 리프 분할은 자식 링크를 부모에 추가한다. 동시 분할 중 먼저 내려간 페이지의 high key를 넘으면 오른쪽 형제 링크를 따라간다. [PostgreSQL 18.4 B-tree 구현](https://github.com/postgres/postgres/blob/REL_18_4/src/backend/access/nbtree/README)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://github.com/postgres/postgres/blob/REL_18_4/src/backend/access/nbtree/README",
+      "locator": "The basic Lehman & Yao Algorithm, Notes about data representation"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "리프 데이터 항목에는 `tenant_id`, `occurred_at DESC`, `id DESC` 순의 복합 키와 `INCLUDE` 값인 `status`, 힙 행 위치인 **TID(블록, 항목 번호)**가 들어 있다. 상위 페이지에서는 경계를 구분하는 데 필요한 키 접두사를 남길 수 있다. `Index Only Scan`에서는 TID가 가리키는 힙 페이지의 visibility map 비트를 확인해, all-visible인 페이지의 힙 접근을 생략한다. [PostgreSQL 18 · INCLUDE와 Index Only Scan](https://www.postgresql.org/docs/18/indexes-index-only-scans.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/indexes-index-only-scans.html",
+      "locator": "Index-Only Scans and Covering Indexes · suffix truncation, non-key columns, heap visibility"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "![메타페이지는 루트 블록 3을 가리키고, 루트의 downlink는 리프 블록 1, 2, 4로 이어진다. 리프 항목에는 키와 INCLUDE 값, 힙 TID가 있다. Index Only Scan은 힙 페이지의 all-visible 비트로 힙 가시성 확인이 필요한지 결정한다.](image/12_btree_pages_and_heap_visibility.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://github.com/postgres/postgres/blob/REL_18_4/src/backend/access/nbtree/README",
+      "locator": "Data representation와 high key/right link. 리프와 힙 가시성은 인접 PostgreSQL 문서 참조."
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "실습 DB의 슈퍼유저로 `pageinspect`를 활성화하고 아래 순서로 페이지를 읽는다. 이 실습의 루트는 블록 3, 레벨 1이었다. 블록 1은 리프이고 오른쪽 링크는 블록 2였다. `bt_page_items`의 루트 `ctid`에서 자식 블록 번호를, 리프의 `htid`에서 실제 힙 위치를 확인한다. 이 리프의 1번 항목은 high key였다. 첫 데이터 항목의 `htid`인 `(266,31)`을 힙의 `ctid`로 찾아보면 `id = 19982`가 나온다. [PostgreSQL 18 · pageinspect의 B-tree 함수](https://www.postgresql.org/docs/18/pageinspect.html#PAGEINSPECT-BTREE-FUNCS)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/pageinspect.html",
+      "locator": "B-Tree Functions: bt_metap, bt_page_stats, bt_page_items; ctid와 htid의 페이지별 해석"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "같은 조회를 `EXPLAIN (ANALYZE, BUFFERS)`로 실행하고, 별도 문장으로 `VACUUM pg_index_demo`를 실행한 뒤 다시 비교한다. 삽입 직후와 VACUUM 직후를 비교한 실습에서는 두 계획 모두 `Index Only Scan`이었고, `Heap Fetches`는 `10 → 0`이었다. [PostgreSQL 18 · Index Only Scan의 가시성 검사](https://www.postgresql.org/docs/18/indexes-index-only-scans.html) · [일상적 VACUUM](https://www.postgresql.org/docs/18/routine-vacuuming.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/indexes-index-only-scans.html",
+      "locator": "Visibility map check. Heap Fetches 전후는 예제 테이블에서 직접 관측."
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "`{\"kind\":\"review\"}`에서 `jsonb_ops`는 `kind` 키와 `review` 값을 별도 항목으로 만든다. `jsonb_path_ops`는 `kind` 경로와 `review`를 묶어 해시한 항목을 만든다. 이 항목을 **엔트리 B-tree**에서 찾으면 힙 TID 목록을 얻는다. 목록이 엔트리 튜플에 들어가면 **posting list**, 더 큰 목록은 별도의 **posting tree**에 저장한다. 경로와 값을 해시한 항목만으로는 원래 JSON 구조나 해시 충돌을 판별할 수 없으므로, 예제의 `@>`는 후보 행의 실제 JSONB에서 포함 조건을 재검사한다. [PostgreSQL 18 · JSONB 색인](https://www.postgresql.org/docs/18/datatype-json.html#JSON-INDEXING) · [GIN 구현](https://www.postgresql.org/docs/18/gin.html#GIN-IMPLEMENTATION) · [포함 조건 재검사 구현](https://github.com/postgres/postgres/blob/REL_18_4/src/backend/utils/adt/jsonb_gin.c#L1232-L1250)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/gin.html",
+      "locator": "65.4.4 Implementation · 엔트리 B-tree, posting list와 posting tree; 인접 JSONB 문서와 일관성 검사 함수"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "![GIN은 추출한 항목을 엔트리 B-tree에서 찾는다. 작은 TID 목록은 엔트리 안에, 큰 목록은 별도의 포스팅 트리에 둔다. 후보 행 위치를 얻은 뒤 힙에서 원래 JSONB 포함 조건을 재검사한다.](image/12_gin_entries_posting_lists_and_trees.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/gin.html",
+      "locator": "65.4.4 Implementation과 Figure 65.1 GIN Internals"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "생성 직후 실습의 메타페이지에는 엔트리 2개, 엔트리 페이지 1개, 데이터 페이지 4개, 대기 페이지 0개가 기록됐다. 블록 2는 내부 데이터 페이지이고 블록 3–5는 압축된 데이터 리프였다. 각 리프의 TID를 펼쳐 힙의 `ctid`와 조인하면 `kind = done`인 19,800행으로 연결된다. [PostgreSQL 18 · pageinspect의 GIN 함수](https://www.postgresql.org/docs/18/pageinspect.html#PAGEINSPECT-GIN-FUNCS)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/pageinspect.html",
+      "locator": "GIN Functions: gin_metapage_info, gin_page_opaque_info, gin_leafpage_items; 페이지 수와 플래그는 이 실습에서 관측."
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "`fastupdate`가 켜진 GIN에서는 새 쓰기를 먼저 **pending list**에 쌓을 수 있다. 조회는 본 인덱스와 이 목록을 모두 확인한다. VACUUM 또는 대기 목록 크기 한도에 따른 정리에서 항목을 본 인덱스로 합치므로, 쓰기가 많은 환경에서는 쌓인 대기 페이지와 정리 시점도 함께 본다. [PostgreSQL 18 · GIN Fast Update](https://www.postgresql.org/docs/18/gin.html#GIN-FAST-UPDATE)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/gin.html",
+      "locator": "65.4.4.1 GIN Fast Update Technique · 조회의 pending scan과 정리 조건"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "메타페이지에는 `pages_per_range`가 저장된다. **범위 맵(revmap)**은 힙 블록 범위의 순번을 그 범위의 요약 튜플이 있는 인덱스 위치로 연결한다. 이 예제의 minmax 요약은 범위별 `occurred_at`의 최솟값과 최댓값을 담는다. WHERE의 시간 범위와 겹치면 블록 범위 전체를 후보로 넘기고, 요약이 없는 범위도 후보에 남긴다. [PostgreSQL 18 · BRIN](https://www.postgresql.org/docs/18/brin.html) · [PostgreSQL 18.4 BRIN 저장 구조](https://github.com/postgres/postgres/blob/REL_18_4/src/backend/access/brin/README#L72-L104)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/brin.html",
+      "locator": "65.5.1 Introduction과 Index Maintenance · minmax와 범위 요약; revmap의 위치 매핑은 인접 소스"
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "![BRIN 메타페이지에서 범위 크기를 확인하고 revmap으로 범위별 minmax 요약 위치를 찾는다. 실습 조회는 겹치는 힙 블록 64부터 95까지만 후보로 넘겼고, 힙에서 2,400행을 재검사해 60행이 통과했다.](image/12_brin_revmap_minmax_and_heap_recheck.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/brin.html",
+      "locator": "65.5.1 Introduction · lossy bitmap과 힙 재검사; 블록 수·행 수는 예제의 실행 계획."
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "실습에서는 메타페이지의 `pagesperrange`가 `32`, 마지막 revmap 페이지가 `1`이었다. 힙 블록 `64–95`의 범위 맵 항목 `(2,3)`은 **인덱스 블록 2의 요약 튜플 3번**을 가리킨다. 요약을 풀면 1월 5일 조회와 겹치는 시간이 들어 있고, 계획에서 `Heap Blocks: lossy=32`, `Rows Removed by Index Recheck: 2340`, 통과 행 60개를 확인할 수 있다. [PostgreSQL 18 · pageinspect의 BRIN 함수](https://www.postgresql.org/docs/18/pageinspect.html#PAGEINSPECT-BRIN-FUNCS) · [EXPLAIN과 Recheck](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/pageinspect.html",
+      "locator": "BRIN Functions: brin_metapage_info, brin_revmap_data, brin_page_items. 실행 계획 값은 실습 관측."
+    }
+  },
+  {
+    "page": "postgresql/12_postgresql_index_design_and_partition_pruning.md",
+    "claim": "이 실습은 BRIN의 힙 재검사를 보기 위해 `SET LOCAL enable_indexonlyscan = off`를 측정 트랜잭션에만 적용한다. 앞 절의 VACUUM을 실행한 뒤 기본 설정으로 같은 조회를 했을 때는 B-tree `Index Only Scan`이 선택됐다. [PostgreSQL 18 · 실행 계획 설정](https://www.postgresql.org/docs/18/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN) · [SET LOCAL](https://www.postgresql.org/docs/18/sql-set.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "PostgreSQL 18.4, 이 문서의 pg_index_demo 20,000행과 지정한 생성 순서. 블록 번호·계획의 숫자는 해당 실습에서 관측.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN",
+      "locator": "19.7.1 Planner Method Configuration · enable_indexonlyscan; SET LOCAL의 트랜잭션 범위는 SET 문서. 기본 설정의 접근 경로는 실습 관측."
+    }
   }
 ]

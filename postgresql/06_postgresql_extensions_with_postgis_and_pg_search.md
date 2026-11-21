@@ -89,6 +89,10 @@ LIMIT 10;
 
 `ST_DWithin`은 경계 상자로 후보를 좁힐 때 사용할 수 있는 공간 인덱스가 있으면 활용한다. `ST_Distance(...) <= 1000`처럼 거리 계산식을 조건에 쓰는 방식과 실행 계획이 달라질 수 있다. 매장이 세 건인 실습에서는 순차 스캔이 선택돼도 자연스럽다. 실제 매장 분포와 검색 반경으로 `EXPLAIN (ANALYZE, BUFFERS)`를 확인한다.
 
+![PostGIS 지리 반경 쿼리에서 GiST를 쓰면 경계 상자로 후보를 좁힐 수 있고, 순차 스캔을 선택하면 테이블을 읽으며 조건을 평가한다. ST_DWithin을 통과한 Station Store와 Office Store를 ST_Distance의 미터 거리 순서로 반환한다.](image/06_postgis_gist_candidates_and_exact_distance.png)
+
+그림의 근거 · [공식 문서](https://postgis.net/docs/ST_DWithin.html) · [PostGIS 거리 반환값](https://postgis.net/docs/ST_Distance.html) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/18/using-explain.html)
+
 **공식 문서** [PostGIS 공간 인덱스](https://postgis.net/docs/using_postgis_dbmanagement.html) · [ST_DWithin](https://postgis.net/docs/ST_DWithin.html) · [ST_Distance](https://postgis.net/docs/ST_Distance.html)
 
 ## 5. pg_search로 PostgreSQL 안에서 전문 검색하기

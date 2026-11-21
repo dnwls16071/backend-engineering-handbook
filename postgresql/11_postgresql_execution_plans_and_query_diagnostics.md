@@ -18,6 +18,10 @@ PostgreSQL 18의 실행 계획에서 행 수 추정과 실제 처리량을 비�
 
 아래 실습에서 `region_id`와 `zone_id`는 같은 값이다. 두 조건을 독립적으로 추정하면 함께 만족하는 행이 실제보다 적게 계산될 수 있다. 첫 계획과 확장 통계 적용 뒤의 계획에서 예상 행 수를 비교한다. 함수 종속성은 이 실습처럼 상수와의 등호 조건에 유용하고, `mcv`는 특정 값 조합의 빈도를 담는 데 쓴다. 확장 통계는 조회 결과를 바꾸지 않으며 테이블 조인의 선택도 추정에는 사용되지 않는다. [PostgreSQL 다변량 통계](https://www.postgresql.org/docs/18/multivariate-statistics-examples.html) · [CREATE STATISTICS](https://www.postgresql.org/docs/18/sql-createstatistics.html)
 
+![pg_plan_demo에서 값이 같은 두 열에 등호 조건을 적용하면 PostgreSQL 18.4 실습에서 독립 추정은 1행이었다. CREATE STATISTICS dependencies와 ANALYZE 후 예상은 100행으로 바뀌었다. 두 실행에서 실제 반환량은 100행, loops는 1이었다.](image/11_extended_statistics_row_estimates.png)
+
+그림의 근거 · [EXPLAIN의 예상 행 수와 실제 행 수](https://www.postgresql.org/docs/18/using-explain.html)
+
 ```sql
 CREATE TABLE pg_plan_demo (
     id integer PRIMARY KEY,

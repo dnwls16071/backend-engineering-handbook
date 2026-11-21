@@ -28,7 +28,9 @@ PostgreSQL에서 여러 요청이 같은 데이터를 읽고 쓰는 방식과, �
 
 MVCC는 같은 행의 여러 버전을 관리하고, 각 문장이나 트랜잭션의 스냅샷에 따라 어떤 버전을 읽을지 결정한다. 다른 트랜잭션이 행을 갱신 중일 때 일반 `SELECT`는 스냅샷에 보이는 커밋 버전을 읽을 수 있다. 같은 행을 갱신하는 두 쓰기나 `SELECT ... FOR UPDATE`는 행 락 때문에 기다릴 수 있다. 일반 조회도 DDL 등이 잡은 `ACCESS EXCLUSIVE` 테이블 락에는 대기한다.
 
-<img src="image/mvcc_read_committed_visibility.png" alt="쓰기 세션이 잔액 100을 80으로 갱신한 뒤 커밋하기 전에는 읽기 세션의 첫 SELECT가 기존 버전 100을 읽고, 커밋 후 두 번째 SELECT는 새 버전 80을 읽는 READ COMMITTED 시나리오" width="400">
+아래 실습에서 T2는 트랜잭션 하나를 열고 같은 `SELECT`를 두 번 실행한다. T1의 커밋을 두 조회 사이에 배치해, T2가 각 문장 시작 시점에 볼 수 있는 잔액이 어떻게 바뀌는지 확인한다. [PostgreSQL 18 · READ COMMITTED](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)
+
+![T1이 잔액 100을 80으로 갱신하고 트랜잭션을 열어 둔다. T2의 첫 SELECT는 스냅샷 1로 100을 읽는다. T1이 커밋한 뒤 같은 T2의 두 번째 SELECT가 스냅샷 2로 80을 읽는다.](image/mvcc_read_committed_visibility.png)
 
 실습 데이터베이스에 다음 테이블을 준비한다.
 
@@ -41,21 +43,30 @@ CREATE TABLE mvcc_accounts (
 INSERT INTO mvcc_accounts (id, balance) VALUES (1, 100);
 ```
 
-**쓰기 세션 T1**에서 잔액을 변경한 뒤 트랜잭션을 열어 둔다.
+**1. T1에서 80으로 갱신한다.** `UPDATE`를 실행한 뒤 T1의 트랜잭션을 열어 둔다.
 
 ```sql
 BEGIN;
 UPDATE mvcc_accounts SET balance = 80 WHERE id = 1;
 ```
 
-**읽기 세션 T2**에서 조회하면 이전에 커밋된 `100`이 나온다.
+**2. T2에서 첫 `SELECT`를 실행한다.** 문장 시작 시점에 T1이 커밋 전이므로, 이전에 커밋된 `100`을 읽는다.
 
 ```sql
 BEGIN ISOLATION LEVEL READ COMMITTED;
 SELECT balance FROM mvcc_accounts WHERE id = 1;
 ```
 
-이제 **T1**에서 `COMMIT`을 실행한다. **T2**에서 같은 `SELECT`를 한 번 더 실행하면 `80`을 읽는다. 결과를 확인한 뒤 T2도 `COMMIT`으로 종료한다. 잔액을 다시 `100`으로 돌린 뒤 T2를 `REPEATABLE READ`로 재실행하면, T1이 커밋된 뒤에도 T2의 두 번째 조회는 같은 스냅샷의 `100`을 읽는다.
+**3. T1에서 `COMMIT`한다.** 이 시점부터 T1이 갱신한 `80`이 커밋된 버전이다.
+
+**4. 같은 T2 트랜잭션에서 두 번째 `SELECT`를 실행한다.** 이번 문장의 새 스냅샷은 `80`을 읽는다. 결과를 확인한 뒤 T2도 `COMMIT`한다.
+
+```sql
+SELECT balance FROM mvcc_accounts WHERE id = 1;
+COMMIT;
+```
+
+같은 순서를 `REPEATABLE READ`로 비교하려면 먼저 잔액을 `100`으로 복원해 커밋하고, 2단계에서 T2의 격리 수준을 바꿔 실행한다. T2가 첫 조회에서 얻은 스냅샷을 재사용하므로 결과는 `100 → 100`이다. [PostgreSQL 18 · REPEATABLE READ](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)
 
 - **교착 상태**는 두 트랜잭션이 서로 상대가 가진 락을 기다릴 때 발생한다. 예를 들어 T1은 계좌 A를 수정한 뒤 B를 요구하고, T2는 B를 수정한 뒤 A를 요구하면 순환 대기가 생긴다. PostgreSQL은 데드락을 감지해 한 트랜잭션을 `40P01` 오류로 중단한다. 여러 행을 잠글 때 모든 경로에서 같은 순서로 획득하고, 필요한 작업이 끝나면 트랜잭션을 닫는다.
 - **오래 열린 스냅샷**은 이전 행 버전이 계속 필요할 수 있어 `VACUUM`이 정리할 수 있는 시점을 늦춘다. 장기 트랜잭션이 보이면 어떤 작업을 기다리고 있는지 확인한다.
@@ -159,6 +170,10 @@ LIMIT 5;
 ```
 
 각 순위는 `1 / (60 + 순위)`로 환산한다. 양쪽 목록에 모두 나타나면 두 값을 더하고, 한쪽에만 있으면 그 목록의 점수만 적용한다. 실습 결과는 `1`, `3`, `2`, `4` 순이다. 문서 `1`과 `3`은 양쪽에서 발견되고, `2`는 벡터 검색에, `4`는 키워드 검색에만 나타난다.
+
+![키워드 점수와 벡터 코사인 거리에서 각각 상위 세 문서의 순위를 얻는다. FULL JOIN으로 한 목록에만 있는 ID도 유지하고 RRF로 순위 점수를 더해 실습 문서 ID 1, 3, 2, 4를 반환한다.](image/05_hybrid_search_candidate_ranks_and_rrf.png)
+
+그림의 근거 · [공식 문서](https://github.com/pgvector/pgvector#hybrid-search) · [PostgreSQL 전문 검색 순위](https://www.postgresql.org/docs/18/textsearch-controls.html#TEXTSEARCH-RANKING) · [PostgreSQL 조인](https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN)
 
 예제 데이터가 작으므로 인덱스를 생성했더라도 플래너가 순차 스캔을 선택할 수 있다. 실제 규모에서는 후보 수, 인덱스 설정, 검색 품질을 함께 비교한다.
 

@@ -147,6 +147,10 @@ ORDER BY a.id;
 
 `COUNT(e.id)`는 거래 ID가 있는 행만 센다. 이 예제에서 `COUNT(*)`를 쓰면 거래가 없는 계좌에 대해 `LEFT JOIN`이 남긴 한 행도 세게 된다.
 
+![같은 2월 조건을 LEFT JOIN의 ON에 넣으면 계좌 101, 102, 201, 202가 모두 남고 거래 수는 각각 2, 1, 0, 0이다. WHERE로 옮기면 3월 거래만 있는 201과 거래가 없는 202가 결과에서 빠진다.](image/02_left_join_date_filter_and_row_preservation.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/queries-table-expressions.html#QUERIES-JOIN) · [COUNT(e.id)와 COUNT(*)](https://www.postgresql.org/docs/18/functions-aggregate.html)
+
 **공식 문서** [JOIN과 ON·WHERE의 차이](https://www.postgresql.org/docs/current/queries-table-expressions.html) · [COUNT와 집계 함수](https://www.postgresql.org/docs/current/functions-aggregate.html)
 
 ## 5. 고객·계좌·거래를 한 보고서로 조회하기

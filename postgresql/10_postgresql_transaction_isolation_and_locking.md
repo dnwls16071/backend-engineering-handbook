@@ -24,6 +24,10 @@ INSERT INTO pg_lock_demo VALUES (1, 10), (2, 10);
 
 재시도할 때는 새 트랜잭션에서 처음부터 데이터를 읽어 업무 조건을 다시 계산한다. 트랜잭션 안팎의 외부 작업 중복도 함께 고려한다. [직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html)
 
+![세션 A는 Repeatable Read의 첫 조회에서 quantity 10을 읽는다. 같은 행을 B가 9로 갱신해 커밋하면 A의 UPDATE는 40001로 실패한다. A는 롤백한 뒤 새 트랜잭션에서 다시 읽고 조건을 계산할 수 있다.](image/10_repeatable_read_update_conflict.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)
+
 ## 3. 범위의 불변식과 SERIALIZABLE
 
 PostgreSQL의 행 잠금으로 조회한 빈 범위에 다른 트랜잭션이 INSERT하는 것을 막을 수 없다. 한 개만 허용되는 키는 UNIQUE 제약으로 표현하고, 여러 행의 읽기와 쓰기가 함께 지켜야 하는 조건은 SERIALIZABLE과 재시도를 검토한다. PostgreSQL의 Serializable Snapshot Isolation은 읽기와 쓰기의 의존성을 추적하며 직렬 실행으로 설명할 수 없는 조합을 찾아 트랜잭션을 실패시킨다. 이때 사용하는 predicate lock은 INSERT를 해당 범위에서 직접 대기시키지 않는다. [PostgreSQL SERIALIZABLE](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-SERIALIZABLE) · [InnoDB 잠금 유형](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html)

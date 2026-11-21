@@ -49,6 +49,10 @@ WHERE payload @> '{"type":"refund"}'::jsonb;
 
 PostgreSQL 18.4 실습에서는 GIN의 `Bitmap Index Scan`으로 후보를 찾고 `Bitmap Heap Scan`으로 테이블을 읽어 환불 이벤트 2,061건을 집계했다.
 
+![PostgreSQL 18.4 실습에서 JSONB 포함 검색은 jsonb_path_ops GIN의 Bitmap Index Scan으로 후보 위치를 모으고, Bitmap Heap Scan으로 실제 행을 읽어 포함 조건을 재검사한다. COUNT는 통과한 환불 이벤트 2,061건을 집계한다.](image/04_jsonb_gin_bitmap_and_heap_recheck.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/datatype-json.html#JSON-INDEXING) · [PostgreSQL 18 실행 계획](https://www.postgresql.org/docs/18/using-explain.html) · [PostgreSQL 18 JSONB GIN 소스](https://github.com/postgres/postgres/blob/REL_18_STABLE/src/backend/utils/adt/jsonb_gin.c)
+
 특정 JSON 필드를 텍스트로 꺼내 `payload ->> 'type' = 'refund'`로 자주 비교한다면 그 표현식을 대상으로 B-tree 인덱스를 검토한다. 쿼리에서 쓰는 표현식과 연산자가 인덱스의 지원 범위에 들어가는지 확인한다.
 
 **공식 문서** [JSON 타입과 JSONB 인덱싱](https://www.postgresql.org/docs/current/datatype-json.html) · [JSON 함수와 연산자](https://www.postgresql.org/docs/current/functions-json.html) · [표현식 인덱스](https://www.postgresql.org/docs/current/indexes-expressional.html)

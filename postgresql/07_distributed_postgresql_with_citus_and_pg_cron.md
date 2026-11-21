@@ -131,6 +131,10 @@ ORDER BY tenant_id, bucket_start;
 
 작업을 매분 실행해 직전 10개의 완료된 분을 다시 집계한다. 예를 들어 UTC 09:10에 시작하면 09:00 이상 09:10 미만을 처리한다. 다시 읽는 구간에 늦게 들어온 이벤트는 다음 실행에서 반영되고, 그보다 오래된 데이터는 해당 구간을 별도로 다시 집계해야 한다.
 
+![pg_cron이 코디네이터에서 완료된 직전 10분을 집계하는 SQL을 매분 실행한다. Citus는 코로케이션된 샤드에 작업을 전달하고 워커는 테넌트별 UTC 분 단위 건수를 계산하여 해당 결과 샤드에 업서트한다.](image/07_citus_cron_colocated_minute_rollup.png)
+
+그림의 근거 · [공식 문서](https://docs.citusdata.com/en/stable/develop/reference_dml.html#from-select-clause-distributed-rollups) · [pg_cron 작업 실행](https://github.com/citusdata/pg_cron#how-pg_cron-works) · [Citus DDL과 코로케이션](https://docs.citusdata.com/en/stable/develop/reference_ddl.html) · [PostgreSQL UTC 분 경계](https://www.postgresql.org/docs/18/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC)
+
 ```sql
 SELECT cron.schedule(
     'rollup-tenant-events',

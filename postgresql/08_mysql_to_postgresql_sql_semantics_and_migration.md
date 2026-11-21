@@ -40,6 +40,10 @@ SELECT setval(
 
 실습의 시퀀스는 1씩 증가하므로 위 적재 후 다음 자동 ID는 302다. 실제 이관에서는 새 테이블의 적재를 마치고 동시 쓰기를 통제한 상태에서 원본 최대값과 시퀀스 상태를 확인한다. 빈 테이블은 초기값을 유지한다. 시퀀스 값의 변경은 트랜잭션 롤백으로 복원되지 않는다. [PostgreSQL 시퀀스 함수](https://www.postgresql.org/docs/18/functions-sequence.html)
 
+![빈 migration_demo.orders에 기존 ID 300·301을 명시해 넣으면 연결된 IDENTITY 시퀀스는 호출되지 않는다. 시퀀스를 max(id)인 301로 setval한 후 ID를 생략해 삽입하면 기본 증가폭 1에 따라 302가 생성된다.](image/08_identity_sequence_realign_after_import.png)
+
+그림의 근거 · [PostgreSQL 18 · IDENTITY의 명시 값과 자동 생성](https://www.postgresql.org/docs/18/ddl-identity-columns.html) · [PostgreSQL 18 · 연결된 시퀀스 찾기](https://www.postgresql.org/docs/18/functions-info.html)
+
 ## 4. 대소문자, 콜레이션과 빈 문자열 비교하기
 
 MySQL의 기본 `utf8mb4_0900_ai_ci`처럼 대소문자와 악센트를 구분하지 않는 콜레이션을 쓰던 서비스라면 PostgreSQL에서 기존 문자 값의 비교 규칙을 별도로 정의한다. 식별자도 점검한다. PostgreSQL은 따옴표 없는 SQL 식별자를 소문자로 접고 큰따옴표로 감싼 식별자의 대소문자를 보존한다. [MySQL 문자 집합 기본값](https://dev.mysql.com/doc/refman/8.4/en/charset-server.html) · [PostgreSQL 콜레이션](https://www.postgresql.org/docs/18/collation.html) · [PostgreSQL SQL 식별자](https://www.postgresql.org/docs/18/sql-syntax-lexical.html)

@@ -50,6 +50,10 @@ SELECT pg_relation_size('pg_vacuum_demo');
 
 열려 있는 트랜잭션이 이전 행 버전을 볼 수 있으면 VACUUM은 그 버전을 제거할 수 없다. `xact_start`는 트랜잭션이 열린 시간을, `backend_xmin`은 해당 세션이 보고하는 가시성 하한을 진단하는 데 쓴다. 오래 열린 트랜잭션마다 고정 스냅샷이 있는 것은 아니므로 두 지표를 함께 본다. 준비된 트랜잭션과 복제 슬롯의 `xmin` 또는 `catalog_xmin`도 정리 범위에 영향을 줄 수 있다. [PostgreSQL 통계 뷰](https://www.postgresql.org/docs/18/monitoring-stats.html) · [복제 슬롯](https://www.postgresql.org/docs/18/view-pg-replication-slots.html)
 
+![pg_vacuum_demo에서 읽기 세션 A가 REPEATABLE READ로 첫 조회를 한 뒤 세션 B가 id=2의 payload를 a 200자에서 b 200자로 갱신하고 커밋한다. A 스냅샷이 이전 튜플을 볼 수 있는 동안 VACUUM은 그 튜플을 제거할 수 없다. A가 종료하고 다른 보존 조건이 없으면 이후 VACUUM이 같은 테이블에서 공간을 재사용할 수 있게 한다.](image/09_old_snapshot_vacuum_cleanup_horizon.png)
+
+그림의 근거 · [공식 문서](https://www.postgresql.org/docs/18/routine-vacuuming.html#VACUUM-FOR-SPACE-RECOVERY) · [PostgreSQL 18 · REPEATABLE READ 스냅샷](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-REPEATABLE-READ)
+
 ```sql
 SELECT pid, state, now() - xact_start AS xact_duration,
        age(backend_xmin) AS xmin_age, wait_event_type, wait_event
