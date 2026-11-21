@@ -79,6 +79,10 @@ GET /es-catalog/_search
 
 `title^3`는 제목 일치의 기여도를 높인다. `boosting`의 `negative` 조건은 일치한 문서를 빼는 대신 점수에 `negative_boost`를 곱한다. `dis_max`는 점수가 가장 높은 하위 쿼리를 중심으로 점수를 계산하고, 추가로 일치한 점수에는 `tie_breaker`를 적용한다. [Compound queries](https://www.elastic.co/docs/reference/query-languages/query-dsl/compound-queries) · [Multi-match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query)
 
+![bool 쿼리에서 필수 일치, 제외, 선택적 점수 기여를 구분한 카탈로그 예시](image/04_elasticsearch_bool_filter_and_scoring.png)
+
+그림의 근거 · [Boolean query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query) · [Term query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query) · [Multi-match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query)
+
 ## 4. Nested query와 inner hits
 
 상품별 판매처 배열에서 같은 판매 제안이 `store-a`이면서 가격이 75 이하인 항목을 찾는다. 일반 객체 배열은 내부 필드의 값이 서로 다른 배열 요소에서 충족될 수 있다. `nested`는 각 요소를 독립적으로 검사하며, `inner_hits`에서 일치한 판매 제안을 확인할 수 있다. 결과는 마우스 `p2`다. 키보드 `p1`의 70은 `store-b`의 가격이다.
@@ -104,3 +108,7 @@ GET /es-catalog/_search
 ```
 
 [중첩 쿼리](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)
+
+![판매 제안 하나에서 판매처와 가격 조건을 함께 검사하는 nested 쿼리](image/04_elasticsearch_nested_same_offer_matching.png)
+
+그림의 근거 · [Nested query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)

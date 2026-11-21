@@ -59,6 +59,10 @@ GET /es-synonym-lab/_search
 
 `_analyze`에서 `wireless`와 `mouse` 토큰을 확인할 수 있다. 운영에서 동의어를 관리할 때는 동의어 세트를 먼저 생성한 뒤 검색 분석기에서 참조하고, 변경 전후에 검색 결과를 비교한다. [Synonym graph token filter](https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter) · [동의어 검색](https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms)
 
+![기존 역색인에서 검색 시점의 다중 단어 동의어가 일치하는 흐름](image/08_elasticsearch_search_time_synonym_expansion.png)
+
+그림의 근거 · [Synonym graph token filter](https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter) · [검색 시점 동의어](https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms)
+
 ## 3. 결과 하이라이트
 
 하이라이트는 문서의 `highlight`에 반환된다. 예제의 `encoder:html`은 원문의 특수 문자를 HTML 엔티티로 변환하고 설정한 강조 태그를 적용한다.

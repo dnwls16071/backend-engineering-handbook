@@ -42,3 +42,7 @@ GET /es-catalog/_search
 ```
 
 `buckets`의 `key`에는 범주 또는 기간, `doc_count`에는 문서 수가 들어간다. 여러 샤드에서 `terms`를 실행하면 샤드별 상위 후보만 모으기 때문에 일부 문서 수에 오차가 생길 수 있다. `doc_count_error_upper_bound`와 `sum_other_doc_count`를 확인한다. 모든 고유한 버킷을 순회하려면 `composite`의 `after_key`를 사용한다. [Terms aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation) · [Date histogram aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-datehistogram-aggregation) · [Composite aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-composite-aggregation)
+
+![샤드별 terms 후보가 조정 노드에서 합쳐져 버킷과 하위 집계가 되는 과정](image/07_elasticsearch_bucket_metric_shard_reduction.png)
+
+그림의 근거 · [Terms aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation) · [메트릭 집계](https://www.elastic.co/docs/reference/aggregations/metrics)

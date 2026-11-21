@@ -40,3 +40,7 @@ GET /es-catalog/_stats/indexing,search,refresh,merge?level=shards
 | 리프레시와 병합 | Refresh·merge 시간 및 처리량이 쓰기 지연이 증가한 시점과 겹치는지 확인한다. |
 
 동일한 노드·샤드의 두 표본을 비교한다. 노드가 재시작하거나 샤드가 이동하면 카운터 기준이 바뀔 수 있다. 운영에서는 요청량, 오류율, p95 지연을 앱에서도 기록해 Elasticsearch 지표와 같은 시간축에서 비교한다. [Nodes Stats API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats) · [Index Stats API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-indices-stats)
+
+![CAT 상태 스냅샷과 두 Stats 표본에서 운영 지표의 구간 증가량을 얻는 흐름](image/11_elasticsearch_cat_vs_stats_and_deltas.png)
+
+그림의 근거 · [CAT API](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat) · [Nodes stats](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats)

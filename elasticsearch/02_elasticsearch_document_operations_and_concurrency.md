@@ -62,6 +62,10 @@ POST /es-docs-lab/_update/book-1?routing=store-a&if_seq_no=SEQ&if_primary_term=T
 
 카운터 증가처럼 최신 문서에 다시 적용해도 되는 작업에는 `retry_on_conflict`를 검토한다. 사용자가 읽은 값에 근거해 덮어쓰는 작업은 조건부 갱신을 사용한다. [낙관적 동시성 제어](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control)
 
+![라우팅부터 프라이머리와 레플리카 쓰기까지의 경로와 조건부 수정 충돌](image/02_elasticsearch_routing_and_optimistic_concurrency.png)
+
+그림의 근거 · [분산 쓰기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [낙관적 동시성 제어](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control)
+
 ## 4. 쿼리 기반 일괄 변경과 Bulk
 
 `_update_by_query`와 `_delete_by_query`는 시작 시점의 검색 스냅샷에서 대상을 찾는다. 버전 충돌과 부분 실패를 확인한다. Bulk는 한 요청에서 여러 작업을 보내며 각 항목의 성공 여부를 따로 반환한다.

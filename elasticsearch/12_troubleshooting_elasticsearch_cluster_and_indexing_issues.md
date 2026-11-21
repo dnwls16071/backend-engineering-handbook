@@ -89,3 +89,7 @@ GET /_nodes/hot_threads?type=cpu&threads=5&ignore_idle_threads=true
 ```
 
 GC가 길어진 시간대에 큰 Bulk, 동시 요청 증가, 비용이 큰 검색·집계, 샤드 수 증가가 있었는지 확인한다. 실제 부하 원인을 줄인 뒤 같은 구간의 GC 시간과 지연을 비교한다. [High JVM memory pressure](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)
+
+![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)
+
+그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)

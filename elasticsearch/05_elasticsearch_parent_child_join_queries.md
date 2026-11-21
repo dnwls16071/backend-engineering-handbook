@@ -61,3 +61,7 @@ GET /es-join-lab/_search
 ```
 
 두 번째 요청은 `guide-1`을 반환하며 해당 결과의 `inner_hits`에 `comment-1`이 들어간다. `nested`는 배열 요소를 부모 문서 안에 저장하는 방식이고, `join`은 문서가 자체 ID와 라우팅을 가진다. [Parent ID query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-parent-id-query) · [Joining queries](https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries)
+
+![부모와 두 자식 문서의 샤드 배치와 has_child, has_parent의 반환 방향](image/05_elasticsearch_parent_child_shard_routing.png)
+
+그림의 근거 · [Join 필드와 라우팅](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join) · [부모·자식 쿼리](https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)

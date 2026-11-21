@@ -48,3 +48,7 @@ GET /es-catalog/_search
 두 번째 요청은 다음 결과 `p3`를 반환한다. `search_after`에는 이전 페이지 마지막 히트의 `sort` 배열을 그대로 넣고 쿼리와 정렬 조건을 유지한다. 문자열 정렬에는 `title.raw` 같은 `keyword` 필드를 쓴다.
 
 깊은 페이지에서는 각 샤드가 앞 페이지의 히트까지 준비해야 하므로 `from + size`의 기본 결과 윈도는 10,000이다. 페이지 사이에 문서가 바뀔 수 있다면 PIT를 열고 `POST /_search`에 `pit`과 `search_after`를 전달한다. 응답의 최신 PIT ID와 마지막 히트의 전체 정렬 값을 다음 요청에 넘기고, 순회가 끝나면 PIT를 닫는다. [검색 결과 정렬](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/sort-search-results) · [검색 결과 페이지네이션](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)
+
+![PIT의 최신 ID와 마지막 sort 배열 전체로 다음 페이지를 가져오는 흐름](image/06_elasticsearch_pit_and_search_after_cursor.png)
+
+그림의 근거 · [PIT와 search_after](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)

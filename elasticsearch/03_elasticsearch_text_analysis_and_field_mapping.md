@@ -73,6 +73,10 @@ GET /es-catalog/_search
 
 `title`은 전문 검색을, `title.raw`는 같은 값을 변환하지 않고 정렬·집계하는 멀티 필드다. `ignore_above`를 초과한 값은 `_source`에 있어도 해당 `keyword` 필드에 색인되지 않는다. `index:false`는 역색인을 비활성화한다. 필드 타입이 doc values를 지원하고 활성화한 경우 검색 가능 여부와 비용은 타입에 따라 달라진다. 날짜는 지정한 형식으로 파싱해 UTC 기준 타임스탬프로 검색·정렬한다. 인덱스 템플릿은 앞으로 생성하는 인덱스에 적용된다. [매핑](https://www.elastic.co/docs/manage-data/data-store/mapping) · [Multi-fields](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [인덱스 템플릿](https://www.elastic.co/docs/manage-data/data-store/templates)
 
+![카탈로그 텍스트 분석과 역색인, doc values, _source의 차이](image/03_elasticsearch_analysis_postings_and_doc_values.png)
+
+그림의 근거 · [텍스트 분석](https://www.elastic.co/docs/manage-data/data-store/text-analysis) · [Doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values) · [멀티 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [_source 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field)
+
 ## 3. 동적 매핑과 매핑 변경
 
 `dynamic:true`는 새 필드의 타입을 추론한다. `false`는 새 필드를 매핑에 추가하지 않고 원본에 유지하며, `strict`는 미등록 필드를 포함한 문서를 거절한다. `runtime`은 지원되는 새 필드를 런타임 필드로 추가할 수 있다. 아래 동적 템플릿은 `labels` 아래 JSON 문자열을 `keyword`로 만든다. 일치하는 여러 규칙이 있으면 배열에서 먼저 나온 규칙이 적용된다.
@@ -119,3 +123,7 @@ POST /_aliases
 ```
 
 운영 중 전환할 때는 재색인 시작 이후 들어온 변경도 새 인덱스에 반영할 방법을 마련한다. 별칭 전환은 하나의 요청으로 적용한다. [Dynamic mapping](https://www.elastic.co/docs/manage-data/data-store/mapping/dynamic-mapping) · [Reindex API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex) · [Aliases](https://www.elastic.co/docs/manage-data/data-store/aliases)
+
+![새 매핑 적용부터 재색인 검증과 단일 요청 별칭 전환까지의 흐름](image/03_elasticsearch_reindex_and_alias_cutover.png)
+
+그림의 근거 · [Reindex API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex) · [별칭 갱신](https://www.elastic.co/docs/manage-data/data-store/aliases)

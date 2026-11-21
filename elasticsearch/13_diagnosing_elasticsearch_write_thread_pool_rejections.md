@@ -28,3 +28,7 @@ GET /_nodes/stats/thread_pool,indexing_pressure,breaker?filter_path=nodes.*.name
 5. 재처리 후 `429` 비율, 처리량, p95 쓰기 지연, 생산자 대기열을 같은 기간에 비교한다. 애플리케이션이 받아야 할 입력량에 맞춰 동시성을 조정한다.
 
 스레드 풀 대기열 확대는 처리량을 직접 늘리지 않는다. 대기열을 늘리면 밀린 작업이 더 오래 남고 메모리를 더 사용할 수 있다. 먼저 입력량과 병목을 확인한다. [Tune for indexing speed](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)
+
+![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)
+
+그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)

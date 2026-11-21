@@ -14256,5 +14256,2685 @@
       "url": "https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java",
       "locator": "HandleGetter · createGetter, createGetterForField and injectMethod"
     }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "![inventory.proto로 생성한 코드의 스텁이 GetStock 요청을 직렬화해 HTTP/2 스트림으로 보내고 서버 핸들러가 응답 메시지와 최종 상태를 돌려주는 그림](image/01_grpc_proto_contract_and_http2_call.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Protocol Buffers와 HTTP/2를 사용하는 기본 네이티브 gRPC의 InventoryService Unary 예시",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "locator": "Service definition and RPC life cycle · stub and server handlers"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "![inventory.proto로 생성한 코드의 스텁이 GetStock 요청을 직렬화해 HTTP/2 스트림으로 보내고 서버 핸들러가 응답 메시지와 최종 상태를 돌려주는 그림](image/01_grpc_proto_contract_and_http2_call.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Protocol Buffers와 HTTP/2를 사용하는 기본 네이티브 gRPC의 InventoryService Unary 예시",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "locator": "Requests and Responses · length-prefixed message and trailers"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "그림의 근거 · [gRPC 서비스 계약과 실행](https://grpc.io/docs/what-is-grpc/core-concepts/) · [gRPC HTTP/2 전송 규칙](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Protocol Buffers와 HTTP/2를 사용하는 기본 네이티브 gRPC의 InventoryService Unary 예시",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "locator": "Service definition and RPC life cycle · stub and server handlers"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "그림의 근거 · [gRPC 서비스 계약과 실행](https://grpc.io/docs/what-is-grpc/core-concepts/) · [gRPC HTTP/2 전송 규칙](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Protocol Buffers와 HTTP/2를 사용하는 기본 네이티브 gRPC의 InventoryService Unary 예시",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "locator": "Requests and Responses · length-prefixed message and trailers"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "![ReserveStock의 서버 저장이 끝났어도 클라이언트가 기한 안에 응답을 못 받으면 DEADLINE_EXCEEDED를 보고, 재시도 시 동일 식별자로 처리 결과를 확인하는 예시](image/01_grpc_deadline_and_unknown_write_outcome.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "locator": "Deadlines on the Client and Server · exceeded deadline and cancellation"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "![ReserveStock의 서버 저장이 끝났어도 클라이언트가 기한 안에 응답을 못 받으면 DEADLINE_EXCEEDED를 보고, 재시도 시 동일 식별자로 처리 결과를 확인하는 예시](image/01_grpc_deadline_and_unknown_write_outcome.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/status-codes/",
+      "locator": "DEADLINE_EXCEEDED · state-changing operation may already have completed"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "![ReserveStock의 서버 저장이 끝났어도 클라이언트가 기한 안에 응답을 못 받으면 DEADLINE_EXCEEDED를 보고, 재시도 시 동일 식별자로 처리 결과를 확인하는 예시](image/01_grpc_deadline_and_unknown_write_outcome.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/retry/",
+      "locator": "Retry overview and configuration · replay and backoff"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "그림의 근거 · [gRPC Deadline](https://grpc.io/docs/guides/deadlines/) · [gRPC 상태 코드](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/deadlines/",
+      "locator": "Deadlines on the Client and Server · exceeded deadline and cancellation"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "그림의 근거 · [gRPC Deadline](https://grpc.io/docs/guides/deadlines/) · [gRPC 상태 코드](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/status-codes/",
+      "locator": "DEADLINE_EXCEEDED · state-changing operation may already have completed"
+    }
+  },
+  {
+    "page": "grpc/01_distributed_systems_rpc_and_the_origins_of_grpc.md",
+    "claim": "그림의 근거 · [gRPC Deadline](https://grpc.io/docs/guides/deadlines/) · [gRPC 상태 코드](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "응답이 늦어지는 쓰기 RPC 예시. 요청 식별자와 재실행 시 상태 중복 방지는 애플리케이션 계약으로 가정",
+    "source": {
+      "url": "https://grpc.io/docs/guides/retry/",
+      "locator": "Retry overview and configuration · replay and backoff"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "![재고 예제의 GetStock, WatchStock, UploadCounts, SyncStock을 사용해 Unary와 세 스트리밍 RPC의 요청·응답 방향 및 메시지 개수를 비교한 그림](image/02_grpc_four_rpc_message_patterns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "gRPC 서비스 정의의 네 가지 RPC 유형. 스트리밍 예시에 그린 메시지의 개수와 교차 타이밍은 설명용",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/#service-definition",
+      "locator": "Service definition · unary, server streaming, client streaming and bidirectional streaming"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "![재고 예제의 GetStock, WatchStock, UploadCounts, SyncStock을 사용해 Unary와 세 스트리밍 RPC의 요청·응답 방향 및 메시지 개수를 비교한 그림](image/02_grpc_four_rpc_message_patterns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "gRPC 서비스 정의의 네 가지 RPC 유형. 스트리밍 예시에 그린 메시지의 개수와 교차 타이밍은 설명용",
+    "source": {
+      "url": "https://protobuf.dev/programming-guides/proto3/#services",
+      "locator": "Defining Services · RPC service declaration"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "그림의 근거 · [gRPC 호출 유형](https://grpc.io/docs/what-is-grpc/core-concepts/#service-definition) · [Proto3 서비스 선언](https://protobuf.dev/programming-guides/proto3/#services)",
+    "checked_on": "2026-11-22",
+    "applies_to": "gRPC 서비스 정의의 네 가지 RPC 유형. 스트리밍 예시에 그린 메시지의 개수와 교차 타이밍은 설명용",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/#service-definition",
+      "locator": "Service definition · unary, server streaming, client streaming and bidirectional streaming"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "그림의 근거 · [gRPC 호출 유형](https://grpc.io/docs/what-is-grpc/core-concepts/#service-definition) · [Proto3 서비스 선언](https://protobuf.dev/programming-guides/proto3/#services)",
+    "checked_on": "2026-11-22",
+    "applies_to": "gRPC 서비스 정의의 네 가지 RPC 유형. 스트리밍 예시에 그린 메시지의 개수와 교차 타이밍은 설명용",
+    "source": {
+      "url": "https://protobuf.dev/programming-guides/proto3/#services",
+      "locator": "Defining Services · RPC service declaration"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "![SyncStock에서 두 번째 재고 보고를 첫 번째 확인보다 먼저 보내고, 클라이언트 송신을 닫은 뒤에도 남은 CountAck와 최종 OK 상태를 수신하는 흐름](image/02_grpc_bidi_half_close_and_ack_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc",
+      "locator": "Bidirectional streaming RPC · independent streams and per-stream order"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "![SyncStock에서 두 번째 재고 보고를 첫 번째 확인보다 먼저 보내고, 클라이언트 송신을 닫은 뒤에도 남은 CountAck와 최종 OK 상태를 수신하는 흐름](image/02_grpc_bidi_half_close_and_ack_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "locator": "EOS · half-closing request side and receiving response trailers"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "![SyncStock에서 두 번째 재고 보고를 첫 번째 확인보다 먼저 보내고, 클라이언트 송신을 닫은 뒤에도 남은 CountAck와 최종 OK 상태를 수신하는 흐름](image/02_grpc_bidi_half_close_and_ack_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "locator": "Cancelling an RPC · how the server handles cancellation"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "그림의 근거 · [gRPC 양방향 호출 수명](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc) · [gRPC HTTP/2 스트림 종료](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) · [gRPC 취소](https://grpc.io/docs/guides/cancellation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc",
+      "locator": "Bidirectional streaming RPC · independent streams and per-stream order"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "그림의 근거 · [gRPC 양방향 호출 수명](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc) · [gRPC HTTP/2 스트림 종료](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) · [gRPC 취소](https://grpc.io/docs/guides/cancellation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "locator": "EOS · half-closing request side and receiving response trailers"
+    }
+  },
+  {
+    "page": "grpc/02_grpc_unary_and_streaming_rpc_patterns.md",
+    "claim": "그림의 근거 · [gRPC 양방향 호출 수명](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc) · [gRPC HTTP/2 스트림 종료](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) · [gRPC 취소](https://grpc.io/docs/guides/cancellation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "이 문서의 SyncStock 서비스 계약과 양방향 gRPC의 가능한 정상 종료 예시. report_id 매칭과 재개는 애플리케이션 책임",
+    "source": {
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "locator": "Cancelling an RPC · how the server handles cancellation"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![송신 앱 큐의 용량 정책과 gRPC 런타임의 전송 여유를 구분하고, 읽기가 늦을 때 전송 여유가 제한되는 관계를 보여주는 그림](image/03_grpc_stream_flow_control_and_bounded_queue.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 gRPC 스트리밍의 한 방향을 설명한 예시. 수동 흐름 제어는 해당 API에서 지원할 때 사용",
+    "source": {
+      "url": "https://grpc.io/docs/guides/flow-control/",
+      "locator": "Flow control · receiver capacity, write buffering and manual flow control"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![송신 앱 큐의 용량 정책과 gRPC 런타임의 전송 여유를 구분하고, 읽기가 늦을 때 전송 여유가 제한되는 관계를 보여주는 그림](image/03_grpc_stream_flow_control_and_bounded_queue.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 gRPC 스트리밍의 한 방향을 설명한 예시. 수동 흐름 제어는 해당 API에서 지원할 때 사용",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9113.html#name-flow-control",
+      "locator": "Section 5.2 Flow Control · stream and connection window updates"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC 흐름 제어](https://grpc.io/docs/guides/flow-control/) · [HTTP/2 흐름 제어](https://www.rfc-editor.org/rfc/rfc9113.html#name-flow-control)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 gRPC 스트리밍의 한 방향을 설명한 예시. 수동 흐름 제어는 해당 API에서 지원할 때 사용",
+    "source": {
+      "url": "https://grpc.io/docs/guides/flow-control/",
+      "locator": "Flow control · receiver capacity, write buffering and manual flow control"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC 흐름 제어](https://grpc.io/docs/guides/flow-control/) · [HTTP/2 흐름 제어](https://www.rfc-editor.org/rfc/rfc9113.html#name-flow-control)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 gRPC 스트리밍의 한 방향을 설명한 예시. 수동 흐름 제어는 해당 API에서 지원할 때 사용",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9113.html#name-flow-control",
+      "locator": "Section 5.2 Flow Control · stream and connection window updates"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![이름 해석기가 개별 백엔드 주소를 주고 round_robin 정책이 새 RPC의 대상을 선택하며, 이미 열린 WatchStock 스트림은 원래 서버에 남는 그림](image/03_grpc_resolver_balancer_and_stream_affinity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/custom-load-balancing/",
+      "locator": "Overview · resolver, picker, pick_first and round_robin"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![이름 해석기가 개별 백엔드 주소를 주고 round_robin 정책이 새 RPC의 대상을 선택하며, 이미 열린 WatchStock 스트림은 원래 서버에 남는 그림](image/03_grpc_resolver_balancer_and_stream_affinity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/service-config/",
+      "locator": "Call behavior · load balancing policy"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![이름 해석기가 개별 백엔드 주소를 주고 round_robin 정책이 새 RPC의 대상을 선택하며, 이미 열린 WatchStock 스트림은 원래 서버에 남는 그림](image/03_grpc_resolver_balancer_and_stream_affinity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/performance/",
+      "locator": "General · streams cannot be load balanced once started"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC 로드 밸런싱 정책](https://grpc.io/docs/guides/custom-load-balancing/) · [gRPC Service Config](https://grpc.io/docs/guides/service-config/) · [gRPC 스트림 성능](https://grpc.io/docs/guides/performance/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/custom-load-balancing/",
+      "locator": "Overview · resolver, picker, pick_first and round_robin"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC 로드 밸런싱 정책](https://grpc.io/docs/guides/custom-load-balancing/) · [gRPC Service Config](https://grpc.io/docs/guides/service-config/) · [gRPC 스트림 성능](https://grpc.io/docs/guides/performance/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/service-config/",
+      "locator": "Call behavior · load balancing policy"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC 로드 밸런싱 정책](https://grpc.io/docs/guides/custom-load-balancing/) · [gRPC Service Config](https://grpc.io/docs/guides/service-config/) · [gRPC 스트림 성능](https://grpc.io/docs/guides/performance/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "백엔드별 주소가 해석되어 두 연결을 사용할 수 있는 클라이언트 측 gRPC 실습 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/performance/",
+      "locator": "General · streams cannot be load balanced once started"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![외부 라우팅에서 새 트래픽을 빼고 서버 정상 종료를 시작한 뒤, 진행 중인 호출을 유예 시간 동안 처리하고 만료되면 남은 호출을 강제 종료하는 흐름](image/03_grpc_graceful_shutdown_and_drain.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "배포에서 readiness 또는 로드 밸런서와 gRPC 서버 정상 종료를 조합한 운영 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/server-graceful-stop/",
+      "locator": "Graceful shutdown and forceful shutdown · in-flight RPCs and deadline"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![외부 라우팅에서 새 트래픽을 빼고 서버 정상 종료를 시작한 뒤, 진행 중인 호출을 유예 시간 동안 처리하고 만료되면 남은 호출을 강제 종료하는 흐름](image/03_grpc_graceful_shutdown_and_drain.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "배포에서 readiness 또는 로드 밸런서와 gRPC 서버 정상 종료를 조합한 운영 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "locator": "Cancellation notification and application cleanup"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC Graceful Shutdown](https://grpc.io/docs/guides/server-graceful-stop/) · [gRPC 취소와 서버 처리](https://grpc.io/docs/guides/cancellation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "배포에서 readiness 또는 로드 밸런서와 gRPC 서버 정상 종료를 조합한 운영 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/server-graceful-stop/",
+      "locator": "Graceful shutdown and forceful shutdown · in-flight RPCs and deadline"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC Graceful Shutdown](https://grpc.io/docs/guides/server-graceful-stop/) · [gRPC 취소와 서버 처리](https://grpc.io/docs/guides/cancellation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "배포에서 readiness 또는 로드 밸런서와 gRPC 서버 정상 종료를 조합한 운영 예시",
+    "source": {
+      "url": "https://grpc.io/docs/guides/cancellation/",
+      "locator": "Cancellation notification and application cleanup"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![GetStock의 첫 응답이 50ms 안에 오지 않으면 공통 300ms 기한 안에서 추가 시도를 시작할 수 있고, 처음 성공한 응답을 사용하며 남은 시도를 취소하는 예시](image/03_grpc_hedging_shared_deadline_timeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "헤징을 지원하는 gRPC 클라이언트의 읽기 전용 GetStock 예시. maxAttempts=2, hedgingDelay=50ms, 공유 deadline=300ms",
+    "source": {
+      "url": "https://grpc.io/docs/guides/request-hedging/",
+      "locator": "Hedging policy · delay, success, cancellation and overall deadline"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "![GetStock의 첫 응답이 50ms 안에 오지 않으면 공통 300ms 기한 안에서 추가 시도를 시작할 수 있고, 처음 성공한 응답을 사용하며 남은 시도를 취소하는 예시](image/03_grpc_hedging_shared_deadline_timeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "헤징을 지원하는 gRPC 클라이언트의 읽기 전용 GetStock 예시. maxAttempts=2, hedgingDelay=50ms, 공유 deadline=300ms",
+    "source": {
+      "url": "https://github.com/grpc/proposal/blob/master/A6-client-retries.md",
+      "locator": "Hedging Policy · maximum attempts include the original"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC Request Hedging](https://grpc.io/docs/guides/request-hedging/) · [gRPC 재시도·헤징 설계](https://github.com/grpc/proposal/blob/master/A6-client-retries.md)",
+    "checked_on": "2026-11-22",
+    "applies_to": "헤징을 지원하는 gRPC 클라이언트의 읽기 전용 GetStock 예시. maxAttempts=2, hedgingDelay=50ms, 공유 deadline=300ms",
+    "source": {
+      "url": "https://grpc.io/docs/guides/request-hedging/",
+      "locator": "Hedging policy · delay, success, cancellation and overall deadline"
+    }
+  },
+  {
+    "page": "grpc/03_grpc_performance_and_operational_best_practices.md",
+    "claim": "그림의 근거 · [gRPC Request Hedging](https://grpc.io/docs/guides/request-hedging/) · [gRPC 재시도·헤징 설계](https://github.com/grpc/proposal/blob/master/A6-client-retries.md)",
+    "checked_on": "2026-11-22",
+    "applies_to": "헤징을 지원하는 gRPC 클라이언트의 읽기 전용 GetStock 예시. maxAttempts=2, hedgingDelay=50ms, 공유 deadline=300ms",
+    "source": {
+      "url": "https://github.com/grpc/proposal/blob/master/A6-client-retries.md",
+      "locator": "Hedging Policy · maximum attempts include the original"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![commerce.proto에서 Python과 Go의 메시지 파일과 gRPC 서비스 파일을 각각 생성하고, Python 스텁이 CreateOrder와 Chat을 호출 유형에 맞게 바인딩하는 그림](image/04_grpc_proto_codegen_and_method_bindings.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://grpc.io/docs/languages/python/generated-code/",
+      "locator": "Generated Code Reference · message and gRPC modules, stub and servicer"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![commerce.proto에서 Python과 Go의 메시지 파일과 gRPC 서비스 파일을 각각 생성하고, Python 스텁이 CreateOrder와 Chat을 호출 유형에 맞게 바인딩하는 그림](image/04_grpc_proto_codegen_and_method_bindings.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://protobuf.dev/reference/go/go-generated/",
+      "locator": "Compiler Invocation · .pb.go outputs"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![commerce.proto에서 Python과 Go의 메시지 파일과 gRPC 서비스 파일을 각각 생성하고, Python 스텁이 CreateOrder와 Chat을 호출 유형에 맞게 바인딩하는 그림](image/04_grpc_proto_codegen_and_method_bindings.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://grpc.io/docs/languages/go/generated-code/",
+      "locator": "Generated Code Reference · client and server interfaces"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python 생성 코드](https://grpc.io/docs/languages/python/generated-code/) · [Protobuf Go 메시지 파일](https://protobuf.dev/reference/go/go-generated/) · [gRPC Go 서비스 파일](https://grpc.io/docs/languages/go/generated-code/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://grpc.io/docs/languages/python/generated-code/",
+      "locator": "Generated Code Reference · message and gRPC modules, stub and servicer"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python 생성 코드](https://grpc.io/docs/languages/python/generated-code/) · [Protobuf Go 메시지 파일](https://protobuf.dev/reference/go/go-generated/) · [gRPC Go 서비스 파일](https://grpc.io/docs/languages/go/generated-code/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://protobuf.dev/reference/go/go-generated/",
+      "locator": "Compiler Invocation · .pb.go outputs"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python 생성 코드](https://grpc.io/docs/languages/python/generated-code/) · [Protobuf Go 메시지 파일](https://protobuf.dev/reference/go/go-generated/) · [gRPC Go 서비스 파일](https://grpc.io/docs/languages/go/generated-code/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "grpcio-tools 1.80.1을 쓰는 Python 실습과 Go 생성 파일 비교. 주문은 Unary, 채팅은 양방향 스트리밍",
+    "source": {
+      "url": "https://grpc.io/docs/languages/go/generated-code/",
+      "locator": "Generated Code Reference · client and server interfaces"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![CreateOrder의 첫 요청에서 재고가 3에서 1이 되고, 같은 식별자와 같은 내용이면 응답을 재사용하며 같은 식별자로 다른 내용을 보내면 ALREADY_EXISTS를 반환하는 예시](image/04_grpc_create_order_idempotent_state.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.github.io/grpc/python/grpc_asyncio.html",
+      "locator": "Server-side Context · request handling and abort"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![CreateOrder의 첫 요청에서 재고가 3에서 1이 되고, 같은 식별자와 같은 내용이면 응답을 재사용하며 같은 식별자로 다른 내용을 보내면 ALREADY_EXISTS를 반환하는 예시](image/04_grpc_create_order_idempotent_state.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.io/docs/guides/status-codes/",
+      "locator": "ALREADY_EXISTS, INVALID_ARGUMENT, NOT_FOUND and FAILED_PRECONDITION"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![CreateOrder의 첫 요청에서 재고가 3에서 1이 되고, 같은 식별자와 같은 내용이면 응답을 재사용하며 같은 식별자로 다른 내용을 보내면 ALREADY_EXISTS를 반환하는 예시](image/04_grpc_create_order_idempotent_state.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.io/docs/guides/retry/",
+      "locator": "Retry design · a retried call can replay the call history"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 서버](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC 상태 매핑](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.github.io/grpc/python/grpc_asyncio.html",
+      "locator": "Server-side Context · request handling and abort"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 서버](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC 상태 매핑](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.io/docs/guides/status-codes/",
+      "locator": "ALREADY_EXISTS, INVALID_ARGUMENT, NOT_FOUND and FAILED_PRECONDITION"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 서버](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC 상태 매핑](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Orders.CreateOrder 단일 Python AsyncIO 프로세스와 메모리 상태 예시. 요청 식별자 조회와 정책은 애플리케이션이 구현",
+    "source": {
+      "url": "https://grpc.io/docs/guides/retry/",
+      "locator": "Retry design · a retried call can replay the call history"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![Python Chat에서 입장 확인이 송신 태스크를 깨우고, 두 메시지를 보낸 뒤 done_writing으로 송신을 닫아도 두 접수 이벤트와 최종 OK 상태를 확인하는 순서](image/04_grpc_async_chat_join_ack_and_shutdown.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://grpc.github.io/grpc/python/grpc_asyncio.html",
+      "locator": "StreamStreamCall · write, done_writing, async iteration and code"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![Python Chat에서 입장 확인이 송신 태스크를 깨우고, 두 메시지를 보낸 뒤 done_writing으로 송신을 닫아도 두 접수 이벤트와 최종 OK 상태를 확인하는 순서](image/04_grpc_async_chat_join_ack_and_shutdown.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py",
+      "locator": "StreamRequestMixin done_writing and StreamResponseMixin async iteration"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "![Python Chat에서 입장 확인이 송신 태스크를 깨우고, 두 메시지를 보낸 뒤 done_writing으로 송신을 닫아도 두 접수 이벤트와 최종 OK 상태를 확인하는 순서](image/04_grpc_async_chat_join_ack_and_shutdown.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://protobuf.dev/programming-guides/proto3/#oneof",
+      "locator": "Oneof · choose one message member at a time"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 호출 API](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC Python 1.80.1 구현](https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py) · [Proto3 oneof](https://protobuf.dev/programming-guides/proto3/#oneof)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://grpc.github.io/grpc/python/grpc_asyncio.html",
+      "locator": "StreamStreamCall · write, done_writing, async iteration and code"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 호출 API](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC Python 1.80.1 구현](https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py) · [Proto3 oneof](https://protobuf.dev/programming-guides/proto3/#oneof)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py",
+      "locator": "StreamRequestMixin done_writing and StreamResponseMixin async iteration"
+    }
+  },
+  {
+    "page": "grpc/04_grpc_order_and_bidirectional_messaging_lab.md",
+    "claim": "그림의 근거 · [gRPC Python AsyncIO 호출 API](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC Python 1.80.1 구현](https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py) · [Proto3 oneof](https://protobuf.dev/programming-guides/proto3/#oneof)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Python AsyncIO 예시에서 가능한 메시지 교차 순서. 쓰기 종료 API는 grpcio 1.80.1 구현에서 확인",
+    "source": {
+      "url": "https://protobuf.dev/programming-guides/proto3/#oneof",
+      "locator": "Oneof · choose one message member at a time"
+    }
+  },
+  {
+    "page": "elasticsearch/01_elasticsearch_fundamentals_and_cluster_architecture.md",
+    "claim": "![노드 한 대와 두 대에서 프라이머리와 레플리카의 배치 비교](image/01_elasticsearch_primary_replica_allocation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습 인덱스. 프라이머리 2개, 샤드당 레플리카 1개.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards",
+      "locator": "Shards and replicas"
+    }
+  },
+  {
+    "page": "elasticsearch/01_elasticsearch_fundamentals_and_cluster_architecture.md",
+    "claim": "![노드 한 대와 두 대에서 프라이머리와 레플리카의 배치 비교](image/01_elasticsearch_primary_replica_allocation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습 인덱스. 프라이머리 2개, 샤드당 레플리카 1개.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status",
+      "locator": "Red or yellow cluster health status 및 Single-node cluster"
+    }
+  },
+  {
+    "page": "elasticsearch/01_elasticsearch_fundamentals_and_cluster_architecture.md",
+    "claim": "그림의 근거 · [샤드와 레플리카](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards) · [미할당과 상태 색상](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습 인덱스. 프라이머리 2개, 샤드당 레플리카 1개.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards",
+      "locator": "Shards and replicas"
+    }
+  },
+  {
+    "page": "elasticsearch/01_elasticsearch_fundamentals_and_cluster_architecture.md",
+    "claim": "그림의 근거 · [샤드와 레플리카](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards) · [미할당과 상태 색상](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습 인덱스. 프라이머리 2개, 샤드당 레플리카 1개.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status",
+      "locator": "Red or yellow cluster health status 및 Single-node cluster"
+    }
+  },
+  {
+    "page": "elasticsearch/02_elasticsearch_document_operations_and_concurrency.md",
+    "claim": "![라우팅부터 프라이머리와 레플리카 쓰기까지의 경로와 조건부 수정 충돌](image/02_elasticsearch_routing_and_optimistic_concurrency.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 문서 단건 쓰기. 조건부 갱신에서 두 요청이 동일한 변경 전 토큰 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic write model 및 Replication stage"
+    }
+  },
+  {
+    "page": "elasticsearch/02_elasticsearch_document_operations_and_concurrency.md",
+    "claim": "![라우팅부터 프라이머리와 레플리카 쓰기까지의 경로와 조건부 수정 충돌](image/02_elasticsearch_routing_and_optimistic_concurrency.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 문서 단건 쓰기. 조건부 갱신에서 두 요청이 동일한 변경 전 토큰 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control",
+      "locator": "Sequence number, primary term 및 if_seq_no와 if_primary_term"
+    }
+  },
+  {
+    "page": "elasticsearch/02_elasticsearch_document_operations_and_concurrency.md",
+    "claim": "그림의 근거 · [분산 쓰기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [낙관적 동시성 제어](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 문서 단건 쓰기. 조건부 갱신에서 두 요청이 동일한 변경 전 토큰 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic write model 및 Replication stage"
+    }
+  },
+  {
+    "page": "elasticsearch/02_elasticsearch_document_operations_and_concurrency.md",
+    "claim": "그림의 근거 · [분산 쓰기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [낙관적 동시성 제어](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 문서 단건 쓰기. 조건부 갱신에서 두 요청이 동일한 변경 전 토큰 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/optimistic-concurrency-control",
+      "locator": "Sequence number, primary term 및 if_seq_no와 if_primary_term"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![카탈로그 텍스트 분석과 역색인, doc values, _source의 차이](image/03_elasticsearch_analysis_postings_and_doc_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/text-analysis",
+      "locator": "Text analysis 및 inverted index"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![카탈로그 텍스트 분석과 역색인, doc values, _source의 차이](image/03_elasticsearch_analysis_postings_and_doc_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values",
+      "locator": "Disk-based columnar storage, sorting and aggregations"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![카탈로그 텍스트 분석과 역색인, doc values, _source의 차이](image/03_elasticsearch_analysis_postings_and_doc_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields",
+      "locator": "Index the same field in different ways"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![카탈로그 텍스트 분석과 역색인, doc values, _source의 차이](image/03_elasticsearch_analysis_postings_and_doc_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field",
+      "locator": "Original JSON document body 및 Synthetic _source 구분"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [텍스트 분석](https://www.elastic.co/docs/manage-data/data-store/text-analysis) · [Doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values) · [멀티 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [_source 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/text-analysis",
+      "locator": "Text analysis 및 inverted index"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [텍스트 분석](https://www.elastic.co/docs/manage-data/data-store/text-analysis) · [Doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values) · [멀티 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [_source 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values",
+      "locator": "Disk-based columnar storage, sorting and aggregations"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [텍스트 분석](https://www.elastic.co/docs/manage-data/data-store/text-analysis) · [Doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values) · [멀티 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [_source 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields",
+      "locator": "Index the same field in different ways"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [텍스트 분석](https://www.elastic.co/docs/manage-data/data-store/text-analysis) · [Doc values](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/doc-values) · [멀티 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/multi-fields) · [_source 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 카탈로그 실습. 기본 저장 방식의 _source 및 title.raw keyword 멀티 필드.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/mapping-source-field",
+      "locator": "Original JSON document body 및 Synthetic _source 구분"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![새 매핑 적용부터 재색인 검증과 단일 요청 별칭 전환까지의 흐름](image/03_elasticsearch_reindex_and_alias_cutover.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 실습에서는 복사 중 쓰기를 멈추고 두 인덱스의 문서 수와 실패 응답을 확인.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex",
+      "locator": "Set up the destination before reindexing 및 failures response"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "![새 매핑 적용부터 재색인 검증과 단일 요청 별칭 전환까지의 흐름](image/03_elasticsearch_reindex_and_alias_cutover.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 실습에서는 복사 중 쓰기를 멈추고 두 인덱스의 문서 수와 실패 응답을 확인.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/aliases",
+      "locator": "Multiple actions"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [Reindex API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex) · [별칭 갱신](https://www.elastic.co/docs/manage-data/data-store/aliases)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 실습에서는 복사 중 쓰기를 멈추고 두 인덱스의 문서 수와 실패 응답을 확인.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex",
+      "locator": "Set up the destination before reindexing 및 failures response"
+    }
+  },
+  {
+    "page": "elasticsearch/03_elasticsearch_text_analysis_and_field_mapping.md",
+    "claim": "그림의 근거 · [Reindex API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex) · [별칭 갱신](https://www.elastic.co/docs/manage-data/data-store/aliases)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 실습에서는 복사 중 쓰기를 멈추고 두 인덱스의 문서 수와 실패 응답을 확인.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/aliases",
+      "locator": "Multiple actions"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "![bool 쿼리에서 필수 일치, 제외, 선택적 점수 기여를 구분한 카탈로그 예시](image/04_elasticsearch_bool_filter_and_scoring.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query",
+      "locator": "must, filter, must_not, should, Using minimum_should_match"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "![bool 쿼리에서 필수 일치, 제외, 선택적 점수 기여를 구분한 카탈로그 예시](image/04_elasticsearch_bool_filter_and_scoring.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query",
+      "locator": "Returns documents that contain an exact term"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "![bool 쿼리에서 필수 일치, 제외, 선택적 점수 기여를 구분한 카탈로그 예시](image/04_elasticsearch_bool_filter_and_scoring.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query",
+      "locator": "Search across multiple fields"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "그림의 근거 · [Boolean query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query) · [Term query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query) · [Multi-match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query",
+      "locator": "must, filter, must_not, should, Using minimum_should_match"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "그림의 근거 · [Boolean query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query) · [Term query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query) · [Multi-match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query",
+      "locator": "Returns documents that contain an exact term"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "그림의 근거 · [Boolean query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-bool-query) · [Term query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query) · [Multi-match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 bool 쿼리. must 또는 filter와 함께 should를 사용하고 minimum_should_match를 생략.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query",
+      "locator": "Search across multiple fields"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "![판매 제안 하나에서 판매처와 가격 조건을 함께 검사하는 nested 쿼리](image/04_elasticsearch_nested_same_offer_matching.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 카탈로그 판매 제안 필드 offers의 nested 매핑과 inner_hits.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query",
+      "locator": "Wraps a query to search nested fields"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "![판매 제안 하나에서 판매처와 가격 조건을 함께 검사하는 nested 쿼리](image/04_elasticsearch_nested_same_offer_matching.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 카탈로그 판매 제안 필드 offers의 nested 매핑과 inner_hits.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits",
+      "locator": "Nested inner hits"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "그림의 근거 · [Nested query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 카탈로그 판매 제안 필드 offers의 nested 매핑과 inner_hits.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query",
+      "locator": "Wraps a query to search nested fields"
+    }
+  },
+  {
+    "page": "elasticsearch/04_elasticsearch_query_dsl_and_relevance.md",
+    "claim": "그림의 근거 · [Nested query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-nested-query) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 카탈로그 판매 제안 필드 offers의 nested 매핑과 inner_hits.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits",
+      "locator": "Nested inner hits"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "![부모와 두 자식 문서의 샤드 배치와 has_child, has_parent의 반환 방향](image/05_elasticsearch_parent_child_shard_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join",
+      "locator": "Parent-join restrictions 및 parent lineage routing"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "![부모와 두 자식 문서의 샤드 배치와 has_child, has_parent의 반환 방향](image/05_elasticsearch_parent_child_shard_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries",
+      "locator": "has_child 및 has_parent"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "![부모와 두 자식 문서의 샤드 배치와 has_child, has_parent의 반환 방향](image/05_elasticsearch_parent_child_shard_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits",
+      "locator": "Parent/child inner hits"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "그림의 근거 · [Join 필드와 라우팅](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join) · [부모·자식 쿼리](https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join",
+      "locator": "Parent-join restrictions 및 parent lineage routing"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "그림의 근거 · [Join 필드와 라우팅](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join) · [부모·자식 쿼리](https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries",
+      "locator": "has_child 및 has_parent"
+    }
+  },
+  {
+    "page": "elasticsearch/05_elasticsearch_parent_child_join_queries.md",
+    "claim": "그림의 근거 · [Join 필드와 라우팅](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/parent-join) · [부모·자식 쿼리](https://www.elastic.co/docs/reference/query-languages/query-dsl/joining-queries) · [Inner hits](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 join 필드. 자식 문서의 라우팅 값에 부모 ID를 사용.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/retrieve-inner-hits",
+      "locator": "Parent/child inner hits"
+    }
+  },
+  {
+    "page": "elasticsearch/06_elasticsearch_search_response_sorting_and_pagination.md",
+    "claim": "![PIT의 최신 ID와 마지막 sort 배열 전체로 다음 페이지를 가져오는 흐름](image/06_elasticsearch_pit_and_search_after_cursor.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 PIT 페이지네이션. 카탈로그 예제의 정렬 조건을 유지하고 PIT tie-breaker까지 전달.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results",
+      "locator": "Search after 및 implicit _shard_doc tie-breaker"
+    }
+  },
+  {
+    "page": "elasticsearch/06_elasticsearch_search_response_sorting_and_pagination.md",
+    "claim": "그림의 근거 · [PIT와 search_after](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 PIT 페이지네이션. 카탈로그 예제의 정렬 조건을 유지하고 PIT tie-breaker까지 전달.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/paginate-search-results",
+      "locator": "Search after 및 implicit _shard_doc tie-breaker"
+    }
+  },
+  {
+    "page": "elasticsearch/07_elasticsearch_metric_and_bucket_aggregations.md",
+    "claim": "![샤드별 terms 후보가 조정 노드에서 합쳐져 버킷과 하위 집계가 되는 과정](image/07_elasticsearch_bucket_metric_shard_reduction.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 기본 문서 수 내림차순 terms 집계와 카탈로그 데이터로 든 집계 예시.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation",
+      "locator": "Shard size, Document count error, Sub-aggregation results"
+    }
+  },
+  {
+    "page": "elasticsearch/07_elasticsearch_metric_and_bucket_aggregations.md",
+    "claim": "![샤드별 terms 후보가 조정 노드에서 합쳐져 버킷과 하위 집계가 되는 과정](image/07_elasticsearch_bucket_metric_shard_reduction.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 기본 문서 수 내림차순 terms 집계와 카탈로그 데이터로 든 집계 예시.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/aggregations/metrics",
+      "locator": "Avg aggregation 및 Sum aggregation"
+    }
+  },
+  {
+    "page": "elasticsearch/07_elasticsearch_metric_and_bucket_aggregations.md",
+    "claim": "그림의 근거 · [Terms aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation) · [메트릭 집계](https://www.elastic.co/docs/reference/aggregations/metrics)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 기본 문서 수 내림차순 terms 집계와 카탈로그 데이터로 든 집계 예시.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation",
+      "locator": "Shard size, Document count error, Sub-aggregation results"
+    }
+  },
+  {
+    "page": "elasticsearch/07_elasticsearch_metric_and_bucket_aggregations.md",
+    "claim": "그림의 근거 · [Terms aggregation](https://www.elastic.co/docs/reference/aggregations/search-aggregations-bucket-terms-aggregation) · [메트릭 집계](https://www.elastic.co/docs/reference/aggregations/metrics)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 기본 문서 수 내림차순 terms 집계와 카탈로그 데이터로 든 집계 예시.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/aggregations/metrics",
+      "locator": "Avg aggregation 및 Sum aggregation"
+    }
+  },
+  {
+    "page": "elasticsearch/08_improving_elasticsearch_search_relevance.md",
+    "claim": "![기존 역색인에서 검색 시점의 다중 단어 동의어가 일치하는 흐름](image/08_elasticsearch_search_time_synonym_expansion.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습의 명시적 단방향 규칙 cordless mouse => wireless mouse.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter",
+      "locator": "Search analyzer, multi-word synonyms, explicit mappings"
+    }
+  },
+  {
+    "page": "elasticsearch/08_improving_elasticsearch_search_relevance.md",
+    "claim": "![기존 역색인에서 검색 시점의 다중 단어 동의어가 일치하는 흐름](image/08_elasticsearch_search_time_synonym_expansion.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습의 명시적 단방향 규칙 cordless mouse => wireless mouse.",
+    "source": {
+      "url": "https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms",
+      "locator": "Index-time and search-time synonyms"
+    }
+  },
+  {
+    "page": "elasticsearch/08_improving_elasticsearch_search_relevance.md",
+    "claim": "그림의 근거 · [Synonym graph token filter](https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter) · [검색 시점 동의어](https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습의 명시적 단방향 규칙 cordless mouse => wireless mouse.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter",
+      "locator": "Search analyzer, multi-word synonyms, explicit mappings"
+    }
+  },
+  {
+    "page": "elasticsearch/08_improving_elasticsearch_search_relevance.md",
+    "claim": "그림의 근거 · [Synonym graph token filter](https://www.elastic.co/docs/reference/text-analysis/analysis-synonym-graph-tokenfilter) · [검색 시점 동의어](https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 실습의 명시적 단방향 규칙 cordless mouse => wireless mouse.",
+    "source": {
+      "url": "https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms",
+      "locator": "Index-time and search-time synonyms"
+    }
+  },
+  {
+    "page": "elasticsearch/09_elasticsearch_cluster_topology_and_index_design.md",
+    "claim": "![선출된 마스터의 클러스터 상태 관리와 조정 노드의 검색 실행 경로](image/09_elasticsearch_cluster_control_and_data_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 역할을 논리적으로 표현하며 다중 역할 노드 포함.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles",
+      "locator": "Master-eligible node, Data node, Coordinating node"
+    }
+  },
+  {
+    "page": "elasticsearch/09_elasticsearch_cluster_topology_and_index_design.md",
+    "claim": "![선출된 마스터의 클러스터 상태 관리와 조정 노드의 검색 실행 경로](image/09_elasticsearch_cluster_control_and_data_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 역할을 논리적으로 표현하며 다중 역할 노드 포함.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic read model"
+    }
+  },
+  {
+    "page": "elasticsearch/09_elasticsearch_cluster_topology_and_index_design.md",
+    "claim": "그림의 근거 · [노드 역할](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles) · [분산 읽기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 역할을 논리적으로 표현하며 다중 역할 노드 포함.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles",
+      "locator": "Master-eligible node, Data node, Coordinating node"
+    }
+  },
+  {
+    "page": "elasticsearch/09_elasticsearch_cluster_topology_and_index_design.md",
+    "claim": "그림의 근거 · [노드 역할](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles) · [분산 읽기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 역할을 논리적으로 표현하며 다중 역할 노드 포함.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic read model"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![쓰기 응답, refresh, flush, merge의 역할과 실시간 GET의 차이](image/10_elasticsearch_translog_refresh_flush_and_segments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/near-real-time-search",
+      "locator": "Refresh 및 검색 가능 세그먼트"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![쓰기 응답, refresh, flush, merge의 역할과 실시간 GET의 차이](image/10_elasticsearch_translog_refresh_flush_and_segments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog",
+      "locator": "Request durability, fsync, Lucene commit 및 new translog generation"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![쓰기 응답, refresh, flush, merge의 역할과 실시간 GET의 차이](image/10_elasticsearch_translog_refresh_flush_and_segments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge",
+      "locator": "Merge scheduling 및 smaller segments merged into larger segments"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![쓰기 응답, refresh, flush, merge의 역할과 실시간 GET의 차이](image/10_elasticsearch_translog_refresh_flush_and_segments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get",
+      "locator": "Realtime"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [Near real-time search](https://www.elastic.co/docs/manage-data/data-store/near-real-time-search) · [Translog 설정](https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog) · [세그먼트 병합](https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge) · [실시간 GET](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/manage-data/data-store/near-real-time-search",
+      "locator": "Refresh 및 검색 가능 세그먼트"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [Near real-time search](https://www.elastic.co/docs/manage-data/data-store/near-real-time-search) · [Translog 설정](https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog) · [세그먼트 병합](https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge) · [실시간 GET](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog",
+      "locator": "Request durability, fsync, Lucene commit 및 new translog generation"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [Near real-time search](https://www.elastic.co/docs/manage-data/data-store/near-real-time-search) · [Translog 설정](https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog) · [세그먼트 병합](https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge) · [실시간 GET](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge",
+      "locator": "Merge scheduling 및 smaller segments merged into larger segments"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [Near real-time search](https://www.elastic.co/docs/manage-data/data-store/near-real-time-search) · [Translog 설정](https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog) · [세그먼트 병합](https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge) · [실시간 GET](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. translog 기본 request 내구성, 실습에서 자동 refresh 비활성화.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get",
+      "locator": "Realtime"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![조정 노드가 샤드별 검색 후보를 병합하고 선택한 문서만 가져오는 시퀀스](image/10_elasticsearch_query_then_fetch_by_shard.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic read model 및 select an active copy per shard"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![조정 노드가 샤드별 검색 후보를 병합하고 선택한 문서만 가져오는 시퀀스](image/10_elasticsearch_query_then_fetch_by_shard.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/",
+      "locator": "Default search type: Query Then Fetch"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "![조정 노드가 샤드별 검색 후보를 병합하고 선택한 문서만 가져오는 시퀀스](image/10_elasticsearch_query_then_fetch_by_shard.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search",
+      "locator": "search_type, timed_out, _shards"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [분산 검색](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [Query Then Fetch](https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents",
+      "locator": "Basic read model 및 select an active copy per shard"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [분산 검색](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [Query Then Fetch](https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/",
+      "locator": "Default search type: Query Then Fetch"
+    }
+  },
+  {
+    "page": "elasticsearch/10_elasticsearch_indexing_and_search_execution.md",
+    "claim": "그림의 근거 · [분산 검색](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [Query Then Fetch](https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 기본 query_then_fetch. 샤드 2개를 검색하고 상위 결과 한 개를 반환하는 그림.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search",
+      "locator": "search_type, timed_out, _shards"
+    }
+  },
+  {
+    "page": "elasticsearch/11_monitoring_elasticsearch_with_cat_apis_and_node_stats.md",
+    "claim": "![CAT 상태 스냅샷과 두 Stats 표본에서 운영 지표의 구간 증가량을 얻는 흐름](image/11_elasticsearch_cat_vs_stats_and_deltas.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 동일 노드·스레드 풀의 표본을 카운터 재설정이 없는 시간 구간에서 비교.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat",
+      "locator": "Compact and aligned text output for human consumption"
+    }
+  },
+  {
+    "page": "elasticsearch/11_monitoring_elasticsearch_with_cat_apis_and_node_stats.md",
+    "claim": "![CAT 상태 스냅샷과 두 Stats 표본에서 운영 지표의 구간 증가량을 얻는 흐름](image/11_elasticsearch_cat_vs_stats_and_deltas.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 동일 노드·스레드 풀의 표본을 카운터 재설정이 없는 시간 구간에서 비교.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats",
+      "locator": "thread_pool active, queue, rejected 및 jvm.gc.collectors"
+    }
+  },
+  {
+    "page": "elasticsearch/11_monitoring_elasticsearch_with_cat_apis_and_node_stats.md",
+    "claim": "그림의 근거 · [CAT API](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat) · [Nodes stats](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 동일 노드·스레드 풀의 표본을 카운터 재설정이 없는 시간 구간에서 비교.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat",
+      "locator": "Compact and aligned text output for human consumption"
+    }
+  },
+  {
+    "page": "elasticsearch/11_monitoring_elasticsearch_with_cat_apis_and_node_stats.md",
+    "claim": "그림의 근거 · [CAT API](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat) · [Nodes stats](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. 동일 노드·스레드 풀의 표본을 카운터 재설정이 없는 시간 구간에서 비교.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-nodes-stats",
+      "locator": "thread_pool active, queue, rejected 및 jvm.gc.collectors"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status",
+      "locator": "Red or yellow cluster health status"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain",
+      "locator": "node_allocation_decisions.deciders"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors",
+      "locator": "Flood-stage watermark 및 index write block"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk",
+      "locator": "errors 및 items의 상태"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter",
+      "locator": "Visibility of changes to search"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search",
+      "locator": "_shards.failed"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "![샤드 미할당, 색인 실패, 검색 누락, GC 증가의 증상별 진단 경로](image/12_elasticsearch_triage_missing_hits_and_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure",
+      "locator": "Diagnose and reduce JVM memory pressure"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status",
+      "locator": "Red or yellow cluster health status"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain",
+      "locator": "node_allocation_decisions.deciders"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors",
+      "locator": "Flood-stage watermark 및 index write block"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk",
+      "locator": "errors 및 items의 상태"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter",
+      "locator": "Visibility of changes to search"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search",
+      "locator": "_shards.failed"
+    }
+  },
+  {
+    "page": "elasticsearch/12_troubleshooting_elasticsearch_cluster_and_indexing_issues.md",
+    "claim": "그림의 근거 · [클러스터 상태](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status) · [할당 결정](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-cluster-allocation-explain) · [디스크 워터마크](https://www.elastic.co/docs/troubleshoot/elasticsearch/fix-watermark-errors) · [Bulk 응답](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [Refresh 매개변수](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search) · [JVM 메모리 압력](https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2 Self-managed. 예시 증상별로 응답 본문과 노드·인덱스 지표를 대조.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/high-jvm-memory-pressure",
+      "locator": "Diagnose and reduce JVM memory pressure"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings",
+      "locator": "write 및 write_coordination"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests",
+      "locator": "Thread pool, circuit breaker, indexing pressure rejections"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings",
+      "locator": "Coordinating, primary and replica indexing stages"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk",
+      "locator": "Request-level response 및 items errors and status"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "![Bulk 쓰기 거절을 찾는 지표와 요청 및 항목 단위 재시도 판단](image/13_elasticsearch_bulk_write_rejection_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed",
+      "locator": "Use bulk requests 및 randomized exponential backoff"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings",
+      "locator": "write 및 write_coordination"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests",
+      "locator": "Thread pool, circuit breaker, indexing pressure rejections"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings",
+      "locator": "Coordinating, primary and replica indexing stages"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk",
+      "locator": "Request-level response 및 items errors and status"
+    }
+  },
+  {
+    "page": "elasticsearch/13_diagnosing_elasticsearch_write_thread_pool_rejections.md",
+    "claim": "그림의 근거 · [Thread pool settings](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/thread-pool-settings) · [Rejected requests](https://www.elastic.co/docs/troubleshoot/elasticsearch/rejected-requests) · [Indexing pressure](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/indexing-pressure-settings) · [Bulk API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-bulk) · [색인 속도 튜닝](https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Elasticsearch 9.4.2. Bulk write_coordination 풀은 9.1부터 제공. 클라이언트는 항목 상태를 알 수 있을 때 성공 항목을 보존.",
+    "source": {
+      "url": "https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/indexing-speed",
+      "locator": "Use bulk requests 및 randomized exponential backoff"
+    }
+  },
+  {
+    "page": "engineering-design-training/01_identifying_architectural_priorities_for_high_traffic.md",
+    "claim": "![완료 조건과 실측으로 피크 대응안을 비교하고 접수와 업무 완료를 따로 검증하는 흐름](image/traffic_peak_design_priorities.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 행사 트래픽 예시. 유입 시점 조정은 정책 합의가 가능할 때, 큐 분리는 내구 접수가 필요한 작업에 적용.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Solution 및 Issues and considerations"
+    }
+  },
+  {
+    "page": "engineering-design-training/01_identifying_architectural_priorities_for_high_traffic.md",
+    "claim": "그림의 근거 · [큐를 통한 유입과 처리 분리](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 행사 트래픽 예시. 유입 시점 조정은 정책 합의가 가능할 때, 큐 분리는 내구 접수가 필요한 작업에 적용.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Solution 및 Issues and considerations"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "![분산 시스템을 처리 주체, 데이터 배치, 실행 시간으로 나눈 예시](image/distributed_design_processing_state_and_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html",
+      "locator": "Scatter-Gather pattern"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "![분산 시스템을 처리 주체, 데이터 배치, 실행 시간으로 나눈 예시](image/distributed_design_processing_state_and_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/warm-standby.html",
+      "locator": "Log-shipping standby servers 및 streaming replication"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "![분산 시스템을 처리 주체, 데이터 배치, 실행 시간으로 나눈 예시](image/distributed_design_processing_state_and_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding",
+      "locator": "Solution 및 Range strategy"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "![분산 시스템을 처리 주체, 데이터 배치, 실행 시간으로 나눈 예시](image/distributed_design_processing_state_and_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Solution"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "그림의 근거 · [Scatter-Gather](https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html) · [복제](https://www.postgresql.org/docs/17/warm-standby.html) · [샤딩](https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding) · [대기열](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html",
+      "locator": "Scatter-Gather pattern"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "그림의 근거 · [Scatter-Gather](https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html) · [복제](https://www.postgresql.org/docs/17/warm-standby.html) · [샤딩](https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding) · [대기열](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/warm-standby.html",
+      "locator": "Log-shipping standby servers 및 streaming replication"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "그림의 근거 · [Scatter-Gather](https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html) · [복제](https://www.postgresql.org/docs/17/warm-standby.html) · [샤딩](https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding) · [대기열](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding",
+      "locator": "Solution 및 Range strategy"
+    }
+  },
+  {
+    "page": "engineering-design-training/02_three_criteria_for_designing_distributed_systems.md",
+    "claim": "그림의 근거 · [Scatter-Gather](https://www.enterpriseintegrationpatterns.com/patterns/messaging/BroadcastAggregate.html) · [복제](https://www.postgresql.org/docs/17/warm-standby.html) · [샤딩](https://learn.microsoft.com/en-us/azure/architecture/patterns/sharding) · [대기열](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 구조 비교. 같은 시스템에서 복제·샤딩·큐를 조합할 수 있음.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Solution"
+    }
+  },
+  {
+    "page": "engineering-design-training/03_code_level_strategies_for_cross_cutting_concerns.md",
+    "claim": "![Servlet 필터, MVC 인터셉터, Spring AOP 프록시의 적용 지점과 자체 호출 경로](image/spring_cross_cutting_execution_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Servlet 기반 Spring MVC. 도식에 나온 각 구성 요소가 등록돼 있고 Spring AOP 프록시 기반 advice를 적용하는 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html",
+      "locator": "HandlerInterceptor 및 security layer note"
+    }
+  },
+  {
+    "page": "engineering-design-training/03_code_level_strategies_for_cross_cutting_concerns.md",
+    "claim": "![Servlet 필터, MVC 인터셉터, Spring AOP 프록시의 적용 지점과 자체 호출 경로](image/spring_cross_cutting_execution_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Servlet 기반 Spring MVC. 도식에 나온 각 구성 요소가 등록돼 있고 Spring AOP 프록시 기반 advice를 적용하는 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/core/aop/proxying.html",
+      "locator": "Understanding AOP Proxies 및 self invocation"
+    }
+  },
+  {
+    "page": "engineering-design-training/03_code_level_strategies_for_cross_cutting_concerns.md",
+    "claim": "그림의 근거 · [MVC Interceptors](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html) · [Spring AOP 프록시](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Servlet 기반 Spring MVC. 도식에 나온 각 구성 요소가 등록돼 있고 Spring AOP 프록시 기반 advice를 적용하는 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html",
+      "locator": "HandlerInterceptor 및 security layer note"
+    }
+  },
+  {
+    "page": "engineering-design-training/03_code_level_strategies_for_cross_cutting_concerns.md",
+    "claim": "그림의 근거 · [MVC Interceptors](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html) · [Spring AOP 프록시](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Servlet 기반 Spring MVC. 도식에 나온 각 구성 요소가 등록돼 있고 Spring AOP 프록시 기반 advice를 적용하는 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/core/aop/proxying.html",
+      "locator": "Understanding AOP Proxies 및 self invocation"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "![사용자 A와 B가 같은 좌석을 요청했을 때 조건부 갱신 결과로 선점 성공을 판정하는 시퀀스](image/seat_hold_concurrent_requests.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "좌석 101의 설계 예시. 단일 행의 원자적 조건부 갱신과 성공 커밋을 전제로 하며, 예시의 갱신 0건 동작은 PostgreSQL 17 Read Committed에서 확인.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level, concurrent UPDATE and WHERE re-evaluation"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "그림의 근거 · [조건부 UPDATE의 경합 처리](https://www.postgresql.org/docs/17/transaction-iso.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "좌석 101의 설계 예시. 단일 행의 원자적 조건부 갱신과 성공 커밋을 전제로 하며, 예시의 갱신 0건 동작은 PostgreSQL 17 Read Committed에서 확인.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level, concurrent UPDATE and WHERE re-evaluation"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "![결제 시작 전이와 만료 회수 중 먼저 커밋한 쪽에 따라 달라지는 두 경로](image/seat_hold_expiration_race.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 상태 모델의 설계 예시. 둘 다 같은 HELD 상태에 조건부 갱신을 하고 PG 호출은 결제 전이 커밋 후 수행.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "그림의 근거 · [동시 갱신과 조건 재평가](https://www.postgresql.org/docs/17/transaction-iso.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 상태 모델의 설계 예시. 둘 다 같은 HELD 상태에 조건부 갱신을 하고 PG 호출은 결제 전이 커밋 후 수행.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "![좌석 선점, 만료 회수, 결제 진행과 승인·거절에 따른 상태 전이](image/seat_hold_state_transitions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 설계 예시. 상태와 전이 규칙은 이 문서의 모델이며 PG 제공 기능과 실제 일정은 계약을 확인.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "![좌석 선점, 만료 회수, 결제 진행과 승인·거절에 따른 상태 전이](image/seat_hold_state_transitions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 설계 예시. 상태와 전이 규칙은 이 문서의 모델이며 PG 제공 기능과 실제 일정은 계약을 확인.",
+    "source": {
+      "url": "https://docs.stripe.com/api/payment_intents/retrieve",
+      "locator": "Retrieve a PaymentIntent, response status"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "그림의 근거 · [원자적 상태 갱신의 예](https://www.postgresql.org/docs/17/transaction-iso.html) · [PG 상태 재조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 설계 예시. 상태와 전이 규칙은 이 문서의 모델이며 PG 제공 기능과 실제 일정은 계약을 확인.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/17/transaction-iso.html",
+      "locator": "13.2.1 Read Committed Isolation Level"
+    }
+  },
+  {
+    "page": "engineering-design-training/04_designing_seat_holds_and_expiration_for_first_come_first_served_booking.md",
+    "claim": "그림의 근거 · [원자적 상태 갱신의 예](https://www.postgresql.org/docs/17/transaction-iso.html) · [PG 상태 재조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)",
+    "checked_on": "2026-11-22",
+    "applies_to": "예매 설계 예시. 상태와 전이 규칙은 이 문서의 모델이며 PG 제공 기능과 실제 일정은 계약을 확인.",
+    "source": {
+      "url": "https://docs.stripe.com/api/payment_intents/retrieve",
+      "locator": "Retrieve a PaymentIntent, response status"
+    }
+  },
+  {
+    "page": "engineering-design-training/05_designing_payment_consistency_and_failure_recovery.md",
+    "claim": "![PG 승인 응답 유실 후 같은 결제 시도를 조회해 주문을 확정하거나 승인 취소·환불로 종결하는 시퀀스](image/payment_result_recovery_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "PG 계약에 시도 식별 및 결과 조회가 있는 경우의 복구 설계 예시. Stripe 링크는 제공 기능의 사례.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design 및 Late arriving requests"
+    }
+  },
+  {
+    "page": "engineering-design-training/05_designing_payment_consistency_and_failure_recovery.md",
+    "claim": "![PG 승인 응답 유실 후 같은 결제 시도를 조회해 주문을 확정하거나 승인 취소·환불로 종결하는 시퀀스](image/payment_result_recovery_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "PG 계약에 시도 식별 및 결과 조회가 있는 경우의 복구 설계 예시. Stripe 링크는 제공 기능의 사례.",
+    "source": {
+      "url": "https://docs.stripe.com/api/payment_intents/retrieve",
+      "locator": "Retrieve a PaymentIntent"
+    }
+  },
+  {
+    "page": "engineering-design-training/05_designing_payment_consistency_and_failure_recovery.md",
+    "claim": "그림의 근거 · [같은 의도를 식별하는 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [결제 상태 조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)",
+    "checked_on": "2026-11-22",
+    "applies_to": "PG 계약에 시도 식별 및 결과 조회가 있는 경우의 복구 설계 예시. Stripe 링크는 제공 기능의 사례.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design 및 Late arriving requests"
+    }
+  },
+  {
+    "page": "engineering-design-training/05_designing_payment_consistency_and_failure_recovery.md",
+    "claim": "그림의 근거 · [같은 의도를 식별하는 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [결제 상태 조회 API의 예](https://docs.stripe.com/api/payment_intents/retrieve)",
+    "checked_on": "2026-11-22",
+    "applies_to": "PG 계약에 시도 식별 및 결과 조회가 있는 경우의 복구 설계 예시. Stripe 링크는 제공 기능의 사례.",
+    "source": {
+      "url": "https://docs.stripe.com/api/payment_intents/retrieve",
+      "locator": "Retrieve a PaymentIntent"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "![주문 DB 커밋 후 이벤트 발행 전에 서버가 중단되어 배송 이벤트가 누락되는 흐름](image/outbox_dual_write_failure.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "주문 DB와 메시지 브로커에 각각 쓰는 설계 예시. 트랜잭션 Outbox나 별도 복구 기록이 없는 실패 경로.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Intent 및 Motivation"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "그림의 근거 · [이중 쓰기의 실패 구간](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "주문 DB와 메시지 브로커에 각각 쓰는 설계 예시. 트랜잭션 Outbox나 별도 복구 기록이 없는 실패 경로.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Intent 및 Motivation"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "![브로커 확인 후 Relay가 중단돼 같은 이벤트가 재발행되고 소비자가 중복 DB 변경을 생략하는 흐름](image/outbox_republish_and_idempotency.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "폴링 Relay와 소비자가 자기 DB에서 고유 처리 이력과 업무 변경을 같이 커밋하는 예시. 외부 호출은 별도 경계.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Issues and considerations, Duplicate messages"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "![브로커 확인 후 Relay가 중단돼 같은 이벤트가 재발행되고 소비자가 중복 DB 변경을 생략하는 흐름](image/outbox_republish_and_idempotency.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "폴링 Relay와 소비자가 자기 DB에서 고유 처리 이력과 업무 변경을 같이 커밋하는 예시. 외부 호출은 별도 경계.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "그림의 근거 · [중복 전달과 멱등 소비자](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [외부 호출 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "폴링 Relay와 소비자가 자기 DB에서 고유 처리 이력과 업무 변경을 같이 커밋하는 예시. 외부 호출은 별도 경계.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Issues and considerations, Duplicate messages"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "그림의 근거 · [중복 전달과 멱등 소비자](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [외부 호출 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "폴링 Relay와 소비자가 자기 DB에서 고유 처리 이력과 업무 변경을 같이 커밋하는 예시. 외부 호출은 별도 경계.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "![주문과 Outbox의 단일 DB 커밋부터 Relay, 브로커, 소비자별 업무 완료까지의 구조](image/outbox_final_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 폴링 Outbox 예시. 주문 응답은 DB 커밋만 확인하며 소비자의 각 트랜잭션과 브로커는 독립적.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Implementation, Using an outbox table"
+    }
+  },
+  {
+    "page": "engineering-design-training/06_publishing_events_reliably_with_the_transactional_outbox_pattern.md",
+    "claim": "그림의 근거 · [Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 폴링 Outbox 예시. 주문 응답은 DB 커밋만 확인하며 소비자의 각 트랜잭션과 브로커는 독립적.",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Implementation, Using an outbox table"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "![파트너 A의 취소 기능 권한과 B 소유 주문에 대한 객체 인가를 따로 검사하는 흐름](image/b2b_scope_and_ownership.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "정상 인증을 기존에 마친 파트너 A가 B 소유 주문을 취소하려는 방어 설계 예시.",
+    "source": {
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "locator": "Is the API Vulnerable? 및 How To Prevent"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "그림의 근거 · [객체 수준 권한 검사](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "정상 인증을 기존에 마친 파트너 A가 B 소유 주문을 취소하려는 방어 설계 예시.",
+    "source": {
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "locator": "Is the API Vulnerable? 및 How To Prevent"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "![정상 키 교체의 중첩 기간과 유출 사고에서의 폐기 및 반영 확인 절차](image/b2b_key_rotation_and_revocation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "공유 HMAC 키 운영 예시. 중첩 기간과 캐시 폐기 반영 기한은 계약과 보안 정책으로 합의.",
+    "source": {
+      "url": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+      "locator": "Sections 5.3 Cryptoperiods 및 7 Key Management Phases"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "그림의 근거 · [키 수명과 유출 시 조치](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)",
+    "checked_on": "2026-11-22",
+    "applies_to": "공유 HMAC 키 운영 예시. 중첩 기간과 캐시 폐기 반영 기한은 계약과 보안 정책으로 합의.",
+    "source": {
+      "url": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+      "locator": "Sections 5.3 Cryptoperiods 및 7 Key Management Phases"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "![TLS 요청이 서명, 시각, Nonce와 기능 권한을 통과한 뒤 주문 소유권을 확인하는 구조](image/b2b_final_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "HMAC을 선택한 방어 설계 예시. RFC 서명 구성과 재사용 방지 고려 사항을 참고하며 실제 서명 계약과 저장소는 별도 설계.",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9421.html",
+      "locator": "Signature Parameters 및 Section 7.2.2 Signature Replay"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "![TLS 요청이 서명, 시각, Nonce와 기능 권한을 통과한 뒤 주문 소유권을 확인하는 구조](image/b2b_final_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "HMAC을 선택한 방어 설계 예시. RFC 서명 구성과 재사용 방지 고려 사항을 참고하며 실제 서명 계약과 저장소는 별도 설계.",
+    "source": {
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "locator": "How To Prevent"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "그림의 근거 · [메시지 서명 구성과 재전송 방지](https://www.rfc-editor.org/rfc/rfc9421.html) · [객체 수준 권한 검사](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "HMAC을 선택한 방어 설계 예시. RFC 서명 구성과 재사용 방지 고려 사항을 참고하며 실제 서명 계약과 저장소는 별도 설계.",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9421.html",
+      "locator": "Signature Parameters 및 Section 7.2.2 Signature Replay"
+    }
+  },
+  {
+    "page": "engineering-design-training/07_designing_authentication_and_authorization_for_b2b_partner_apis.md",
+    "claim": "그림의 근거 · [메시지 서명 구성과 재전송 방지](https://www.rfc-editor.org/rfc/rfc9421.html) · [객체 수준 권한 검사](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "HMAC을 선택한 방어 설계 예시. RFC 서명 구성과 재사용 방지 고려 사항을 참고하며 실제 서명 계약과 저장소는 별도 설계.",
+    "source": {
+      "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "locator": "How To Prevent"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "![게임 로그가 수집 API, 내구 버퍼, 전송 작업자를 거쳐 검색과 선택적 원천 보관으로 나뉘는 구조](image/game_log_ingestion_and_usage_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품이 확정되지 않은 게임 로그 설계 예시. 원천 데이터 보관은 선택 경로, 수집 성공의 정의는 API 계약에 따름.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Context and problem 및 Solution"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "그림의 근거 · [버퍼가 수집과 처리를 분리하는 원리](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품이 확정되지 않은 게임 로그 설계 예시. 원천 데이터 보관은 선택 경로, 수집 성공의 정의는 API 계약에 따름.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Context and problem 및 Solution"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "![버퍼 저장 이후 수집 응답과 검색 장애 후 색인 재시도를 분리한 복구 경로](image/game_log_failure_recovery_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 장애 시나리오. 버퍼 보관 범위에서 같은 이벤트를 재시도하고 완료 표시는 성공 확인 뒤 수행.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Issues and considerations"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "![버퍼 저장 이후 수집 응답과 검색 장애 후 색인 재시도를 분리한 복구 경로](image/game_log_failure_recovery_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 장애 시나리오. 버퍼 보관 범위에서 같은 이벤트를 재시도하고 완료 표시는 성공 확인 뒤 수행.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "그림의 근거 · [버퍼 용량과 보관](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [이벤트 식별자로 안전하게 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 장애 시나리오. 버퍼 보관 범위에서 같은 이벤트를 재시도하고 완료 표시는 성공 확인 뒤 수행.",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+      "locator": "Issues and considerations"
+    }
+  },
+  {
+    "page": "engineering-design-training/08_designing_a_high_volume_game_log_system.md",
+    "claim": "그림의 근거 · [버퍼 용량과 보관](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [이벤트 식별자로 안전하게 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "제품 중립의 장애 시나리오. 버퍼 보관 범위에서 같은 이벤트를 재시도하고 완료 표시는 성공 확인 뒤 수행.",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "![여러 연결의 준비를 이벤트 루프에서 처리하고 일반 명령을 직렬 실행하는 Redis 경계](image/redis_command_execution_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/reference/clients/",
+      "locator": "How Redis handles client connections"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "![여러 연결의 준비를 이벤트 루프에서 처리하고 일반 명령을 직렬 실행하는 Redis 경계](image/redis_command_execution_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/",
+      "locator": "Single threaded nature of Redis 및 latency generated by slow commands"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "![여러 연결의 준비를 이벤트 루프에서 처리하고 일반 명령을 직렬 실행하는 Redis 경계](image/redis_command_execution_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/",
+      "locator": "I/O threading"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "그림의 근거 · [Redis 연결 처리](https://redis.io/docs/latest/develop/reference/clients/) · [명령 실행과 지연](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/) · [Redis 8 I/O 스레드](https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/reference/clients/",
+      "locator": "How Redis handles client connections"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "그림의 근거 · [Redis 연결 처리](https://redis.io/docs/latest/develop/reference/clients/) · [명령 실행과 지연](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/) · [Redis 8 I/O 스레드](https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/",
+      "locator": "Single threaded nature of Redis 및 latency generated by slow commands"
+    }
+  },
+  {
+    "page": "engineering-design-training/09_why_redis_uses_single_threaded_command_execution.md",
+    "claim": "그림의 근거 · [Redis 연결 처리](https://redis.io/docs/latest/develop/reference/clients/) · [명령 실행과 지연](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/latency/) · [Redis 8 I/O 스레드](https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 Redis 인스턴스의 일반 데이터 명령 경로. I/O와 백그라운드 작업의 구현 및 설정은 Redis 버전에 따라 다름.",
+    "source": {
+      "url": "https://redis.io/blog/redis-8-0-m03-is-out-even-more-performance-new-features/",
+      "locator": "I/O threading"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "![Kafka 4.1의 KRaft 제어 경로, 파티션 리더·팔로워, 그룹 오프셋 커밋 위치를 구분한 구조](image/kafka_internal_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/operations/kraft/",
+      "locator": "KRaft controllers 및 process.roles"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "![Kafka 4.1의 KRaft 제어 경로, 파티션 리더·팔로워, 그룹 오프셋 커밋 위치를 구분한 구조](image/kafka_internal_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/design/design/",
+      "locator": "Replication 및 The Log"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "![Kafka 4.1의 KRaft 제어 경로, 파티션 리더·팔로워, 그룹 오프셋 커밋 위치를 구분한 구조](image/kafka_internal_architecture.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/implementation/distribution/",
+      "locator": "Consumer Offset Tracking"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "그림의 근거 · [KRaft 메타데이터](https://kafka.apache.org/41/operations/kraft/) · [파티션 로그와 복제](https://kafka.apache.org/41/design/design/) · [그룹 오프셋 저장](https://kafka.apache.org/41/implementation/distribution/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/operations/kraft/",
+      "locator": "KRaft controllers 및 process.roles"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "그림의 근거 · [KRaft 메타데이터](https://kafka.apache.org/41/operations/kraft/) · [파티션 로그와 복제](https://kafka.apache.org/41/design/design/) · [그룹 오프셋 저장](https://kafka.apache.org/41/implementation/distribution/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/design/design/",
+      "locator": "Replication 및 The Log"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "그림의 근거 · [KRaft 메타데이터](https://kafka.apache.org/41/operations/kraft/) · [파티션 로그와 복제](https://kafka.apache.org/41/design/design/) · [그룹 오프셋 저장](https://kafka.apache.org/41/implementation/distribution/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1의 기본 리더 읽기 예시. 데이터 파티션 하나와 별도의 내부 오프셋 토픽을 논리적으로 표현.",
+    "source": {
+      "url": "https://kafka.apache.org/41/implementation/distribution/",
+      "locator": "Consumer Offset Tracking"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "![같은 Kafka 파티션 로그에서 Group A의 읽기 위치만 seek로 되돌리는 예시](image/kafka_consumer_offset_replay.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1 KafkaConsumer가 배정된 파티션의 보관 범위 안에서 seek를 호출하고 아직 별도의 오프셋 커밋을 하지 않은 상태.",
+    "source": {
+      "url": "https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html",
+      "locator": "Offsets and Consumer Position, seek(TopicPartition,long)"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "![같은 Kafka 파티션 로그에서 Group A의 읽기 위치만 seek로 되돌리는 예시](image/kafka_consumer_offset_replay.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1 KafkaConsumer가 배정된 파티션의 보관 범위 안에서 seek를 호출하고 아직 별도의 오프셋 커밋을 하지 않은 상태.",
+    "source": {
+      "url": "https://kafka.apache.org/41/design/design/",
+      "locator": "The Consumer 및 Log retention"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "그림의 근거 · [KafkaConsumer의 현재 위치와 커밋 위치](https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html) · [로그 보관과 독립 소비](https://kafka.apache.org/41/design/design/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1 KafkaConsumer가 배정된 파티션의 보관 범위 안에서 seek를 호출하고 아직 별도의 오프셋 커밋을 하지 않은 상태.",
+    "source": {
+      "url": "https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html",
+      "locator": "Offsets and Consumer Position, seek(TopicPartition,long)"
+    }
+  },
+  {
+    "page": "engineering-design-training/10_understanding_kafkas_design_decisions_through_its_original_paper.md",
+    "claim": "그림의 근거 · [KafkaConsumer의 현재 위치와 커밋 위치](https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html) · [로그 보관과 독립 소비](https://kafka.apache.org/41/design/design/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kafka 4.1 KafkaConsumer가 배정된 파티션의 보관 범위 안에서 seek를 호출하고 아직 별도의 오프셋 커밋을 하지 않은 상태.",
+    "source": {
+      "url": "https://kafka.apache.org/41/design/design/",
+      "locator": "The Consumer 및 Log retention"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![Docker Hub 태그에서 이미지 인덱스와 플랫폼별 매니페스트를 선택하는 구조](image/01_docker_tag_digest_and_platform_selection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine",
+      "locator": "Tags: 3.23 항목의 Architectures: amd64 및 arm64v8"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![Docker Hub 태그에서 이미지 인덱스와 플랫폼별 매니페스트를 선택하는 구조](image/01_docker_tag_digest_and_platform_selection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://docs.docker.com/build/building/multi-platform/",
+      "locator": "Difference between single-platform and multi-platform images"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![Docker Hub 태그에서 이미지 인덱스와 플랫폼별 매니페스트를 선택하는 구조](image/01_docker_tag_digest_and_platform_selection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier",
+      "locator": "Pull an image by digest (immutable identifier)"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [Alpine 3.23 태그](https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine) · [멀티플랫폼 선택](https://docs.docker.com/build/building/multi-platform/) · [다이제스트로 이미지 지정](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine",
+      "locator": "Tags: 3.23 항목의 Architectures: amd64 및 arm64v8"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [Alpine 3.23 태그](https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine) · [멀티플랫폼 선택](https://docs.docker.com/build/building/multi-platform/) · [다이제스트로 이미지 지정](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://docs.docker.com/build/building/multi-platform/",
+      "locator": "Difference between single-platform and multi-platform images"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [Alpine 3.23 태그](https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine) · [멀티플랫폼 선택](https://docs.docker.com/build/building/multi-platform/) · [다이제스트로 이미지 지정](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Hub의 Alpine 3.23 멀티플랫폼 이미지 예시. amd64와 arm64는 지원 플랫폼 일부이며, digest 값 자체는 예시.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier",
+      "locator": "Pull an image by digest (immutable identifier)"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![공유 이미지 레이어와 컨테이너별 쓰기 레이어, 생성·시작·종료·제거 상태 전이](image/01_docker_image_layers_and_container_lifecycle.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/drivers/",
+      "locator": "Container and layers"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![공유 이미지 레이어와 컨테이너별 쓰기 레이어, 생성·시작·종료·제거 상태 전이](image/01_docker_image_layers_and_container_lifecycle.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/create/",
+      "locator": "Created state and writable container layer"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![공유 이미지 레이어와 컨테이너별 쓰기 레이어, 생성·시작·종료·제거 상태 전이](image/01_docker_image_layers_and_container_lifecycle.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/engine/containers/run/",
+      "locator": "Foreground and background 및 --rm"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "![공유 이미지 레이어와 컨테이너별 쓰기 레이어, 생성·시작·종료·제거 상태 전이](image/01_docker_image_layers_and_container_lifecycle.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/start/",
+      "locator": "Start one or more stopped containers"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [이미지와 컨테이너 레이어](https://docs.docker.com/engine/storage/drivers/) · [컨테이너 생성](https://docs.docker.com/reference/cli/docker/container/create/) · [실행 및 자동 제거](https://docs.docker.com/engine/containers/run/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/start/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/drivers/",
+      "locator": "Container and layers"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [이미지와 컨테이너 레이어](https://docs.docker.com/engine/storage/drivers/) · [컨테이너 생성](https://docs.docker.com/reference/cli/docker/container/create/) · [실행 및 자동 제거](https://docs.docker.com/engine/containers/run/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/start/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/create/",
+      "locator": "Created state and writable container layer"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [이미지와 컨테이너 레이어](https://docs.docker.com/engine/storage/drivers/) · [컨테이너 생성](https://docs.docker.com/reference/cli/docker/container/create/) · [실행 및 자동 제거](https://docs.docker.com/engine/containers/run/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/start/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/engine/containers/run/",
+      "locator": "Foreground and background 및 --rm"
+    }
+  },
+  {
+    "page": "docker/01_operating_docker_images_and_containers.md",
+    "claim": "그림의 근거 · [이미지와 컨테이너 레이어](https://docs.docker.com/engine/storage/drivers/) · [컨테이너 생성](https://docs.docker.com/reference/cli/docker/container/create/) · [실행 및 자동 제거](https://docs.docker.com/engine/containers/run/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/start/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 일반 Linux 컨테이너. 마운트되지 않은 쓰기 레이어를 표시하며, 두 컨테이너가 같은 로컬 이미지에서 생성된 경우.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/start/",
+      "locator": "Start one or more stopped containers"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![Docker 호스트에 게시한 포트를 MySQL 3306으로 연결하고 첫 초기화에 환경 변수를 전달하는 방식](image/02_docker_published_ports_and_mysql_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "locator": "Publishing ports 및 localhost bind address"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![Docker 호스트에 게시한 포트를 MySQL 3306으로 연결하고 첫 초기화에 환경 변수를 전달하는 방식](image/02_docker_published_ports_and_mysql_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://hub.docker.com/_/mysql",
+      "locator": "Environment Variables 및 Using an existing database directory"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![Docker 호스트에 게시한 포트를 MySQL 3306으로 연결하고 첫 초기화에 환경 변수를 전달하는 방식](image/02_docker_published_ports_and_mysql_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/#env",
+      "locator": "Set environment variables (-e, --env, --env-file)"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [호스트 주소와 포트 게시](https://docs.docker.com/engine/network/port-publishing/) · [MySQL 공식 이미지](https://hub.docker.com/_/mysql) · [실행 환경 변수](https://docs.docker.com/reference/cli/docker/container/run/#env)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "locator": "Publishing ports 및 localhost bind address"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [호스트 주소와 포트 게시](https://docs.docker.com/engine/network/port-publishing/) · [MySQL 공식 이미지](https://hub.docker.com/_/mysql) · [실행 환경 변수](https://docs.docker.com/reference/cli/docker/container/run/#env)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://hub.docker.com/_/mysql",
+      "locator": "Environment Variables 및 Using an existing database directory"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [호스트 주소와 포트 게시](https://docs.docker.com/engine/network/port-publishing/) · [MySQL 공식 이미지](https://hub.docker.com/_/mysql) · [실행 환경 변수](https://docs.docker.com/reference/cli/docker/container/run/#env)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Docker Engine의 TCP 포트 게시 예제, MySQL Docker Official Image 8.4. 컨테이너 내부에서는 별도의 루프백 주소 사용.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/#env",
+      "locator": "Set environment variables (-e, --env, --env-file)"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![쓰기 레이어, 바인드 마운트, 이름 있는 볼륨에서 컨테이너 재생성 전후에 데이터가 남는 위치](image/02_docker_storage_boundaries_and_volume_reuse.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/drivers/",
+      "locator": "Container and layers"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![쓰기 레이어, 바인드 마운트, 이름 있는 볼륨에서 컨테이너 재생성 전후에 데이터가 남는 위치](image/02_docker_storage_boundaries_and_volume_reuse.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/bind-mounts/",
+      "locator": "Host path, readonly 옵션"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![쓰기 레이어, 바인드 마운트, 이름 있는 볼륨에서 컨테이너 재생성 전후에 데이터가 남는 위치](image/02_docker_storage_boundaries_and_volume_reuse.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/volumes/",
+      "locator": "A volume’s lifecycle"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [쓰기 레이어의 수명](https://docs.docker.com/engine/storage/drivers/) · [바인드 마운트](https://docs.docker.com/engine/storage/bind-mounts/) · [볼륨 수명](https://docs.docker.com/engine/storage/volumes/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/drivers/",
+      "locator": "Container and layers"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [쓰기 레이어의 수명](https://docs.docker.com/engine/storage/drivers/) · [바인드 마운트](https://docs.docker.com/engine/storage/bind-mounts/) · [볼륨 수명](https://docs.docker.com/engine/storage/volumes/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/bind-mounts/",
+      "locator": "Host path, readonly 옵션"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [쓰기 레이어의 수명](https://docs.docker.com/engine/storage/drivers/) · [바인드 마운트](https://docs.docker.com/engine/storage/bind-mounts/) · [볼륨 수명](https://docs.docker.com/engine/storage/volumes/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Linux 컨테이너의 일반 스토리지 사용. 첫 행은 마운트하지 않은 경로, 마지막 행은 MySQL 8.4에 같은 이름 있는 볼륨을 재마운트.",
+    "source": {
+      "url": "https://docs.docker.com/engine/storage/volumes/",
+      "locator": "A volume’s lifecycle"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![빌드 컨텍스트 선택부터 BuildKit 캐시 재사용과 멀티 스테이지의 HTML 복사까지](image/02_docker_build_context_cache_and_multistage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/concepts/context/",
+      "locator": "Filesystem build contexts 및 .dockerignore files"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![빌드 컨텍스트 선택부터 BuildKit 캐시 재사용과 멀티 스테이지의 HTML 복사까지](image/02_docker_build_context_cache_and_multistage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/cache/invalidation/",
+      "locator": "General rules 및 downstream steps"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "![빌드 컨텍스트 선택부터 BuildKit 캐시 재사용과 멀티 스테이지의 HTML 복사까지](image/02_docker_build_context_cache_and_multistage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/building/multi-stage/",
+      "locator": "Use multi-stage builds 및 COPY --from"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [빌드 컨텍스트와 제외 규칙](https://docs.docker.com/build/concepts/context/) · [빌드 캐시 무효화](https://docs.docker.com/build/cache/invalidation/) · [멀티 스테이지](https://docs.docker.com/build/building/multi-stage/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/concepts/context/",
+      "locator": "Filesystem build contexts 및 .dockerignore files"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [빌드 컨텍스트와 제외 규칙](https://docs.docker.com/build/concepts/context/) · [빌드 캐시 무효화](https://docs.docker.com/build/cache/invalidation/) · [멀티 스테이지](https://docs.docker.com/build/building/multi-stage/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/cache/invalidation/",
+      "locator": "General rules 및 downstream steps"
+    }
+  },
+  {
+    "page": "docker/02_configuring_container_storage_and_optimizing_docker_builds.md",
+    "claim": "그림의 근거 · [빌드 컨텍스트와 제외 규칙](https://docs.docker.com/build/concepts/context/) · [빌드 캐시 무효화](https://docs.docker.com/build/cache/invalidation/) · [멀티 스테이지](https://docs.docker.com/build/building/multi-stage/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 일반 COPY 명령을 쓴 빌드 예제. 동일한 빌더 캐시와 기반 이미지가 유지되며 title.txt 입력만 바뀐 두 번째 빌드.",
+    "source": {
+      "url": "https://docs.docker.com/build/building/multi-stage/",
+      "locator": "Use multi-stage builds 및 COPY --from"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![Docker의 기본 브리지와 사용자 정의 브리지, host 및 none의 네트워크 경계 비교](image/03_docker_network_drivers_and_bridge_dns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/bridge/",
+      "locator": "Differences between user-defined bridges and the default bridge"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![Docker의 기본 브리지와 사용자 정의 브리지, host 및 none의 네트워크 경계 비교](image/03_docker_network_drivers_and_bridge_dns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/host/",
+      "locator": "Host network driver 및 published ports"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![Docker의 기본 브리지와 사용자 정의 브리지, host 및 none의 네트워크 경계 비교](image/03_docker_network_drivers_and_bridge_dns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/none/",
+      "locator": "Loopback device"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![Docker의 기본 브리지와 사용자 정의 브리지, host 및 none의 네트워크 경계 비교](image/03_docker_network_drivers_and_bridge_dns.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/desktop/features/networking/networking-how-tos/",
+      "locator": "There is no docker0 bridge on the host"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [브리지의 이름 확인](https://docs.docker.com/engine/network/drivers/bridge/) · [호스트 네트워크](https://docs.docker.com/engine/network/drivers/host/) · [None 드라이버](https://docs.docker.com/engine/network/drivers/none/) · [Docker Desktop 네트워크](https://docs.docker.com/desktop/features/networking/networking-how-tos/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/bridge/",
+      "locator": "Differences between user-defined bridges and the default bridge"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [브리지의 이름 확인](https://docs.docker.com/engine/network/drivers/bridge/) · [호스트 네트워크](https://docs.docker.com/engine/network/drivers/host/) · [None 드라이버](https://docs.docker.com/engine/network/drivers/none/) · [Docker Desktop 네트워크](https://docs.docker.com/desktop/features/networking/networking-how-tos/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/host/",
+      "locator": "Host network driver 및 published ports"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [브리지의 이름 확인](https://docs.docker.com/engine/network/drivers/bridge/) · [호스트 네트워크](https://docs.docker.com/engine/network/drivers/host/) · [None 드라이버](https://docs.docker.com/engine/network/drivers/none/) · [Docker Desktop 네트워크](https://docs.docker.com/desktop/features/networking/networking-how-tos/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/drivers/none/",
+      "locator": "Loopback device"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [브리지의 이름 확인](https://docs.docker.com/engine/network/drivers/bridge/) · [호스트 네트워크](https://docs.docker.com/engine/network/drivers/host/) · [None 드라이버](https://docs.docker.com/engine/network/drivers/none/) · [Docker Desktop 네트워크](https://docs.docker.com/desktop/features/networking/networking-how-tos/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "일반 Linux Docker Engine, 기본 bridge는 수동 링크 없이 사용. Docker Desktop의 브리지는 Linux 컨테이너를 실행하는 VM에 위치.",
+    "source": {
+      "url": "https://docs.docker.com/desktop/features/networking/networking-how-tos/",
+      "locator": "There is no docker0 bridge on the host"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![web 헬스체크 이후의 Compose 시작 순서와 컨테이너 내부 서비스 DNS 및 호스트 포트 게시 경로](image/03_docker_compose_readiness_and_network_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/compose/how-tos/startup-order/",
+      "locator": "Control startup 및 service_healthy"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![web 헬스체크 이후의 Compose 시작 순서와 컨테이너 내부 서비스 DNS 및 호스트 포트 게시 경로](image/03_docker_compose_readiness_and_network_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/compose/how-tos/networking/",
+      "locator": "By default Compose sets up a single network 및 HOST_PORT / CONTAINER_PORT"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "![web 헬스체크 이후의 Compose 시작 순서와 컨테이너 내부 서비스 DNS 및 호스트 포트 게시 경로](image/03_docker_compose_readiness_and_network_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "locator": "Host address mapping"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [Compose 시작 조건](https://docs.docker.com/compose/how-tos/startup-order/) · [Compose 서비스 DNS와 포트](https://docs.docker.com/compose/how-tos/networking/) · [포트 게시](https://docs.docker.com/engine/network/port-publishing/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/compose/how-tos/startup-order/",
+      "locator": "Control startup 및 service_healthy"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [Compose 시작 조건](https://docs.docker.com/compose/how-tos/startup-order/) · [Compose 서비스 DNS와 포트](https://docs.docker.com/compose/how-tos/networking/) · [포트 게시](https://docs.docker.com/engine/network/port-publishing/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/compose/how-tos/networking/",
+      "locator": "By default Compose sets up a single network 및 HOST_PORT / CONTAINER_PORT"
+    }
+  },
+  {
+    "page": "docker/03_connecting_containers_with_docker_networks_and_compose.md",
+    "claim": "그림의 근거 · [Compose 시작 조건](https://docs.docker.com/compose/how-tos/startup-order/) · [Compose 서비스 DNS와 포트](https://docs.docker.com/compose/how-tos/networking/) · [포트 게시](https://docs.docker.com/engine/network/port-publishing/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 프로젝트 기본 브리지 실습. web에 service_healthy를 요구하며 호스트 경로는 ports를 추가했을 때만 표시.",
+    "source": {
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "locator": "Host address mapping"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images",
+      "locator": "Publishing images to GitHub Packages, GITHUB_TOKEN 및 packages: write"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions",
+      "locator": "Status check functions 및 success"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/",
+      "locator": "Show details of an image in the registry"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs",
+      "locator": "Defining and using job outputs"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier",
+      "locator": "Pull an image by digest (immutable identifier)"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images",
+      "locator": "Publishing images to GitHub Packages, GITHUB_TOKEN 및 packages: write"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions",
+      "locator": "Status check functions 및 success"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/",
+      "locator": "Show details of an image in the registry"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs",
+      "locator": "Defining and using job outputs"
+    }
+  },
+  {
+    "page": "docker/04_publishing_docker_images_to_registries_with_ci_cd.md",
+    "claim": "그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 GitHub Actions 단일 플랫폼 예제. 기본 Step 성공 조건과 GHCR에 게시할 권한이 있는 publish Job을 전제로 함.",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier",
+      "locator": "Pull an image by digest (immutable identifier)"
+    }
   }
 ]

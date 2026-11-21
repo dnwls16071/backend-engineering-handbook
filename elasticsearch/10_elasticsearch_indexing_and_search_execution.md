@@ -46,6 +46,10 @@ PUT /es-execution-lab/_settings
 
 일반 API에서 새 문서를 곧바로 검색해야 할 때는 `refresh=wait_for`로 다음 refresh를 기다릴 수 있다. 자동 refresh를 꺼 둔 위 실습에서는 직접 refresh하기 전까지 이 대기가 길어질 수 있다. [Refresh parameter](https://www.elastic.co/docs/reference/elasticsearch/rest-apis/refresh-parameter)
 
+![쓰기 응답, refresh, flush, merge의 역할과 실시간 GET의 차이](image/10_elasticsearch_translog_refresh_flush_and_segments.png)
+
+그림의 근거 · [Near real-time search](https://www.elastic.co/docs/manage-data/data-store/near-real-time-search) · [Translog 설정](https://www.elastic.co/docs/reference/elasticsearch/index-settings/translog) · [세그먼트 병합](https://www.elastic.co/docs/reference/elasticsearch/index-settings/merge) · [실시간 GET](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-get)
+
 ## 3. 검색의 query 단계와 fetch 단계
 
 기본 `query_then_fetch` 방식에서 조정 노드는 각 대상 샤드의 사본 하나에 검색을 분산한다. Query 단계에서 각 샤드는 조건을 만족하는 상위 후보와 정렬 값을 돌려준다. 조정 노드는 전체 상위 결과를 정한 다음 fetch 단계에서 필요한 문서 내용을 가져온다. `_shards.failed`와 `timed_out`을 함께 읽어 일부 샤드의 실패나 시간 초과를 확인한다. [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search)
@@ -70,3 +74,7 @@ GET /es-execution-lab/_search
 ```
 
 위 결과는 각각 1건, 1건, 0건, 1건이다. 같은 값을 전문 검색과 정확 일치로 모두 써야 하면 `title`과 `title.raw`처럼 멀티 필드에 각각 색인한다. [Text 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/text) · [Keyword 계열 필드](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/keyword)
+
+![조정 노드가 샤드별 검색 후보를 병합하고 선택한 문서만 가져오는 시퀀스](image/10_elasticsearch_query_then_fetch_by_shard.png)
+
+그림의 근거 · [분산 검색](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents) · [Query Then Fetch](https://www.elastic.co/blog/understanding-query-then-fetch-vs-dfs-query-then-fetch/) · [Search API](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-search)

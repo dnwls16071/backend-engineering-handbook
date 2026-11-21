@@ -40,3 +40,7 @@ curl -fsS "$ES_URL/_cluster/health/es-shard-lab?pretty"
 | 레플리카 샤드 | 다른 노드에 배치되는 샤드 사본이다. 검색·읽기를 처리할 수 있고, 프라이머리에 장애가 나면 적격 사본이 승격될 수 있다. |
 
 예제는 프라이머리 2개와 각 프라이머리의 레플리카 1개를 요청한다. 단일 노드에서는 같은 샤드의 프라이머리와 레플리카를 함께 배치할 수 없어서, 두 프라이머리가 준비돼도 레플리카는 `UNASSIGNED`이고 상태는 `yellow`다. `green`은 모든 프라이머리와 레플리카가 할당된 상태다. 할당되지 않은 프라이머리가 있으면 `red`다. 실습 예제의 나머지 인덱스는 `number_of_replicas: 0`을 사용한다. 복제는 노드 장애에 대응하며, 오삭제나 전체 클러스터 손실에 대응하려면 별도 스냅샷이 필요하다. [Elastic 샤드와 레플리카](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards) · [클러스터 상태 진단](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status)
+
+![노드 한 대와 두 대에서 프라이머리와 레플리카의 배치 비교](image/01_elasticsearch_primary_replica_allocation.png)
+
+그림의 근거 · [샤드와 레플리카](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards) · [미할당과 상태 색상](https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status)

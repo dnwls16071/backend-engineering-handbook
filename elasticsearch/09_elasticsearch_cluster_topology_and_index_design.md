@@ -21,6 +21,10 @@ GET /_cat/master?v=true&h=id,node
 GET /_cat/shards/es-shard-lab?v=true&h=index,shard,prirep,state,node
 ```
 
+![선출된 마스터의 클러스터 상태 관리와 조정 노드의 검색 실행 경로](image/09_elasticsearch_cluster_control_and_data_paths.png)
+
+그림의 근거 · [노드 역할](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles) · [분산 읽기 경로](https://www.elastic.co/docs/deploy-manage/distributed-architecture/reading-and-writing-documents)
+
 ## 2. 인덱스 경계와 샤드 수
 
 인덱스는 매핑과 수명 주기를 함께 관리할 문서를 묶는 단위다. 샤드는 그 인덱스의 데이터를 나누는 Lucene 인덱스다. 검색할 인덱스와 샤드가 많아지면 조정 노드가 더 많은 응답을 모아야 한다. 샤드가 커지면 장애 후 사본을 옮기거나 복구하는 시간이 늘 수 있다. 실제 문서 크기·검색 패턴·목표 복구 시간을 기준으로 샤드 수를 정한다.
