@@ -15,6 +15,10 @@
 | 인터페이스 어댑터 | HTTP 요청·응답, DB 행을 내부 계약으로 변환한다. |
 | 프레임워크와 조립 | 컨트롤러, 데이터베이스, 트랜잭션 설정을 연결한다. |
 
+![고객의 주문 등록 요청은 단일 Spring Boot 모놀리스의 컨트롤러, 유스케이스, 출력 포트, 저장 어댑터를 거쳐 DB에 도달하고 저장 어댑터의 코드 의존 방향은 출력 포트를 향하는 그림](image/02_order_runtime_and_source_dependencies.png)
+
+그림의 근거 · [Robert C. Martin · The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
 컴파일 시 의존성은 정책이 있는 안쪽을 향한다. 유스케이스는 출력 포트를 호출하고 저장 어댑터는 그 포트를 구현한다. 실행 시 호출은 DB 어댑터에 도달할 수 있으므로 호출 방향과 소스 코드 의존 방향을 구분한다. [Robert C. Martin · The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 주문 생성 테스트는 유스케이스 입력과 결과에 집중하고, 실제 테이블 제약과 트랜잭션은 영속 어댑터 테스트로 확인한다. 패키지를 업무 기능별로 재구성할 때는 [모듈러 모놀리스](03_modular_monoliths_with_hexagonal_boundaries.md)에서 공개 계약과 내부 타입을 정한다. [모놀리식 아키텍처 유형](../architecture-style/01_four_types_of_monolithic_architecture.md)

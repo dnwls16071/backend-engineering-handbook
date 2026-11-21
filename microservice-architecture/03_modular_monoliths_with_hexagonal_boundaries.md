@@ -28,6 +28,10 @@ flowchart LR
 
 - 패키지는 `order`, `inventory`, `payment`처럼 업무 기능별로 나누고 공개 계약이 무엇인지 표시한다.
 - 호출자가 즉시 필요한 결과는 공개 포트를 호출한다. 조회 모델 갱신처럼 지연을 허용할 수 있는 작업은 이벤트로 연결할 수 있다.
+![단일 Spring Boot 앱 안에서 주문 유스케이스가 재고 예약 출력 포트와 모듈 연결 어댑터를 거쳐 재고 모듈의 공개 API와 예약 로직에 도달하는 실행 흐름](image/03_inventory_reservation_inside_modular_monolith.png)
+
+그림의 근거 · [Spring Modulith · Fundamentals](https://docs.spring.io/spring-modulith/reference/fundamentals.html) · [Cockburn · Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture)
+
 - 순환 의존과 내부 패키지 참조를 구조 테스트에서 검사한다. Spring Modulith의 `ApplicationModules.verify()`와 `allowedDependencies`는 모듈 규칙을 명시하는 도구다. [Spring Modulith · Verification](https://docs.spring.io/spring-modulith/reference/verification.html)
 
 같은 프로세스의 포트를 원격 어댑터로 교체할 때는 응답 지연, 실패, 업무 결과가 불명확한 경우가 새로 생긴다. 입력·출력 타입을 유지하더라도 서비스로 경계를 옮기는 결정은 [독립 배포와 운영 비용](04_microservice_boundaries_and_operational_tradeoffs.md)까지 함께 평가한다. [DDD 컴포넌트 협력](../ddd/08_connecting_aggregates_through_application_components.md)

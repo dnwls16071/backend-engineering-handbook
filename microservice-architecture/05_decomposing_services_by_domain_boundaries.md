@@ -11,6 +11,10 @@
 | 재고 | 재고 가용 여부와 예약 수명 | 예약 요청의 결과와 예약 ID |
 | 결제 | 결제 승인·취소와 거래 상태 | 승인 식별자와 결제 결과 |
 
+![Spring Boot 카탈로그가 12,000원 견적을 발행하고 Spring Boot 주문 서비스가 이를 저장한 뒤 카탈로그 표시 가격이 14,000원으로 바뀌어도 기존 주문이 12,000원을 유지하는 도메인 분해 예](image/05_catalog_price_and_order_snapshot_ownership.png)
+
+그림의 근거 · [Microservices.io · Decompose by business capability](https://microservices.io/patterns/decomposition/decompose-by-business-capability.html) · [Lewis와 Fowler · Microservices](https://martinfowler.com/articles/microservices.html)
+
 주문에 저장하는 가격은 주문 시 받아들인 견적의 일부다. 현재 상품 표시 가격이 바뀌어도 이미 접수한 주문의 가격을 덮지 않는다. 카탈로그의 현재 상태와 주문의 이력은 서로 다른 계약에 따라 바뀐다.
 
 ## 경계를 검증하는 세 가지 질문

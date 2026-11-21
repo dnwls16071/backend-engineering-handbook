@@ -19,4 +19,8 @@ Kafka에서 순서의 기본 단위는 파티션이다. 같은 주문의 순서�
 3. 커밋 뒤 오프셋 또는 ACK를 갱신한다. 이 사이에 중단되면 재전달을 멱등하게 처리한다.
 4. 일시 오류는 제한적으로 재시도하고, 계속 실패하는 메시지는 원인·재처리 권한·보존 기간이 정의된 실패 경로로 보낸다.
 
+![Spring Boot 재고 서비스가 Kafka 명령을 받아 로컬 DB에 재고 예약과 메시지 ID를 함께 커밋한 뒤 오프셋을 커밋한다. 오프셋 커밋 전 중단되면 마지막 커밋 위치에서 같은 명령을 다시 읽을 수 있으며, 기록된 ID로 중복 예약을 피한다.](image/08_inventory_db_commit_and_offset.png)
+
+그림의 근거 · [Apache Kafka · KafkaConsumer API 4.3](https://kafka.apache.org/43/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html) · [Microservices.io · Idempotent Consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
+
 메시지 발행 확인, 소비자 진행 위치, 외부 DB의 커밋은 각각 다른 경계다. Kafka 트랜잭션의 보장 범위를 외부 DB 변경까지 자동으로 확장해 해석하지 않는다. 발행과 DB 변경을 연결하는 방법은 [Transactional Outbox](11_distributed_transactions_sagas_and_outbox.md), 이벤트 스키마는 [이벤트 주도 설계](12_designing_event_driven_service_interactions.md)에서 다룬다. [Kafka Producer API](https://kafka.apache.org/43/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html) · [Idempotent Consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html)

@@ -25,6 +25,10 @@ Kafka 토픽은 파티션으로 나뉘고, 주문 ID를 키로 사용하면 파�
 
 Kafka의 트랜잭션은 Kafka 안의 레코드와 오프셋을 함께 갱신할 수 있다. 외부 주문 DB의 커밋에는 별도 정합성 설계가 필요하다. [Apache Kafka · Message Delivery Semantics](https://kafka.apache.org/43/design/design/) · [AWS Prescriptive Guidance · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
+![Spring Boot 주문·재고·포인트 서비스가 Kafka 이벤트로 다음 로컬 전이를 결정한다. 포인트 거절 뒤 주문이 보상을 시작하고, 재고 복원 이벤트를 소비한 뒤 취소한다. 소비 서비스는 처리 이력과 업무 변경, 후속 Outbox를 함께 커밋한 뒤 오프셋을 처리한다.](image/25_spring_boot_kafka_saga_choreography.png)
+
+그림의 근거 · [Saga 코레오그래피](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-choreography.html) · [Kafka 순서와 오프셋](https://kafka.apache.org/43/design/design/) · [Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
+
 ## 3. 테스트와 운영에서 확인할 흐름
 
 정상 주문, 포인트 부족 뒤 재고 복원, 중복 발행, DB 커밋 뒤 소비자 재시작을 각각 검증한다. 토픽과 오프셋만 확인하면 실제 주문 완료를 알기 어렵다. 같은 `orderId`로 각 서비스의 이벤트와 상태를 연결하고, 오래된 `PENDING`·`COMPENSATING` 주문에서 마지막으로 기록한 단계와 후속 이벤트 발행 여부를 확인한다.

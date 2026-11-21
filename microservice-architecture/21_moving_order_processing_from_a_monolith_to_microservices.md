@@ -21,6 +21,10 @@
 
 주문 접수 API는 처리 시간이 긴 경우 `202 Accepted`와 주문 ID를 반환할 수 있다. 상태 조회 API는 `PENDING`, `CONFIRMED`, `COMPENSATING`, `CANCELLED`처럼 클라이언트가 이해할 수 있는 상태를 제공한다. 재시도 중인 단계를 주문 취소와 동일하게 표시하면 사용자가 새 주문을 제출해 실제 중복 효과가 생길 수 있다. [RFC 9110 · 202 Accepted](https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted)
 
+![주문, 재고, 포인트는 독립 배포한 Spring Boot 서비스이며 각자 로컬 DB를 커밋한다. 포인트 거절이 확정되면 이미 완료한 재고 단계를 보상하고, 응답이 유실되면 동일 단계 ID로 확인하며 진행 중 상태를 유지한다.](image/21_spring_boot_services_local_commits_and_unknown_outcome.png)
+
+그림의 근거 · [Saga와 로컬 커밋 및 보상](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-patterns.html) · [접수 응답의 의미](https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted)
+
 ## 3. 조정 방식 선택
 
 자원 관리자가 모두 원자적 커밋에 참여할 수 있다면 [Two-Phase Commit and Prepared Transaction Recovery](22_two_phase_commit_and_prepared_transaction_recovery.md)의 복구 비용을 검토한다. 업무 자원을 먼저 확보할 수 있으면 [Try-Confirm-Cancel](23_coordinating_reservations_with_try_confirm_cancel.md)로 예약을 관리한다. 각 서비스에서 업무 변경을 커밋하고 실패 시 보상하는 흐름은 [오케스트레이션](24_orchestrating_order_sagas_and_compensations.md)과 [코레오그래피](25_choreographing_order_sagas_with_kafka.md) 중 조정 책임을 어디에 둘지 결정한다.

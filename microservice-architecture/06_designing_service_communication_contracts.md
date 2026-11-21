@@ -15,6 +15,10 @@ REST는 HTTP의 메서드·상태 의미를 활용한다. GraphQL은 쿼리 문�
 
 ## 주문 사례의 포트 설계
 
+![브라우저의 REST GET과 내부 Spring Boot 서비스의 gRPC가 Spring Boot 주문 서비스의 같은 조회 포트를 사용하고 브라우저가 WebSocket 재연결 후 GET으로 현재 상태를 조회하는 그림](image/06_order_query_and_push_contracts.png)
+
+그림의 근거 · [IETF · HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.1) · [gRPC · Core concepts](https://grpc.io/docs/what-is-grpc/core-concepts/) · [IETF · The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455.html#section-1.2)
+
 주문 조회 입력 포트는 주문 ID를 받아 정해진 정보를 반환한다. 같은 기능을 REST나 gRPC로 공개할 때 DTO, 상태 코드, 메타데이터는 각 어댑터에서 변환한다. 여러 조회를 GraphQL로 조합할 때도 필드 권한과 집계 비용을 경계에서 검사한다. 상태 푸시는 새 정보가 있다는 신호로 쓰고, 재연결 시 현재 상태를 조회할 수 있게 한다.
 
 재고 예약은 응답을 못 받았다고 해서 실행되지 않았다고 단정할 수 없다. 계약에 예약 키, 결과 확인 경로, deadline, 재시도 가능 여부를 명시한다. 프로토콜 타입과 HTTP 클라이언트 예외는 포트 경계에서 업무 결과로 변환한다. 재고 확정까지 기다릴 수 없는 흐름은 [비동기 메시징](08_reliable_asynchronous_messaging_between_services.md)으로 접수·처리를 나눌 수 있다. [gRPC Deadlines](https://grpc.io/docs/guides/deadlines/)

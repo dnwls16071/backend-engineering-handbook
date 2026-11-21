@@ -6,6 +6,10 @@
 
 Sidecar는 같은 Pod에서 앱과 함께 동작하는 보조 컨테이너다. 서비스 메시의 데이터 평면은 라우팅·mTLS·트래픽 정책을 담당할 수 있다. 배치 방식은 메시 구현마다 다르다. 결제 승인이나 주문 취소의 판단은 애플리케이션 포트와 도메인에 둔다. [Kubernetes · Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) · [Istio · Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/)
 
+![NGINX가 서로 다른 Kubernetes Deployment의 Spring Boot 주문 앱 구버전과 신버전에 95 대 5의 예시 가중치로 요청을 나누고 버전별 지표와 공용 DB 호환성을 확인하는 흐름](image/17_weighted_canary_delivery.png)
+
+그림의 근거 · [Kubernetes · Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment) · [Kubernetes · Service](https://kubernetes.io/docs/concepts/services-networking/service/) · [NGINX · HTTP Upstream](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#server)
+
 ## 트래픽을 옮기는 방식
 
 | 방식 | 목적과 확인 기준 |

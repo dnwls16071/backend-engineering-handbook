@@ -16,4 +16,8 @@ CQRS의 중심은 명령 모델과 조회 모델의 책임 분리다. 같은 DB�
 
 주문 서비스에서 `OrderPlaced`와 `OrderConfirmed`를, 결제 서비스에서 `PaymentAuthorized`를 발행한다고 가정한다. 주문 조회 모델은 `orderId`로 필요한 정보만 결합한다. 주문 이벤트와 결제 이벤트는 다른 데이터 소스에서 오므로, 주문 버전과 결제 버전을 각각 추적하고 전체 서비스 순서를 가정하지 않는다. 소비자는 중복 이벤트를 처리하고, 화면에는 필요한 경우 갱신 시점과 진행 상태를 표시한다.
 
+![Spring Boot 주문·결제 서비스의 이벤트를 비동기 투영 서버가 orderId로 결합하고 각각의 버전을 추적한다. 주문 상세는 조회 서비스를 통해 투영 결과를 읽으며 필요할 때 갱신 시각과 진행 상태를 표시한다.](image/10_order_cqrs_projection.png)
+
+그림의 근거 · [Martin Fowler · CQRS](https://martinfowler.com/bliki/CQRS.html) · [Microservices.io · CQRS](https://microservices.io/patterns/data/cqrs.html)
+
 이벤트 소싱을 선택한 모델은 이벤트 스트림을 재생해 애그리거트를 복원한다. 새 기록을 추가할 때 기대 스트림 버전을 비교하고, 스냅샷으로 재생 비용을 낮출 수 있다. 투영을 재구축할 때 원본 이벤트의 보존 범위와 계약 버전을 확인한다. [읽기·쓰기 모델 분리](../architecture-pattern/03_separating_read_and_write_models.md) · [이벤트 소싱의 원본과 스냅샷](../architecture-pattern/07_why_store_change_history_as_the_source_of_truth.md)

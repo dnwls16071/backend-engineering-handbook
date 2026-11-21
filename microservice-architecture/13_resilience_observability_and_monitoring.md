@@ -2,6 +2,10 @@
 
 기술 장애가 일어나도 주문 도메인은 주문이 어디까지 처리됐는지 설명할 수 있어야 한다. 회복성 정책은 원격 호출을 보호하고, 관측 지표는 기술 오류와 업무 처리 지연을 드러낸다. [실패 전파를 막는 패턴](../architecture-pattern/06_preventing_failure_propagation_in_microservices.md)
 
+![Spring Boot 주문 서비스의 재고·결제 출력 어댑터에서 동시 실행 자원을 격리하고 재고 조회 지연 시 주문을 대기 상태로 두며 메트릭·트레이스·로그를 수집하는 흐름](image/13_resilience_and_observability.png)
+
+그림의 근거 · [Resilience4j · Spring Boot 연동](https://resilience4j.readme.io/docs/getting-started-3) · [Resilience4j · Bulkhead](https://resilience4j.readme.io/docs/bulkhead) · [Spring Boot 3.5 · Tracing](https://docs.spring.io/spring-boot/3.5/reference/actuator/tracing.html#actuator.micrometer-tracing.tracer-implementations.otel-zipkin) · [Fluentd · Introduction](https://docs.fluentd.org/)
+
 ## 회복성 정책을 출력 어댑터에 배치하기
 
 | 정책 | 주문 요청에서의 역할 |

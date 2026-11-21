@@ -24,6 +24,10 @@ ALTER TABLE orders
 
 첫 트랜잭션이 유일 키로 주문 행을 선점한다. 예를 들어 PostgreSQL에서는 `INSERT ... ON CONFLICT DO NOTHING RETURNING id`가 행을 반환했을 때만 재고·포인트를 차감한다. 기본 `READ COMMITTED`에서 행을 얻지 못한 호출은 다음 조회 문으로 기존 주문을 읽고, 지문이 일치하면 해당 결과를 반환하고 다르면 충돌로 처리한다. 커밋 직후 응답을 잃어도 동일 키로 결과를 조회한다. [PostgreSQL · INSERT](https://www.postgresql.org/docs/17/sql-insert.html) · [PostgreSQL · Transaction Isolation](https://www.postgresql.org/docs/17/transaction-iso.html)
 
+![하나의 Spring Boot 앱이 같은 PostgreSQL 데이터소스에서 요청 키를 선점한 뒤 재고와 포인트를 차감하고 함께 커밋한다. 같은 키를 선점하지 못한 호출은 다음 조회로 저장된 지문과 결과를 확인한다.](image/20_spring_boot_monolith_order_idempotency.png)
+
+그림의 근거 · [PostgreSQL ON CONFLICT와 RETURNING](https://www.postgresql.org/docs/17/sql-insert.html) · [PostgreSQL READ COMMITTED](https://www.postgresql.org/docs/17/transaction-iso.html) · [선언적 트랜잭션 롤백](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/rolling-back.html)
+
 ## 3. 재고·포인트 경쟁과 검증
 
 동일 요청 키를 직렬화해도 서로 다른 주문이 같은 재고와 잔액을 동시에 소비할 수 있다. 재고가 충분할 때만 차감하는 조건부 갱신을 쓰거나, 재고 행을 `SELECT ... FOR UPDATE`로 잠근 뒤 같은 트랜잭션에서 검증과 차감을 진행한다. 여러 행을 잠글 때는 고정된 순서로 접근하고, 트랜잭션 동안 외부 네트워크 호출을 피한다. [PostgreSQL · Explicit Locking](https://www.postgresql.org/docs/17/explicit-locking.html)

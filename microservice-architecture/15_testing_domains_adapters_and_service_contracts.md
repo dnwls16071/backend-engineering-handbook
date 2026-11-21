@@ -2,6 +2,10 @@
 
 테스트의 범위는 그 테스트에서 검출할 실패를 기준으로 정한다. 도메인 불변식, 어댑터의 변환, 서비스 간 호환성, 실제 배포 경로는 각각 다른 지점에서 깨질 수 있다. [Toby Clemson · Testing Strategies in a Microservice Architecture](https://martinfowler.com/articles/microservice-testing/)
 
+![Spring Boot 주문·결제 서비스에서 결제 응답 유실을 재현하고 단위·컴포넌트·통합·계약·E2E 테스트가 검증할 경계를 비교한다](image/15_order_failure_test_boundaries.png)
+
+그림의 근거 · [Toby Clemson · Microservice Testing](https://martinfowler.com/articles/microservice-testing/) · [Spring Boot 3.5 · Testcontainers](https://docs.spring.io/spring-boot/3.5/reference/testing/testcontainers.html) · [Testcontainers · PostgreSQL](https://java.testcontainers.org/modules/databases/postgres/) · [Testcontainers · Kafka](https://java.testcontainers.org/modules/kafka/)
+
 ## 주문 시스템의 테스트 범위
 
 | 테스트 | 실제로 실행하는 범위 | 검증할 실패 |

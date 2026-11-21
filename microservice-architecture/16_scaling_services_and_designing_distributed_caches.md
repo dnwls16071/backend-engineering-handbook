@@ -1,6 +1,6 @@
 # Scaling Services and Designing Distributed Caches
 
-확장할 대상을 찾으려면 먼저 사용량과 자원 병목을 측정한다. 애플리케이션 복제본을 늘려도 DB 쓰기나 한 키의 쓰기가 병목이면 개선은 제한적이다. 요청 지연과 큐, 캐시 적중률, DB 부하를 같은 시간축에서 확인한다. [Scale Cube](https://microservices.io/articles/scalecube.html) · [병목 식별](../load_testing_guideline/02_bottleneck_identification.md)
+확장할 대상을 찾으려면 먼저 사용량과 자원 병목을 측정한다. 애플리케이션 복제본을 늘려도 DB 쓰기나 한 키의 쓰기가 병목이면 개선은 제한적이다. 요청 지연과 큐, 캐시 적중률, DB 부하를 같은 시간축에서 확인한다. [Scale Cube](https://microservices.io/articles/scalecube.html) · [병목 식별](../load-testing-guideline/02_bottleneck_identification.md)
 
 ## 병목에 따라 확장 방법 고르기
 
@@ -10,6 +10,10 @@
 | 반복 조회가 DB 자원을 사용 | 읽기 모델이나 캐시, 복제본 지연을 허용할 수 있는지 확인 |
 | 단일 DB 쓰기 한계 | 인덱스·쓰기 부하 개선 후 파티션·샤딩 비용 검토 |
 | 인기 상품이나 고객의 Hot Key | 요청 합치기, 조회 모델 보완, 키를 분산할 수 있는지 판단 |
+
+![부하 분산기가 무상태 Spring Boot 장바구니 앱에 요청을 나누고 앱이 공용 Redis에서 조회 미스가 나면 원본 DB를 읽고 쓰기 커밋 후 캐시 키를 무효화하는 흐름](image/16_cart_scaling_and_cache_aside.png)
+
+그림의 근거 · [Chris Richardson · Scale Cube](https://microservices.io/articles/scalecube.html) · [Redis · Cache-aside](https://redis.io/docs/latest/develop/use-cases/cache-aside/)
 
 ## Redis 장바구니와 도메인 책임
 

@@ -15,6 +15,10 @@
 
 ## 주문에서 재고를 분리하는 판단
 
+![독립 배포된 두 Spring Boot 앱에서 재고 서비스가 예약을 기록하고 응답을 유실했을 때 주문 서비스가 확인 중 상태를 안내하고 같은 키로 예약 상태를 조회하는 시퀀스](image/04_inventory_service_split_and_timeout.png)
+
+그림의 근거 · [Lewis와 Fowler · Microservices](https://martinfowler.com/articles/microservices.html) · [gRPC · Deadlines](https://grpc.io/docs/guides/deadlines/)
+
 재고 변경이 독립적이고 부하 패턴도 다르다면 분리 후보가 된다. 먼저 모듈 간 공개 계약과 데이터 접근을 정리하고, 네트워크 경계에서 재고 예약 상태·멱등 키·타임아웃 이후 확인할 방법을 정의한다. 새 경계의 운영 책임을 맡을 팀과 관측 수단을 마련한다. 진행 중인 주문이 장애 때 어떻게 회복되는지는 [분산 트랜잭션과 Saga](11_distributed_transactions_sagas_and_outbox.md)에서 다룬다.
 
 자동 배포, 상태 관측, 안전한 호환 변경과 롤백이 가능한지 확인한다. 현재 경계가 자주 바뀐다면 [모듈러 모놀리스](03_modular_monoliths_with_hexagonal_boundaries.md)에서 계약을 먼저 검증하는 편이 변경 비용을 낮출 수 있다. [Fowler · Microservice Prerequisites](https://martinfowler.com/bliki/MicroservicePrerequisites.html)

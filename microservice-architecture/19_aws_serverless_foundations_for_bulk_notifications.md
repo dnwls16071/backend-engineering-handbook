@@ -14,20 +14,13 @@
 
 Spring에서 서비스·저장소를 나누던 판단을 서버리스에서도 적용할 수 있다. Spring MVC 컨트롤러와 Lambda 핸들러는 서로 다른 환경에서 같은 유스케이스 계약을 호출할 수 있다. 호출 계약과 도메인 규칙을 명확히 하면 로컬 대역으로 검증한 뒤 AWS 어댑터를 연결할 수 있다. [애그리거트와 일관성 경계](../ddd/05_designing_aggregates_and_consistency_boundaries.md)
 
+이 예시의 발행 앱과 발송 워커는 Spring Boot를 사용한다. Lambda의 Spring Cloud Function AWS 어댑터는 SQS 배치를 발송 함수에 전달한다. 부분 배치 실패를 보고하려면 이벤트 소스 매핑에서 해당 기능을 활성화하고 함수 응답에 실패 항목을 넣는다. [Spring Cloud Function AWS 어댑터](https://docs.spring.io/spring-cloud-function/reference/adapters/aws-intro.html) · [AWS Lambda 부분 배치 실패](https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html)
+
 ## 2. Lambda, SQS, DLQ, S3, DynamoDB의 역할
 
-아래 화살표는 실행과 데이터 전달 경로를 나타낸다.
+![Spring Boot 발행 어댑터가 SQS에 작업을 넣는다. Lambda의 Spring Cloud Function AWS 어댑터가 Spring Boot 발송 유스케이스를 호출한다. 발송 작업은 S3 입력을 읽고 DynamoDB에서 상태를 조건부로 갱신하며, 반복해서 수신된 메시지는 SQS의 정책에 따라 DLQ로 이동할 수 있다.](image/19_spring_boot_lambda_notification_and_redrive.png)
 
-```mermaid
-flowchart LR
-    Publish["발행 어댑터"] --> Queue["SQS 발송 큐"]
-    Queue --> Worker["Lambda 수신 어댑터"]
-    Worker --> UseCase["개별 발송 유스케이스"]
-    UseCase --> State["DynamoDB 상태 어댑터"]
-    UseCase --> Object["S3 문서 어댑터"]
-    UseCase --> Provider["발송 제공자 어댑터"]
-    Queue -->|반복 실패 시 격리| Dead["SQS DLQ"]
-```
+그림의 근거 · [Spring Cloud Function의 Lambda 핸들러](https://docs.spring.io/spring-cloud-function/reference/adapters/aws-intro.html) · [Lambda의 SQS 배치](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html) · [부분 실패 응답](https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html) · [SQS DLQ 정책](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) · [DynamoDB 조건부 쓰기](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html) · [S3 객체 버전](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html)
 
 | AWS 구성 | 헥사고날 관점의 책임 |
 | --- | --- |

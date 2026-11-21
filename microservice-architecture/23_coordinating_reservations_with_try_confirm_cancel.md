@@ -23,6 +23,10 @@ TCC는 각 서비스가 업무 자원을 먼저 예약한 뒤 조정자의 결�
 
 취소 표시와 예약 상태를 같은 식별자에 대해 일관되게 전이한다. 표시를 너무 일찍 삭제하면 지연 요청이 다시 예약할 수 있다. 세부 상태명과 보존 기간은 메시지 수명과 재시도 기간에 맞춘다. [Apache Seata · TCC Fence](https://seata.apache.org/blog/seata-tcc-fence/)
 
+![Spring Boot 주문 조정자는 재고와 포인트 서비스의 Try 결과를 모아 Confirm이나 Cancel을 결정한다. 참가자에 Cancel이 먼저 도착하면 같은 식별자의 취소 표시를 저장해 뒤늦은 Try가 예약을 만들지 못하게 한다.](image/23_spring_boot_tcc_reservations_and_cancel_fence.png)
+
+그림의 근거 · [Try·Confirm·Cancel 단계](https://seata.apache.org/docs/user/mode/tcc/) · [TCC fence](https://seata.apache.org/blog/seata-tcc-fence/)
+
 ## 3. 주문 API, Retry와 Pending 해소
 
 주문 서비스는 주문 접수와 각 참가자의 진행을 저장하고, 모든 Try가 성공하면 확정 결정을 기록한다. 명확한 거절이 있으면 취소 결정을 기록하고, Try의 응답이 유실된 참여자도 취소 대상에 포함한다. 확정 결정을 내린 뒤 일부 Confirm이 실패하면 같은 식별자로 Confirm을 재시도한다.

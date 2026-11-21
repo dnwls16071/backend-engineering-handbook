@@ -2,6 +2,8 @@
 
 온라인 상점의 주문, 재고, 결제를 독립적으로 변경하고 운영하려면 어느 규칙과 데이터를 누가 책임지는지 먼저 정해야 한다. 이 시리즈는 같은 업무를 모놀리스, 모듈러 모놀리스, 마이크로서비스에서 어떻게 나눌지 비교한다. [Lewis와 Fowler · Microservices](https://martinfowler.com/articles/microservices.html)
 
+이 시리즈에서는 애플리케이션 서버로 Spring Boot를 사용한다. 모놀리스와 모듈러 모놀리스는 하나의 Spring Boot 애플리케이션으로 배포하고, 마이크로서비스는 서비스마다 Spring Boot 애플리케이션을 배포하는 구성을 예로 든다. [Spring Boot 프로젝트](https://spring.io/projects/spring-boot)
+
 ## 도메인 경계와 배포 경계
 
 | 구분 | 결정할 내용 | 주문 시스템에서의 예 |
@@ -9,6 +11,10 @@
 | Bounded Context | 어디에서 업무 용어와 모델이 일관된 의미를 가지는가 | 주문 확정과 결제 승인은 서로 다른 사실이다. |
 | 모듈 경계 | 어느 코드를 함께 변경하고 어떤 계약을 공개하는가 | 주문 모듈은 재고 예약 계약을 통해 협력한다. |
 | 서비스 경계 | 무엇을 독립적으로 배포·확장하고 장애에서 격리하는가 | 재고가 독립 운영 대상이 되면 별도 서비스 후보가 된다. |
+
+![주문·재고·결제 업무를 단일 Spring Boot 앱의 기술 계층, 단일 앱의 업무 모듈, 독립 배포하는 Spring Boot 서비스로 각각 구성한 비교](image/01_order_deployment_boundaries.png)
+
+그림의 근거 · [Lewis와 Fowler · Microservices](https://martinfowler.com/articles/microservices.html) · [Spring Modulith · Fundamentals](https://docs.spring.io/spring-modulith/reference/fundamentals.html)
 
 DDD는 업무 모델의 경계를 찾는 데 쓰고, 헥사고날 아키텍처는 각 경계 안에서 업무 규칙과 어댑터의 관계를 설계하는 데 쓴다. 모듈화한 애플리케이션도 단일 배포 단위로 운영할 수 있다. Bounded Context의 개수에서 서비스의 개수가 자동으로 결정되는 것은 아니다. [Eric Evans · DDD Reference](https://www.domainlanguage.com/ddd/reference/) · [Cockburn · Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture)
 

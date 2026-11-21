@@ -2,6 +2,10 @@
 
 보안 경계에서 인증은 요청의 주체를 확인하고, 인가는 그 주체가 기능이나 주문을 사용할 수 있는지 판단한다. 게이트웨이가 토큰의 진위와 범위를 검사하더라도 주문 서비스는 자신의 데이터와 업무 규칙에 따라 접근 권한을 판단한다. [OWASP API Security Top 10](https://api-security.owasp.org/editions/2023/en/0x11-t10/) · [OAuth 2.0 JWT Access Token Profile](https://www.rfc-editor.org/rfc/rfc9068.html)
 
+![Spring Boot 기반 Spring Cloud Gateway에서 JWT를 검증하고 Redis Token Bucket 한도를 적용한 뒤 주문 서비스가 개별 주문 조회 권한과 응답 필드를 확인하는 흐름](image/14_authorization_and_token_bucket.png)
+
+그림의 근거 · [Spring Cloud Gateway 4.3 · RequestRateLimiter](https://docs.spring.io/spring-cloud-gateway/reference/4.3/spring-cloud-gateway-server-webflux/gatewayfilter-factories/requestratelimiter-factory.html) · [OAuth JWT Access Token Profile](https://www.rfc-editor.org/rfc/rfc9068.html#section-4) · [OWASP · 객체 수준 인가](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/#how-to-prevent)
+
 ## 게이트웨이와 도메인에서 지킬 규칙
 
 - 외부 어댑터는 인증된 사용자·테넌트 정보를 검증하고, 신뢰할 수 있는 주체 정보를 애플리케이션에 전달한다.

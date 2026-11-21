@@ -2,6 +2,12 @@
 
 서버리스에서 HTTP, 큐, 스케줄이 실행을 시작하더라도 함수의 경계는 업무와 상태의 소유권을 기준으로 정한다. 하나의 도메인 서비스가 여러 함수로 배포될 수 있고, 같은 도메인 규칙을 여러 핸들러가 호출할 수 있다. [AWS Well-Architected · Serverless Applications Lens](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.html)
 
+이 예시의 AWS Lambda 함수는 Spring Cloud Function AWS 어댑터를 통해 Spring Boot 애플리케이션의 함수 빈을 호출한다. 각 함수는 배포 단위가 되고, 주문 도메인 코드와 포트는 여러 함수에서 공유할 수 있다. [Spring Cloud Function AWS 어댑터](https://docs.spring.io/spring-cloud-function/reference/adapters/aws-intro.html)
+
+![API Gateway, SQS 배치, EventBridge Scheduler가 각 Spring Boot 기반 AWS Lambda 주문 함수를 호출하고 세 함수가 주문 상태와 처리 키를 소유 저장소에 기록하는 흐름](image/18_lambda_order_domain_ports.png)
+
+그림의 근거 · [Spring Cloud Function 5.1 · AWS Lambda](https://docs.spring.io/spring-cloud-function/reference/adapters/aws-intro.html) · [AWS Lambda · API Gateway](https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html) · [AWS Lambda · SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html) · [AWS Lambda · 부분 배치 응답](https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html#services-sqs-batchfailurereporting) · [AWS Lambda · EventBridge Scheduler](https://docs.aws.amazon.com/lambda/latest/dg/with-eventbridge-scheduler.html)
+
 ## 주문에서 입력 어댑터를 연결하는 사례
 
 | 들어오는 신호 | 입력 어댑터와 유스케이스 |

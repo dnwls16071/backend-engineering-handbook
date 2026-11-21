@@ -15,4 +15,8 @@ Discovery의 결과는 실제 라우팅에 쓰이지만, 공개할 경로는 경
 
 ## 주문 상세에서 실패를 다루는 방식
 
+![모바일 주문 상세 요청을 Spring Cloud Gateway와 Spring Boot 모바일 BFF가 받아 주문 상태와 결제 요약을 조회하는 흐름. 게이트웨이는 서비스 디스커버리에서 인스턴스를 찾는다. 결제 상세의 타임아웃은 화면 계약이 허용할 때만 미확인으로 표시한다.](image/07_order_detail_gateway_bff.png)
+
+그림의 근거 · [Spring Cloud Gateway · DiscoveryClient Route Definition Locator](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/the-discoveryclient-route-definition-locator.html) · [Sam Newman · Backends For Frontends](https://samnewman.io/patterns/architectural/bff/)
+
 주문 상태는 필수다. 결제 상세가 조회되지 않으면 화면이 허용하는 경우에만 미확인으로 표시한다. 주문 조회의 전체 지연 예산과 하위 호출별 타임아웃을 명시한다. 결제 승인이나 주문 확정 결정은 각 서비스를 통해 수행한다. 클라이언트마다 다른 화면 표현은 BFF가 조합하고 주문의 의미를 바꾸는 규칙은 주문 서비스가 소유한다. [게이트웨이와 BFF의 구조](../architecture-pattern/05_single_entry_point_for_microservices.md)

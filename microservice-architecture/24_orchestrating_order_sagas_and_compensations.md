@@ -19,6 +19,10 @@ Saga 오케스트레이션에서는 조정자가 어떤 단계를 실행했고, 
 
 원격 호출 전 실행할 단계와 ID를 기록하고, 호출 후 결과를 별도로 저장한다. 원격 DB가 커밋한 뒤 조정자가 중단되면 재시작한 작업자가 동일 단계 ID로 재호출하거나 상태를 조회한다. 작업자가 여럿이면 단계 버전이나 임대 등으로 진행 갱신을 조정하고, 참가자의 멱등성으로 중복 요청의 효과를 막는다. 명령을 메시지로 발행한다면 단계 전이와 다음 명령을 로컬 트랜잭션의 Outbox에 같이 기록할 수 있다. [AWS Prescriptive Guidance · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
+![Spring Boot 주문 조정자가 재고와 포인트 참가자에게 단계 ID를 전달한다. 포인트 거절이 확정되면 재고 복원을 확인할 때까지 COMPENSATING을 유지한다. 응답이 유실되면 같은 단계 ID로 상태를 확인한 뒤 다음 결정을 내린다.](image/24_spring_boot_order_saga_orchestration_recovery.png)
+
+그림의 근거 · [Saga 오케스트레이션](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html) · [Saga의 순방향·보상 복구](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-patterns.html) · [업무 상태와 후속 명령 기록](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
+
 ## 3. 실패 시 기대 상태
 
 - **포인트 거절**. 재고 복원이 끝나기 전에는 `COMPENSATING`을 유지한다.

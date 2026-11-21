@@ -17,4 +17,8 @@ CAP 정리의 일관성은 단일 최신 복사본처럼 동작하는 성질에 
 
 주문을 `customerId` 기준으로 분산하고 두 샤드만 사용하는 경우를 예로 들면, 정수 식별자에 대한 `floorMod(customerId, 2)`로 고객 42는 샤드 0, 고객 43은 샤드 1에 보낼 수 있다. 조회도 같은 규칙과 라우팅 키를 사용한다. 도메인의 저장소 계약은 “고객의 주문 저장·조회”로 표현하고, 어느 샤드를 고를지는 영속 어댑터가 처리한다.
 
+![Spring Boot 주문 서비스의 영속 어댑터가 floorMod(customerId, 2)로 고객 42의 읽기와 쓰기를 MariaDB 샤드 0으로, 고객 43의 읽기와 쓰기를 MariaDB 샤드 1로 보낸다.](image/09_customer_key_mariadb_shards.png)
+
+그림의 근거 · [Chris Richardson · The Scale Cube](https://microservices.io/articles/scalecube.html) · [Oracle Java SE 21 · Math.floorMod](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Math.html#floorMod(int,int)) · [Microservices.io · Database per Service](https://microservices.io/patterns/data/database-per-service)
+
 고객 키가 없는 주문 조회는 라우팅 매핑이나 별도 읽기 모델이 필요할 수 있다. 고객별 집중도, 전역 ID, 테넌트 유일 제약, 샤드 장애와 재분배를 함께 검토한다. 샤드 수를 나머지 연산의 분모로 직접 쓰면 개수가 늘 때 많은 키의 위치가 바뀐다. 운영에서 확장이 예상되면 가상 버킷 매핑이나 이동 절차를 먼저 설계한다. 서비스 간 조회는 [CQRS와 읽기 모델](10_cross_service_queries_cqrs_and_event_sourcing.md)에서 이어서 다룬다. [Chris Richardson · Scale Cube](https://microservices.io/articles/scalecube.html)
