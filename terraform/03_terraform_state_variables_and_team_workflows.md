@@ -19,6 +19,8 @@ terraform {
 }
 ```
 
+![S3 원격 상태의 적용 시퀀스. 작업 A가 잠금 파일을 생성하고, 같은 잠금을 얻지 못한 작업 B는 적용 없이 종료하며, A는 변경 결과를 상태에 기록한 뒤 잠금을 해제한다.](image/terraform_s3_remote_state_locking.png)
+
 백엔드 블록은 일반 Terraform 입력 변수나 로컬 값을 참조하지 않는다. 비밀이 아닌 버킷 이름은 초기화 설정으로 받고, 자격 증명은 프로파일·역할·환경 변수로 공급한다. S3 버전 관리로 복구 가능성을 확보하며, 상태와 잠금 파일의 접근 범위를 구분한다. 잠금 파일에는 생성·읽기·삭제 권한이 필요하다. 이미 관리하던 로컬 상태를 옮길 때는 현재 상태를 보호하고 대상 버킷과 키를 확인한 뒤 `terraform init -migrate-state`를 실행한다. `-reconfigure`는 기존 상태를 이관하지 않고 백엔드 설정을 다시 잡는 옵션이다. [Terraform Init](https://developer.hashicorp.com/terraform/cli/commands/init)
 
 처음 연결할 때는 미리 준비한 버킷 이름을 `TF_STATE_BUCKET` 환경 변수에 설정하고 `terraform init -backend-config="bucket=$TF_STATE_BUCKET"`을 실행한다. 로컬 상태를 이관할 때도 같은 버킷 인수를 전달한다.

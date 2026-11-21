@@ -48,5 +48,25 @@
       "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html",
       "locator": "Failover의 유휴 연결 유지 및 전환 중 트랜잭션·SQL 취소 설명"
     }
+  },
+  {
+    "page": "terraform/01_terraform_workflow_and_aws_cli_setup.md",
+    "claim": "![AWS VPC 예시에서 구성의 목표, 상태의 리소스 매핑, 공급자가 조회한 실제 값으로 계획을 만들고 저장된 계획을 적용해 리소스와 상태를 갱신하는 흐름](image/terraform_plan_and_apply.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Terraform CLI의 기본 계획 모드에서 저장한 계획을 적용하는 예시",
+    "source": {
+      "url": "https://developer.hashicorp.com/terraform/cli/run",
+      "locator": "Workflows의 Plan과 Apply에서 설명하는 상태 매핑, 공급자 API 조회 및 저장된 계획 적용"
+    }
+  },
+  {
+    "page": "terraform/03_terraform_state_variables_and_team_workflows.md",
+    "claim": "![S3 원격 상태의 적용 시퀀스. 작업 A가 잠금 파일을 생성하고, 같은 잠금을 얻지 못한 작업 B는 적용 없이 종료하며, A는 변경 결과를 상태에 기록한 뒤 잠금을 해제한다.](image/terraform_s3_remote_state_locking.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Terraform 1.10 이상의 S3 백엔드에서 use_lockfile을 활성화하고 같은 상태 키에 적용하는 두 작업",
+    "source": {
+      "url": "https://developer.hashicorp.com/terraform/language/state/locking",
+      "locator": "State Locking의 상태 쓰기 작업 자동 잠금 및 잠금 획득 실패 시 동작"
+    }
   }
 ]

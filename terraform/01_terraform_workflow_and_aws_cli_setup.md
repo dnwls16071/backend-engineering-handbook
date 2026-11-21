@@ -49,3 +49,5 @@ terraform apply cleanup.tfplan
 ```
 
 `init`은 백엔드와 공급자 등을 초기화한다. `validate`는 구성의 형식과 내부 일관성을 검사하고, `plan`은 예상 변경을 표시한다. `apply`는 실제 변경과 상태 갱신을 수행한다. 위 삭제 계획은 로컬 예제만 정리한다. AWS 작업에서는 계획에 나온 대상과 계정, 교체·삭제 여부를 적용 전에 각각 확인한다. [Terraform CLI](https://developer.hashicorp.com/terraform/cli)
+
+![AWS VPC 예시에서 구성의 목표, 상태의 리소스 매핑, 공급자가 조회한 실제 값으로 계획을 만들고 저장된 계획을 적용해 리소스와 상태를 갱신하는 흐름](image/terraform_plan_and_apply.png)
