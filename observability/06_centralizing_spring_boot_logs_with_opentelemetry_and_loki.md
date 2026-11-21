@@ -122,6 +122,10 @@ config:
 
 `otlphttp/loki`의 `endpoint`에는 `/otlp`까지 넣는다. exporter가 `/v1/logs`를 이어 붙여 `POST /otlp/v1/logs`로 전송한다. Grafana의 Loki URL에는 조회 API의 기준 주소인 `http://loki-gateway.observability.svc:80`을 입력한다. [Loki OTLP 수집](https://grafana.com/docs/loki/latest/send-data/otel/), [Grafana Loki 데이터 소스 설정](https://grafana.com/docs/grafana/latest/datasources/loki/configure/)
 
+![노드 런타임이 Spring Boot의 표준 출력을 CRI 로그로 기록한다. 같은 노드의 Collector가 파일을 읽고 Kubernetes 속성을 붙여 Loki로 보낸다. Loki에서 서비스와 네임스페이스는 인덱스 라벨, Pod 이름은 구조화 메타데이터, traceId는 JSON 본문에 둔다.](image/06_node_log_collection_and_loki_storage.png)
+
+그림의 근거 · [Collector Helm Chart의 로그 수집](https://opentelemetry.io/docs/platforms/kubernetes/helm/collector/) · [OpenTelemetry CRI 로그 파서](https://opentelemetry.io/blog/2024/otel-collector-container-log-parser/) · [Loki OTLP 속성 매핑](https://grafana.com/docs/loki/latest/send-data/otel/)
+
 ```bash
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 helm repo update open-telemetry

@@ -245,6 +245,10 @@ startup probe가 성공하면 kubelet이 liveness·readiness probe를 시작한�
 
 GatewayClass는 관리할 컨트롤러를, Gateway는 요청을 받을 리스너를, HTTPRoute는 호스트·경로와 백엔드 Service의 연결을 선언한다. Gateway API CRD를 설치한 뒤 `k8s/traefik-values.yaml`을 사용해 `traefik` Namespace에 컨트롤러를 설치하고 `sns` Namespace에 `sns-gateway`를 만든다. HTTPRoute도 `sns`에 두어 같은 Namespace의 리스너에 연결한다. [Ingress와 라우팅](../kubernetes/11_ingress.md), [Gateway API 시작 가이드](https://gateway-api.sigs.k8s.io/guides/getting-started/), [Traefik Helm Chart 값](https://github.com/traefik/traefik-helm-chart/blob/v42.4.1/traefik/values.yaml)
 
+![GatewayClass, Gateway, HTTPRoute는 Traefik이 읽는 설정이다. 호스트 요청은 포트 포워딩으로 Traefik에 들어가고, sns.localhost의 /api에 매칭되면 sns-api Service에서 발견한 백엔드 엔드포인트로 전달된다.](image/02_kind_gateway_request_and_route_configuration.png)
+
+그림의 근거 · [Gateway API HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) · [Traefik Kubernetes Gateway](https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/gateway-api/)
+
 ```yaml
 providers:
   kubernetesGateway:

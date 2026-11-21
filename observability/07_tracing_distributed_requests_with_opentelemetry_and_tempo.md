@@ -4,12 +4,9 @@
 
 `GET /api/posts`를 처리하는 `sns-api`가 Go 서비스 `sns-recommend`에서 추천 목록을 조회한다고 가정한다. Trace는 이 요청에서 발생한 작업을 같은 Trace ID로 묶는다. Span은 서버 요청 처리, 외부 HTTP 호출, 추천 조회처럼 시작과 끝이 있는 작업 하나를 기록한다. Span마다 고유한 Span ID가 있고, 자식 Span은 부모의 Span ID를 참조한다. [kind의 SNS API 배포](02_deploying_spring_boot_on_kind_with_gateway_api.md), [OpenTelemetry Traces](https://opentelemetry.io/docs/concepts/signals/traces/)
 
-```text
-sns-api        SERVER    GET /api/posts
-└─ sns-api     CLIENT    GET /recommendations
-   └─ sns-recommend SERVER   GET /recommendations
-      └─ sns-recommend INTERNAL recommendation.lookup
-```
+![하나의 Trace ID에 sns-api SERVER, sns-api CLIENT, sns-recommend SERVER, recommendation.lookup INTERNAL Span이 부모에서 자식 순서로 이어진다. 서비스 경계에서는 HTTP traceparent가 Trace ID와 CLIENT Span의 ID를 전달한다.](image/07_distributed_trace_span_hierarchy.png)
+
+그림의 근거 · [W3C traceparent 헤더](https://www.w3.org/TR/trace-context/#traceparent-header) · [OpenTelemetry Context Propagation](https://opentelemetry.io/docs/concepts/context-propagation/)
 
 Spring의 HTTP 클라이언트는 요청에 W3C `traceparent` 헤더를 넣는다. 헤더에는 같은 Trace ID, 호출하는 CLIENT Span의 ID, 샘플링 플래그가 들어간다. Go의 HTTP 계측은 이 헤더를 읽어 CLIENT Span을 부모로 두는 SERVER Span을 만든다. 추천 조회 Span은 Go 요청의 `context.Context`를 받아 SERVER Span의 자식이 된다. [W3C Trace Context](https://www.w3.org/TR/trace-context/#traceparent-header), [OpenTelemetry Context Propagation](https://opentelemetry.io/docs/concepts/context-propagation/)
 
@@ -191,6 +188,10 @@ kubectl --context kind-sns -n sns rollout status deployment/sns-recommend --time
 ## 4. Collector의 traces 파이프라인을 Tempo에 연결한다
 
 `observability` Namespace에 Trace 수집용 Collector를 Deployment로 띄운다. 앞 편의 `otel-logs` DaemonSet은 노드의 로그 파일을 읽고, 여기서 설치하는 `otel-collector`의 ClusterIP Service는 앱이 전송하는 Span을 `4318`번 포트에서 받는다. 아래를 `otel-traces-values.yaml`로 저장한다. OTLP 수신기에서 받은 Span은 `batch`를 거쳐 Tempo의 OTLP/gRPC 수신기로 전송된다. [Spring Boot 로그 수집](06_centralizing_spring_boot_logs_with_opentelemetry_and_loki.md), [Collector Helm 설정](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/opentelemetry-collector-0.179.0/charts/opentelemetry-collector/values.yaml), [Collector 구성](https://opentelemetry.io/docs/collector/configuration/)
+
+![Spring과 Go의 Exporter가 Span을 Collector의 4318번 포트로 전송한다. traces 파이프라인은 memory_limiter와 batch를 거쳐 Tempo의 4317번 포트로 내보낸다. Grafana는 Tempo의 3200번 포트에서 트레이스를 조회한다.](image/07_otlp_trace_pipeline_to_tempo.png)
+
+그림의 근거 · [OpenTelemetry Collector 파이프라인 설정](https://opentelemetry.io/docs/collector/configuration/) · [OpenTelemetry Collector에서 Tempo로 전송](https://grafana.com/docs/tempo/latest/set-up-for-tracing/instrument-send/set-up-collector/otel-collector/) · [Grafana Tempo 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/)
 
 ```yaml
 mode: deployment

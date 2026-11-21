@@ -2,6 +2,10 @@
 
 일부 사용자에게만 SNS 목록이 늦게 열리는 상황을 가정한다. 전체 요청 오류율이 안정적이어도 특정 요청 경로의 지연은 늘 수 있다. 메트릭으로 영향 범위를 좁힌 뒤 같은 시각의 트레이스와 로그를 비교해 지연이 시작된 지점을 찾는다. [Prometheus·Grafana 메트릭](05_monitoring_spring_boot_with_prometheus_and_grafana.md) · [Tempo 요청 추적](07_tracing_distributed_requests_with_opentelemetry_and_tempo.md)
 
+![같은 UTC 구간에서 Prometheus로 지연 범위를 좁히고, Tempo의 정상 및 느린 트레이스를 비교한 뒤 Loki에서 같은 Trace ID의 로그를 읽는다. 캐시 미스 가설은 반례와 대조해 관측 사실과 구분해 보고한다.](image/09_incident_evidence_correlation_and_hypotheses.png)
+
+그림의 근거 · [Grafana의 트레이스와 로그 연계](https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/) · [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries) · [Loki HTTP API](https://grafana.com/docs/loki/latest/reference/loki-http-api/) · [OpenTelemetry Sampling](https://opentelemetry.io/docs/concepts/sampling/)
+
 ## 1. 일부 요청만 느린 상황을 조사하기
 
 | 단계 | 확인할 증거 |

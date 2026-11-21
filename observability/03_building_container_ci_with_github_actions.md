@@ -12,6 +12,10 @@ Workflow는 저장소의 `.github/workflows/`에 두는 자동화 정의이다. 
 
 CI는 변경을 통합할 때 테스트를 실행하고 배포 가능한 이미지를 만든다. 매니페스트 커밋은 배포에 사용할 이미지를 선택한다. 이후 GitOps 컨트롤러가 브랜치를 감시하거나 배포 작업이 명세를 클러스터에 적용하면 CD가 실제 롤아웃까지 이어진다. [GitHub Actions로 Docker 이미지 게시하기](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images), [Kubernetes Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
+![main 푸시로 Build가 시작된다. 테스트가 실패하면 이미지 게시와 후속 Job이 생략된다. 성공하면 Jib이 GHCR에 이미지를 게시하고, Update Manifest는 Build의 출력에서 받은 digest를 deploy-config에 기록한다.](image/03_github_actions_image_digest_handoff.png)
+
+그림의 근거 · [GitHub Actions Job 출력](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [Workflow 의존성](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idneeds) · [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+
 ## 2. Build에서 테스트하고 이미지를 게시한다
 
 `main`에는 Gradle Wrapper와 Jib 설정을 두고, `deploy-config` 브랜치는 먼저 만든 다음 `k8s/sns-deployment.yaml`에 Deployment 한 개를 저장한다. 이 Deployment의 컨테이너 이름은 `sns-api`이다. 아래 예시는 같은 저장소의 GHCR 패키지와 `deploy-config` 브랜치에 Job별 쓰기 권한을 부여할 수 있는 실습 환경을 가정한다. [Jib 설정](01_containerizing_spring_boot_with_jib_and_docker_compose.md), [SNS Deployment 예시](02_deploying_spring_boot_on_kind_with_gateway_api.md), [GHCR 인증](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)

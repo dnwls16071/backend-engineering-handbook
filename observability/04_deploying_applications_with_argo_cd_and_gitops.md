@@ -12,6 +12,10 @@ GitOps는 원하는 배포 상태를 Git에 선언하고, 컨트롤러가 그 �
 
 `OutOfSync`는 Git과 클러스터의 상태 차이를 뜻한다. `Healthy`는 리소스의 상태 검사 결과다. 이미지가 Git과 같아 `Synced`여도 Pod가 시작되지 않으면 앱은 `Healthy`가 아닐 수 있다. 변경 적용 완료와 실제 API 응답을 함께 확인한다. [Argo CD · Automated Sync Policy](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/) · [Argo CD · Resource Health](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/)
 
+![repo-server가 deploy-config의 매니페스트를 생성하면 application-controller가 Kubernetes의 실제 상태와 비교한다. Sync 상태와 Health는 별도로 표시하고, 동기화에서는 설정에 따라 수동 적용, Self-Heal이나 Prune을 수행한다.](image/04_argocd_desired_live_reconciliation.png)
+
+그림의 근거 · [Argo CD 3.5 아키텍처](https://argo-cd.readthedocs.io/en/release-3.5/operator-manual/architecture/) · [Argo CD 3.5 자동 동기화](https://argo-cd.readthedocs.io/en/release-3.5/user-guide/auto_sync/) · [Argo CD 상태 개념](https://argo-cd.readthedocs.io/en/stable/core_concepts/)
+
 ## 2. kind에서 이미지와 노드 아키텍처 확인하기
 
 02번 실습의 `kind-sns` 컨텍스트를 사용한다. Apple Silicon에서 ARM64 노드가 이미지의 ARM64 변형을 받을 수 있는지 확인한다. 03번 CI의 멀티플랫폼 이미지라면 digest를 조회해 노드의 플랫폼이 목록에 있는지 본다. 인증 오류나 이미지 경로 오타도 `ImagePullBackOff`의 원인이므로 Pod 이벤트를 함께 확인한다. [kind SNS 클러스터](02_deploying_spring_boot_on_kind_with_gateway_api.md) · [Kubernetes · Multi-architecture Images](https://kubernetes.io/docs/concepts/containers/images/#multi-architecture-images-with-image-indexes) · [Docker · imagetools inspect](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/)

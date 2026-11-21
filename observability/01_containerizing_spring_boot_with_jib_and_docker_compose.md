@@ -13,6 +13,10 @@
 
 Compose는 프로젝트의 기본 네트워크에서 서비스 이름을 DNS로 해석한다. 앱 컨테이너 안의 `localhost`는 앱 컨테이너 자신을 가리킨다. 호스트에서 DB에 접속할 일이 생기면 실습용 포트를 따로 게시하고, 컨테이너 간 연결에는 서비스 이름과 컨테이너 포트를 계속 사용한다. [Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/)
 
+![Jib이 sns-api:local 이미지를 로컬 Docker에 저장한다. Compose로 실행한 앱에는 호스트의 게시 포트로 접근하고, 앱은 기본 네트워크에서 서비스 이름으로 PostgreSQL, Redis, RustFS에 연결한다.](image/01_jib_image_and_compose_runtime.png)
+
+그림의 근거 · [Jib Gradle 3.5.4](https://github.com/GoogleContainerTools/jib/blob/v3.5.4-gradle/jib-gradle-plugin/README.md) · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/)
+
 ## 2. Jib으로 로컬 Docker 이미지 만들기
 
 Gradle과 Java 21을 사용하는 기존 Spring Boot 프로젝트의 `build.gradle`에 아래 설정을 추가한다. Jib은 Java 클래스·리소스·의존성을 레이어로 나뉜 이미지에 담는다. `jibDockerBuild`는 로컬 Docker 데몬에 저장하고, CI에서 사용할 `jib` 태스크는 레지스트리로 직접 게시한다. [Jib Gradle 문서](https://github.com/GoogleContainerTools/jib/blob/master/jib-gradle-plugin/README.md), [Gradle Plugin Portal](https://plugins.gradle.org/plugin/com.google.cloud.tools.jib)

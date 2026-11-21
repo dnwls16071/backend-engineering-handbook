@@ -61,6 +61,10 @@ kubectl --context kind-sns apply -f k8s/sns-lab-rules.yaml
 
 Prometheus의 `/rules`에서 두 규칙이 로드됐는지 확인한다. 조건이 참이면 `Pending`으로 전환되고, 1분 동안 평가마다 조건을 충족하면 `Firing`으로 넘어간다. 이후 조건이 해소되면 `Inactive`로 돌아간다. 수집이 끊겨도 식의 결과가 사라질 수 있으므로 복구는 정상 응답, 수집 상태, 메트릭을 함께 확인한다. [Prometheus 알림 상태](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
 
+![Prometheus는 실습용 PromQL 규칙을 평가한다. 조건을 처음 충족하면 Pending, 매 평가에서 1분간 유지하면 Firing이다. Alertmanager는 발화한 알림을 그룹화해 설정된 수신자로 보내며, 복구는 HTTP 응답과 수집 상태, 메트릭도 함께 확인한다.](image/08_prometheus_alert_states_and_recovery.png)
+
+그림의 근거 · [Prometheus 알림 규칙](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) · [Alertmanager 라우팅](https://prometheus.io/docs/alerting/latest/configuration/#route) · [Grafana Drilldown](https://grafana.com/docs/grafana/latest/visualizations/simplified-exploration/)
+
 ## 2. Alertmanager의 라우팅과 Slack 전달 확인하기
 
 로컬 실습에서는 아래 포트 포워딩을 실행해 `http://127.0.0.1:9093`의 Alerts 화면에서 `Firing` 알림이 도착하는지 확인한다. 알림이 Prometheus에는 보이고 Alertmanager에 없다면 Prometheus의 Alertmanager 대상 연결을 확인한다. 두 화면에서 알림을 볼 수 있어도 수신자 설정과 그룹 대기 시간은 메시지 전달에 영향을 준다. [Alertmanager 설정](https://prometheus.io/docs/alerting/latest/configuration/)

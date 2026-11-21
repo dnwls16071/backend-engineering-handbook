@@ -68,6 +68,10 @@ kubectl --context kind-sns wait --for=condition=Established \
 
 Prometheus는 차트 기본 설정에서 `release: obs`가 붙은 ServiceMonitor를 여러 Namespace에서 찾는다. ServiceMonitor는 자신과 같은 `sns` Namespace에서 `metadata.labels.app: sns-api`가 붙은 Service를 찾는다. 기존 Service가 가진 `spec.selector.app`은 Pod 선택에도 계속 쓰인다. 다음 명령으로 Service 자체에 라벨을 추가하고 재배포에 쓰는 `k8s/sns-service.yaml`의 `metadata.labels`에도 반영한다. `endpoints.port`는 Service에 선언한 포트 이름인 `http`를 가리킨다. [Prometheus 차트 리소스 템플릿](https://github.com/prometheus-community/helm-charts/blob/kube-prometheus-stack-92.10.0/charts/kube-prometheus-stack/templates/prometheus/prometheus.yaml), [ServiceMonitor API](https://prometheus-operator.dev/docs/api-reference/api/#monitoring.coreos.com/v1.ServiceMonitor)
 
+![Operator가 ServiceMonitor 선택 결과를 설정에 반영하면 Prometheus가 발견된 sns-api Pod의 Actuator 메트릭을 15초마다 읽어 시계열로 저장한다. Grafana는 PromQL로 조회하며, p95는 Pod별 버킷의 rate를 le별로 합산해 추정한다.](image/05_prometheus_target_discovery_and_scrape.png)
+
+그림의 근거 · [Prometheus Operator의 ServiceMonitor](https://prometheus-operator.dev/docs/getting-started/design/) · [Spring Boot 3.5 Actuator Metrics](https://docs.spring.io/spring-boot/3.5/reference/actuator/metrics.html) · [PromQL 히스토그램 함수](https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile)
+
 ```bash
 kubectl --context kind-sns -n sns label svc sns-api app=sns-api --overwrite
 ```
