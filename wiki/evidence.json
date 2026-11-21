@@ -1,0 +1,52 @@
+[
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "1. 재접속에는 같은 클러스터 엔드포인트 호스트명을 사용한다. 새 Writer가 승격되면 이 호스트명이 가리키는 IP가 바뀐다. 이전 IP가 계속 조회되면 클라이언트의 DNS 캐시와 TTL을 확인한다. [Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "단일 리전 Aurora MySQL 클러스터 엔드포인트 직접 연결",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "Cluster endpoints for Amazon Aurora의 Writer 승격 후 IP 변경 및 DNS TTL 문단"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "2. Writer 풀에서 끊겼거나 이전 Writer에 남은 연결을 폐기하고 새 물리 연결을 연다. 풀에 연결을 반환하는 동작만으로는 새 Writer에 연결됐는지 확인할 수 없다. [Aurora 장애 전환과 기존 연결](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "RDS Proxy를 사용하지 않는 Aurora MySQL Writer 연결 풀",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html",
+      "locator": "Failover의 RDS Proxy 미사용 클라이언트에 대한 기존 연결 재개설 설명"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "3. 새 쓰기 연결에서 `SHOW GLOBAL VARIABLES LIKE 'innodb_read_only'`를 실행한다. `OFF`면 Writer, `ON`이면 Reader다. Reader로 연결되면 그 연결을 쓰기 풀에서 제외하고 엔드포인트와 DNS를 다시 확인한다. [Aurora MySQL 인스턴스 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "단일 리전 Aurora MySQL 연결의 Writer·Reader 역할 확인",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html",
+      "locator": "Determining which DB instance you are connected to의 SHOW GLOBAL VARIABLES와 ON/OFF 설명"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "4. 전송한 쓰기나 `COMMIT`의 응답을 받지 못했다면 새 Writer에서 기존 멱등 키로 처리 상태를 조회한다. 다시 실행해야 할 때는 같은 키를 사용하고 서비스의 중복 방지 규칙을 적용한다. [AWS 멱등 재시도 설계](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "영속 멱등 키로 주문 처리 상태를 조회하고 중복 실행을 막는 애플리케이션",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "Reducing client complexity with idempotent API design의 응답 유실 사례와 동일 요청 식별자 재사용 설계"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "RDS Proxy를 사용하면 유휴 클라이언트 연결은 유지될 수 있고, 전환 시 실행 중인 SQL이나 트랜잭션은 중단될 수 있다. [RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Aurora MySQL Writer에 RDS Proxy로 접속하는 애플리케이션",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html",
+      "locator": "Failover의 유휴 연결 유지 및 전환 중 트랜잭션·SQL 취소 설명"
+    }
+  }
+]
