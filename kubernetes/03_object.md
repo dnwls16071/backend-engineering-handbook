@@ -26,7 +26,9 @@
 | Service | 선택한 Pod 집합에 접근 지점과 요청 연결을 제공한다. | `selector`, `ports`, `type`이다. |
 | HPA | 메트릭을 기준으로 대상 워크로드의 복제 수를 조정한다. | `scaleTargetRef`, `minReplicas`, `maxReplicas`, `metrics`, `behavior`이다. |
 
-<img src="image/kubernetes_object_control_and_traffic.png" alt="HPA가 Deployment의 복제 수를 조정하고 Deployment와 ReplicaSet이 Pod를 생성·관리하는 파란 경로와, 요청하는 앱이 Service를 통해 Pod에 접근하는 초록 경로를 구분한 구조" width="400">
+![HPA가 Deployment의 복제 수를 조정하고 Deployment와 ReplicaSet이 Pod를 관리하는 흐름과, 앱이 Service를 통해 Pod에 접근하는 요청 흐름을 구분한 구조](image/kubernetes_object_control_and_traffic.png)
+
+그림의 근거 · [HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) · [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 - Deployment의 `replicas`는 원하는 Pod 수이고, `strategy`는 버전 교체 방식이다. 실제 Pod 생성과 수 유지는 ReplicaSet이 담당한다.
 - `template`은 새 Pod를 만들 때 사용하는 명세이다. 이미지나 Pod 템플릿을 변경하면 Deployment가 새 ReplicaSet을 만들어 배포를 진행한다.
@@ -43,7 +45,9 @@
 | `selector` | 라벨 조건을 만족하는 대상을 고른다. | Service가 `instance: orders-prod`인 Pod를 선택한다. |
 | 이름을 참조하는 필드 | 특정 종류와 이름의 리소스를 연결한다. | `scaleTargetRef`, `claimName`, `configMapRef` 등이다. |
 
-<img src="image/kubernetes_labels_and_selectors.png" alt="orders-http Service가 이름 대신 instance=orders-prod 라벨로 orders-a와 orders-b Pod를 선택하고 다른 instance 라벨의 billing-a Pod는 제외하는 예시" width="400">
+![orders-http Service가 이름 대신 instance=orders-prod 라벨로 orders-a와 orders-b Pod를 선택하고 다른 instance 라벨의 billing-a Pod는 제외하는 예시](image/kubernetes_labels_and_selectors.png)
+
+그림의 근거 · [라벨과 선택자](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) · [Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 - 라벨은 여러 오브젝트에 같은 값으로 붙일 수 있다. 라벨 자체가 리소스 이름처럼 유일성을 보장하지는 않는다.
 - 분류용 라벨도 선택자에서 사용하면 실제 동작에 영향을 준다. 정보성·기능성 라벨이 별도의 API 유형으로 나뉘는 것은 아니다.
@@ -120,7 +124,9 @@
 | PV | 제공 가능한 저장 자원을 표현하는 클러스터 범위 리소스이다. | `capacity`, `volumeMode`, `accessModes`, 저장소 연결 정보와 반환 정책 등이다. |
 | Pod의 볼륨 설정 | 사용할 PVC를 참조하고 컨테이너 경로로 연결한다. | `persistentVolumeClaim.claimName`과 `volumeMounts`이다. |
 
-<img src="image/kubernetes_pvc_pv_local_storage.png" alt="같은 Namespace의 Pod가 claimName으로 PVC를 참조하고 PVC는 클러스터 범위 PV와 바인딩되며, local PV는 nodeAffinity로 지정한 node-a의 디스크를 연결하는 구조" width="400">
+![같은 Namespace의 Pod가 claimName으로 PVC를 참조하고 PVC는 클러스터 범위 PV와 바인딩되며, local PV는 nodeAffinity로 지정한 node-a의 디스크를 연결하는 구조](image/kubernetes_pvc_pv_local_storage.png)
+
+그림의 근거 · [PV와 PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) · [local 볼륨](https://kubernetes.io/docs/concepts/storage/volumes/#local)
 
 - **일반적인 사용 관계는 Pod → PVC → PV → 실제 스토리지이다.** PVC와 PV의 이름이 같아야 연결되는 것은 아니다.
 - 바인딩에는 용량, 접근 모드, 볼륨 모드와 StorageClass 등의 조건이 사용된다. PVC의 선택자를 지정하면 PV 라벨 조건도 함께 만족해야 한다.
@@ -134,6 +140,10 @@
 - 이 PV를 사용하는 Pod는 해당 노드 조건을 만족해야 한다. Pod의 `nodeSelector`와 PV의 `nodeAffinity`가 서로 충돌하면 배치되지 않을 수 있다.
 - 경로가 같더라도 다른 노드의 디렉터리는 같은 저장소가 아니다. 로컬 데이터가 다른 노드로 자동 복제되지는 않는다.
 - Pod가 교체되어도 저장소를 재사용할 수 있다는 것과 노드 장애에도 데이터를 계속 사용할 수 있다는 것은 별개의 조건이다.
+
+![ReplicaSet이 Pod를 소유하고 Service는 라벨로 Pod를 선택한다. 같은 네임스페이스의 Pod는 ConfigMap과 PVC를 이름으로 참조한다.](image/03_ownership_selection_and_reference.png)
+
+그림의 근거 · [Kubernetes 소유자와 종속 객체](https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/) · [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/) · [Kubernetes ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) · [Kubernetes PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## 8. 오브젝트가 연결되지 않으면 이름보다 연결 필드를 따라 확인한다
 

@@ -12,7 +12,9 @@
 | EndpointSlice | Service에 연결된 대상의 IP·포트와 상태를 담는다. | 주소가 존재하는지, `conditions.ready`와 노드 정보가 기대와 같은지 확인한다. |
 | Pod | 앱이 실제 요청을 처리한다. | 라벨, 준비 상태와 실제 수신 포트가 맞는지 확인한다. |
 
-<img src="image/kubernetes_service_membership_update.png" alt="orders Service가 라벨과 준비 상태에 따라 기존 Pod와 새 Pod를 연결하고 종료된 Pod를 요청 대상에서 제외하는 흐름" width="400">
+![orders Service가 라벨과 준비 상태에 따라 기존 Pod와 새 Pod를 연결하고 종료 중인 Pod를 요청 대상에서 제외하는 흐름](image/kubernetes_service_membership_update.png)
+
+그림의 근거 · [Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/) · [EndpointSlice 상태](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 - 준비되지 않은 Pod도 EndpointSlice에 기록될 수 있다. **목록에 주소가 존재하는 것과 일반 트래픽 대상으로 사용되는 것은 다르다.** 기본적으로 준비된 대상을 사용하며 `publishNotReadyAddresses` 같은 예외 설정을 구분한다.
 - Readiness 실패는 Service의 일반 요청 대상에서 제외하는 동작이다. Pod IP 직접 접근이나 기존 연결까지 일괄 차단하는 네트워크 정책은 아니다.
@@ -39,6 +41,10 @@
 - 실제 전달 방식은 클러스터 구성에 따라 달라지며, CNI 구현이 kube-proxy의 역할을 대체할 수도 있다. CoreDNS 역시 Control Plane 노드에만 고정되는 구성 요소는 아니다.
 - 강의에 나온 네트워크 대역은 실습 예시이다. 실제 환경에서는 노드·Pod·Service·사내망 사이의 주소 충돌과 라우팅 조건을 확인한다.
 
+![클라이언트가 DNS에서 orders Service의 ClusterIP를 얻는다. Service 구현이 EndpointSlice 등에서 전달 규칙을 갱신하고 패킷은 준비된 Pod IP와 포트로 전달된다.](image/10_service_dns_control_and_packets.png)
+
+그림의 근거 · [Kubernetes Service DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) · [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
+
 ## 3. Service 유형과 세 가지 포트를 구분한다
 
 | 유형 | 제공하는 접속 방식 | 대표 용도 |
@@ -48,7 +54,9 @@
 | `LoadBalancer` | 지원되는 인프라의 로드밸런서를 구성한다. 일반적으로 NodePort도 할당한다. | 클러스터 외부의 사용자·사내 시스템에 서비스를 제공한다. |
 | `ExternalName` | Service 이름을 다른 DNS 이름의 별칭으로 연결한다. | 호출 대상의 DNS 이름을 Service 정의로 관리한다. |
 
-<img src="image/kubernetes_service_port_mapping.png" alt="내부 요청은 orders Service의 port 80을 사용하고 외부 요청은 Node IP의 nodePort 31231로 들어오며 targetPort http를 통해 Pod의 8080 포트로 연결되는 구조" width="400">
+![내부 요청은 orders Service의 port 80을 사용하고 외부 요청은 Node IP의 nodePort 31231로 들어오며 targetPort http를 통해 Pod의 8080 포트로 연결되는 구조](image/kubernetes_service_port_mapping.png)
+
+그림의 근거 · [Service 포트](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 | 필드 | 의미 | 예시 |
 | :--- | :--- | :--- |

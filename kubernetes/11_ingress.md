@@ -22,7 +22,9 @@
 
 ## 2. 설정을 읽는 경로와 사용자 요청 경로를 구분한다
 
-<img src="image/kubernetes_ingress_control_and_request_paths.png" alt="파란 경로에서는 Ingress와 IngressClass, Secret, Service와 EndpointSlice를 Kubernetes API로 조회해 Nginx 설정에 반영하고, 초록 경로에서는 외부 요청이 LoadBalancer와 Controller용 Service를 지나 Nginx에서 백엔드 Pod IP로 전달되는 구조" width="400">
+![Ingress와 관련 리소스를 Kubernetes API로 조회해 Nginx 설정을 갱신하는 경로와, 외부 요청이 로드밸런서와 Controller용 Service를 지나 Nginx에서 백엔드 Pod IP로 전달되는 경로](image/kubernetes_ingress_control_and_request_paths.png)
+
+그림의 근거 · [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) · [ingress-nginx 업스트림](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#service-upstream) · [Service 노출 방식](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 1. Controller가 Kubernetes API를 통해 자신이 담당하는 Ingress와 관련 리소스를 조회한다.
 2. Ingress의 호스트·경로, Service의 포트와 엔드포인트 정보를 프록시 설정에 반영한다.
@@ -159,6 +161,10 @@ tls:
 - 외부에는 80·443을 노출하고 내부 NodePort로 전달하는 구성이라면 외부 URL에 NodePort를 넣을 필요가 없다. 외부 포트와 클러스터 안의 전달 포트를 구분한다.
 - 원문의 `configuration-snippet` 방식은 Controller가 snippet annotation을 허용할 때만 적용할 수 있다. 임의 Nginx 설정을 삽입하는 기능이므로 외부 포트 매핑과 Controller의 지원 설정을 먼저 확인한다.
 
+![브라우저의 HTTPS 요청을 받은 Nginx 컨트롤러가 TLS를 종료하고 더 길게 일치하는 Prefix를 선택한다. 경로 매칭 이후 URI 재작성과 백엔드 HTTPS는 별도로 구성한다.](image/11_ingress_tls_and_longest_prefix.png)
+
+그림의 근거 · [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) · [ingress-nginx Rewrite 문서](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)
+
 ## 7. Ingress별 설정과 Controller 공통 설정을 구분한다
 
 | 설정 위치 | 예시 | 적용 범위 |
@@ -209,7 +215,9 @@ sessionAffinityConfig:
 
 ## 9. 트래픽 정책과 Client IP는 실제 네트워크 경로에 따라 판단한다
 
-<img src="image/kubernetes_ingress_local_traffic_policy.png" alt="Cluster 정책에서는 진입 노드에서 다른 노드의 준비된 Controller Pod로 전달할 수 있고, Local 정책에서는 진입 노드의 Controller Pod만 사용하므로 로컬 엔드포인트가 없는 노드로 보낸 트래픽은 전달되지 않는 비교" width="400">
+![Cluster 정책에서는 진입 노드에서 다른 노드의 준비된 Controller Pod로 전달할 수 있고, Local 정책에서는 진입 노드의 Controller Pod만 사용하므로 로컬 엔드포인트가 없는 노드로 보낸 트래픽은 전달되지 않는 비교](image/kubernetes_ingress_local_traffic_policy.png)
+
+그림의 근거 · [외부 트래픽 정책](https://kubernetes.io/docs/reference/networking/virtual-ips/#traffic-policies)
 
 | Service 필드·값 | 전달 범위 | 확인할 점 |
 | :--- | :--- | :--- |

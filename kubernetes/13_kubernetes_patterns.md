@@ -116,6 +116,10 @@ spec:
 
 - `kubectl get mydb -n default`에서 객체가 보이면 API 등록과 저장을 확인한 것이다. 실제 DB 생성은 컨트롤러가 객체를 읽고 하위 리소스에 반영했는지, 생성한 Pod가 준비됐는지까지 확인한다.
 
+![CRD가 MyDatabase API 타입과 스키마를 등록한다. MyDatabase 인스턴스가 저장되면 컨트롤러가 이를 읽어 StatefulSet 복제 수를 조정하는 예시다. DB 멤버십과 복제 정상 여부는 별도로 확인한다.](image/13_crd_and_operator_reconciliation.png)
+
+그림의 근거 · [Kubernetes CRD](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) · [Kubernetes Operator 패턴](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) · [Kubernetes 컨트롤러](https://kubernetes.io/docs/concepts/architecture/controller/)
+
 ## 7. 재조정은 선언한 상태에 실제 상태를 계속 맞추는 동작이다
 
 - **컨트롤러는 목표 상태와 실제 상태를 비교하고 필요한 변경을 반복 적용한다.** 예를 들어 `MyDatabase.spec.replicas`가 `2`에서 `3`으로 바뀌면 컨트롤러는 StatefulSet의 복제본 수를 맞추고 StatefulSet 컨트롤러가 Pod를 추가한다. DB 멤버 추가와 복제 상태 확인은 DB 구성과 Operator의 운영 로직에 달려 있다. [Kubernetes Controllers 문서](https://kubernetes.io/docs/concepts/architecture/controller/), [Operator 패턴 문서](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)

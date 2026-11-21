@@ -76,6 +76,10 @@
 - **etcd 스냅샷은 Kubernetes API의 클러스터 상태를 복원하는 데 쓰인다.** DB와 PV의 실제 데이터는 해당 백엔드의 복구 방식과 허용 가능한 데이터 손실 범위를 기준으로 보호한다. [Kubernetes etcd 운영 문서](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/), [PV·PVC와 볼륨 연결](12_pv_and_pvc.md)
 - 제거된 API는 저장소의 YAML과 배포 도구가 렌더링한 결과에서 함께 확인한다. 예를 들어 직접 작성한 YAML을 수정했어도 Chart나 Operator가 이전 API를 생성할 수 있다. [Deprecated API Migration Guide](https://kubernetes.io/docs/reference/using-api/deprecation-guide/), [Helm과 Kustomize](08_helm_vs_kustomize_comparing_and_using_together.md)
 
+![kubeadm 기반 클러스터에서 지원 버전과 백업을 확인하고 컨트롤 플레인과 워커를 순차 업그레이드한다. 워커는 노드 구성 갱신, drain, kubelet 업그레이드, uncordon으로 진행하며 상태를 검증한다.](image/14_kubeadm_upgrade_and_worker_gates.png)
+
+그림의 근거 · [kubeadm 업그레이드](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/) · [Kubernetes 노드 drain](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) · [Kubernetes 버전 차이 정책](https://kubernetes.io/releases/version-skew-policy/)
+
 ## 7. 컨트롤 플레인과 워커를 순차 작업하고 각 단계의 결과를 확인한다
 
 | 단계 | 진행 기준 | 완료 확인 |

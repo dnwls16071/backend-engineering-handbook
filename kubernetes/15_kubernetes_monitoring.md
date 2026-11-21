@@ -35,6 +35,10 @@
 - **ServiceMonitor의 Service 선택은 Service 객체의 라벨을 기준으로 한다.** Service가 Pod를 선택하는 라벨과 별도로 확인한다. Operator는 선택된 ServiceMonitor에서 수집 설정을 생성하고, 설정 리로더가 이를 Prometheus에 반영한다. [Prometheus Operator 문제 해결 가이드](https://prometheus-operator.dev/docs/platform/troubleshooting/), [Service와 EndpointSlice](10_service.md)
 - ingress-nginx에서는 사용자 요청을 받는 포트와 컨트롤러 메트릭을 제공하는 포트를 구분한다. Grafana에 들어가는 사용자 트래픽, Grafana가 Prometheus를 조회하는 트래픽, Prometheus가 컨트롤러의 메트릭을 수집하는 트래픽은 각각 연결 대상이 다르다. [ingress-nginx 메트릭 문서](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/), [Ingress 요청 경로](11_ingress.md)
 
+![Prometheus 리소스가 선택한 ServiceMonitor는 Service 라벨과 포트 이름을 사용한다. EndpointSlice에서 찾은 Pod 엔드포인트를 Prometheus가 HTTP로 수집하고 Grafana는 PromQL로 Prometheus를 조회한다.](image/15_prometheus_service_monitor_and_scrape_paths.png)
+
+그림의 근거 · [Prometheus Operator 설계](https://prometheus-operator.dev/docs/getting-started/design/) · [Prometheus Operator API](https://prometheus-operator.dev/docs/api-reference/api/) · [Grafana Prometheus 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
+
 ## 4. CPU·메모리의 요청량·상한·실측값을 함께 본다
 
 | 구분 | CPU | 메모리 |

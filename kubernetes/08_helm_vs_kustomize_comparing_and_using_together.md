@@ -15,7 +15,9 @@
 | 재사용에 적합한 경우 | 여러 팀·환경에 같은 앱 패키지를 제공하거나 외부 Chart를 사용한다. | 공통 YAML을 유지하며 환경별 변경을 명시적으로 관리한다. |
 | 복잡해지는 지점 | 조건문·헬퍼·서브차트가 늘어나면 최종 YAML을 추적하기 어려워진다. | overlay·패치가 여러 층으로 쌓이면 변경 순서와 대상을 추적하기 어려워진다. |
 
-<img src="image/helm_kustomize_rendering_models.png" alt="Helm은 Chart 템플릿에 환경별 values를 전달하고 Kustomize는 공통 base YAML에 환경별 overlay를 적용해 각각 일반 Kubernetes YAML을 생성하는 비교" width="400">
+![Helm은 Chart 템플릿에 환경별 values를 전달하고 Kustomize는 공통 base YAML에 환경별 overlay를 적용해 각각 일반 Kubernetes YAML을 생성하는 비교](image/helm_kustomize_rendering_models.png)
+
+그림의 근거 · [Helm Chart](https://helm.sh/docs/v3/topics/charts/) · [Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
 
 - 앱 개수만으로 도구를 정하지 않는다. 패키지 배포·의존성 관리·릴리스 이력이 필요한지, 일반 YAML과 패치로 변경을 설명하기 쉬운지를 판단한다.
 - Helm을 사용해도 Kustomize가 필요한 경우가 있으며, Kustomize도 큰 프로젝트에서 사용할 수 있다. 팀의 배포 방식과 유지보수 비용을 함께 본다.
@@ -219,6 +221,10 @@ kubectl apply -k ./app/overlays/prod
 - post-renderer의 실행 파일·플러그인 연동 방식 등은 Helm 버전에 따라 다를 수 있다. CI/CD에서 버전과 실행 방식을 고정한다.
 - 두 도구를 연결하면 관리 단계도 늘어난다. values나 단일 overlay로 충분하다면 불필요하게 겹치지 않는다.
 
+![Helm이 후처리한 매니페스트를 직접 설치하는 흐름과 helm template 출력에 Kustomize를 적용한 뒤 kubectl로 배포하는 흐름을 비교한다. 두 경로는 배포 이력의 관리 주체가 다르다.](image/08_helm_kustomize_apply_ownership.png)
+
+그림의 근거 · [Helm 3 Post Rendering](https://helm.sh/docs/v3/topics/advanced/) · [Helm 3 template](https://helm.sh/docs/v3/helm/helm_template/) · [Kubernetes Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
 ## 7. 배포 명령 실행과 Pod 교체 조건을 구분한다
 
 - **Deployment는 Pod 템플릿인 `spec.template`이 변경될 때 새 롤아웃을 시작한다.** 같은 YAML을 다시 적용하거나 Helm 릴리스 이력이 추가되는 것만으로 Pod가 반드시 교체되지는 않는다.
@@ -238,7 +244,9 @@ kubectl apply -k ./app/overlays/prod
 
 ## 8. 파이프라인에서는 생성 결과와 실제 배포 상태를 함께 검증한다
 
-<img src="image/helm_kustomize_delivery_pipeline.png" alt="Jenkins가 배포 버전과 환경을 선택하고 Helm 또는 Kustomize로 YAML을 생성한 뒤 차이를 검토하여 Kubernetes에 적용하고 Ready 상태와 앱 기능을 검증하는 흐름" width="400">
+![Jenkins가 배포 버전과 환경을 선택하고 Helm 또는 Kustomize로 YAML을 생성한 뒤 차이를 검토하여 Kubernetes에 적용하고 Ready 상태와 앱 기능을 검증하는 흐름](image/helm_kustomize_delivery_pipeline.png)
+
+그림의 근거 · [Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/) · [helm template](https://helm.sh/docs/v3/helm/helm_template/) · [Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/) · [Deployment 검증](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 | 단계·항목 | 확인할 내용 |
 | :--- | :--- |

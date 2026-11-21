@@ -132,3 +132,7 @@ curl -fsS http://127.0.0.1:18082/
 ```
 
 Application이 `Synced`와 `Healthy`에 도달하고 Nginx 페이지가 반환되는지 확인한다. 직접 운영하는 GitOps 저장소에서는 배포 브랜치 또는 승인한 버전을 `targetRevision`으로 지정한다. CI가 이미지를 빌드·검증하고 digest를 GitOps 저장소에 기록하면 Argo CD가 새 상태를 적용한다. 자동 동기화와 self-heal이 켜진 환경에서 복구할 때는 Git의 이미지 참조를 검증된 이전 digest로 되돌린다. Git에서 삭제한 리소스까지 자동 정리하려면 적용 범위를 검토한 뒤 `prune`을 활성화한다. [Argo CD · Automated Sync](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/) · [Argo CD · Sync Options](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/) · [CI에서 이미지 digest 기록하기](../observability/03_building_container_ci_with_github_actions.md)
+
+![Argo CD가 고정한 Git 커밋의 Helm 차트를 렌더링하고 라이브 상태와 비교해 Kubernetes에 동기화한다. guestbook-web의 Synced와 Healthy, 실제 HTTP 응답을 각각 확인한다.](image/18_argocd_helm_sync_and_verify_guestbook.png)
+
+그림의 근거 · [Argo CD 아키텍처](https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/) · [Argo CD Helm](https://argo-cd.readthedocs.io/en/stable/user-guide/helm/) · [Argo CD 자동 동기화](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/)

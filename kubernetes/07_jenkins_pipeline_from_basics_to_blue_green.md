@@ -70,7 +70,9 @@ pipeline {
 
 ## 3. 소스 버전, 릴리스 정의와 이미지 버전을 연결한다
 
-<img src="image/jenkins_pipeline_build_to_deploy.png" alt="Jenkins가 소스와 릴리스 정의를 가져와 빌드 및 테스트, 이미지 빌드와 업로드를 거친 뒤 Green 배포와 검증, 운영 Service 전환을 수행하는 단계" width="400">
+![Jenkins가 소스와 릴리스 정의를 가져와 빌드 및 테스트, 이미지 빌드와 업로드를 거친 뒤 Green 배포와 검증, 운영 Service 전환을 수행하는 단계](image/jenkins_pipeline_build_to_deploy.png)
+
+그림의 근거 · [Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/) · [Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 | 단계 | 주요 작업 | 다음 단계로 넘길 정보 |
 | :--- | :--- | :--- |
@@ -93,7 +95,9 @@ pipeline {
 - 색상은 배포 슬롯을 구분하는 이름이다. 항상 Blue가 구버전이고 Green이 신버전으로 고정되는 것은 아니며, 다음 배포에서 역할을 바꿀 수 있다.
 - Green 전용 검증 Service를 두면 운영 Service는 Blue를 바라보는 상태에서 QA나 스모크 테스트를 수행할 수 있다. 검증용 진입 경로의 접근 범위도 따로 정한다.
 
-<img src="image/kubernetes_blue_green_service_switch.png" alt="전환 전 운영 Service는 Blue를, 검증 Service는 Green을 연결하고, 검증 후 운영 Service의 slot 선택자를 green으로 바꾸며 Blue는 롤백을 위해 유지하는 구조" width="400">
+![전환 전 운영 Service는 Blue를, 검증 Service는 Green을 연결하고, 검증 후 운영 Service의 slot 선택자를 green으로 바꾸며 Blue는 롤백을 위해 유지하는 구조](image/kubernetes_blue_green_service_switch.png)
+
+그림의 근거 · [Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/) · [EndpointSlice 상태](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 | 구분 | RollingUpdate | Blue/Green |
 | :--- | :--- | :--- |
@@ -156,6 +160,10 @@ spec:
 - 자동화에는 대기 시간 제한, 실패 시 중단, 전환 전후 상태 기록과 재실행 시 동작을 포함한다. 이미 Green이 운영 중인 작업을 재실행하면서 이전 단계의 가정을 그대로 적용하지 않는다.
 - 같은 Service를 여러 배포 작업이 동시에 변경하지 않도록 실행을 제어한다. 한 작업의 롤백이 다른 작업이 배포한 버전을 되돌리지 않도록 현재 슬롯도 확인한다.
 - 전환 직후 Blue를 삭제하면 선택자만 되돌리는 빠른 복구 경로가 사라진다. 이전 환경을 얼마 동안 어떤 크기로 유지할지 배포 정책으로 정한다.
+
+![Jenkins가 검증한 이미지 digest로 Green 환경을 준비한 뒤 운영 Service selector를 전환한다. Blue 환경을 유지했다면 selector를 되돌릴 수 있고, 이전 앱과 공유 DB 상태의 호환 여부는 별도로 확인한다.](image/07_blue_green_traffic_rollback_boundary.png)
+
+그림의 근거 · [Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/) · [Kubernetes 이미지 digest](https://kubernetes.io/docs/concepts/containers/images/) · [Kubernetes Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 ## 7. 빠른 롤백에는 앱 밖의 상태도 되돌릴 수 있어야 한다
 

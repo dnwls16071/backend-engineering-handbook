@@ -18,7 +18,9 @@
 
 ## 2. 환경변수와 파일은 서로 다른 주입 경로이다
 
-<img src="image/kubernetes_configmap_secret_injection.png" alt="ConfigMap은 envFrom을 통해 환경변수로, Secret은 volumes와 volumeMounts를 통해 파일로 전달되고 앱이 두 설정을 읽어 적용하는 예시" width="400">
+![ConfigMap은 envFrom을 통해 환경변수로, Secret은 volumes와 volumeMounts를 통해 파일로 전달되고 앱이 두 설정을 읽어 적용하는 예시](image/kubernetes_configmap_secret_injection.png)
+
+그림의 근거 · [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) · [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) · [Spring Boot 외부 설정](https://docs.spring.io/spring-boot/reference/features/external-config.html)
 
 | 방식 | Pod에서 지정할 필드 | 동작 |
 | :--- | :--- | :--- |
@@ -88,9 +90,15 @@ spec:
 - Kubernetes의 `command`·`args`에서 환경변수를 치환할 때는 `$(VAR_NAME)` 형식을 사용한다. 셸을 실행하지 않는 인자에 `${VAR_NAME}`을 적었다고 셸 방식으로 자동 확장되지는 않는다.
 - Spring Boot가 환경변수를 직접 해석하는 방식과, 실행 명령을 만들 때 문자열을 치환하는 방식은 구분한다.
 
+![ConfigMap의 envFrom은 Spring Boot의 활성 프로필과 외부 파일 위치를 정한다. Secret 볼륨이 제공한 YAML은 해당 파일 위치에서 기동 시 읽는다. 주입 시점과 애플리케이션 적용 시점은 다르다.](image/05_spring_boot_profile_and_config_import.png)
+
+그림의 근거 · [Kubernetes ConfigMap 주입](https://kubernetes.io/docs/concepts/configuration/configmap/) · [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) · [Spring Boot 외부 설정](https://docs.spring.io/spring-boot/reference/features/external-config.html) · [Spring Boot 프로필](https://docs.spring.io/spring-boot/reference/features/profiles.html)
+
 ## 4. 객체 변경, 컨테이너 반영과 앱 적용을 구분한다
 
-<img src="image/kubernetes_configuration_update_paths.png" alt="설정 객체를 수정해도 기존 환경변수는 유지되어 컨테이너를 새로 시작해야 하고, 일반 볼륨은 파일이 나중에 갱신되지만 앱 재로딩이 필요하며, subPath 마운트는 자동 갱신되지 않는 차이" width="400">
+![설정 객체를 수정해도 기존 환경변수는 유지되어 컨테이너를 새로 시작해야 하고, 일반 볼륨은 파일이 나중에 갱신되지만 앱 재로딩이 필요하며, subPath 마운트는 자동 갱신되지 않는 차이](image/kubernetes_configuration_update_paths.png)
+
+그림의 근거 · [ConfigMap 변경 반영](https://kubernetes.io/docs/concepts/configuration/configmap/) · [Secret 변경 반영](https://kubernetes.io/docs/concepts/configuration/secret/)
 
 | 주입 방식 | ConfigMap·Secret을 수정한 뒤 | 앱에 적용하려면 |
 | :--- | :--- | :--- |

@@ -292,6 +292,10 @@ done
 
 첫 명령에서 `v1`이 다수이고 `v2`가 일부인지 확인한다. 두 번째 명령은 매번 `v2`를 반환한다. 버전 비율을 되돌릴 때는 `weighted` 규칙을 `100/0`으로 바꾸고, 헤더를 붙인 요청까지 모두 `v1`으로 되돌리려면 `force-v2` 규칙도 제거한다.
 
+![istiod가 Ingress Gateway의 Envoy에 프록시 구성을 배포한다. Envoy가 처음 일치한 VirtualService 규칙을 적용해 실습 헤더가 붙은 요청은 v2로, 그 밖의 요청은 v1과 v2에 90 대 10 가중치로 보낸다. Outlier Detection은 프록시가 반복 오류 엔드포인트를 임시 제외하는 설정이다.](image/19_istio_policy_and_envoy_canary_routing.png)
+
+그림의 근거 · [Istio 아키텍처](https://istio.io/latest/docs/ops/deployment/architecture/) · [Istio VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/) · [Istio DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/) · [Envoy Outlier Detection](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/outlier)
+
 ## 5. 테스트 헤더가 있는 호출에만 장애를 주입한다
 
 전용 실습의 gateway에서 `x-lab-fault: abort`는 HTTP 503을 반환하고, `x-lab-fault: delay`는 2초 기다린 뒤 `v1`으로 전달한다. 각 동작은 해당 헤더에 매칭된 요청의 100%에 적용된다. 장애 규칙을 헤더 카나리와 기본 분배 앞에 삽입하므로 두 헤더를 함께 보내면 장애 규칙이 우선한다. [Istio fault injection](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/)

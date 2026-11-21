@@ -76,6 +76,10 @@
 - Grafana에서 Loki를 조회할 때는 시간 범위와 서비스·Namespace 같은 인덱스 라벨로 후보 스트림을 좁힌다. 그 안에서 구조화 메타데이터나 본문으로 필터링하고, 본문에만 있는 JSON 필드는 파싱해서 조건을 적용한다. [LogQL 로그 쿼리](https://grafana.com/docs/loki/latest/query/log_queries/)
 - 장애 분석에서는 Prometheus와 Grafana에서 오류율이 오른 시간과 서비스를 찾고, 같은 범위의 Loki 로그에서 실패 이유와 `trace_id`를 확인할 수 있다. 트레이스 백엔드까지 연계했다면 같은 ID로 서비스 간 호출 흐름을 따라간다. [쿠버네티스 모니터링과 Grafana](15_kubernetes_monitoring.md), [OpenTelemetry 로그 데이터 모델](https://opentelemetry.io/docs/specs/otel/logs/data-model/)
 
+![Linux 노드의 컨테이너 로그 파일을 OpenTelemetry Collector가 읽어 속성을 보강한 뒤 OTLP HTTP로 Loki에 전송한다. Grafana는 시간과 라벨로 Loki 스트림을 좁혀 trace_id나 본문을 필터링한다.](image/16_otel_node_logs_to_loki_and_grafana.png)
+
+그림의 근거 · [Kubernetes 로깅](https://kubernetes.io/docs/concepts/cluster-administration/logging/) · [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/configuration/) · [Loki OTLP 수집](https://grafana.com/docs/loki/latest/send-data/otel/) · [Loki LogQL](https://grafana.com/docs/loki/latest/query/log_queries/)
+
 ## 8. 로그가 없거나 중복되면 수집과 조회 경로를 순서대로 확인한다
 
 | 증상 | 먼저 확인할 내용 |

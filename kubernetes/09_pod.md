@@ -33,12 +33,18 @@
 - **컨테이너 재시작과 Pod 교체는 다르다.** 같은 Pod 안에서 컨테이너가 재시작될 수 있고, Deployment가 삭제된 Pod 대신 새 Pod를 만들 수도 있다.
 - Deployment의 Pod처럼 `restartPolicy: Always`인 경우 앱이 종료 코드 `0`으로 끝나도 컨테이너가 다시 시작될 수 있다. 종료 코드만으로 Pod의 최종 상태를 단정하지 않는다.
 
+![Pod phase가 Running이어도 컨테이너에는 CrashLoopBackOff가 표시되고 Pod Ready는 false일 수 있다. 컨테이너 상태와 마지막 종료 사유, 재시작 횟수를 각각 확인한다.](image/09_pod_phase_container_state_and_readiness.png)
+
+그림의 근거 · [Kubernetes Pod 생명주기](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
+
 ## 3. Downward API로 지원되는 자기 Pod 정보를 주입한다
 
 - Downward API는 앱이 kube-apiserver를 직접 호출하지 않고도 일부 Pod·컨테이너 정보를 환경변수나 읽기 전용 파일로 받을 수 있게 한다.
 - `fieldRef`는 지원되는 Pod 필드를, `resourceFieldRef`는 CPU·메모리 요청량·제한량 같은 컨테이너 자원 필드를 참조한다.
 
-<img src="image/kubernetes_pod_information_paths.png" alt="Downward API는 자기 Pod의 지원 필드를 환경변수와 파일로 앱에 전달하고, Kubernetes API 조회는 ServiceAccount 인증과 RBAC 권한 확인을 거쳐 추가 상태 정보를 반환하는 두 경로" width="400">
+![Downward API는 자기 Pod의 지원 필드를 환경변수와 파일로 앱에 전달하고, Kubernetes API 조회는 ServiceAccount 인증과 RBAC 권한 확인을 거쳐 추가 상태 정보를 반환하는 두 경로](image/kubernetes_pod_information_paths.png)
+
+그림의 근거 · [Downward API](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/) · [ServiceAccount](https://kubernetes.io/docs/concepts/security/service-accounts/) · [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 
 | 얻을 정보 | 환경변수 | Downward API 볼륨 파일 |
 | :--- | :--- | :--- |
@@ -157,7 +163,9 @@ roleRef:
 - **일반적인 정상 삭제에서는 종료 유예 시간이 시작되고, `preStop`이 있으면 이를 실행한 뒤 기본적으로 SIGTERM을 전달한다.** 앱은 남은 시간 안에 작업을 마무리해야 한다.
 - 동시에 EndpointSlice 등 요청 경로에도 종료 상태가 반영된다. Service·로드밸런서의 전파가 컨테이너 종료와 정확히 같은 시각에 끝나는 것은 아니다.
 
-<img src="image/kubernetes_pod_graceful_termination.png" alt="Pod 삭제 후 요청 경로에서 제외되는 작업과 컨테이너 종료 절차가 병행되고, 종료 유예 시간 안에서 preStop과 SIGTERM 이후 앱 정리를 수행하며 시간 초과 시 강제 종료될 수 있는 흐름" width="400">
+![Pod 삭제 후 요청 경로에서 제외되는 작업과 컨테이너 종료 절차가 병행되고, 종료 유예 시간 안에서 preStop과 SIGTERM 이후 앱 정리를 수행하며 시간 초과 시 강제 종료될 수 있는 흐름](image/kubernetes_pod_graceful_termination.png)
+
+그림의 근거 · [Pod 종료 절차](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/) · [종료 중 엔드포인트](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/)
 
 | 순서·경로 | 수행할 작업 | 앱 개발자가 고려할 점 |
 | :--- | :--- | :--- |

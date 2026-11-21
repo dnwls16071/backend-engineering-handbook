@@ -48,12 +48,18 @@
 | AutoScaling | 부하에 따라 실행 인스턴스 수를 조정하는 작업이다. | HPA, 메트릭 공급 경로와 확장 기준을 설정하고 노드 자원을 확보한다. |
 | Rolling Update | 새 버전을 실행하고 준비 상태를 확인하며 이전 버전을 줄이는 작업이다. | Deployment 전략, readiness, 정상 종료와 버전 간 호환성을 준비한다. |
 
-<img src="image/kubernetes_service_membership_update.png" alt="클라이언트는 orders Service로 계속 접근하며, Service는 app=orders 라벨과 준비 상태를 기준으로 종료된 Pod를 제외하고 새 Pod를 요청 대상에 연결하는 흐름" width="400">
+![클라이언트는 orders Service로 계속 접근하며, Service는 app=orders 라벨과 준비 상태를 기준으로 종료 중인 Pod를 제외하고 새 Pod를 요청 대상에 연결하는 흐름](image/kubernetes_service_membership_update.png)
+
+그림의 근거 · [Service 선택자](https://kubernetes.io/docs/concepts/services-networking/service/) · [EndpointSlice 상태](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 - Self-Healing은 애플리케이션 버그를 고치는 기능이 아니다. 잘못된 설정이나 메모리 누수는 재시작 뒤에도 반복될 수 있다.
 - HPA는 Pod 수를 조정한다. 새 Pod를 실행할 노드 자원이 없으면 Pod가 대기할 수 있으며, 노드 확장은 별도의 체계가 필요하다.
 - CPU 사용률 기반 HPA는 보통 CPU `requests`를 기준으로 사용률을 계산한다. 메트릭 수집과 자원 설정을 함께 확인한다.
 - 롤링 업데이트를 사용해도 무중단이 자동으로 보장되지는 않는다. 새 Pod의 기동 시간, 요청 종료 처리와 DB 스키마 호환성을 검증한다.
+
+![목표 복제 수가 세 개인 Deployment에서 Pod 하나가 삭제되면 ReplicaSet이 새 Pod를 만든다. 새 Pod의 준비 조건이 반영되면 일반 Service 요청 대상이 될 수 있다.](image/02_reconcile_replicas_and_rejoin_service.png)
+
+그림의 근거 · [Kubernetes ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 ## 5. 서버 추가 시 따로 수정하던 설정을 줄인다
 
@@ -75,7 +81,9 @@
 - 공통 구성과 개발·검증·운영 환경의 차이를 나누면 같은 내용을 반복해서 수정하는 일을 줄일 수 있다.
 - 검증된 배포 구성을 다음 서비스에 재사용하고, 반복 작업 대신 상태 검사와 배포 품질 개선에 시간을 쓸 수 있다.
 
-<img src="image/kubernetes_declarative_operations.png" alt="공통 명세와 환경별 설정을 Git에서 기록·검토하고 별도 배포 도구로 클러스터에 적용하면 Deployment의 원하는 상태에 맞춰 Pod가 조정되는 흐름" width="400">
+![공통 명세와 환경별 설정을 Git에서 기록·검토하고 별도 배포 도구로 클러스터에 적용하면 Deployment의 원하는 상태에 맞춰 Pod가 조정되는 흐름](image/kubernetes_declarative_operations.png)
+
+그림의 근거 · [선언형 리소스 관리](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/) · [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 | 코드로 관리할 내용 | 기대 효과 |
 | :--- | :--- |

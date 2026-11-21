@@ -200,6 +200,10 @@ Liveness가 연속 세 번 실패하면 같은 Pod에서 컨테이너가 재시�
 lab_kubectl delete -n service-lab pod/web service/web configmap/web-config
 ```
 
+![실습에서 ConfigMap의 MESSAGE가 v2로 바뀌면 실행 중인 환경변수는 v1을 유지하고 일반 마운트 파일은 전파 뒤 v2로 바뀐다. Readiness 실패는 EndpointSlice 준비 조건을 바꾸고 Liveness 연속 실패는 같은 Pod의 컨테이너를 재시작시킨다.](image/17_configuration_and_probe_lab_observations.png)
+
+그림의 근거 · [Kubernetes ConfigMap 갱신](https://kubernetes.io/docs/concepts/configuration/configmap/) · [Kubernetes Probe 동작](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
+
 ## 7. Pod를 교체한 뒤에도 PVC의 파일이 남는지 확인한다
 
 `lab_kubectl get storageclass`에서 기본 StorageClass와 동적 프로비저너를 확인한다. 기본 클래스가 없으면 사용할 클래스 이름을 PVC의 `spec.storageClassName`에 지정한다. 아래를 `volume-lab.yaml`로 저장한다. 6절에서 만든 `service-lab`에 PVC와 테스트 Pod를 생성한다. Pod가 같은 이름으로 교체되어도 PVC는 유지된다. [Kubernetes · Persistent Volume 구성 실습](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)

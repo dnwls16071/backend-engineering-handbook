@@ -12,6 +12,10 @@
 - **리소스가 선언한 상태와 실제로 요청을 처리할 수 있는 상태를 구분한다.** Pod 수가 늘어도 기동이 끝나지 않으면 처리 용량은 바로 늘지 않는다.
 - 저장소의 접근 제약, 배포 중 추가 자원과 Service의 연결 대상은 서로 영향을 준다. 각 리소스의 설정을 따로 보는 것만으로 운영 동작을 판단하기 어렵다.
 
+![HPA는 Deployment의 목표 복제 수를 갱신하고 Service는 준비된 Pod로 요청을 전달한다. 같은 Pod는 claimName으로 PVC를 찾아 PV가 나타내는 저장소를 마운트한다.](image/06_workload_scaling_network_and_storage.png)
+
+그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) · [Kubernetes Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/) · [Kubernetes PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+
 ## 2. PV·PVC는 Pod의 수명과 저장 데이터의 수명을 분리한다
 
 - 컨테이너의 쓰기 가능 계층에 저장한 파일은 컨테이너를 새로 만들 때 유지되지 않는다. `emptyDir`도 Pod가 삭제되면 함께 사라지므로 장기 보관용 저장소가 아니다.
@@ -47,7 +51,9 @@
 - 이미지 등 Pod 템플릿을 바꾸면 Deployment가 새 ReplicaSet을 만들고 기존·신규 ReplicaSet의 복제 수를 조정한다.
 - `replicas`만 바꾸는 것은 복제 수 조정이다. Pod 템플릿 변경에 따른 새 버전 배포와 구분한다.
 
-<img src="image/kubernetes_deployment_rollout_strategies.png" alt="Recreate는 기존 Pod를 모두 종료한 뒤 새 버전을 기동해 요청 처리 공백이 생기고, RollingUpdate는 기존 버전을 유지하며 신규 Pod를 준비한 뒤 순차 교체하는 비교" width="400">
+![Recreate는 기존 Pod를 모두 종료한 뒤 새 버전을 기동해 요청 처리 공백이 생길 수 있고, RollingUpdate는 기존 버전을 유지하며 신규 Pod를 준비한 뒤 순차 교체하는 비교](image/kubernetes_deployment_rollout_strategies.png)
+
+그림의 근거 · [Deployment 전략](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 | 전략 | 교체 방식 | 운영상 특징 |
 | :--- | :--- | :--- |
@@ -85,7 +91,9 @@
 
 ### port, targetPort와 nodePort를 구분한다
 
-<img src="image/kubernetes_service_port_mapping.png" alt="클러스터 내부 요청은 orders Service의 port 80을 사용하고 외부 요청은 Node IP의 nodePort 31231로 들어오며, targetPort http는 Pod에 선언된 이름 http의 8080 포트로 연결되는 구조" width="400">
+![클러스터 내부 요청은 orders Service의 port 80을 사용하고 외부 요청은 Node IP의 nodePort 31231로 들어오며, targetPort http는 Pod에 선언된 이름 http의 8080 포트로 연결되는 구조](image/kubernetes_service_port_mapping.png)
+
+그림의 근거 · [Service 포트](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 | 필드 | 위치와 역할 | 예시 |
 | :--- | :--- | :--- |
@@ -149,7 +157,9 @@ Pod 2개, 각 CPU 요청량 100m
 
 ## 6. HPA는 확장 지연과 잦은 증감을 함께 고려해야 한다
 
-<img src="image/kubernetes_hpa_scaling_feedback.png" alt="현재 Pod의 CPU 메트릭을 수집한 뒤 HPA가 복제 수를 계산하고 Deployment와 ReplicaSet이 Pod를 늘리며, 노드 배치와 앱 기동 및 Ready 이후에야 실제 요청 처리 용량이 증가하는 흐름" width="400">
+![현재 Pod의 CPU 메트릭을 수집한 뒤 HPA가 복제 수를 계산하고 Deployment와 ReplicaSet이 Pod를 늘리며, 노드 배치와 앱 기동 및 Ready 이후에야 실제 요청 처리 용량이 증가하는 흐름](image/kubernetes_hpa_scaling_feedback.png)
+
+그림의 근거 · [CPU 기반 HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [EndpointSlice 상태](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 - 트래픽 증가부터 메트릭 수집, HPA 판단, 노드 배치, 이미지 다운로드와 앱 기동까지 시간이 걸린다. JVM 초기화나 캐시 준비가 길면 확장 효과가 더 늦게 나타난다.
 - HPA가 복제 수를 늘려도 배치할 노드 자원이 부족하면 Pod는 `Pending`에 머물 수 있다. 노드 수 확장은 별도의 기능과 용량 계획이 필요하다.

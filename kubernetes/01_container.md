@@ -13,7 +13,9 @@
 | 배포 단위 | 게스트 OS를 포함한 머신 이미지이다. | 애플리케이션과 실행에 필요한 파일을 담은 컨테이너 이미지이다. |
 | 자원과 기동 비용 | OS 전체를 기동하고 유지하는 비용이 있다. | 별도의 게스트 OS 없이 프로세스를 실행해 상대적으로 가볍다. |
 
-<img src="image/container_vm_kernel_comparison.png" alt="VM은 각자 게스트 OS와 커널을 갖고, Linux 컨테이너는 애플리케이션과 파일 환경을 나누면서 노드의 커널과 하드웨어 자원을 공유하는 구조" width="400">
+![VM은 각자 게스트 OS와 커널을 갖고, Linux 컨테이너는 애플리케이션과 파일 환경을 나누면서 노드의 커널과 하드웨어 자원을 공유하는 구조](image/container_vm_kernel_comparison.png)
+
+그림의 근거 · [Docker 컨테이너 개념](https://docs.docker.com/learn/content/what-is-a-container/)
 
 - 컨테이너는 VM 안에서도 실행할 수 있다. 클라우드 VM을 쿠버네티스 노드로 사용하는 구성이 가능하다.
 - macOS에서 Linux 컨테이너를 실행하는 경우에는 일반적으로 Linux VM을 통해 필요한 커널 환경을 제공한다.
@@ -63,7 +65,9 @@
 - 쿠버네티스에서는 각 노드의 kubelet이 CRI(Container Runtime Interface)를 통해 런타임에 실행을 요청한다.
 - **CRI는 kubelet과 런타임 사이의 통신 규약이고, OCI는 이미지 형식과 컨테이너 실행 방식 등의 표준이다.**
 
-<img src="image/container_runtime_execution_paths.png" alt="Docker CLI가 dockerd와 containerd를 거치는 실행 경로와 kubelet이 CRI로 containerd 또는 CRI-O를 호출하는 경로가 OCI 런타임과 Linux 커널로 이어지는 구조" width="400">
+![Docker CLI가 dockerd와 containerd를 거치는 실행 경로와 kubelet이 CRI로 containerd 또는 CRI-O를 호출하는 경로가 OCI 런타임과 Linux 커널로 이어지는 구조](image/container_runtime_execution_paths.png)
+
+그림의 근거 · [Docker 런타임](https://docs.docker.com/engine/daemon/alternative-runtimes/) · [Kubernetes CRI](https://kubernetes.io/docs/concepts/containers/cri/)
 
 - 이 흐름은 일반적인 Linux 실행 경로를 단순화한 것이다. 컨테이너 감시용 shim 등 세부 구성은 생략한다.
 - Kubernetes 1.24에서 제거된 dockershim은 kubelet과 Docker Engine을 연결하던 내장 연동 계층이다.
@@ -81,7 +85,9 @@
 - 다른 Pod의 DB에 접속할 때 `localhost`를 쓰면 자기 Pod를 가리킨다. 대상 Service의 이름과 포트를 사용한다.
 - Pod가 교체되면 이름과 IP가 바뀔 수 있다. 클라이언트는 개별 Pod IP보다 Service를 통해 접근한다.
 
-<img src="image/pod_localhost_and_service.png" alt="같은 Pod의 API와 보조 컨테이너는 IP와 포트 공간을 공유하며 localhost로 통신하고, 다른 Pod의 DB에는 db Service 이름으로 접근하는 예시" width="400">
+![같은 Pod의 API와 보조 컨테이너는 IP와 포트 공간을 공유하며 localhost로 통신하고, 다른 Pod의 DB에는 db Service 이름으로 접근하는 예시](image/pod_localhost_and_service.png)
+
+그림의 근거 · [Pod 네트워크](https://kubernetes.io/docs/concepts/workloads/pods/) · [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 ### 배포 요청이 실제 프로세스 실행으로 이어지는 순서
 
@@ -93,6 +99,10 @@
 
 - 각 구성요소는 API 서버를 통해 상태를 관찰하고 갱신한다. API 서버가 모든 컨테이너를 직접 실행하는 구조는 아니다.
 - 이 과정은 배포를 제어하는 흐름이다. 사용자 API 요청이 매번 kube-apiserver와 kubelet을 거쳐 애플리케이션에 전달되는 것은 아니다.
+
+![Deployment 선언에 맞춰 컨트롤러가 Pod를 만들고 스케줄러가 노드를 배정한다. 배정된 노드의 kubelet은 CRI로 런타임에 이미지 준비와 컨테이너 시작을 요청한다.](image/01_deployment_to_container_process.png)
+
+그림의 근거 · [Kubernetes 클러스터 구성요소](https://kubernetes.io/docs/concepts/architecture/) · [Kubernetes CRI](https://kubernetes.io/docs/concepts/containers/cri/) · [Kubernetes 이미지](https://kubernetes.io/docs/concepts/containers/images/)
 
 ## 6. 쿠버네티스는 원하는 상태를 유지하도록 운영 작업을 자동화한다
 

@@ -31,7 +31,9 @@
 
 ## 3. Pod는 PVC를 참조하고 PV가 실제 저장소를 표현한다
 
-<img src="image/kubernetes_pvc_pv_local_storage.png" alt="Pod가 claimName으로 같은 Namespace의 PVC를 참조하고 PVC가 클러스터 범위 PV에 바인딩되며, local PV의 nodeAffinity에 따라 저장 장치가 있는 노드에서 실행되는 구조" width="400">
+![Pod가 claimName으로 같은 Namespace의 PVC를 참조하고 PVC가 클러스터 범위 PV에 바인딩되며, local PV의 nodeAffinity에 따라 저장 장치가 있는 노드에서 실행되는 구조](image/kubernetes_pvc_pv_local_storage.png)
+
+그림의 근거 · [PV와 PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) · [local 볼륨](https://kubernetes.io/docs/concepts/storage/volumes/#local)
 
 | 구성요소·필드 | 역할 | 연결 기준 |
 | :--- | :--- | :--- |
@@ -96,6 +98,10 @@
 - `Immediate`는 PVC 생성 후 바인딩·프로비저닝을 진행한다. `WaitForFirstConsumer`는 PVC를 사용하는 Pod의 배치 조건을 고려할 수 있도록 처리를 늦춘다.
 - `WaitForFirstConsumer`라면 사용하는 Pod가 생기기 전 PVC가 `Pending`인 것이 정상일 수 있다.
 - `storageClassName`을 생략하면 기본 StorageClass가 적용될 수 있다. `storageClassName: ""`는 클래스 없는 PV를 요청하며 해당 PVC의 동적 생성을 사용하지 않는다. 자세한 필드는 [Kubernetes Storage Classes 문서](https://kubernetes.io/docs/concepts/storage/storage-classes/)를 참고한다.
+
+![WaitForFirstConsumer를 쓰면 첫 소비 Pod가 생길 때까지 PVC 바인딩과 프로비저닝을 미룬다. 스케줄러가 배치 제약과 토폴로지를 고려하고 CSI 프로비저너가 지원하는 방식으로 PV를 준비하면 PVC와 바인딩해 Pod에서 마운트한다.](image/12_pvc_wait_for_first_consumer.png)
+
+그림의 근거 · [Kubernetes StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) · [Kubernetes PV·PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## 6. 구축 위치와 앱의 사용 패턴을 나눠 선택한다
 

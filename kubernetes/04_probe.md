@@ -18,7 +18,9 @@
 
 ## 2. Startup 성공 후 Readiness와 Liveness가 독립적으로 동작한다
 
-<img src="image/kubernetes_probe_startup_and_checks.png" alt="startupProbe가 기동 완료를 확인한 뒤 readinessProbe와 livenessProbe가 독립적으로 실행되고, readiness는 Service 요청 대상을 조정하며 liveness 실패 기준 도달 시에는 컨테이너를 종료하는 흐름" width="400">
+![startupProbe가 기동 완료를 확인한 뒤 readinessProbe와 livenessProbe가 독립적으로 실행되고, readiness는 Service 요청 대상을 조정하며 liveness 실패 기준 도달 시에는 컨테이너를 종료하는 흐름](image/kubernetes_probe_startup_and_checks.png)
+
+그림의 근거 · [Kubernetes Probe](https://kubernetes.io/docs/concepts/workloads/pods/probes/)
 
 1. 컨테이너가 시작되면 설정한 Startup Probe로 기동 상태를 확인한다.
 2. Startup Probe가 성공하기 전에는 Readiness와 Liveness 검사를 실행하지 않는다.
@@ -52,6 +54,10 @@
 - Readiness는 Pod의 라벨이나 Service 선택자를 변경하지 않고 준비 상태를 바꾼다. 그 결과가 일반적인 Service 전달 대상에 반영된다.
 - **Readiness 실패는 네트워크 접근을 전부 금지하는 기능이 아니다.** Pod IP 직접 접근이나 이미 맺어진 연결까지 일괄 차단하는 것은 아니다.
 - 따라서 Pod 안에서 업무 API 호출은 성공해도 Service 경유 요청은 전달되지 않을 수 있다. 요청을 보낸 위치와 경로를 구분해 확인한다.
+
+![kubelet은 Pod IP의 검사 경로를 호출한다. 일반 클라이언트는 Service를 통해 준비된 엔드포인트의 업무 경로로 간다. 준비 상태는 일반 Service 전달 대상에 반영된다.](image/04_probe_and_service_request_paths.png)
+
+그림의 근거 · [Kubernetes Probe 설정](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) · [Kubernetes EndpointSlice](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 ## 4. 검사 간격, 시간 제한과 연속 실패 횟수를 함께 정한다
 
@@ -107,7 +113,9 @@ livenessProbe:
 
 ## 6. 일시적 장애를 불필요한 재시작으로 키우지 않는다
 
-<img src="image/kubernetes_probe_transient_failure.png" alt="일시적 장애 때 Readiness 실패로 Service 요청 대상에서 제외하고 Liveness는 실패 기준에 도달하기 전에 회복해 재시작 없이 요청을 재개하는 예시와, 실패가 지속되면 컨테이너를 종료하는 기준" width="400">
+![일시적 장애 때 Readiness 실패로 Service 요청 대상에서 제외하고 Liveness는 실패 기준에 도달하기 전에 회복해 재시작 없이 요청을 재개하는 예시와, 실패가 지속되면 컨테이너를 종료하는 기준](image/kubernetes_probe_transient_failure.png)
+
+그림의 근거 · [Kubernetes Probe](https://kubernetes.io/docs/concepts/workloads/pods/probes/)
 
 - 일시적인 과부하나 스레드 풀 포화는 요청 유입이 줄면 회복될 수 있다. 이때 Readiness로 일반 요청 대상을 조정하면서 프로세스를 유지할 수 있다.
 - Liveness가 너무 민감하면 회복 가능한 앱을 재시작하고, 초기화 비용과 남은 Pod의 부하를 늘려 장애를 키울 수 있다.
