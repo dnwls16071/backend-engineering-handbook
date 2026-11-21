@@ -17,6 +17,10 @@ docker exec lounge-ollama ollama list
 
 호스트에서 실행하는 Spring 애플리케이션에 `spring-ai-starter-model-ollama`를 추가하고 다음과 같이 연결한다. 앱도 같은 Compose 네트워크에서 실행하면 `localhost` 대신 해당 서비스 이름을 지정한다. [Spring AI · Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)
 
+![호스트 Spring 앱이 루프백 11434번 포트를 통해 Docker Ollama에 요청한다. Ollama 모델 파일은 /root/.ollama에 마운트한 이름 있는 볼륨으로 보존한다.](image/28_ollama_local_runtime_and_model_volume.png)
+
+그림의 근거 · [Ollama Docker](https://docs.ollama.com/docker) · [Spring AI Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)
+
 ```yaml
 spring:
   ai:

@@ -12,6 +12,10 @@ Model Context Protocol(MCP)은 애플리케이션이 다른 프로세스의 도�
 
 [Java 메서드로 만든 날씨 도구](08_calling_external_apis_with_spring_ai_tools.md)와 모델이 상호작용하는 방식은 동일하다. MCP를 추가하면 도구 발견과 실행이 별도 서버와의 프로토콜 호출을 거친다. 실습에서는 별도 프로세스를 HTTP로 연결하는 Streamable HTTP 전송을 사용한다. [MCP Architecture](https://modelcontextprotocol.io/docs/learn/architecture)
 
+![Spring AI 호스트는 모델에 도구 정의를 공개한다. 별도 프로세스의 MCP 날씨 서버에는 Streamable HTTP 클라이언트로 tools/list와 tools/call을 보내며 서버가 날씨 API를 호출한다.](image/09_mcp_streamable_http_tool_boundaries.png)
+
+그림의 근거 · [Spring AI MCP Client](https://docs.spring.io/spring-ai/reference/2.0/api/mcp/mcp-client-boot-starter-docs.html) · [MCP 도구](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) · [MCP Streamable HTTP](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)
+
 ## 2. MCP 서버
 
 별도 Gradle 프로젝트에 [채팅 API 예제](04_building_chat_apis_with_openai_and_ollama.md)의 Boot 설정과 BOM을 적용하고, 다음 의존성으로 구성한다. 앞 문서의 `WeatherTools.java`를 같은 경로인 `src/main/java/demo/ai/WeatherTools.java`에 복사한다. 나머지 서버 코드는 `src/main/java/demo/mcp/`에 둔다.

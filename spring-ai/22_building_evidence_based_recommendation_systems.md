@@ -37,6 +37,10 @@
 
 스키마로 누락된 필드와 허용되지 않는 상태 값을 검출한다. 각 근거 ID가 실제 검색 집합에 있는지와, 인용한 청크가 해당 항목을 지지하는지를 따로 확인한다. 모델이 제안한 점수를 쓰는 경우 점수의 집계, 필수 조건의 우선순위, 검토 전환은 버전이 있는 업무 정책으로 구현한다. [Spring AI · Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html) · [Spring AI · Evaluation Testing](https://docs.spring.io/spring-ai/reference/2.0/api/testing.html)
 
+![후보마다 같은 루브릭과 검색 조건으로 근거를 수집한다. 앱은 응답 형식, 검색 집합의 근거, 필수 조건을 확인하며 근거가 부족하거나 충돌할 때 담당자 검토로 보낸다.](image/22_recommendation_rubric_evidence_and_review.png)
+
+그림의 근거 · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html) · [Spring AI 평가 테스트](https://docs.spring.io/spring-ai/reference/2.0/api/testing.html)
+
 후보 누락, 오래된 루브릭, 검색 결과 없음, 같은 기준에 대한 상충 근거를 평가 데이터에 넣는다. 보고서에서 추천 정확도와 검토 전환 비율을 함께 보면 입력 데이터나 정책 변경의 영향을 비교할 수 있다.
 
 관련 문서 [Tuning and Evaluating RAG Systems](21_tuning_and_evaluating_rag_systems.md)

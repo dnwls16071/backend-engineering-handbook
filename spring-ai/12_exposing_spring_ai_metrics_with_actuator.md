@@ -2,6 +2,10 @@
 
 Spring AI는 채팅 모델 호출을 Micrometer Observation으로 기록한다. Spring Boot Actuator가 수집된 메트릭을 보여 주고 Prometheus 레지스트리가 스크레이프 형식으로 내보낸다. 실습은 Spring Boot 4.1.0과 Spring AI 2.0.2를 기준으로 한다. [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [Spring Boot Actuator Metrics](https://docs.spring.io/spring-boot/4.1/reference/actuator/metrics.html)
 
+![Spring AI 모델 호출을 Micrometer Observation으로 기록한다. Actuator에서는 개별 미터를 조회하거나 등록된 Prometheus 레지스트리의 스크레이프 형식으로 메트릭을 노출한다.](image/12_model_observation_to_actuator_endpoints.png)
+
+그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [Spring Boot 4.1 Actuator Metrics](https://docs.spring.io/spring-boot/4.1/reference/actuator/metrics.html)
+
 ## 1. 레지스트리와 엔드포인트 설정
 
 [채팅 API 프로젝트](04_building_chat_apis_with_openai_and_ollama.md)의 `build.gradle`에서 `dependencies`에 다음 두 항목을 추가한다.

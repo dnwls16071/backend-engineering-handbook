@@ -24,6 +24,10 @@
 
 CLI와 REST는 같은 서비스를 부른다. `ChatMemory.CONVERSATION_ID`는 호출마다 전달하며, 같은 ID를 쓰는 요청만 이전 메시지를 공유한다. 아래에서는 메모리에 최근 메시지 20개를 두고, 분류에는 메모리가 붙지 않은 클라이언트를 쓴다. 사용자가 대화 ID를 제공하는 서비스에서는 인증된 소유자와 ID의 관계를 확인한다. [Spring AI · Chat Memory](https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html)
 
+![문의 대화는 conversationId로 메모리를 찾는 ChatClient를 사용한다. 문의 긴급도 분류는 별도의 ChatClient로 Java 타입을 읽고 필수 값을 확인한다.](image/05_chat_memory_and_stateless_triage.png)
+
+그림의 근거 · [Spring AI Chat Memory](https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)
+
 ```java
 package demo.ai;
 

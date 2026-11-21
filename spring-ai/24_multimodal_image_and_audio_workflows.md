@@ -14,9 +14,9 @@ Vision 요청은 실제 이미지와 요청의 목적을 같은 사용자 메시
 
 ## 2. 콜센터 녹취 분석
 
-```text
-가상 녹취 → STT → 민감정보 마스킹 → 요약·분류 → 근거 구간 검토
-```
+![Vision은 텍스트와 이미지로 설명을 얻고, STT는 음성을 전사하고, TTS는 검증된 텍스트를 음성으로 만든다. 콜센터 예제는 전사 후 민감정보를 마스킹하고 분류·요약 뒤 근거 구간을 확인한다.](image/24_vision_speech_transcription_and_synthesis.png)
+
+그림의 근거 · [Spring AI Multimodality](https://docs.spring.io/spring-ai/reference/2.0/api/multimodality.html) · [Spring AI Audio Transcriptions](https://docs.spring.io/spring-ai/reference/2.0/api/audio/transcriptions/openai-transcriptions.html) · [Spring AI Text-to-Speech](https://docs.spring.io/spring-ai/reference/2.0/api/audio/speech/openai-speech.html)
 
 음성 파일 ID, 전사 구간 ID, 구조화 결과를 연결한다. “사용자가 배송 지연을 언급했는가”를 답할 때는 인용을 전사 구간과 대조하고, 잡음이나 화자 혼선으로 정확히 확인하기 어려우면 검토 상태를 반환한다. 음성 안내가 필요한 경우 검증된 답변만 TTS에 전달한다.
 

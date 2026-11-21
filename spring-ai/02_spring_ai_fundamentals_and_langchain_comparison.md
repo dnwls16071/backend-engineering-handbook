@@ -22,3 +22,7 @@ Spring AI 1.0은 2025년 5월 GA로 공개됐다. 첫 정식 릴리스는 모델
 - `VectorStore`는 문서와 메타데이터를 저장하고, 질의와 유사한 문서를 반환한다. 같은 인터페이스라도 인덱스 설정, 거리 함수, 점수 해석, 필터 지원은 저장소 설정에 따라 달라질 수 있다. [Spring AI · Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)
 
 배송 FAQ를 답하는 서비스는 먼저 벡터 저장소에서 관련 정책을 읽고, 그 내용을 채팅 모델에 전달한다. 검색 결과가 비었을 때 안내할 응답까지 서비스에서 정한다.
+
+![배송 FAQ를 구현하는 Java Spring AI와 Python LangChain 서비스가 각자의 벡터 검색과 채팅 모델 API를 연결한다. 검색 결과를 모델의 맥락에 넣고 근거가 부족할 때의 처리는 각 앱에서 정한다.](image/02_spring_ai_and_langchain_boundaries.png)
+
+그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html) · [LangChain Models](https://docs.langchain.com/oss/python/langchain/models) · [LangChain Vector Stores](https://docs.langchain.com/oss/python/integrations/vectorstores)

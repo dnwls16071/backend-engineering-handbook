@@ -11,6 +11,10 @@
 
 사용자 응답 시간이 길어졌다면 HTTP 전체 시간과 모델 호출 시간을 비교한다. 모델 호출 시간에는 검색과 앱 내부의 후처리 시간이 포함되지 않는다. 스트리밍의 첫 토큰 지연이 필요하면 스트림을 구독한 시점에서 첫 텍스트가 도착할 때까지 별도로 기록한다. [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html)
 
+![HTTP 요청 전체 시간과 모델 실행 시간은 서로 다른 구간이다. 스트리밍 첫 텍스트까지의 시간도 따로 기록하고, 비용·지연·오류·품질을 각각의 지표로 비교한다.](image/11_measuring_latency_cost_errors_and_quality.png)
+
+그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html)
+
 ## 실습 프로젝트 준비
 
 [채팅 API 프로젝트](04_building_chat_apis_with_openai_and_ollama.md)에서 OpenAI 또는 Ollama를 선택한다. 같은 모델로 일반 호출 `POST /api/chat`을 몇 번 보내고 응답 본문과 HTTP 시간을 확인한다. 이후 Actuator를 붙여 같은 요청의 모델 관측값을 비교한다.

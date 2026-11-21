@@ -4,9 +4,9 @@
 
 ## 1. 요청 체인과 애플리케이션 경계
 
-```text
-Controller → ChatService → ChatClient → Advisors → ChatModel → Provider
-```
+![Controller, ChatService, ChatClient와 Advisor, ChatModel, Provider를 차례로 통과한다. 앱은 완성 응답과 SSE의 HTTP 계약을 별도로 정의하고, 스트리밍 조각과 최종 상태를 구별한다.](image/16_chatclient_service_layers_and_http_contracts.png)
+
+그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Advisors](https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html)
 
 | 위치 | 책임 |
 | --- | --- |

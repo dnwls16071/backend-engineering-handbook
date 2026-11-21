@@ -6,6 +6,10 @@ LLM 서비스 비용은 요청 횟수뿐 아니라 모델이 읽고 생성한 �
 
 사용자 질문 한 건을 처리하는 동안 검색용 임베딩을 만들고, 채팅 모델을 여러 번 호출할 수 있다. 요청당 비용을 계산하려면 그 요청에서 실행한 작업을 함께 집계한다. 모델별 토큰 사용량은 사용량 증가의 원인을 좁히는 데 사용한다.
 
+![HTTP 요청 하나에 임베딩과 여러 번의 채팅 호출이 포함될 수 있다. 호출별로 입력, 출력, 캐시 등과 해당 단가를 적용해 합산한 뒤 공급자 비용 내역과 비교한다.](image/10_request_to_model_call_cost_breakdown.png)
+
+그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)
+
 | 관측 단위 | 확인할 항목 |
 | --- | --- |
 | HTTP 요청 | 완료 시간, 응답 상태, 요청 건수 |

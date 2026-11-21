@@ -18,6 +18,10 @@ Spring AI에서 `spring.ai.chat.client.observations.log-prompt`와 `spring.ai.ch
 
 검색 문서와 도구 응답도 외부 입력으로 취급한다. 모델 출력은 앱의 권한 판정에 직접 사용하지 않고, 가드레일 실패는 정책 ID와 결과 코드로 추적한다. [OWASP · LLM Prompt Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 
+![가드레일은 입력 권한과 형식, 호출 중 검색·도구·예산, 출력과 인용 검증에 배치한다. 관측에는 요청 ID와 결과를 기록하고 비용을 추적하며 원문 로깅은 기본적으로 끈다.](image/26_input_execution_output_guardrails.png)
+
+그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [OWASP 프롬프트 인젝션 방어](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
+
 ## 3. 배포 전 확인
 
 처리 데이터, 공급자에게 전달하는 항목, 보존 기간과 삭제 경로를 정리한다. 운영 로그와 추적 데이터에 대한 권한, 응답 오류 대응 절차와 롤백 버전을 확인한다. 비용 급등, 공급자 오류, 근거 없는 출력이 각각 독립적으로 탐지되는지 검증한다.

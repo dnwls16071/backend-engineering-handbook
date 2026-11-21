@@ -17,6 +17,10 @@ Spring 애플리케이션의 `RestClient`가 Dify를 호출한다. 키는 서버
 
 Dify의 `user`에는 애플리케이션이 발급한 안정적인 식별자를 전달한다. 새 대화 응답으로 받은 `conversation_id`는 애플리케이션 계정과 매핑하고 후속 호출에 추가한다. 응답의 `answer`와 필요한 출처만 서비스 계약으로 변환한다. 스트리밍을 선택할 때는 중간 이벤트와 완료 이벤트부터 애플리케이션 상태에 매핑한다. [Dify · End-User Identity](https://docs.dify.ai/en/api-reference/guides/end-user-identity) · [Dify · Service API Specification](https://github.com/langgenius/dify-docs/blob/main/en/api-reference/openapi_service.json)
 
+![Spring 앱이 사용자와 대화 소유권을 확인한 뒤 Bearer 인증으로 Dify Chatflow를 호출한다. Dify가 돌려준 대화 ID는 내부 계정에 연결하고 답변과 출처를 앱의 계약으로 검증한다.](image/25_dify_chatflow_and_conversation_mapping.png)
+
+그림의 근거 · [Dify Send Chat Message](https://docs.dify.ai/en/api-reference/chat-messages/send-chat-message) · [Dify Knowledge Retrieval](https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval)
+
 ## 2. 플랫폼과 코드의 역할
 
 | Spring 애플리케이션 | Dify |

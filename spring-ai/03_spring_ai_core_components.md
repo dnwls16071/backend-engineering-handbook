@@ -2,6 +2,10 @@
 
 Spring AI 요청은 `ChatClient`에서 메시지와 옵션을 구성하고, 어드바이저를 거쳐 `ChatModel`에 전달한다. 결과는 텍스트로 읽거나, 후속 로직이 처리할 Java 타입으로 변환할 수 있다. [Spring AI · Chat Client](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html)
 
+![ChatClient가 구성한 요청은 예시 Advisor들을 order에 따라 거쳐 ChatModel로 전달된다. 응답이 돌아올 때는 반대 순서로 처리하며 결과를 텍스트, ChatResponse, Java 타입으로 읽을 수 있다.](image/03_chatclient_advisor_chain_and_result_types.png)
+
+그림의 근거 · [Spring AI Advisors](https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html) · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)
+
 ## 1. 구성 요소별 역할
 
 | 구성 요소 | 역할 |

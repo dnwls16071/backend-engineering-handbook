@@ -87,6 +87,10 @@ spring.ai.ollama.chat.model=qwen2.5:3b
 
 Spring AI 2.0의 채팅 모델 속성은 `spring.ai.openai.chat.model`, `spring.ai.ollama.chat.model`이다. 두 프로파일 중 하나를 활성화하면 그 공급자의 모델이 선택된다. [Spring AI · OpenAI Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/openai-chat.html) · [Spring AI · Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)
 
+![OpenAI와 Ollama 프로파일이 같은 ChatClient의 채팅 모델을 선택한다. 일반 채팅 API는 완성된 답변을 JSON으로, 스트리밍 API는 Flux의 조각을 SSE로 반환한다.](image/04_chat_provider_profiles_and_sse.png)
+
+그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI OpenAI Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/openai-chat.html) · [Spring AI Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)
+
 ## 3. 동기 응답과 SSE 스트리밍
 
 아래 클래스는 `ChatClient.Builder` 자동 설정을 사용한다. 일반 호출에는 전체 답변을 담은 JSON을 보내고, 스트리밍 호출에는 조각을 SSE로 내보낸다.

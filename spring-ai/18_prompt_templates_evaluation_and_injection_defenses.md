@@ -18,6 +18,10 @@
 
 사용자 입력, 검색 문서와 도구 결과를 모두 외부 데이터로 취급한다. 메시지 역할 나누기와 데이터 구역 표시를 적용하고, 문서 접근 권한은 서버에서 필터링한다. 도구는 허용된 이름·인자·범위로 제한하고, 상태 변경은 애플리케이션에서 권한을 다시 확인한다. 출력 스키마를 검증한 다음 업무 로직에 전달한다. [OWASP · LLM Prompt Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 
+![앱의 템플릿과 외부 데이터를 메시지에서 구분하고 검색 범위 및 도구 권한을 서버가 적용한다. 모델 결과는 스키마와 권한을 검증해 사용하며 같은 입력으로 회귀 검사를 한다.](image/18_prompt_templates_and_untrusted_data_boundary.png)
+
+그림의 근거 · [OWASP 프롬프트 인젝션 방어](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) · [Spring AI Prompts](https://docs.spring.io/spring-ai/reference/2.0/api/prompt.html)
+
 합성 문서에 지시문처럼 보이는 문장을 넣어도 앱의 도구 권한과 검색 범위가 유지되는지 회귀 테스트한다. 차단·승인 판단과 로그에는 원문을 줄이고 정책 ID와 결과를 기록한다.
 
 관련 문서 [Operating AI Services with Observability and Guardrails](26_operating_ai_services_with_observability_and_guardrails.md)

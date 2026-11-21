@@ -119,6 +119,10 @@ done
 
 두 경우에서 `retrieved`와 `inputTokens`, `outputTokens`를 기록하고 답변에 ‘7일 이내’가 들어가는지 확인한다. 토큰 값이 `null`이거나 모델에서 사용량을 보고하지 않으면 비용 비교에서 제외한다. 실습 문서는 반품 기한을 반복해 추가 청크가 토큰에 미치는 영향을 보기 쉽게 구성했다. 품질을 평가할 때는 중복이 적은 실제 문서와 고정 질문 세트를 사용한다.
 
+![같은 질문과 설정에서 검색 상한을 4와 20으로 비교한다. 가상 입력·출력 토큰과 단가를 대입한 예시 비용은 각각 0.00063달러와 0.00183달러이며 실제 반환 청크와 토큰은 앱에서 확인한다.](image/14_rag_topk_token_cost_comparison.png)
+
+그림의 근거 · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)
+
 캐시를 제외한 비교용 단가를 입력 100만 토큰당 $0.50, 출력 100만 토큰당 $1.50으로 가정하면 다음과 같다. 아래 토큰 수는 계산 예시다.
 
 | topK | 입력 토큰 | 출력 토큰 | 요청당 추정 비용 |

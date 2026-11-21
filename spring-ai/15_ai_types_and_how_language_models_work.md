@@ -21,6 +21,10 @@ AI를 분류할 때는 시스템이 무엇을 할 수 있는지와 어떤 방식
 
 초기 언어 모델은 통계적 패턴을 이용했고, 이후 순환 신경망을 거쳐 2017년 트랜스포머가 발표됐다. GPT 계열은 트랜스포머를 바탕으로 대규모 사전 학습과 프롬프트 기반 작업 수행을 발전시켰다. 모델이 매끄러운 답을 생성해도 답의 사실성은 업무 데이터나 검색 근거로 검증한다. [Attention Is All You Need](https://arxiv.org/abs/1706.03762) · [Language Models Are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 
+![GPT 계열 생성 모델의 개념도다. 텍스트를 토큰으로 바꾸고 트랜스포머가 맥락을 반영해 다음 토큰을 선택한다. 선택한 토큰을 앞의 토큰에 붙여 생성 과정을 반복한다.](image/15_autoregressive_next_token_loop.png)
+
+그림의 근거 · [Attention Is All You Need](https://arxiv.org/abs/1706.03762) · [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
+
 ## 3. 모델과 공급자 선택
 
 후보를 비교할 때는 한국어 품질, 최대 입력·출력, 구조화 출력과 도구 호출 지원, 지연, 토큰 비용, 데이터 처리 조건을 같은 요청 세트로 평가한다. OpenAI API에 지정하는 모델 ID와 애플리케이션이 사용하는 Spring AI 인터페이스는 구성에서 각각 관리한다. 임베딩 모델을 교체하면 문서와 질의를 같은 모델로 임베딩할 수 있도록 재색인 계획을 세운다. [OpenAI · Models](https://platform.openai.com/docs/models) · [Spring AI](https://spring.io/projects/spring-ai/)

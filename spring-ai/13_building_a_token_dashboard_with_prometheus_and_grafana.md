@@ -2,6 +2,10 @@
 
 Spring Boot 앱이 모델 호출 지표를 노출하면 Prometheus가 주기적으로 읽고 Grafana가 그래프로 보여 준다. Docker Compose에서 Prometheus는 `app:8080`, Grafana는 `prometheus:9090`으로 연결된다. 호스트에서는 루프백으로 테스트 API와 대시보드를 연다. [Docker Compose Networking](https://docs.docker.com/compose/how-tos/networking/) · [Grafana Prometheus 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/prometheus/configure/)
 
+![Compose에서 Prometheus는 app의 Actuator를 스크레이프하고 Grafana는 Prometheus 서버를 조회한다. 토큰 사용량, 모델 호출 p95, HTTP 오류율은 서로 다른 시계열로 그린다.](image/13_compose_prometheus_grafana_token_dashboard.png)
+
+그림의 근거 · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/) · [Grafana Prometheus 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/prometheus/configure/) · [Prometheus 쿼리 함수](https://prometheus.io/docs/prometheus/latest/querying/functions/)
+
 ## 1. Compose와 Prometheus 설정
 
 [Actuator 설정](12_exposing_spring_ai_metrics_with_actuator.md)을 적용한 채팅 프로젝트의 `build.gradle`에 다음 항목을 추가한다.

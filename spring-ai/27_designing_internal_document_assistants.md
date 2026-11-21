@@ -4,16 +4,9 @@
 
 ## 1. 문서 적재와 질의 아키텍처
 
-```mermaid
-flowchart LR
-    A["Document ingestion"] --> B["Versioned chunks and access metadata"]
-    B --> C["Search index"]
-    D["Authenticated user"] --> E["Spring application and access policy"]
-    E --> F["Scoped retrieval"]
-    F --> C
-    F --> G["Spring AI or Dify generation"]
-    G --> H["Citation validation and response"]
-```
+![내부 문서를 버전과 열람 범위를 담은 청크로 적재한다. 질의는 인증된 접근 범위 내에서 검색해 Spring AI나 Dify에 근거를 제공한다. 반환한 인용을 검증해 답하거나 보류한다.](image/27_internal_document_assistant_acl_and_citations.png)
+
+그림의 근거 · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Dify Knowledge Retrieval](https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)
 
 문서에는 소유 팀, 버전, 공개 범위와 청크 ID를 붙인다. 요청을 받은 Spring 애플리케이션이 인증 정보로 조회 범위를 결정한다. Dify를 응답 생성에 쓸 때도 동일한 조회 범위가 적용된 검색 결과만 전달한다. Dify가 직접 검색하는 경우 배포한 흐름의 지식 선택과 접근 범위가 동일한 조건을 충족하도록 검증한다. [Spring AI · RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Dify · Knowledge Retrieval](https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval)
 

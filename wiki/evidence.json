@@ -2158,5 +2158,1281 @@
       "url": "https://www.postgresql.org/docs/18/runtime-config-query.html#GUC-ENABLE-INDEXONLYSCAN",
       "locator": "19.7.1 Planner Method Configuration · enable_indexonlyscan; SET LOCAL의 트랜잭션 범위는 SET 문서. 기본 설정의 접근 경로는 실습 관측."
     }
+  },
+  {
+    "page": "observability/01_containerizing_spring_boot_with_jib_and_docker_compose.md",
+    "claim": "![Jib이 sns-api:local 이미지를 로컬 Docker에 저장한다. Compose로 실행한 앱에는 호스트의 게시 포트로 접근하고, 앱은 기본 네트워크에서 서비스 이름으로 PostgreSQL, Redis, RustFS에 연결한다.](image/01_jib_image_and_compose_runtime.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jib Gradle 3.5.4 · Java 21 · 문서의 로컬 Docker Compose 구성에서 앱 포트만 게시",
+    "source": {
+      "url": "https://github.com/GoogleContainerTools/jib/blob/v3.5.4-gradle/jib-gradle-plugin/README.md",
+      "locator": "Build your image to a Docker daemon · jibDockerBuild"
+    }
+  },
+  {
+    "page": "observability/01_containerizing_spring_boot_with_jib_and_docker_compose.md",
+    "claim": "그림의 근거 · [Jib Gradle 3.5.4](https://github.com/GoogleContainerTools/jib/blob/v3.5.4-gradle/jib-gradle-plugin/README.md) · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Jib Gradle 3.5.4 · Java 21 · 문서의 로컬 Docker Compose 구성에서 앱 포트만 게시",
+    "source": {
+      "url": "https://github.com/GoogleContainerTools/jib/blob/v3.5.4-gradle/jib-gradle-plugin/README.md",
+      "locator": "Build your image to a Docker daemon · jibDockerBuild"
+    }
+  },
+  {
+    "page": "observability/02_deploying_spring_boot_on_kind_with_gateway_api.md",
+    "claim": "![GatewayClass, Gateway, HTTPRoute는 Traefik이 읽는 설정이다. 호스트 요청은 포트 포워딩으로 Traefik에 들어가고, sns.localhost의 /api에 매칭되면 sns-api Service에서 발견한 백엔드 엔드포인트로 전달된다.](image/02_kind_gateway_request_and_route_configuration.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "로컬 kind-sns · Gateway API v1 · 문서의 Traefik Helm Chart 42.4.1과 sns 네임스페이스 라우팅 구성",
+    "source": {
+      "url": "https://gateway-api.sigs.k8s.io/reference/api-types/httproute/",
+      "locator": "Hostnames, ParentRefs, Rules와 BackendRefs"
+    }
+  },
+  {
+    "page": "observability/02_deploying_spring_boot_on_kind_with_gateway_api.md",
+    "claim": "그림의 근거 · [Gateway API HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) · [Traefik Kubernetes Gateway](https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/gateway-api/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "로컬 kind-sns · Gateway API v1 · 문서의 Traefik Helm Chart 42.4.1과 sns 네임스페이스 라우팅 구성",
+    "source": {
+      "url": "https://gateway-api.sigs.k8s.io/reference/api-types/httproute/",
+      "locator": "Hostnames, ParentRefs, Rules와 BackendRefs"
+    }
+  },
+  {
+    "page": "observability/03_building_container_ci_with_github_actions.md",
+    "claim": "![main 푸시로 Build가 시작된다. 테스트가 실패하면 이미지 게시와 후속 Job이 생략된다. 성공하면 Jib이 GHCR에 이미지를 게시하고, Update Manifest는 Build의 출력에서 받은 digest를 deploy-config에 기록한다.](image/03_github_actions_image_digest_handoff.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 GitHub Actions Workflow · Jib Gradle 3.5.4 · main과 deploy-config의 분리",
+    "source": {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs",
+      "locator": "Defining and using job outputs · needs로 의존 Job의 출력 소비"
+    }
+  },
+  {
+    "page": "observability/03_building_container_ci_with_github_actions.md",
+    "claim": "그림의 근거 · [GitHub Actions Job 출력](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [Workflow 의존성](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idneeds) · [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 GitHub Actions Workflow · Jib Gradle 3.5.4 · main과 deploy-config의 분리",
+    "source": {
+      "url": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs",
+      "locator": "Defining and using job outputs · needs로 의존 Job의 출력 소비"
+    }
+  },
+  {
+    "page": "observability/04_deploying_applications_with_argo_cd_and_gitops.md",
+    "claim": "![repo-server가 deploy-config의 매니페스트를 생성하면 application-controller가 Kubernetes의 실제 상태와 비교한다. Sync 상태와 Health는 별도로 표시하고, 동기화에서는 설정에 따라 수동 적용, Self-Heal이나 Prune을 수행한다.](image/04_argocd_desired_live_reconciliation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Argo CD 3.5.7 · 문서의 sns-api Application · 첫 수동 동기화와 이후 자동 정책 실습",
+    "source": {
+      "url": "https://argo-cd.readthedocs.io/en/release-3.5/operator-manual/architecture/",
+      "locator": "Repository Server와 Application Controller의 역할, OutOfSync 상태"
+    }
+  },
+  {
+    "page": "observability/04_deploying_applications_with_argo_cd_and_gitops.md",
+    "claim": "그림의 근거 · [Argo CD 3.5 아키텍처](https://argo-cd.readthedocs.io/en/release-3.5/operator-manual/architecture/) · [Argo CD 3.5 자동 동기화](https://argo-cd.readthedocs.io/en/release-3.5/user-guide/auto_sync/) · [Argo CD 상태 개념](https://argo-cd.readthedocs.io/en/stable/core_concepts/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Argo CD 3.5.7 · 문서의 sns-api Application · 첫 수동 동기화와 이후 자동 정책 실습",
+    "source": {
+      "url": "https://argo-cd.readthedocs.io/en/release-3.5/operator-manual/architecture/",
+      "locator": "Repository Server와 Application Controller의 역할, OutOfSync 상태"
+    }
+  },
+  {
+    "page": "observability/05_monitoring_spring_boot_with_prometheus_and_grafana.md",
+    "claim": "![Operator가 ServiceMonitor 선택 결과를 설정에 반영하면 Prometheus가 발견된 sns-api Pod의 Actuator 메트릭을 15초마다 읽어 시계열로 저장한다. Grafana는 PromQL로 조회하며, p95는 Pod별 버킷의 rate를 le별로 합산해 추정한다.](image/05_prometheus_target_discovery_and_scrape.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5 Actuator · kube-prometheus-stack 92.10.0 · 문서의 15초 ServiceMonitor 및 클래식 히스토그램",
+    "source": {
+      "url": "https://prometheus-operator.dev/docs/getting-started/design/",
+      "locator": "Config-Based Resources → ServiceMonitor · Service와 Pod 엔드포인트 발견"
+    }
+  },
+  {
+    "page": "observability/05_monitoring_spring_boot_with_prometheus_and_grafana.md",
+    "claim": "그림의 근거 · [Prometheus Operator의 ServiceMonitor](https://prometheus-operator.dev/docs/getting-started/design/) · [Spring Boot 3.5 Actuator Metrics](https://docs.spring.io/spring-boot/3.5/reference/actuator/metrics.html) · [PromQL 히스토그램 함수](https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5 Actuator · kube-prometheus-stack 92.10.0 · 문서의 15초 ServiceMonitor 및 클래식 히스토그램",
+    "source": {
+      "url": "https://prometheus-operator.dev/docs/getting-started/design/",
+      "locator": "Config-Based Resources → ServiceMonitor · Service와 Pod 엔드포인트 발견"
+    }
+  },
+  {
+    "page": "observability/06_centralizing_spring_boot_logs_with_opentelemetry_and_loki.md",
+    "claim": "![노드 런타임이 Spring Boot의 표준 출력을 CRI 로그로 기록한다. 같은 노드의 Collector가 파일을 읽고 Kubernetes 속성을 붙여 Loki로 보낸다. Loki에서 서비스와 네임스페이스는 인덱스 라벨, Pod 이름은 구조화 메타데이터, traceId는 JSON 본문에 둔다.](image/06_node_log_collection_and_loki_storage.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5의 Logstash JSON · Collector Helm Chart 0.179.0의 DaemonSet · 문서의 Loki OTLP 속성 매핑",
+    "source": {
+      "url": "https://opentelemetry.io/docs/platforms/kubernetes/helm/collector/",
+      "locator": "Logs Collection Preset와 Kubernetes Attributes Preset"
+    }
+  },
+  {
+    "page": "observability/06_centralizing_spring_boot_logs_with_opentelemetry_and_loki.md",
+    "claim": "그림의 근거 · [Collector Helm Chart의 로그 수집](https://opentelemetry.io/docs/platforms/kubernetes/helm/collector/) · [OpenTelemetry CRI 로그 파서](https://opentelemetry.io/blog/2024/otel-collector-container-log-parser/) · [Loki OTLP 속성 매핑](https://grafana.com/docs/loki/latest/send-data/otel/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5의 Logstash JSON · Collector Helm Chart 0.179.0의 DaemonSet · 문서의 Loki OTLP 속성 매핑",
+    "source": {
+      "url": "https://opentelemetry.io/docs/platforms/kubernetes/helm/collector/",
+      "locator": "Logs Collection Preset와 Kubernetes Attributes Preset"
+    }
+  },
+  {
+    "page": "observability/07_tracing_distributed_requests_with_opentelemetry_and_tempo.md",
+    "claim": "![하나의 Trace ID에 sns-api SERVER, sns-api CLIENT, sns-recommend SERVER, recommendation.lookup INTERNAL Span이 부모에서 자식 순서로 이어진다. 서비스 경계에서는 HTTP traceparent가 Trace ID와 CLIENT Span의 ID를 전달한다.](image/07_distributed_trace_span_hierarchy.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5와 Go otelhttp를 사용한 문서의 동기 HTTP 호출 · W3C Trace Context",
+    "source": {
+      "url": "https://www.w3.org/TR/trace-context/#traceparent-header",
+      "locator": "trace-id, parent-id, trace-flags"
+    }
+  },
+  {
+    "page": "observability/07_tracing_distributed_requests_with_opentelemetry_and_tempo.md",
+    "claim": "그림의 근거 · [W3C traceparent 헤더](https://www.w3.org/TR/trace-context/#traceparent-header) · [OpenTelemetry Context Propagation](https://opentelemetry.io/docs/concepts/context-propagation/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.5와 Go otelhttp를 사용한 문서의 동기 HTTP 호출 · W3C Trace Context",
+    "source": {
+      "url": "https://www.w3.org/TR/trace-context/#traceparent-header",
+      "locator": "trace-id, parent-id, trace-flags"
+    }
+  },
+  {
+    "page": "observability/07_tracing_distributed_requests_with_opentelemetry_and_tempo.md",
+    "claim": "![Spring과 Go의 Exporter가 Span을 Collector의 4318번 포트로 전송한다. traces 파이프라인은 memory_limiter와 batch를 거쳐 Tempo의 4317번 포트로 내보낸다. Grafana는 Tempo의 3200번 포트에서 트레이스를 조회한다.](image/07_otlp_trace_pipeline_to_tempo.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Collector Helm Chart 0.179.0 · Tempo 3.0.2 단일 바이너리 · 문서의 평문 OTLP 실습 설정과 포트",
+    "source": {
+      "url": "https://opentelemetry.io/docs/collector/configuration/",
+      "locator": "Service pipelines · receivers, processors, exporters"
+    }
+  },
+  {
+    "page": "observability/07_tracing_distributed_requests_with_opentelemetry_and_tempo.md",
+    "claim": "그림의 근거 · [OpenTelemetry Collector 파이프라인 설정](https://opentelemetry.io/docs/collector/configuration/) · [OpenTelemetry Collector에서 Tempo로 전송](https://grafana.com/docs/tempo/latest/set-up-for-tracing/instrument-send/set-up-collector/otel-collector/) · [Grafana Tempo 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Collector Helm Chart 0.179.0 · Tempo 3.0.2 단일 바이너리 · 문서의 평문 OTLP 실습 설정과 포트",
+    "source": {
+      "url": "https://opentelemetry.io/docs/collector/configuration/",
+      "locator": "Service pipelines · receivers, processors, exporters"
+    }
+  },
+  {
+    "page": "observability/08_alerting_and_responding_to_incidents_with_grafana.md",
+    "claim": "![Prometheus는 실습용 PromQL 규칙을 평가한다. 조건을 처음 충족하면 Pending, 매 평가에서 1분간 유지하면 Firing이다. Alertmanager는 발화한 알림을 그룹화해 설정된 수신자로 보내며, 복구는 HTTP 응답과 수집 상태, 메트릭도 함께 확인한다.](image/08_prometheus_alert_states_and_recovery.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "sns-api의 /lab/observability 실습 · 규칙 평가 15초, 데이터 창 2분, for 1분 · 수신자는 선택 설정",
+    "source": {
+      "url": "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/",
+      "locator": "for, pending 및 firing과 평가 상태"
+    }
+  },
+  {
+    "page": "observability/08_alerting_and_responding_to_incidents_with_grafana.md",
+    "claim": "그림의 근거 · [Prometheus 알림 규칙](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) · [Alertmanager 라우팅](https://prometheus.io/docs/alerting/latest/configuration/#route) · [Grafana Drilldown](https://grafana.com/docs/grafana/latest/visualizations/simplified-exploration/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "sns-api의 /lab/observability 실습 · 규칙 평가 15초, 데이터 창 2분, for 1분 · 수신자는 선택 설정",
+    "source": {
+      "url": "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/",
+      "locator": "for, pending 및 firing과 평가 상태"
+    }
+  },
+  {
+    "page": "observability/09_investigating_incidents_with_observability_data_and_ai.md",
+    "claim": "![같은 UTC 구간에서 Prometheus로 지연 범위를 좁히고, Tempo의 정상 및 느린 트레이스를 비교한 뒤 Loki에서 같은 Trace ID의 로그를 읽는다. 캐시 미스 가설은 반례와 대조해 관측 사실과 구분해 보고한다.](image/09_incident_evidence_correlation_and_hypotheses.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 SNS 지연 가상 조사 · Prometheus, Loki, Tempo 읽기 접근만 허용된 조건 · cache_miss는 실습용 속성",
+    "source": {
+      "url": "https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/",
+      "locator": "Trace to logs와 Loki derived fields로 연결하는 방법"
+    }
+  },
+  {
+    "page": "observability/09_investigating_incidents_with_observability_data_and_ai.md",
+    "claim": "그림의 근거 · [Grafana의 트레이스와 로그 연계](https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/) · [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries) · [Loki HTTP API](https://grafana.com/docs/loki/latest/reference/loki-http-api/) · [OpenTelemetry Sampling](https://opentelemetry.io/docs/concepts/sampling/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 SNS 지연 가상 조사 · Prometheus, Loki, Tempo 읽기 접근만 허용된 조건 · cache_miss는 실습용 속성",
+    "source": {
+      "url": "https://grafana.com/docs/grafana/latest/datasources/tempo/configure-tempo-data-source/",
+      "locator": "Trace to logs와 Loki derived fields로 연결하는 방법"
+    }
+  },
+  {
+    "page": "spring-ai/01_llm_fundamentals_for_backend_developers.md",
+    "claim": "![배송 문의의 프롬프트에는 앱의 역할과 응답 규칙, 사용자 문의, 필요한 근거와 이력이 들어간다. 입력 토큰과 출력에 필요한 공간을 함께 고려하고, 앱이 응답 형식과 근거를 검증한다.](image/01_prompt_messages_and_context_budget.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "배송 문의의 설명용 예시 · 정확한 한도와 사용량은 공급자 및 모델별로 다름",
+    "source": {
+      "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "locator": "Message roles and instruction placement"
+    }
+  },
+  {
+    "page": "spring-ai/01_llm_fundamentals_for_backend_developers.md",
+    "claim": "그림의 근거 · [OpenAI 프롬프트 설계](https://developers.openai.com/api/docs/guides/prompt-engineering) · [OpenAI 토큰](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)",
+    "checked_on": "2026-11-21",
+    "applies_to": "배송 문의의 설명용 예시 · 정확한 한도와 사용량은 공급자 및 모델별로 다름",
+    "source": {
+      "url": "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
+      "locator": "Input, output, cached and context token accounting"
+    }
+  },
+  {
+    "page": "spring-ai/02_spring_ai_fundamentals_and_langchain_comparison.md",
+    "claim": "![배송 FAQ를 구현하는 Java Spring AI와 Python LangChain 서비스가 각자의 벡터 검색과 채팅 모델 API를 연결한다. 검색 결과를 모델의 맥락에 넣고 근거가 부족할 때의 처리는 각 앱에서 정한다.](image/02_spring_ai_and_langchain_boundaries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0.2와 LangChain Python의 문서에 나온 구성 방식 비교",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html",
+      "locator": "Request, Call and Stream Response, tool auto-registration"
+    }
+  },
+  {
+    "page": "spring-ai/02_spring_ai_fundamentals_and_langchain_comparison.md",
+    "claim": "그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html) · [LangChain Models](https://docs.langchain.com/oss/python/langchain/models) · [LangChain Vector Stores](https://docs.langchain.com/oss/python/integrations/vectorstores)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0.2와 LangChain Python의 문서에 나온 구성 방식 비교",
+    "source": {
+      "url": "https://docs.langchain.com/oss/python/integrations/vectorstores",
+      "locator": "Store integration, similarity_search and retrievers"
+    }
+  },
+  {
+    "page": "spring-ai/03_spring_ai_core_components.md",
+    "claim": "![ChatClient가 구성한 요청은 예시 Advisor들을 order에 따라 거쳐 ChatModel로 전달된다. 응답이 돌아올 때는 반대 순서로 처리하며 결과를 텍스트, ChatResponse, Java 타입으로 읽을 수 있다.](image/03_chatclient_advisor_chain_and_result_types.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 체인을 위임하고 응답을 처리하는 일반 동기 Advisor 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html",
+      "locator": "Advisor ordering: small order for requests, reverse for response processing"
+    }
+  },
+  {
+    "page": "spring-ai/03_spring_ai_core_components.md",
+    "claim": "그림의 근거 · [Spring AI Advisors](https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html) · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 체인을 위임하고 응답을 처리하는 일반 동기 Advisor 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html",
+      "locator": "entity() conversion and limitations of prompt-based output"
+    }
+  },
+  {
+    "page": "spring-ai/04_building_chat_apis_with_openai_and_ollama.md",
+    "claim": "![OpenAI와 Ollama 프로파일이 같은 ChatClient의 채팅 모델을 선택한다. 일반 채팅 API는 완성된 답변을 JSON으로, 스트리밍 API는 Flux의 조각을 SSE로 반환한다.](image/04_chat_provider_profiles_and_sse.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 4.1.0 · Spring AI 2.0.2 · 문서의 단일 활성 공급자 프로파일과 MVC 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html",
+      "locator": "Request, Call and Stream Response, tool auto-registration"
+    }
+  },
+  {
+    "page": "spring-ai/04_building_chat_apis_with_openai_and_ollama.md",
+    "claim": "그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI OpenAI Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/openai-chat.html) · [Spring AI Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 4.1.0 · Spring AI 2.0.2 · 문서의 단일 활성 공급자 프로파일과 MVC 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html",
+      "locator": "Connection properties, spring.ai.model.chat and Ollama chat model"
+    }
+  },
+  {
+    "page": "spring-ai/05_building_chatbots_with_memory_and_structured_output.md",
+    "claim": "![문의 대화는 conversationId로 메모리를 찾는 ChatClient를 사용한다. 문의 긴급도 분류는 별도의 ChatClient로 Java 타입을 읽고 필수 값을 확인한다.](image/05_chat_memory_and_stateless_triage.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 20개 메시지 윈도우와 별도 Triage 호출",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html",
+      "locator": "MessageWindowChatMemory, MessageChatMemoryAdvisor, conversation ID"
+    }
+  },
+  {
+    "page": "spring-ai/05_building_chatbots_with_memory_and_structured_output.md",
+    "claim": "그림의 근거 · [Spring AI Chat Memory](https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 20개 메시지 윈도우와 별도 Triage 호출",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html",
+      "locator": "entity() conversion and limitations of prompt-based output"
+    }
+  },
+  {
+    "page": "spring-ai/06_vector_databases_and_similarity_search.md",
+    "claim": "![문서와 질문을 같은 임베딩 모델로 표현한다. 코사인 유사도, 서버가 정한 메타데이터 조건, topK를 조합하며 Elasticsearch cosine의 검색 점수는 코사인 값과 범위가 다르다.](image/06_vector_similarity_and_metadata_filters.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 SearchRequest · Elasticsearch의 dense_vector cosine 점수 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html",
+      "locator": "VectorStore calls, SearchRequest and metadata filter expressions"
+    }
+  },
+  {
+    "page": "spring-ai/06_vector_databases_and_similarity_search.md",
+    "claim": "그림의 근거 · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html) · [Elasticsearch dense_vector](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/dense-vector)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 SearchRequest · Elasticsearch의 dense_vector cosine 점수 예시",
+    "source": {
+      "url": "https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/dense-vector",
+      "locator": "cosine similarity and normalized score"
+    }
+  },
+  {
+    "page": "spring-ai/07_building_rag_chatbots_with_elasticsearch.md",
+    "claim": "![배송 정책을 읽어 분할하고 VectorStore에 임베딩을 적재한다. 질문 시 QuestionAnswerAdvisor가 검색 조건에 맞는 청크를 찾고 모델의 입력에 넣는다. 같은 흐름에서 인메모리 저장소와 Elasticsearch를 사용할 수 있다.](image/07_elasticsearch_rag_ingestion_and_query.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 TextReader, TokenTextSplitter, rag/index/elastic 프로파일",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html",
+      "locator": "DocumentReader, TokenTextSplitter and VectorStore writer"
+    }
+  },
+  {
+    "page": "spring-ai/07_building_rag_chatbots_with_elasticsearch.md",
+    "claim": "그림의 근거 · [Spring AI ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Spring AI Elasticsearch Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/elasticsearch.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 TextReader, TokenTextSplitter, rag/index/elastic 프로파일",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/elasticsearch.html",
+      "locator": "Elasticsearch integration and similarity search"
+    }
+  },
+  {
+    "page": "spring-ai/08_calling_external_apis_with_spring_ai_tools.md",
+    "claim": "![모델이 currentWeather 실행을 요청하면 ToolCallingAdvisor가 ToolCallingManager에 위임한다. 허용 도시를 검증한 등록 콜백이 날씨 API를 호출하고 반환한 값을 Advisor가 모델에 다시 전달한다.](image/08_weather_tool_call_execution_loop.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 currentWeather 동기 호출 · 모델이 도구 호출을 지원하는 조건",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/tools.html",
+      "locator": "Tool Calling Loop and Advisor-Controlled Tool Execution"
+    }
+  },
+  {
+    "page": "spring-ai/08_calling_external_apis_with_spring_ai_tools.md",
+    "claim": "그림의 근거 · [Spring AI Tool Calling](https://docs.spring.io/spring-ai/reference/2.0/api/tools.html) · [Open-Meteo Forecast API](https://open-meteo.com/en/docs)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 currentWeather 동기 호출 · 모델이 도구 호출을 지원하는 조건",
+    "source": {
+      "url": "https://open-meteo.com/en/docs",
+      "locator": "Current conditions and temperature_2m"
+    }
+  },
+  {
+    "page": "spring-ai/09_building_spring_ai_mcp_clients_and_servers.md",
+    "claim": "![Spring AI 호스트는 모델에 도구 정의를 공개한다. 별도 프로세스의 MCP 날씨 서버에는 Streamable HTTP 클라이언트로 tools/list와 tools/call을 보내며 서버가 날씨 API를 호출한다.](image/09_mcp_streamable_http_tool_boundaries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 동기 MCP 클라이언트 · 문서의 localhost:8091/mcp Streamable HTTP 실습",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/mcp/mcp-client-boot-starter-docs.html",
+      "locator": "Streamable HTTP connection and ToolCallbackProvider"
+    }
+  },
+  {
+    "page": "spring-ai/09_building_spring_ai_mcp_clients_and_servers.md",
+    "claim": "그림의 근거 · [Spring AI MCP Client](https://docs.spring.io/spring-ai/reference/2.0/api/mcp/mcp-client-boot-starter-docs.html) · [MCP 도구](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) · [MCP Streamable HTTP](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 동기 MCP 클라이언트 · 문서의 localhost:8091/mcp Streamable HTTP 실습",
+    "source": {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+      "locator": "Streamable HTTP transport"
+    }
+  },
+  {
+    "page": "spring-ai/10_getting_started_with_llm_cost_monitoring.md",
+    "claim": "![HTTP 요청 하나에 임베딩과 여러 번의 채팅 호출이 포함될 수 있다. 호출별로 입력, 출력, 캐시 등과 해당 단가를 적용해 합산한 뒤 공급자 비용 내역과 비교한다.](image/10_request_to_model_call_cost_breakdown.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 요청 단위 비용 분해 예시 · 구체적인 공급자 가격은 적용 시점에 확인",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/observability/index.html",
+      "locator": "ChatClient and ChatModel observations; gen_ai.client.operation and gen_ai.client.token.usage"
+    }
+  },
+  {
+    "page": "spring-ai/10_getting_started_with_llm_cost_monitoring.md",
+    "claim": "그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 요청 단위 비용 분해 예시 · 구체적인 공급자 가격은 적용 시점에 확인",
+    "source": {
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "locator": "Model input, cached input, output and embedding price categories"
+    }
+  },
+  {
+    "page": "spring-ai/11_measuring_llm_cost_latency_errors_and_quality.md",
+    "claim": "![HTTP 요청 전체 시간과 모델 실행 시간은 서로 다른 구간이다. 스트리밍 첫 텍스트까지의 시간도 따로 기록하고, 비용·지연·오류·품질을 각각의 지표로 비교한다.](image/11_measuring_latency_cost_errors_and_quality.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 검색과 스트리밍을 포함한 개념적 HTTP 타임라인으로 수치는 없음",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/observability/index.html",
+      "locator": "ChatClient and ChatModel observations; gen_ai.client.operation and gen_ai.client.token.usage"
+    }
+  },
+  {
+    "page": "spring-ai/11_measuring_llm_cost_latency_errors_and_quality.md",
+    "claim": "그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 검색과 스트리밍을 포함한 개념적 HTTP 타임라인으로 수치는 없음",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html",
+      "locator": "Request, Call and Stream Response, tool auto-registration"
+    }
+  },
+  {
+    "page": "spring-ai/12_exposing_spring_ai_metrics_with_actuator.md",
+    "claim": "![Spring AI 모델 호출을 Micrometer Observation으로 기록한다. Actuator에서는 개별 미터를 조회하거나 등록된 Prometheus 레지스트리의 스크레이프 형식으로 메트릭을 노출한다.](image/12_model_observation_to_actuator_endpoints.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 4.1.0 · Spring AI 2.0.2 · Actuator와 Prometheus registry를 구성하고 사용량은 공급자가 보고하는 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/observability/index.html",
+      "locator": "ChatClient and ChatModel observations; gen_ai.client.operation and gen_ai.client.token.usage"
+    }
+  },
+  {
+    "page": "spring-ai/12_exposing_spring_ai_metrics_with_actuator.md",
+    "claim": "그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [Spring Boot 4.1 Actuator Metrics](https://docs.spring.io/spring-boot/4.1/reference/actuator/metrics.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 4.1.0 · Spring AI 2.0.2 · Actuator와 Prometheus registry를 구성하고 사용량은 공급자가 보고하는 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/4.1/reference/actuator/metrics.html",
+      "locator": "Prometheus registry, Actuator metrics endpoint and per-meter properties"
+    }
+  },
+  {
+    "page": "spring-ai/13_building_a_token_dashboard_with_prometheus_and_grafana.md",
+    "claim": "![Compose에서 Prometheus는 app의 Actuator를 스크레이프하고 Grafana는 Prometheus 서버를 조회한다. 토큰 사용량, 모델 호출 p95, HTTP 오류율은 서로 다른 시계열로 그린다.](image/13_compose_prometheus_grafana_token_dashboard.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Prometheus 3.5.0 · Grafana 12.4.11 · 문서의 서비스 DNS와 5초 스크레이프",
+    "source": {
+      "url": "https://docs.docker.com/compose/how-tos/networking/",
+      "locator": "Service name DNS and host ports"
+    }
+  },
+  {
+    "page": "spring-ai/13_building_a_token_dashboard_with_prometheus_and_grafana.md",
+    "claim": "그림의 근거 · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/) · [Grafana Prometheus 데이터 소스](https://grafana.com/docs/grafana/latest/datasources/prometheus/configure/) · [Prometheus 쿼리 함수](https://prometheus.io/docs/prometheus/latest/querying/functions/)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Prometheus 3.5.0 · Grafana 12.4.11 · 문서의 서비스 DNS와 5초 스크레이프",
+    "source": {
+      "url": "https://prometheus.io/docs/prometheus/latest/querying/functions/",
+      "locator": "increase, rate and histogram_quantile for classic buckets"
+    }
+  },
+  {
+    "page": "spring-ai/14_analyzing_and_controlling_rag_token_costs.md",
+    "claim": "![같은 질문과 설정에서 검색 상한을 4와 20으로 비교한다. 가상 입력·출력 토큰과 단가를 대입한 예시 비용은 각각 0.00063달러와 0.00183달러이며 실제 반환 청크와 토큰은 앱에서 확인한다.](image/14_rag_topk_token_cost_comparison.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 합성 문서 24개와 가정한 단가로 계산한 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html",
+      "locator": "QuestionAnswerAdvisor searches a VectorStore and augments the user question"
+    }
+  },
+  {
+    "page": "spring-ai/14_analyzing_and_controlling_rag_token_costs.md",
+    "claim": "그림의 근거 · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 합성 문서 24개와 가정한 단가로 계산한 예시",
+    "source": {
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "locator": "Model input, cached input, output and embedding price categories"
+    }
+  },
+  {
+    "page": "spring-ai/15_ai_types_and_how_language_models_work.md",
+    "claim": "![GPT 계열 생성 모델의 개념도다. 텍스트를 토큰으로 바꾸고 트랜스포머가 맥락을 반영해 다음 토큰을 선택한다. 선택한 토큰을 앞의 토큰에 붙여 생성 과정을 반복한다.](image/15_autoregressive_next_token_loop.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "자동회귀 트랜스포머의 일반적인 생성 과정 · 실제 구현의 디코딩 및 캐시 세부 단계는 추상화",
+    "source": {
+      "url": "https://arxiv.org/abs/1706.03762",
+      "locator": "Transformer attention and decoder"
+    }
+  },
+  {
+    "page": "spring-ai/15_ai_types_and_how_language_models_work.md",
+    "claim": "그림의 근거 · [Attention Is All You Need](https://arxiv.org/abs/1706.03762) · [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)",
+    "checked_on": "2026-11-21",
+    "applies_to": "자동회귀 트랜스포머의 일반적인 생성 과정 · 실제 구현의 디코딩 및 캐시 세부 단계는 추상화",
+    "source": {
+      "url": "https://arxiv.org/abs/2005.14165",
+      "locator": "Autoregressive language model and text generation"
+    }
+  },
+  {
+    "page": "spring-ai/16_designing_spring_ai_chatclient_services.md",
+    "claim": "![Controller, ChatService, ChatClient와 Advisor, ChatModel, Provider를 차례로 통과한다. 앱은 완성 응답과 SSE의 HTTP 계약을 별도로 정의하고, 스트리밍 조각과 최종 상태를 구별한다.](image/16_chatclient_service_layers_and_http_contracts.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 계층별 책임과 동기·스트리밍 호출 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html",
+      "locator": "Request, Call and Stream Response, tool auto-registration"
+    }
+  },
+  {
+    "page": "spring-ai/16_designing_spring_ai_chatclient_services.md",
+    "claim": "그림의 근거 · [Spring AI ChatClient](https://docs.spring.io/spring-ai/reference/2.0/api/chatclient.html) · [Spring AI Advisors](https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 계층별 책임과 동기·스트리밍 호출 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/advisors.html",
+      "locator": "Advisor ordering: small order for requests, reverse for response processing"
+    }
+  },
+  {
+    "page": "spring-ai/17_stateful_streaming_chat_and_structured_review_analysis.md",
+    "claim": "![영화 챗봇은 소유권을 확인한 대화 ID로 최근 대화를 불러오고 스트림이 중단되면 부분 응답을 구별한다. 리뷰 분석기는 구조화된 전체 결과에서 라벨과 근거를 확인한 후 상태를 저장한다.](image/17_conversation_stream_state_and_review_validation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 영화 대화와 리뷰 분류를 위한 예시 앱 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html",
+      "locator": "MessageWindowChatMemory, MessageChatMemoryAdvisor, conversation ID"
+    }
+  },
+  {
+    "page": "spring-ai/17_stateful_streaming_chat_and_structured_review_analysis.md",
+    "claim": "그림의 근거 · [Spring AI Chat Memory](https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 영화 대화와 리뷰 분류를 위한 예시 앱 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html",
+      "locator": "entity() conversion and limitations of prompt-based output"
+    }
+  },
+  {
+    "page": "spring-ai/18_prompt_templates_evaluation_and_injection_defenses.md",
+    "claim": "![앱의 템플릿과 외부 데이터를 메시지에서 구분하고 검색 범위 및 도구 권한을 서버가 적용한다. 모델 결과는 스키마와 권한을 검증해 사용하며 같은 입력으로 회귀 검사를 한다.](image/18_prompt_templates_and_untrusted_data_boundary.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 PromptTemplate · 외부 입력을 신뢰하지 않는 예시 애플리케이션 경계",
+    "source": {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "locator": "Structured prompts, output validation and least privilege"
+    }
+  },
+  {
+    "page": "spring-ai/18_prompt_templates_evaluation_and_injection_defenses.md",
+    "claim": "그림의 근거 · [OWASP 프롬프트 인젝션 방어](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) · [Spring AI Prompts](https://docs.spring.io/spring-ai/reference/2.0/api/prompt.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 PromptTemplate · 외부 입력을 신뢰하지 않는 예시 애플리케이션 경계",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/prompt.html",
+      "locator": "Message types and PromptTemplate parameter binding"
+    }
+  },
+  {
+    "page": "spring-ai/19_rag_fundamentals_and_vector_store_retrieval.md",
+    "claim": "![원문 청크와 사용자 질의를 같은 임베딩 공간으로 옮긴다. 문서 ID·버전·권한이 맞는 검색 결과를 바탕으로 답을 구성하고 인용을 검증하거나 근거가 부족하면 보류한다.](image/19_rag_ingestion_query_and_evidence_gate.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 ETL 및 RAG · 문서의 반품, 교환, 배송 가상 데이터와 조회 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html",
+      "locator": "DocumentReader, TokenTextSplitter and VectorStore writer"
+    }
+  },
+  {
+    "page": "spring-ai/19_rag_fundamentals_and_vector_store_retrieval.md",
+    "claim": "그림의 근거 · [Spring AI ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 ETL 및 RAG · 문서의 반품, 교환, 배송 가상 데이터와 조회 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html",
+      "locator": "VectorStore calls, SearchRequest and metadata filter expressions"
+    }
+  },
+  {
+    "page": "spring-ai/20_building_spring_ai_rag_with_pgvector.md",
+    "claim": "![문서와 질문은 같은 임베딩 모델을 쓰고 PgVectorStore에 연결한다. 앱의 실습 설정은 HNSW와 코사인 거리를 사용한다. 별도 합성 벡터 테이블에서 코사인 거리 오름차순은 shipping, return, repair다.](image/20_pgvector_embedding_index_and_retrieval.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · PostgreSQL 17과 pgvector 0.8.7 실습 설정 · 합성 세 벡터의 계산 순서",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/pgvector.html",
+      "locator": "HNSW, COSINE_DISTANCE, schema initialization and example connection"
+    }
+  },
+  {
+    "page": "spring-ai/20_building_spring_ai_rag_with_pgvector.md",
+    "claim": "그림의 근거 · [Spring AI PgVectorStore](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/pgvector.html) · [pgvector 거리 연산](https://github.com/pgvector/pgvector) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · PostgreSQL 17과 pgvector 0.8.7 실습 설정 · 합성 세 벡터의 계산 순서",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html",
+      "locator": "QuestionAnswerAdvisor searches a VectorStore and augments the user question"
+    }
+  },
+  {
+    "page": "spring-ai/21_tuning_and_evaluating_rag_systems.md",
+    "claim": "![검색은 기대 청크가 상위 후보에 들어왔는지 Recall@k로 보고, 응답은 관련성과 근거 충족 여부를 평가한다. 문서의 기대 청크 두 건 중 한 건만 상위 세 건에 있어 Recall@3은 0.5다.](image/21_retrieval_recall_and_answer_evaluation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 Evaluator · 문서의 고정 질문과 합성 Recall@3 예시",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-ai/blob/v2.0.2/spring-ai-docs/src/main/antora/modules/ROOT/pages/api/testing.adoc",
+      "locator": "RelevancyEvaluator and FactCheckingEvaluator"
+    }
+  },
+  {
+    "page": "spring-ai/21_tuning_and_evaluating_rag_systems.md",
+    "claim": "그림의 근거 · [Spring AI 2.0.2 평가 테스트](https://github.com/spring-projects/spring-ai/blob/v2.0.2/spring-ai-docs/src/main/antora/modules/ROOT/pages/api/testing.adoc) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 Evaluator · 문서의 고정 질문과 합성 Recall@3 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html",
+      "locator": "QuestionAnswerAdvisor searches a VectorStore and augments the user question"
+    }
+  },
+  {
+    "page": "spring-ai/22_building_evidence_based_recommendation_systems.md",
+    "claim": "![후보마다 같은 루브릭과 검색 조건으로 근거를 수집한다. 앱은 응답 형식, 검색 집합의 근거, 필수 조건을 확인하며 근거가 부족하거나 충돌할 때 담당자 검토로 보낸다.](image/22_recommendation_rubric_evidence_and_review.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 가상 사내 검색 도구 추천 정책 · Spring AI 구조화 응답을 사용하는 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html",
+      "locator": "entity() conversion and limitations of prompt-based output"
+    }
+  },
+  {
+    "page": "spring-ai/22_building_evidence_based_recommendation_systems.md",
+    "claim": "그림의 근거 · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html) · [Spring AI 평가 테스트](https://docs.spring.io/spring-ai/reference/2.0/api/testing.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 가상 사내 검색 도구 추천 정책 · Spring AI 구조화 응답을 사용하는 경우",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/testing.html",
+      "locator": "Response relevance and checking against provided facts"
+    }
+  },
+  {
+    "page": "spring-ai/23_tool_calling_and_read_only_mcp_integrations.md",
+    "claim": "![모델의 도구 이름과 인자 제안은 실행 코드의 검증을 거친다. 서버는 허용한 지역, 고정된 읽기 전용 DB 조회, 승인된 샘플 카탈로그에 한정해 데이터를 읽는다.](image/23_read_only_tool_access_boundaries.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0과 MCP 도구 · 문서의 읽기 전용 날씨·영화 DB·샘플 카탈로그 예시",
+    "source": {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "locator": "Tool discovery, tools/call, input validation and security considerations"
+    }
+  },
+  {
+    "page": "spring-ai/23_tool_calling_and_read_only_mcp_integrations.md",
+    "claim": "그림의 근거 · [MCP 도구](https://modelcontextprotocol.io/specification/2025-11-25/server/tools) · [Spring AI Tool Calling](https://docs.spring.io/spring-ai/reference/2.0/api/tools.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0과 MCP 도구 · 문서의 읽기 전용 날씨·영화 DB·샘플 카탈로그 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/tools.html",
+      "locator": "Tool Calling Loop and Advisor-Controlled Tool Execution"
+    }
+  },
+  {
+    "page": "spring-ai/24_multimodal_image_and_audio_workflows.md",
+    "claim": "![Vision은 텍스트와 이미지로 설명을 얻고, STT는 음성을 전사하고, TTS는 검증된 텍스트를 음성으로 만든다. 콜센터 예제는 전사 후 민감정보를 마스킹하고 분류·요약 뒤 근거 구간을 확인한다.](image/24_vision_speech_transcription_and_synthesis.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 멀티모달 · 공급자 지원 여부에 따라 전사 구간이나 오디오 스트림의 반환이 달라짐",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/multimodality.html",
+      "locator": "UserMessage multimodal text and media"
+    }
+  },
+  {
+    "page": "spring-ai/24_multimodal_image_and_audio_workflows.md",
+    "claim": "그림의 근거 · [Spring AI Multimodality](https://docs.spring.io/spring-ai/reference/2.0/api/multimodality.html) · [Spring AI Audio Transcriptions](https://docs.spring.io/spring-ai/reference/2.0/api/audio/transcriptions/openai-transcriptions.html) · [Spring AI Text-to-Speech](https://docs.spring.io/spring-ai/reference/2.0/api/audio/speech/openai-speech.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI 2.0 멀티모달 · 공급자 지원 여부에 따라 전사 구간이나 오디오 스트림의 반환이 달라짐",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/audio/speech/openai-speech.html",
+      "locator": "Speech generation output and streaming"
+    }
+  },
+  {
+    "page": "spring-ai/25_integrating_spring_ai_with_dify.md",
+    "claim": "![Spring 앱이 사용자와 대화 소유권을 확인한 뒤 Bearer 인증으로 Dify Chatflow를 호출한다. Dify가 돌려준 대화 ID는 내부 계정에 연결하고 답변과 출처를 앱의 계약으로 검증한다.](image/25_dify_chatflow_and_conversation_mapping.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 Spring RestClient와 Dify Chatflow 서비스 API · 예시 지식 범위는 애플리케이션이 관리",
+    "source": {
+      "url": "https://docs.dify.ai/en/api-reference/chat-messages/send-chat-message",
+      "locator": "POST /chat-messages, user, conversation_id, answer and response modes"
+    }
+  },
+  {
+    "page": "spring-ai/25_integrating_spring_ai_with_dify.md",
+    "claim": "그림의 근거 · [Dify Send Chat Message](https://docs.dify.ai/en/api-reference/chat-messages/send-chat-message) · [Dify Knowledge Retrieval](https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 Spring RestClient와 Dify Chatflow 서비스 API · 예시 지식 범위는 애플리케이션이 관리",
+    "source": {
+      "url": "https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval",
+      "locator": "Knowledge sources and metadata filtering in a retrieval node"
+    }
+  },
+  {
+    "page": "spring-ai/26_operating_ai_services_with_observability_and_guardrails.md",
+    "claim": "![가드레일은 입력 권한과 형식, 호출 중 검색·도구·예산, 출력과 인용 검증에 배치한다. 관측에는 요청 ID와 결과를 기록하고 비용을 추적하며 원문 로깅은 기본적으로 끈다.](image/26_input_execution_output_guardrails.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 ChatClient 관측의 기본 설정 · 문서의 애플리케이션 가드레일 정책",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/observability/index.html",
+      "locator": "ChatClient and ChatModel observations; gen_ai.client.operation and gen_ai.client.token.usage"
+    }
+  },
+  {
+    "page": "spring-ai/26_operating_ai_services_with_observability_and_guardrails.md",
+    "claim": "그림의 근거 · [Spring AI Observability](https://docs.spring.io/spring-ai/reference/2.0/observability/index.html) · [OWASP 프롬프트 인젝션 방어](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 ChatClient 관측의 기본 설정 · 문서의 애플리케이션 가드레일 정책",
+    "source": {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "locator": "Structured prompts, output validation and least privilege"
+    }
+  },
+  {
+    "page": "spring-ai/27_designing_internal_document_assistants.md",
+    "claim": "![내부 문서를 버전과 열람 범위를 담은 청크로 적재한다. 질의는 인증된 접근 범위 내에서 검색해 Spring AI나 Dify에 근거를 제공한다. 반환한 인용을 검증해 답하거나 보류한다.](image/27_internal_document_assistant_acl_and_citations.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 사내 어시스턴트 설계 예시 · Spring AI 2.0 또는 Dify 생성 · 서버가 접근 범위 정함",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html",
+      "locator": "QuestionAnswerAdvisor searches a VectorStore and augments the user question"
+    }
+  },
+  {
+    "page": "spring-ai/27_designing_internal_document_assistants.md",
+    "claim": "그림의 근거 · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Dify Knowledge Retrieval](https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "문서의 사내 어시스턴트 설계 예시 · Spring AI 2.0 또는 Dify 생성 · 서버가 접근 범위 정함",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html",
+      "locator": "VectorStore calls, SearchRequest and metadata filter expressions"
+    }
+  },
+  {
+    "page": "spring-ai/28_local_llm_workflows_with_ollama_and_spring_ai.md",
+    "claim": "![호스트 Spring 앱이 루프백 11434번 포트를 통해 Docker Ollama에 요청한다. Ollama 모델 파일은 /root/.ollama에 마운트한 이름 있는 볼륨으로 보존한다.](image/28_ollama_local_runtime_and_model_volume.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, lounge-ollama 컨테이너, llama3.2:1b 모델 예시",
+    "source": {
+      "url": "https://docs.ollama.com/docker",
+      "locator": "Docker run ports, model volume and model management"
+    }
+  },
+  {
+    "page": "spring-ai/28_local_llm_workflows_with_ollama_and_spring_ai.md",
+    "claim": "그림의 근거 · [Ollama Docker](https://docs.ollama.com/docker) · [Spring AI Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, lounge-ollama 컨테이너, llama3.2:1b 모델 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html",
+      "locator": "Connection properties, spring.ai.model.chat and Ollama chat model"
+    }
+  },
+  {
+    "page": "spring-batch/01_spring_batch_domain_model.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 카탈로그 예시와 JDBC JobRepository",
+    "claim": "![Job 이름과 식별 파라미터로 JobInstance를 구별한다. 첫 시도와 실패 후 재시작은 같은 인스턴스에 서로 다른 JobExecution을 만들며, 단계마다 StepExecution과 체크포인트를 관리한다.](image/01_job_instance_and_execution_hierarchy.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/domain.html",
+      "locator": "JobInstance, JobExecution, StepExecution and ExecutionContext"
+    }
+  },
+  {
+    "page": "spring-batch/01_spring_batch_domain_model.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 카탈로그 예시와 JDBC JobRepository",
+    "claim": "그림의 근거 · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [JDBC 메타데이터 스키마](https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html",
+      "locator": "Job instance, job execution, params, step execution and context tables"
+    }
+  },
+  {
+    "page": "spring-batch/02_spring_batch_job_configuration_and_execution.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 식별 파라미터가 있는 catalogImport와 순차 JobBuilder 구성을 전제로 함",
+    "claim": "![JobLauncher가 요청하면 저장소가 같은 인스턴스의 기존 상태를 확인한다. 실행 중이거나 완료된 인스턴스는 같은 식별값의 시작을 거부한다. 실행 가능한 요청은 입력 검사, 적재, 대사 순으로 진행한다.](image/02_job_launch_and_instance_status_checks.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html",
+      "locator": "Repository creates a JobExecution, TaskExecutor launcher with synchronous/asynchronous execution"
+    }
+  },
+  {
+    "page": "spring-batch/02_spring_batch_job_configuration_and_execution.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 식별 파라미터가 있는 catalogImport와 순차 JobBuilder 구성을 전제로 함",
+    "claim": "그림의 근거 · [JobLauncher 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [Job 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/job/configuring.html",
+      "locator": "Restartability, JobParametersValidator and JobExecutionListener"
+    }
+  },
+  {
+    "page": "spring-batch/03_spring_batch_step_configuration_and_restart.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 예제 validateCatalogInput의 옵션 및 startLimit 기준",
+    "claim": "![같은 실패 JobInstance를 다시 시작하면 완료 Step은 기본적으로 건너뛴다. allowStartIfComplete를 설정한 검사 Step은 다시 실행할 수 있고, 재시작할 수 있는 실패 Step은 저장 위치를 복원할 수 있다.](image/03_step_restart_policies_and_checkpoint.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html",
+      "locator": "StartLimit and allowStartIfComplete"
+    }
+  },
+  {
+    "page": "spring-batch/03_spring_batch_step_configuration_and_restart.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 예제 validateCatalogInput의 옵션 및 startLimit 기준",
+    "claim": "그림의 근거 · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html",
+      "locator": "open/update/close and saving ExecutionContext before commit"
+    }
+  },
+  {
+    "page": "spring-batch/04_spring_batch_flow_and_conditional_transitions.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · catalogImportWithReview의 명시적 종료 코드와 와일드카드 전이",
+    "claim": "![load의 종료 코드가 COMPLETED_WITH_SKIPS이면 review, COMPLETED이면 publish로 이동한다. 예제의 나머지 종료 코드는 fail 전이로 Job을 실패 처리한다.](image/04_exit_status_to_review_publish_or_fail.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html",
+      "locator": "Matching ExitStatus, Java branching, transition end/fail and decisions"
+    }
+  },
+  {
+    "page": "spring-batch/04_spring_batch_flow_and_conditional_transitions.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · catalogImportWithReview의 명시적 종료 코드와 와일드카드 전이",
+    "claim": "그림의 근거 · [Step 흐름 제어](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html",
+      "locator": "ChunkListener, ItemWriteListener and SkipListener callback timing"
+    }
+  },
+  {
+    "page": "spring-batch/05_spring_batch_chunk_processing_and_transactions.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · chunk(100) 카탈로그 예제 · 업무 데이터와 JDBC 메타데이터가 같은 트랜잭션에 참여하는 구성",
+    "claim": "![청크의 입력을 읽고 변환한 뒤 살아남은 항목을 Writer에 보낸다. 성공하면 메타데이터와 체크포인트가 갱신되어 커밋된다. 쓰기 오류로 롤백하면 해당 청크의 DB 변경이 취소되고 이전 커밋은 유지된다.](image/05_chunk_transaction_commit_and_rollback.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html",
+      "locator": "Reading items, writing a chunk and committing at the interval"
+    }
+  },
+  {
+    "page": "spring-batch/05_spring_batch_chunk_processing_and_transactions.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · chunk(100) 카탈로그 예제 · 업무 데이터와 JDBC 메타데이터가 같은 트랜잭션에 참여하는 구성",
+    "claim": "그림의 근거 · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html",
+      "locator": "Writer exceptions and default transaction rollback"
+    }
+  },
+  {
+    "page": "spring-batch/06_spring_batch_item_readers_and_checkpoints.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · UTF-8 카탈로그 CSV, ItemStream 등록 및 상태 저장이 활성화된 예제",
+    "claim": "![StepScope가 CSV 경로를 읽고 FlatFileItemReader가 행을 매핑한다. ItemStream은 open에서 저장 위치를 읽고 update에서 다음 재시작 위치를 기록한다. 같은 원본과 순서로 재시작한다.](image/06_csv_reader_lifecycle_and_resume_position.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html",
+      "locator": "open/update/close and saving ExecutionContext before commit"
+    }
+  },
+  {
+    "page": "spring-batch/06_spring_batch_item_readers_and_checkpoints.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · UTF-8 카탈로그 CSV, ItemStream 등록 및 상태 저장이 활성화된 예제",
+    "claim": "그림의 근거 · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html) · [FlatFileItemReader](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html) · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html",
+      "locator": "StepScope, JobScope and exposing ItemStream from scoped beans"
+    }
+  },
+  {
+    "page": "spring-batch/07_spring_batch_item_writers_and_output.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 INSERT 및 동일 DataSource 트랜잭션 · 결과 공개는 예시 앱 정책",
+    "claim": "![JdbcBatchItemWriter가 승인된 출력 항목을 기준일과 SKU로 바인딩해 catalog_stage에 기록한다. 업무 쓰기는 청크 커밋이나 롤백에 따르고, 스테이징 결과는 검증 후에 공개할 수 있다.](image/07_jdbc_writer_staging_commit_and_publication.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html",
+      "locator": "Cursor/Paging readers, unique sort key, JDBC and JPA writers"
+    }
+  },
+  {
+    "page": "spring-batch/07_spring_batch_item_writers_and_output.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 INSERT 및 동일 DataSource 트랜잭션 · 결과 공개는 예시 앱 정책",
+    "claim": "그림의 근거 · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html",
+      "locator": "Writer exceptions and default transaction rollback"
+    }
+  },
+  {
+    "page": "spring-batch/08_spring_batch_item_processing_and_filtering.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 카탈로그 CSV Processor와 별도로 구성한 Skip 정책",
+    "claim": "![활성 상품의 출력 객체는 Writer에 전달하고 비활성 상품은 null을 반환해 필터링한다. 검증 예외는 설정한 오류 정책을 따르며 롤백 뒤 동일 항목이 다시 들어올 수 있다.](image/08_processor_output_filter_and_exception.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/processor.html",
+      "locator": "Filtering records with null and reprocessing after rollback"
+    }
+  },
+  {
+    "page": "spring-batch/08_spring_batch_item_processing_and_filtering.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 카탈로그 CSV Processor와 별도로 구성한 Skip 정책",
+    "claim": "그림의 근거 · [ItemProcessor](https://docs.spring.io/spring-batch/reference/5.2/processor.html) · [Step Skip 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html",
+      "locator": "Combined skip limit across read, processing and write"
+    }
+  },
+  {
+    "page": "spring-batch/09_spring_batch_repeat_retry_and_skip.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 예제 retryLimit(3), skipLimit(5) 및 명시적 예외 분류",
+    "claim": "![문서 예제는 일시적인 DB 잠금은 최초 시도를 포함해 세 번까지 시도하고, CSV 파싱과 행 검증 오류는 합계 다섯 건까지 스킵한다. 다른 오류는 해당 청크와 Step의 실패로 드러난다.](image/09_repeat_retry_and_skip_decisions.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/retry-logic.html",
+      "locator": "Retryable exceptions, example retryLimit"
+    }
+  },
+  {
+    "page": "spring-batch/09_spring_batch_repeat_retry_and_skip.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 예제 retryLimit(3), skipLimit(5) 및 명시적 예외 분류",
+    "claim": "그림의 근거 · [Step Retry 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/retry-logic.html) · [Step Skip 정책](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/configuring-skip.html) · [5.2.2 FaultTolerantStepBuilder 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/builder/FaultTolerantStepBuilder.java)",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/builder/FaultTolerantStepBuilder.java",
+      "locator": "createRetryOperations: retryLimit passed to SimpleRetryPolicy"
+    }
+  },
+  {
+    "page": "spring-batch/10_spring_batch_parallel_processing.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · TaskExecutorPartitionHandler 및 파티션 워커 StepScope",
+    "claim": "![Partitioner의 안정적인 이름과 입력 범위를 기준으로 로컬 워커를 시작한다. 각 파티션은 별도 StepExecution과 체크포인트를 가지며 실제 동시성은 실행기와 자원 한도의 영향을 받는다.](image/10_local_partition_worker_execution_contexts.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/scalability.html",
+      "locator": "TaskExecutor, partitioned StepExecution and remote chunking"
+    }
+  },
+  {
+    "page": "spring-batch/10_spring_batch_parallel_processing.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · TaskExecutorPartitionHandler 및 파티션 워커 StepScope",
+    "claim": "그림의 근거 · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/domain.html",
+      "locator": "JobInstance, JobExecution, StepExecution and ExecutionContext"
+    }
+  },
+  {
+    "page": "spring-batch/11_spring_batch_execution_listeners.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 TaskletStep과 청크·항목 리스너 · 프레임워크의 기본 콜백 시점",
+    "claim": "![beforeChunk는 트랜잭션 시작 후 읽기 전에, afterWrite는 쓰기 반환 뒤 커밋 전에 호출된다. afterChunk는 성공 커밋 뒤 실행되며 스킵 콜백은 해당 청크의 커밋 전에 실행된다.](image/11_chunk_listener_commit_and_rollback_timing.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html",
+      "locator": "ChunkListener, ItemWriteListener and SkipListener callback timing"
+    }
+  },
+  {
+    "page": "spring-batch/11_spring_batch_execution_listeners.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 TaskletStep과 청크·항목 리스너 · 프레임워크의 기본 콜백 시점",
+    "claim": "그림의 근거 · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html) · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java)",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java",
+      "locator": "ChunkTransactionCallback: beforeChunk, tasklet.execute, stream.update and repository writes; afterChunk after transaction"
+    }
+  },
+  {
+    "page": "spring-batch/12_spring_batch_testing_and_operations.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 catalogImport 테스트와 JobOperator 운영 예시",
+    "claim": "![단위·Step·전체 Job 테스트에서 서로 다른 범위를 확인한다. 운영에서는 JobExplorer로 상태를 조회하고 JobRegistry로 정의를 찾으며 JobOperator의 중지 요청 뒤 실제 상태를 확인한다.](image/12_batch_test_layers_and_operations_lookup.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/testing.html",
+      "locator": "SpringBatchTest, JobLauncherTestUtils and scoped tests"
+    }
+  },
+  {
+    "page": "spring-batch/12_spring_batch_testing_and_operations.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 catalogImport 테스트와 JobOperator 운영 예시",
+    "claim": "그림의 근거 · [Spring Batch 테스트](https://docs.spring.io/spring-batch/reference/5.2/testing.html) · [메타데이터 운영 API](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html",
+      "locator": "JobExplorer, JobRegistry, JobOperator and stop acknowledgement"
+    }
+  },
+  {
+    "page": "spring-batch/13_spring_batch_execution_metadata_and_transaction_boundaries.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 스키마 · 문서의 JDBC JobRepository 및 PostgreSQL 메타데이터 조회",
+    "claim": "![JDBC 저장소는 JobInstance에서 실행 시도를 연결하고, 각 JobExecution에는 파라미터, Job 컨텍스트와 StepExecution이 연결된다. Step 컨텍스트에는 청크 위치를 저장한다.](image/13_jdbc_metadata_tables_and_context_boundaries.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html",
+      "locator": "Job instance, job execution, params, step execution and context tables"
+    }
+  },
+  {
+    "page": "spring-batch/13_spring_batch_execution_metadata_and_transaction_boundaries.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 스키마 · 문서의 JDBC JobRepository 및 PostgreSQL 메타데이터 조회",
+    "claim": "그림의 근거 · [JDBC 메타데이터 스키마](https://docs.spring.io/spring-batch/reference/5.2/schema-appendix.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [TaskletStep](https://docs.spring.io/spring-batch/reference/5.2/step/tasklet.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/tasklet.html",
+      "locator": "RepeatStatus and each Tasklet invocation wrapped by transaction"
+    }
+  },
+  {
+    "page": "spring-batch/14_spring_batch_database_pipelines_and_scheduling.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 Asia/Seoul 예시와 JdbcPagingItemReader pageSize(100)",
+    "claim": "![예시 스케줄러가 업무 기준일과 입력 버전으로 Job을 시작한다. JdbcPagingItemReader는 기준일과 ID 정렬로 페이지를 읽고 Writer의 커밋 간격은 청크에서 별도로 정한다.](image/14_scheduled_business_date_to_paged_database_chunk.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html",
+      "locator": "Cursor/Paging readers, unique sort key, JDBC and JPA writers"
+    }
+  },
+  {
+    "page": "spring-batch/14_spring_batch_database_pipelines_and_scheduling.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 Asia/Seoul 예시와 JdbcPagingItemReader pageSize(100)",
+    "claim": "그림의 근거 · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html) · [Spring Scheduler](https://docs.spring.io/spring-framework/reference/integration/scheduling.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/integration/scheduling.html",
+      "locator": "Scheduled methods, cron, and zone"
+    }
+  },
+  {
+    "page": "spring-batch/15_spring_batch_flow_listeners_and_fault_tolerance.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · ExecutionContextPromotionListener에 키와 종료 상태를 설정하는 설계 예",
+    "claim": "![Step 컨텍스트의 체크포인트는 해당 Step에 둔다. 다음 Step이 읽을 결과 경로나 키는 종료 상태 조건을 만족할 때 승격해 Job 컨텍스트로 전달한다.](image/15_step_context_promotion_for_following_steps.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/common-patterns.html",
+      "locator": "Passing Data to Future Steps and ExecutionContextPromotionListener"
+    }
+  },
+  {
+    "page": "spring-batch/15_spring_batch_flow_listeners_and_fault_tolerance.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · ExecutionContextPromotionListener에 키와 종료 상태를 설정하는 설계 예",
+    "claim": "그림의 근거 · [다음 Step에 데이터 전달](https://docs.spring.io/spring-batch/reference/5.2/common-patterns.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html",
+      "locator": "open/update/close and saving ExecutionContext before commit"
+    }
+  },
+  {
+    "page": "spring-batch/16_spring_batch_parallelism_and_transaction_boundaries.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 TaskletStep의 TaskExecutor와 Spring Batch 6.0.3의 새 ChunkOrientedStep 구성을 비교",
+    "claim": "![5.2에서는 워커가 청크 단위로 트랜잭션을 실행한다. 6.x의 새 ChunkOrientedStep 구성에서는 Step 스레드가 읽기와 쓰기를 맡고 워커가 항목 변환을 병렬로 실행한다.](image/16_chunk_concurrency_transaction_boundaries_5_2_and_6.png)",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-batch/blob/v6.0.3/spring-batch-docs/modules/ROOT/pages/scalability.adoc",
+      "locator": "Multi-threaded Step and Local Chunking, worker thread transactions"
+    }
+  },
+  {
+    "page": "spring-batch/16_spring_batch_parallelism_and_transaction_boundaries.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 TaskletStep의 TaskExecutor와 Spring Batch 6.0.3의 새 ChunkOrientedStep 구성을 비교",
+    "claim": "그림의 근거 · [Spring Batch 6.0.3 병렬 처리](https://github.com/spring-projects/spring-batch/blob/v6.0.3/spring-batch-docs/modules/ROOT/pages/scalability.adoc) · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/scalability.html",
+      "locator": "TaskExecutor, partitioned StepExecution and remote chunking"
+    }
+  },
+  {
+    "page": "spring-batch/17_getting_started_with_reliable_spring_batch_jobs.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.4 및 Spring Batch 5.2 · 문서의 초반 정상·실패·재시작 시나리오",
+    "claim": "![기준일과 입력 버전으로 작은 카탈로그 Job을 시작해 검사, 청크 적재, 결과 검증을 이어 간다. 정상과 실패 후 재시작에서 업무 테이블과 JobRepository의 결과를 함께 조회한다.](image/17_reliable_first_batch_job_with_two_outputs.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/domain.html",
+      "locator": "JobInstance, JobExecution, StepExecution and ExecutionContext"
+    }
+  },
+  {
+    "page": "spring-batch/17_getting_started_with_reliable_spring_batch_jobs.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Boot 3.4 및 Spring Batch 5.2 · 문서의 초반 정상·실패·재시작 시나리오",
+    "claim": "그림의 근거 · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [청크 처리](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html",
+      "locator": "StartLimit and allowStartIfComplete"
+    }
+  },
+  {
+    "page": "spring-batch/18_designing_spring_batch_steps_parameters_and_listeners.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · businessDate, inputVersion, requestedBy 예제와 StepScope",
+    "claim": "![기준일과 입력 버전은 같은 인스턴스를 찾는 값이며 요청자는 비식별 값이다. StepScope Reader에 실행 값을 연결하고 리스너에서는 실행 ID, 상태, 단계별 건수를 확인한다.](image/18_job_parameters_scope_and_execution_listeners.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html",
+      "locator": "StepScope, JobScope and exposing ItemStream from scoped beans"
+    }
+  },
+  {
+    "page": "spring-batch/18_designing_spring_batch_steps_parameters_and_listeners.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · businessDate, inputVersion, requestedBy 예제와 StepScope",
+    "claim": "그림의 근거 · [Late Binding](https://docs.spring.io/spring-batch/reference/5.2/step/late-binding.html) · [배치 도메인](https://docs.spring.io/spring-batch/reference/5.2/domain.html) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html",
+      "locator": "ChunkListener, ItemWriteListener and SkipListener callback timing"
+    }
+  },
+  {
+    "page": "spring-batch/19_processing_csv_and_json_files_with_spring_batch.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 문서의 catalog CSV/JSON 파일 예시 · 그림의 2건과 4건은 기존 실습 기록",
+    "claim": "![CSV와 JSON은 상품 모델에 매핑해 각 포맷 Writer로 내보낸다. 실패 후 동일 인스턴스로 다시 시작할 때 원본과 임시 파일을 유지하고, 성공 뒤 포맷과 건수를 확인해 최종 경로에 공개한다.](image/19_csv_json_file_restart_and_publication.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html",
+      "locator": "Resource, LineMapper and FieldSetMapper"
+    }
+  },
+  {
+    "page": "spring-batch/19_processing_csv_and_json_files_with_spring_batch.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 문서의 catalog CSV/JSON 파일 예시 · 그림의 2건과 4건은 기존 실습 기록",
+    "claim": "그림의 근거 · [FlatFileItemReader](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-reader.html) · [FlatFileItemWriter](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/flat-files/file-item-writer.html) · [JSON Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/json-reading-writing.html) · [ItemStream](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/item-stream.html",
+      "locator": "open/update/close and saving ExecutionContext before commit"
+    }
+  },
+  {
+    "page": "spring-batch/19_processing_csv_and_json_files_with_spring_batch.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · 문서의 catalog CSV/JSON 파일 예시 · 그림의 2건과 4건은 기존 실습 기록",
+    "claim": "![CSV와 JSON은 상품 모델에 매핑해 각 포맷 Writer로 내보낸다. 실패 후 동일 인스턴스로 다시 시작할 때 원본과 임시 파일을 유지하고, 성공 뒤 포맷과 건수를 확인해 최종 경로에 공개한다.](image/19_csv_json_file_restart_and_publication.png)",
+    "source": {
+      "path": "spring-batch/19_processing_csv_and_json_files_with_spring_batch.md",
+      "start": 95,
+      "end": 95,
+      "quote": "Spring Batch 5.2.2와 Docker의 PostgreSQL로 검증했다. 실패한 실행의 임시 파일도 두 건짜리 유효한 JSON 배열이었다. 재시작하자 네 건이 중복 없이 기록됐고, CSV로 되돌렸을 때 쉼표와 큰따옴표가 든 이름도 유지됐다. 파일을 파싱할 수 있다는 사실만으로 작업 완료를 판단할 수 없는 예다."
+    }
+  },
+  {
+    "page": "spring-batch/20_spring_batch_database_readers_writers_and_delegation.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · PostgreSQL catalog_projection 예제 · 별도 MongoDB 및 Redis 저장소의 재처리 기준",
+    "claim": "![JDBC 위임 Writer는 대상 메서드가 같은 트랜잭션을 쓰면 현재 청크 SQL을 롤백할 수 있다. MongoDB와 Redis를 별도 저장소로 쓸 때에는 메타데이터 커밋과 업무 결과를 별도로 검증한다.](image/20_database_delegate_writer_and_external_state.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/item/adapter/ItemWriterAdapter.html",
+      "locator": "write invokes target method for every item in the chunk"
+    }
+  },
+  {
+    "page": "spring-batch/20_spring_batch_database_readers_writers_and_delegation.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · PostgreSQL catalog_projection 예제 · 별도 MongoDB 및 Redis 저장소의 재처리 기준",
+    "claim": "그림의 근거 · [5.2.2 ItemWriterAdapter API](https://docs.spring.io/spring-batch/docs/5.2.2/api/org/springframework/batch/item/adapter/ItemWriterAdapter.html) · [5.2.2 RedisItemReader 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-infrastructure/src/main/java/org/springframework/batch/item/redis/RedisItemReader.java) · [DB Reader와 Writer](https://docs.spring.io/spring-batch/reference/5.2/readers-and-writers/database.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html",
+      "locator": "Writer exceptions and default transaction rollback"
+    }
+  },
+  {
+    "page": "spring-batch/21_spring_batch_step_internals_checkpoints_and_fault_tolerance.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2의 실제 TaskletStep 경로 · 메타데이터와 업무 쓰기가 같은 청크 트랜잭션에 참여하는 조건",
+    "claim": "![TaskletStep이 트랜잭션 안에서 ChunkOrientedTasklet을 실행한다. ChunkProvider가 읽은 입력은 ChunkProcessor에서 변환하고 Writer로 전달된다. Stream과 저장소를 갱신해 커밋하면 체크포인트가 확정된다.](image/21_taskletstep_internal_chunk_checkpoint_commit.png)",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java",
+      "locator": "ChunkTransactionCallback: beforeChunk, tasklet.execute, stream.update and repository writes; afterChunk after transaction"
+    }
+  },
+  {
+    "page": "spring-batch/21_spring_batch_step_internals_checkpoints_and_fault_tolerance.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2의 실제 TaskletStep 경로 · 메타데이터와 업무 쓰기가 같은 청크 트랜잭션에 참여하는 조건",
+    "claim": "그림의 근거 · [5.2.2 TaskletStep 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/tasklet/TaskletStep.java) · [5.2.2 ChunkOrientedTasklet 소스](https://github.com/spring-projects/spring-batch/blob/v5.2.2/spring-batch-core/src/main/java/org/springframework/batch/core/step/item/ChunkOrientedTasklet.java) · [Step 리스너](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/intercepting-execution.html",
+      "locator": "ChunkListener, ItemWriteListener and SkipListener callback timing"
+    }
+  },
+  {
+    "page": "spring-batch/22_spring_batch_job_launching_operations_and_flow_control.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 비동기 Launcher, JobExplorer와 JobOperator 및 예시 202 상태 계약",
+    "claim": "![비동기로 Job을 시작하면 예시 REST API는 실행 ID를 반환한다. 이후 상태를 조회하거나 중지를 요청하며, 실패 실행을 재시작하면 같은 인스턴스에서 새 실행 ID를 받는다.](image/22_asynchronous_job_id_operations.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html",
+      "locator": "Repository creates a JobExecution, TaskExecutor launcher with synchronous/asynchronous execution"
+    }
+  },
+  {
+    "page": "spring-batch/22_spring_batch_job_launching_operations_and_flow_control.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2 · 문서의 비동기 Launcher, JobExplorer와 JobOperator 및 예시 202 상태 계약",
+    "claim": "그림의 근거 · [JobLauncher 설정](https://docs.spring.io/spring-batch/reference/5.2/job/configuring-launcher.html) · [메타데이터 운영 API](https://docs.spring.io/spring-batch/reference/5.2/job/advanced-meta-data.html) · [Step 흐름 제어](https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/controlling-flow.html",
+      "locator": "Matching ExitStatus, Java branching, transition end/fail and decisions"
+    }
+  },
+  {
+    "page": "spring-batch/23_spring_batch_parallel_and_distributed_processing.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · ID 1~9, 중간 파티션 실패는 문서의 기존 PostgreSQL 17 실습 기록",
+    "claim": "![로컬 예제에서는 완료한 두 파티션을 건너뛰고 실패한 파티션은 ID 6만 이어서 적재한다. 원격 파티션은 실행 요청을 보내 워커가 범위를 읽고, 원격 청킹은 매니저가 읽은 항목을 워커로 전송한다.](image/23_partition_restart_and_remote_payloads.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/spring-batch-integration/sub-elements.html",
+      "locator": "Remote Chunking/Remote Partitioning manager and worker arrangements"
+    }
+  },
+  {
+    "page": "spring-batch/23_spring_batch_parallel_and_distributed_processing.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · ID 1~9, 중간 파티션 실패는 문서의 기존 PostgreSQL 17 실습 기록",
+    "claim": "그림의 근거 · [Spring Batch Integration 원격 실행](https://docs.spring.io/spring-batch/reference/5.2/spring-batch-integration/sub-elements.html) · [Spring Batch 5.2 병렬 처리](https://docs.spring.io/spring-batch/reference/5.2/scalability.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html",
+      "locator": "StartLimit and allowStartIfComplete"
+    }
+  },
+  {
+    "page": "spring-batch/23_spring_batch_parallel_and_distributed_processing.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · ID 1~9, 중간 파티션 실패는 문서의 기존 PostgreSQL 17 실습 기록",
+    "claim": "![로컬 예제에서는 완료한 두 파티션을 건너뛰고 실패한 파티션은 ID 6만 이어서 적재한다. 원격 파티션은 실행 요청을 보내 워커가 범위를 읽고, 원격 청킹은 매니저가 읽은 항목을 워커로 전송한다.](image/23_partition_restart_and_remote_payloads.png)",
+    "source": {
+      "path": "spring-batch/23_spring_batch_parallel_and_distributed_processing.md",
+      "start": 67,
+      "end": 67,
+      "quote": "Spring Batch 5.2.2와 PostgreSQL 17에서 상품 6의 쓰기 직후 오류를 발생시켰다. 첫 실행은 상품 여덟 건을 커밋했다. 재시작에서는 완료한 두 파티션을 건너뛰고 실패한 파티션이 상품 6만 기록해, 최종 테이블에 고유 상품 아홉 건이 남았다."
+    }
+  },
+  {
+    "page": "spring-batch/24_testing_spring_batch_jobs_and_verifying_restartability.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · PostgreSQL 17 catalog_stage · 문서의 JUnit 롤백 및 재시작 사례와 기록",
+    "claim": "![DB 제약 위반 뒤 첫 청크의 ID 1과 2만 남는다. 같은 인스턴스로 새 실행을 시작하면 ID 3과 4를 저장한다. 두 실행 ID와 인스턴스 ID, 상태, 최종 업무 행을 모두 확인한다.](image/24_restartability_integration_test_database_evidence.png)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/testing.html",
+      "locator": "SpringBatchTest, JobLauncherTestUtils and scoped tests"
+    }
+  },
+  {
+    "page": "spring-batch/24_testing_spring_batch_jobs_and_verifying_restartability.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · PostgreSQL 17 catalog_stage · 문서의 JUnit 롤백 및 재시작 사례와 기록",
+    "claim": "그림의 근거 · [Spring Batch 테스트](https://docs.spring.io/spring-batch/reference/5.2/testing.html) · [Step 재시작](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/restart.html) · [롤백 제어](https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html)",
+    "source": {
+      "url": "https://docs.spring.io/spring-batch/reference/5.2/step/chunk-oriented-processing/controlling-rollback.html",
+      "locator": "Writer exceptions and default transaction rollback"
+    }
+  },
+  {
+    "page": "spring-batch/24_testing_spring_batch_jobs_and_verifying_restartability.md",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Batch 5.2.2 · PostgreSQL 17 catalog_stage · 문서의 JUnit 롤백 및 재시작 사례와 기록",
+    "claim": "![DB 제약 위반 뒤 첫 청크의 ID 1과 2만 남는다. 같은 인스턴스로 새 실행을 시작하면 ID 3과 4를 저장한다. 두 실행 ID와 인스턴스 ID, 상태, 최종 업무 행을 모두 확인한다.](image/24_restartability_integration_test_database_evidence.png)",
+    "source": {
+      "path": "spring-batch/24_testing_spring_batch_jobs_and_verifying_restartability.md",
+      "start": 65,
+      "end": 65,
+      "quote": "Spring Batch 5.2.2와 Docker의 PostgreSQL 17에서 이 JUnit 테스트가 통과했다. 첫 실행에서 DB 제약 위반이 발생해 ID 1·2만 남았고, 같은 JobInstance로 재시작하자 ID 1~4가 모두 한 번씩 저장됐다."
+    }
   }
 ]

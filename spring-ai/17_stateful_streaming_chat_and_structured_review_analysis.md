@@ -8,6 +8,10 @@
 
 영화를 검색하는 경우, “그중 2010년 이후 작품”처럼 이전 조건을 참조하는 요청을 같은 대화로 보내 결과가 조건을 이어받는지 확인한다. 동시에 들어온 요청의 순서가 중요하면 같은 대화 ID의 메시지 처리 순서를 제어한다. 스트림 중단 시 보낸 조각은 부분 응답으로 기록하고 다음 요청에서 완료된 답변처럼 재사용하지 않는다.
 
+![영화 챗봇은 소유권을 확인한 대화 ID로 최근 대화를 불러오고 스트림이 중단되면 부분 응답을 구별한다. 리뷰 분석기는 구조화된 전체 결과에서 라벨과 근거를 확인한 후 상태를 저장한다.](image/17_conversation_stream_state_and_review_validation.png)
+
+그림의 근거 · [Spring AI Chat Memory](https://docs.spring.io/spring-ai/reference/2.0/api/chat-memory.html) · [Spring AI Structured Output](https://docs.spring.io/spring-ai/reference/2.0/api/structured-output/converters.html)
+
 ## 2. 리뷰를 구조화된 결정으로 바꾸기
 
 | 작업 | 리뷰 분석 예시 |

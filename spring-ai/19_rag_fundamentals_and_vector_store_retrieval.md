@@ -12,6 +12,10 @@ RAG는 답변을 생성할 때 애플리케이션 데이터에서 관련 근거�
 
 청크가 너무 크면 관련 사실이 묻히고 모델 입력이 늘어난다. 너무 작으면 조건과 예외가 다른 청크로 나뉠 수 있다. 제목·본문·예외 조건의 관계를 보존하면서 청크 크기와 겹침을 비교하고, 코사인 거리나 유사도 점수는 저장소가 정의한 방향과 범위를 확인한다. [Spring AI · ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html)
 
+![원문 청크와 사용자 질의를 같은 임베딩 공간으로 옮긴다. 문서 ID·버전·권한이 맞는 검색 결과를 바탕으로 답을 구성하고 인용을 검증하거나 근거가 부족하면 보류한다.](image/19_rag_ingestion_query_and_evidence_gate.png)
+
+그림의 근거 · [Spring AI ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)
+
 ## 2. 작은 데이터로 검색부터 검증하기
 
 반품, 교환, 배송의 짧은 가상 문서를 각각 적재한다. 반품 기간을 묻는 질의에서 반품 문서가 상위에 나오는지 먼저 확인한다. 이후 질의 표현을 바꾸거나 정책에 없는 항목을 묻고, 근거 ID와 답변 보류가 맞는지 확인한다.

@@ -11,6 +11,10 @@ RAG는 질문과 관련된 문서를 검색해 모델에 전달한다. 배송 �
 | Load | `VectorStore.add`가 청크를 임베딩하고 저장한다. |
 | Retrieve and generate | `QuestionAnswerAdvisor`가 질문과 유사한 청크를 찾고 채팅 요청에 넣는다. |
 
+![배송 정책을 읽어 분할하고 VectorStore에 임베딩을 적재한다. 질문 시 QuestionAnswerAdvisor가 검색 조건에 맞는 청크를 찾고 모델의 입력에 넣는다. 같은 흐름에서 인메모리 저장소와 Elasticsearch를 사용할 수 있다.](image/07_elasticsearch_rag_ingestion_and_query.png)
+
+그림의 근거 · [Spring AI ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html) · [Spring AI Elasticsearch Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/elasticsearch.html)
+
 [채팅 API 예제](04_building_chat_apis_with_openai_and_ollama.md)에 다음 의존성을 추가한다. 먼저 인메모리 저장소로 같은 흐름을 실행한다.
 
 ```groovy

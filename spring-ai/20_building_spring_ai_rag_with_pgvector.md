@@ -2,6 +2,10 @@
 
 적재는 문서의 버전이 바뀔 때 실행하고, 질의는 사용자가 질문할 때 실행한다. 두 흐름은 같은 임베딩 모델과 벡터 저장소를 사용한다. [Spring AI · ETL Pipeline](https://docs.spring.io/spring-ai/reference/2.0/api/etl-pipeline.html) · [Spring AI · PgVectorStore](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/pgvector.html)
 
+![문서와 질문은 같은 임베딩 모델을 쓰고 PgVectorStore에 연결한다. 앱의 실습 설정은 HNSW와 코사인 거리를 사용한다. 별도 합성 벡터 테이블에서 코사인 거리 오름차순은 shipping, return, repair다.](image/20_pgvector_embedding_index_and_retrieval.png)
+
+그림의 근거 · [Spring AI PgVectorStore](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/pgvector.html) · [pgvector 거리 연산](https://github.com/pgvector/pgvector) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html)
+
 ## 1. Docker Compose로 pgvector 실행
 
 다음 `compose.yaml`은 로컬 실습 계정과 루프백 포트를 사용한다.

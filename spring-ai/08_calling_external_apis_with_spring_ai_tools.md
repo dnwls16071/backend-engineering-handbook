@@ -11,6 +11,10 @@ Tool Calling으로 채팅 요청을 처리하는 중 현재 날씨를 조회한�
 
 자동 실행 흐름에서 `ToolCallingAdvisor`가 모델과 도구 간의 반복 호출을 조정하고, `ToolCallingManager`가 도구 정의를 확인하고 요청된 실행을 처리한다. 도구는 앱 코드에서 외부 API 주소, 실행 시간 제한, 허용 인자를 정한다. [Spring AI Tool Calling](https://docs.spring.io/spring-ai/reference/2.0/api/tools.html)
 
+![모델이 currentWeather 실행을 요청하면 ToolCallingAdvisor가 ToolCallingManager에 위임한다. 허용 도시를 검증한 등록 콜백이 날씨 API를 호출하고 반환한 값을 Advisor가 모델에 다시 전달한다.](image/08_weather_tool_call_execution_loop.png)
+
+그림의 근거 · [Spring AI Tool Calling](https://docs.spring.io/spring-ai/reference/2.0/api/tools.html) · [Open-Meteo Forecast API](https://open-meteo.com/en/docs)
+
 ## 2. 지역별 날씨 도구
 
 [채팅 API 예제](04_building_chat_apis_with_openai_and_ollama.md)에 다음 클래스를 추가한다. 실습 API는 Open-Meteo의 현재 기온 항목을 사용한다. [Open-Meteo Forecast API](https://open-meteo.com/en/docs)

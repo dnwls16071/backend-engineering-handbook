@@ -17,6 +17,10 @@ PostgreSQL에서 pgvector 검색 결과와 전문 검색 순위는 Reciprocal Ra
 
 `EvaluationRequest`에 질문, 검색 맥락, 생성 응답을 담는다. `RelevancyEvaluator`로 질문과 맥락에 비춰 답변이 관련 있는지 확인한다. `FactCheckingEvaluator`로 답변이 제공된 근거에 의해 지지되는지 평가한다. 모델 심판의 합격 여부는 평가 모델과 프롬프트에도 영향을 받으므로, 근거 ID 대조 같은 결정적 검사와 사람이 검토한 사례를 함께 사용한다. [Spring AI · Evaluation Testing v2.0.2](https://github.com/spring-projects/spring-ai/blob/v2.0.2/spring-ai-docs/src/main/antora/modules/ROOT/pages/api/testing.adoc)
 
+![검색은 기대 청크가 상위 후보에 들어왔는지 Recall@k로 보고, 응답은 관련성과 근거 충족 여부를 평가한다. 문서의 기대 청크 두 건 중 한 건만 상위 세 건에 있어 Recall@3은 0.5다.](image/21_retrieval_recall_and_answer_evaluation.png)
+
+그림의 근거 · [Spring AI 2.0.2 평가 테스트](https://github.com/spring-projects/spring-ai/blob/v2.0.2/spring-ai-docs/src/main/antora/modules/ROOT/pages/api/testing.adoc) · [Spring AI RAG](https://docs.spring.io/spring-ai/reference/2.0/api/retrieval-augmented-generation.html)
+
 ## 3. 변경 전후 비교 리포트
 
 질문별로 기대 근거 ID와 답변 가능 여부를 저장한다. 정상, 철자·표현 변형, 답변 불가, 권한 제외, 오래된 버전 사례를 포함한다. 같은 모델과 데이터에서 검색 설정 하나씩 바꾸고, 아래처럼 결과를 남긴다.

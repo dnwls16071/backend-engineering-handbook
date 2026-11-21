@@ -8,6 +8,10 @@
 
 검색 결과 점수는 저장소 API에서 정규화할 수 있다. 예를 들어 Elasticsearch kNN의 cosine 설정은 `(1 + cosine) / 2` 형태의 검색 점수로 바꾼다. Spring AI의 `Document.getScore()`를 사용할 때는 대상 구현이 어떤 점수를 노출하는지 확인하고, 저장소가 바뀌면 같은 평가 질문으로 임계값을 다시 고른다. [Elasticsearch · dense_vector 유사도와 점수](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/dense-vector) · [Spring AI · Elasticsearch Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs/elasticsearch.html)
 
+![문서와 질문을 같은 임베딩 모델로 표현한다. 코사인 유사도, 서버가 정한 메타데이터 조건, topK를 조합하며 Elasticsearch cosine의 검색 점수는 코사인 값과 범위가 다르다.](image/06_vector_similarity_and_metadata_filters.png)
+
+그림의 근거 · [Spring AI Vector Store](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html) · [Elasticsearch dense_vector](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/dense-vector)
+
 ## 2. VectorStore와 SearchRequest
 
 `VectorStore.add(...)`로 문서를 넣으면 구현이 임베딩을 만들고 저장한다. `SearchRequest`에는 질문, 후보 수, 점수 임계값, 메타데이터 조건을 넣을 수 있다. 아래의 정책 분류 값은 서버가 정한 필터다. 테넌트별 검색을 구현할 때는 인증된 테넌트 정보를 기준으로 조건을 만든다. [Spring AI · Vector Store API](https://docs.spring.io/spring-ai/reference/2.0/api/vectordbs.html)
