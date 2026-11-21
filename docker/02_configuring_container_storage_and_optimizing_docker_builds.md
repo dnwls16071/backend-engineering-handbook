@@ -83,6 +83,10 @@ SELECT id, label FROM notes;
 
 [Docker run 환경 변수 옵션](https://docs.docker.com/reference/cli/docker/container/run/#env) · [MySQL 공식 이미지 환경 변수와 초기화](https://hub.docker.com/_/mysql)
 
+![Docker 호스트에 게시한 포트를 MySQL 3306으로 연결하고 첫 초기화에 환경 변수를 전달하는 방식](image/02_docker_published_ports_and_mysql_initialization.png)
+
+그림의 근거 · [호스트 주소와 포트 게시](https://docs.docker.com/engine/network/port-publishing/) · [MySQL 공식 이미지](https://hub.docker.com/_/mysql) · [실행 환경 변수](https://docs.docker.com/reference/cli/docker/container/run/#env)
+
 ## 3. 컨테이너 쓰기 레이어의 수명
 
 같은 이미지로 실행해도 컨테이너마다 독립된 쓰기 레이어가 생긴다. 마운트하지 않은 경로에서 파일을 만들거나 수정하면 변경분은 이 레이어에 남는다. `docker stop` 후 `docker start`는 같은 컨테이너를 재사용하고, `docker rm`은 컨테이너와 그 쓰기 레이어를 함께 제거한다.
@@ -174,6 +178,10 @@ rmdir "$bind_dir"
 
 [볼륨 관리](https://docs.docker.com/engine/storage/volumes/) · [기존 데이터 디렉터리로 MySQL 실행](https://hub.docker.com/_/mysql)
 
+![쓰기 레이어, 바인드 마운트, 이름 있는 볼륨에서 컨테이너 재생성 전후에 데이터가 남는 위치](image/02_docker_storage_boundaries_and_volume_reuse.png)
+
+그림의 근거 · [쓰기 레이어의 수명](https://docs.docker.com/engine/storage/drivers/) · [바인드 마운트](https://docs.docker.com/engine/storage/bind-mounts/) · [볼륨 수명](https://docs.docker.com/engine/storage/volumes/)
+
 ## 6. Dockerfile과 빌드 컨텍스트
 
 `docker build`의 마지막 인수는 빌드 컨텍스트다. `COPY`의 원본 경로는 이 컨텍스트를 기준으로 해석한다. `--file`은 읽을 Dockerfile을 따로 지정한다. 컨텍스트 루트에 `.dockerignore`를 두면 빌더에 필요 없는 파일을 제외할 수 있다. 다음 예제는 실습 전용 디렉터리에서 `index.html`을 그대로 복사해 이미지를 만든다.
@@ -244,3 +252,7 @@ rmdir "$build_dir" "$lab_dir"
 ```
 
 [빌드 캐시 무효화](https://docs.docker.com/build/cache/invalidation/) · [캐시 사용 최적화](https://docs.docker.com/build/cache/optimize/) · [멀티 스테이지 빌드](https://docs.docker.com/build/building/multi-stage/)
+
+![빌드 컨텍스트 선택부터 BuildKit 캐시 재사용과 멀티 스테이지의 HTML 복사까지](image/02_docker_build_context_cache_and_multistage.png)
+
+그림의 근거 · [빌드 컨텍스트와 제외 규칙](https://docs.docker.com/build/concepts/context/) · [빌드 캐시 무효화](https://docs.docker.com/build/cache/invalidation/) · [멀티 스테이지](https://docs.docker.com/build/building/multi-stage/)

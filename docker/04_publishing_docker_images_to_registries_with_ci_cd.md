@@ -102,3 +102,7 @@ jobs:
 ```
 
 스모크 테스트가 실패하면 일반적인 Step 실행 조건에 따라 게시 Step이 건너뛰어진다. 이미지를 배포하는 다음 Job에서 `needs: publish`를 지정하면 `${{ needs.publish.outputs.image_ref }}`로 게시된 digest 참조를 읽을 수 있다. 배포 대상에서 같은 참조로 이미지를 내려받아 재검증한다. 여러 CPU 아키텍처가 필요하면 Buildx 멀티플랫폼 빌드에서 각각의 실행 조건을 검증하고, 게시된 이미지 인덱스의 digest를 사용한다. [GitHub · Passing Job Outputs](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [Docker · Multi-platform Builds](https://docs.docker.com/build/building/multi-platform/) · [GitOps로 이어지는 컨테이너 CI 예제](../observability/03_building_container_ci_with_github_actions.md)
+
+![GitHub Actions에서 같은 로컬 이미지를 검사하고 GHCR에 게시한 뒤 digest를 다음 Job에 전달하는 흐름](image/04_docker_ci_smoke_test_publish_and_digest.png)
+
+그림의 근거 · [GHCR 게시 권한](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images) · [Step 상태 조건](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#status-check-functions) · [게시 이미지 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/) · [Job 출력 전달](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/pass-job-outputs) · [이미지 digest로 pull](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)

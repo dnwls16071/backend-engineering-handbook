@@ -41,6 +41,10 @@ docker buildx imagetools inspect "$image"
 
 `linux/amd64`와 `linux/arm64`는 각각 Linux용 x86-64, ARM 64비트 이미지다. 멀티플랫폼 태그를 내려받으면 Docker가 엔진에 맞는 매니페스트를 선택한다. 특정 플랫폼이 필요할 때는 `docker image pull --platform linux/amd64 "$image"`처럼 지정할 수 있다. 다른 아키텍처용 이미지를 실행하려면 해당 아키텍처를 지원하는 호스트나 에뮬레이션이 필요하다. 멀티플랫폼 인덱스의 다이제스트로 고정해도 플랫폼별 매니페스트 선택은 이어지므로, 배포 대상을 고정할 때는 플랫폼도 명시한다. [멀티플랫폼 이미지](https://docs.docker.com/build/building/multi-platform/) · [레지스트리 이미지 정보 조회](https://docs.docker.com/reference/cli/docker/buildx/imagetools/inspect/)
 
+![Docker Hub 태그에서 이미지 인덱스와 플랫폼별 매니페스트를 선택하는 구조](image/01_docker_tag_digest_and_platform_selection.png)
+
+그림의 근거 · [Alpine 3.23 태그](https://raw.githubusercontent.com/docker-library/official-images/master/library/alpine) · [멀티플랫폼 선택](https://docs.docker.com/build/building/multi-platform/) · [다이제스트로 이미지 지정](https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier)
+
 ## 3. 이미지 레이어, 캐시, 태그 정리
 
 Docker는 로컬에 있는 동일한 레이어를 재사용해 다운로드와 저장 공간을 줄인다. 빌드 캐시는 이전 빌드 단계의 입력과 결과를 재사용한다. 입력 변경으로 한 단계의 캐시가 무효화되면 그 결과에 의존하는 후속 단계도 다시 처리한다. `docker image history`로 이미지가 만들어진 단계와 크기를 확인할 수 있다. [이미지 레이어와 빌드 캐시](https://docs.docker.com/learn/content/how-image-layers-and-the-build-cache-work/) · [캐시 무효화](https://docs.docker.com/build/cache/invalidation/)
@@ -94,6 +98,10 @@ docker container inspect --format '{{.State.Status}}' "$worker"
 ```
 
 `stop`은 기본적으로 주 프로세스에 `SIGTERM`을 보내고, 유예 시간이 지나도 실행 중이면 `SIGKILL`을 보낸다. 이 예제의 `trap`은 `SIGTERM`을 받으면 셸을 종료한다. `stop` 뒤에는 `exited`, 마지막 `inspect`에서는 `running`을 확인할 수 있다. `start`와 `restart`는 기존 컨테이너 ID와 쓰기 레이어를 재사용한다. [컨테이너 중지](https://docs.docker.com/reference/cli/docker/container/stop/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/restart/)
+
+![공유 이미지 레이어와 컨테이너별 쓰기 레이어, 생성·시작·종료·제거 상태 전이](image/01_docker_image_layers_and_container_lifecycle.png)
+
+그림의 근거 · [이미지와 컨테이너 레이어](https://docs.docker.com/engine/storage/drivers/) · [컨테이너 생성](https://docs.docker.com/reference/cli/docker/container/create/) · [실행 및 자동 제거](https://docs.docker.com/engine/containers/run/) · [컨테이너 재시작](https://docs.docker.com/reference/cli/docker/container/start/)
 
 ## 6. 실행 중인 컨테이너 조사와 정리
 

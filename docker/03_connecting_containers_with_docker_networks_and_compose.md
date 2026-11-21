@@ -43,6 +43,10 @@ docker stop docker-course-s5-web
 docker network rm docker-course-s5-lab
 ```
 
+![Docker의 기본 브리지와 사용자 정의 브리지, host 및 none의 네트워크 경계 비교](image/03_docker_network_drivers_and_bridge_dns.png)
+
+그림의 근거 · [브리지의 이름 확인](https://docs.docker.com/engine/network/drivers/bridge/) · [호스트 네트워크](https://docs.docker.com/engine/network/drivers/host/) · [None 드라이버](https://docs.docker.com/engine/network/drivers/none/) · [Docker Desktop 네트워크](https://docs.docker.com/desktop/features/networking/networking-how-tos/)
+
 ## 3. Compose에서 서비스와 네트워크 선언하기
 
 빈 실습 디렉터리에 다음 내용을 `compose.yaml`로 저장한다. `services`에 HTTP 서버 `web`과 요청을 한 번 보내는 `client`를 정의한다. 최상위 `networks.default`는 두 서비스가 쓸 프로젝트의 기본 브리지를 선언한다. 이 항목을 생략해도 Compose는 프로젝트 전용 기본 네트워크를 만든다. 예제에서 네트워크 이름은 `docker-course-s5_default`다. [Networking in Compose](https://docs.docker.com/compose/how-tos/networking/) · [Compose networks](https://docs.docker.com/reference/compose-file/networks/)
@@ -103,3 +107,7 @@ docker network inspect docker-course-s5_default
 ```bash
 docker compose down
 ```
+
+![web 헬스체크 이후의 Compose 시작 순서와 컨테이너 내부 서비스 DNS 및 호스트 포트 게시 경로](image/03_docker_compose_readiness_and_network_paths.png)
+
+그림의 근거 · [Compose 시작 조건](https://docs.docker.com/compose/how-tos/startup-order/) · [Compose 서비스 DNS와 포트](https://docs.docker.com/compose/how-tos/networking/) · [포트 게시](https://docs.docker.com/engine/network/port-publishing/)
