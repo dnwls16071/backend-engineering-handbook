@@ -27,6 +27,10 @@
 
 **공식 문서** [흐름 제어](https://grpc.io/docs/guides/flow-control/) · [인터셉터와 실행 순서](https://grpc.io/docs/guides/interceptors/)
 
+![송신 앱 큐의 용량 정책과 gRPC 런타임의 전송 여유를 구분하고, 읽기가 늦을 때 전송 여유가 제한되는 관계를 보여주는 그림](image/03_grpc_stream_flow_control_and_bounded_queue.png)
+
+그림의 근거 · [gRPC 흐름 제어](https://grpc.io/docs/guides/flow-control/) · [HTTP/2 흐름 제어](https://www.rfc-editor.org/rfc/rfc9113.html#name-flow-control)
+
 ## 3. 로드 밸런싱과 서버 Reflection
 
 클라이언트 측 로드 밸런싱에서 이름 해석기는 백엔드 주소를 찾고, 로드 밸런싱 정책은 각 RPC를 보낼 대상을 선택한다.
@@ -57,6 +61,10 @@ grpcurl -plaintext 127.0.0.1:50051 describe inventory.sync.v1.InventoryService
 
 **공식 문서** [gRPC 로드 밸런싱 정책](https://grpc.io/docs/guides/custom-load-balancing/) · [Service Config](https://grpc.io/docs/guides/service-config/) · [Reflection](https://grpc.io/docs/guides/reflection/) · [grpcurl](https://github.com/fullstorydev/grpcurl)
 
+![이름 해석기가 개별 백엔드 주소를 주고 round_robin 정책이 새 RPC의 대상을 선택하며, 이미 열린 WatchStock 스트림은 원래 서버에 남는 그림](image/03_grpc_resolver_balancer_and_stream_affinity.png)
+
+그림의 근거 · [gRPC 로드 밸런싱 정책](https://grpc.io/docs/guides/custom-load-balancing/) · [gRPC Service Config](https://grpc.io/docs/guides/service-config/) · [gRPC 스트림 성능](https://grpc.io/docs/guides/performance/)
+
 ## 4. Graceful Shutdown과 Request Hedging
 
 ### 진행 중인 호출을 마치고 종료하기
@@ -66,6 +74,10 @@ grpcurl -plaintext 127.0.0.1:50051 describe inventory.sync.v1.InventoryService
 3. 유예 시간 안에 끝나지 않은 호출은 강제 종료한다. 이후 서버 작업과 외부 자원을 정리한다.
 
 장시간 스트림은 배포 유예 시간보다 길게 이어질 수 있다. 재연결이 필요한 서비스는 클라이언트가 언제 다시 연결하고 어느 지점부터 이어받는지 계약에 포함한다.
+
+![외부 라우팅에서 새 트래픽을 빼고 서버 정상 종료를 시작한 뒤, 진행 중인 호출을 유예 시간 동안 처리하고 만료되면 남은 호출을 강제 종료하는 흐름](image/03_grpc_graceful_shutdown_and_drain.png)
+
+그림의 근거 · [gRPC Graceful Shutdown](https://grpc.io/docs/guides/server-graceful-stop/) · [gRPC 취소와 서버 처리](https://grpc.io/docs/guides/cancellation/)
 
 ### 느린 응답에 한해 추가 시도를 보내기
 
@@ -92,3 +104,7 @@ Request Hedging은 첫 호출이 느릴 때 기존 호출이 끝나기 전에 �
 첫 시도를 즉시 보낸다. 헤징이 가능한 상태에서 50ms 동안 응답이 지연되면 두 번째 시도를 보낼 수 있다. `UNAVAILABLE`을 먼저 받으면 남은 시도를 지연 없이 보낼 수 있다. `maxAttempts`에는 최초 시도가 포함되고, 300ms 예산은 두 시도가 공유한다. 예제 값은 설정의 의미를 보여준다. 적용할 때는 p99 개선폭과 논리적 RPC당 백엔드 시도 횟수를 함께 측정하고, 클라이언트 런타임의 헤징 지원을 확인한다.
 
 **공식 문서** [Graceful Shutdown](https://grpc.io/docs/guides/server-graceful-stop/) · [Request Hedging](https://grpc.io/docs/guides/request-hedging/) · [gRPC Retry 및 Hedging 설계](https://github.com/grpc/proposal/blob/master/A6-client-retries.md)
+
+![GetStock의 첫 응답이 50ms 안에 오지 않으면 공통 300ms 기한 안에서 추가 시도를 시작할 수 있고, 처음 성공한 응답을 사용하며 남은 시도를 취소하는 예시](image/03_grpc_hedging_shared_deadline_timeline.png)
+
+그림의 근거 · [gRPC Request Hedging](https://grpc.io/docs/guides/request-hedging/) · [gRPC 재시도·헤징 설계](https://github.com/grpc/proposal/blob/master/A6-client-retries.md)

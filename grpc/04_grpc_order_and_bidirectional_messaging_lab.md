@@ -93,6 +93,10 @@ Python에서는 `commerce_pb2.CreateOrderRequest`로 메시지를 만든다. `co
 
 **공식 문서** [Python 생성 코드](https://grpc.io/docs/languages/python/generated-code/) · [Go Protobuf 생성 코드](https://protobuf.dev/reference/go/go-generated/) · [Go gRPC 생성 코드](https://grpc.io/docs/languages/go/generated-code/)
 
+![commerce.proto에서 Python과 Go의 메시지 파일과 gRPC 서비스 파일을 각각 생성하고, Python 스텁이 CreateOrder와 Chat을 호출 유형에 맞게 바인딩하는 그림](image/04_grpc_proto_codegen_and_method_bindings.png)
+
+그림의 근거 · [gRPC Python 생성 코드](https://grpc.io/docs/languages/python/generated-code/) · [Protobuf Go 메시지 파일](https://protobuf.dev/reference/go/go-generated/) · [gRPC Go 서비스 파일](https://grpc.io/docs/languages/go/generated-code/)
+
 ## 3. 서버 구현 · 주문 정책과 스트림 상태
 
 | 상황 | 처리 결과 |
@@ -193,6 +197,10 @@ if __name__ == "__main__":
 
 **공식 문서** [gRPC 상태 코드](https://grpc.io/docs/guides/status-codes/) · [gRPC Python AsyncIO 서버와 호출](https://grpc.github.io/grpc/python/grpc_asyncio.html)
 
+![CreateOrder의 첫 요청에서 재고가 3에서 1이 되고, 같은 식별자와 같은 내용이면 응답을 재사용하며 같은 식별자로 다른 내용을 보내면 ALREADY_EXISTS를 반환하는 예시](image/04_grpc_create_order_idempotent_state.png)
+
+그림의 근거 · [gRPC Python AsyncIO 서버](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC 상태 매핑](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)
+
 ## 4. 클라이언트 구성과 통신 테스트
 
 다음 내용을 `client.py`로 저장한다. 주문은 같은 요청을 다시 보내 응답이 같은지 확인하고, 새 주문으로 남은 재고를 실제로 확인한다. 채팅은 입장 응답을 받으면서 송신과 수신을 함께 진행한다. 송신 태스크가 `done_writing()`을 호출하면 수신 태스크는 남은 이벤트와 최종 상태를 읽는다.
@@ -292,3 +300,7 @@ if __name__ == "__main__":
 두 줄의 `PASS` 출력으로 주문과 채팅을 확인한다. 주문이 메모리 상태를 변경하므로 동일한 실습을 처음부터 실행하려면 서버를 다시 시작한다. 종료할 때는 서버 터미널에서 `Ctrl+C`를 누른다.
 
 **공식 문서** [gRPC Python 기본 실습](https://grpc.io/docs/languages/python/basics/) · [gRPC Python AsyncIO 스트림 API](https://grpc.github.io/grpc/python/grpc_asyncio.html)
+
+![Python Chat에서 입장 확인이 송신 태스크를 깨우고, 두 메시지를 보낸 뒤 done_writing으로 송신을 닫아도 두 접수 이벤트와 최종 OK 상태를 확인하는 순서](image/04_grpc_async_chat_join_ack_and_shutdown.png)
+
+그림의 근거 · [gRPC Python AsyncIO 호출 API](https://grpc.github.io/grpc/python/grpc_asyncio.html) · [gRPC Python 1.80.1 구현](https://github.com/grpc/grpc/blob/v1.80.1/src/python/grpcio/grpc/aio/_call.py) · [Proto3 oneof](https://protobuf.dev/programming-guides/proto3/#oneof)

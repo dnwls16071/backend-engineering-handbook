@@ -66,6 +66,10 @@ message CountAck {
 
 **공식 문서** [gRPC 서비스 정의와 호출 유형](https://grpc.io/docs/what-is-grpc/core-concepts/) · [Protocol Buffers 서비스 정의](https://protobuf.dev/programming-guides/proto3/#services)
 
+![재고 예제의 GetStock, WatchStock, UploadCounts, SyncStock을 사용해 Unary와 세 스트리밍 RPC의 요청·응답 방향 및 메시지 개수를 비교한 그림](image/02_grpc_four_rpc_message_patterns.png)
+
+그림의 근거 · [gRPC 호출 유형](https://grpc.io/docs/what-is-grpc/core-concepts/#service-definition) · [Proto3 서비스 선언](https://protobuf.dev/programming-guides/proto3/#services)
+
 ## 3. 양방향 스트리밍의 동시성과 종료
 
 `SyncStock`에서 클라이언트는 `report-1`을 보낸 뒤 그 확인을 기다리는 동안에도 `report-2`를 보낼 수 있다. 수신 쪽은 `CountAck.report_id`로 어떤 보고가 확인됐는지 구분한다. 송신 메서드가 반환됐을 때는 gRPC 런타임에 메시지를 넘긴 상태일 수 있으므로, 업무 처리가 완료됐는지는 확인 응답과 최종 RPC 상태를 통해 판단한다.
@@ -80,3 +84,7 @@ message CountAck {
 정상 종료 흐름에서는 클라이언트가 두 보고를 보낸 뒤 송신 방향을 닫고, 남은 확인 메시지와 최종 상태를 읽는다. 느린 수신자와 중간 취소도 테스트하면 큐가 한도를 지키고 송수신 작업이 종료되는지 확인할 수 있다.
 
 **공식 문서** [gRPC 양방향 호출 수명](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc) · [흐름 제어](https://grpc.io/docs/guides/flow-control/) · [취소](https://grpc.io/docs/guides/cancellation/) · [gRPC Go의 스트림 동시성 예시](https://grpc.io/docs/languages/go/generated-code/)
+
+![SyncStock에서 두 번째 재고 보고를 첫 번째 확인보다 먼저 보내고, 클라이언트 송신을 닫은 뒤에도 남은 CountAck와 최종 OK 상태를 수신하는 흐름](image/02_grpc_bidi_half_close_and_ack_sequence.png)
+
+그림의 근거 · [gRPC 양방향 호출 수명](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc) · [gRPC HTTP/2 스트림 종료](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) · [gRPC 취소](https://grpc.io/docs/guides/cancellation/)

@@ -31,6 +31,10 @@ RPC는 원격 서비스의 연산을 `GetStock` 같은 메서드로 표현한다
 
 **공식 문서** [gRPC 호출 수명과 종료](https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle) · [Deadline](https://grpc.io/docs/guides/deadlines/) · [Retry](https://grpc.io/docs/guides/retry/) · [상태 코드](https://grpc.io/docs/guides/status-codes/)
 
+![ReserveStock의 서버 저장이 끝났어도 클라이언트가 기한 안에 응답을 못 받으면 DEADLINE_EXCEEDED를 보고, 재시도 시 동일 식별자로 처리 결과를 확인하는 예시](image/01_grpc_deadline_and_unknown_write_outcome.png)
+
+그림의 근거 · [gRPC Deadline](https://grpc.io/docs/guides/deadlines/) · [gRPC 상태 코드](https://grpc.io/docs/guides/status-codes/) · [gRPC 재시도](https://grpc.io/docs/guides/retry/)
+
 ## 3. Google이 gRPC를 만든 배경
 
 Google은 데이터센터 안과 데이터센터 사이의 서비스 통신에 범용 RPC 인프라인 Stubby를 운영했다. 공통 인프라를 사용하면 효율, 보안, 신뢰성 개선을 여러 서비스에 적용할 수 있었다. Google은 이 경험을 바탕으로 HTTP/2 공개 표준을 사용하는 gRPC를 설계하고 2015년에 오픈소스로 공개했다. 이 구조를 통해 여러 언어와 플랫폼에서 같은 호출 계약을 사용할 수 있게 했다.
@@ -62,3 +66,7 @@ message GetStockResponse {
 같은 계약으로 배포 시점이 다른 프로그램을 연결하려면 사용 중인 필드 번호를 바꾸지 않는다. 필드를 삭제하면 해당 번호를 예약해 재사용을 막는다. 브라우저가 주 클라이언트라면 HTTP API와 gRPC-Web의 연동 비용도 비교한다.
 
 **공식 문서** [gRPC 설계 동기와 원칙](https://grpc.io/blog/principles/) · [Google의 gRPC 공개 발표](https://opensource.googleblog.com/2015/02/introducing-grpc-new-open-source-http2.html) · [gRPC 서비스 정의와 스트리밍](https://grpc.io/docs/what-is-grpc/core-concepts/) · [Proto3 스키마 변경 규칙](https://protobuf.dev/programming-guides/proto3/#updating) · [gRPC-Web](https://grpc.io/docs/platforms/web/basics/)
+
+![inventory.proto로 생성한 코드의 스텁이 GetStock 요청을 직렬화해 HTTP/2 스트림으로 보내고 서버 핸들러가 응답 메시지와 최종 상태를 돌려주는 그림](image/01_grpc_proto_contract_and_http2_call.png)
+
+그림의 근거 · [gRPC 서비스 계약과 실행](https://grpc.io/docs/what-is-grpc/core-concepts/) · [gRPC HTTP/2 전송 규칙](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md)
