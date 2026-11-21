@@ -96,6 +96,10 @@ fun main() {
 }
 ```
 
+![주문 DSL의 order 블록은 OrderBuilder, 안쪽 line 블록은 LineBuilder를 수신 객체로 사용한다. 같은 DSL 마커가 붙은 바깥 수신 객체는 명시적으로 지정해야 하고 수량과 주문 항목 조건은 실행 중 검사한다.](image/09_dsl_receiver_scope_and_validation.png)
+
+그림의 근거 · [Kotlin · 타입 안전한 빌더](https://kotlinlang.org/docs/type-safe-builders.html) · [Kotlin · require](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/require.html)
+
 ## 3. Kotlin DSL 활용 사례
 
 | 사용처 | 블록에서 표현하는 것 |

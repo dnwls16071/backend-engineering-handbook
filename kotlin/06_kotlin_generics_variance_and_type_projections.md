@@ -70,6 +70,10 @@ fun main() {
 }
 ```
 
+![Source의 out 타입 인자는 String에서 CharSequence 방향으로 대입할 수 있고 Sink의 in 타입 인자는 반대 방향으로 대입한다. 무공변인 Container는 서로 다른 타입 인자 사이에서 양방향 대입을 허용하지 않는다.](image/06_generic_variance_assignment_directions.png)
+
+그림의 근거 · [Kotlin · 제네릭 변성](https://kotlinlang.org/docs/generics.html)
+
 ## 4. 선언 지점 변성과 사용 지점 변성
 
 `Source<out T>`처럼 타입을 정의하는 곳에 적으면 선언 지점 변성이다. `Array<out T>`처럼 이미 정의된 타입을 함수의 매개변수 등에 사용할 때 적으면 사용 지점 변성이다. 아래 함수는 `source`에서 `T`를 읽고 `destination`에 `T`를 쓴다. `Array<out T>`에는 요소를 쓸 수 없고, `Array<in T>`에서 읽은 요소는 `Any?`로 다룬다. [Kotlin · 타입 프로젝션](https://kotlinlang.org/docs/generics.html#type-projections)

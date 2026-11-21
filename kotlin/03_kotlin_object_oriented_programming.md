@@ -179,3 +179,7 @@ fun main() {
     check(message(ReservationResult.InsufficientStock(1)) == "Available 1")
 }
 ```
+
+![ReservationResult의 Confirmed는 OrderLine을, InsufficientStock은 가용 수량을 담는다. 두 경우를 다루는 when은 else를 생략할 수 있고 OrderLine의 copy로 원래 값을 유지한 채 새 항목을 만든다.](image/03_sealed_reservation_results.png)
+
+그림의 근거 · [Kotlin · 봉인 클래스와 인터페이스](https://kotlinlang.org/docs/sealed-classes.html) · [Kotlin · 데이터 클래스](https://kotlinlang.org/docs/data-classes.html)

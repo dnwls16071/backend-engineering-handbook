@@ -97,6 +97,10 @@ fun main() {
 }
 ```
 
+![apply와 also는 원래 객체를 반환하고 run, with, let은 블록 값을 반환한다. 블록에서 apply, run, with는 this를, also와 let은 인자를 사용한다. 안전 호출을 붙인 let은 null일 때 블록을 건너뛴다.](image/05_scope_function_receiver_and_return_matrix.png)
+
+그림의 근거 · [Kotlin · 스코프 함수](https://kotlinlang.org/docs/scope-functions.html) · [Kotlin · 안전 호출](https://kotlinlang.org/docs/null-safety.html)
+
 ## 4. `takeIf`와 `takeUnless`로 값 하나 거르기
 
 `takeIf`는 조건이 참이면 원래 객체를 반환하고, 거짓이면 `null`을 반환한다. `takeUnless`는 조건이 거짓일 때 원래 객체를 반환한다. 결과가 nullable이므로 후속 변환은 `?.let` 같은 안전 호출로 연결할 수 있다. 수신 객체를 만드는 표현식은 조건을 검사하기 전에 평가된다. 조건이 맞을 때만 비싼 연산을 실행해야 하면 먼저 `if`로 분기한다. [Kotlin · `takeIf`와 `takeUnless`](https://kotlinlang.org/docs/scope-functions.html#takeif-and-takeunless)

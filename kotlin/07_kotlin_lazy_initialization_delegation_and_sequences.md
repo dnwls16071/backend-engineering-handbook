@@ -171,6 +171,10 @@ fun main() {
 }
 ```
 
+![입력 0, 3, 4에서 List는 양수 필터링을 세 번, 두 배 변환을 두 번 한 뒤 6을 반환한다. Sequence는 첫 결과 6을 찾을 때까지 필터를 두 번, 변환을 한 번 실행하며 뒤의 4는 평가하지 않는다.](image/07_eager_and_lazy_first_match.png)
+
+그림의 근거 · [Kotlin · 시퀀스](https://kotlinlang.org/docs/sequences.html) · [Kotlin · Sequence.firstOrNull](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/first-or-null.html)
+
 ### 벤치마크와 실행 방법
 
 `StockBenchmark.java`에서 목록 크기와 첫 일치 위치를 바꾼다. 입력은 `@Setup`에서 만들고, 벤치마크 메서드는 계산 결과를 반환해 JMH가 소비하게 한다. `ns/op`를 비교할 때는 워밍업, 측정 반복, JVM 포크를 확보하고 실행 환경도 함께 기록한다. [OpenJDK · JMH](https://github.com/openjdk/jmh) · [OpenJDK · 결과 소비 예제](https://github.com/openjdk/jmh/blob/master/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_08_DeadCode.java) · [OpenJDK · 입력 파라미터 예제](https://github.com/openjdk/jmh/blob/master/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_27_Params.java)

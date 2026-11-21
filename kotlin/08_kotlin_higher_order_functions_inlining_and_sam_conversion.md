@@ -106,6 +106,10 @@ fun main() {
 }
 ```
 
+![직접 호출되는 일반 inline 람다의 return은 감싼 stockStatus를 끝낼 수 있다. crossinline 인자는 Runnable에서 실행하고 noinline 인자는 함수 값으로 저장한다. crossinline과 noinline은 비지역 반환을 허용하지 않는다.](image/08_inline_lambda_execution_and_return.png)
+
+그림의 근거 · [Kotlin · 인라인 함수](https://kotlinlang.org/docs/inline-functions.html) · [Kotlin · 라벨 반환](https://kotlinlang.org/docs/returns.html)
+
 ## 4. SAM 변환과 함수 참조
 
 SAM은 추상 메서드를 하나 가진 인터페이스다. Kotlin의 `fun interface`나 Java의 `IntPredicate`처럼 함수형 인터페이스가 필요한 곳에 시그니처가 맞는 람다 또는 함수 참조를 전달할 수 있다. `fun interface`는 메서드 이름과 계약을 갖는 별도 타입이다. 함수 타입의 `typealias`는 기존 함수 타입에 이름만 부여한다. [Kotlin · 함수형 인터페이스](https://kotlinlang.org/docs/fun-interfaces.html) · [Kotlin · Java SAM 변환](https://kotlinlang.org/docs/java-interop.html#sam-conversions) · [Java 17 · `IntPredicate`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/IntPredicate.html)

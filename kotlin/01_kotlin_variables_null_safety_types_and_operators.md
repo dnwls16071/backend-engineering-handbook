@@ -48,6 +48,10 @@ fun main() {
 }
 ```
 
+![displayName의 String? 입력은 안전 호출로 trim을 평가한다. null이면 엘비스 연산자로 Guest를 바로 반환하고 빈 문자열도 Guest가 된다. 공백을 제거한 Ada는 그대로 반환한다.](image/01_nullable_value_and_early_return.png)
+
+그림의 근거 · [Kotlin · null 안전성](https://kotlinlang.org/docs/null-safety.html)
+
 ## 3. 숫자 변환과 타입 검사
 
 - `val count = 3`의 타입은 `Int`다. `Long`을 받는 곳에서는 `count.toLong()`으로 바꾼다. 리터럴은 문맥에 따라 `val count: Long = 3`으로 대입하거나 `3L`로 타입을 표현할 수 있다. JVM에서는 가능한 곳에서 기본형을 사용하며, nullable 숫자와 제네릭의 숫자는 보통 박싱된다. [Kotlin · 숫자 타입과 변환](https://kotlinlang.org/docs/numbers.html)

@@ -87,6 +87,10 @@ fun main() {
 
 숫자 변환 실패를 `null`로 표현하려면 `raw.trim().toIntOrNull()`로도 쓸 수 있다. `use`는 블록이 끝나거나 도중에 예외가 발생해도 리더를 닫는다. [Kotlin · `toIntOrNull`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-int-or-null.html) · [Kotlin · `use`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/use.html)
 
+![parseQuantity에서 변환에 성공하면 Int 값이 나오고 NumberFormatException을 처리한 경로에서는 null을 반환한다. finally는 표현식 결과에 기여하지 않으며 별도 use 예제는 예외가 발생해도 리더를 닫는다.](image/02_try_expression_result_paths.png)
+
+그림의 근거 · [Kotlin · 예외 처리](https://kotlinlang.org/docs/exceptions.html) · [Kotlin · use](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/use.html)
+
 ## 4. 함수의 반환값과 인자 설계하기
 
 표현식 본문은 `fun double(value: Int) = value * 2`처럼 쓰고 반환 타입을 추론할 수 있다. 블록 본문이 값을 반환할 때는 반환 타입과 `return`을 명시한다. 반환할 값이 없는 블록 본문의 `Unit` 표기는 생략할 수 있다. [Kotlin · 함수](https://kotlinlang.org/docs/functions.html)

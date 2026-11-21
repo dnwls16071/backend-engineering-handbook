@@ -114,3 +114,7 @@ class JavaClient {
     }
 }
 ```
+
+![Kotlin 호출부는 이름 있는 인자로 User 팩터리를 호출하고 Java 17 호출부는 @JvmStatic과 @JvmOverloads로 노출된 User.create(long)으로 진입한다. 두 호출은 같은 팩터리에서 User를 만들며 이름이 없거나 공백이면 Guest를 사용한다.](image/00_java_and_kotlin_factory_calls.png)
+
+그림의 근거 · [Kotlin · Java에서 Kotlin 호출](https://kotlinlang.org/docs/java-to-kotlin-interop.html) · [Kotlin · 기본 인자와 이름 있는 인자](https://kotlinlang.org/docs/functions.html)

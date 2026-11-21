@@ -77,6 +77,10 @@ fun main() {
 }
 ```
 
+![ProductId와 WarehouseId는 모두 String을 기반으로 하지만 stockKey에서는 서로 바꾸어 넘길 수 없다. ProductId 타입 그대로 쓰면 기반 String으로 표현할 수 있고 일반 제네릭의 T로 넘기면 래퍼로 박싱된다.](image/11_value_class_identity_and_jvm_boxing.png)
+
+그림의 근거 · [Kotlin · 인라인 값 클래스](https://kotlinlang.org/docs/inline-classes.html) · [Kotlin · 타입 별칭](https://kotlinlang.org/docs/type-aliases.html)
+
 ### 여러 예외를 각각 처리하기
 
 Kotlin에서는 Java의 `catch (A | B e)`에 해당하는 타입을 `catch` 블록별로 적는다. 처음 일치하는 블록이 실행되므로 상위 타입보다 구체적인 예외를 먼저 처리한다. 여러 실패가 같은 맥락에서 처리되더라도, 입력 오류만 복구해야 한다면 잡을 예외의 범위를 입력 오류로 제한한다. [Kotlin · 여러 `catch` 블록](https://kotlinlang.org/docs/exceptions.html)

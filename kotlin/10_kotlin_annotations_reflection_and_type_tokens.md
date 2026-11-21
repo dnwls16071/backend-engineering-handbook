@@ -197,3 +197,7 @@ fun main() {
     check(store.get(missing) == null)
 }
 ```
+
+![KClass만 키로 쓰면 List<String>과 List<Int>는 같은 List::class로 보인다. typeOf 또는 구체 슈퍼 타입 토큰으로 얻은 KType은 타입 인자를 포함해 서로 다른 키를 만들 수 있다. 실제 리스트 요소를 검증하려면 각각 검사한다.](image/10_kclass_ktype_and_typed_keys.png)
+
+그림의 근거 · [Kotlin · 제네릭 타입 소거](https://kotlinlang.org/docs/generics.html) · [Kotlin · typeOf](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/type-of.html) · [Kotlin · KType.arguments](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-type/arguments.html) · [Kotlin · KClass.supertypes](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.reflect/-k-class/supertypes.html)

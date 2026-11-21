@@ -118,3 +118,7 @@ fun main() {
     check(firstAvailableSku == "pen")
 }
 ```
+
+![재고가 있는 상품만 남긴 뒤 groupBy로 카테고리별 SKU 목록을 만들거나 associateBy로 SKU별 상품을 찾는 Map을 만든다. associateBy에서 같은 키는 마지막 값이 남고 재고 합계는 sumOf로 구한다.](image/04_filter_group_and_index_products.png)
+
+그림의 근거 · [Kotlin · 컬렉션 필터링](https://kotlinlang.org/docs/collection-filtering.html) · [Kotlin · 컬렉션 그룹화](https://kotlinlang.org/docs/collection-grouping.html) · [Kotlin · 컬렉션 변환](https://kotlinlang.org/docs/collection-transformations.html) · [Kotlin · 컬렉션 집계](https://kotlinlang.org/docs/collection-aggregate.html)
