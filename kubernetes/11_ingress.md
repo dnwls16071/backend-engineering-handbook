@@ -147,7 +147,7 @@ tls:
     secretName: portal-tls
 ```
 
-- Secret의 타입은 `kubernetes.io/tls`이고 데이터 키는 **`tls.crt`, `tls.key`**이다. `cert`, `key`라는 임의의 키를 사용하는 것이 아니다.
+- Secret의 타입은 `kubernetes.io/tls`이고 데이터 키는 `tls.crt`, `tls.key`이다. `cert`, `key`라는 임의의 키를 사용하는 것이 아니다.
 - `tls.hosts`, `rules.host`와 인증서의 SAN에 포함된 호스트 이름을 맞춘다. Secret은 Ingress와 같은 Namespace에 있어야 한다.
 - 자체 서명 인증서는 기본적으로 브라우저가 신뢰하지 않을 수 있다. 사설 CA 인증서도 클라이언트가 해당 CA를 신뢰하도록 구성하면 사용할 수 있으며, 사설 인증서가 모두 임시 테스트 전용인 것은 아니다.
 - TLS는 HTTP 내용을 암호화하지만 네트워크 전달에 필요한 목적지 IP·포트까지 숨기지는 않는다. 내부 통신도 네트워크 경계와 요구사항에 따라 별도로 암호화한다.

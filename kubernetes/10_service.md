@@ -77,7 +77,7 @@ spec:
 
 - 대상 Pod에는 `app: orders` 라벨과 `name: http`인 컨테이너 포트가 있어야 한다. 앱도 해당 포트에서 실제로 수신해야 한다.
 - NodePort는 대상 Pod가 없는 노드에서도 진입점이 될 수 있다. 실제 접근 가능 여부는 노드 주소 설정·방화벽과 트래픽 정책에 따라 달라진다.
-- NodePort의 기본 범위는 **`30000~32767`**이며, 수동 지정도 클러스터의 설정 범위 안에서 해야 한다. 강의의 `32768` 표기와 구분한다. [NodePort 공식 문서](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+- NodePort의 기본 범위는 `30000~32767`이며, 수동 지정도 클러스터의 설정 범위 안에서 해야 한다. 강의의 `32768` 표기와 구분한다. [NodePort 공식 문서](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
 - 요청이 Service라는 별도 서버를 순서대로 방문하는 것은 아니다. `NodePort → Service → Pod`는 노출 포트와 대상 선택 관계를 설명하는 논리적 경로이다.
 
 ## 4. LoadBalancer와 externalIPs는 외부 주소를 준비하는 방식이 다르다

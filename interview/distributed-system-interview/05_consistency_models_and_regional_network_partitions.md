@@ -33,9 +33,9 @@
 
 ### CAP에서 보장 범위를 설명하기
 
-- **C (Consistency)**는 읽기와 쓰기가 선형화 가능하다는 보장이다. 앞서 완료된 쓰기가 뒤에 시작된 읽기에 반영된다. [Gilbert와 Lynch, CAP 논문 §2.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
-- **A (Availability)**는 고장 나지 않은 노드가 받은 모든 요청에서 해당 연산의 유효한 결과를 결국 반환한다는 보장이다. 응답 시간 상한은 정의에 포함되지 않는다. `503`으로 읽기를 거절하거나 단절이 끝날 때까지 무기한 대기하면 이 보장을 충족할 수 없다. [Gilbert와 Lynch, CAP 논문 §2.2–3.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
-- **P (Partition tolerance)**는 노드 집단 사이의 메시지가 계속 유실될 수 있는 장애 상황을 고려한다는 뜻이다. 서울과 도쿄가 통신할 수 없으면, 도쿄는 서울에서 완료된 쓰기가 있는 경우와 없는 경우를 로컬 상태만으로 구별할 수 없다. 그 조회에서 C를 지키려면 A를 포기해야 할 수 있다. 도쿄의 로컬 상태로 계속 응답하는 정책은 최신성 보장을 완화한다. [Gilbert와 Lynch, CAP 논문 §2.3 및 §3.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
+- **C** (Consistency)는 읽기와 쓰기가 선형화 가능하다는 보장이다. 앞서 완료된 쓰기가 뒤에 시작된 읽기에 반영된다. [Gilbert와 Lynch, CAP 논문 §2.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
+- **A** (Availability)는 고장 나지 않은 노드가 받은 모든 요청에서 해당 연산의 유효한 결과를 결국 반환한다는 보장이다. 응답 시간 상한은 정의에 포함되지 않는다. `503`으로 읽기를 거절하거나 단절이 끝날 때까지 무기한 대기하면 이 보장을 충족할 수 없다. [Gilbert와 Lynch, CAP 논문 §2.2–3.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
+- **P** (Partition tolerance)는 노드 집단 사이의 메시지가 계속 유실될 수 있는 장애 상황을 고려한다는 뜻이다. 서울과 도쿄가 통신할 수 없으면, 도쿄는 서울에서 완료된 쓰기가 있는 경우와 없는 경우를 로컬 상태만으로 구별할 수 없다. 그 조회에서 C를 지키려면 A를 포기해야 할 수 있다. 도쿄의 로컬 상태로 계속 응답하는 정책은 최신성 보장을 완화한다. [Gilbert와 Lynch, CAP 논문 §2.3 및 §3.1](https://cs.nyu.edu/~apanda/classes/sp25/papers/gilbert02brewers.pdf)
 
 단절이 없는 평상시에도 원격 정족수 확인은 왕복 시간만큼 읽기 비용을 높일 수 있다. 로컬 복제본을 읽을 때의 지연과 최신성은 평상시에도 따져야 하고, CAP의 질문은 리전 간 통신이 끊겼을 때 어느 연산을 계속 제공할 수 있는지에 관한 것이다. 이 선택은 [게시글 생성·조회 서비스 설계](06_designing_a_post_creation_and_read_service.md)에서도 조회 경로별로 적용된다. [etcd API 보장](https://etcd.io/docs/v3.6/learning/api_guarantees/#linearizability)
 

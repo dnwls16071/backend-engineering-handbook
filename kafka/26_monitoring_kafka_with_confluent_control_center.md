@@ -1,6 +1,6 @@
 # Monitoring Kafka with Confluent Control Center
 
-Confluent Control Center로 로컬 클러스터의 토픽과 소비자 그룹을 조회하고, 생산을 계속하는 동안 소비가 멈추면 Lag가 어떻게 변하는지 CLI 수치와 대조한다. 이 실습은 공식 Quick Start의 **Confluent Platform 8.2.0(Kafka 4.2 계열)**과 **Control Center 2.5.0**을 사용한다. Platform과 Control Center는 별도 버전 체계를 사용하므로 다른 릴리스를 선택할 때는 호환표를 확인한다. Confluent Platform 8.0부터는 레거시 Control Center를 대체한 버전이 제공된다. [Confluent · Quick Start](https://docs.confluent.io/control-center/current/quickstart.html) · [Confluent · 버전 호환성](https://docs.confluent.io/platform/current/installation/versions-interoperability.html)
+Confluent Control Center로 로컬 클러스터의 토픽과 소비자 그룹을 조회하고, 생산을 계속하는 동안 소비가 멈추면 Lag가 어떻게 변하는지 CLI 수치와 대조한다. 이 실습은 공식 Quick Start의 **Confluent Platform 8.2.0**(Kafka 4.2 계열)과 **Control Center 2.5.0**을 사용한다. Platform과 Control Center는 별도 버전 체계를 사용하므로 다른 릴리스를 선택할 때는 호환표를 확인한다. Confluent Platform 8.0부터는 레거시 Control Center를 대체한 버전이 제공된다. [Confluent · Quick Start](https://docs.confluent.io/control-center/current/quickstart.html) · [Confluent · 버전 호환성](https://docs.confluent.io/platform/current/installation/versions-interoperability.html)
 
 ## 1. 로컬에서 Control Center 시작하기
 

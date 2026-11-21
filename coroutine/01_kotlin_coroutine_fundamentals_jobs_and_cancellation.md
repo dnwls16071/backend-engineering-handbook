@@ -164,9 +164,9 @@ fun main() = runBlocking {
 
 `Completing`은 본문이 끝나고 자식 작업의 종료를 기다리는 중간 상태다. 취소나 실패를 처리하는 중에는 `Cancelling`이고, 자식과 정리 작업이 끝나면 `Cancelled`가 된다. 따라서 `isCancelled`가 먼저 `true`가 될 수 있다. [kotlinx.coroutines · `Job` 상태 표](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/)
 
-- **`coroutineScope`**에서 자식이 `CancellationException` 외의 예외로 실패하면 같은 스코프의 다른 자식도 취소되고, 스코프 호출이 실패를 던진다. 일반 스코프에서 `async`를 써도 자식의 실패는 부모에 전파된다. [Kotlin · 코루틴 예외 전파](https://kotlinlang.org/docs/exception-handling.html)
-- **`supervisorScope`**에서는 한 자식의 실패가 다른 자식을 자동으로 취소하지 않는다. 실패한 `async` 작업의 예외는 `await()`에서 처리할 수 있다. 처리하지 않은 예외가 스코프 블록 밖으로 전파되면 해당 스코프의 자식도 취소된다. [kotlinx.coroutines · `supervisorScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html)
-- **`CoroutineExceptionHandler`**는 다른 전파 경로가 없는 미처리 예외를 보고할 때 쓰인다. 예외가 난 작업의 복구나 재시도는 작업 안의 `try`·`catch` 또는 스코프를 호출하는 코드에서 다룬다. [kotlinx.coroutines · `CoroutineExceptionHandler`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/)
+- `coroutineScope`에서 자식이 `CancellationException` 외의 예외로 실패하면 같은 스코프의 다른 자식도 취소되고, 스코프 호출이 실패를 던진다. 일반 스코프에서 `async`를 써도 자식의 실패는 부모에 전파된다. [Kotlin · 코루틴 예외 전파](https://kotlinlang.org/docs/exception-handling.html)
+- `supervisorScope`에서는 한 자식의 실패가 다른 자식을 자동으로 취소하지 않는다. 실패한 `async` 작업의 예외는 `await()`에서 처리할 수 있다. 처리하지 않은 예외가 스코프 블록 밖으로 전파되면 해당 스코프의 자식도 취소된다. [kotlinx.coroutines · `supervisorScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html)
+- `CoroutineExceptionHandler`는 다른 전파 경로가 없는 미처리 예외를 보고할 때 쓰인다. 예외가 난 작업의 복구나 재시도는 작업 안의 `try`·`catch` 또는 스코프를 호출하는 코드에서 다룬다. [kotlinx.coroutines · `CoroutineExceptionHandler`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/)
 
 ```kotlin
 import kotlinx.coroutines.CompletableDeferred

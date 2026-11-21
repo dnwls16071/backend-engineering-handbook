@@ -4,7 +4,7 @@
 
 ## 1. Geospatial 자료구조와 명령
 
-Redis의 Geospatial 인덱스는 좌표를 인코딩한 점수와 멤버를 Sorted Set에 저장한다. 카페 ID를 멤버로 사용하면 이름이 같은 매장도 각각 관리할 수 있다. 좌표를 넣고 읽는 순서는 **경도(longitude), 위도(latitude)**다.
+Redis의 Geospatial 인덱스는 좌표를 인코딩한 점수와 멤버를 Sorted Set에 저장한다. 카페 ID를 멤버로 사용하면 이름이 같은 매장도 각각 관리할 수 있다. 좌표를 넣고 읽는 순서는 **경도**(longitude), **위도**(latitude)다.
 
 | 명령 | 역할 |
 | --- | --- |

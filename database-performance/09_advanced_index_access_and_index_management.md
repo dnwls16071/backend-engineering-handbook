@@ -5,7 +5,7 @@
 ## 1. Index Merge와 Multi-Range Read
 
 - **Index Merge**는 한 테이블의 여러 인덱스 스캔 결과를 합친다. 조건에 따라 교집합, 합집합, 정렬 후 합집합을 선택할 수 있다. `EXPLAIN`에서 `type = index_merge`와 `Extra`의 병합 방식을 확인한다.
-- **Multi-Range Read(MRR)**는 세컨더리 인덱스에서 찾은 행 식별자를 모아 행 조회 순서를 바꿔 무작위 페이지 접근을 줄일 수 있다. InnoDB에서는 클러스터드 키 순서가 이때 쓰인다. 인덱스가 필요한 열을 모두 제공하면 이 원본 행 접근 최적화의 이점이 없다.
+- **Multi-Range Read**(MRR)는 세컨더리 인덱스에서 찾은 행 식별자를 모아 행 조회 순서를 바꿔 무작위 페이지 접근을 줄일 수 있다. InnoDB에서는 클러스터드 키 순서가 이때 쓰인다. 인덱스가 필요한 열을 모두 제공하면 이 원본 행 접근 최적화의 이점이 없다.
 
 [Index Merge Optimization](https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html) · [Multi-Range Read Optimization](https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html)
 

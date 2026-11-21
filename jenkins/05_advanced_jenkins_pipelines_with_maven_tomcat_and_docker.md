@@ -13,7 +13,7 @@ RUN jenkins-plugin-cli --jenkins-update-center-download-url https://archives.jen
     --plugins workflow-aggregator pipeline-model-definition git delivery-pipeline-plugin:1131.v20dd664f6ddd
 ```
 
-Jenkins 대시보드에서 뷰 탭 옆의 **+**를 눌러 **Delivery Pipeline View**를 만든다. 뷰의 **Pipelines**에 컴포넌트를 추가하고 초기 Job으로 `sample-war-ci`를 입력한다. 실행 상태는 뷰에서 비교하고, 개별 단계의 오류나 테스트 결과는 해당 실행의 Console Output에서 확인한다. [Configuring a Delivery Pipeline View](https://plugins.jenkins.io/delivery-pipeline-plugin/#configuring-a-view)
+Jenkins 대시보드에서 뷰 탭 옆의 `+`를 눌러 **Delivery Pipeline View**를 만든다. 뷰의 **Pipelines**에 컴포넌트를 추가하고 초기 Job으로 `sample-war-ci`를 입력한다. 실행 상태는 뷰에서 비교하고, 개별 단계의 오류나 테스트 결과는 해당 실행의 Console Output에서 확인한다. [Configuring a Delivery Pipeline View](https://plugins.jenkins.io/delivery-pipeline-plugin/#configuring-a-view)
 
 ## 2. Pipeline 스크립트와 Pipeline Syntax
 
