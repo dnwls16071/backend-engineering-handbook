@@ -33,6 +33,10 @@ public void renameTicket(Long id, String title) {
 
 새 엔티티는 `persist()` 후 넘긴 객체를 반환한다. 기존 엔티티로 판단하면 `merge()`의 반환 객체를 사용한다. 준영속 입력은 자기 Java 객체가 곧바로 관리 상태로 전환된다고 가정하면 안 된다. `saveAndFlush()`로 플러시를 요청할 수도 있으며, 커밋 여부는 바깥 트랜잭션에 달려 있다. [Spring Data JPA 3.5 · 저장과 새 엔티티 판별](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/entity-persistence.html) · [Jakarta Persistence 3.1 · 준영속 상태 병합](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state)
 
+![SimpleJpaRepository.save는 EntityInformation으로 새 엔티티 여부를 판별한다. 새 엔티티면 persist 후 받은 객체를 그대로 반환하고, 기존으로 판별하면 merge의 결과를 반환한다. 준영속 입력과 merge 결과는 다른 인스턴스일 수 있다.](image/04_simple_jpa_repository_save_branches.png)
+
+그림의 구현 근거 · [SimpleJpaRepository.save 소스](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/SimpleJpaRepository.java)
+
 ## 3. 식별자를 직접 지정하는 엔티티
 
 객체를 만들 때 ID를 직접 부여하고 래퍼 버전 속성이 없다면, 새 객체도 기본 판별에서 기존 엔티티로 분류될 수 있다. 그런 모델에서는 `Persistable`로 상태를 명시할 수 있다. 아래 상위 클래스는 ID를 제공하는 엔티티에서 상속하고, 저장·로딩 이후에는 새 객체 플래그를 변경한다. [Spring Data JPA 3.5 · 직접 할당 ID와 Persistable](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/entity-persistence.html)

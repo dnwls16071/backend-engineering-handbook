@@ -51,6 +51,10 @@ public interface TicketTitleView {
 
 메서드의 `Class<T>`에 `TicketTitleView.class` 또는 [02번 문서](02_spring_data_jpa_query_methods_and_pagination.md)의 `TicketSummary.class`를 전달한다. 닫힌 인터페이스 프로젝션은 엔티티 속성과 일치하는 접근자를 선언한다. `@Value`로 표현식을 평가하는 열린 프로젝션은 어떤 속성이 필요한지 미리 좁히기 어렵다. DTO 프로젝션은 값을 받을 생성자가 필요하며, JPQL에서는 생성자 식으로 명시할 수 있다. [Spring Data JPA 3.5 · 프로젝션](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/projections.html)
 
+![Ticket 파생 쿼리는 호출 시 전달한 Class로 프로젝션 타입을 선택한다. 닫힌 인터페이스 예제는 필요한 속성을 Tuple로 조회해 인터페이스 프록시로 만들고, DTO 예제는 JPA의 생성자 선택으로 레코드 인스턴스를 만든다.](image/05_dynamic_projection_result_paths.png)
+
+그림의 구현 근거 · [PartTreeJpaQuery](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/PartTreeJpaQuery.java) · [JpaQueryCreator](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryCreator.java) · [AbstractJpaQuery](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/AbstractJpaQuery.java)
+
 ## 4. 네이티브 SQL과 결과 매핑
 
 ```java

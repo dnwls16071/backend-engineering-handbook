@@ -60,6 +60,10 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {}
 
 `JpaRepository<Ticket, Long>`의 두 타입 인수는 엔티티와 기본 키의 타입이다. Spring Boot의 기본 자동 설정에서는 애플리케이션 클래스의 패키지와 하위 패키지에서 리포지토리를 탐색한다. 패키지를 분리했다면 `@EnableJpaRepositories`로 리포지토리 스캔 범위를 지정할 수 있다. [Spring Boot 3.5 · JPA 리포지토리](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.jpa-and-spring-data.repositories) · [Spring Data JPA · 리포지토리 생성](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/create-instances.html)
 
+![TicketRepository 인터페이스가 등록되면 JpaRepositoryFactoryBean이 JpaRepositoryFactory를 구성한다. 팩토리가 인터페이스를 구현하는 프록시와 기본 구현을 준비한다. 서비스의 기본 CRUD 호출은 프록시를 통해 EntityManager를 사용하는 SimpleJpaRepository로 전달된다.](image/01_repository_factory_and_proxy.png)
+
+그림의 구현 근거 · [JpaRepositoryFactoryBean](https://raw.githubusercontent.com/spring-projects/spring-data-jpa/3.5.x/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactoryBean.java) · [JpaRepositoryFactory](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.java) · [RepositoryFactorySupport](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.x/src/main/java/org/springframework/data/repository/core/support/RepositoryFactorySupport.java)
+
 ## 2. 직접 구현하는 경우와 비교
 
 | 작업 | EntityManager | JpaRepository |

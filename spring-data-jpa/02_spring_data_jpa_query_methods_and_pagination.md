@@ -44,6 +44,10 @@ Page<Ticket> findPageByState(@Param("state") TicketState state, Pageable pageabl
 
 `PageRequest.of(0, 20, Sort.by(Sort.Order.desc("priority"), Sort.Order.asc("id")))`는 첫 페이지의 정렬과 범위를 지정한다. 우선순위가 같은 경우 `id`가 순서를 결정한다. 내용과 카운트 쿼리는 동일한 검색 범위를 표현해야 하며, 카운트에 필요 없는 로딩 전용 조인은 뺄 수 있다. [Spring Data JPA 3.5 · 페이징과 정렬](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/query-methods-details.html) · [Spring Data JPA 3.5 · countQuery](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/Query.html#countQuery())
 
+![페이징이 적용된 @Query의 PagedExecution은 내용을 먼저 조회하고 PageableExecutionUtils.getPage에 카운트 공급자를 넘긴다. 내용과 Pageable로 전체 건수를 계산할 수 있으면 카운트 쿼리를 생략한다. SlicedExecution은 최대 pageSize + 1건을 조회해 다음 페이지 여부를 판단하고 초과 한 건을 응답에서 뺀다.](image/02_page_and_slice_query_execution.png)
+
+그림의 구현 근거 · [Spring Data JPA 3.5.13 · PagedExecution과 SlicedExecution](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryExecution.java#L153-L202) · [Spring Data Commons 3.5.13 · Page의 카운트 생략 조건](https://github.com/spring-projects/spring-data-commons/blob/3.5.13/src/main/java/org/springframework/data/support/PageableExecutionUtils.java#L38-L74)
+
 ## 3. 벌크 변경
 
 ```java

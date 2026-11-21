@@ -758,5 +758,105 @@
       "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
       "locator": "Understanding PROPAGATION_REQUIRES_NEW의 독립 물리 트랜잭션과 자원, 본문 CatalogAttemptWriter의 요청 식별자 저장 예시"
     }
+  },
+  {
+    "page": "spring-data-jpa/01_spring_data_jpa_repository_interfaces.md",
+    "claim": "![TicketRepository 인터페이스가 등록되면 JpaRepositoryFactoryBean이 JpaRepositoryFactory를 구성한다. 팩토리가 인터페이스를 구현하는 프록시와 기본 구현을 준비한다. 서비스의 기본 CRUD 호출은 프록시를 통해 EntityManager를 사용하는 SimpleJpaRepository로 전달된다.](image/01_repository_factory_and_proxy.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17, Spring Boot 3.5와 Spring Data JPA 3.5의 기본 JPA 리포지토리 팩토리 및 CRUD 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/create-instances.html",
+      "locator": "Creating Repository Instances의 스캔과 프록시 구성. JpaRepositoryFactoryBean의 createRepositoryFactory, JpaRepositoryFactory의 getTargetRepository/getRepositoryBaseClass와 RepositoryFactorySupport의 getRepository가 세부 구현을 설명"
+    }
+  },
+  {
+    "page": "spring-data-jpa/01_spring_data_jpa_repository_interfaces.md",
+    "claim": "그림의 구현 근거 · [JpaRepositoryFactoryBean](https://raw.githubusercontent.com/spring-projects/spring-data-jpa/3.5.x/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactoryBean.java) · [JpaRepositoryFactory](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.java) · [RepositoryFactorySupport](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.x/src/main/java/org/springframework/data/repository/core/support/RepositoryFactorySupport.java)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17, Spring Boot 3.5와 Spring Data JPA 3.5의 기본 JPA 리포지토리 팩토리 및 CRUD 예시",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-data-jpa/3.5.x/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactoryBean.java",
+      "locator": "Creating Repository Instances의 스캔과 프록시 구성. JpaRepositoryFactoryBean의 createRepositoryFactory, JpaRepositoryFactory의 getTargetRepository/getRepositoryBaseClass와 RepositoryFactorySupport의 getRepository가 세부 구현을 설명"
+    }
+  },
+  {
+    "page": "spring-data-jpa/02_spring_data_jpa_query_methods_and_pagination.md",
+    "claim": "![페이징이 적용된 @Query의 PagedExecution은 내용을 먼저 조회하고 PageableExecutionUtils.getPage에 카운트 공급자를 넘긴다. 내용과 Pageable로 전체 건수를 계산할 수 있으면 카운트 쿼리를 생략한다. SlicedExecution은 최대 pageSize + 1건을 조회해 다음 페이지 여부를 판단하고 초과 한 건을 응답에서 뺀다.](image/02_page_and_slice_query_execution.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5의 Pageable을 받는 @Query 리포지토리 메서드 중 페이징이 켜진 Page 및 Slice 조회. 실행 클래스와 분기는 3.5.13 태그에서 확인",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/query-methods-details.html",
+      "locator": "Paging, Iterating Large Results, Sorting & Limiting의 Pageable 설명 및 Which Method is Appropriate?의 Table 1 (Page, Slice)"
+    }
+  },
+  {
+    "page": "spring-data-jpa/02_spring_data_jpa_query_methods_and_pagination.md",
+    "claim": "그림의 구현 근거 · [Spring Data JPA 3.5.13 · PagedExecution과 SlicedExecution](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryExecution.java#L153-L202) · [Spring Data Commons 3.5.13 · Page의 카운트 생략 조건](https://github.com/spring-projects/spring-data-commons/blob/3.5.13/src/main/java/org/springframework/data/support/PageableExecutionUtils.java#L38-L74)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5의 Pageable을 받는 @Query 리포지토리 메서드 중 페이징이 켜진 Page 및 Slice 조회. 실행 클래스와 분기는 3.5.13 태그에서 확인",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryExecution.java#L153-L202",
+      "locator": "JpaQueryExecution.SlicedExecution.doExecute, JpaQueryExecution.PagedExecution.doExecute와 count"
+    }
+  },
+  {
+    "page": "spring-data-jpa/03_spring_data_jpa_repository_extensions.md",
+    "claim": "![TicketRepository 프록시에서 RepositoryComposition을 거쳐 findHighPriority는 TicketSearchImpl로, save는 SimpleJpaRepository로 위임되는 구조](image/03_repository_fragment_composition.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 및 Spring Data Commons 3.5, 기본 리포지토리 구현과 TicketRepository 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html",
+      "locator": "Customizing Individual Repositories (프래그먼트 조합 및 사용자 정의 구현 우선순위), Customize the Base Repository (SimpleJpaRepository 예제)"
+    }
+  },
+  {
+    "page": "spring-data-jpa/03_spring_data_jpa_repository_extensions.md",
+    "claim": "그림의 구현 근거 · [Spring Data Commons 3.5 · 프록시와 구현 호출 인터셉터](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.x/src/main/java/org/springframework/data/repository/core/support/RepositoryFactorySupport.java) · [Spring Data Commons 3.5.13 · 프래그먼트 선택과 실행](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.13/src/main/java/org/springframework/data/repository/core/support/RepositoryComposition.java)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 및 Spring Data Commons 3.5, 기본 리포지토리 구현과 TicketRepository 예제",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.x/src/main/java/org/springframework/data/repository/core/support/RepositoryFactorySupport.java",
+      "locator": "getRepository(Class, RepositoryFragments) 및 ImplementationMethodExecutionInterceptor.invoke(MethodInvocation)"
+    }
+  },
+  {
+    "page": "spring-data-jpa/04_spring_data_jpa_repository_internals_and_transactions.md",
+    "claim": "![SimpleJpaRepository.save는 EntityInformation으로 새 엔티티 여부를 판별한다. 새 엔티티면 persist 후 받은 객체를 그대로 반환하고, 기존으로 판별하면 merge의 결과를 반환한다. 준영속 입력과 merge 결과는 다른 인스턴스일 수 있다.](image/04_simple_jpa_repository_save_branches.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5.13의 기본 SimpleJpaRepository, 진행 중인 쓰기 트랜잭션 및 Long ID인 Ticket 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/entity-persistence.html",
+      "locator": "Saving Entities와 Entity State-detection Strategies, SimpleJpaRepository.save 구현, 인접 Jakarta Persistence 3.1의 준영속 상태 병합 규칙"
+    }
+  },
+  {
+    "page": "spring-data-jpa/04_spring_data_jpa_repository_internals_and_transactions.md",
+    "claim": "그림의 구현 근거 · [SimpleJpaRepository.save 소스](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/SimpleJpaRepository.java)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5.13의 기본 SimpleJpaRepository, 진행 중인 쓰기 트랜잭션 및 Long ID인 Ticket 예시",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/support/SimpleJpaRepository.java",
+      "locator": "Saving Entities와 Entity State-detection Strategies, SimpleJpaRepository.save 구현, 인접 Jakarta Persistence 3.1의 준영속 상태 병합 규칙"
+    }
+  },
+  {
+    "page": "spring-data-jpa/05_spring_data_jpa_specifications_projections_and_native_queries.md",
+    "claim": "![Ticket 파생 쿼리는 호출 시 전달한 Class로 프로젝션 타입을 선택한다. 닫힌 인터페이스 예제는 필요한 속성을 Tuple로 조회해 인터페이스 프록시로 만들고, DTO 예제는 JPA의 생성자 선택으로 레코드 인스턴스를 만든다.](image/05_dynamic_projection_result_paths.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5.13의 Ticket 파생 조회 예시. 닫힌 최상위 속성 기반 인터페이스와 단일 생성자 DTO 레코드에 적용",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/projections.html",
+      "locator": "Dynamic Projections 및 Using Projections with JPA의 Derived queries. PartTreeJpaQuery, JpaQueryCreator.complete 및 AbstractJpaQuery.doExecute의 동적 타입 선택과 결과 처리"
+    }
+  },
+  {
+    "page": "spring-data-jpa/05_spring_data_jpa_specifications_projections_and_native_queries.md",
+    "claim": "그림의 구현 근거 · [PartTreeJpaQuery](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/PartTreeJpaQuery.java) · [JpaQueryCreator](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryCreator.java) · [AbstractJpaQuery](https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/AbstractJpaQuery.java)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Data JPA 3.5.13의 Ticket 파생 조회 예시. 닫힌 최상위 속성 기반 인터페이스와 단일 생성자 DTO 레코드에 적용",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-data-jpa/blob/3.5.13/spring-data-jpa/src/main/java/org/springframework/data/jpa/repository/query/PartTreeJpaQuery.java",
+      "locator": "Dynamic Projections 및 Using Projections with JPA의 Derived queries. PartTreeJpaQuery, JpaQueryCreator.complete 및 AbstractJpaQuery.doExecute의 동적 타입 선택과 결과 처리"
+    }
   }
 ]

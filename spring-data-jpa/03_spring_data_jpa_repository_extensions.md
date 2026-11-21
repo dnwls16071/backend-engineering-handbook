@@ -37,6 +37,10 @@ public class TicketSearchImpl implements TicketSearch {
 
 프래그먼트에는 `EntityManager`, Querydsl 등 필요한 쿼리 도구를 주입할 수 있다. 동일한 구현을 여러 리포지토리에서 조합할 수 있으며, 독립적인 조회 빈으로 분리하는 방법도 있다. [Spring Data JPA 3.5 · 프래그먼트 구성](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)
 
+![TicketRepository 프록시에서 RepositoryComposition을 거쳐 findHighPriority는 TicketSearchImpl로, save는 SimpleJpaRepository로 위임되는 구조](image/03_repository_fragment_composition.png)
+
+그림의 구현 근거 · [Spring Data Commons 3.5 · 프록시와 구현 호출 인터셉터](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.x/src/main/java/org/springframework/data/repository/core/support/RepositoryFactorySupport.java) · [Spring Data Commons 3.5.13 · 프래그먼트 선택과 실행](https://raw.githubusercontent.com/spring-projects/spring-data-commons/3.5.13/src/main/java/org/springframework/data/repository/core/support/RepositoryComposition.java)
+
 ## 2. 생성·수정 정보를 Auditing으로 기록
 
 `@EnableJpaAuditing`이 붙은 설정 클래스를 등록하고, 감사할 엔티티에 `AuditingEntityListener`를 적용한다. 아래 클래스를 상속한 엔티티의 테이블에는 생성·수정 시각을 저장할 컬럼이 추가된다. 스키마를 마이그레이션으로 관리한다면 컬럼도 함께 추가한다. [Spring Data JPA 3.5 · Auditing 설정](https://docs.spring.io/spring-data/jpa/reference/3.5/auditing.html)
