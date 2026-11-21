@@ -40,4 +40,8 @@ public class PricingPostProcessorConfig {
 
 `DefaultAdvisorAutoProxyCreator`는 등록된 어드바이저의 포인트컷을 평가해 적용할 빈을 결정한다. 같은 빈에 맞는 어드바이저가 여러 개면 적합한 어드바이스를 하나의 프록시 체인에 구성할 수 있다. 인자에 의존하는 동적 조건은 호출 때 다시 확인할 수 있다. [Spring Framework 6.2 · 자동 프록시 생성](https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/autoproxy.html)
 
+![일반 빈 생성 경로에서 DefaultAdvisorAutoProxyCreator는 초기화 후 적용 가능한 어드바이저를 찾는다. 적용할 어드바이저가 있으면 초기화된 priceLookup 빈을 타깃으로 하는 프록시를 반환하고, 적용 대상이 아니면 기존 빈을 그대로 반환한다. 호출 인자에 의존하는 조건은 프록시 호출 중 검사한다.](image/06_bean_lifecycle_to_advisor_auto_proxy.png)
+
+그림의 구현 근거 · [AbstractAutoProxyCreator 초기화 후 처리](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java#L286-L355) · [AbstractAdvisorAutoProxyCreator 후보 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java#L69-L127) · [ReflectiveMethodInvocation 호출 인자 검사](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L151-L174)
+
 예제처럼 직접 감싸는 후처리기와 자동 프록시 생성을 같은 대상에 동시에 적용하면 호출 경로에 여러 프록시가 생길 수 있다. 적용 방식을 정한 뒤 컨테이너에서 조회한 객체의 타입과 호출 순서를 검증한다.

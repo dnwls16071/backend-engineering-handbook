@@ -20,6 +20,8 @@ public class QuoteFacade {
 
 워크플로와 조회를 별도 빈으로 구성하면 `QuoteFacade`가 주입받은 `PriceLookup` 프록시를 통해 호출할 수 있다. 기존 클래스 안의 두 작업이 분리하기 어려운 경우 `ObjectProvider`나 자기 참조 주입으로 프록시를 얻는 방식도 있다. 자기 참조 방식은 빈 생성 순서와 의존관계를 복잡하게 하므로, 먼저 역할을 나눌 수 있는지 확인한다. [Spring Framework 6.2 · 자기 호출 처리 방식](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [Spring Framework 6.2 · Self Injection](https://docs.spring.io/spring-framework/reference/6.2/core/beans/annotation-config/autowired.html)
 
+![외부에서 워크플로 프록시를 거쳐도 대상의 this.quote()는 타깃 안에서 실행되어 조회 어드바이스를 우회한다. QuoteFacade가 주입받은 PriceLookup 프록시를 호출하면 조회에 맞는 어드바이스를 거쳐 실제 대상에 위임한다.](image/12_self_invocation_and_injected_proxy.png)
+
 ## 2. 타입과 가로채기 한계
 
 | 항목 | 확인할 점 |

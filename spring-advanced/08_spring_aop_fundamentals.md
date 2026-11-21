@@ -25,3 +25,7 @@
 Spring에서 AspectJ 형식의 `@Aspect`나 포인트컷 표현식을 사용하더라도 일반적인 Spring AOP 호출은 프록시를 경유한다. 생성자나 필드 접근 등 메서드 실행 이외의 조인 포인트가 필요한 경우에는 별도의 AspectJ 위빙을 검토한다. [Spring Framework 6.2 · Spring AOP와 AspectJ 선택](https://docs.spring.io/spring-framework/reference/6.2/core/aop/choosing.html) · [Spring Framework 6.2 · @AspectJ 지원](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj.html)
 
 어드바이스가 적용되지 않을 때는 객체가 컨테이너에서 관리되는지, 호출이 프록시를 통과하는지, 포인트컷이 호출에 맞는지를 확인한다. [Spring Framework 6.2 · 프록시의 동작](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)
+
+![가격 조회의 시간 측정 애스펙트는 quote() 메서드 실행을 고르는 포인트컷과 측정 코드를 담은 어드바이스를 묶는다. Spring AOP 프록시는 일치하는 호출에 어드바이스를 실행하고 타깃 빈에 위임한다. 조인 포인트는 FixedPriceLookup의 quote() 메서드 실행이다.](image/08_aop_pointcut_advice_and_target_roles.png)
+
+그림의 구현 근거 · [Spring Framework 6.2 · AOP 용어](https://docs.spring.io/spring-framework/reference/6.2/core/aop/introduction-defn.html)

@@ -41,3 +41,7 @@ public class QuoteAuditAspect {
 ## 3. 같은 호출을 여러 애스펙트가 감쌀 때
 
 작은 `@Order` 값이 높은 우선순위를 뜻한다. 우선순위가 높은 어드바이스는 호출에 진입할 때 먼저 실행되고, 호출에서 돌아올 때는 나중에 실행된다. 시간 측정과 트랜잭션처럼 바깥·안쪽 관계가 중요한 동작은 별도의 애스펙트로 두고 순서를 명시한다. 같은 애스펙트 안에 같은 종류의 어드바이스가 여러 개라면 소스 코드의 메서드 순서에 의존하지 않는다. [Spring Framework 6.2 · 어드바이스 순서](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html#aop-ataspectj-advice-ordering)
+
+![QuoteAuditAspect의 @Order(10)이 순서 미지정인 QuoteTimingAspect보다 바깥에서 동작한다. @Before로 시작을 기록한 뒤 안쪽 @Around가 quote()를 실행한다. @Around의 finally가 먼저 시간을 기록하고, RuntimeException이면 바깥 @AfterThrowing이 실패를 기록한다. 정상 반환값이나 대상에서 던진 RuntimeException 또는 Error는 호출자에게 전달된다.](image/09_nested_advice_order_and_outcomes.png)
+
+그림의 구현 근거 · [순서 미지정 애스펙트의 기본 우선순위](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectInstanceFactory.java#L110-L135) · [Spring Framework 6.2 · After Throwing Advice](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html#aop-ataspectj-after-throwing-advice)

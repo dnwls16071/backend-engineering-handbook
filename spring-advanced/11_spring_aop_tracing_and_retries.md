@@ -59,6 +59,10 @@ public class RetryQuoteAspect {
 
 예제에서 `TransientQuoteException`은 재시도 가능한 조회 실패를 나타내는 `RuntimeException` 하위 타입으로 둔다. `maxAttempts`에는 첫 호출이 포함된다. 이 타입의 실패가 계속되면 마지막 예외가 호출자에게 전달되고, 다른 예외는 즉시 전달된다. [Spring Framework 6.2 · proceed 호출 제어](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html)
 
+![RetryQuoteAspect는 시도마다 proceed()로 현재 어드바이스 뒤의 체인을 다시 실행한다. 성공하면 결과를 반환하고, 일시적 조회 실패는 남은 시도가 있을 때만 반복하며, 마지막 실패나 다른 예외는 호출자에게 전달한다.](image/11_around_advice_retry_loop.png)
+
+그림의 구현 근거 · [MethodInvocationProceedingJoinPoint.proceed](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java#L79-L83) · [ReflectiveMethodInvocation의 체인과 호출 복제](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L148-L225)
+
 ## 3. 운영 경계
 
 결제나 주문 생성처럼 다시 실행하면 결과가 중복될 수 있는 작업은 멱등성 보장 방법부터 확인한다. 외부 호출을 재시도할 때는 전체 시간 제한, 대기 간격, 최대 시도 수를 함께 정한다.

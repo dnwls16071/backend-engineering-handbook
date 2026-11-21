@@ -42,6 +42,10 @@ public class CachingPriceLookup implements PriceLookup {
 
 같은 상품의 조회 결과가 있으면 대상 호출을 생략한다. 캐시 키에는 결과에 영향을 주는 데이터가 포함돼야 한다. 변경 가능한 가격에는 만료나 무효화 규칙도 필요하다. 위 예제는 고정 가격을 가정한다. [Java 17 · ConcurrentHashMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 
+![PriceLookup에 캐시 프록시를 연결한 예에서는 캐시 적중 시 저장한 20,000원을 반환하고, 미스 시 FixedPriceLookup을 호출해 가격을 저장한다. 할인 데코레이터를 연결한 예에서는 FixedPriceLookup이 반환한 정가 20,000원에 10퍼센트 할인을 적용해 18,000원을 반환한다.](image/03_price_lookup_proxy_and_decorator.png)
+
+그림의 구현 근거 · [Java 17 언어 명세 · 산술 연산](https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.17.2)
+
 ## 3. 할인 동작을 추가하는 데코레이터
 
 ```java

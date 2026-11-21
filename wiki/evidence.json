@@ -1028,5 +1028,225 @@
       "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java",
       "locator": "setBeanFactory와 프록시에 설정한 TargetSource"
     }
+  },
+  {
+    "page": "spring-advanced/01_threadlocal_and_request_context.md",
+    "claim": "![같은 워커가 요청 A에서 ThreadLocal에 ID를 설정하고 요청 B가 새 ID를 설정하기 전에 읽는 예시. 정리를 생략하면 A의 ID를 읽고, 이전 ID가 없어 finally에서 remove를 실행하면 기본 초기값인 null을 읽는다. 중첩 호출에서는 바깥 ID를 복원한다.](image/01_threadlocal_cleanup_on_reused_worker.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · new ThreadLocal<>()를 사용하는 TraceContext 예제에서 같은 풀 워커가 두 요청을 순서대로 처리하는 경우",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ThreadLocal.html#remove()",
+      "locator": "ThreadLocal.initialValue(), get(), set(T), remove()와 문서의 TraceContext.withId 예제"
+    }
+  },
+  {
+    "page": "spring-advanced/01_threadlocal_and_request_context.md",
+    "claim": "그림의 구현 근거 · [Java 17 · 풀 스레드 재사용](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executors.html#newFixedThreadPool(int)) · [Java 17 언어 명세 · finally 실행](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.2)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · new ThreadLocal<>()를 사용하는 TraceContext 예제에서 같은 풀 워커가 두 요청을 순서대로 처리하는 경우",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executors.html#newFixedThreadPool(int)",
+      "locator": "Executors.newFixedThreadPool(int) · 고정 수의 스레드를 재사용"
+    }
+  },
+  {
+    "page": "spring-advanced/02_template_method_strategy_and_callbacks.md",
+    "claim": "![템플릿 메서드는 하위 클래스의 재정의로, 전략은 전략 객체에 위임하는 합성으로, 콜백 방식은 호출자가 넘기는 람다로 조회를 바꾼다. TimingTemplate은 시작 시각을 읽고 Supplier를 실행한다. 정상 반환과 예외가 모두 finally의 경과 시간 로깅을 거치고, finally가 정상 완료되면 조회 결과나 원래 예외가 호출자에게 전달된다.](image/02_template_changes_and_timing_callback.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · TimingTemplate.run 예제와 finally가 정상 완료되는 경우",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/System.html#nanoTime()",
+      "locator": "System.nanoTime() · 경과 시간용 차이 계산, 인접 JLS 17 §14.20.2와 문서의 TimingTemplate.run 예제"
+    }
+  },
+  {
+    "page": "spring-advanced/02_template_method_strategy_and_callbacks.md",
+    "claim": "그림의 구현 근거 · [Java 17 언어 명세 · try와 finally](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.2) · [Java 17 · Supplier](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · TimingTemplate.run 예제와 finally가 정상 완료되는 경우",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.2",
+      "locator": "JLS 17 §14.20.2 · finally 정상 완료 시 기존 return 또는 throw 사유 유지"
+    }
+  },
+  {
+    "page": "spring-advanced/03_proxy_and_decorator_patterns.md",
+    "claim": "![PriceLookup에 캐시 프록시를 연결한 예에서는 캐시 적중 시 저장한 20,000원을 반환하고, 미스 시 FixedPriceLookup을 호출해 가격을 저장한다. 할인 데코레이터를 연결한 예에서는 FixedPriceLookup이 반환한 정가 20,000원에 10퍼센트 할인을 적용해 18,000원을 반환한다.](image/03_price_lookup_proxy_and_decorator.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · BOOK-1의 정가를 20,000원으로 둔 순수 Java 예제의 정상 반환 경로",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html",
+      "locator": "ConcurrentHashMap.computeIfAbsent(K, Function) · 캐시 키가 없을 때 매핑 함수 호출, 문서의 DiscountedPriceLookup 예제"
+    }
+  },
+  {
+    "page": "spring-advanced/03_proxy_and_decorator_patterns.md",
+    "claim": "그림의 구현 근거 · [Java 17 언어 명세 · 산술 연산](https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.17.2)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 · BOOK-1의 정가를 20,000원으로 둔 순수 Java 예제의 정상 반환 경로",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.17.2",
+      "locator": "JLS 17 §15.17.2 · 정수 나눗셈, §15.18.2 · 뺄셈, 문서 예제의 listPrice - listPrice / 10"
+    }
+  },
+  {
+    "page": "spring-advanced/04_jdk_dynamic_proxies_and_cglib.md",
+    "claim": "![PriceLookup의 JDK 프록시는 인터페이스 호출을 InvocationHandler에 전달하고, 예제 핸들러는 별도의 FixedPriceLookup 객체를 Method.invoke로 호출한다. Spring 내장 CGLIB의 Enhancer를 직접 사용한 예제는 FixedPriceLookup의 하위 클래스를 만들며, MethodInterceptor는 invokeSuper로 같은 프록시 객체에서 상위 클래스의 메서드 본문을 실행한다.](image/04_jdk_proxy_and_enhancer_dispatch.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 JDK Proxy와 Spring Framework 6.2.19에 포함된 CGLIB Enhancer 직접 사용 예제. 컨테이너의 Spring AOP 생성 경로와는 별개의 API 예제.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/cglib/proxy/Enhancer.html",
+      "locator": "Enhancer 클래스 설명 · 상속과 메서드 재정의, 콜백 연동"
+    }
+  },
+  {
+    "page": "spring-advanced/04_jdk_dynamic_proxies_and_cglib.md",
+    "claim": "그림의 구현 근거 · [Java 17 · InvocationHandler.invoke](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/InvocationHandler.html) · [Spring 6.2 · MethodProxy.invokeSuper](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/cglib/proxy/MethodProxy.html#invokeSuper(java.lang.Object,java.lang.Object%5B%5D)) · [Spring 6.2 · 상속과 재정의 제약](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Java 17 JDK Proxy와 Spring Framework 6.2.19에 포함된 CGLIB Enhancer 직접 사용 예제. 컨테이너의 Spring AOP 생성 경로와는 별개의 API 예제.",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/InvocationHandler.html",
+      "locator": "인터페이스 프록시 호출을 InvocationHandler.invoke에 전달하고 proxy, Method, args를 넘기는 계약"
+    }
+  },
+  {
+    "page": "spring-advanced/05_spring_proxyfactory_and_advisors.md",
+    "claim": "![ProxyFactory 예제의 JDK 프록시는 메서드별 인터셉터 체인을 조회한다. quote 호출은 등록한 시간 측정 인터셉터가 proceed로 대상까지 진행하고 finally에서 시간을 기록한다. 다른 이름의 일반 업무 메서드를 추가한다면 이 어드바이저가 매칭되지 않아 빈 체인 경로에서 프록시가 대상 메서드를 직접 호출한다.](image/05_proxyfactory_advisor_chain_dispatch.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19에서 본문의 ProxyFactory(target) 기본 인터페이스 프록시, 단일 정적 NameMatchMethodPointcut 어드바이저, 일반 업무 메서드. 이름 불일치는 다른 업무 메서드를 인터페이스에 추가했을 때의 가정.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/advice.html",
+      "locator": "Interception Around Advice · MethodInterceptor.invoke와 MethodInvocation.proceed의 계약"
+    }
+  },
+  {
+    "page": "spring-advanced/05_spring_proxyfactory_and_advisors.md",
+    "claim": "그림의 구현 근거 · [JdkDynamicAopProxy 호출 분기](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java#L187-L209) · [DefaultAdvisorChainFactory 포인트컷 매칭](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java#L53-L88) · [ReflectiveMethodInvocation의 proceed](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L149-L174)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19에서 본문의 ProxyFactory(target) 기본 인터페이스 프록시, 단일 정적 NameMatchMethodPointcut 어드바이저, 일반 업무 메서드. 이름 불일치는 다른 업무 메서드를 인터페이스에 추가했을 때의 가정.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java#L187-L209",
+      "locator": "invoke에서 체인 조회, 빈 체인 직접 호출, 체인이 있으면 ReflectiveMethodInvocation 생성 후 proceed"
+    }
+  },
+  {
+    "page": "spring-advanced/06_bean_post_processors_and_auto_proxying.md",
+    "claim": "![일반 빈 생성 경로에서 DefaultAdvisorAutoProxyCreator는 초기화 후 적용 가능한 어드바이저를 찾는다. 적용할 어드바이저가 있으면 초기화된 priceLookup 빈을 타깃으로 하는 프록시를 반환하고, 적용 대상이 아니면 기존 빈을 그대로 반환한다. 호출 인자에 의존하는 조건은 프록시 호출 중 검사한다.](image/06_bean_lifecycle_to_advisor_auto_proxy.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 DefaultAdvisorAutoProxyCreator 일반 사후 초기화 경로. 다른 교체 후처리기, 순환 참조의 조기 노출, 사용자 정의 TargetSource는 예제에서 생략.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/autoproxy.html",
+      "locator": "Auto-proxy Bean Definitions → DefaultAdvisorAutoProxyCreator · 등록 Advisor의 포인트컷으로 대상 빈을 결정"
+    }
+  },
+  {
+    "page": "spring-advanced/06_bean_post_processors_and_auto_proxying.md",
+    "claim": "그림의 구현 근거 · [AbstractAutoProxyCreator 초기화 후 처리](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java#L286-L355) · [AbstractAdvisorAutoProxyCreator 후보 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java#L69-L127) · [ReflectiveMethodInvocation 호출 인자 검사](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L151-L174)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19 DefaultAdvisorAutoProxyCreator 일반 사후 초기화 경로. 다른 교체 후처리기, 순환 참조의 조기 노출, 사용자 정의 TargetSource는 예제에서 생략.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java#L286-L355",
+      "locator": "postProcessAfterInitialization → wrapIfNecessary → 적용 시 프록시 또는 기존 인스턴스 반환"
+    }
+  },
+  {
+    "page": "spring-advanced/07_aspectj_annotations_in_spring_aop.md",
+    "claim": "![@EnableAspectJAutoProxy 구성에서 Spring은 등록된 QuoteTimingAspect 타입의 @Around 메서드를 Advisor로 만들고, FixedPriceLookup에 적용할 Advisor를 골라 프록시를 준비한다. 실행 시 PriceLookup 프록시가 measure()를 호출하고 proceed()가 대상 조회로 진행한다.](image/07_aspect_advisor_registration_and_invocation.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 @EnableAspectJAutoProxy 구성과 관리 빈 예제. 내부 구성은 6.2.19 소스 기준.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Understanding AOP Proxies의 프록시를 경유하는 호출과 Advice. @AspectJ 지원의 자동 프록시 생성"
+    }
+  },
+  {
+    "page": "spring-advanced/07_aspectj_annotations_in_spring_aop.md",
+    "claim": "그림의 구현 근거 · [애스펙트 검색](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectJAdvisorsBuilder.java#L81-L114) · [애스펙트 어드바이저 생성](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/ReflectiveAspectJAdvisorFactory.java#L114-L138) · [자동 프록시 생성기의 후보 검색](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/AnnotationAwareAspectJAutoProxyCreator.java#L71-L89) · [빈별 어드바이저 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java#L69-L103)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 @EnableAspectJAutoProxy 구성과 관리 빈 예제. 내부 구성은 6.2.19 소스 기준.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectJAdvisorsBuilder.java#L81-L114",
+      "locator": "buildAspectJAdvisors()의 빈 팩토리 타입 검색 및 애스펙트별 Advisor 생성 호출"
+    }
+  },
+  {
+    "page": "spring-advanced/08_spring_aop_fundamentals.md",
+    "claim": "![가격 조회의 시간 측정 애스펙트는 quote() 메서드 실행을 고르는 포인트컷과 측정 코드를 담은 어드바이스를 묶는다. Spring AOP 프록시는 일치하는 호출에 어드바이스를 실행하고 타깃 빈에 위임한다. 조인 포인트는 FixedPriceLookup의 quote() 메서드 실행이다.](image/08_aop_pointcut_advice_and_target_roles.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 프록시 기반 AOP와 앞 문서의 quote() 측정 예제. 포인트컷과 일치하는 프록시 경유 호출.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Understanding AOP Proxies의 프록시 호출과 대상 위임. AOP Concepts의 aspect, pointcut, advice, target, join point"
+    }
+  },
+  {
+    "page": "spring-advanced/08_spring_aop_fundamentals.md",
+    "claim": "그림의 구현 근거 · [Spring Framework 6.2 · AOP 용어](https://docs.spring.io/spring-framework/reference/6.2/core/aop/introduction-defn.html)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2 프록시 기반 AOP와 앞 문서의 quote() 측정 예제. 포인트컷과 일치하는 프록시 경유 호출.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/introduction-defn.html",
+      "locator": "AOP Concepts의 애스펙트, 포인트컷, 어드바이스, 타깃, 조인 포인트 정의"
+    }
+  },
+  {
+    "page": "spring-advanced/09_spring_aop_advice_and_ordering.md",
+    "claim": "![QuoteAuditAspect의 @Order(10)이 순서 미지정인 QuoteTimingAspect보다 바깥에서 동작한다. @Before로 시작을 기록한 뒤 안쪽 @Around가 quote()를 실행한다. @Around의 finally가 먼저 시간을 기록하고, RuntimeException이면 바깥 @AfterThrowing이 실패를 기록한다. 정상 반환값이나 대상에서 던진 RuntimeException 또는 Error는 호출자에게 전달된다.](image/09_nested_advice_order_and_outcomes.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19. 07번의 순서 미지정 QuoteTimingAspect와 09번의 QuoteAuditAspect를 모두 빈으로 등록하고 같은 quote() 호출에 적용한 예시. 기록 코드가 정상 실행되고 예외를 변환하지 않는 호출.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html#aop-ataspectj-advice-ordering",
+      "locator": "Advice Ordering과 Around Advice, After Throwing Advice. 순서가 다른 애스펙트의 진입과 복귀, 재전파 및 예외 타입 매칭"
+    }
+  },
+  {
+    "page": "spring-advanced/09_spring_aop_advice_and_ordering.md",
+    "claim": "그림의 구현 근거 · [순서 미지정 애스펙트의 기본 우선순위](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectInstanceFactory.java#L110-L135) · [Spring Framework 6.2 · After Throwing Advice](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html#aop-ataspectj-after-throwing-advice)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19. 07번의 순서 미지정 QuoteTimingAspect와 09번의 QuoteAuditAspect를 모두 빈으로 등록하고 같은 quote() 호출에 적용한 예시. 기록 코드가 정상 실행되고 예외를 변환하지 않는 호출.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectInstanceFactory.java#L110-L135",
+      "locator": "getOrder()의 @Order 값 조회와 Ordered.LOWEST_PRECEDENCE 기본값"
+    }
+  },
+  {
+    "page": "spring-advanced/10_spring_aop_pointcut_expressions.md",
+    "claim": "![quote(Object sku)를 프록시로 호출하며 String 값을 전달하면, execution(* *(String))은 선언 타입 Object를 보고 불일치한다. args(String)은 실제 String 인자를 보고 일치한다.](image/10_pointcut_signature_and_runtime_arguments.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 프록시 기반 AOP. 단일 Object 매개변수에 null이 아닌 String 값이 전달된 예.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/pointcuts.html",
+      "locator": "Declaring a Pointcut → Examples, args(java.io.Serializable)과 execution의 비교"
+    }
+  },
+  {
+    "page": "spring-advanced/11_spring_aop_tracing_and_retries.md",
+    "claim": "![RetryQuoteAspect는 시도마다 proceed()로 현재 어드바이스 뒤의 체인을 다시 실행한다. 성공하면 결과를 반환하고, 일시적 조회 실패는 남은 시도가 있을 때만 반복하며, 마지막 실패나 다른 예외는 호출자에게 전달한다.](image/11_around_advice_retry_loop.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19의 MethodInvocationProceedingJoinPoint 및 문서의 읽기 전용 RetryQuote 예제. maxAttempts는 첫 호출을 포함.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/advice.html",
+      "locator": "Around Advice · 같은 ProceedingJoinPoint에서 proceed()를 여러 번 호출 가능"
+    }
+  },
+  {
+    "page": "spring-advanced/11_spring_aop_tracing_and_retries.md",
+    "claim": "그림의 구현 근거 · [MethodInvocationProceedingJoinPoint.proceed](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java#L79-L83) · [ReflectiveMethodInvocation의 체인과 호출 복제](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/ReflectiveMethodInvocation.java#L148-L225)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2.19의 MethodInvocationProceedingJoinPoint 및 문서의 읽기 전용 RetryQuote 예제. maxAttempts는 첫 호출을 포함.",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java#L79-L83",
+      "locator": "proceed()가 invocableClone().proceed() 호출"
+    }
+  },
+  {
+    "page": "spring-advanced/12_spring_aop_proxy_limitations_and_self_invocation.md",
+    "claim": "![외부에서 워크플로 프록시를 거쳐도 대상의 this.quote()는 타깃 안에서 실행되어 조회 어드바이스를 우회한다. QuoteFacade가 주입받은 PriceLookup 프록시를 호출하면 조회에 맞는 어드바이스를 거쳐 실제 대상에 위임한다.](image/12_self_invocation_and_injected_proxy.png)",
+    "checked_on": "2026-11-21",
+    "applies_to": "Spring Framework 6.2의 일반적인 프록시 기반 AOP. 조회 메서드가 프록시에 노출되고 포인트컷에 일치하는 경우.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Proxying Mechanisms → Understanding AOP Proxies, Avoid self invocation"
+    }
   }
 ]

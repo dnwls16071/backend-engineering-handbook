@@ -6,6 +6,10 @@
 
 `set()`은 현재 스레드의 값을 넣고, `get()`은 현재 스레드의 값만 읽는다. 풀에 속한 스레드는 다음 요청에도 재사용되므로 요청 단위 값은 `finally`에서 제거해야 한다. 중첩 호출에서 임시 ID를 설정한다면 이전 값을 복원해 바깥 작업의 맥락을 유지한다. [Java 17 · ThreadLocal remove](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ThreadLocal.html#remove())
 
+![같은 워커가 요청 A에서 ThreadLocal에 ID를 설정하고 요청 B가 새 ID를 설정하기 전에 읽는 예시. 정리를 생략하면 A의 ID를 읽고, 이전 ID가 없어 finally에서 remove를 실행하면 기본 초기값인 null을 읽는다. 중첩 호출에서는 바깥 ID를 복원한다.](image/01_threadlocal_cleanup_on_reused_worker.png)
+
+그림의 구현 근거 · [Java 17 · 풀 스레드 재사용](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executors.html#newFixedThreadPool(int)) · [Java 17 언어 명세 · finally 실행](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.2)
+
 ```java
 public final class TraceContext {
     private static final ThreadLocal<String> CURRENT = new ThreadLocal<>();

@@ -42,3 +42,7 @@ public class PricingAspectConfig {
 ## 2. 빈 조회부터 실제 호출까지
 
 컨테이너에서 `PriceLookup`을 받은 호출자가 `quote()`를 호출하면, 프록시가 적용할 어드바이스를 실행한다. 애스펙트 선언을 읽는 작업과 프록시에서 메서드를 가로채는 작업은 실행 과정의 서로 다른 단계다. 테스트는 `new FixedPriceLookup()`의 호출과 컨테이너에서 받은 빈의 호출을 각각 확인할 수 있다. [Spring Framework 6.2 · Spring AOP 프록시 호출 구조](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)
+
+![@EnableAspectJAutoProxy 구성에서 Spring은 등록된 QuoteTimingAspect 타입의 @Around 메서드를 Advisor로 만들고, FixedPriceLookup에 적용할 Advisor를 골라 프록시를 준비한다. 실행 시 PriceLookup 프록시가 measure()를 호출하고 proceed()가 대상 조회로 진행한다.](image/07_aspect_advisor_registration_and_invocation.png)
+
+그림의 구현 근거 · [애스펙트 검색](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/BeanFactoryAspectJAdvisorsBuilder.java#L81-L114) · [애스펙트 어드바이저 생성](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/ReflectiveAspectJAdvisorFactory.java#L114-L138) · [자동 프록시 생성기의 후보 검색](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/AnnotationAwareAspectJAutoProxyCreator.java#L71-L89) · [빈별 어드바이저 선택](https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java#L69-L103)

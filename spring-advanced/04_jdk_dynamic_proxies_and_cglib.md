@@ -50,3 +50,7 @@ FixedPriceLookup subclassProxy = (FixedPriceLookup) enhancer.create();
 ```
 
 Spring 빈에 적용하는 프록시는 [ProxyFactory](05_spring_proxyfactory_and_advisors.md)로 조립할 수 있다. `Enhancer`를 직접 사용하는 위 코드와 Spring AOP가 대상 빈을 감싸는 코드는 대상 객체의 생성과 위임 방식에서 차이가 있다. [Spring Framework 6.2 · Enhancer API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/cglib/proxy/Enhancer.html)
+
+![PriceLookup의 JDK 프록시는 인터페이스 호출을 InvocationHandler에 전달하고, 예제 핸들러는 별도의 FixedPriceLookup 객체를 Method.invoke로 호출한다. Spring 내장 CGLIB의 Enhancer를 직접 사용한 예제는 FixedPriceLookup의 하위 클래스를 만들며, MethodInterceptor는 invokeSuper로 같은 프록시 객체에서 상위 클래스의 메서드 본문을 실행한다.](image/04_jdk_proxy_and_enhancer_dispatch.png)
+
+그림의 구현 근거 · [Java 17 · InvocationHandler.invoke](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/reflect/InvocationHandler.html) · [Spring 6.2 · MethodProxy.invokeSuper](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/cglib/proxy/MethodProxy.html#invokeSuper(java.lang.Object,java.lang.Object%5B%5D)) · [Spring 6.2 · 상속과 재정의 제약](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)

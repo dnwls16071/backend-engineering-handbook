@@ -17,6 +17,8 @@
 
 `execution(* example.pricing..*.quote(..))`는 반환 타입과 인자 개수에 제한을 두지 않고, `example.pricing` 및 하위 패키지에서 이름이 `quote`인 메서드 실행을 고른다. `execution(* *(String))`처럼 선언된 인자 타입을 검사하는 조건과 `args(String)`처럼 실제 인자를 검사하는 조건은 적용 결과가 다를 수 있다. `&&`, `||`, `!`로 조건을 조합할 수 있다. [Spring Framework 6.2 · 지원 지시자와 예제](https://docs.spring.io/spring-framework/reference/6.2/core/aop/ataspectj/pointcuts.html)
 
+![quote(Object sku)를 프록시로 호출하며 String 값을 전달하면, execution(* *(String))은 선언 타입 Object를 보고 불일치한다. args(String)은 실제 String 인자를 보고 일치한다.](image/10_pointcut_signature_and_runtime_arguments.png)
+
 ## 2. 인자를 어드바이스에서 받기
 
 ```java
