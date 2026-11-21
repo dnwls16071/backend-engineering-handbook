@@ -1,6 +1,6 @@
 # Context Switching and CPU Scheduling
 
-## 14. 컨텍스트 스위칭이란 무엇이며 어떻게 동작하나요?
+## 1. 컨텍스트 스위칭이란 무엇이며 어떻게 동작하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 시스템 콜은 같은 스레드가 사용자 모드에서 커널 모드로 들어가는 경로입니다. 예를 들어 `read()`가 바로 처리되면 같은 스레드로 돌아옵니다. 읽을 데이터가 없어 호출 스레드가 잠들고 커널이 다른 스레드를 실행하면 그때 컨텍스트 스위치가 일어납니다. 타이머 인터럽트도 커널에 실행권을 돌려주고, 커널은 그 시점에 현재 스레드를 계속 실행할지 결정합니다. [OSTEP의 트랩과 타이머 인터럽트](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-mechanisms.pdf)
 
-## 15. 컨텍스트 스위칭에는 어떤 비용이 드나요?
+## 2. 컨텍스트 스위칭에는 어떤 비용이 드나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 Linux에서는 `getrusage()`의 자발적·비자발적 전환 횟수와 `/proc/<pid>/schedstat`의 실행 큐 대기 시간을 같은 구간에서 확인합니다. 자발적 전환이 늘면 I/O나 락 대기를, 비자발적 전환과 실행 큐 대기 시간이 함께 늘면 CPU 경합을 우선 확인합니다. 처리량과 p99 지연도 함께 비교해 서비스가 실제로 영향을 받는지 판단합니다. [Linux `getrusage(2)`](https://man7.org/linux/man-pages/man2/getrusage.2.html) · [Linux 스케줄러 통계](https://docs.kernel.org/scheduler/sched-stats.html)
 
-## 16. CPU 스케줄링이란 무엇이며 왜 필요한가요?
+## 3. CPU 스케줄링이란 무엇이며 왜 필요한가요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ Linux에서는 `getrusage()`의 자발적·비자발적 전환 횟수와 `/proc/
 
 둘을 같이 봅니다. CPU 사용률은 CPU가 얼마나 바쁜지, 실행 큐 대기 시간은 실행할 준비를 마친 스레드가 CPU를 얼마나 기다렸는지 보여줍니다. 시스템 전체 CPU 사용률이 낮아도 한 코어에 실행이 집중되면 지연이 커질 수 있습니다. 코어별 사용률과 스레드별 실행 큐 대기 시간을 비교하고, CPU 친화성 설정으로 사용할 수 있는 코어가 제한돼 있는지도 확인합니다. [Linux 스케줄러 통계](https://docs.kernel.org/scheduler/sched-stats.html) · [Linux `sched(7)`의 CPU 친화성](https://man7.org/linux/man-pages/man7/sched.7.html)
 
-## 17. 대표적인 CPU 스케줄링 알고리즘을 비교해 주세요.
+## 4. 대표적인 CPU 스케줄링 알고리즘을 비교해 주세요.
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ Linux에서는 `getrusage()`의 자발적·비자발적 전환 횟수와 `/proc/
 
 전환으로 소비하는 CPU 시간과 실행 큐의 대기 시간을 함께 봅니다. 단일 코어에서 CPU를 계속 쓰는 같은 우선순위 작업만 있다고 가정하면, 할당량이 길수록 다음 차례까지 더 기다리고 짧을수록 더 자주 전환합니다. Linux의 실시간 `SCHED_RR`은 같은 우선순위의 실행 가능 스레드끼리 순서를 돌리며 실제 할당량은 `sched_rr_get_interval()`로 조회할 수 있습니다. 일반 작업에 적용되는 Linux 스케줄러는 별도의 정책을 따르며, 커널 문서는 6.6부터 공정 스케줄링이 CFS에서 EEVDF로 전환하기 시작했다고 설명합니다. [Linux `sched(7)`](https://man7.org/linux/man-pages/man7/sched.7.html) · [Linux `sched_rr_get_interval(2)`](https://man7.org/linux/man-pages/man2/sched_rr_get_interval.2.html) · [Linux EEVDF 문서](https://docs.kernel.org/scheduler/sched-eevdf.html)
 
-## 18. 스케줄링에서 기아 상태란 무엇이며 어떻게 방지하나요?
+## 5. 스케줄링에서 기아 상태란 무엇이며 어떻게 방지하나요?
 
 **30–60초 답변**
 

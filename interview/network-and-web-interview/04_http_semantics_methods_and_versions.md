@@ -1,6 +1,6 @@
 # HTTP Semantics, Methods, and Versions
 
-## 16. HTTP는 무엇이고 요청과 응답은 어떻게 오가는가?
+## 1. HTTP는 무엇이고 요청과 응답은 어떻게 오가는가?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 중간 상태를 알리는 `1xx` 응답이 먼저 올 수 있고, 일반적인 요청 처리는 최종 응답 하나로 끝납니다. 예를 들어 `100 Continue`는 클라이언트가 요청 본문을 계속 보내도 된다는 신호입니다. [RFC 9110 §15.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.2)
 
-## 17. HTTP의 비지속 연결과 무상태성은 어떻게 다른가?
+## 2. HTTP의 비지속 연결과 무상태성은 어떻게 다른가?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 두 인스턴스가 같은 세션 저장소를 사용하면 어느 쪽이든 쿠키의 세션 ID로 로그인 상태를 찾을 수 있습니다. 인스턴스별 메모리에 세션을 두었다면 다음 요청을 세션이 있는 인스턴스로 보내거나 세션 정보를 공유해야 합니다.
 
-## 18. HTTP/1.0, HTTP/1.1, HTTP/2, HTTP/3의 차이는 무엇인가?
+## 3. HTTP/1.0, HTTP/1.1, HTTP/2, HTTP/3의 차이는 무엇인가?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 여러 HTTP 스트림이 TCP 바이트 흐름 하나를 공유합니다. 중간 바이트가 유실되면 TCP는 그 뒤에 먼저 도착한 바이트를 애플리케이션에 넘기기 전에 누락된 바이트를 기다립니다. QUIC은 스트림별로 순서를 보장하고, 연결의 혼잡 제어는 여전히 공유합니다. [RFC 9113 §1](https://www.rfc-editor.org/rfc/rfc9113.html#section-1) · [RFC 9114 §2](https://www.rfc-editor.org/rfc/rfc9114.html#section-2)
 
-## 19. GET, POST, PUT, PATCH는 각각 언제 사용하는가?
+## 4. GET, POST, PUT, PATCH는 각각 언제 사용하는가?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 `GET` 응답은 상태 코드와 캐시 지시어 등 조건에 따라 저장하고 재사용할 수 있습니다. `POST`와 `PATCH`도 응답에 명시적인 신선도 정보가 있고 `Content-Location`이 요청 대상 URI와 같으면 캐시 조건을 충족할 수 있습니다. 이렇게 저장한 응답은 이후 `GET`이나 `HEAD` 요청에 쓸 수 있습니다. `PUT` 응답은 캐시할 수 없습니다. [RFC 9111 §3](https://www.rfc-editor.org/rfc/rfc9111.html#section-3) · [RFC 9110 §9.3.3–4](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.3.3) · [RFC 5789 §2](https://www.rfc-editor.org/rfc/rfc5789.html#section-2)
 
-## 20. HTTP 메서드의 멱등성이란 무엇이며 재시도와 어떤 관련이 있는가?
+## 5. HTTP 메서드의 멱등성이란 무엇이며 재시도와 어떤 관련이 있는가?
 
 **30–60초 답변**
 

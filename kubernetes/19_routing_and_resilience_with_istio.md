@@ -1,6 +1,6 @@
 # Routing and Resilience with Istio
 
-## 23. Istio에서 요청을 처리하는 위치
+## 1. Istio에서 요청을 처리하는 위치
 
 - `istiod`는 Kubernetes의 Service·Pod와 Istio 설정을 읽고 Envoy 프록시에 구성을 배포한다. Sidecar 모드에서는 앱 Pod 안의 Envoy가 해당 워크로드의 네트워크 트래픽을 처리하고, ingress gateway의 Envoy가 메시로 들어오는 요청을 처리한다. [Istio 아키텍처](https://istio.io/latest/docs/ops/deployment/architecture/)
 - 이 실습은 `curl → ingress gateway의 Envoy → 선택된 Pod의 Envoy → Nginx` 경로로 요청을 보낸다. Nginx의 응답 본문은 앱 버전, `X-Lab-Pod` 응답 헤더는 응답한 Pod를 보여 준다.
@@ -13,7 +13,7 @@
 
 세 리소스 모두 `networking.istio.io/v1` API를 사용한다. Istio `Gateway`의 `selector`는 이미 설치된 gateway Pod를 찾아 리스너 설정을 적용한다. Kubernetes Gateway API의 `Gateway`는 `gateway.networking.k8s.io` 그룹의 별도 리소스다. [Gateway](https://istio.io/latest/docs/reference/config/networking/gateway/), [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/), [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/)
 
-## 24. 새 Pod에 Envoy sidecar를 주입한다
+## 2. 새 Pod에 Envoy sidecar를 주입한다
 
 빈 작업 디렉터리에서 운영 트래픽이 없는 로컬 kind 클러스터를 만든다. 예시는 Istio 1.32 계열의 sidecar 모드와 kind v0.31.0에서 제공하는 Kubernetes v1.35.0 노드 이미지를 사용한다. 컨테이너 런타임과 `kind`, `kubectl`, `curl`, 해당 Istio 릴리스의 `istioctl`을 준비한다. 별도 kubeconfig와 `kind-istio-routing-lab` 컨텍스트를 각 명령에 넘긴다. [kind Quick Start](https://kind.sigs.k8s.io/docs/user/quick-start/), [kind v0.31.0 릴리스](https://github.com/kubernetes-sigs/kind/releases/tag/v0.31.0), [Istio 지원표](https://istio.io/latest/docs/releases/supported-releases/), [Istio API로 시작하기](https://istio.io/latest/docs/setup/additional-setup/getting-started-istio-apis/)
 
@@ -188,7 +188,7 @@ lab_kubectl -n istio-lab get pods -l app=echo -o jsonpath='{range .items[*]}{.me
 
 두 Pod의 컨테이너 목록에서 `nginx`와 `istio-proxy`를 확인한다. Istio의 admission webhook은 Pod가 생성될 때 프록시를 주입한다. 네임스페이스 레이블을 기존 Deployment의 Pod에 적용하려면 레이블을 먼저 붙이고 해당 Deployment를 롤아웃해 새 Pod를 만든다. [Sidecar 자동 주입](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/)
 
-## 25. ingress 호스트를 Service의 subset에 연결한다
+## 3. ingress 호스트를 Service의 subset에 연결한다
 
 다음 내용을 `echo-routing.yaml`로 저장한다. `Gateway.spec.selector`는 demo 프로필의 `istio=ingressgateway` Pod에 매칭된다. 기본 설치의 Gateway 선택자는 네임스페이스를 넘어 gateway Pod를 선택할 수 있다. `VirtualService.hosts`는 요청의 HTTP 호스트이고, `route.destination.host`와 `DestinationRule.host`는 내부 Service의 DNS 이름이다. 예시는 기본 클러스터 도메인인 `cluster.local`을 사용한다. [Gateway의 선택자 범위](https://istio.io/latest/docs/reference/config/networking/gateway/#Gateway), [Istio ingress 설정](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/)
 
@@ -276,7 +276,7 @@ kubectl --kubeconfig "$PWD/istio-routing-lab.kubeconfig" --context kind-istio-ro
 curl -si -H 'Host: echo.example.test' http://127.0.0.1:18080/
 ```
 
-## 26. 카나리 비율과 헤더의 우선순위를 확인한다
+## 4. 카나리 비율과 헤더의 우선순위를 확인한다
 
 `VirtualService.http`는 위에서 아래로 평가하며 **처음 일치한 규칙**을 적용한다. `x-lab-canary: v2`는 첫 규칙에서 `v2`로 고정된다. 헤더가 없거나 값이 다르면 마지막 규칙에서 90 대 10의 가중치를 적용한다. 가중치는 요청 분배 비율이므로 요청 횟수가 적을수록 관측 비율의 변동이 크다. [HTTP 규칙 순서](https://istio.io/latest/docs/reference/config/networking/virtual-service/#VirtualService), [트래픽 가중치 전환](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/)
 
@@ -292,7 +292,7 @@ done
 
 첫 명령에서 `v1`이 다수이고 `v2`가 일부인지 확인한다. 두 번째 명령은 매번 `v2`를 반환한다. 버전 비율을 되돌릴 때는 `weighted` 규칙을 `100/0`으로 바꾸고, 헤더를 붙인 요청까지 모두 `v1`으로 되돌리려면 `force-v2` 규칙도 제거한다.
 
-## 27. 테스트 헤더가 있는 호출에만 장애를 주입한다
+## 5. 테스트 헤더가 있는 호출에만 장애를 주입한다
 
 전용 실습의 gateway에서 `x-lab-fault: abort`는 HTTP 503을 반환하고, `x-lab-fault: delay`는 2초 기다린 뒤 `v1`으로 전달한다. 각 동작은 해당 헤더에 매칭된 요청의 100%에 적용된다. 장애 규칙을 헤더 카나리와 기본 분배 앞에 삽입하므로 두 헤더를 함께 보내면 장애 규칙이 우선한다. [Istio fault injection](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/)
 
@@ -361,7 +361,7 @@ YAML
 curl -si -H 'Host: echo.example.test' -H 'x-lab-fault: abort' http://127.0.0.1:18080/
 ```
 
-## 28. 연결 풀 제한으로 동시 호출을 제어한다
+## 6. 연결 풀 제한으로 동시 호출을 제어한다
 
 `DestinationRule`의 `v2` subset에만 연결 풀 정책을 붙인다. `maxConnections`는 업스트림 연결, `http1MaxPendingRequests`는 준비된 연결을 기다리는 요청, `http2MaxRequests`는 처리 중인 HTTP 요청에 적용하는 한도다. `http2MaxRequests`는 HTTP/1.1과 HTTP/2에 적용된다. Envoy는 각 프록시의 업스트림 클러스터와 우선순위별로 한도를 계산하므로 프록시 수나 선택 가능한 엔드포인트 수에 따라 관측값이 달라진다. [Istio 연결 풀 설정](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings), [Envoy circuit breaking](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/circuit_breaking)
 
@@ -395,7 +395,7 @@ lab_kubectl -n istio-system logs deployment/istio-ingressgateway -c istio-proxy 
 
 단일 호출에서 응답이 완료되는 시간과 HTTP 200을 먼저 확인한다. 병렬 호출에서는 `/slow`를 처리하는 동안 한도를 초과한 일부 요청이 503으로 빠르게 실패할 수 있다. gateway 로그의 `UO`는 업스트림 과부하를 나타낸다. 200만 보이면 `v2`로 고정하는 헤더, 요청 동시성, gateway의 설정 전파를 확인한 뒤 다시 측정한다. 병렬 실행이 끝나면 단일 호출을 다시 보내 200을 확인한다. [Istio circuit breaking 실습](https://istio.io/latest/docs/tasks/traffic-management/circuit-breaking/), [Envoy 응답 플래그](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#command-operators)
 
-## 29. 오류가 반복되는 엔드포인트를 일시적으로 제외한다
+## 7. 오류가 반복되는 엔드포인트를 일시적으로 제외한다
 
 `outlierDetection`은 실제 호출의 실패를 보고 해당 엔드포인트를 일시적으로 로드밸런싱 풀에서 제외한다. 같은 subset에 오류를 내는 엔드포인트와 트래픽을 계속 처리할 정상 엔드포인트가 있어야 전후 차이를 관측할 수 있다. 여기서는 `v2`의 정상 Pod를 유지하고, 동일한 subset에 속하면서 `/`에 500을 반환하는 실습용 Pod를 추가한다. `/ready`는 200을 반환하므로 Kubernetes는 두 Pod를 모두 준비 상태로 다룬다. [Istio outlier detection](https://istio.io/latest/docs/reference/config/networking/destination-rule/#OutlierDetection), [Envoy outlier detection](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/outlier)
 

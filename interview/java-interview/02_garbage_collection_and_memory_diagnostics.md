@@ -1,6 +1,6 @@
 # Garbage Collection and Memory Diagnostics
 
-## 11. 가비지 컬렉션 알고리즘에는 어떤 것들이 있나요?
+## 1. 가비지 컬렉션 알고리즘에는 어떤 것들이 있나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 두 객체로 이어지는 경로가 GC 루트에서 끊겼다면 회수 대상이 됩니다. 예를 들어 서로를 가리키는 노드 두 개를 만들고 외부에서 두 노드로 이어지는 참조가 모두 사라지면 추적 대상에서 빠집니다. 단순 참조 카운팅에서는 두 노드의 참조 수가 각각 1로 남으므로 순환을 별도로 처리해야 합니다. [Java 8 객체 도달 가능성과 세대별 수집](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/generations.html)
 
-## 12. Java 8의 힙은 어떻게 구성되며 GC는 언제 일어나나요?
+## 2. Java 8의 힙은 어떻게 구성되며 GC는 언제 일어나나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 발생할 수 있습니다. HotSpot은 클래스 메타데이터에 커밋한 메모리가 일정 임계값에 도달하면 GC를 유도해 클래스 언로딩으로 공간을 확보할 기회를 얻습니다. 살아 있는 클래스 로더가 계속 늘어난다면 Metaspace 사용량도 쌓일 수 있으므로, 로드된 클래스 수와 클래스 로더의 생존 경로를 함께 확인합니다. [Oracle 클래스 메타데이터 관리](https://docs.oracle.com/en/java/javase/25/gctuning/other-considerations.html) · [Oracle 메모리 누수 진단](https://docs.oracle.com/en/java/javase/11/troubleshoot/troubleshooting-memory-leaks.html)
 
-## 13. GC에서 Root Space는 무엇인가요?
+## 3. GC에서 Root Space는 무엇인가요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 힙 덤프에서 해당 객체까지 이어지는 강한 참조 경로를 루트 쪽으로 추적합니다. 예를 들어 오래 살아 있는 클래스의 `static` 캐시에 객체를 넣고 제거하지 않았다면, 메서드가 반환돼도 캐시를 통해 객체에 도달할 수 있습니다. 객체를 붙잡는 컬렉션과 그 컬렉션을 유지하는 소유자를 확인하면 어떤 참조를 정리해야 할지 판단할 수 있습니다. [HotSpot 루트 참조 체인 조회](https://docs.oracle.com/javase/7/docs/webnotes/tsg/TSG-VM/html/tooldescr.html) · [Oracle 메모리 누수 진단](https://docs.oracle.com/en/java/javase/11/troubleshoot/troubleshooting-memory-leaks.html)
 
-## 14. 힙을 Young과 Old 세대로 나누는 이유는 무엇인가요?
+## 4. 힙을 Young과 Old 세대로 나누는 이유는 무엇인가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 Young 바깥에서 Young을 가리킬 수 있는 위치도 탐색의 출발점에 포함합니다. 예를 들어 G1은 쓰기 배리어로 참조 변경을 기록하고, remembered set을 이용해 수집 대상 리전으로 들어오는 참조를 찾습니다. 오래된 캐시가 방금 생성한 객체를 담았을 때도 이 경로를 따라가 새 객체를 살려 두고, 이동했다면 참조를 갱신할 수 있습니다. [Java 8 G1의 쓰기 배리어와 remembered set](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc_tuning.html) · [Java 11 G1의 remembered set](https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-garbage-collector-tuning1.html)
 
-## 15. Stop-the-World는 무엇이고 왜 발생하나요?
+## 5. Stop-the-World는 무엇이고 왜 발생하나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ Young 바깥에서 Young을 가리킬 수 있는 위치도 탐색의 출발점�
 
 요청 지연과 GC 로그의 `Pause` 시작 시각과 지속 시간을 맞춰 봅니다. Java 11에서는 `-Xlog:gc*,safepoint`로 GC 단계와 safepoint 기록을 함께 볼 수 있습니다. GC pause가 짧아도 safepoint에 진입하는 데 오래 걸리거나 다른 VM 작업이 앱을 멈췄을 수 있으므로 safepoint 로그도 확인합니다. 동시 GC 구간의 지연은 같은 시간대의 CPU 포화 여부를 함께 봅니다. [Java 11 통합 로깅](https://docs.oracle.com/en/java/javase/11/tools/java.html) · [동시 수집과 CPU 사용](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/cms.html)
 
-## 16. Java의 GC 종류와 각각의 장단점은 무엇인가요?
+## 6. Java의 GC 종류와 각각의 장단점은 무엇인가요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@ Young 바깥에서 Young을 가리킬 수 있는 위치도 탐색의 출발점�
 
 먼저 정확한 JDK 배포판과 버전에서 지원하는 GC를 확인합니다. CMS는 Java 11에서 사용할 수 있지만 Java 14에서 제거됐습니다. ZGC는 JDK 11에 Linux/x64 대상 실험 기능으로 들어왔고, Shenandoah는 Red Hat OpenJDK 11처럼 별도 지원하는 배포판이 있습니다. 같은 부하와 CPU·메모리 제한에서 요청 p99, 처리량, GC 정지 시간, CPU와 RSS를 함께 비교합니다. [Oracle JDK 11 릴리스 노트](https://www.oracle.com/java/technologies/javase/11-relnote-issues.html) · [Oracle JDK 14 CMS 제거](https://www.oracle.com/java/technologies/javase/14all-relnotes.html) · [Red Hat OpenJDK 11 Shenandoah](https://docs.redhat.com/en/documentation/red_hat_build_of_openjdk/11/html/using_shenandoah_garbage_collector_with_red_hat_build_of_openjdk_11/running-application-with-shenandoah-gc)
 
-## 17. Java 8과 Java 11의 기본 GC는 무엇이고 왜 달라졌나요?
+## 7. Java 8과 Java 11의 기본 GC는 무엇이고 왜 달라졌나요?
 
 **30–60초 답변**
 
@@ -70,7 +70,7 @@ Young 바깥에서 Young을 가리킬 수 있는 위치도 탐색의 출발점�
 
 같은 컨테이너의 JVM에 `jcmd <pid> VM.flags`를 실행해 실제 `UseG1GC`, `UseParallelGC`, `UseSerialGC` 옵션을 확인합니다. Java 11에서 시작 시 `-Xlog:gc`를 켜 두었다면 `Using G1` 같은 메시지도 확인할 수 있습니다. 컨테이너의 CPU·메모리 제한이나 배포 시 주입된 JVM 옵션에 따라 로컬과 같은 JDK 버전에서도 선택이 달라질 수 있습니다. [Java 11 `jcmd`](https://docs.oracle.com/en/java/javase/11/tools/jcmd.html) · [Java 11 `java` 옵션과 컨테이너 지원](https://docs.oracle.com/en/java/javase/11/tools/java.html)
 
-## 18. G1 GC는 어떻게 동작하나요?
+## 8. G1 GC는 어떻게 동작하나요?
 
 **30–60초 답변**
 
@@ -80,7 +80,7 @@ Young 바깥에서 Young을 가리킬 수 있는 위치도 탐색의 출발점�
 
 `To-space exhausted`는 생존 객체를 옮길 대상 공간이 부족했음을 나타냅니다. GC 로그에서 직전의 할당·승격 속도, Old 점유율, 동시 마킹 시작 시점, 큰 객체를 담는 Humongous 리전 수를 확인합니다. 회수가 할당 속도를 따라가지 못해 할당을 계속할 공간을 확보하기 어려우면 G1이 STW Full GC로 전체 힙을 압축할 수 있습니다. `-XX:MaxGCPauseMillis`는 평소 G1이 수집 범위를 정할 때 사용하는 목표값입니다. [Java 11 G1 동작과 정지 시간 목표](https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-g1-garbage-collector3.html) · [Java 11 G1 Full GC 진단](https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-garbage-collector-tuning1.html)
 
-## 19. GC 모니터링이 왜 필요하고 OutOfMemoryError는 어떻게 진단하나요?
+## 9. GC 모니터링이 왜 필요하고 OutOfMemoryError는 어떻게 진단하나요?
 
 **30–60초 답변**
 

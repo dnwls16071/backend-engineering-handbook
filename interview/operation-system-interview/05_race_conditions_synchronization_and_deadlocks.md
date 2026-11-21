@@ -1,6 +1,6 @@
 # Race Conditions, Synchronization, and Deadlocks
 
-## 28. 경쟁 상태(Race Condition)란 무엇이고 왜 발생하나요?
+## 1. 경쟁 상태(Race Condition)란 무엇이고 왜 발생하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 가능합니다. Java에서 데이터 레이스는 서로 다른 스레드가 같은 변수에 접근하고 적어도 하나가 쓰기일 때, 그 접근이 happens-before 관계로 정렬되어 있지 않은 경우를 말합니다. 예를 들어 모든 접근을 같은 락으로 보호하는 맵도 `containsKey()`와 `put()`이 락을 각각 얻었다 놓으면, 두 스레드가 모두 키가 없다고 판단한 뒤 삽입해 첫 값을 덮어쓸 수 있습니다. 키를 처음 한 번만 등록하려면 확인과 삽입을 묶는 `ConcurrentMap.putIfAbsent()`를 사용할 수 있습니다. [Java Language Specification §17.4.5](https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html#jls-17.4.5) · [ConcurrentMap.putIfAbsent()](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/ConcurrentMap.html#putIfAbsent(K,V))
 
-## 29. 경쟁 상태를 어떻게 방지할 수 있나요?
+## 2. 경쟁 상태를 어떻게 방지할 수 있나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 JVM의 락은 같은 락 객체를 공유하는 스레드 사이에서 동작합니다. PostgreSQL의 `READ COMMITTED`에서 단일 행의 재고를 차감한다면 `UPDATE stock SET quantity = quantity - 1 WHERE product_id = ? AND quantity > 0`처럼 확인과 차감을 한 문장으로 처리할 수 있습니다. 앞선 갱신이 커밋되면 대기하던 갱신이 변경된 행에서 `WHERE` 조건을 다시 평가합니다. 갱신 건수가 `1`이고 커밋에 성공하면 차감 성공을 반환합니다. 갱신 건수가 `0`이면 해당 상품이 없거나 재고가 없는 경우를 처리합니다. [PostgreSQL의 Read Committed 격리 수준](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)
 
-## 30. 이진 세마포어와 뮤텍스의 차이는 무엇인가요?
+## 3. 이진 세마포어와 뮤텍스의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ JVM의 락은 같은 락 객체를 공유하는 스레드 사이에서 동작합
 
 생성자 인수 `1`은 초기 허가 수입니다. `release()`는 허가를 추가하므로, 획득 없이 호출하면 가용 허가가 `2`가 될 수 있습니다. 상호 배제에 사용하려면 정상적인 획득 한 번에 해제 한 번을 대응시켜 최대 하나를 유지해야 합니다. `ReentrantLock.unlock()`은 현재 스레드가 락을 소유하는지 검사하고, 소유하지 않았다면 `IllegalMonitorStateException`을 던집니다. [Semaphore.release()](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Semaphore.html#release()) · [ReentrantLock.unlock()](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html#unlock())
 
-## 31. 가시성(Visibility)과 원자성(Atomicity)의 차이는 무엇인가요?
+## 4. 가시성(Visibility)과 원자성(Atomicity)의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ JVM의 락은 같은 락 객체를 공유하는 스레드 사이에서 동작합
 
 한 스레드가 `payload`를 한 번 초기화하고 `volatile boolean ready`에 `true`를 쓴다고 가정합니다. 다른 스레드가 그 `true`를 읽고 나서 `payload`를 읽으면 초기화 결과를 볼 수 있습니다. `payload` 쓰기 → `ready` 쓰기 → `ready` 읽기 → `payload` 읽기 순서로 happens-before 관계가 이어집니다. 공개 후에도 `payload`를 계속 변경한다면 이후 쓰기와 읽기에 맞는 동기화가 필요합니다. [Java Language Specification §17.4.5의 happens-before 순서](https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html#jls-17.4.5)
 
-## 32. 교착상태(Deadlock)란 무엇이고 발생 조건 네 가지는 무엇인가요?
+## 5. 교착상태(Deadlock)란 무엇이고 발생 조건 네 가지는 무엇인가요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ JVM의 락은 같은 락 객체를 공유하는 스레드 사이에서 동작합
 
 락처럼 자원 종류마다 인스턴스가 하나인 모델에서는 현재의 요청과 할당 관계로 그린 그래프의 사이클이 교착을 뜻합니다. 같은 종류의 자원에 교환 가능한 인스턴스가 여러 개라면 사이클 바깥의 작업이 인스턴스 하나를 반환해 사이클 안의 작업을 진행시킬 수 있습니다. 교착인지 판단하려면 현재 가용 수량으로 완료할 수 있는 작업부터 찾아 그 작업이 반환할 자원을 가용 수량에 더하는 과정을 반복합니다. [Holt, Some Deadlock Properties of Computer Systems](https://turing.cs.hbg.psu.edu/comp512.papers/Holt-72.pdf)
 
-## 33. 교착상태를 어떻게 예방하고, 발생하면 어떻게 복구하나요?
+## 6. 교착상태를 어떻게 예방하고, 발생하면 어떻게 복구하나요?
 
 **30–60초 답변**
 

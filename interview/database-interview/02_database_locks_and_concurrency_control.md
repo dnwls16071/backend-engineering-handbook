@@ -1,6 +1,6 @@
 # Database Locks and Concurrency Control
 
-## 12. DB 락이란 무엇이고 어떤 종류가 있나요?
+## 1. DB 락이란 무엇이고 어떤 종류가 있나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 PostgreSQL에서 일반 `SELECT`는 MVCC 스냅샷으로 보이는 행 버전을 읽으므로 같은 행의 갱신 락을 기다리지 않습니다. `SELECT FOR UPDATE`는 해당 행에 락을 얻어야 하므로 충돌하는 행 락이 풀릴 때까지 대기할 수 있습니다. `ALTER TABLE`이 획득할 수 있는 `ACCESS EXCLUSIVE` 같은 테이블 락은 일반 `SELECT`도 막을 수 있습니다. [PostgreSQL 18의 행·테이블 잠금 모드](https://www.postgresql.org/docs/18/explicit-locking.html)
 
-## 13. 낙관적 락과 비관적 락은 어떻게 다른가요?
+## 2. 낙관적 락과 비관적 락은 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@ PostgreSQL에서 일반 `SELECT`는 MVCC 스냅샷으로 보이는 행 버전을
 
 영속성 공급자가 버전 있는 엔티티를 갱신할 때 버전 검사를 수행합니다. JPQL 벌크 `UPDATE`는 자동 낙관적 락 검사를 우회하므로, 같은 보호가 필요하면 벌크 구문에 버전 조건과 버전 갱신을 직접 반영해야 합니다. 다른 SQL 수정 경로도 버전을 올려야 먼저 읽어 둔 버전이 오래됐음을 감지할 수 있습니다. [Jakarta Persistence 3.2의 엔티티 버전 및 벌크 갱신 규칙](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2)
 
-## 14. 낙관적 락과 비관적 락은 각각 언제 쓰나요?
+## 3. 낙관적 락과 비관적 락은 각각 언제 쓰나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ PostgreSQL에서 일반 `SELECT`는 MVCC 스냅샷으로 보이는 행 버전을
 
 상품 한 행의 재고가 양수일 때만 차감하면 된다면 `UPDATE stock SET quantity = quantity - 1 WHERE product_id = :id AND quantity > 0`처럼 조건과 변경을 한 문장에 넣을 수 있습니다. PostgreSQL의 `READ COMMITTED`에서는 같은 행의 앞선 갱신이 커밋되면 뒤의 `UPDATE`가 변경된 행에서 조건을 다시 평가합니다. 갱신 건수와 커밋 결과로 성공 여부를 판단합니다. [PostgreSQL 18의 Read Committed 격리 수준](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)
 
-## 15. 분산 락은 언제 필요하고 어떻게 동작하나요?
+## 4. 분산 락은 언제 필요하고 어떻게 동작하나요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ PostgreSQL에서 일반 `SELECT`는 MVCC 스냅샷으로 보이는 행 버전을
 
 락을 획득할 때마다 증가하는 펜싱 토큰(fencing token)을 발급받아 쓰기 요청과 함께 보냅니다. 보호 대상 저장소는 자원별로 받아들인 가장 큰 토큰을 기록하고, 토큰 검사와 실제 갱신을 원자적으로 수행합니다. 예를 들어 새 작업자의 토큰 `42`를 받아들인 후에는 이전 작업자의 `41`을 거부합니다. 임대 만료는 다음 획득을 가능하게 하고, 지연된 쓰기를 막으려면 저장소가 토큰 검증을 지원해야 합니다. [Google Chubby 논문 §2.4의 시퀀서](https://research.google.com/archive/chubby-osdi06.pdf) · [Redis의 분산 락과 펜싱 토큰](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)
 
-## 16. 갱신 유실(Lost Update)은 무엇이고 트랜잭션을 사용해도 발생하나요?
+## 5. 갱신 유실(Lost Update)은 무엇이고 트랜잭션을 사용해도 발생하나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ PostgreSQL에서 일반 `SELECT`는 MVCC 스냅샷으로 보이는 행 버전을
 
 갱신 유실에서는 두 트랜잭션이 같은 행을 덮어씁니다. 쓰기 편향에서는 두 트랜잭션이 서로 다른 행을 바꾸면서 여러 행에 걸친 조건을 함께 깨뜨릴 수 있습니다. 예를 들어 당직자가 최소 한 명 있어야 하는데, 두 사람이 각각 상대방이 당직 중인 것을 읽고 자기 행만 당직 해제로 바꾸면 모두 빠질 수 있습니다. PostgreSQL의 `REPEATABLE READ`에서는 이런 쓰기 편향이 가능하고, `SERIALIZABLE`은 직렬 순서로 설명할 수 없는 실행을 감지해 트랜잭션을 실패시킵니다. [PostgreSQL 18의 Serializable 격리 수준](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-SERIALIZABLE)
 
-## 17. 갱신 유실을 어떻게 방지할 수 있나요?
+## 6. 갱신 유실을 어떻게 방지할 수 있나요?
 
 **30–60초 답변**
 

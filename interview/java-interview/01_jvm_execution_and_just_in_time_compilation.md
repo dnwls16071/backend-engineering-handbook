@@ -1,6 +1,6 @@
 # JVM Execution and Just-in-Time Compilation
 
-## 3. JVM의 장점과 단점은 무엇인가요?
+## 1. JVM의 장점과 단점은 무엇인가요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 우선 실행할 JDK가 JAR 안의 클래스 파일 버전과 사용하는 Java API를 지원하는지 확인합니다. 빌드에서 `javac --release 17`을 쓰면 해당 소스를 Java 17의 언어 규칙과 지원 API에 맞춰 컴파일하고 Java 17용 클래스 파일을 생성합니다. 의존 라이브러리의 요구 버전도 확인하고, JNI를 쓴다면 대상 운영체제와 CPU에 맞는 네이티브 라이브러리를 배포합니다. [Oracle `javac`의 `--release` 옵션](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html) · [JVMS §4.1 클래스 파일 버전](https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-4.html#jvms-4.1) · [JNI 라이브러리 로딩](https://docs.oracle.com/en/java/javase/25/docs/specs/jni/design.html)
 
-## 4. Java가 C나 C++보다 느릴 수 있는 이유는 무엇인가요?
+## 2. Java가 C나 C++보다 느릴 수 있는 이유는 무엇인가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 같은 하드웨어에서 입력, 동시성, 응답 내용, 외부 시스템 조건을 맞추고 각 구현의 배포용 최적화 설정을 사용합니다. 새 프로세스의 첫 응답 시간과, 대표 트래픽을 충분히 흘린 뒤의 초당 처리량·p95/p99 지연 시간을 따로 기록합니다. 응답 시간 대부분이 DB 대기라면 요청 추적으로 DB 시간과 애플리케이션 내부 처리 시간을 구분해야 CPU 처리 성능 차이를 해석할 수 있습니다. [Oracle JFR 성능 진단 가이드](https://docs.oracle.com/en/java/javase/25/troubleshoot/troubleshoot-performance-issues-using-jfr.html)
 
-## 5. Java 프로그램의 실행 과정을 설명해 주세요.
+## 3. Java 프로그램의 실행 과정을 설명해 주세요.
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 `loadClass()`는 클래스 로딩을 요청합니다. 일반적인 클래스 초기화 시점은 첫 인스턴스를 생성하거나, 그 클래스가 선언한 정적 메서드를 호출하거나, 컴파일 타임 상수가 아닌 정적 필드에 접근할 때입니다. 리플렉션으로 초기화까지 요청하려면 `Class.forName(name, true, loader)`를 사용합니다. [JVMS §5.5 초기화 조건](https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-5.html#jvms-5.5) · [Java SE `ClassLoader.loadClass`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html#loadClass(java.lang.String)) · [Java SE `Class.forName`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html#forName(java.lang.String,boolean,java.lang.ClassLoader))
 
-## 6. 인터프리터와 JIT 컴파일러의 차이는 무엇인가요?
+## 4. 인터프리터와 JIT 컴파일러의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 같은 애플리케이션을 기본 혼합 모드와 `java -Xint ...`로 각각 실행하면 `-Xint` 실행에서는 Java 바이트코드를 인터프리터로만 처리합니다. 같은 입력으로 초기 지연과 반복 처리량을 측정하고, 기본 실행의 JFR 컴파일 이벤트를 함께 보면 성능이 언제 바뀌는지 확인할 수 있습니다. [Oracle `java`의 `-Xint`, `-Xmixed`](https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html) · [OpenJDK JDK 25 JFR 이벤트 정의](https://github.com/openjdk/jdk/blob/jdk-25-ga/src/hotspot/share/jfr/metadata/metadata.xml)
 
-## 7. JIT 컴파일러는 자주 실행되는 코드를 어떻게 찾나요?
+## 5. JIT 컴파일러는 자주 실행되는 코드를 어떻게 찾나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@
 
 가능합니다. 한 번의 호출로도 루프의 백에지 카운터가 충분히 증가하고 OSR용 코드가 준비되면, 현재 실행 상태를 이어받아 루프의 남은 부분을 기계어로 실행할 수 있습니다. JFR에서 `jdk.Compilation` 이벤트를 기록해 해당 메서드의 `isOsr` 값과 컴파일 단계를 확인할 수 있습니다. [OpenJDK JDK 25 HotSpot 컴파일 정책](https://github.com/openjdk/jdk/blob/jdk-25-ga/src/hotspot/share/compiler/compilationPolicy.hpp) · [OpenJDK JDK 25 JFR의 `Compilation` 이벤트](https://github.com/openjdk/jdk/blob/jdk-25-ga/src/hotspot/share/jfr/metadata/metadata.xml)
 
-## 8. JIT 코드 캐시가 가득 차면 어떤 일이 발생하나요?
+## 6. JIT 코드 캐시가 가득 차면 어떤 일이 발생하나요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@
 
 HotSpot은 JDK 9부터 분할 코드 캐시를 지원합니다. 분할이 활성화된 경우 `non-method`, `profiled`, `non-profiled` 코드 힙별 사용량과 여유 공간을 확인합니다. `jcmd <PID> Compiler.codecache`와 JVM 경고, 기록을 켠 경우 JFR의 `jdk.CodeCacheFull`·`jdk.JITRestart` 이벤트를 응답 지연이 늘어난 시점과 대조합니다. 포화가 반복되면 `Compiler.CodeHeap_Analytics`로 사용 공간과 빈 공간을 살펴보고, 필요하면 `-XX:ReservedCodeCacheSize`나 해당 코드 힙 크기 옵션을 검토합니다. [Oracle JDK 9 변경 사항](https://docs.oracle.com/javase/9/whatsnew/) · [Oracle `jcmd` 진단 명령](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jcmd.html) · [Oracle `java` 코드 캐시 옵션](https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html) · [OpenJDK JDK 25 JFR 이벤트 정의](https://github.com/openjdk/jdk/blob/jdk-25-ga/src/hotspot/share/jfr/metadata/metadata.xml)
 
-## 9. JVM 서버를 배포한 직후에 요청이 느린 이유는 무엇인가요?
+## 7. JVM 서버를 배포한 직후에 요청이 느린 이유는 무엇인가요?
 
 **30–60초 답변**
 

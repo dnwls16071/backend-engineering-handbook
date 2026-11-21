@@ -1,6 +1,6 @@
 # Java Concurrency and Thread Pools
 
-## 21. Java에서 동시성 문제가 발생하는 이유는 무엇인가요?
+## 1. Java에서 동시성 문제가 발생하는 이유는 무엇인가요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 Spring의 싱글턴 빈 인스턴스는 해당 컨테이너 안에서 공유됩니다. 현재 요청의 사용자 ID를 인스턴스 필드에 저장했다가 나중에 읽으면, 그 사이 다른 요청이 필드를 덮어쓸 수 있습니다. 요청마다 달라지는 값은 메서드 인수나 요청별 지역 변수로 전달합니다. 지역 변수가 가리키는 객체도 여러 요청에서 공유한다면 그 객체의 변경은 별도로 보호합니다. [Spring Framework의 싱글턴 빈 스코프](https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-scopes.html#beans-factory-scopes-singleton) · [Java Language Specification §17.4.1](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.4.1)
 
-## 22. 가시성 문제가 정확히 언제 발생하나요?
+## 2. 가시성 문제가 정확히 언제 발생하나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@ Spring의 싱글턴 빈 인스턴스는 해당 컨테이너 안에서 공유됩�
 
 `Config` 객체를 완전히 구성한 뒤 `volatile Config current`에 참조를 대입합니다. 독자는 `current`가 가리키는 스냅샷을 지역 변수에 한 번 읽어 사용합니다. 대입 전 초기화 쓰기 → `volatile` 쓰기 → 이후의 `volatile` 읽기 → 객체 필드 읽기로 happens-before 관계가 이어집니다. 공개 뒤에도 변경할 객체라면 후속 변경에도 동기화가 필요하므로, 설정 예시에서는 참조가 가리키는 내부 데이터까지 불변으로 두고 새 스냅샷으로 교체합니다. 생성 중 `this`가 유출되지 않은 객체의 `final` 필드에는 별도의 초기화 보장이 적용됩니다. 정적 초기화로 객체를 공개하는 방법도 있습니다. [Java Language Specification §17.4.5](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.4.5) · [§17.5](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.5) · [§12.4.2](https://docs.oracle.com/javase/specs/jls/se25/html/jls-12.html#jls-12.4.2)
 
-## 23. Atomic 클래스를 써도 동시성 문제가 발생하는 사례가 있나요?
+## 3. Atomic 클래스를 써도 동시성 문제가 발생하는 사례가 있나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ Spring의 싱글턴 빈 인스턴스는 해당 컨테이너 안에서 공유됩�
 
 경합 중에 갱신 함수가 재실행될 수 있어서 이벤트가 중복 발행될 수 있습니다. 갱신 함수는 상태 계산만 하고, 차감에 성공했음을 확인한 경로에서 이벤트를 처리합니다. 예약 상태를 DB에 저장한다면 예약과 발행할 이벤트를 같은 트랜잭션에 기록하고, 커밋된 이벤트를 별도 경로에서 발행할 수 있습니다. [AtomicInteger.updateAndGet()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html#updateAndGet(java.util.function.IntUnaryOperator)) · [AWS의 트랜잭셔널 아웃박스 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
-## 24. Java에서 동기화를 구현하는 방법에는 무엇이 있나요?
+## 4. Java에서 동기화를 구현하는 방법에는 무엇이 있나요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ Spring의 싱글턴 빈 인스턴스는 해당 컨테이너 안에서 공유됩�
 
 `Semaphore(20)`에 대해 호출 전에 `tryAcquire(timeout, unit)`으로 허가를 얻고, 얻은 경우에만 API를 호출한 뒤 `finally`에서 반환합니다. 허가를 얻지 못하면 남은 요청 기한에 맞춰 과부하 응답을 처리할 수 있습니다. 이 허가 수는 동시에 진행할 호출 수를 제한합니다. 초당 호출 횟수에도 상한이 있다면 시간 단위 요청량을 제어하는 별도 정책을 둡니다. [Semaphore API](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Semaphore.html)
 
-## 25. `synchronized`의 장단점은 무엇인가요?
+## 5. `synchronized`의 장단점은 무엇인가요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ Spring의 싱글턴 빈 인스턴스는 해당 컨테이너 안에서 공유됩�
 
 스레드 덤프나 JFR의 `jdk.JavaMonitorEnter` 이벤트로 어떤 락에서 대기하는지 확인합니다. 상태를 일관되게 복사할 때만 락을 잡고 원격 호출은 밖에서 실행할 수 있는지 검토합니다. 응답을 반영할 때 락을 다시 잡아 버전이나 전제 조건을 확인해야, 호출 중 달라진 상태를 이전 응답으로 덮어쓰는 일을 막을 수 있습니다. [Oracle Java의 JFR 성능 분석 가이드](https://docs.oracle.com/en/java/javase/24/troubleshoot/troubleshoot-performance-issues-using-jfr.html)
 
-## 26. `synchronized`는 어떻게 구현되어 있나요?
+## 6. `synchronized`는 어떻게 구현되어 있나요?
 
 **30–60초 답변**
 
@@ -64,7 +64,7 @@ HotSpot의 락 구현 경로는 JDK 버전과 설정에 따라 달라집니다. 
 
 JDK 21–23에서는 가상 스레드가 `synchronized` 안에서 블로킹할 때 캐리어 플랫폼 스레드를 점유한 채 기다릴 수 있었습니다. JDK 24의 JEP 491은 모니터 획득 대기, 모니터 보유 중의 블로킹, `Object.wait()` 대기 등에서 모니터 때문에 캐리어에 묶이던 제약을 해소합니다. 네이티브 메서드나 외부 함수 호출이 걸린 경로는 여전히 고정될 수 있고, 같은 모니터에 대한 경합도 남습니다. 전환 여부는 배포 JDK, 실제 대기 지표, `tryLock()` 같은 기능 요구를 보고 판단합니다. [Oracle JDK 21 가상 스레드 가이드](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html) · [OpenJDK JEP 491](https://openjdk.org/jeps/491) · [Oracle JDK 24 변경 사항](https://docs.oracle.com/en/java/javase/24/migrate/significant-changes-jdk-24.html) · [Oracle JDK 24 가상 스레드 가이드](https://docs.oracle.com/en/java/javase/24/core/virtual-threads.html)
 
-## 27. 스레드 풀을 왜 사용하고 크기는 어떻게 정하나요?
+## 7. 스레드 풀을 왜 사용하고 크기는 어떻게 정하나요?
 
 **30–60초 답변**
 
@@ -74,7 +74,7 @@ JDK 21–23에서는 가상 스레드가 `synchronized` 안에서 블로킹할 �
 
 워커는 최대 16개이고 작업 큐는 무제한입니다. 유입이 지속적으로 처리량을 넘으면 큐 체류 시간과 메모리 사용이 늘어납니다. `corePoolSize`보다 큰 `maximumPoolSize`를 따로 둔 경우에도 무제한 큐가 작업을 계속 받아 주면 워커는 보통 코어 크기를 넘지 않습니다. 실시간 요청이라면 유한 큐와 `AbortPolicy`를 조합해 제출 실패를 명시적으로 처리할 수 있습니다. `CallerRunsPolicy`는 풀 실행 중에는 제출 스레드가 작업을 직접 수행하게 해 제출 속도를 늦출 수 있지만, 그만큼 요청 스레드가 점유되고 풀이 종료된 상태에서는 작업이 폐기됩니다. 부하 테스트에서는 큐 대기 시간, 활성 워커, 거부 건수와 p99를 같이 봅니다. [Executors.newFixedThreadPool()](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executors.html#newFixedThreadPool(int)) · [ThreadPoolExecutor API](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html) · [CallerRunsPolicy API](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.CallerRunsPolicy.html)
 
-## 28. 컨텍스트 스위칭 비용이 있는데도 Spring MVC는 왜 스레드를 수백 개 사용하나요?
+## 8. 컨텍스트 스위칭 비용이 있는데도 Spring MVC는 왜 스레드를 수백 개 사용하나요?
 
 **30–60초 답변**
 

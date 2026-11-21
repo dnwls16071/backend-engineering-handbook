@@ -1,6 +1,6 @@
 # Browser Request Flow and Packet Delivery
 
-## 3. 브라우저에서 `www.google.com`에 접속하면 어떤 일이 일어나나요?
+## 1. 브라우저에서 `www.google.com`에 접속하면 어떤 일이 일어나나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 Chrome 개발자 도구의 Network에서 문서 요청의 Timing을 열어 DNS 조회, 초기 연결과 TLS, 첫 바이트 대기, 응답 다운로드 시간을 확인합니다. 캐시 적중이나 연결 재사용으로 건너뛴 단계도 확인하고, Protocol 열에서 실제로 사용한 HTTP 버전을 봅니다. 예를 들어 `h3`라면 UDP 위의 QUIC이 연결 설정 과정에 TLS 1.3을 통합한 경로입니다. [Chrome DevTools Network 가이드](https://developer.chrome.com/docs/devtools/network/reference) · [RFC 9000 QUIC](https://www.rfc-editor.org/rfc/rfc9000) · [RFC 9114 HTTP/3](https://www.rfc-editor.org/rfc/rfc9114)
 
-## 4. 웹 요청이 패킷으로 전달되는 과정을 설명해 주세요.
+## 2. 웹 요청이 패킷으로 전달되는 과정을 설명해 주세요.
 
 **30–60초 답변**
 

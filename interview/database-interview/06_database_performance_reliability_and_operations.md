@@ -1,6 +1,6 @@
 # Database Performance, Reliability, and Operations
 
-## 42. 느린 쿼리가 발생하면 어떻게 원인을 찾고 개선하나요?
+## 1. 느린 쿼리가 발생하면 어떻게 원인을 찾고 개선하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 배포 시각과 지연 시작 시각을 맞춰 보고, 이전 버전과 새 버전이 실행하는 SQL과 호출 빈도를 비교합니다. 변경과 지연의 연관성이 확인되고 바로 되돌릴 수 있으면 기능 플래그를 끄거나 호환성을 확인한 뒤 배포를 롤백합니다. 배치가 부하를 유발했다면 일시 중지하고, 잠금이라면 MySQL의 `data_lock_waits`나 PostgreSQL의 `pg_blocking_pids()`로 차단 세션을 찾습니다. 트랜잭션을 종료할 때는 어떤 작업이 롤백되는지 확인하고, 조치 뒤 요청 지연과 오류율이 정상 범위로 돌아오는지 봅니다. [MySQL 잠금 대기 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-lock-tables.html) · [PostgreSQL 차단 세션 조회](https://www.postgresql.org/docs/18/functions-info.html)
 
-## 43. `EXPLAIN`과 `EXPLAIN ANALYZE`는 어떻게 읽나요?
+## 2. `EXPLAIN`과 `EXPLAIN ANALYZE`는 어떻게 읽나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 일반 `EXPLAIN`으로 범위를 먼저 보고, 실측은 대표 데이터와 파라미터를 갖춘 검증 환경에서 합니다. 대량 조회도 CPU와 I/O를 쓰고, DB가 지원하는 변경문을 붙이면 실제 변경이 일어납니다. 롤백을 해도 실행 중 발생한 잠금과 부하는 이미 서비스에 영향을 줄 수 있습니다. 또 PostgreSQL 계획의 `shared read`에는 OS 페이지 캐시에서 읽은 경우도 포함될 수 있어 실제 저장장치 병목은 OS의 I/O 지연과 대기 지표를 함께 봅니다. [MySQL `EXPLAIN ANALYZE`](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [PostgreSQL `EXPLAIN` 옵션](https://www.postgresql.org/docs/18/sql-explain.html) · [PostgreSQL I/O 통계 해석](https://www.postgresql.org/docs/18/monitoring-stats.html)
 
-## 44. 데이터가 계속 늘어나면 어떻게 확장하나요?
+## 3. 데이터가 계속 늘어나면 어떻게 확장하나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 조회 조건에서 월별 파티션 키의 범위를 알아낼 수 있어야 불필요한 파티션을 건너뛸 수 있습니다. 최근 한 달 조회에는 유리하지만, 주문 ID만으로 조회하면 여러 파티션을 확인할 수 있습니다. 실제 SQL의 실행 계획에서 접근 파티션을 확인하고, 월별 정리 비용이 줄어드는 효과와 자주 쓰는 ID 조회 비용을 함께 비교합니다. [PostgreSQL 파티션 프루닝](https://www.postgresql.org/docs/18/ddl-partitioning.html#DDL-PARTITION-PRUNING)
 
-## 45. 클러스터링, 복제, 샤딩은 어떻게 다른가요?
+## 4. 클러스터링, 복제, 샤딩은 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 그 문맥에서는 한 테이블 안에서 행을 어떻게 저장하느냐를 말합니다. InnoDB는 보통 기본 키를 클러스터드 인덱스로 사용하고, 그 리프에 행 데이터를 저장합니다. 여러 노드를 운영하는 클러스터를 설명할 때는 장애 조치나 요청 라우팅 같은 노드의 역할을 설명합니다. [MySQL InnoDB의 클러스터드 인덱스와 보조 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)
 
-## 46. 복제는 어떻게 동작하며 동기 복제와 비동기 복제는 어떻게 다른가요?
+## 5. 복제는 어떻게 동작하며 동기 복제와 비동기 복제는 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@
 
 조회 대상 복제본이 그 변경을 적용했는지에 달려 있습니다. MySQL 세미싱크는 적용 전에도 확인 응답을 보내고, 확인이 시간 안에 오지 않으면 비동기로 전환될 수 있습니다. PostgreSQL `remote_apply`의 적용 보장은 확인한 동기 대기 서버를 기준으로 합니다. 쓰기 직후 최신 값이 필요한 요청은 주 서버로 보내거나, 조회 대상 복제본이 해당 GTID나 WAL 위치까지 적용했음을 확인한 뒤 보냅니다. [MySQL 세미싱크 확인과 타임아웃](https://dev.mysql.com/doc/refman/8.4/en/replication-semisync.html) · [MySQL GTID 함수](https://dev.mysql.com/doc/refman/8.4/en/gtid-functions.html) · [PostgreSQL 동기 복제](https://www.postgresql.org/docs/18/warm-standby.html#SYNCHRONOUS-REPLICATION)
 
-## 47. 데드락은 무엇이고 왜 발생하나요?
+## 6. 데드락은 무엇이고 왜 발생하나요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@
 
 생길 수 있습니다. 한 `UPDATE`가 여러 행을 잠그고, 동시에 다른 문장이 겹치는 행을 다른 순서로 잠그면 순환 대기가 만들어집니다. 실제 원인을 찾을 때는 SQL에 적힌 조건과 함께 실행 계획, 잠근 인덱스 레코드나 범위, 각 트랜잭션이 먼저 획득한 잠금을 봅니다. [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [PostgreSQL 행 잠금과 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS)
 
-## 48. 데이터베이스와 애플리케이션은 데드락을 어떻게 처리하나요?
+## 7. 데이터베이스와 애플리케이션은 데드락을 어떻게 처리하나요?
 
 **30–60초 답변**
 
@@ -70,7 +70,7 @@
 
 DB 롤백으로 이미 승인된 외부 결제는 취소되지 않으므로 결제가 중복될 수 있습니다. 결제 API가 멱등성 키를 지원하면 같은 업무 요청을 재시도할 때 같은 키를 전달합니다. 커밋된 결과를 메시지로 알려야 한다면 업무 데이터와 전송할 이벤트를 한 트랜잭션에 기록합니다. 발행기는 커밋된 이벤트를 읽어 보내고, 수신 측은 이벤트 ID를 기준으로 중복 처리를 막습니다. [AWS 트랜잭셔널 아웃박스](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
-## 49. 운영 중 데이터베이스 장애가 발생하면 어떤 순서로 대응하나요?
+## 8. 운영 중 데이터베이스 장애가 발생하면 어떤 순서로 대응하나요?
 
 **30–60초 답변**
 
@@ -80,7 +80,7 @@ DB 롤백으로 이미 승인된 외부 결제는 취소되지 않으므로 결�
 
 네트워크가 분리되면 다른 경로의 클라이언트는 여전히 기존 주 서버에 쓸 수 있습니다. 기존 주 서버의 쓰기 권한을 차단하거나 노드를 격리하고, 그 조치가 보장될 때 승격합니다. 확인이 끝날 때까지 승격을 보류하면 두 서버가 다 쓰기를 받는 스플릿 브레인을 피할 수 있습니다. 복구한 기존 주 서버는 새 주 서버와 로그가 갈라졌는지 확인하고, 필요하면 데이터를 다시 맞춘 뒤 복제본으로 편입합니다. [PostgreSQL 장애 조치](https://www.postgresql.org/docs/18/warm-standby-failover.html) · [PostgreSQL `pg_rewind`](https://www.postgresql.org/docs/18/app-pgrewind.html)
 
-## 50. 운영 중 데이터베이스의 어떤 지표를 모니터링하나요?
+## 9. 운영 중 데이터베이스의 어떤 지표를 모니터링하나요?
 
 **30–60초 답변**
 

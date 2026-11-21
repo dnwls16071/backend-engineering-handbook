@@ -1,6 +1,6 @@
 # Synchronous, Asynchronous, and Nonblocking I/O
 
-## 35. 동기 I/O와 비동기 I/O의 차이는 무엇인가요?
+## 1. 동기 I/O와 비동기 I/O의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 이벤트가 무엇을 알려주는지 봅니다. `epoll`의 알림은 소켓에서 읽기나 쓰기를 시도할 수 있다는 **준비 상태**입니다. 실제 바이트 수는 이후 `read()`나 `write()`에서 받습니다. 완료 알림에서는 이미 제출한 I/O의 바이트 수나 오류가 결과로 전달됩니다. 비동기 API라도 내부적으로 작업 스레드에 의존할 수 있으므로, 호출자가 보는 API 계약과 구현의 실행 모델을 구분해서 설명합니다. [Linux `epoll(7)`](https://man7.org/linux/man-pages/man7/epoll.7.html) · [Java `AsynchronousFileChannel`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/channels/AsynchronousFileChannel.html)
 
-## 36. 블로킹과 논블로킹 I/O의 차이는 무엇인가요?
+## 2. 블로킹과 논블로킹 I/O의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 한 번에 읽을 수 있는 바이트는 요청보다 적을 수 있습니다. 스트림 소켓에서 길이가 양수인 읽기가 `0`을 반환하면 상대가 쓰기 방향을 정상 종료해 EOF에 도달했다는 뜻이고, `EAGAIN`은 현재 읽을 데이터가 없다는 뜻입니다. 준비 알림 이후 다른 스레드가 데이터를 먼저 가져갈 수도 있으므로, 소켓을 논블로킹으로 두고 실제 I/O 결과를 확인합니다. 파일 I/O도 소켓과 동일하게 동작한다고 가정하기 어렵습니다. Linux에서 일반 파일의 `O_NONBLOCK`만으로는 저장 장치 접근 대기를 피할 수 없습니다. [Linux `read(2)`](https://man7.org/linux/man-pages/man2/read.2.html) · [Linux `recv(2)`](https://man7.org/linux/man-pages/man2/recv.2.html) · [Linux `open(2)`](https://man7.org/linux/man-pages/man2/open.2.html)
 
-## 37. 스레드 기반 I/O와 이벤트 루프 기반 I/O는 어떻게 다른가요?
+## 3. 스레드 기반 I/O와 이벤트 루프 기반 I/O는 어떻게 다른가요?
 
 **30–60초 답변**
 

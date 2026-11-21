@@ -1,6 +1,6 @@
 # Database Connections and Pooling
 
-## 36. DB 커넥션이란 무엇이고, 생성 비용이 큰 이유는 무엇인가요?
+## 1. DB 커넥션이란 무엇이고, 생성 비용이 큰 이유는 무엇인가요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 커넥션을 빌리는 시간과 빌린 뒤 쿼리를 보내서 결과를 받는 시간을 분리합니다. 획득만 느리다면 초기 풀에 사용 가능한 연결이 있었는지, 연결 생성이 DNS·TCP·TLS·DB 인증 중 어디에서 지연됐는지 확인합니다. 획득은 빠르지만 첫 실행만 느리면 쿼리 계획과 캐시 상태도 살펴봅니다. [HikariCP 커넥션 풀 설정](https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby) · [PostgreSQL 프로토콜 흐름](https://www.postgresql.org/docs/18/protocol-flow.html)
 
-## 37. 커넥션 풀은 무엇이며 왜 사용하나요?
+## 2. 커넥션 풀은 무엇이며 왜 사용하나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 풀은 일반적으로 미완료 트랜잭션과 JDBC를 통해 바꾼 연결 속성을 관리하지만, SQL로 바꾼 세션 변수나 임시 테이블까지 모두 자동 정리하는지는 구현과 설정에 따라 다릅니다. 세션 상태를 바꾸는 코드가 있다면 그 범위를 제한하고, 반환 전에 원상 복구하거나 풀의 초기화 정책을 확인합니다. [HikariCP JDBC 연결 상태 정리](https://github.com/brettwooldridge/HikariCP/blob/dev/src/main/java/com/zaxxer/hikari/pool/ProxyConnection.java) · [PostgreSQL 세션 상태 정리 명령](https://www.postgresql.org/docs/18/sql-discard.html)
 
-## 38. 커넥션 풀 크기는 클수록 좋은가요?
+## 3. 커넥션 풀 크기는 클수록 좋은가요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 풀의 활성 커넥션, 획득 대기·보유 시간과 DB의 처리량, CPU, 락 대기를 같은 구간에서 확인합니다. 보유 시간이 늘어난다면 느린 쿼리나 트랜잭션을 오래 잡는 코드부터 좁힙니다. DB에 처리 여유가 있을 때는 부하 테스트에서 풀 상한을 조금씩 바꿔 성공 처리량과 p95·p99가 함께 개선되는지 확인합니다. [HikariCP 풀 크기 안내](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing) · [PostgreSQL `pg_stat_activity`](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)
 
-## 39. 커넥션 타임아웃과 리드 타임아웃은 어떻게 다르고 왜 필요한가요?
+## 4. 커넥션 타임아웃과 리드 타임아웃은 어떻게 다르고 왜 필요한가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 응답을 받지 못했어도 서버에서 커밋이 끝났을 수 있습니다. 주문 번호나 작업 식별자로 처리 결과를 조회하거나, DB 유일성 제약과 멱등성 키로 중복을 막도록 설계한 요청만 같은 키로 다시 보냅니다. 풀 획득 단계에서 발생한 오류와 SQL 전송 이후의 오류를 로그에서 구분하면 재시도 판단이 쉬워집니다. [PostgreSQL 쿼리·취소 프로토콜](https://www.postgresql.org/docs/18/protocol-flow.html) · [AWS의 멱등 재시도 설계](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
 
-## 40. 커넥션 풀 상태는 어떻게 모니터링하고 문제를 진단하나요?
+## 5. 커넥션 풀 상태는 어떻게 모니터링하고 문제를 진단하나요?
 
 **30–60초 답변**
 

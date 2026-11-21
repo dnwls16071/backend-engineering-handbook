@@ -1,6 +1,6 @@
 # Real-Time Communication with WebSocket and SSE
 
-## 42. HTTP 요청·응답과 WebSocket은 어떻게 다르며 연결은 어떻게 맺나요?
+## 1. HTTP 요청·응답과 WebSocket은 어떻게 다르며 연결은 어떻게 맺나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 HTTP/2에서는 상대가 `SETTINGS_ENABLE_CONNECT_PROTOCOL=1`로 지원을 알리면, 클라이언트가 `:protocol`을 `websocket`으로 지정한 확장 `CONNECT`를 보낼 수 있습니다. 성공 응답은 `2xx`이며, WebSocket 프레임은 해당 HTTP/2 스트림에서 오갑니다. 배포할 때는 브라우저에서 로드밸런서까지의 구간과 로드밸런서에서 서버까지의 구간이 각각 어떤 연결 방식을 지원하는지 확인합니다. [RFC 8441, HTTP/2 확장 CONNECT와 WebSocket](https://www.rfc-editor.org/rfc/rfc8441.html#section-5)
 
-## 43. WebSocket Ping/Pong과 STOMP 하트비트는 어떻게 다르나요?
+## 2. WebSocket Ping/Pong과 STOMP 하트비트는 어떻게 다르나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@ HTTP/2에서는 상대가 `SETTINGS_ENABLE_CONNECT_PROTOCOL=1`로 지원을 알�
 
 Pong으로는 WebSocket 상대가 제어 프레임에 응답하는지 확인할 수 있습니다. STOMP에서는 `CONNECTED` 수신 여부, 대상의 구독 상태와 브로커 연결, 실제 `MESSAGE`의 도착을 각각 확인합니다. 하트비트 주기도 확인합니다. 한 방향의 송신 가능 주기가 10초이고 상대의 수신 희망 주기가 15초라면 15초를 사용합니다. 해당 방향에서 송신이나 수신 값 중 하나가 `0`이면 하트비트를 사용하지 않습니다. 정상 메시지 데이터도 연결이 살아 있다는 신호로 계산되므로 마지막 수신 바이트 시각을 기준으로 지연 허용 범위를 두고 확인합니다. [STOMP 1.2, 하트비트 협상과 수신](https://stomp.github.io/stomp-specification-1.2.html#Heart-beating)
 
-## 44. SSE와 WebSocket은 언제 각각 선택하나요?
+## 3. SSE와 WebSocket은 언제 각각 선택하나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ Pong으로는 WebSocket 상대가 제어 프레임에 응답하는지 확인할 
 
 `new EventSource(url, { withCredentials: true })`로 연결합니다. 서버는 허용한 구체적인 출처와 `Access-Control-Allow-Credentials: true`를 응답에 포함하고, 쿠키 전송 여부는 쿠키 속성과 브라우저 정책에도 따릅니다. 기본 `EventSource` 생성자는 URL과 `withCredentials` 옵션을 받으므로, 임의 요청 헤더가 필요한 계약이라면 `fetch`로 응답 스트림을 읽는 방법을 검토합니다. 이 경우 이벤트 해석과 재연결도 클라이언트가 구현합니다. [WHATWG HTML, EventSource 인터페이스](https://html.spec.whatwg.org/multipage/server-sent-events.html#the-eventsource-interface) · [WHATWG Fetch, CORS와 자격 증명](https://fetch.spec.whatwg.org/#cors-protocol-and-credentials)
 
-## 45. 폴링, 롱 폴링, SSE의 차이와 연결 복구 방식은 무엇인가요?
+## 4. 폴링, 롱 폴링, SSE의 차이와 연결 복구 방식은 무엇인가요?
 
 **30–60초 답변**
 

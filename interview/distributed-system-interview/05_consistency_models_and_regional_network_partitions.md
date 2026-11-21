@@ -1,6 +1,6 @@
 # Consistency Models and Regional Network Partitions
 
-## 26. 프로필 읽기의 일관성 모델
+## 1. 프로필 읽기의 일관성 모델
 
 | 모델 | 닉네임을 바꾼 직후의 조회 |
 | --- | --- |
@@ -10,13 +10,13 @@
 
 선형화 가능성은 한 연산이 완료된 뒤 다른 연산이 시작됐다면 그 순서를 결과에 반영한다. 직렬 가능성(serializability)은 여러 트랜잭션의 결과가 어떤 순차 실행과 같음을 보장한다. 엄격한 직렬 가능성(strict serializability)은 트랜잭션 간 실제 시간 순서까지 보장한다. 스냅샷 읽기는 정해진 시점의 상태를 보며, 과거 시점의 스냅샷도 읽을 수 있다. [PostgreSQL 트랜잭션 격리](https://www.postgresql.org/docs/18/transaction-iso.html) · [etcd API 보장](https://etcd.io/docs/v3.6/learning/api_guarantees/#strict-serializability)
 
-## 27. 수정한 본인에게는 어떻게 새 값을 바로 보여주는가?
+## 2. 수정한 본인에게는 어떻게 새 값을 바로 보여주는가?
 
 프로필을 수정한 세션의 후속 조회를 쓰기를 처리한 샤드의 현재 주 DB로 보내면 자기 쓰기 읽기를 보장할 수 있다. 세션 정보가 앱 인스턴스 사이에서도 유지되어야 하며, 읽기는 커밋 이후의 새 스냅샷에서 시작한다. 쓰기가 장애 전환 뒤에도 보존된다는 조건을 함께 확인한다. [Terry 외, *Session Guarantees*](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html) · [PostgreSQL · Hot Standby](https://www.postgresql.org/docs/17/hot-standby.html#HOT-STANDBY-USERS)
 
 복제본을 활용하려면 쓰기가 커밋된 뒤 샤드와 복제 이력, 커밋 위치를 식별하는 토큰을 반환한다. 후속 읽기를 처리할 복제본이 해당 샤드의 동일한 복제 이력에서 토큰 위치까지 빠짐없이 적용했다면 그 복제본에서 읽을 수 있다. 도쿄가 `41`까지 적용했다면 `41`을 쓴 세션의 읽기를 처리할 수 있다. 서울에서 다른 사용자의 `42`가 이미 완료됐는지는 이 토큰만으로 알 수 없다. [Terry 외, *Session Guarantees*](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html) · [Azure Cosmos DB 세션 토큰](https://learn.microsoft.com/azure/cosmos-db/consistency-levels#session-consistency)
 
-## 28. 서울의 쓰기 성공 직후 도쿄가 고립되면
+## 3. 서울의 쓰기 성공 직후 도쿄가 고립되면
 
 | 시각 | 프로필 샤드에서 일어난 일 |
 | --- | --- |
@@ -26,7 +26,7 @@
 
 쓰기 성공 응답(ACK)의 기준을 먼저 확인한다. 요청 접수, 서울 내 영속화, 합의 프로토콜에 따른 커밋은 각각 다른 시점이다. 예시의 ACK는 커밋된 쓰기의 성공을 뜻한다. 도쿄의 상태 머신에는 해당 로그가 늦게 적용될 수 있다. 서울에만 저장한 상태에서 성공을 반환하는 설계라면 이후 서울을 잃었을 때 그 쓰기가 새 리더에 남을지도 따로 확인해야 한다. [Raft 논문 §5.3, §8](https://raft.github.io/raft.pdf) · [복제와 합의](04_replicating_data_and_reaching_consensus.md)
 
-## 29. 최신 값이 필수라면 도쿄는 어떻게 응답하는가?
+## 4. 최신 값이 필수라면 도쿄는 어떻게 응답하는가?
 
 1. **권한이 확인된 읽기 경로를 찾는다.** 현재 리더의 선형화 가능한 읽기로 전달하거나, 저장소의 정족수 기반 읽기 절차를 사용한다. Raft의 `ReadIndex`를 사용하는 경우, 프로토콜이 해당 요청에 유효한 읽기 기준 인덱스를 확인한 뒤 그 위치까지 적용한 복제본에서 로컬로 읽을 수 있다. 리더 임대(lease)를 쓰는 구현은 다른 리더가 그 기간에 쓰기를 커밋할 수 없도록 보장해야 하며, 시계 오차 등 프로토콜의 시간 가정을 만족해야 한다. 예전에 리더였다는 기록과 로컬 TTL만으로는 읽기 권한을 입증할 수 없다. [Raft 논문 §8](https://raft.github.io/raft.pdf) · [etcd Raft `ReadIndex`](https://pkg.go.dev/go.etcd.io/etcd/raft/v3#Node)
 2. **요청 기한 안에만 대기한다.** 권한 확인이나 복제본 적용을 짧게 기다린다. 기한까지 필요한 보장을 만족할 수 없으면 일시적으로 조회할 수 없음을 알린다. HTTP API는 `503 Service Unavailable`을 반환하고, 재시도까지의 시간을 안내할 수 있으면 `Retry-After`를 붙일 수 있다. [RFC 9110 §15.6.4](https://www.rfc-editor.org/rfc/rfc9110.html#name-503-service-unavailable)

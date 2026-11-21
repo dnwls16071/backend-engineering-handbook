@@ -1,6 +1,6 @@
 # Database Indexes and Query Access Paths
 
-## 19. 인덱스란 무엇이고 어떤 장단점이 있나요?
+## 1. 인덱스란 무엇이고 어떤 장단점이 있나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 `ORDER BY created_at DESC LIMIT 20`에서 인덱스가 필요한 순서로 행을 제공하면 앞의 20건을 찾은 시점에 읽기를 멈출 수 있습니다. 인덱스 순서를 사용할 수 없어 정렬한다면 상위 20건을 결정하기 위해 조건에 맞는 후보를 모두 살펴야 합니다. [PostgreSQL 18의 인덱스와 `ORDER BY`](https://www.postgresql.org/docs/18/indexes-ordering.html)
 
-## 20. B-tree 인덱스와 해시 인덱스는 어떻게 다른가요?
+## 2. B-tree 인덱스와 해시 인덱스는 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 B-tree도 동등 조건을 처리할 수 있습니다. 해시 인덱스는 데이터 분포에 따라 한 버킷에 항목이 몰리면 오버플로 페이지를 더 읽을 수 있습니다. 인덱스와 테이블 페이지의 접근 비용도 영향을 주므로, 실제 값 분포와 실행 계획을 확인해 판단합니다. [PostgreSQL 18의 해시 인덱스 개요](https://www.postgresql.org/docs/18/hash-index.html) · [PostgreSQL 18의 `EXPLAIN`](https://www.postgresql.org/docs/18/using-explain.html)
 
-## 21. DB는 인덱스를 어떻게 사용하고, 어떤 접근 경로를 선택하나요?
+## 3. DB는 인덱스를 어떻게 사용하고, 어떤 접근 경로를 선택하나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ B-tree도 동등 조건을 처리할 수 있습니다. 해시 인덱스는 데�
 
 PostgreSQL에서는 `EXPLAIN (ANALYZE, BUFFERS)`로 실제 조회를 실행해 스캔 방식, 예상·실제 행 수, 버퍼 접근을 확인할 수 있습니다. 인덱스 스캔에서는 `Index Cond`에 적힌 조건을 인덱스에서 검사하고, `Filter`에 적힌 조건은 읽어 온 행에 적용합니다. 예상 행 수가 실제와 크게 다르면 `ANALYZE`로 수집하는 통계가 최신인지와 여러 조건에 쓰인 컬럼끼리 상관관계가 있는지 확인합니다. [PostgreSQL 18의 `EXPLAIN ANALYZE`](https://www.postgresql.org/docs/18/using-explain.html#USING-EXPLAIN-ANALYZE) · [PostgreSQL 18의 확장 통계](https://www.postgresql.org/docs/18/planner-stats.html)
 
-## 22. 클러스터형 인덱스와 비클러스터형 인덱스는 어떻게 다른가요?
+## 4. 클러스터형 인덱스와 비클러스터형 인덱스는 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ PostgreSQL에서는 `EXPLAIN (ANALYZE, BUFFERS)`로 실제 조회를 실행해 �
 
 `CLUSTER`는 실행 시점에 선택한 인덱스 순서대로 테이블을 물리적으로 재배치합니다. 이후 삽입이나 갱신이 일어나면 그 배치가 흐트러질 수 있어, 필요하면 다시 실행해 정리합니다. [PostgreSQL 18의 `CLUSTER`](https://www.postgresql.org/docs/18/sql-cluster.html)
 
-## 23. InnoDB의 보조 인덱스에는 무엇이 저장되고, 조회는 어떻게 하나요?
+## 5. InnoDB의 보조 인덱스에는 무엇이 저장되고, 조회는 어떻게 하나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ PostgreSQL에서는 `EXPLAIN (ANALYZE, BUFFERS)`로 실제 조회를 실행해 �
 
 커버링은 필요한 컬럼을 인덱스에서 얻을 수 있다는 뜻입니다. InnoDB는 보조 인덱스 레코드에 삭제 표시가 있거나 읽기 시점 이후에 보조 인덱스 페이지가 갱신된 경우, 어떤 버전이 보이는지 확인하기 위해 클러스터형 인덱스의 레코드와 필요하면 언두 로그를 읽습니다. [MySQL 8.4의 InnoDB 다중 버전 관리](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html)
 
-## 24. 복합 인덱스에서 컬럼 순서가 중요한 이유는 무엇인가요?
+## 6. 복합 인덱스에서 컬럼 순서가 중요한 이유는 무엇인가요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@ PostgreSQL에서는 `EXPLAIN (ANALYZE, BUFFERS)`로 실제 조회를 실행해 �
 
 PostgreSQL 18은 비용이 유리하면 스킵 스캔을 사용할 수 있습니다. 예를 들어 `(a, b)` 인덱스에 `b = 2`만 있고 서로 다른 `a` 값이 적으면, 각 `a` 값에 대해 `b = 2` 위치를 다시 찾아 불필요한 구간을 건너뛸 수 있습니다. 오른쪽 컬럼 조건도 같은 방식으로 일부 구간을 건너뛰거나 인덱스에서 후보를 거르는 데 쓰일 수 있으므로 실행 계획을 봅니다. [PostgreSQL 18의 B-tree 스킵 스캔](https://www.postgresql.org/docs/18/indexes-multicolumn.html)
 
-## 25. `BOOLEAN` 컬럼에 인덱스를 걸어도 효과가 있나요?
+## 7. `BOOLEAN` 컬럼에 인덱스를 걸어도 효과가 있나요?
 
 **30–60초 답변**
 
@@ -70,7 +70,7 @@ PostgreSQL 18은 비용이 유리하면 스킵 스캔을 사용할 수 있습니
 
 플래너가 쿼리 조건을 만족하는 행은 모두 인덱스의 조건도 만족한다고 계획 시점에 판단할 수 있어야 합니다. 예를 들어 `(tenant_id, created_at) WHERE is_pending` 부분 인덱스는 `WHERE tenant_id = $1 AND is_pending`에 쓸 수 있습니다. `is_pending` 값까지 매개변수로 바꾼 범용 계획이라면 매 실행에서 `true`라는 사실을 증명할 수 없어 그 부분 인덱스를 사용하지 못합니다. [PostgreSQL 18의 부분 인덱스 사용 조건](https://www.postgresql.org/docs/18/indexes-partial.html)
 
-## 26. `LIKE`의 와일드카드 위치는 인덱스 사용에 어떤 영향을 주나요?
+## 8. `LIKE`의 와일드카드 위치는 인덱스 사용에 어떤 영향을 주나요?
 
 **30–60초 답변**
 

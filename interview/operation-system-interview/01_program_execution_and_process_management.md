@@ -1,6 +1,6 @@
 # Program Execution and Process Management
 
-## 3. 운영체제 관점에서 프로그램의 실행 과정을 설명해 주세요.
+## 1. 운영체제 관점에서 프로그램의 실행 과정을 설명해 주세요.
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 가상 주소 공간에 실행 파일의 영역이 매핑되면 필요한 페이지를 실제 접근 시점에 가져올 수 있습니다. 아직 접근할 수 있는 페이지가 준비되지 않았다면 페이지 폴트가 발생하고, 커널은 유효한 매핑인지 확인해 페이지를 연결한 뒤 해당 명령을 다시 실행하게 합니다. 이미 페이지 캐시에 있는 파일 페이지는 다시 디스크에서 읽을 필요 없이 연결할 수 있습니다. [Linux 커널의 가상 메모리와 페이지 캐시](https://docs.kernel.org/admin-guide/mm/concepts.html)
 
-## 4. 프로세스의 상태와 상태 전이를 설명해 주세요.
+## 2. 프로세스의 상태와 상태 전이를 설명해 주세요.
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 `R`은 CPU에서 실행 중이거나 실행 가능한 상태입니다. `S`는 시그널로 깨울 수 있는 대기 상태이고, `D`는 I/O 완료 등 특정 조건을 기다리는 인터럽트 불가 대기 상태입니다. `Z`는 종료 후 부모가 종료 상태를 수거할 때까지 최소 정보가 남는 좀비 상태입니다. 일반적인 경우 부모가 `wait()`나 `waitpid()`를 호출하면 해당 정보가 해제됩니다. 스레드별 상태는 `ps -L -p <PID> -o pid,tid,stat,comm`으로 확인합니다. [Linux `ps(1)`](https://man7.org/linux/man-pages/man1/ps.1.html) · [Linux `wait(2)`](https://man7.org/linux/man-pages/man2/wait.2.html)
 
-## 5. 프로세스의 메모리 구조를 설명해 주세요.
+## 3. 프로세스의 메모리 구조를 설명해 주세요.
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 glibc의 할당기는 힙을 늘리거나 익명 `mmap()` 영역을 사용해 메모리를 확보합니다. 큰 할당은 익명 매핑에 놓일 수 있습니다. `/proc/<PID>/maps`에서 `[heap]`은 특정 매핑의 이름이고, 다른 익명 매핑에도 동적 할당 메모리가 있을 수 있습니다. 파일과 라이브러리 매핑의 읽기·쓰기·실행 권한도 이 파일에서 확인할 수 있습니다. [Linux `malloc(3)`](https://man7.org/linux/man-pages/man3/malloc.3.html) · [Linux `proc_pid_maps(5)`](https://man7.org/linux/man-pages/man5/proc_pid_maps.5.html)
 
-## 6. PCB란 무엇이며 어떤 정보를 담나요?
+## 4. PCB란 무엇이며 어떤 정보를 담나요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ glibc의 할당기는 힙을 늘리거나 익명 `mmap()` 영역을 사용해 �
 
 커널은 나가는 스레드의 재개에 필요한 실행 문맥을 저장하고 들어오는 스레드의 문맥을 복원합니다. 두 스레드가 같은 주소 공간을 쓰므로 그 주소 공간을 계속 사용할 수 있습니다. Linux에서 `/proc/<PID>/task/<TID>/status`를 보면 같은 프로세스에 속해도 스레드별 상태가 달라질 수 있습니다. [Linux `task_struct` 정의](https://github.com/torvalds/linux/blob/master/include/linux/sched.h) · [Linux `proc_pid_task(5)`](https://man7.org/linux/man-pages/man5/proc_pid_task.5.html)
 
-## 7. 시스템 콜과 인터럽트의 차이는 무엇인가요?
+## 5. 시스템 콜과 인터럽트의 차이는 무엇인가요?
 
 **30–60초 답변**
 

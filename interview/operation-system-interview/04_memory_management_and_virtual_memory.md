@@ -1,6 +1,6 @@
 # Memory Management and Virtual Memory
 
-## 20. 운영체제는 메모리를 어떻게 관리하나요?
+## 1. 운영체제는 메모리를 어떻게 관리하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 Linux에서 기본적인 익명 `mmap()`은 가상 주소 범위를 먼저 만들고, 실제 접근 시점에 필요한 페이지를 매핑할 수 있습니다. 새 매핑에 쓰면 해당 범위에 물리 페이지가 할당되면서 RAM에 상주하는 메모리 크기인 RSS가 늘어납니다. 메모리 증가 원인을 볼 때는 매핑 크기와 RSS를 함께 보고, 매핑만 늘었는지 실제 사용한 페이지도 늘었는지 확인합니다. [Linux `mmap(2)`](https://man7.org/linux/man-pages/man2/mmap.2.html) · [Linux 익명 메모리 문서](https://docs.kernel.org/admin-guide/mm/concepts.html#anonymous-memory)
 
-## 21. 내부 단편화와 외부 단편화의 차이는 무엇인가요?
+## 2. 내부 단편화와 외부 단편화의 차이는 무엇인가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@ Linux에서 기본적인 익명 `mmap()`은 가상 주소 범위를 먼저 만�
 
 큰 페이지처럼 연속된 물리 프레임이 필요한 요청이 있기 때문입니다. Linux의 메모리 컴팩션(compaction)은 옮길 수 있는 페이지를 이동시켜 흩어진 빈 프레임을 연속된 영역으로 모읍니다. 전체 여유 메모리가 충분해도 이동할 수 없는 페이지가 중간에 있으면 요청한 크기의 연속 영역을 확보하기 어려울 수 있습니다. [Linux 메모리 컴팩션](https://docs.kernel.org/admin-guide/mm/concepts.html#compaction) · [Linux Transparent Hugepage 문서](https://docs.kernel.org/admin-guide/mm/transhuge.html)
 
-## 22. 가상 메모리란 무엇이며 왜 필요한가요?
+## 3. 가상 메모리란 무엇이며 왜 필요한가요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@ Linux에서 기본적인 익명 `mmap()`은 가상 주소 범위를 먼저 만�
 
 네. 주소 변환과 프로세스 격리, 파일 매핑은 계속 동작합니다. 스왑을 끈 상태에서도 커널은 다시 읽을 수 있는 깨끗한 파일 캐시를 회수할 수 있습니다. 스왑 유무는 메모리 압박이 생겼을 때 익명 페이지를 스왑 공간으로 내보낼 수 있는지에 영향을 줍니다. [Linux 메모리 회수 문서](https://docs.kernel.org/admin-guide/mm/concepts.html#reclaim)
 
-## 23. 가상 주소는 어떻게 물리 주소로 변환되나요?
+## 4. 가상 주소는 어떻게 물리 주소로 변환되나요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@ Linux에서 기본적인 익명 `mmap()`은 가상 주소 범위를 먼저 만�
 
 가상 주소가 `0x12345`라면 하위 12비트인 `0x345`가 오프셋이고 가상 페이지 번호는 `0x12`입니다. 페이지 테이블이 이 페이지를 물리 프레임 `0xAB`에 연결하면 프레임 시작 주소 `0xAB000`에 오프셋을 더해 `0xAB345`가 됩니다. 이 매핑이 RAM의 페이지 테이블에 있고 접근 권한이 맞으면, TLB 미스가 발생해도 페이지 폴트 없이 같은 주소를 얻을 수 있습니다. [OSTEP의 페이지 번호와 오프셋](https://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf)
 
-## 24. 페이지 폴트가 발생하면 운영체제는 어떻게 처리하나요?
+## 5. 페이지 폴트가 발생하면 운영체제는 어떻게 처리하나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@ Linux에서 기본적인 익명 `mmap()`은 가상 주소 범위를 먼저 만�
 
 Linux의 `getrusage()` 기준으로 minor fault는 I/O 없이 해결한 폴트이고, major fault는 I/O가 필요했던 폴트입니다. 처음 쓰는 익명 페이지를 RAM에 만들면 보통 minor fault입니다. RAM의 캐시에 없는 실행 파일이나 매핑된 데이터 파일을 읽어도 major fault가 생길 수 있으므로, 스왑이 원인인지 보려면 major fault 증가와 별도로 스왑에서 다시 읽는 양을 확인합니다. [Linux `getrusage(2)`](https://man7.org/linux/man-pages/man2/getrusage.2.html) · [Linux `vmstat(8)`](https://man7.org/linux/man-pages/man8/vmstat.8.html)
 
-## 25. 페이지 교체 알고리즘은 어떤 기준으로 내보낼 페이지를 고르나요?
+## 6. 페이지 교체 알고리즘은 어떤 기준으로 내보낼 페이지를 고르나요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@ Linux의 `getrusage()` 기준으로 minor fault는 I/O 없이 해결한 폴트�
 
 깨끗한 파일 캐시 페이지는 원본 파일에서 다시 읽을 수 있어 저장 없이 회수할 수 있습니다. 수정된 파일 페이지는 필요할 때 원본에 반영해야 하고, 보존해야 하는 익명 페이지를 내보낼 때는 스왑 같은 저장 수단이 필요합니다. Linux의 Multi-Gen LRU는 비슷한 시기에 접근된 페이지를 세대로 묶고, 접근 이력과 회수 후 다시 접근돼 폴트가 난 비율을 사용해 후보를 평가합니다. [Linux 메모리 회수 문서](https://docs.kernel.org/admin-guide/mm/concepts.html#reclaim) · [Linux Multi-Gen LRU 설계](https://docs.kernel.org/mm/multigen_lru.html)
 
-## 26. 스왑이 자주 일어나면 왜 성능이 저하되나요?
+## 7. 스왑이 자주 일어나면 왜 성능이 저하되나요?
 
 **30–60초 답변**
 

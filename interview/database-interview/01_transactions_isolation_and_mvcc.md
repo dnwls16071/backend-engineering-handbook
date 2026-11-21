@@ -1,6 +1,6 @@
 # Transactions, Isolation, and MVCC
 
-## 3. 트랜잭션이란 무엇이고 ACID는 무엇을 보장하나요?
+## 1. 트랜잭션이란 무엇이고 ACID는 무엇을 보장하나요?
 
 **30–60초 답변**
 
@@ -14,7 +14,7 @@ ACID의 일관성은 트랜잭션 전후 데이터가 정의된 무결성 규칙
 
 `innodb_flush_log_at_trx_commit=1`은 커밋마다 InnoDB redo 로그를 기록하고 디스크에 동기화합니다. 바이너리 로깅을 쓰면 `sync_binlog=1`도 확인합니다. 운영체제와 저장장치가 동기화 요청을 실제로 이행해야 이 설정이 의도한 지속성을 얻습니다. [MySQL 8.4 InnoDB 시스템 변수](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) · [MySQL 8.4 바이너리 로깅 옵션](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_sync_binlog)
 
-## 4. 트랜잭션을 사용할 때 어떤 점에 주의해야 하나요?
+## 2. 트랜잭션을 사용할 때 어떤 점에 주의해야 하나요?
 
 **30–60초 답변**
 
@@ -24,7 +24,7 @@ ACID의 일관성은 트랜잭션 전후 데이터가 정의된 무결성 규칙
 
 DB 롤백은 그 트랜잭션의 DB 변경에 적용됩니다. 외부 브로커가 이미 받은 메시지는 브로커에 남습니다. 트랜잭셔널 아웃박스를 쓰면 주문과 발행할 메시지의 레코드를 같은 DB 트랜잭션에 기록하고, 별도 발행기가 커밋된 레코드를 읽어 브로커에 전송합니다. 발행 후 처리 상태를 기록하기 전에 발행기가 중단되면 다시 전송할 수 있으므로, 이벤트 ID를 기준으로 중복 처리를 방지합니다. [PostgreSQL 18 트랜잭션의 커밋과 롤백](https://www.postgresql.org/docs/18/tutorial-transactions.html)
 
-## 5. SQL의 트랜잭션 격리 수준 네 가지는 어떻게 다른가요?
+## 3. SQL의 트랜잭션 격리 수준 네 가지는 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -34,7 +34,7 @@ DB 롤백은 그 트랜잭션의 DB 변경에 적용됩니다. 외부 브로커�
 
 PostgreSQL 18의 일반 `SELECT`와 MySQL 8.4 InnoDB의 일관 읽기는 이 수준에서 문장마다 새 스냅샷을 사용합니다. 두 `SELECT` 사이에 다른 트랜잭션이 커밋하면 같은 조건으로 조회해도 두 번째 결과가 달라질 수 있습니다. 두 쿼리의 결과를 하나의 보고서에서 동일한 시점 기준으로 합쳐야 한다면, 한 문장으로 조회하거나 해당 DB의 트랜잭션 단위 스냅샷을 쓰는 방법을 고려합니다. [PostgreSQL 18의 Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED) · [MySQL 8.4 InnoDB 일관 비잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)
 
-## 6. 더티 리드, 반복 불가능 읽기, 팬텀 리드는 어떻게 구분하나요?
+## 4. 더티 리드, 반복 불가능 읽기, 팬텀 리드는 어떻게 구분하나요?
 
 **30–60초 답변**
 
@@ -44,7 +44,7 @@ PostgreSQL 18의 일반 `SELECT`와 MySQL 8.4 InnoDB의 일관 읽기는 이 수
 
 생길 수 있습니다. A가 `WHERE status = 'PENDING'`으로 주문을 조회한 후, B가 기존 주문의 상태를 `PENDING`으로 바꾸고 커밋하면 A의 다음 조회에 그 주문이 새로 포함될 수 있습니다. 팬텀 리드의 판단 기준은 다른 트랜잭션의 커밋으로 같은 조건을 만족하는 행 집합의 구성원이 바뀌는지입니다. [PostgreSQL 18 팬텀 리드 정의](https://www.postgresql.org/docs/18/transaction-iso.html)
 
-## 7. 트랜잭션에서 발생하는 동시성 이상은 어떻게 해결하나요?
+## 5. 트랜잭션에서 발생하는 동시성 이상은 어떻게 해결하나요?
 
 **30–60초 답변**
 
@@ -54,7 +54,7 @@ PostgreSQL 18의 일반 `SELECT`와 MySQL 8.4 InnoDB의 일관 읽기는 이 수
 
 PostgreSQL에서 예약 행을 조회했는데 결과가 비어 있으면 그 쿼리가 잠글 예약 행도 없습니다. 두 요청 모두 빈 결과를 보고 삽입을 시도할 수 있으므로 예약 테이블에 `NOT NULL`인 좌석 식별자와 `UNIQUE` 제약을 두면 DB가 중복 삽입을 거부합니다. 이미 존재하는 좌석 행을 잠그는 방법도 있습니다. 예를 들어 PostgreSQL의 `READ COMMITTED`에서는 모든 예약 경로가 같은 좌석 행을 먼저 잠근 후, 별도 문장으로 예약 상태를 조회하고 결정하게 할 수 있습니다. [PostgreSQL 18 행 수준 잠금](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-ROWS) · [PostgreSQL 18 제약 조건](https://www.postgresql.org/docs/18/ddl-constraints.html) · [PostgreSQL 18의 Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)
 
-## 8. MVCC란 무엇이고 어떤 비용이 있나요?
+## 6. MVCC란 무엇이고 어떤 비용이 있나요?
 
 **30–60초 답변**
 
@@ -64,7 +64,7 @@ PostgreSQL에서 예약 행을 조회했는데 결과가 비어 있으면 그 �
 
 오래된 스냅샷을 유지하는 읽기 트랜잭션은 자신의 데이터를 직접 변경하지 않아도 다른 트랜잭션이 만든 이전 버전의 정리를 늦출 수 있습니다. 예를 들어 InnoDB에서 `REPEATABLE READ`의 일관 읽기가 스냅샷을 잡은 채 열려 있으면, 그 스냅샷에 필요한 버전을 재구성할 수 있도록 관련 update undo 로그를 보존합니다. 그사이 갱신이 계속되면 undo 이력이 늘어날 수 있습니다. [MySQL 8.4 InnoDB 다중 버전 관리](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html) · [MySQL 8.4 InnoDB 트랜잭션 관리](https://dev.mysql.com/doc/refman/8.4/en/optimizing-innodb-transaction-management.html)
 
-## 9. InnoDB의 `REPEATABLE READ`에서는 팬텀 리드를 어떻게 막나요?
+## 7. InnoDB의 `REPEATABLE READ`에서는 팬텀 리드를 어떻게 막나요?
 
 **30–60초 답변**
 
@@ -74,7 +74,7 @@ PostgreSQL에서 예약 행을 조회했는데 결과가 비어 있으면 그 �
 
 `REPEATABLE READ`에서 A가 일반 `SELECT`로 기본 키 10부터 20까지를 먼저 읽었다면 B는 15를 삽입하고 커밋할 수 있습니다. A의 기존 스냅샷에는 15가 나타나지 않습니다. A가 범위의 첫 조회를 `SELECT ... FOR UPDATE`로 하고 기본 키 인덱스로 해당 범위를 스캔했다면, B의 15 삽입은 그 위치를 덮는 갭의 잠금이 풀릴 때까지 기다립니다. [MySQL 8.4 InnoDB 일관 비잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [MySQL 8.4 InnoDB의 팬텀 행](https://dev.mysql.com/doc/refman/8.4/en/innodb-next-key-locking.html)
 
-## 10. InnoDB의 `REPEATABLE READ`를 사용할 때 어떤 동작을 추가로 확인해야 하나요?
+## 8. InnoDB의 `REPEATABLE READ`를 사용할 때 어떤 동작을 추가로 확인해야 하나요?
 
 **30–60초 답변**
 

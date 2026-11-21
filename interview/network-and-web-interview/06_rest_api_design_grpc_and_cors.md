@@ -1,6 +1,6 @@
 # REST API Design, gRPC, and CORS
 
-## 28. RESTful API는 어떤 제약을 따르며 어떻게 설계하나요?
+## 1. RESTful API는 어떤 제약을 따르며 어떻게 설계하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 주문과 사용자 계정은 DB에 저장합니다. 무상태 제약은 서버가 직전 요청에 저장해 둔 클라이언트의 대화 맥락에 기대지 않고 현재 요청을 해석할 수 있어야 한다는 뜻입니다. 예를 들어 요청마다 주문 URI와 인증 토큰을 보내면 어느 API 인스턴스든 토큰을 검증하고 같은 주문을 조회할 수 있습니다. 응답의 재사용 가능 범위는 별도로 정합니다. 공개 카탈로그는 `Cache-Control: public, max-age=60`으로 공유 캐시에 60초 동안 재사용을 허용하고, 민감한 주문 응답은 `Cache-Control: no-store`로 저장을 막을 수 있습니다. [Fielding, 무상태와 캐시 제약](https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_3) · [RFC 9111, HTTP 캐시 지시어](https://www.rfc-editor.org/rfc/rfc9111.html#section-5.2.2)
 
-## 29. REST API와 gRPC의 차이는 무엇이며 언제 각각 선택하나요?
+## 2. REST API와 gRPC의 차이는 무엇이며 언제 각각 선택하나요?
 
 **30–60초 답변**
 
@@ -24,7 +24,7 @@
 
 암시적 존재 여부를 쓰는 스칼라 필드는 미전송 시 숫자 `0`, 불리언 `false`, 문자열 빈 값 같은 타입 기본값으로 읽힙니다. 예를 들어 부분 갱신에서 `limit`을 그대로 둘 때와 `0`으로 바꿀 때를 구분하려면 `optional int32 limit`으로 선언하고 생성된 API에서 필드가 설정됐는지 확인합니다. [Protocol Buffers, proto3 기본값](https://protobuf.dev/programming-guides/proto3/#default) · [Protocol Buffers, 필드 존재 여부](https://protobuf.dev/programming-guides/field_presence/)
 
-## 30. 동일 출처 정책(SOP)과 CORS는 무엇인가요?
+## 3. 동일 출처 정책(SOP)과 CORS는 무엇인가요?
 
 **30–60초 답변**
 
@@ -34,7 +34,7 @@
 
 개발자 도구에서 실제 응답의 `Access-Control-Allow-Origin`이 요청의 `Origin`과 일치하는지 확인합니다. 허용 목록을 보고 출처별로 응답 헤더를 다르게 반환한다면 `Vary: Origin`을 설정해 캐시가 다른 출처의 응답을 재사용하는 일을 막습니다. 본문은 읽히는데 `X-Request-ID`만 코드에서 보이지 않으면 `Access-Control-Expose-Headers`에 그 헤더를 명시했는지 확인합니다. [WHATWG Fetch, CORS 응답 헤더와 HTTP 캐시](https://fetch.spec.whatwg.org/#cors-protocol-and-http-caches) · [WHATWG Fetch, CORS 응답 헤더](https://fetch.spec.whatwg.org/#http-responses)
 
-## 31. CORS에서 단순 요청과 프리플라이트는 어떻게 구분하나요?
+## 4. CORS에서 단순 요청과 프리플라이트는 어떻게 구분하나요?
 
 **30–60초 답변**
 

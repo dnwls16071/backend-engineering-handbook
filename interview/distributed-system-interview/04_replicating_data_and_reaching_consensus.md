@@ -2,14 +2,14 @@
 
 주문을 받는 서버가 사라졌을 때 어떤 주문이 살아남는지 설명하려면 성공 응답을 보낸 시점, 각 노드가 저장한 로그 위치, 새 쓰기 권한을 가진 노드를 함께 봐야 한다.
 
-## 20. 데이터를 왜 복제하는가?
+## 1. 데이터를 왜 복제하는가?
 
 > 같은 데이터를 여러 노드에 유지하면 한 노드가 멈춰도 복제본으로 서비스를 이어갈 수 있습니다. 읽기 복제본을 쓰면 조회 부하도 분산할 수 있습니다. 장애 전환에서 잃어도 되는 데이터 범위와 읽기에서 허용할 지연을 먼저 정하고 복제 구성을 선택하겠습니다. [PostgreSQL · Log-Shipping Standby Servers](https://www.postgresql.org/docs/18/warm-standby.html) · [MySQL · Replication](https://dev.mysql.com/doc/refman/8.4/en/replication.html)
 
 - **복제 노드를 어디에 배치하나요?** 같은 전원이나 가용 영역에 몰아 두면 공통 장애에 함께 영향을 받습니다. 견뎌야 하는 장애 범위에 맞춰 복제본을 배치하고, 영역 간 왕복 시간이 동기 쓰기에 미치는 영향을 봅니다. [Dynamo §4.6](https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html) · [PostgreSQL · Synchronous Replication](https://www.postgresql.org/docs/18/warm-standby.html#SYNCHRONOUS-REPLICATION)
 - **운영자가 주문을 실수로 삭제한 경우는요?** 정상적으로 전달된 삭제는 복제본에도 적용됩니다. 삭제 이전 상태가 필요하면 별도로 보관한 백업과 아카이브 로그로 삭제 직전까지 복구합니다. [MySQL · Replication Implementation](https://dev.mysql.com/doc/refman/8.4/en/replication-implementation.html) · [PostgreSQL · Point-in-Time Recovery](https://www.postgresql.org/docs/18/continuous-archiving.html)
 
-## 21. 로그 복제와 동기·비동기 복제는 어떻게 동작하는가?
+## 2. 로그 복제와 동기·비동기 복제는 어떻게 동작하는가?
 
 > 프라이머리가 변경을 로그에 기록하면 복제본이 그 로그를 받아 자기 상태에 적용합니다. 비동기는 복제본의 확인을 기다리지 않고 성공을 응답할 수 있습니다. 동기는 지정한 복제본의 확인을 기다립니다. 제품마다 확인 시점이 다르므로 로그 수신, 디스크 반영, 조회 가능한 상태로 적용 중 어느 단계까지 기다리는지 확인합니다. [PostgreSQL · WAL 설정](https://www.postgresql.org/docs/18/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT) · [MySQL · Replication Implementation](https://dev.mysql.com/doc/refman/8.4/en/replication-implementation.html)
 
@@ -20,7 +20,7 @@
 
 - **동기 복제면 어느 복제본에서나 방금 쓴 주문을 읽을 수 있나요?** 읽을 복제본이 해당 주문의 커밋을 적용했는지 확인해야 합니다. PostgreSQL의 `remote_apply`도 확인 응답을 보내는 동기 대기 서버에 대한 보장입니다. 프라이머리에서 읽거나 해당 로그 위치가 재생된 복제본으로 읽기를 보내겠습니다. [PostgreSQL · Synchronous Replication](https://www.postgresql.org/docs/18/warm-standby.html#SYNCHRONOUS-REPLICATION)
 
-## 22. 합의는 무엇이며 Raft는 어떻게 리더를 선출하는가?
+## 3. 합의는 무엇이며 Raft는 어떻게 리더를 선출하는가?
 
 > Raft는 여러 노드가 같은 순서로 적용할 로그를 정하는 합의 알고리즘입니다. 팔로워가 일정 시간 유효한 메시지를 받지 못하면 새 임기에서 후보가 됩니다. 전체 투표 노드의 과반수 표를 얻으면 리더가 되고, 리더는 로그를 복제해 커밋한 뒤 상태에 적용합니다. [Raft §5.1–5.3](https://raft.github.io/raft.pdf)
 
@@ -29,14 +29,14 @@
 - **과반수에 복제됐으면 커밋인가요?** 리더는 자기 임기에 만들어진 로그 항목이 자신을 포함한 과반수에 저장됐을 때 그 항목의 커밋을 결정할 수 있습니다. 이전 임기의 항목은 저장된 복제본 수만으로 커밋을 판단할 수 없습니다. 현재 임기 항목이 커밋되면 그 앞의 항목들도 함께 커밋됩니다. [Raft §5.4.2, 그림 8](https://raft.github.io/raft.pdf)
 - **노드 5대가 3대와 2대로 끊기면요?** 고정된 투표 노드 5대라면 과반수는 3대입니다. 3대 쪽은 자격을 갖춘 리더를 선출하고 새 로그를 커밋할 수 있습니다. 2대 쪽에 이전 리더가 남아 있어도 새 로그를 커밋할 과반수가 없습니다. [Raft §5.2–5.4](https://raft.github.io/raft.pdf)
 
-## 23. 비동기 복제에서 장애 전환하면 승인된 쓰기도 잃는가?
+## 4. 비동기 복제에서 장애 전환하면 승인된 쓰기도 잃는가?
 
 > 주문 42를 프라이머리에 커밋하고 고객에게 성공을 응답했는데, 그 로그가 대기 서버에 저장되기 전에 프라이머리를 잃었다고 가정하겠습니다. 그 대기 서버를 승격하면 주문 42가 새 프라이머리에 없을 수 있습니다. 데이터 손실 허용 범위에 맞춰 응답 조건을 정하고, 전환할 때는 이전 프라이머리가 다시 쓰는 것도 차단해야 합니다. [PostgreSQL · Log-Shipping Standby Servers](https://www.postgresql.org/docs/18/warm-standby.html) · [MySQL · Semisynchronous Replication](https://dev.mysql.com/doc/refman/8.4/en/replication-semisync.html)
 
 - **성공 응답은 어떤 상황에서 살아남나요?** 커밋 로그가 어느 노드에 영속화됐는지와 전환에서 어느 노드를 승격하는지에 달려 있습니다. 동기 확인을 받았더라도 그 로그가 없는 노드를 승격하거나 확인한 복제본을 함께 잃으면 손실이 발생할 수 있습니다. 장애 시 허용할 손실 범위인 RPO와 서비스 복구 목표 시간인 RTO를 기준으로 응답 정책과 승격 조건을 정합니다. [PostgreSQL · Synchronous Replication](https://www.postgresql.org/docs/18/warm-standby.html#SYNCHRONOUS-REPLICATION) · [MySQL · Semisynchronous Replication](https://dev.mysql.com/doc/refman/8.4/en/replication-semisync.html)
 - **펜싱(fencing)이 왜 필요한가요?** 네트워크가 끊긴 이전 프라이머리가 살아 있을 수 있습니다. 새 프라이머리를 활성화할 때 이전 프라이머리의 쓰기 권한이 사라졌음을 보장해야 합니다. 저장 경로에서 단조 증가하는 권한 토큰을 검증해 이전 토큰의 쓰기를 거절하거나, 이전 서버의 저장소 접근을 차단하는 방법을 씁니다. [PostgreSQL · Failover](https://www.postgresql.org/docs/18/warm-standby-failover.html) · [Chubby §2.4](https://research.google.com/archive/chubby-osdi06.pdf)
 
-## 24. 리더리스 복제의 `N`, `R`, `W`는 무엇인가?
+## 5. 리더리스 복제의 `N`, `R`, `W`는 무엇인가?
 
 > Dynamo 방식에서는 키마다 고정된 쓰기 리더를 두지 않고 요청을 맡은 코디네이터가 여러 복제본에 요청합니다. `N`은 키의 복제본 수, `R`과 `W`는 각각 읽기와 쓰기 성공에 필요한 응답 수입니다. 동일한 `N`개 중에서 고르면 `R + W > N`일 때 읽기와 성공한 쓰기의 응답 집합이 적어도 한 노드에서 겹칩니다. [Dynamo §4.3–4.6](https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html)
 
@@ -44,7 +44,7 @@
 - **그럼 항상 최신 값을 읽나요?** 겹침은 같은 복제본 집합을 쓴다는 전제에서 성립합니다. Sloppy quorum으로 쓰기와 읽기가 다른 대체 노드를 이용하면 겹침이 깨질 수 있습니다. 겹치더라도 동시 쓰기, 버전 선택, 일부 노드에만 반영된 쓰기까지 처리하는 규칙이 있어야 선형화 가능성을 논할 수 있습니다. [Dynamo §4.4–4.6](https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html)
 - **Raft의 과반수와 어떤 보장이 다른가요?** Raft는 선거와 로그 커밋 규칙을 결합해 어떤 명령이 어떤 순서로 확정됐는지 보장합니다. Dynamo식 응답 수는 개별 읽기·쓰기의 성공 조건이며, 동시 갱신은 여러 버전으로 남아 이후 조정될 수 있습니다. [Raft §5](https://raft.github.io/raft.pdf) · [Dynamo §4.4–4.5](https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html)
 
-## 25. 복제본의 값이 달라지면 어떻게 수렴시키는가?
+## 6. 복제본의 값이 달라지면 어떻게 수렴시키는가?
 
 > 일시적으로 전달하지 못한 변경은 복구된 노드에 다시 보낼 수 있습니다. 읽기 도중 뒤처진 복제본을 발견하면 보정하고, 조회가 없는 데이터도 백그라운드에서 비교해 맞춥니다. 두 곳에서 같은 키를 동시에 갱신했다면 어느 변경이 다른 변경을 포함하는지 판단하고, 충돌한 버전은 업무에 맞는 규칙으로 합치거나 선택합니다. [Dynamo §4.4, §4.6–4.7, §5](https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html)
 

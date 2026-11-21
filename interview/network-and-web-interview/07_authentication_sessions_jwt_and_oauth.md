@@ -1,6 +1,6 @@
 # Authentication, Sessions, JWT, and OAuth
 
-## 33. HTTP는 무상태인데 로그인 상태는 어떻게 유지하나요?
+## 1. HTTP는 무상태인데 로그인 상태는 어떻게 유지하나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 서버 세션 방식에서는 각 인스턴스가 같은 세션 저장소를 조회하도록 구성할 수 있습니다. 사용자 활동에 따른 만료 갱신과 로그아웃 무효화가 어느 인스턴스에서 처리해도 일관되게 반영되는지 확인합니다. 요청을 같은 인스턴스로 보내는 세션 고정 방식을 쓴다면 인스턴스 교체나 장애 때 로그인 상태를 어떻게 이어갈지도 설명해야 합니다. [OWASP 세션 저장과 만료](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
 
-## 34. 인증과 인가는 어떻게 다른가요?
+## 2. 인증과 인가는 어떻게 다른가요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 유효한 인증 정보가 없어 API가 `401 Unauthorized`를 반환한다면, 응답에 그 리소스에 적용할 `WWW-Authenticate` 챌린지를 하나 이상 포함합니다. 서버가 요청을 이해했어도 주어진 권한으로 작업을 허용할 수 없으면 `403 Forbidden`을 반환할 수 있습니다. 서버는 접근이 금지된 리소스의 존재를 숨기는 정책에서 `404 Not Found`를 사용할 수도 있습니다. [RFC 9110의 401](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.2) · [RFC 9110의 403](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.4) · [RFC 6750의 Bearer 오류 응답](https://www.rfc-editor.org/rfc/rfc6750.html#section-3.1)
 
-## 35. 쿠키와 세션은 인증에서 어떻게 동작하고, 보안상 무엇을 고려하나요?
+## 3. 쿠키와 세션은 인증에서 어떻게 동작하고, 보안상 무엇을 고려하나요?
 
 **30–60초 답변**
 
@@ -30,7 +30,7 @@
 
 인증 전에 사용하던 ID가 알려졌더라도 그 ID로 인증된 세션을 사용할 수 없도록, 로그인이나 권한 상승 직후 ID를 재발급하고 이전 ID를 무효화합니다. `HttpOnly`가 있어도 페이지에서 실행되는 스크립트는 브라우저를 통해 인증 요청을 보낼 수 있으므로, 스크립트 삽입을 막는 방어도 필요합니다. [OWASP 세션 ID 재발급과 쿠키 속성](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
 
-## 36. JWT는 어떤 구조이고, 액세스 토큰과 리프레시 토큰을 왜 나누나요?
+## 4. JWT는 어떤 구조이고, 액세스 토큰과 리프레시 토큰을 왜 나누나요?
 
 **30–60초 답변**
 
@@ -40,7 +40,7 @@
 
 신뢰하는 발급자의 키와 허용 알고리즘으로 서명을 확인하고, `iss`로 발급자, `aud`로 대상 API, `exp`와 `nbf`로 시간 조건을 검증합니다. 이후 API가 요구하는 권한 범위와 리소스 접근 조건을 확인합니다. 예를 들어 Spring Security의 JWT 리소스 서버에서는 `issuer-uri`로 발급자를 지정하고 대상 API 검증에는 `audiences` 또는 별도 검증기를 추가할 수 있습니다. [RFC 8725의 JWT 검증 권고](https://www.rfc-editor.org/rfc/rfc8725.html#section-3) · [Spring Security 6.5 JWT 검증](https://docs.spring.io/spring-security/reference/6.5/servlet/oauth2/resource-server/jwt.html)
 
-## 37. JWT가 탈취됐을 때 어떻게 대응하고, 탈취 여부는 어떻게 판단하나요?
+## 5. JWT가 탈취됐을 때 어떻게 대응하고, 탈취 여부는 어떻게 판단하나요?
 
 **30–60초 답변**
 
@@ -50,7 +50,7 @@
 
 토큰 원문 대신 요청 ID, 발급자, 검증된 토큰 식별자나 운영용 상관관계 ID, 시간, 결과와 호출 위치를 남깁니다. 같은 인증 정보의 짧은 시간 내 상이한 사용 패턴, 회전된 리프레시 토큰의 재사용, 계정 조작 이력을 함께 확인합니다. 개별 토큰 유출과 발급용 서명 키 유출은 영향 범위가 달라 별도로 조사합니다. [OWASP 로깅에서 제외할 데이터](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html#data-to-exclude) · [RFC 9700의 리프레시 토큰 회전](https://www.rfc-editor.org/rfc/rfc9700.html#section-4.14.2)
 
-## 38. 리프레시 토큰을 서버에 저장하면 서버 세션과 무엇이 다른가요?
+## 6. 리프레시 토큰을 서버에 저장하면 서버 세션과 무엇이 다른가요?
 
 **30–60초 답변**
 
@@ -60,7 +60,7 @@
 
 그 기기에서 인증 정보를 더 이상 제출하지 않게 할 수 있습니다. 다른 곳에 남은 복사본이나 갱신 권한도 끊어야 한다면 서버 세션이나 리프레시 토큰을 서버에서 무효화합니다. API의 즉시 차단 기준과 액세스 토큰 만료까지 허용하는 시간을 서비스 요구에 맞춰 정합니다. [OWASP 세션 무효화](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html) · [RFC 7009의 토큰 폐기](https://www.rfc-editor.org/rfc/rfc7009.html#section-2)
 
-## 39. OAuth 2.0은 어떻게 동작하나요?
+## 7. OAuth 2.0은 어떻게 동작하나요?
 
 **30–60초 답변**
 
@@ -70,7 +70,7 @@
 
 `state`는 콜백을 클라이언트가 시작한 브라우저 요청과 연결하는 데 사용할 수 있습니다. PKCE는 요청마다 새로 만든 검증값을 바탕으로 `S256` 챌린지를 먼저 보내고, 코드 교환 시 그 검증값을 확인해 인가 코드와 교환 주체를 연결합니다. 기밀 클라이언트라면 토큰 요청에서 등록된 클라이언트 인증 방식도 적용합니다. [RFC 6749 §10.12의 요청 바인딩](https://www.rfc-editor.org/rfc/rfc6749.html#section-10.12) · [RFC 7636의 검증값과 챌린지](https://www.rfc-editor.org/rfc/rfc7636.html#section-4)
 
-## 40. SSO는 어떤 구조로 동작하며 OAuth 2.0과는 어떤 관계인가요?
+## 8. SSO는 어떤 구조로 동작하며 OAuth 2.0과는 어떤 관계인가요?
 
 **30–60초 답변**
 

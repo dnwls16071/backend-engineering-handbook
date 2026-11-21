@@ -1,6 +1,6 @@
 # DNS Resolution and Record Types
 
-## 12. `www.naver.com`의 IP 주소를 DNS로 어떻게 찾나요?
+## 1. `www.naver.com`의 IP 주소를 DNS로 어떻게 찾나요?
 
 **30–60초 답변**
 
@@ -10,7 +10,7 @@
 
 이미 이전 레코드를 받은 재귀 리졸버는 그 레코드의 남은 TTL 동안 캐시에서 응답할 수 있습니다. 권한 서버의 응답과 영향을 받는 사용자의 리졸버 응답을 비교해 값과 남은 TTL을 확인합니다. 전환 전에 TTL을 낮출 때는 낮추기 전에 저장된 캐시가 만료될 시간을 고려하고, 별칭을 사용한다면 `CNAME`과 대상 주소의 TTL도 각각 확인합니다. [RFC 1034 DNS 조회와 캐시](https://www.rfc-editor.org/rfc/rfc1034)
 
-## 13. DNS는 UDP와 TCP를 언제 사용하나요?
+## 2. DNS는 UDP와 TCP를 언제 사용하나요?
 
 **30–60초 답변**
 
@@ -20,7 +20,7 @@
 
 같은 이름과 레코드 유형을 같은 리졸버에 UDP와 TCP로 각각 질의해 결과를 비교합니다. UDP 응답에 `TC`가 있는데 TCP 질의가 실패하면 해당 경로의 TCP 53 연결을 확인합니다. UDP 응답이 아예 없고 TCP는 성공한다면 EDNS로 광고한 크기와 경로의 MTU, 조각난 IP 패킷의 손실 가능성을 확인합니다. [RFC 6891 EDNS](https://www.rfc-editor.org/rfc/rfc6891) · [RFC 7766 DNS over TCP](https://www.rfc-editor.org/rfc/rfc7766)
 
-## 14. DNS 서버의 역할과 `A`, `CNAME`, `TXT` 레코드를 설명해 주세요.
+## 3. DNS 서버의 역할과 `A`, `CNAME`, `TXT` 레코드를 설명해 주세요.
 
 **30–60초 답변**
 
