@@ -85,6 +85,10 @@ CPU 계산이 주된 작업과 I/O 대기가 주된 작업을 구분한다. CPU�
 
 **공식 문서** [Apache JMeter 다운로드](https://jmeter.apache.org/download_jmeter.cgi) · [JMeter 설치 및 CLI 실행](https://jmeter.apache.org/usermanual/get-started.html) · [JMeter 보고서](https://jmeter.apache.org/usermanual/generating-dashboard.html)
 
+![별도 호스트의 JMeter CLI가 테스트 계획으로 Java API를 호출하고 HTTP 결과를 기록하는 동안 대상 서버 지표와 부하 발생기 포화 여부를 함께 확인하는 구조](image/02_java_jmeter_load_and_target_hosts.png)
+
+그림의 근거 · [JMeter CLI 부하 실행](https://jmeter.apache.org/usermanual/get-started.html) · [JMeter 부하 테스트 모범 사례](https://jmeter.apache.org/usermanual/best-practices.html) · [JMeter HTML 보고서](https://jmeter.apache.org/usermanual/generating-dashboard.html)
+
 ## 7. 반복 조회를 캐시로 처리하기
 
 같은 키를 반복해서 읽고 원본 조회가 비싸다면 캐시를 검토한다. Spring의 `@Cacheable`은 키에 대한 값이 있으면 메서드 실행을 생략한다. 키에는 결과에 영향을 주는 입력을 넣고, 데이터가 변경될 때 `@CachePut`으로 갱신하거나 `@CacheEvict`로 제거할 시점을 정한다.
@@ -108,6 +112,10 @@ Spring Boot 3.5의 Tomcat 설정은 요청을 처리하는 스레드, 수락하�
 
 **공식 문서** [Spring Boot 3.5 애플리케이션 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot Actuator 지표](https://docs.spring.io/spring-boot/3.5/reference/actuator/metrics.html)
 
+![Tomcat의 OS 연결 대기열, 커넥터 소켓, 요청 워커가 각각 제어하는 범위와 요청 내부의 커넥션 획득, PostgreSQL 쿼리 실행, 결과 가져오기 대기 구간을 표시한 그림](image/02_java_tomcat_queue_and_database_waits.png)
+
+그림의 근거 · [Spring Boot 3.5 Tomcat 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot 3.5 가상 스레드](https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/current/using-explain.html)
+
 ## 9. 로그 출력 비용 줄이기
 
 빈번한 요청 경로에서 로그를 남길 때는 메시지 생성 비용과 기록 장치의 처리량을 함께 본다. SLF4J의 `logger.debug("id={}", id)`는 해당 레벨이 꺼져 있을 때 메시지 포매팅을 피할 수 있다. 다만 메서드 인자는 호출 전에 계산되므로, 비싼 요약 생성은 레벨 확인으로 감싸거나 SLF4J 2의 `addArgument(() -> buildSummary())`로 지연시킨다.
@@ -116,3 +124,7 @@ Spring Boot 3.5의 Tomcat 설정은 요청을 처리하는 스레드, 수락하�
 - Logback의 `AsyncAppender`는 출력 작업을 큐로 넘긴다. 큐가 포화되면 설정에 따라 낮은 레벨의 로그를 버리거나, 호출 측이 대기하거나, 새 로그를 유실할 수 있다. 큐 크기와 `discardingThreshold`, `neverBlock`의 동작을 확인하고, 종료 시 큐가 얼마나 비워지는지도 확인한다.
 
 **공식 문서** [SLF4J 매뉴얼](https://www.slf4j.org/manual.html) · [Logback AsyncAppender](https://logback.qos.ch/manual/appenders-async-sift.html)
+
+![요청 스레드의 SLF4J 이벤트가 Logback AsyncAppender 큐를 거쳐 기록되며, 큐가 부족할 때 임계값 폐기, 포화 시 호출 스레드 대기 또는 로깅 유실로 이어지는 그림](image/02_java_logback_async_queue_saturation.png)
+
+그림의 근거 · [SLF4J 호출](https://www.slf4j.org/manual.html) · [Logback AsyncAppender](https://logback.qos.ch/manual/appenders-async-sift.html)

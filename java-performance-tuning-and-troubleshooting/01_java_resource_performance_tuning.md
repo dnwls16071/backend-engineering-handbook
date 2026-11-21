@@ -32,6 +32,10 @@ jcmd "$pid" JFR.start name=tuning settings=profile duration=60s filename=tuning.
 
 **공식 문서** [HotSpot 성능 최적화](https://docs.oracle.com/en/java/javase/21/vm/java-hotspot-virtual-machine-performance-enhancements.html) · [OpenJDK JMH 예제](https://github.com/openjdk/jmh/tree/master/jmh-samples) · [JDK jcmd](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html)
 
+![JMX와 JConsole에서 이상 시간대의 힙, GC, 스레드를 찾고 JFR에서 실행·할당·락을 확인한 뒤 JMH와 같은 부하의 요청 측정으로 변경을 검증하는 순서](image/01_java_jmx_jfr_jmh_measurement.png)
+
+그림의 근거 · [JDK 21 JMX](https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html) · [JDK 21 JFR 기록](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK JMH 예제](https://github.com/openjdk/jmh/tree/master/jmh-samples)
+
 ## 3. `static`의 잘못된 사용 피하기
 
 `static` 필드는 클래스에 속하며 인스턴스마다 복제되지 않는다. 상수나 불변 값을 공유하거나 인스턴스 상태가 필요 없는 메서드를 정의하는 데 쓸 수 있다. 공유 데이터를 수정하거나 오래 보관할 때는 동시성과 데이터 수명을 함께 설계한다.
@@ -112,3 +116,7 @@ java -Xms512m -Xmx2g -Xlog:gc*:file=gc.log:time,uptime,level,tags -jar app.jar
 위 수치는 실행 예시다. 실제 상한은 대표 부하에서 GC 후 사용량, GC 횟수와 정지 시간 분포, 처리량과 응답 지연을 보고 정한다. `-Xmx`를 호스트나 컨테이너 메모리 한도와 같게 잡으면 힙 외 메모리의 여유가 줄어든다. JVM 내부 네이티브 사용량이 필요하면 시작 시 `-XX:NativeMemoryTracking=summary`를 켜고 `jcmd "$pid" VM.native_memory summary`로 본다. NMT의 집계 범위와 프로세스 전체 메모리 사용량을 함께 확인한다.
 
 **공식 문서** [JDK java 실행 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)
+
+![Java 힙 상한과 프로세스의 힙 외 메모리를 나눠 보고, 같은 부하에서 GC 후 사용량 및 프로세스 메모리의 추세에 따라 힙 상한 실험, 참조 조사, 네이티브 메모리 조사를 고르는 그림](image/01_java_heap_limit_and_process_memory.png)
+
+그림의 근거 · [JDK 21 메모리 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [HotSpot Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)

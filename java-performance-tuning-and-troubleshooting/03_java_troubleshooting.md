@@ -17,6 +17,10 @@ Java 장애를 진단할 때는 먼저 발생 시각과 영향 범위를 좁힌�
 
 **공식 문서** [Oracle Java 트러블슈팅 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [Oracle Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html)
 
+![요청 예외, JVM 응답 정지, GC 후 힙 증가, 프로세스 종료에 따라 Stack Trace, Thread Dump, Heap Dump, JVM 오류 로그와 플랫폼 이벤트를 먼저 확인하는 기준](image/03_java_triage_by_symptom_and_artifact.png)
+
+그림의 근거 · [JDK 21 장애 진단 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [JDK 21 throwable 출력](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html) · [JDK 21 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [JDK 21 진단 파일 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)
+
 ## 2. Stack Trace에서 실패 경로 읽기
 
 예외 타입과 메시지로 어떤 작업이 실패했는지 파악하고, 각 예외의 프레임을 위에서부터 읽는다. 바깥 예외의 애플리케이션 프레임은 실패의 업무 맥락을 보여준다. `Caused by`를 따라가면 하위 작업의 실패를 확인할 수 있다.
@@ -60,6 +64,10 @@ jcmd "$pid" Thread.dump_to_file -format=json "/var/lib/myapp/dumps/threads-$(dat
 
 **공식 문서** [JDK jcmd](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [Java Thread.State](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html) · [OpenJDK 가상 스레드 관측](https://openjdk.org/jeps/444#Observing-virtual-threads)
 
+![같은 모니터를 기다리는 스레드와 락을 보유한 스레드를 덤프에서 연결하고, 여러 대기자가 모이는 경합과 두 스레드의 순환 대기를 비교한 그림](image/03_java_thread_dump_lock_wait_graph.png)
+
+그림의 근거 · [JDK 21 스레드 상태](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html) · [JDK 21 jcmd 스레드 덤프](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK 가상 스레드 관측](https://openjdk.org/jeps/444#Observing-virtual-threads)
+
 ## 4. Heap Dump로 메모리를 유지하는 참조 찾기
 
 Heap Dump는 한 시점의 Java 힙에 있는 객체와 참조 관계를 기록한다. 먼저 GC 로그나 JFR에서 부하가 비슷한 구간의 GC 후 사용량을 비교한다. 사용량이 계속 증가하거나 특정 객체가 많이 남는다면, 덤프를 통해 그 객체를 참조하는 소유자를 좁힐 수 있다.
@@ -79,6 +87,10 @@ Eclipse MAT에서는 다음 순서로 읽는다.
 객체가 크다는 사실만으로 누수를 확정하기 어렵다. GC 후 사용량의 변화, 객체의 예상 수명, 덤프에서 확인한 참조 경로를 함께 비교한다.
 
 **공식 문서** [JDK jcmd](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [Eclipse MAT Shallow and Retained Heap](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html) · [Eclipse MAT Dominator Tree](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html) · [Eclipse MAT Leak Suspects](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html)
+
+![정적 맵을 통해서만 도달하는 주문 A와 별도의 강한 참조 경로도 가진 주문 B를 비교해 shallow heap, retained heap, GC Root까지의 경로를 읽는 예시](image/03_java_heap_dump_retained_references.png)
+
+그림의 근거 · [MAT shallow와 retained heap](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html) · [MAT Dominator Tree](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html) · [MAT 누수 후보와 참조 경로](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html)
 
 ## 5. 덤프와 오류 로그 자동 생성 설정하기
 
