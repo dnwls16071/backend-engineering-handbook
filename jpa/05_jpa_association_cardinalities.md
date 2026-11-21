@@ -2,6 +2,10 @@
 
 연관관계를 선택할 때는 다중성, 탐색 방향, 외래 키를 관리할 엔티티를 확인한다. 같은 일대다 관계도 FK를 누가 보유하는지와 양방향 탐색이 필요한지에 따라 코드가 달라진다.
 
+![여러 작업의 FK가 한 워크스페이스를 참조하는 다대일, 유일한 설정 FK를 쓰는 일대일, 두 FK와 복합 유일성 제약을 가진 연결 엔티티를 비교한 그림](image/05_jpa_cardinality_and_table_constraints.png)
+
+그림의 근거 · [연관관계 매핑 기본값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a538) · [외래 키 매핑과 유일성 제약](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a16444)
+
 ## 1. 다대일과 일대다
 
 | 매핑 | 테이블 구조 | 구현 시 확인할 점 |

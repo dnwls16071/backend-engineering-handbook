@@ -2,6 +2,10 @@
 
 JPA는 자바 객체와 관계형 데이터베이스를 연결하는 API다. 애플리케이션은 엔티티를 저장하거나 조회하고, Hibernate 같은 구현체가 매핑과 SQL 실행을 담당한다. 예제는 **Java 17, Jakarta Persistence 3.1, Hibernate ORM 6.6, H2**를 기준으로 한다.
 
+![persistence.xml의 영속성 유닛으로 EntityManagerFactory를 준비한 뒤 작업마다 EntityManager를 열고, Hibernate가 트랜잭션에서 JDBC로 H2에 SQL을 실행하는 흐름](image/01_jpa_bootstrap_and_sql_path.png)
+
+그림의 근거 · [영속성 유닛 설정](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file) · [EntityManager와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing)
+
 ## 1. 엔티티 선언과 영속성 유닛
 
 ```java

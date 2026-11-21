@@ -61,6 +61,10 @@ public class WorkItem {
 
 시퀀스 ID를 할당 단위로 확보하면 DB에 값을 요청하는 횟수를 줄일 수 있다. ID는 객체를 안정적으로 참조하는 데 사용하고, 업무적으로 고유한 값은 별도의 제약으로 관리할 수 있다. [Jakarta Persistence 3.1 · GeneratedValue](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790) · [Hibernate 6.6 · 식별자 매핑](https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers)
 
+![IDENTITY는 INSERT에서 생성된 키를 읽고 SEQUENCE는 INSERT 전에 ID를 확보하며 Hibernate 옵티마이저가 할당 범위를 재사용할 수 있는 비교](image/03_jpa_identity_and_sequence_timing.png)
+
+그림의 근거 · [JPA 식별자 생성](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790) · [Hibernate 식별자 매핑](https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers)
+
 ## 3. 스키마 생성 범위
 
 폐기 가능한 테스트 DB에서는 스키마 자동 생성을 사용할 수 있다. 변경 이력이 필요한 환경에서는 마이그레이션으로 스키마를 적용하고, 애플리케이션 설정은 대상 환경과 매핑의 불일치를 확인하는 데 활용한다. Hibernate의 `hibernate.hbm2ddl.auto=validate`는 기존 스키마를 검사하는 설정이다. [Hibernate 6.6 · 스키마 관리 설정](https://docs.hibernate.org/orm/6.6/javadocs/org/hibernate/cfg/SchemaToolingSettings.html#HBM2DDL_AUTO)

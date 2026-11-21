@@ -2,6 +2,10 @@
 
 상속 관계를 DB에 저장할 때는 상위 타입으로 모든 하위 타입을 조회할 필요가 있는지부터 확인한다. 엔티티 계층을 조회하려면 상속 전략을 선택하고, 여러 엔티티가 공통 컬럼만 재사용한다면 `@MappedSuperclass`를 사용할 수 있다.
 
+![Payment 엔티티 계층의 단일 테이블, 기본 키로 조인되는 테이블, 구체 타입별 테이블을 비교하고 MappedSuperclass의 공통 컬럼 재사용을 보여주는 그림](image/06_jpa_inheritance_table_layouts.png)
+
+그림의 근거 · [상속 매핑 전략](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a966) · [MappedSuperclass](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#mapped-superclasses)
+
 ## 1. 상속 매핑 전략
 
 | 전략 | 테이블 구조 | 조회 및 제약의 특징 |

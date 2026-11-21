@@ -11816,5 +11816,2445 @@
       "url": "https://kubernetes.io/docs/concepts/storage/volumes/#local",
       "locator": "local · nodeAffinity and accessible node"
     }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "![persistence.xml의 영속성 유닛으로 EntityManagerFactory를 준비한 뒤 작업마다 EntityManager를 열고, Hibernate가 트랜잭션에서 JDBC로 H2에 SQL을 실행하는 흐름](image/01_jpa_bootstrap_and_sql_path.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file",
+      "locator": "Packaging · persistence.xml file · persistence unit configuration"
+    }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "![persistence.xml의 영속성 유닛으로 EntityManagerFactory를 준비한 뒤 작업마다 EntityManager를 열고, Hibernate가 트랜잭션에서 JDBC로 H2에 SQL을 실행하는 흐름](image/01_jpa_bootstrap_and_sql_path.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers",
+      "locator": "Resource-local EntityManagers · EntityTransaction"
+    }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "![persistence.xml의 영속성 유닛으로 EntityManagerFactory를 준비한 뒤 작업마다 EntityManager를 열고, Hibernate가 트랜잭션에서 JDBC로 H2에 SQL을 실행하는 흐름](image/01_jpa_bootstrap_and_sql_path.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing",
+      "locator": "Flushing · transactional write-behind and JDBC DML"
+    }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "그림의 근거 · [영속성 유닛 설정](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file) · [EntityManager와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file",
+      "locator": "Packaging · persistence.xml file · persistence unit configuration"
+    }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "그림의 근거 · [영속성 유닛 설정](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file) · [EntityManager와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers",
+      "locator": "Resource-local EntityManagers · EntityTransaction"
+    }
+  },
+  {
+    "page": "jpa/01_getting_started_with_jpa.md",
+    "claim": "그림의 근거 · [영속성 유닛 설정](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#persistence-xml-file) · [EntityManager와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 리소스 로컬 트랜잭션, Jakarta Persistence 3.1 및 Hibernate ORM 6.6의 H2 예제",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing",
+      "locator": "Flushing · transactional write-behind and JDBC DML"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![persist로 비영속 객체가 관리 상태가 되고 detach, clear 또는 close로 준영속 상태가 되며, merge가 상태를 복사한 관리 인스턴스를 반환하고 remove는 관리 객체를 삭제 대상으로 등록하는 흐름](image/02_jpa_entity_states_and_merge.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 애플리케이션 관리 영속성 컨텍스트와 준영속 객체 병합",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929",
+      "locator": "Entity Operations · entity instance states · persist and remove"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![persist로 비영속 객체가 관리 상태가 되고 detach, clear 또는 close로 준영속 상태가 되며, merge가 상태를 복사한 관리 인스턴스를 반환하고 remove는 관리 객체를 삭제 대상으로 등록하는 흐름](image/02_jpa_entity_states_and_merge.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 애플리케이션 관리 영속성 컨텍스트와 준영속 객체 병합",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state",
+      "locator": "Detached Entities · Merging Detached Entity State"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [엔티티 상태와 연산](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929) · [준영속 객체 병합](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 애플리케이션 관리 영속성 컨텍스트와 준영속 객체 병합",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929",
+      "locator": "Entity Operations · entity instance states · persist and remove"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [엔티티 상태와 연산](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929) · [준영속 객체 병합](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 애플리케이션 관리 영속성 컨텍스트와 준영속 객체 병합",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state",
+      "locator": "Detached Entities · Merging Detached Entity State"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![같은 ID를 조회해 같은 관리 객체를 받고, 상태를 변경한 뒤 플러시에서 Hibernate가 변경을 감지해 UPDATE를 실행하며 트랜잭션은 이후 커밋하거나 롤백하는 순서](image/02_jpa_first_level_cache_and_flush.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432",
+      "locator": "Persistence Context · unique entity identity within the context"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![같은 ID를 조회해 같은 관리 객체를 받고, 상태를 변경한 뒤 플러시에서 Hibernate가 변경을 감지해 UPDATE를 실행하며 트랜잭션은 이후 커밋하거나 롤백하는 순서](image/02_jpa_first_level_cache_and_flush.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking",
+      "locator": "In-line dirty tracking · diff-based dirty calculation"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![같은 ID를 조회해 같은 관리 객체를 받고, 상태를 변경한 뒤 플러시에서 Hibernate가 변경을 감지해 UPDATE를 실행하며 트랜잭션은 이후 커밋하거나 롤백하는 순서](image/02_jpa_first_level_cache_and_flush.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing",
+      "locator": "Flushing · transactional write-behind and JDBC DML"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "![같은 ID를 조회해 같은 관리 객체를 받고, 상태를 변경한 뒤 플러시에서 Hibernate가 변경을 감지해 UPDATE를 실행하며 트랜잭션은 이후 커밋하거나 롤백하는 순서](image/02_jpa_first_level_cache_and_flush.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers",
+      "locator": "Resource-local EntityManagers · EntityTransaction commit/rollback · Synchronization to the Database"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432) · [Hibernate 변경 감지](https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing) · [DB 동기화와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432",
+      "locator": "Persistence Context · unique entity identity within the context"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432) · [Hibernate 변경 감지](https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing) · [DB 동기화와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking",
+      "locator": "In-line dirty tracking · diff-based dirty calculation"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432) · [Hibernate 변경 감지](https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing) · [DB 동기화와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing",
+      "locator": "Flushing · transactional write-behind and JDBC DML"
+    }
+  },
+  {
+    "page": "jpa/02_jpa_persistence_context_and_entity_lifecycle.md",
+    "claim": "그림의 근거 · [영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432) · [Hibernate 변경 감지](https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing) · [DB 동기화와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 스냅샷 비교, 수정 가능한 관리 엔티티와 활성 리소스 로컬 트랜잭션",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers",
+      "locator": "Resource-local EntityManagers · EntityTransaction commit/rollback · Synchronization to the Database"
+    }
+  },
+  {
+    "page": "jpa/03_jpa_entity_mapping_and_identifier_strategies.md",
+    "claim": "![IDENTITY는 INSERT에서 생성된 키를 읽고 SEQUENCE는 INSERT 전에 ID를 확보하며 Hibernate 옵티마이저가 할당 범위를 재사용할 수 있는 비교](image/03_jpa_identity_and_sequence_timing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6에서 DB 자동 증가 컬럼과 DB 시퀀스를 사용하는 활성 트랜잭션 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790",
+      "locator": "GeneratedValue · GenerationType.IDENTITY and SEQUENCE"
+    }
+  },
+  {
+    "page": "jpa/03_jpa_entity_mapping_and_identifier_strategies.md",
+    "claim": "![IDENTITY는 INSERT에서 생성된 키를 읽고 SEQUENCE는 INSERT 전에 ID를 확보하며 Hibernate 옵티마이저가 할당 범위를 재사용할 수 있는 비교](image/03_jpa_identity_and_sequence_timing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6에서 DB 자동 증가 컬럼과 DB 시퀀스를 사용하는 활성 트랜잭션 예시",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers",
+      "locator": "Identifiers · Using IDENTITY columns · Using sequences · Optimizers"
+    }
+  },
+  {
+    "page": "jpa/03_jpa_entity_mapping_and_identifier_strategies.md",
+    "claim": "그림의 근거 · [JPA 식별자 생성](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790) · [Hibernate 식별자 매핑](https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6에서 DB 자동 증가 컬럼과 DB 시퀀스를 사용하는 활성 트랜잭션 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790",
+      "locator": "GeneratedValue · GenerationType.IDENTITY and SEQUENCE"
+    }
+  },
+  {
+    "page": "jpa/03_jpa_entity_mapping_and_identifier_strategies.md",
+    "claim": "그림의 근거 · [JPA 식별자 생성](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a14790) · [Hibernate 식별자 매핑](https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6에서 DB 자동 증가 컬럼과 DB 시퀀스를 사용하는 활성 트랜잭션 예시",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#identifiers",
+      "locator": "Identifiers · Using IDENTITY columns · Using sequences · Optimizers"
+    }
+  },
+  {
+    "page": "jpa/04_jpa_association_mapping_fundamentals.md",
+    "claim": "![작업을 워크스페이스 7에서 8로 옮길 때 자바 컬렉션과 WorkItem.workspace를 함께 맞추고 플러시에서 주인 쪽 참조의 외래 키가 바뀌는 구조](image/04_jpa_association_owner_and_foreign_key.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 양방향 다대일 및 일대다, 활성 트랜잭션에서 관리 중인 엔티티",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516",
+      "locator": "Entity Relationships · owning side and mappedBy · ManyToOne/OneToMany"
+    }
+  },
+  {
+    "page": "jpa/04_jpa_association_mapping_fundamentals.md",
+    "claim": "![작업을 워크스페이스 7에서 8로 옮길 때 자바 컬렉션과 WorkItem.workspace를 함께 맞추고 플러시에서 주인 쪽 참조의 외래 키가 바뀌는 구조](image/04_jpa_association_owner_and_foreign_key.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 양방향 다대일 및 일대다, 활성 트랜잭션에서 관리 중인 엔티티",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1955",
+      "locator": "Synchronization to the Database · changes to owning-side references"
+    }
+  },
+  {
+    "page": "jpa/04_jpa_association_mapping_fundamentals.md",
+    "claim": "그림의 근거 · [연관관계 주인](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [DB 동기화](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1955)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 양방향 다대일 및 일대다, 활성 트랜잭션에서 관리 중인 엔티티",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516",
+      "locator": "Entity Relationships · owning side and mappedBy · ManyToOne/OneToMany"
+    }
+  },
+  {
+    "page": "jpa/04_jpa_association_mapping_fundamentals.md",
+    "claim": "그림의 근거 · [연관관계 주인](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [DB 동기화](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1955)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 양방향 다대일 및 일대다, 활성 트랜잭션에서 관리 중인 엔티티",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1955",
+      "locator": "Synchronization to the Database · changes to owning-side references"
+    }
+  },
+  {
+    "page": "jpa/05_jpa_association_cardinalities.md",
+    "claim": "![여러 작업의 FK가 한 워크스페이스를 참조하는 다대일, 유일한 설정 FK를 쓰는 일대일, 두 FK와 복합 유일성 제약을 가진 연결 엔티티를 비교한 그림](image/05_jpa_cardinality_and_table_constraints.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 FK 기반 모델 예시이며 DB에 외래 키와 유일성 제약을 적용한 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a538",
+      "locator": "Relationship Mapping Defaults · OneToOne, ManyToOne and ManyToMany"
+    }
+  },
+  {
+    "page": "jpa/05_jpa_association_cardinalities.md",
+    "claim": "![여러 작업의 FK가 한 워크스페이스를 참조하는 다대일, 유일한 설정 FK를 쓰는 일대일, 두 FK와 복합 유일성 제약을 가진 연결 엔티티를 비교한 그림](image/05_jpa_cardinality_and_table_constraints.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 FK 기반 모델 예시이며 DB에 외래 키와 유일성 제약을 적용한 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a16444",
+      "locator": "Metadata for Object/Relational Mapping · JoinColumn · Table and UniqueConstraint"
+    }
+  },
+  {
+    "page": "jpa/05_jpa_association_cardinalities.md",
+    "claim": "그림의 근거 · [연관관계 매핑 기본값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a538) · [외래 키 매핑과 유일성 제약](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a16444)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 FK 기반 모델 예시이며 DB에 외래 키와 유일성 제약을 적용한 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a538",
+      "locator": "Relationship Mapping Defaults · OneToOne, ManyToOne and ManyToMany"
+    }
+  },
+  {
+    "page": "jpa/05_jpa_association_cardinalities.md",
+    "claim": "그림의 근거 · [연관관계 매핑 기본값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a538) · [외래 키 매핑과 유일성 제약](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a16444)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 FK 기반 모델 예시이며 DB에 외래 키와 유일성 제약을 적용한 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a16444",
+      "locator": "Metadata for Object/Relational Mapping · JoinColumn · Table and UniqueConstraint"
+    }
+  },
+  {
+    "page": "jpa/06_jpa_inheritance_mapping_and_mapped_superclasses.md",
+    "claim": "![Payment 엔티티 계층의 단일 테이블, 기본 키로 조인되는 테이블, 구체 타입별 테이블을 비교하고 MappedSuperclass의 공통 컬럼 재사용을 보여주는 그림](image/06_jpa_inheritance_table_layouts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1과 Hibernate ORM 6.6에서 지원하는 상속 매핑 예시이며 BankTransfer는 비교용 하위 타입",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a966",
+      "locator": "Inheritance Mapping Strategies · single table, joined subclass and optional table per concrete class"
+    }
+  },
+  {
+    "page": "jpa/06_jpa_inheritance_mapping_and_mapped_superclasses.md",
+    "claim": "![Payment 엔티티 계층의 단일 테이블, 기본 키로 조인되는 테이블, 구체 타입별 테이블을 비교하고 MappedSuperclass의 공통 컬럼 재사용을 보여주는 그림](image/06_jpa_inheritance_table_layouts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1과 Hibernate ORM 6.6에서 지원하는 상속 매핑 예시이며 BankTransfer는 비교용 하위 타입",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#mapped-superclasses",
+      "locator": "Mapped Superclasses · inherited mappings and non-queryable superclass"
+    }
+  },
+  {
+    "page": "jpa/06_jpa_inheritance_mapping_and_mapped_superclasses.md",
+    "claim": "그림의 근거 · [상속 매핑 전략](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a966) · [MappedSuperclass](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#mapped-superclasses)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1과 Hibernate ORM 6.6에서 지원하는 상속 매핑 예시이며 BankTransfer는 비교용 하위 타입",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a966",
+      "locator": "Inheritance Mapping Strategies · single table, joined subclass and optional table per concrete class"
+    }
+  },
+  {
+    "page": "jpa/06_jpa_inheritance_mapping_and_mapped_superclasses.md",
+    "claim": "그림의 근거 · [상속 매핑 전략](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a966) · [MappedSuperclass](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#mapped-superclasses)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1과 Hibernate ORM 6.6에서 지원하는 상속 매핑 예시이며 BankTransfer는 비교용 하위 타입",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#mapped-superclasses",
+      "locator": "Mapped Superclasses · inherited mappings and non-queryable superclass"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "![Hibernate에서 getReference로 초기화 전 프록시를 받고 이름 접근 시 SELECT로 초기화하며 세션을 먼저 닫으면 지연 초기화 예외가 발생하는 흐름](image/07_jpa_proxy_initialization_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066",
+      "locator": "EntityManager Interface · getReference and state fetched lazily"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "![Hibernate에서 getReference로 초기화 전 프록시를 받고 이름 접근 시 SELECT로 초기화하며 세션을 먼저 닫으면 지연 초기화 예외가 발생하는 흐름](image/07_jpa_proxy_initialization_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference",
+      "locator": "Obtain an entity reference without initializing its data"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "![Hibernate에서 getReference로 초기화 전 프록시를 받고 이름 접근 시 SELECT로 초기화하며 세션을 먼저 닫으면 지연 초기화 예외가 발생하는 흐름](image/07_jpa_proxy_initialization_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations",
+      "locator": "Fetching associations · LazyInitializationException and closing the Persistence Context"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "그림의 근거 · [EntityManager 초기 참조](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066) · [Hibernate 프록시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference) · [지연 초기화 예외](https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066",
+      "locator": "EntityManager Interface · getReference and state fetched lazily"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "그림의 근거 · [EntityManager 초기 참조](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066) · [Hibernate 프록시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference) · [지연 초기화 예외](https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference",
+      "locator": "Obtain an entity reference without initializing its data"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "그림의 근거 · [EntityManager 초기 참조](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066) · [Hibernate 프록시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference) · [지연 초기화 예외](https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Hibernate ORM 6.6 기본 프록시 패턴. 초기화되지 않은 프록시, 캐시 미스, 지연 초기화에 사용하는 별도 Session 설정을 켜지 않은 경우",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations",
+      "locator": "Fetching associations · LazyInitializationException and closing the Persistence Context"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "![구매를 persist할 때 cascade PERSIST가 새 상세 행을 관리 상태로 만들고, 관리 중인 상세 행을 컬렉션에서 빼면 플러시에서 orphanRemoval로 해당 행을 삭제하는 비교](image/07_jpa_cascade_and_orphan_removal.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1, cascade PERSIST와 orphanRemoval을 지정한 양방향 일대다, 관리 중인 엔티티 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516",
+      "locator": "Entity Relationships · orphanRemoval at flush · privately owned entities"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "![구매를 persist할 때 cascade PERSIST가 새 상세 행을 관리 상태로 만들고, 관리 중인 상세 행을 컬렉션에서 빼면 플러시에서 orphanRemoval로 해당 행을 삭제하는 비교](image/07_jpa_cascade_and_orphan_removal.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1, cascade PERSIST와 orphanRemoval을 지정한 양방향 일대다, 관리 중인 엔티티 예시",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade",
+      "locator": "Cascading entity state transitions · CascadeType.PERSIST and orphan removal"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "그림의 근거 · [고아 제거 규칙](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [Hibernate Cascade](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1, cascade PERSIST와 orphanRemoval을 지정한 양방향 일대다, 관리 중인 엔티티 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516",
+      "locator": "Entity Relationships · orphanRemoval at flush · privately owned entities"
+    }
+  },
+  {
+    "page": "jpa/07_jpa_proxies_fetching_cascades_and_orphan_removal.md",
+    "claim": "그림의 근거 · [고아 제거 규칙](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [Hibernate Cascade](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1, cascade PERSIST와 orphanRemoval을 지정한 양방향 일대다, 관리 중인 엔티티 예시",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade",
+      "locator": "Cascading entity state transitions · CascadeType.PERSIST and orphan removal"
+    }
+  },
+  {
+    "page": "jpa/08_jpa_value_types_embeddables_and_collections.md",
+    "claim": "![임베디드 Address는 소유 엔티티의 한 행에 컬럼으로 펼치고 WorkItem의 값 컬렉션은 소유자 외래 키가 있는 별도 테이블의 여러 행으로 저장하는 그림](image/08_jpa_embedded_values_and_collection_rows.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1에서 기본 필드만 갖는 Embeddable과 문자열 ElementCollection을 비교하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487",
+      "locator": "Embeddable Classes · embedded objects share the identity of owning entity"
+    }
+  },
+  {
+    "page": "jpa/08_jpa_value_types_embeddables_and_collections.md",
+    "claim": "![임베디드 Address는 소유 엔티티의 한 행에 컬럼으로 펼치고 WorkItem의 값 컬렉션은 소유자 외래 키가 있는 별도 테이블의 여러 행으로 저장하는 그림](image/08_jpa_embedded_values_and_collection_rows.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1에서 기본 필드만 갖는 Embeddable과 문자열 ElementCollection을 비교하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a494",
+      "locator": "Collections of Embeddable Classes and Basic Types · ElementCollection and CollectionTable"
+    }
+  },
+  {
+    "page": "jpa/08_jpa_value_types_embeddables_and_collections.md",
+    "claim": "그림의 근거 · [임베디드 값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487) · [값 컬렉션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a494)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1에서 기본 필드만 갖는 Embeddable과 문자열 ElementCollection을 비교하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487",
+      "locator": "Embeddable Classes · embedded objects share the identity of owning entity"
+    }
+  },
+  {
+    "page": "jpa/08_jpa_value_types_embeddables_and_collections.md",
+    "claim": "그림의 근거 · [임베디드 값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487) · [값 컬렉션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a494)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1에서 기본 필드만 갖는 Embeddable과 문자열 ElementCollection을 비교하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a494",
+      "locator": "Collections of Embeddable Classes and Basic Types · ElementCollection and CollectionTable"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "![JPQL과 바인딩 값이 SQL 조회로 이어지고 결과 행을 관리 엔티티, 스칼라 또는 DTO로 조립하며, 컬렉션 페치 조인에서는 부모가 SQL에서 반복되어도 Hibernate가 루트 엔티티를 하나로 반환하는 흐름](image/09_jpa_jpql_sql_and_result_assembly.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains",
+      "locator": "Abstract Schema Types and Query Domains · entity names and persistent state"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "![JPQL과 바인딩 값이 SQL 조회로 이어지고 결과 행을 관리 엔티티, 스칼라 또는 DTO로 조립하며, 컬렉션 페치 조인에서는 부모가 SQL에서 반복되어도 Hibernate가 루트 엔티티를 하나로 반환하는 흐름](image/09_jpa_jpql_sql_and_result_assembly.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438",
+      "locator": "SELECT Clause · Result Type of the SELECT Clause · Constructor Expressions"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "![JPQL과 바인딩 값이 SQL 조회로 이어지고 결과 행을 관리 엔티티, 스칼라 또는 DTO로 조립하며, 컬렉션 페치 조인에서는 부모가 SQL에서 반복되어도 Hibernate가 루트 엔티티를 하나로 반환하는 흐름](image/09_jpa_jpql_sql_and_result_assembly.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct",
+      "locator": "Explicit association joins and join fetch · Duplicate removal for entity results"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "그림의 근거 · [JPQL 쿼리 대상](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains) · [JPQL 결과 유형](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438) · [페치 조인과 중복 제거](https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains",
+      "locator": "Abstract Schema Types and Query Domains · entity names and persistent state"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "그림의 근거 · [JPQL 쿼리 대상](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains) · [JPQL 결과 유형](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438) · [페치 조인과 중복 제거](https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438",
+      "locator": "SELECT Clause · Result Type of the SELECT Clause · Constructor Expressions"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "그림의 근거 · [JPQL 쿼리 대상](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains) · [JPQL 결과 유형](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438) · [페치 조인과 중복 제거](https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1 프로젝션과 Hibernate ORM 6.6의 컬렉션 페치 조인 엔티티 조회",
+    "source": {
+      "url": "https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct",
+      "locator": "Explicit association joins and join fetch · Duplicate removal for entity results"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "![벌크 UPDATE 뒤 같은 트랜잭션의 DB 행은 ARCHIVED로 바뀌고 관리 객체에는 CLOSED가 남으며, clear 후 다시 조회하면 변경된 상태를 읽는 흐름](image/09_jpa_bulk_update_and_stale_context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 JPQL 벌크 UPDATE와 활성 트랜잭션. 같은 DB 트랜잭션에서 대상 행을 다시 조회하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636",
+      "locator": "Bulk Update and Delete Operations · persistence context is not synchronized"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "![벌크 UPDATE 뒤 같은 트랜잭션의 DB 행은 ARCHIVED로 바뀌고 관리 객체에는 CLOSED가 남으며, clear 후 다시 조회하면 변경된 상태를 읽는 흐름](image/09_jpa_bulk_update_and_stale_context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 JPQL 벌크 UPDATE와 활성 트랜잭션. 같은 DB 트랜잭션에서 대상 행을 다시 조회하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066",
+      "locator": "EntityManager Interface · flush, clear and find"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "그림의 근거 · [JPQL 벌크 갱신](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636) · [플러시와 분리](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 JPQL 벌크 UPDATE와 활성 트랜잭션. 같은 DB 트랜잭션에서 대상 행을 다시 조회하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636",
+      "locator": "Bulk Update and Delete Operations · persistence context is not synchronized"
+    }
+  },
+  {
+    "page": "jpa/09_jpql_and_object_oriented_queries.md",
+    "claim": "그림의 근거 · [JPQL 벌크 갱신](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636) · [플러시와 분리](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.1의 JPQL 벌크 UPDATE와 활성 트랜잭션. 같은 DB 트랜잭션에서 대상 행을 다시 조회하는 예시",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066",
+      "locator": "EntityManager Interface · flush, clear and find"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "![Jenkins 컨트롤러가 Build Now 요청을 받아 내장 노드에 할당하고 first-ci 작업 공간에서 파일 생성과 테스트를 실행한 뒤 성공한 파일을 아카이브하는 흐름](image/01_jenkins_controller_and_first_pipeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/managing/nodes/",
+      "locator": "Managing Nodes · built-in node and agents"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "![Jenkins 컨트롤러가 Build Now 요청을 받아 내장 노드에 할당하고 first-ci 작업 공간에서 파일 생성과 테스트를 실행한 뒤 성공한 파일을 아카이브하는 흐름](image/01_jenkins_controller_and_first_pipeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "agent, stages, steps and post success"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "![Jenkins 컨트롤러가 Build Now 요청을 받아 내장 노드에 할당하고 first-ci 작업 공간에서 파일 생성과 테스트를 실행한 뒤 성공한 파일을 아카이브하는 흐름](image/01_jenkins_controller_and_first_pipeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts",
+      "locator": "archiveArtifacts · artifacts archived from the workspace"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "그림의 근거 · [Jenkins 노드와 실행 슬롯](https://www.jenkins.io/doc/book/managing/nodes/) · [Declarative Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/managing/nodes/",
+      "locator": "Managing Nodes · built-in node and agents"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "그림의 근거 · [Jenkins 노드와 실행 슬롯](https://www.jenkins.io/doc/book/managing/nodes/) · [Declarative Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "agent, stages, steps and post success"
+    }
+  },
+  {
+    "page": "jenkins/01_devops_ci_cd_and_jenkins_fundamentals.md",
+    "claim": "그림의 근거 · [Jenkins 노드와 실행 슬롯](https://www.jenkins.io/doc/book/managing/nodes/) · [Declarative Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 단일 Jenkins Docker 컨테이너와 내장 노드를 쓰는 first-ci Declarative Pipeline",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts",
+      "locator": "archiveArtifacts · artifacts archived from the workspace"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "![Git에서 체크아웃해 Maven이 만든 sample.war를 보관하고, 공유 볼륨으로 Tomcat에 배포한 다음 같은 파일로 Docker 이미지를 만들어 컨테이너를 교체하고 두 주소를 확인하는 흐름](image/02_jenkins_one_war_two_deployments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/#triggers",
+      "locator": "triggers · pollSCM checks changes and starts a build"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "![Git에서 체크아웃해 Maven이 만든 sample.war를 보관하고, 공유 볼륨으로 Tomcat에 배포한 다음 같은 파일로 Docker 이미지를 만들어 컨테이너를 교체하고 두 주소를 확인하는 흐름](image/02_jenkins_one_war_two_deployments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://maven.apache.org/plugins/maven-war-plugin/usage.html",
+      "locator": "Usage · building a WAR project"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "![Git에서 체크아웃해 Maven이 만든 sample.war를 보관하고, 공유 볼륨으로 Tomcat에 배포한 다음 같은 파일로 Docker 이미지를 만들어 컨테이너를 교체하고 두 주소를 확인하는 흐름](image/02_jenkins_one_war_two_deployments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment",
+      "locator": "Automatic Application Deployment · deploy WARs under appBase"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "![Git에서 체크아웃해 Maven이 만든 sample.war를 보관하고, 공유 볼륨으로 Tomcat에 배포한 다음 같은 파일로 Docker 이미지를 만들어 컨테이너를 교체하고 두 주소를 확인하는 흐름](image/02_jenkins_one_war_two_deployments.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "locator": "docker container run · start a new container from an image"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Pipeline 실행과 Poll SCM](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers) · [Maven WAR 패키징](https://maven.apache.org/plugins/maven-war-plugin/usage.html) · [Tomcat WAR 자동 배포](https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/#triggers",
+      "locator": "triggers · pollSCM checks changes and starts a build"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Pipeline 실행과 Poll SCM](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers) · [Maven WAR 패키징](https://maven.apache.org/plugins/maven-war-plugin/usage.html) · [Tomcat WAR 자동 배포](https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://maven.apache.org/plugins/maven-war-plugin/usage.html",
+      "locator": "Usage · building a WAR project"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Pipeline 실행과 Poll SCM](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers) · [Maven WAR 패키징](https://maven.apache.org/plugins/maven-war-plugin/usage.html) · [Tomcat WAR 자동 배포](https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment",
+      "locator": "Automatic Application Deployment · deploy WARs under appBase"
+    }
+  },
+  {
+    "page": "jenkins/02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Pipeline 실행과 Poll SCM](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers) · [Maven WAR 패키징](https://maven.apache.org/plugins/maven-war-plugin/usage.html) · [Tomcat WAR 자동 배포](https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Docker Compose 실습, Tomcat 10.1 자동 배포, sample-war-ci의 순차 스테이지",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "locator": "docker container run · start a new container from an image"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html",
+      "locator": "ansible.builtin.local connection · execute on the controller"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.docker.com/engine/security/protect-access/",
+      "locator": "Protect the Docker daemon socket · Use TLS"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html",
+      "locator": "docker_image_pull module · Pull Docker images"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html",
+      "locator": "docker_container module · docker_host, TLS settings and state started"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html",
+      "locator": "uri module · url and status_code"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html",
+      "locator": "ansible.builtin.local connection · execute on the controller"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.docker.com/engine/security/protect-access/",
+      "locator": "Protect the Docker daemon socket · Use TLS"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html",
+      "locator": "docker_image_pull module · Pull Docker images"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html",
+      "locator": "docker_container module · docker_host, TLS settings and state started"
+    }
+  },
+  {
+    "page": "jenkins/03_infrastructure_as_code_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Ansible Core 2.19 및 community.docker 4.8.1 실습. Jenkins와 배포 엔진은 같은 Compose 네트워크의 별도 서비스",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html",
+      "locator": "uri module · url and status_code"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins가 같은 빌드 번호의 Docker 이미지를 만들어 kind 노드에 로드한 다음 Ansible이 해당 태그의 Deployment와 Service를 적용하고 응답의 빌드 번호를 확인하는 흐름](image/04_jenkins_build_load_and_apply_to_kind.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster",
+      "locator": "Loading an Image Into Your Cluster"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins가 같은 빌드 번호의 Docker 이미지를 만들어 kind 노드에 로드한 다음 Ansible이 해당 태그의 Deployment와 Service를 적용하고 응답의 빌드 번호를 확인하는 흐름](image/04_jenkins_build_load_and_apply_to_kind.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
+      "locator": "Image pull policy · Never"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins가 같은 빌드 번호의 Docker 이미지를 만들어 kind 노드에 로드한 다음 Ansible이 해당 태그의 Deployment와 Service를 적용하고 응답의 빌드 번호를 확인하는 흐름](image/04_jenkins_build_load_and_apply_to_kind.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html",
+      "locator": "k8s module · definition, kubeconfig, state and wait"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Jenkins가 같은 빌드 번호의 Docker 이미지를 만들어 kind 노드에 로드한 다음 Ansible이 해당 태그의 Deployment와 Service를 적용하고 응답의 빌드 번호를 확인하는 흐름](image/04_jenkins_build_load_and_apply_to_kind.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+      "locator": "Updating a Deployment · Pod-template change and rollout"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [kind 로컬 이미지 로드](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster) · [Kubernetes 로컬 이미지 정책](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) · [Ansible Kubernetes 리소스 적용](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [Kubernetes 롤아웃](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster",
+      "locator": "Loading an Image Into Your Cluster"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [kind 로컬 이미지 로드](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster) · [Kubernetes 로컬 이미지 정책](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) · [Ansible Kubernetes 리소스 적용](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [Kubernetes 롤아웃](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
+      "locator": "Image pull policy · Never"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [kind 로컬 이미지 로드](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster) · [Kubernetes 로컬 이미지 정책](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) · [Ansible Kubernetes 리소스 적용](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [Kubernetes 롤아웃](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html",
+      "locator": "k8s module · definition, kubeconfig, state and wait"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [kind 로컬 이미지 로드](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster) · [Kubernetes 로컬 이미지 정책](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) · [Ansible Kubernetes 리소스 적용](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [Kubernetes 롤아웃](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 단일 노드와 Ansible kubernetes.core 5.1.0, imagePullPolicy Never를 명시한 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+      "locator": "Updating a Deployment · Pod-template change and rollout"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Ansible의 구성 요청은 docker:6443의 Kubernetes API에 전달되고, 서비스 확인 요청은 docker:8080에서 kind 노드의 NodePort 30080을 지나 포트 80의 Nginx Pod에 도달하는 구조](image/04_jenkins_kind_control_and_http_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html",
+      "locator": "k8s module · host and kubeconfig"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Ansible의 구성 요청은 docker:6443의 Kubernetes API에 전달되고, 서비스 확인 요청은 docker:8080에서 kind 노드의 NodePort 30080을 지나 포트 80의 Nginx Pod에 도달하는 구조](image/04_jenkins_kind_control_and_http_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings",
+      "locator": "NodePort with Port Mappings · node containerPort and Service nodePort"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "![Ansible의 구성 요청은 docker:6443의 Kubernetes API에 전달되고, 서비스 확인 요청은 docker:8080에서 kind 노드의 NodePort 30080을 지나 포트 80의 Nginx Pod에 도달하는 구조](image/04_jenkins_kind_control_and_http_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+      "locator": "type NodePort · forwarding to ready endpoints and targetPort"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible API 접근](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [kind NodePort 포트 매핑](https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings) · [Kubernetes NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html",
+      "locator": "k8s module · host and kubeconfig"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible API 접근](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [kind NodePort 포트 매핑](https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings) · [Kubernetes NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings",
+      "locator": "NodePort with Port Mappings · node containerPort and Service nodePort"
+    }
+  },
+  {
+    "page": "jenkins/04_kubernetes_ci_cd_with_jenkins_and_ansible.md",
+    "claim": "그림의 근거 · [Ansible API 접근](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [kind NodePort 포트 매핑](https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings) · [Kubernetes NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 kind v0.30.0 Docker Compose 네트워크, extraPortMappings와 NodePort를 사용한 포트 18088 실습",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
+      "locator": "type NodePort · forwarding to ready endpoints and targetPort"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "![공통 체크아웃, Maven 검증, WAR 보관 후 DEPLOY_TARGET 조건에 따라 build-only, Tomcat, Docker 분기로 갈라지고 선택한 배포만 HTTP 응답을 확인하는 흐름](image/05_jenkins_parameterized_deploy_targets.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "parameters, when expression, options and disableConcurrentBuilds"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "![공통 체크아웃, Maven 검증, WAR 보관 후 DEPLOY_TARGET 조건에 따라 build-only, Tomcat, Docker 분기로 갈라지고 선택한 배포만 HTTP 응답을 확인하는 흐름](image/05_jenkins_parameterized_deploy_targets.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/",
+      "locator": "waitUntil · retry until success; timeout · cancel after limit"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "![공통 체크아웃, Maven 검증, WAR 보관 후 DEPLOY_TARGET 조건에 따라 build-only, Tomcat, Docker 분기로 갈라지고 선택한 배포만 HTTP 응답을 확인하는 흐름](image/05_jenkins_parameterized_deploy_targets.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts",
+      "locator": "archiveArtifacts · retain WAR with the build"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Jenkins 파라미터와 실행 조건](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 검증 대기](https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "parameters, when expression, options and disableConcurrentBuilds"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Jenkins 파라미터와 실행 조건](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 검증 대기](https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/",
+      "locator": "waitUntil · retry until success; timeout · cancel after limit"
+    }
+  },
+  {
+    "page": "jenkins/05_advanced_jenkins_pipelines_with_maven_tomcat_and_docker.md",
+    "claim": "그림의 근거 · [Jenkins 파라미터와 실행 조건](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 검증 대기](https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 sample-war-ci Declarative Pipeline, build-only 기본값, when 조건이 붙은 공유 대상 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts",
+      "locator": "archiveArtifacts · retain WAR with the build"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![Maven 검증 뒤 Scanner가 보고서를 SonarQube에 제출하고 Quality Gate를 기다리며, 판정 실패나 300초 대기 초과에서는 배포 단계에 도달하지 않는 순서](image/06_jenkins_sonarqube_quality_gate_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven",
+      "locator": "SonarScanner for Maven · analyzing a Maven project"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![Maven 검증 뒤 Scanner가 보고서를 SonarQube에 제출하고 Quality Gate를 기다리며, 판정 실패나 300초 대기 초과에서는 배포 단계에 도달하지 않는 순서](image/06_jenkins_sonarqube_quality_gate_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui",
+      "locator": "Quality Gate · sonar.qualitygate.wait and sonar.qualitygate.timeout"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![Maven 검증 뒤 Scanner가 보고서를 SonarQube에 제출하고 Quality Gate를 기다리며, 판정 실패나 300초 대기 초과에서는 배포 단계에 도달하지 않는 순서](image/06_jenkins_sonarqube_quality_gate_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container",
+      "locator": "Docker Compose · PostgreSQL and SonarQube"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [SonarScanner for Maven](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) · [Quality Gate 대기 옵션](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui) · [SonarQube Docker와 데이터베이스](https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven",
+      "locator": "SonarScanner for Maven · analyzing a Maven project"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [SonarScanner for Maven](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) · [Quality Gate 대기 옵션](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui) · [SonarQube Docker와 데이터베이스](https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui",
+      "locator": "Quality Gate · sonar.qualitygate.wait and sonar.qualitygate.timeout"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [SonarScanner for Maven](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) · [Quality Gate 대기 옵션](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui) · [SonarQube Docker와 데이터베이스](https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 SonarQube Community Build와 Maven Scanner 5.2.0.4988, sonar.qualitygate.wait=true 및 300초 제한",
+    "source": {
+      "url": "https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container",
+      "locator": "Docker Compose · PostgreSQL and SonarQube"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![품질 기준을 통과한 실행에서 build-only는 WAR와 분석 결과를 보관하고, Tomcat은 WAR를 받으며, Docker CLI와 Ansible은 같은 방식으로 빌드한 이미지를 같은 엔진에 배포하는 분기](image/06_jenkins_deploy_paths_after_quality_gate.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "parameters and when expression"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![품질 기준을 통과한 실행에서 build-only는 WAR와 분석 결과를 보관하고, Tomcat은 WAR를 받으며, Docker CLI와 Ansible은 같은 방식으로 빌드한 이미지를 같은 엔진에 배포하는 분기](image/06_jenkins_deploy_paths_after_quality_gate.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html",
+      "locator": "docker_container module · image, pull, state and published_ports"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "![품질 기준을 통과한 실행에서 build-only는 WAR와 분석 결과를 보관하고, Tomcat은 WAR를 받으며, Docker CLI와 Ansible은 같은 방식으로 빌드한 이미지를 같은 엔진에 배포하는 분기](image/06_jenkins_deploy_paths_after_quality_gate.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "locator": "docker container run · image reference and port publishing"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [Jenkins 조건부 스테이지](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Ansible 컨테이너 배포](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://www.jenkins.io/doc/book/pipeline/syntax/",
+      "locator": "parameters and when expression"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [Jenkins 조건부 스테이지](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Ansible 컨테이너 배포](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html",
+      "locator": "docker_container module · image, pull, state and published_ports"
+    }
+  },
+  {
+    "page": "jenkins/06_cloud_deployment_workflows_with_jenkins_and_sonarqube.md",
+    "claim": "그림의 근거 · [Jenkins 조건부 스테이지](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Ansible 컨테이너 배포](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 로컬 Compose 실습, DEPLOY_TARGET의 네 가지 값, docker와 ansible이 한 번의 실행에서 서로 대체 가능한 분기",
+    "source": {
+      "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "locator": "docker container run · image reference and port publishing"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries",
+      "locator": "Validating webhook deliveries · HMAC SHA-256 and X-Hub-Signature-256"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/",
+      "locator": "Quick Tunnels · public trycloudflare hostname and local origin"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+      "locator": "proxy_pass · proxied server and URI"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/",
+      "locator": "pipelineTriggers · githubPush and one-time Git SCM polling"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy",
+      "locator": "GitHub Plugin 1.47.0 · advanced shared secrets configuration"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries",
+      "locator": "Validating webhook deliveries · HMAC SHA-256 and X-Hub-Signature-256"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/",
+      "locator": "Quick Tunnels · public trycloudflare hostname and local origin"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass",
+      "locator": "proxy_pass · proxied server and URI"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/",
+      "locator": "pipelineTriggers · githubPush and one-time Git SCM polling"
+    }
+  },
+  {
+    "page": "jenkins/07_triggering_jenkins_builds_with_github_webhooks.md",
+    "claim": "그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 Jenkins GitHub 플러그인 1.47.0, 활성화한 githubPush와 SHA-256 공유 비밀, Quick Tunnel 실습",
+    "source": {
+      "url": "https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy",
+      "locator": "GitHub Plugin 1.47.0 · advanced shared secrets configuration"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![JMX와 JConsole에서 이상 시간대의 힙, GC, 스레드를 찾고 JFR에서 실행·할당·락을 확인한 뒤 JMH와 같은 부하의 요청 측정으로 변경을 검증하는 순서](image/01_java_jmx_jfr_jmh_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html",
+      "locator": "Using the JMX Technology · platform MXBeans and local monitoring"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![JMX와 JConsole에서 이상 시간대의 힙, GC, 스레드를 찾고 JFR에서 실행·할당·락을 확인한 뒤 JMH와 같은 부하의 요청 측정으로 변경을 검증하는 순서](image/01_java_jmx_jfr_jmh_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html",
+      "locator": "JFR.start · settings, duration and filename"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![JMX와 JConsole에서 이상 시간대의 힙, GC, 스레드를 찾고 JFR에서 실행·할당·락을 확인한 뒤 JMH와 같은 부하의 요청 측정으로 변경을 검증하는 순서](image/01_java_jmx_jfr_jmh_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://github.com/openjdk/jmh/tree/master/jmh-samples",
+      "locator": "JMHSample_09_Blackholes and JMHSample_12_Forking; runner warmup and measurement"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 JMX](https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html) · [JDK 21 JFR 기록](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK JMH 예제](https://github.com/openjdk/jmh/tree/master/jmh-samples)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html",
+      "locator": "Using the JMX Technology · platform MXBeans and local monitoring"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 JMX](https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html) · [JDK 21 JFR 기록](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK JMH 예제](https://github.com/openjdk/jmh/tree/master/jmh-samples)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html",
+      "locator": "JFR.start · settings, duration and filename"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 JMX](https://docs.oracle.com/en/java/javase/21/management/monitoring-and-management-using-jmx-technology.html) · [JDK 21 JFR 기록](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK JMH 예제](https://github.com/openjdk/jmh/tree/master/jmh-samples)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 로컬 모니터링, JFR 단기 기록 및 OpenJDK JMH 마이크로벤치마크를 조합하는 예시",
+    "source": {
+      "url": "https://github.com/openjdk/jmh/tree/master/jmh-samples",
+      "locator": "JMHSample_09_Blackholes and JMHSample_12_Forking; runner warmup and measurement"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![Java 힙 상한과 프로세스의 힙 외 메모리를 나눠 보고, 같은 부하에서 GC 후 사용량 및 프로세스 메모리의 추세에 따라 힙 상한 실험, 참조 조사, 네이티브 메모리 조사를 고르는 그림](image/01_java_heap_limit_and_process_memory.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+      "locator": "Advanced Runtime Options · -Xms and -Xmx"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![Java 힙 상한과 프로세스의 힙 외 메모리를 나눠 보고, 같은 부하에서 GC 후 사용량 및 프로세스 메모리의 추세에 따라 힙 상한 실험, 참조 조사, 네이티브 메모리 조사를 고르는 그림](image/01_java_heap_limit_and_process_memory.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html",
+      "locator": "General Recommendations for G1 · Java Heap Size"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![Java 힙 상한과 프로세스의 힙 외 메모리를 나눠 보고, 같은 부하에서 GC 후 사용량 및 프로세스 메모리의 추세에 따라 힙 상한 실험, 참조 조사, 네이티브 메모리 조사를 고르는 그림](image/01_java_heap_limit_and_process_memory.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+      "locator": "Detect a Memory Leak · live set after old collection or full GC"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "![Java 힙 상한과 프로세스의 힙 외 메모리를 나눠 보고, 같은 부하에서 GC 후 사용량 및 프로세스 메모리의 추세에 따라 힙 상한 실험, 참조 조사, 네이티브 메모리 조사를 고르는 그림](image/01_java_heap_limit_and_process_memory.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html",
+      "locator": "NMT scope and startup options · VM.native_memory summary"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 메모리 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [HotSpot Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+      "locator": "Advanced Runtime Options · -Xms and -Xmx"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 메모리 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [HotSpot Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html",
+      "locator": "General Recommendations for G1 · Java Heap Size"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 메모리 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [HotSpot Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+      "locator": "Detect a Memory Leak · live set after old collection or full GC"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/01_java_resource_performance_tuning.md",
+    "claim": "그림의 근거 · [JDK 21 메모리 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) · [G1 GC 튜닝](https://docs.oracle.com/en/java/javase/21/gctuning/garbage-first-garbage-collector-tuning.html) · [Java 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [HotSpot Native Memory Tracking](https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot과 호스트 또는 컨테이너 메모리 한도. GC 추세 비교는 비슷한 부하를 가정하며 힙 증설의 효과는 수집기와 객체 수명에 따라 달라짐",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/vm/native-memory-tracking.html",
+      "locator": "NMT scope and startup options · VM.native_memory summary"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![Tomcat의 OS 연결 대기열, 커넥터 소켓, 요청 워커가 각각 제어하는 범위와 요청 내부의 커넥션 획득, PostgreSQL 쿼리 실행, 결과 가져오기 대기 구간을 표시한 그림](image/02_java_tomcat_queue_and_database_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html",
+      "locator": "server.tomcat.accept-count, max-connections, threads.max"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![Tomcat의 OS 연결 대기열, 커넥터 소켓, 요청 워커가 각각 제어하는 범위와 요청 내부의 커넥션 획득, PostgreSQL 쿼리 실행, 결과 가져오기 대기 구간을 표시한 그림](image/02_java_tomcat_queue_and_database_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://tomcat.apache.org/tomcat-10.1-doc/config/http.html",
+      "locator": "Introduction and Standard Implementation · acceptCount, maxConnections, maxThreads"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![Tomcat의 OS 연결 대기열, 커넥터 소켓, 요청 워커가 각각 제어하는 범위와 요청 내부의 커넥션 획득, PostgreSQL 쿼리 실행, 결과 가져오기 대기 구간을 표시한 그림](image/02_java_tomcat_queue_and_database_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads",
+      "locator": "Virtual Threads · thread pooling properties"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![Tomcat의 OS 연결 대기열, 커넥터 소켓, 요청 워커가 각각 제어하는 범위와 요청 내부의 커넥션 획득, PostgreSQL 쿼리 실행, 결과 가져오기 대기 구간을 표시한 그림](image/02_java_tomcat_queue_and_database_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "locator": "Using EXPLAIN · EXPLAIN ANALYZE, actual rows and buffers"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [Spring Boot 3.5 Tomcat 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot 3.5 가상 스레드](https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/current/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html",
+      "locator": "server.tomcat.accept-count, max-connections, threads.max"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [Spring Boot 3.5 Tomcat 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot 3.5 가상 스레드](https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/current/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://tomcat.apache.org/tomcat-10.1-doc/config/http.html",
+      "locator": "Introduction and Standard Implementation · acceptCount, maxConnections, maxThreads"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [Spring Boot 3.5 Tomcat 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot 3.5 가상 스레드](https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/current/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads",
+      "locator": "Virtual Threads · thread pooling properties"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [Spring Boot 3.5 Tomcat 속성](https://docs.spring.io/spring-boot/3.5/appendix/application-properties/index.html) · [Tomcat 10.1 HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html) · [Spring Boot 3.5 가상 스레드](https://docs.spring.io/spring-boot/3.5/reference/features/spring-application.html#features.spring-application.virtual-threads) · [PostgreSQL 실행 계획](https://www.postgresql.org/docs/current/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5의 내장 Tomcat 10.1 플랫폼 스레드 기본 경로와 JDBC를 통한 PostgreSQL 조회 예시. 가상 스레드 활성 시 threads.max 예외를 표시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "locator": "Using EXPLAIN · EXPLAIN ANALYZE, actual rows and buffers"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![별도 호스트의 JMeter CLI가 테스트 계획으로 Java API를 호출하고 HTTP 결과를 기록하는 동안 대상 서버 지표와 부하 발생기 포화 여부를 함께 확인하는 구조](image/02_java_jmeter_load_and_target_hosts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/get-started.html",
+      "locator": "Running JMeter · CLI Mode · test plan and sample results"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![별도 호스트의 JMeter CLI가 테스트 계획으로 Java API를 호출하고 HTTP 결과를 기록하는 동안 대상 서버 지표와 부하 발생기 포화 여부를 함께 확인하는 구조](image/02_java_jmeter_load_and_target_hosts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/best-practices.html",
+      "locator": "Reducing resource requirements · use CLI mode for load testing"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![별도 호스트의 JMeter CLI가 테스트 계획으로 Java API를 호출하고 HTTP 결과를 기록하는 동안 대상 서버 지표와 부하 발생기 포화 여부를 함께 확인하는 구조](image/02_java_jmeter_load_and_target_hosts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/generating-dashboard.html",
+      "locator": "Dashboard generator · statistics, response percentiles and error rate"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [JMeter CLI 부하 실행](https://jmeter.apache.org/usermanual/get-started.html) · [JMeter 부하 테스트 모범 사례](https://jmeter.apache.org/usermanual/best-practices.html) · [JMeter HTML 보고서](https://jmeter.apache.org/usermanual/generating-dashboard.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/get-started.html",
+      "locator": "Running JMeter · CLI Mode · test plan and sample results"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [JMeter CLI 부하 실행](https://jmeter.apache.org/usermanual/get-started.html) · [JMeter 부하 테스트 모범 사례](https://jmeter.apache.org/usermanual/best-practices.html) · [JMeter HTML 보고서](https://jmeter.apache.org/usermanual/generating-dashboard.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/best-practices.html",
+      "locator": "Reducing resource requirements · use CLI mode for load testing"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [JMeter CLI 부하 실행](https://jmeter.apache.org/usermanual/get-started.html) · [JMeter 부하 테스트 모범 사례](https://jmeter.apache.org/usermanual/best-practices.html) · [JMeter HTML 보고서](https://jmeter.apache.org/usermanual/generating-dashboard.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Apache JMeter의 CLI 모드와 부하 발생기 및 Spring Boot 대상 서버를 나눈 대표 HTTP 실험 예시",
+    "source": {
+      "url": "https://jmeter.apache.org/usermanual/generating-dashboard.html",
+      "locator": "Dashboard generator · statistics, response percentiles and error rate"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![요청 스레드의 SLF4J 이벤트가 Logback AsyncAppender 큐를 거쳐 기록되며, 큐가 부족할 때 임계값 폐기, 포화 시 호출 스레드 대기 또는 로깅 유실로 이어지는 그림](image/02_java_logback_async_queue_saturation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "SLF4J와 Logback Classic AsyncAppender. discardingThreshold와 neverBlock의 조건을 구분하며 단일 하위 appender 예시",
+    "source": {
+      "url": "https://www.slf4j.org/manual.html",
+      "locator": "Typical usage and fluent logging"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "![요청 스레드의 SLF4J 이벤트가 Logback AsyncAppender 큐를 거쳐 기록되며, 큐가 부족할 때 임계값 폐기, 포화 시 호출 스레드 대기 또는 로깅 유실로 이어지는 그림](image/02_java_logback_async_queue_saturation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "SLF4J와 Logback Classic AsyncAppender. discardingThreshold와 neverBlock의 조건을 구분하며 단일 하위 appender 예시",
+    "source": {
+      "url": "https://logback.qos.ch/manual/appenders-async-sift.html",
+      "locator": "AsyncAppender · BlockingQueue, discardingThreshold, neverBlock and shutdown"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [SLF4J 호출](https://www.slf4j.org/manual.html) · [Logback AsyncAppender](https://logback.qos.ch/manual/appenders-async-sift.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "SLF4J와 Logback Classic AsyncAppender. discardingThreshold와 neverBlock의 조건을 구분하며 단일 하위 appender 예시",
+    "source": {
+      "url": "https://www.slf4j.org/manual.html",
+      "locator": "Typical usage and fluent logging"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/02_java_execution_performance_tuning.md",
+    "claim": "그림의 근거 · [SLF4J 호출](https://www.slf4j.org/manual.html) · [Logback AsyncAppender](https://logback.qos.ch/manual/appenders-async-sift.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "SLF4J와 Logback Classic AsyncAppender. discardingThreshold와 neverBlock의 조건을 구분하며 단일 하위 appender 예시",
+    "source": {
+      "url": "https://logback.qos.ch/manual/appenders-async-sift.html",
+      "locator": "AsyncAppender · BlockingQueue, discardingThreshold, neverBlock and shutdown"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![요청 예외, JVM 응답 정지, GC 후 힙 증가, 프로세스 종료에 따라 Stack Trace, Thread Dump, Heap Dump, JVM 오류 로그와 플랫폼 이벤트를 먼저 확인하는 기준](image/03_java_triage_by_symptom_and_artifact.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html",
+      "locator": "Prepare Java for Troubleshooting · logs, dumps and fatal error"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![요청 예외, JVM 응답 정지, GC 후 힙 증가, 프로세스 종료에 따라 Stack Trace, Thread Dump, Heap Dump, JVM 오류 로그와 플랫폼 이벤트를 먼저 확인하는 기준](image/03_java_triage_by_symptom_and_artifact.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html",
+      "locator": "printStackTrace · exception chains and cause"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![요청 예외, JVM 응답 정지, GC 후 힙 증가, 프로세스 종료에 따라 Stack Trace, Thread Dump, Heap Dump, JVM 오류 로그와 플랫폼 이벤트를 먼저 확인하는 기준](image/03_java_triage_by_symptom_and_artifact.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+      "locator": "Detect a Memory Leak · GC trend and heap dump"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![요청 예외, JVM 응답 정지, GC 후 힙 증가, 프로세스 종료에 따라 Stack Trace, Thread Dump, Heap Dump, JVM 오류 로그와 플랫폼 이벤트를 먼저 확인하는 기준](image/03_java_triage_by_symptom_and_artifact.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+      "locator": "HeapDumpOnOutOfMemoryError, HeapDumpPath and ErrorFile"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 장애 진단 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [JDK 21 throwable 출력](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html) · [JDK 21 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [JDK 21 진단 파일 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html",
+      "locator": "Prepare Java for Troubleshooting · logs, dumps and fatal error"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 장애 진단 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [JDK 21 throwable 출력](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html) · [JDK 21 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [JDK 21 진단 파일 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html",
+      "locator": "printStackTrace · exception chains and cause"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 장애 진단 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [JDK 21 throwable 출력](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html) · [JDK 21 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [JDK 21 진단 파일 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html",
+      "locator": "Detect a Memory Leak · GC trend and heap dump"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 장애 진단 준비](https://docs.oracle.com/en/java/javase/21/troubleshoot/prepare-java-troubleshooting.html) · [JDK 21 throwable 출력](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html) · [JDK 21 메모리 누수 진단](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html) · [JDK 21 진단 파일 옵션](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot의 오류 기록 및 JVM 또는 운영 플랫폼 이벤트 기반 장애 분류",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html",
+      "locator": "HeapDumpOnOutOfMemoryError, HeapDumpPath and ErrorFile"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![같은 모니터를 기다리는 스레드와 락을 보유한 스레드를 덤프에서 연결하고, 여러 대기자가 모이는 경합과 두 스레드의 순환 대기를 비교한 그림](image/03_java_thread_dump_lock_wait_graph.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html",
+      "locator": "BLOCKED · waiting for a monitor lock"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![같은 모니터를 기다리는 스레드와 락을 보유한 스레드를 덤프에서 연결하고, 여러 대기자가 모이는 경합과 두 스레드의 순환 대기를 비교한 그림](image/03_java_thread_dump_lock_wait_graph.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html",
+      "locator": "Thread.print -l and Thread.dump_to_file"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![같은 모니터를 기다리는 스레드와 락을 보유한 스레드를 덤프에서 연결하고, 여러 대기자가 모이는 경합과 두 스레드의 순환 대기를 비교한 그림](image/03_java_thread_dump_lock_wait_graph.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://openjdk.org/jeps/444#Observing-virtual-threads",
+      "locator": "Observing virtual threads · traditional and JSON thread dumps"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 스레드 상태](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html) · [JDK 21 jcmd 스레드 덤프](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK 가상 스레드 관측](https://openjdk.org/jeps/444#Observing-virtual-threads)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html",
+      "locator": "BLOCKED · waiting for a monitor lock"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 스레드 상태](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html) · [JDK 21 jcmd 스레드 덤프](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK 가상 스레드 관측](https://openjdk.org/jeps/444#Observing-virtual-threads)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html",
+      "locator": "Thread.print -l and Thread.dump_to_file"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [JDK 21 스레드 상태](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.State.html) · [JDK 21 jcmd 스레드 덤프](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html) · [OpenJDK 가상 스레드 관측](https://openjdk.org/jeps/444#Observing-virtual-threads)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot 플랫폼 스레드의 모니터 락 예시. 가상 스레드는 별도 덤프 포맷으로 관측",
+    "source": {
+      "url": "https://openjdk.org/jeps/444#Observing-virtual-threads",
+      "locator": "Observing virtual threads · traditional and JSON thread dumps"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![정적 맵을 통해서만 도달하는 주문 A와 별도의 강한 참조 경로도 가진 주문 B를 비교해 shallow heap, retained heap, GC Root까지의 경로를 읽는 예시](image/03_java_heap_dump_retained_references.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html",
+      "locator": "Shallow vs. Retained Heap · retained set and reachability"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![정적 맵을 통해서만 도달하는 주문 A와 별도의 강한 참조 경로도 가진 주문 B를 비교해 shallow heap, retained heap, GC Root까지의 경로를 읽는 예시](image/03_java_heap_dump_retained_references.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html",
+      "locator": "Dominator relation and immediate dominator"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "![정적 맵을 통해서만 도달하는 주문 A와 별도의 강한 참조 경로도 가진 주문 B를 비교해 shallow heap, retained heap, GC Root까지의 경로를 읽는 예시](image/03_java_heap_dump_retained_references.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html",
+      "locator": "Leak Suspects Report · paths to GC roots"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [MAT shallow와 retained heap](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html) · [MAT Dominator Tree](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html) · [MAT 누수 후보와 참조 경로](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html",
+      "locator": "Shallow vs. Retained Heap · retained set and reachability"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [MAT shallow와 retained heap](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html) · [MAT Dominator Tree](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html) · [MAT 누수 후보와 참조 경로](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html",
+      "locator": "Dominator relation and immediate dominator"
+    }
+  },
+  {
+    "page": "java-performance-tuning-and-troubleshooting/03_java_troubleshooting.md",
+    "claim": "그림의 근거 · [MAT shallow와 retained heap](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/shallowretainedheap.html) · [MAT Dominator Tree](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/concepts/dominatortree.html) · [MAT 누수 후보와 참조 경로](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 HotSpot에서 수집한 힙 덤프를 Eclipse MAT에서 분석하는 개념 예시. 그림 속 관계가 강한 참조라고 가정",
+    "source": {
+      "url": "https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/tasks/runningleaksuspectreport.html",
+      "locator": "Leak Suspects Report · paths to GC roots"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![javac가 만든 클래스 파일을 JVM이 실행할 때 스레드별 프레임의 order 참조가 공유 힙의 Order 인스턴스를 가리키고, 클래스와 메서드 정보는 공유 영역에서 관리되는 구조](image/01_java_jvm_frame_heap_and_class_data.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html",
+      "locator": "Description · compile Java source files to class files"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![javac가 만든 클래스 파일을 JVM이 실행할 때 스레드별 프레임의 order 참조가 공유 힙의 Order 인스턴스를 가리키고, 클래스와 메서드 정보는 공유 영역에서 관리되는 구조](image/01_java_jvm_frame_heap_and_class_data.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5",
+      "locator": "§2.5 · per-thread PC and stack, heap and method area"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![javac가 만든 클래스 파일을 JVM이 실행할 때 스레드별 프레임의 order 참조가 공유 힙의 Order 인스턴스를 가리키고, 클래스와 메서드 정보는 공유 영역에서 관리되는 구조](image/01_java_jvm_frame_heap_and_class_data.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6",
+      "locator": "§2.6 Frames · local variables and operand stacks"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html) · [JVMS 21 런타임 데이터 영역](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5) · [JVMS 21 호출 프레임](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html",
+      "locator": "Description · compile Java source files to class files"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html) · [JVMS 21 런타임 데이터 영역](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5) · [JVMS 21 호출 프레임](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5",
+      "locator": "§2.5 · per-thread PC and stack, heap and method area"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html) · [JVMS 21 런타임 데이터 영역](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5) · [JVMS 21 호출 프레임](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 JVM 명세상의 논리적 런타임 데이터 영역과 예제 코드이며 물리적 메모리 배치는 구현 의존",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.6",
+      "locator": "§2.6 Frames · local variables and operand stacks"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![클래스가 먼저 로드·검증·준비되고 처음 필요한 사용에서 초기화되며, 심볼릭 참조 해석은 검증 시점이나 참조를 사용할 때까지 미룰 수 있는 흐름](image/01_java_class_loading_linking_and_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4",
+      "locator": "§5.4 Linking · verification, preparation and eager or lazy resolution"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![클래스가 먼저 로드·검증·준비되고 처음 필요한 사용에서 초기화되며, 심볼릭 참조 해석은 검증 시점이나 참조를 사용할 때까지 미룰 수 있는 흐름](image/01_java_class_loading_linking_and_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5",
+      "locator": "§5.5 Initialization · <clinit>"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![클래스가 먼저 로드·검증·준비되고 처음 필요한 사용에서 초기화되며, 심볼릭 참조 해석은 검증 시점이나 참조를 사용할 때까지 미룰 수 있는 흐름](image/01_java_class_loading_linking_and_initialization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1",
+      "locator": "§12.4.1 When Initialization Occurs · constant variables and active use"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JVMS 21 링킹](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4) · [JVMS 21 초기화](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5) · [JLS 21 초기화 트리거](https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4",
+      "locator": "§5.4 Linking · verification, preparation and eager or lazy resolution"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JVMS 21 링킹](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4) · [JVMS 21 초기화](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5) · [JLS 21 초기화 트리거](https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5",
+      "locator": "§5.5 Initialization · <clinit>"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JVMS 21 링킹](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.4) · [JVMS 21 초기화](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.5) · [JLS 21 초기화 트리거](https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21의 클래스 초기화 규칙. 정적 필드 기본값은 준비 때, 클래스 초기화는 실제 초기화 트리거를 따름",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-12.html#jls-12.4.1",
+      "locator": "§12.4.1 When Initialization Occurs · constant variables and active use"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![이미 로드한 클래스를 찾고 부모에 위임한 뒤 자체 검색하는 기본 흐름과, 두 자식 로더가 같은 Plugin 파일을 각각 정의해 형변환이 실패하는 실습 구조](image/01_java_class_loader_type_identity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html",
+      "locator": "loadClass(String, boolean) · findLoadedClass, parent and findClass"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![이미 로드한 클래스를 찾고 부모에 위임한 뒤 자체 검색하는 기본 흐름과, 두 자식 로더가 같은 Plugin 파일을 각각 정의해 형변환이 실패하는 실습 구조](image/01_java_class_loader_type_identity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3",
+      "locator": "§5.3 Creation and Loading · binary name and defining loader"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "![이미 로드한 클래스를 찾고 부모에 위임한 뒤 자체 검색하는 기본 흐름과, 두 자식 로더가 같은 Plugin 파일을 각각 정의해 형변환이 실패하는 실습 구조](image/01_java_class_loader_type_identity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html",
+      "locator": "isInstance and cast · incompatibility and ClassCastException"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 ClassLoader](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html) · [JVMS 21 클래스 정체성](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3) · [JDK 21 Class 타입 검사](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html",
+      "locator": "loadClass(String, boolean) · findLoadedClass, parent and findClass"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 ClassLoader](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html) · [JVMS 21 클래스 정체성](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3) · [JDK 21 Class 타입 검사](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3",
+      "locator": "§5.3 Creation and Loading · binary name and defining loader"
+    }
+  },
+  {
+    "page": "java-internals/01_understanding_the_jvm_and_class_loading.md",
+    "claim": "그림의 근거 · [JDK 21 ClassLoader](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html) · [JVMS 21 클래스 정체성](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-5.html#jvms-5.3) · [JDK 21 Class 타입 검사](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21 ClassLoader의 기본 구현과 부모에서 찾을 수 없는 Plugin을 두 URLClassLoader로 읽는 문서 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html",
+      "locator": "isInstance and cast · incompatibility and ClassCastException"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![시작 에이전트의 premain이 Instrumentation에 Byte Buddy 변환기를 등록하고, JVM이 Rabbit을 정의하기 전에 변환 바이트를 받아 사용하는 순서](image/02_java_agent_registration_and_class_transform.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html",
+      "locator": "Starting an Agent from the Command-Line Interface · Premain-Class and premain"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![시작 에이전트의 premain이 Instrumentation에 Byte Buddy 변환기를 등록하고, JVM이 Rabbit을 정의하기 전에 변환 바이트를 받아 사용하는 순서](image/02_java_agent_registration_and_class_transform.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html",
+      "locator": "ClassFileTransformer · transform before JVM defines the class"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![시작 에이전트의 premain이 Instrumentation에 Byte Buddy 변환기를 등록하고, JVM이 Rabbit을 정의하기 전에 변환 바이트를 받아 사용하는 순서](image/02_java_agent_registration_and_class_transform.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java",
+      "locator": "AgentBuilder.installOn(Instrumentation) · register the built transformer"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JDK 21 시작 에이전트](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html) · [JDK 21 변환 콜백](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html) · [Byte Buddy 1.17.7 AgentBuilder](https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html",
+      "locator": "Starting an Agent from the Command-Line Interface · Premain-Class and premain"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JDK 21 시작 에이전트](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html) · [JDK 21 변환 콜백](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html) · [Byte Buddy 1.17.7 AgentBuilder](https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html",
+      "locator": "ClassFileTransformer · transform before JVM defines the class"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JDK 21 시작 에이전트](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/package-summary.html) · [JDK 21 변환 콜백](https://docs.oracle.com/en/java/javase/21/docs/api/java.instrument/java/lang/instrument/ClassFileTransformer.html) · [Byte Buddy 1.17.7 AgentBuilder](https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 시작 에이전트와 Byte Buddy 1.17.7. Rabbit.hop에 진입 로그를 넣는 문서 실습의 최초 클래스 정의 경로",
+    "source": {
+      "url": "https://github.com/raphw/byte-buddy/blob/byte-buddy-1.17.7/byte-buddy-dep/src/main/java/net/bytebuddy/agent/builder/AgentBuilder.java",
+      "locator": "AgentBuilder.installOn(Instrumentation) · register the built transformer"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![JaCoCo가 원본 Rabbit 바이트코드를 분석해 프로브를 삽입하고, 실행 데이터와 같은 원본 바이트코드를 결합해 명령·분기·소스 줄 커버리지를 계산하는 흐름](image/02_java_jacoco_probe_to_coverage_report.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/flow.html",
+      "locator": "Probe Insertion Strategy and Probe Implementation · boolean[]"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![JaCoCo가 원본 Rabbit 바이트코드를 분석해 프로브를 삽입하고, 실행 데이터와 같은 원본 바이트코드를 결합해 명령·분기·소스 줄 커버리지를 계산하는 흐름](image/02_java_jacoco_probe_to_coverage_report.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/classids.html",
+      "locator": "Identical class files for runtime and analysis · class IDs"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "![JaCoCo가 원본 Rabbit 바이트코드를 분석해 프로브를 삽입하고, 실행 데이터와 같은 원본 바이트코드를 결합해 명령·분기·소스 줄 커버리지를 계산하는 흐름](image/02_java_jacoco_probe_to_coverage_report.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/counters.html",
+      "locator": "Instructions, Branches and Lines · debug information for source lines"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JaCoCo 제어 흐름 분석](https://www.jacoco.org/jacoco/trunk/doc/flow.html) · [JaCoCo 클래스 ID](https://www.jacoco.org/jacoco/trunk/doc/classids.html) · [JaCoCo 커버리지 집계](https://www.jacoco.org/jacoco/trunk/doc/counters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/flow.html",
+      "locator": "Probe Insertion Strategy and Probe Implementation · boolean[]"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JaCoCo 제어 흐름 분석](https://www.jacoco.org/jacoco/trunk/doc/flow.html) · [JaCoCo 클래스 ID](https://www.jacoco.org/jacoco/trunk/doc/classids.html) · [JaCoCo 커버리지 집계](https://www.jacoco.org/jacoco/trunk/doc/counters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/classids.html",
+      "locator": "Identical class files for runtime and analysis · class IDs"
+    }
+  },
+  {
+    "page": "java-internals/02_instrumenting_java_bytecode_with_java_agents.md",
+    "claim": "그림의 근거 · [JaCoCo 제어 흐름 분석](https://www.jacoco.org/jacoco/trunk/doc/flow.html) · [JaCoCo 클래스 ID](https://www.jacoco.org/jacoco/trunk/doc/classids.html) · [JaCoCo 커버리지 집계](https://www.jacoco.org/jacoco/trunk/doc/counters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JaCoCo 0.8.13 실습. 소스 줄 집계에는 클래스 파일의 디버그 줄 번호 정보가 필요",
+    "source": {
+      "url": "https://www.jacoco.org/jacoco/trunk/doc/counters.html",
+      "locator": "Instructions, Branches and Lines · debug information for source lines"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![실습 컨테이너가 런타임 Inject 생성자를 고르고 접근을 확인한 뒤 NameProvider 매개변수 타입의 등록 객체를 찾아 생성자를 실행하는 순서와 Spring에서의 대응 단계](image/03_java_reflection_constructor_injection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html",
+      "locator": "getParameterTypes and newInstance"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![실습 컨테이너가 런타임 Inject 생성자를 고르고 접근을 확인한 뒤 NameProvider 매개변수 타입의 등록 객체를 찾아 생성자를 실행하는 순서와 Spring에서의 대응 단계](image/03_java_reflection_constructor_injection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html",
+      "locator": "Constructor-based Dependency Injection · container resolves arguments"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![실습 컨테이너가 런타임 Inject 생성자를 고르고 접근을 확인한 뒤 NameProvider 매개변수 타입의 등록 객체를 찾아 생성자를 실행하는 순서와 Spring에서의 대응 단계](image/03_java_reflection_constructor_injection.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html",
+      "locator": "Autowired Constructors · determineCandidateConstructors"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html) · [Spring 6.2 생성자 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html) · [Spring 생성자 후보 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html",
+      "locator": "getParameterTypes and newInstance"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html) · [Spring 6.2 생성자 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html) · [Spring 생성자 후보 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html",
+      "locator": "Constructor-based Dependency Injection · container resolves arguments"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html) · [Spring 6.2 생성자 주입](https://docs.spring.io/spring-framework/reference/6.2/core/beans/dependencies/factory-collaborators.html) · [Spring 생성자 후보 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21의 GreetingService 실습과 Spring Framework 6.2의 생성자 주입 개념 비교",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.html",
+      "locator": "Autowired Constructors · determineCandidateConstructors"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![리플렉션의 멤버 조회 실패, trySetAccessible이 false를 반환하는 접근 실패, 본문 예외가 InvocationTargetException으로 전파되는 호출 실패를 구분한 그림](image/03_java_reflection_lookup_access_and_invoke.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html",
+      "locator": "getDeclaredConstructor · NoSuchMethodException"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![리플렉션의 멤버 조회 실패, trySetAccessible이 false를 반환하는 접근 실패, 본문 예외가 InvocationTargetException으로 전파되는 호출 실패를 구분한 그림](image/03_java_reflection_lookup_access_and_invoke.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html",
+      "locator": "trySetAccessible · same module, exports and opens"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "![리플렉션의 멤버 조회 실패, trySetAccessible이 false를 반환하는 접근 실패, 본문 예외가 InvocationTargetException으로 전파되는 호출 실패를 구분한 그림](image/03_java_reflection_lookup_access_and_invoke.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html",
+      "locator": "newInstance · InvocationTargetException when constructor throws"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 멤버 조회](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html) · [JDK 21 리플렉션 접근](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html) · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html",
+      "locator": "getDeclaredConstructor · NoSuchMethodException"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 멤버 조회](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html) · [JDK 21 리플렉션 접근](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html) · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html",
+      "locator": "trySetAccessible · same module, exports and opens"
+    }
+  },
+  {
+    "page": "java-internals/03_using_java_reflection_for_dependency_injection.md",
+    "claim": "그림의 근거 · [JDK 21 멤버 조회](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html) · [JDK 21 리플렉션 접근](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AccessibleObject.html) · [JDK 21 생성자 호출](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java SE 21. 명명 모듈 사이에서 다른 모듈의 비공개 생성자에 깊은 리플렉션으로 접근하는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Constructor.html",
+      "locator": "newInstance · InvocationTargetException when constructor throws"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![StockLookup 동적 프록시의 default available 본문이 프록시를 수신자로 실행되고 quantity 호출이 핸들러에 다시 들어와 실제 타깃으로 위임되는 순서](image/04_java_jdk_proxy_default_method_dispatch.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 Proxy와 InvocationHandler.invokeDefault를 사용한 문서의 StockLookup 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Proxy.html",
+      "locator": "Invocation handler dispatch of interface method calls"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![StockLookup 동적 프록시의 default available 본문이 프록시를 수신자로 실행되고 quantity 호출이 핸들러에 다시 들어와 실제 타깃으로 위임되는 순서](image/04_java_jdk_proxy_default_method_dispatch.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 Proxy와 InvocationHandler.invokeDefault를 사용한 문서의 StockLookup 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html",
+      "locator": "invoke and invokeDefault · proxy as the receiver"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [JDK 21 동적 프록시](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Proxy.html) · [JDK 21 default 메서드 위임](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 Proxy와 InvocationHandler.invokeDefault를 사용한 문서의 StockLookup 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Proxy.html",
+      "locator": "Invocation handler dispatch of interface method calls"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [JDK 21 동적 프록시](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Proxy.html) · [JDK 21 default 메서드 위임](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "JDK 21 Proxy와 InvocationHandler.invokeDefault를 사용한 문서의 StockLookup 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/InvocationHandler.html",
+      "locator": "invoke and invokeDefault · proxy as the receiver"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![Spring CGLIB 프록시가 재정의 가능한 status 호출에 인터셉터를 적용하고 final version은 상속된 본문을 실행하는 실습 비교](image/04_java_spring_cglib_override_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 ProxyFactory의 독립 StockService 예시. 타깃 내부의 this 호출은 프록시를 통과하지 않음",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Proxying Mechanisms and Understanding AOP Proxies · final methods and self invocation"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![Spring CGLIB 프록시가 재정의 가능한 status 호출에 인터셉터를 적용하고 final version은 상속된 본문을 실행하는 실습 비교](image/04_java_spring_cglib_override_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 ProxyFactory의 독립 StockService 예시. 타깃 내부의 this 호출은 프록시를 통과하지 않음",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html",
+      "locator": "Using the ProxyFactory to Create AOP Proxies Programmatically"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [Spring 6.2 프록시 구성](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [Spring 6.2 ProxyFactory](https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 ProxyFactory의 독립 StockService 예시. 타깃 내부의 this 호출은 프록시를 통과하지 않음",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Proxying Mechanisms and Understanding AOP Proxies · final methods and self invocation"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [Spring 6.2 프록시 구성](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [Spring 6.2 ProxyFactory](https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 ProxyFactory의 독립 StockService 예시. 타깃 내부의 this 호출은 프록시를 통과하지 않음",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop-api/prog.html",
+      "locator": "Using the ProxyFactory to Create AOP Proxies Programmatically"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![Spring Data JPA 리포지토리 프록시가 기본 CRUD를 SimpleJpaRepository에, 쿼리 메서드를 선언 쿼리나 파생 쿼리에, 커스텀 메서드를 등록 프래그먼트에 위임하는 구조](image/04_java_spring_data_repository_dispatch.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html",
+      "locator": "getRepositoryBaseClass, getTargetRepository and getQueryLookupStrategy"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![Spring Data JPA 리포지토리 프록시가 기본 CRUD를 SimpleJpaRepository에, 쿼리 메서드를 선언 쿼리나 파생 쿼리에, 커스텀 메서드를 등록 프래그먼트에 위임하는 구조](image/04_java_spring_data_repository_dispatch.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html",
+      "locator": "Query Methods · query creation and declared queries"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "![Spring Data JPA 리포지토리 프록시가 기본 CRUD를 SimpleJpaRepository에, 쿼리 메서드를 선언 쿼리나 파생 쿼리에, 커스텀 메서드를 등록 프래그먼트에 위임하는 구조](image/04_java_spring_data_repository_dispatch.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html",
+      "locator": "Custom Repository Implementations · fragments and base class"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [Spring Data JPA 팩토리](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html) · [Spring Data JPA 쿼리](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html) · [Spring Data 커스텀 구현](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html",
+      "locator": "getRepositoryBaseClass, getTargetRepository and getQueryLookupStrategy"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [Spring Data JPA 팩토리](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html) · [Spring Data JPA 쿼리](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html) · [Spring Data 커스텀 구현](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html",
+      "locator": "Query Methods · query creation and declared queries"
+    }
+  },
+  {
+    "page": "java-internals/04_using_jdk_dynamic_proxies_and_class_based_proxies.md",
+    "claim": "그림의 근거 · [Spring Data JPA 팩토리](https://docs.spring.io/spring-data/jpa/reference/3.5/api/java/org/springframework/data/jpa/repository/support/JpaRepositoryFactory.html) · [Spring Data JPA 쿼리](https://docs.spring.io/spring-data/jpa/reference/3.5/jpa/query-methods.html) · [Spring Data 커스텀 구현](https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data JPA 3.5의 기본 base class 및 쿼리 조회 전략과 등록 프래그먼트를 사용한 일반 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/3.5/repositories/custom-implementations.html",
+      "locator": "Custom Repository Implementations · fragments and base class"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![TypeNameProcessor가 첫 컴파일 라운드에서 OrderTypeName 소스를 만들고, 생성된 소스를 두 번째 라운드에서 처리한 뒤 마지막 라운드를 거쳐 클래스 파일을 내보내는 흐름](image/05_java_annotation_processing_rounds.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works",
+      "locator": "How Annotation Processing Works · later rounds and final compilation"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![TypeNameProcessor가 첫 컴파일 라운드에서 OrderTypeName 소스를 만들고, 생성된 소스를 두 번째 라운드에서 처리한 뒤 마지막 라운드를 거쳐 클래스 파일을 내보내는 흐름](image/05_java_annotation_processing_rounds.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html",
+      "locator": "createSourceFile and subsequent processing after the writer is closed"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![TypeNameProcessor가 첫 컴파일 라운드에서 OrderTypeName 소스를 만들고, 생성된 소스를 두 번째 라운드에서 처리한 뒤 마지막 라운드를 거쳐 클래스 파일을 내보내는 흐름](image/05_java_annotation_processing_rounds.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://inside.java/2024/06/18/quality-heads-up/",
+      "locator": "Annotation processing with javac in JDK 23 · explicit configuration"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [javac 처리 라운드](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works) · [JDK 25 Filer](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [OpenJDK JDK 23 정책 변경](https://inside.java/2024/06/18/quality-heads-up/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works",
+      "locator": "How Annotation Processing Works · later rounds and final compilation"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [javac 처리 라운드](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works) · [JDK 25 Filer](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [OpenJDK JDK 23 정책 변경](https://inside.java/2024/06/18/quality-heads-up/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html",
+      "locator": "createSourceFile and subsequent processing after the writer is closed"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [javac 처리 라운드](https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#how-annotation-processing-works) · [JDK 25 Filer](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [OpenJDK JDK 23 정책 변경](https://inside.java/2024/06/18/quality-heads-up/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 javac 실습과 JDK 23 이상에서의 명시적 처리 설정. 두 번째 라운드에서 새 파일을 더 만들지 않는 예시",
+    "source": {
+      "url": "https://inside.java/2024/06/18/quality-heads-up/",
+      "locator": "Annotation processing with javac in JDK 23 · explicit configuration"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![표준 Filer 프로세서는 별도 OrderTypeName 소스와 클래스를 만들고 Lombok Getter는 javac의 Order AST에 getId를 추가해 기존 Order 클래스에 포함시키는 비교](image/05_java_standard_processing_and_lombok_ast.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html",
+      "locator": "createSourceFile and createClassFile · generated outputs"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![표준 Filer 프로세서는 별도 OrderTypeName 소스와 클래스를 만들고 Lombok Getter는 javac의 Order AST에 getId를 추가해 기존 Order 클래스에 포함시키는 비교](image/05_java_standard_processing_and_lombok_ast.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://projectlombok.org/contributing/lombok-execution-path",
+      "locator": "Lombok execution path · javac annotation processor and handlers"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "![표준 Filer 프로세서는 별도 OrderTypeName 소스와 클래스를 만들고 Lombok Getter는 javac의 Order AST에 getId를 추가해 기존 Order 클래스에 포함시키는 비교](image/05_java_standard_processing_and_lombok_ast.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java",
+      "locator": "HandleGetter · createGetter, createGetterForField and injectMethod"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [표준 Filer API](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [Lombok 실행 경로](https://projectlombok.org/contributing/lombok-execution-path) · [Lombok javac Getter 구현](https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html",
+      "locator": "createSourceFile and createClassFile · generated outputs"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [표준 Filer API](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [Lombok 실행 경로](https://projectlombok.org/contributing/lombok-execution-path) · [Lombok javac Getter 구현](https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://projectlombok.org/contributing/lombok-execution-path",
+      "locator": "Lombok execution path · javac annotation processor and handlers"
+    }
+  },
+  {
+    "page": "java-internals/05_generating_code_with_java_annotation_processors.md",
+    "claim": "그림의 근거 · [표준 Filer API](https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/Filer.html) · [Lombok 실행 경로](https://projectlombok.org/contributing/lombok-execution-path) · [Lombok javac Getter 구현](https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "문서의 표준 JSR 269 Filer 실습과 javac에서 실행하는 Project Lombok Getter 비교",
+    "source": {
+      "url": "https://github.com/projectlombok/lombok/blob/master/src/core/lombok/javac/handlers/HandleGetter.java",
+      "locator": "HandleGetter · createGetter, createGetterForField and injectMethod"
+    }
   }
 ]

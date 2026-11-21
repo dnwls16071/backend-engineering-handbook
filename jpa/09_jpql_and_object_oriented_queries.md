@@ -30,6 +30,10 @@ List<WorkItem> items = em.createQuery("""
 
 집계는 `COUNT`, `SUM`, `AVG` 등으로 표현한다. `WHERE`는 그룹화 전 행을, `HAVING`은 집계된 그룹을 제한한다. 여러 페이지를 이어 읽을 때는 `ORDER BY`에 유일한 기준을 포함해 페이지 경계의 순서를 정한다.
 
+![JPQL과 바인딩 값이 SQL 조회로 이어지고 결과 행을 관리 엔티티, 스칼라 또는 DTO로 조립하며, 컬렉션 페치 조인에서는 부모가 SQL에서 반복되어도 Hibernate가 루트 엔티티를 하나로 반환하는 흐름](image/09_jpa_jpql_sql_and_result_assembly.png)
+
+그림의 근거 · [JPQL 쿼리 대상](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#abstract-schema-types-and-query-domains) · [JPQL 결과 유형](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5438) · [페치 조인과 중복 제거](https://docs.hibernate.org/orm/6.6/querylanguage/html_single/#distinct)
+
 ## 2. 조인, 서브쿼리와 경로식
 
 ```jpql
@@ -78,3 +82,7 @@ em.clear();
 ```
 
 벌크 `UPDATE`와 `DELETE`는 활성 트랜잭션에서 DB 행에 직접 적용된다. 이미 관리 중인 객체에는 결과가 자동 반영되지 않는다. 위 예제는 실행 전에 미반영 변경을 저장하고, 실행 후 컨텍스트를 비워 다음 조회가 새 상태를 읽도록 한다. 버전이나 엔티티 콜백에 의존하는 변경은 벌크 작업에서 별도로 설계한다. [Jakarta Persistence 3.1 · 벌크 갱신과 삭제](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636)
+
+![벌크 UPDATE 뒤 같은 트랜잭션의 DB 행은 ARCHIVED로 바뀌고 관리 객체에는 CLOSED가 남으며, clear 후 다시 조회하면 변경된 상태를 읽는 흐름](image/09_jpa_bulk_update_and_stale_context.png)
+
+그림의 근거 · [JPQL 벌크 갱신](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a5636) · [플러시와 분리](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066)

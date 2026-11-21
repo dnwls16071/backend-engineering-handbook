@@ -2,6 +2,10 @@
 
 엔티티는 식별자로 구별되며, 값 타입은 속성의 값으로 의미가 정해진다. 이름, 날짜, 주소 같은 값은 이를 가진 엔티티의 상태로 저장한다. 주소가 스스로 이력과 식별자를 관리해야 한다면 별도 엔티티로 모델링할 수 있다.
 
+![임베디드 Address는 소유 엔티티의 한 행에 컬럼으로 펼치고 WorkItem의 값 컬렉션은 소유자 외래 키가 있는 별도 테이블의 여러 행으로 저장하는 그림](image/08_jpa_embedded_values_and_collection_rows.png)
+
+그림의 근거 · [임베디드 값](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487) · [값 컬렉션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a494)
+
 ## 1. 기본 값과 임베디드 타입
 
 정수, 문자열, 날짜처럼 하나의 값은 기본 속성으로 매핑한다. 여러 기본 값을 하나의 개념으로 묶을 때는 `@Embeddable`을 사용한다. `Address`의 각 필드는 이를 포함하는 엔티티의 테이블 컬럼으로 저장된다. [Jakarta Persistence 3.1 · 임베디드 타입](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a487)

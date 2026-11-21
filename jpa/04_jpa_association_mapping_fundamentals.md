@@ -33,6 +33,10 @@ void unlink(WorkItem workItem) {
 
 `mappedBy`에는 외래 키 컬럼명이 아니라 상대 엔티티의 **자바 속성명**인 `workspace`를 넣는다. 컬렉션은 반대쪽 참조를 읽는 데 사용되며, 외래 키를 갱신하려면 작업의 참조도 바꿔야 한다. [Jakarta Persistence 3.1 · 연관관계 주인과 mappedBy](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516)
 
+![작업을 워크스페이스 7에서 8로 옮길 때 자바 컬렉션과 WorkItem.workspace를 함께 맞추고 플러시에서 주인 쪽 참조의 외래 키가 바뀌는 구조](image/04_jpa_association_owner_and_foreign_key.png)
+
+그림의 근거 · [연관관계 주인](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [DB 동기화](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1955)
+
 ## 3. 객체의 두 참조를 함께 바꾸기
 
 `WorkItem`에 다음 메서드를 추가하면 작업을 옮길 때 두 객체의 탐색 결과가 일치한다.

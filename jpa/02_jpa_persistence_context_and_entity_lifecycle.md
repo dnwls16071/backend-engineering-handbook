@@ -13,6 +13,10 @@
 
 `merge()`는 넘긴 객체의 상태를 새로운 또는 기존 관리 인스턴스로 복사해 반환한다. 준영속 객체의 수정을 이어가려면 반환된 관리 인스턴스를 사용한다. [Jakarta Persistence 3.1 · 엔티티 생명주기](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929) · [Jakarta Persistence 3.1 · 준영속 상태 병합](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state)
 
+![persist로 비영속 객체가 관리 상태가 되고 detach, clear 또는 close로 준영속 상태가 되며, merge가 상태를 복사한 관리 인스턴스를 반환하고 remove는 관리 객체를 삭제 대상으로 등록하는 흐름](image/02_jpa_entity_states_and_merge.png)
+
+그림의 근거 · [엔티티 상태와 연산](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1929) · [준영속 객체 병합](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#merging-detached-entity-state)
+
 ## 2. 1차 캐시와 변경 감지
 
 같은 컨텍스트에서 같은 ID를 `find()`로 두 번 조회하면 관리 중인 같은 인스턴스를 받을 수 있다. 1차 캐시는 이 컨텍스트 안에서 동작한다. JPQL로 검색할 때는 조건에 맞는 ID나 값을 구하기 위해 SQL이 실행될 수 있으며, 엔티티 결과에는 같은 컨텍스트의 관리 인스턴스가 재사용될 수 있다. [Jakarta Persistence 3.1 · 영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432)
@@ -27,6 +31,10 @@ em.flush();
 ```
 
 영속 엔티티는 별도 `update()` 호출 없이도 변경 감지의 대상이 된다. 삽입, 수정, 삭제 SQL은 플러시 시점까지 미뤄질 수 있다. `IDENTITY`처럼 DB가 값을 만드는 식별자 전략에서는 활성 트랜잭션에서 ID를 얻기 위해 삽입이 더 일찍 실행될 수 있다.
+
+![같은 ID를 조회해 같은 관리 객체를 받고, 상태를 변경한 뒤 플러시에서 Hibernate가 변경을 감지해 UPDATE를 실행하며 트랜잭션은 이후 커밋하거나 롤백하는 순서](image/02_jpa_first_level_cache_and_flush.png)
+
+그림의 근거 · [영속성 컨텍스트](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a11432) · [Hibernate 변경 감지](https://docs.hibernate.org/orm/6.6/userguide/html_single/#BytecodeEnhancement-dirty-tracking) · [Hibernate 플러시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#flushing) · [DB 동기화와 트랜잭션](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#resource-local-entitymanagers)
 
 ## 3. 플러시와 커밋
 

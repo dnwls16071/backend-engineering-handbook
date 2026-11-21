@@ -16,6 +16,10 @@ item.moveTo(reference);
 
 위 예제의 `moveTo()`는 양방향 컬렉션도 갱신하므로 기존·새 워크스페이스가 초기화될 수 있다. 참조를 얻는 것만으로 어떤 후속 코드에서도 SQL이 생략된다고 가정하면 안 된다.
 
+![Hibernate에서 getReference로 초기화 전 프록시를 받고 이름 접근 시 SELECT로 초기화하며 세션을 먼저 닫으면 지연 초기화 예외가 발생하는 흐름](image/07_jpa_proxy_initialization_sequence.png)
+
+그림의 근거 · [EntityManager 초기 참조](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a1066) · [Hibernate 프록시](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-get-reference) · [지연 초기화 예외](https://docs.hibernate.org/orm/6.6/userguide/html_single/#best-practices-fetching-associations)
+
 ## 2. 지연 로딩과 즉시 로딩
 
 | 설정 | 동작 |
@@ -58,3 +62,7 @@ public void removeLine(PurchaseLine line) {
 ```
 
 `PurchaseLine.purchase`는 FK를 가진 다대일 속성이다. `attachTo()`가 그 참조를 바꾸며, 관리 중인 `Purchase`에서 관리 중인 행을 컬렉션에서 빼면 `orphanRemoval`이 플러시 때 해당 행을 삭제한다. 부모가 삭제될 때도 고아 제거가 적용되는 연관의 자식이 함께 삭제된다. 다른 부모로 옮기거나 여러 엔티티가 공유하는 대상에는 자식 삭제를 전파하기 전에 소유 규칙을 점검한다. [Jakarta Persistence 3.1 · 고아 제거 규칙](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [Hibernate 6.6 · 연관관계 전파](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade)
+
+![구매를 persist할 때 cascade PERSIST가 새 상세 행을 관리 상태로 만들고, 관리 중인 상세 행을 컬렉션에서 빼면 플러시에서 orphanRemoval로 해당 행을 삭제하는 비교](image/07_jpa_cascade_and_orphan_removal.png)
+
+그림의 근거 · [고아 제거 규칙](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a516) · [Hibernate Cascade](https://docs.hibernate.org/orm/6.6/userguide/html_single/#pc-cascade)
