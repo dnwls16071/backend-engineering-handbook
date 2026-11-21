@@ -93,3 +93,7 @@
 - 개선 전후의 부하와 데이터 조건을 맞추고 Throughput, Latency와 자원 사용을 비교한다.
 - 성능이 개선되었는지뿐 아니라 장애 전환, 데이터 최신성과 운영 비용이 요구사항을 만족하는지도 확인한다.
 - 목표 달성 여부와 새로 생긴 병목을 확인한 뒤 다음 개선 대상을 정한다.
+
+![앱 처리 한계, 반복 조회, DB 조회 부하에 따라 Spring Boot 앱 개선·확장, Redis 캐시, 쿼리·인덱스 또는 읽기 복제본을 검토한다. 같은 부하와 데이터 조건에서 재측정하고 처리량, p95, 오류율과 가용성·최신성·비용을 검증한다. 목표 미달이나 새 병목이 있으면 다시 진단한다.](image/03_choose_a_fix_and_retest.png)
+
+그림의 근거 · [AWS Well-Architected 부하 테스트](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf_process_culture_load_test.html) · [AWS 헬스 체크](https://aws.amazon.com/builders-library/implementing-health-checks/) · [AWS 쿼리 성능 개선](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf03-bp04.html) · [Redis Cache-Aside](https://redis.io/docs/latest/develop/use-cases/cache-aside/) · [Amazon RDS 읽기 복제본](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)

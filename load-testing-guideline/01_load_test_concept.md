@@ -43,6 +43,10 @@
 - 비교적 적은 메모리로 많은 요청을 발생시킬 수 있고, 사용법이 간단해 빠르게 테스트를 시작할 수 있다.
 - 다른 부하 테스트 도구로는 nGrinder, JMeter, ab, Locust 등이 있다.
 
+![Grafana k6가 Spring Boot 상품 API에 HTTP 요청을 보내는 예시. 요청률과 p95 응답 소요 시간, 오류율을 함께 읽고 업무 TPS는 별도로 집계한다. http_req_duration에는 요청 전송과 첫 바이트 대기, 응답 수신을 포함한다.](image/01_read_load_test_metrics.png)
+
+그림의 근거 · [Grafana k6 내장 지표](https://grafana.com/docs/k6/latest/using-k6/metrics/reference/) · [Grafana k6 사용자 지정 지표](https://grafana.com/docs/k6/latest/using-k6/metrics/create-custom-metrics/) · [Grafana k6 임계값](https://grafana.com/docs/k6/latest/using-k6/thresholds/)
+
 ## 5. 도구 사용보다 중요한 역량
 
 - **테스트 결과를 정확히 해석하고, 데이터를 근거로 적절한 성능 개선 방법을 선택하는 역량이 중요하다.**

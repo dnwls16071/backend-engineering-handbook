@@ -19,6 +19,10 @@
 - DB를 개선해 초당 1,500개를 처리할 수 있게 만들면 전체 처리량은 백엔드의 한계인 초당 1,000개가 된다.
 - **한 병목을 해소하면 다른 구간이 새로운 병목이 될 수 있으므로 개선 후 다시 측정한다.**
 
+![Spring Boot 상품 API와 DB를 순서대로 거치는 예시. 충분한 부하에서 DB 한계가 300 RPS면 앱만 늘려도 최대 처리량은 300 RPS이고 DB를 1,500 RPS로 개선하면 앱의 1,000 RPS가 새 한계가 된다. 실측에서는 처리량 정체, 응답 지연과 구성요소별 대기를 같은 시간대에 대조한다.](image/02_trace_the_bottleneck_and_its_shift.png)
+
+그림의 근거 · [AWS Well-Architected 부하 테스트](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf_process_culture_load_test.html) · [Google SRE 핵심 관측 지표](https://sre.google/sre-book/monitoring-distributed-systems/#the-four-golden-signals)
+
 ## 2. 목표 설정부터 개선 검증까지 반복한다
 
 | 단계 | 수행할 내용 |
