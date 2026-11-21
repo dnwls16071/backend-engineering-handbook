@@ -67,6 +67,10 @@ docker compose ps
 
 Jenkins 설정과 플러그인, 작업 데이터는 `jenkins_home` 볼륨에 저장된다. `docker compose down`으로 실습을 종료하면 볼륨이 남아 다음 실행에서 설정을 이어 쓸 수 있다. [Jenkins Docker Installation](https://www.jenkins.io/doc/book/installing/docker/) · [Docker Compose Down](https://docs.docker.com/reference/cli/docker/compose/down/)
 
+![Jenkins 컨트롤러가 Build Now 요청을 받아 내장 노드에 할당하고 first-ci 작업 공간에서 파일 생성과 테스트를 실행한 뒤 성공한 파일을 아카이브하는 흐름](image/01_jenkins_controller_and_first_pipeline.png)
+
+그림의 근거 · [Jenkins 노드와 실행 슬롯](https://www.jenkins.io/doc/book/managing/nodes/) · [Declarative Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)
+
 ## 5. 첫 번째 Item과 Pipeline
 
 대시보드에서 **New Item**을 고르고 이름에 `first-ci`를 입력한 뒤 **Pipeline** 유형을 선택한다. 설정의 **Pipeline** 항목에서 **Pipeline script**를 선택하고 아래 스크립트를 저장한다. 이 예제는 빌드 단계에서 파일을 만들고, 테스트 단계에서 기대한 내용과 일치하는지 확인한다. [Getting Started with Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/getting-started/)

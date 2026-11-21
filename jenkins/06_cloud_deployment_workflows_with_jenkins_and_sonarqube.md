@@ -118,6 +118,10 @@ curl -fsS http://127.0.0.1:19000/api/system/status
         }
 ```
 
+![Maven 검증 뒤 Scanner가 보고서를 SonarQube에 제출하고 Quality Gate를 기다리며, 판정 실패나 300초 대기 초과에서는 배포 단계에 도달하지 않는 순서](image/06_jenkins_sonarqube_quality_gate_sequence.png)
+
+그림의 근거 · [SonarScanner for Maven](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) · [Quality Gate 대기 옵션](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/analysis-parameters/parameters-not-settable-in-ui) · [SonarQube Docker와 데이터베이스](https://docs.sonarsource.com/sonarqube-community-build/server-installation/from-docker-image/set-up-and-start-container)
+
 ## 4. Jenkins에서 배포 경로 선택
 
 `sample-war/deploy.yml`을 만든다. `ansible-playbook`은 Jenkins 컨테이너 안에서 실행되고, Docker 모듈은 기존 Compose 설정의 `DOCKER_HOST`와 TLS 인증서를 사용해 실습용 엔진에 접근한다. 이미지 태그는 해당 Jenkins 빌드가 만들고 플레이북에 전달한다. [Ansible docker_container](https://docs.ansible.com/ansible/latest/collections/community/docker/docker_container_module.html)
@@ -188,6 +192,10 @@ Jenkinsfile의 `DEPLOY_TARGET` 선택지에 `ansible`을 추가해 `['build-only
 ```
 
 `Verify Deployment`의 실행 조건도 `params.DEPLOY_TARGET in ['tomcat', 'docker', 'ansible']`로 바꾼다. 검증 단계는 Tomcat을 선택하면 `tomcat`으로, 두 컨테이너 배포 방식에서는 `docker-engine`으로 요청을 보내 체크아웃한 페이지와 응답 내용을 비교한다.
+
+![품질 기준을 통과한 실행에서 build-only는 WAR와 분석 결과를 보관하고, Tomcat은 WAR를 받으며, Docker CLI와 Ansible은 같은 방식으로 빌드한 이미지를 같은 엔진에 배포하는 분기](image/06_jenkins_deploy_paths_after_quality_gate.png)
+
+그림의 근거 · [Jenkins 조건부 스테이지](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Ansible 컨테이너 배포](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)
 
 ## 5. 배포 결과 확인
 

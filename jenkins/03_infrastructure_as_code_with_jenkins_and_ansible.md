@@ -156,6 +156,10 @@ curl -fsS http://127.0.0.1:18086/
 
 첫 실행에서는 이미지나 컨테이너 상태가 바뀌면 `changed`로 표시된다. 같은 환경에 다시 적용할 때는 `changed=0`인지 확인한다. `not_present` 정책은 같은 태그가 로컬에 있으면 재사용한다. 배포 버전을 바꿀 때는 플레이북의 이미지 태그나 다이제스트를 갱신한다.
 
+![Jenkins 컨테이너 안의 Ansible이 localhost에 로컬 연결로 모듈을 실행하고 TLS로 별도 Docker 엔진에 요청해 Nginx를 띄운 뒤 HTTP 응답을 확인하는 구조](image/03_jenkins_ansible_and_docker_api.png)
+
+그림의 근거 · [Ansible 로컬 연결](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/local_connection.html) · [Docker API TLS](https://docs.docker.com/engine/security/protect-access/) · [Ansible 이미지 가져오기](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_image_pull_module.html) · [Ansible 컨테이너 상태](https://docs.ansible.com/projects/ansible/latest/collections/community/docker/docker_container_module.html) · [Ansible HTTP 확인](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/uri_module.html)
+
 ## 5. Jenkins에서 플레이북 실행
 
 `http://127.0.0.1:18085`에서 [기본 문서의 초기 설정 절차](01_devops_ci_cd_and_jenkins_fundamentals.md#4-docker에서-jenkins-시작하기)를 따라 관리자 계정을 만든다. **New Item**에서 `ansible-deploy`라는 **Pipeline**을 생성하고 **Pipeline script**에 다음 코드를 저장한다. 준비 단계는 읽기 전용 입력을 Jenkins 작업 공간으로 복사한다. 검증 단계에서 문법 오류가 나면 배포 단계가 진행되지 않는다. [Jenkins Declarative Pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/)

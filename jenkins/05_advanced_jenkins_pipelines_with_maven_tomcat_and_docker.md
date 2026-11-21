@@ -149,6 +149,10 @@ git --git-dir=/git-export/sample-war.git update-server-info
 SH
 ```
 
+![공통 체크아웃, Maven 검증, WAR 보관 후 DEPLOY_TARGET 조건에 따라 build-only, Tomcat, Docker 분기로 갈라지고 선택한 배포만 HTTP 응답을 확인하는 흐름](image/05_jenkins_parameterized_deploy_targets.png)
+
+그림의 근거 · [Jenkins 파라미터와 실행 조건](https://www.jenkins.io/doc/book/pipeline/syntax/) · [Jenkins 검증 대기](https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/) · [Jenkins 아티팩트 보관](https://www.jenkins.io/doc/pipeline/steps/core/#archiveartifacts-archive-the-artifacts)
+
 ## 4. 실행별 결과 확인
 
 1. 새 Jenkinsfile을 처음 읽는 실행에서 기본값으로 Maven 빌드와 WAR 보관을 확인한다. 파라미터가 등록되면 Job 메뉴에 **Build with Parameters**가 표시된다.

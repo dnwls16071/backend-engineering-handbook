@@ -233,6 +233,10 @@ pipeline {
 }
 ```
 
+![Git에서 체크아웃해 Maven이 만든 sample.war를 보관하고, 공유 볼륨으로 Tomcat에 배포한 다음 같은 파일로 Docker 이미지를 만들어 컨테이너를 교체하고 두 주소를 확인하는 흐름](image/02_jenkins_one_war_two_deployments.png)
+
+그림의 근거 · [Pipeline 실행과 Poll SCM](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers) · [Maven WAR 패키징](https://maven.apache.org/plugins/maven-war-plugin/usage.html) · [Tomcat WAR 자동 배포](https://tomcat.apache.org/tomcat-10.1-doc/config/host.html#Automatic_Application_Deployment) · [Docker 컨테이너 실행](https://docs.docker.com/reference/cli/docker/container/run/)
+
 ## 4. Git 저장소와 Jenkins Item 설정
 
 아래 명령을 실행하면 실습 파일을 컨테이너 안에서 커밋하고, 내부 HTTP 주소로 제공한다. `git update-server-info`는 정적 HTTP 서버를 통해 복제할 수 있도록 브랜치와 객체 정보를 갱신한다. [Git update-server-info](https://git-scm.com/docs/git-update-server-info)

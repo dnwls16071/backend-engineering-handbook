@@ -118,6 +118,10 @@ kubeadmConfigPatches:
         - docker
 ```
 
+![Ansible의 구성 요청은 docker:6443의 Kubernetes API에 전달되고, 서비스 확인 요청은 docker:8080에서 kind 노드의 NodePort 30080을 지나 포트 80의 Nginx Pod에 도달하는 구조](image/04_jenkins_kind_control_and_http_paths.png)
+
+그림의 근거 · [Ansible API 접근](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [kind NodePort 포트 매핑](https://kind.sigs.k8s.io/docs/user/configuration/#nodeport-with-port-mappings) · [Kubernetes NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+
 ## 3. 클러스터 생성과 kubectl 기본 명령
 
 아래의 `docker compose up`은 4절 파일을 `lab/`에 저장한 뒤 실행한다. kind가 만든 kubeconfig의 서버 주소를 Compose 내부 주소로 지정해 Jenkins 볼륨에 저장한다. kubeconfig에는 이 실습 클러스터의 관리자 자격 증명이 포함되므로 Jenkins 사용자만 읽을 수 있게 저장한다.
@@ -284,3 +288,7 @@ pipeline {
 Git 변경을 시작점으로 사용하려면 저장소 루트에 `Jenkinsfile`과 `lab/`을 커밋하고 Item을 **Pipeline script from SCM**으로 설정한다. `options`에 `skipDefaultCheckout()`을 추가하고, Prepare 단계에서는 `deleteDir()` 다음에 `checkout scm`을 실행한다. 준비 명령의 복사 경로를 `cp -R lab/. .`로 바꾸면 체크아웃한 코드에서 매니페스트와 이미지를 준비한다. 변경 감지 일정은 [SCM 체크아웃과 Poll SCM](02_jenkins_ci_cd_with_git_maven_tomcat_and_docker.md) 방식으로 연결한다.
 
 실습을 종료할 때는 `docker compose exec -T docker-engine kind delete cluster --name jenkins-lab`으로 실습 클러스터를 지운 뒤 `docker compose down`을 실행한다.
+
+![Jenkins가 같은 빌드 번호의 Docker 이미지를 만들어 kind 노드에 로드한 다음 Ansible이 해당 태그의 Deployment와 Service를 적용하고 응답의 빌드 번호를 확인하는 흐름](image/04_jenkins_build_load_and_apply_to_kind.png)
+
+그림의 근거 · [kind 로컬 이미지 로드](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster) · [Kubernetes 로컬 이미지 정책](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy) · [Ansible Kubernetes 리소스 적용](https://docs.ansible.com/projects/ansible/latest/collections/kubernetes/core/k8s_module.html) · [Kubernetes 롤아웃](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)

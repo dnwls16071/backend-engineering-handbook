@@ -139,6 +139,10 @@ GitHub 저장소의 **Settings → Webhooks → Add webhook**에서 다음 값�
 | Events | **Just the push event** |
 | Active | 활성화 |
 
+![GitHub push가 임시 HTTPS 터널과 Nginx를 거쳐 Jenkins로 전달되면 GitHub 플러그인이 서명을 확인하고 SCM 폴링을 깨우며, 새 커밋이 있을 때 빌드를 예약하는 흐름](image/07_jenkins_webhook_to_scm_and_build.png)
+
+그림의 근거 · [GitHub Webhook 서명](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries) · [Cloudflare Quick Tunnel](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/) · [NGINX 요청 전달](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) · [Jenkins GitHub 트리거](https://www.jenkins.io/doc/pipeline/steps/params/pipelinetriggers/) · [GitHub 플러그인 서명 설정](https://github.com/jenkinsci/github-plugin/blob/v1.47.0/src/main/resources/org/jenkinsci/plugins/github/config/GitHubPluginConfig/config.groovy)
+
 ## 4. 푸시부터 빌드까지 확인
 
 1. GitHub Webhook의 **Recent Deliveries**에서 `ping` 응답이 `2xx`인지 확인한다.
