@@ -2,6 +2,10 @@
 
 키–값 저장소에서는 키 단위 읽기·쓰기 계약과 장애 중 허용할 읽기 값을 먼저 정한다. 예제는 해시 파티션과 복제본을 이용하며, 구체적인 충돌 해결은 값의 업무 의미에 맞춰 선택한다. [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store)
 
+![조정자는 키 해시로 파티션을 찾아 세 복제본에 읽기·쓰기를 요청한다. 이 예의 R과 W는 고정 복제 집합에서 적용하고, 복구된 노드는 버전과 삭제 표시를 대조한다.](image/08_key_value_store_architecture.png)
+
+그림의 근거 · [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
 ## 1. 라우팅과 복제를 구성한다
 
 키 해시로 파티션을 찾고 여러 장애 영역에 복제본을 둔다. 해시 범위를 나누면 많은 키의 요청을 분산할 수 있지만 한 키의 집중은 별도로 다뤄야 한다. 저장소 장애 때는 어느 복제본이 읽기·쓰기를 처리할지 정한다. [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/)
