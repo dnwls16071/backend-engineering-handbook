@@ -11,7 +11,9 @@
 
 ### 현재 값과 변경 이력을 구분한다
 
-<img src="image/event_sourcing_source_of_truth.png" alt="현재 잔액을 원본으로 저장하는 방식과 입금 및 출금 이벤트를 원본으로 저장해 잔액을 재구성하는 방식의 비교" width="400">
+![계좌 잔액을 저장해 읽는 경우와 입금·출금 이벤트를 순서대로 적용해 잔액을 재구성하는 경우](image/event_sourcing_source_of_truth.png)
+
+그림의 근거 · [Martin Fowler · Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) · [Microsoft Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
 
 | 비교 항목 | 현재 상태를 원본으로 저장한다. | 이벤트 이력을 원본으로 저장한다. |
 | :---: | :--- | :--- |
@@ -51,7 +53,9 @@
 - 이력을 적용해 현재 상태를 재구성한 뒤 업무 규칙을 검사한다.
 - 처리할 수 있는 요청이면 새 이벤트를 원본 저장소에 추가한다.
 
-<img src="image/event_sourcing_write_flow.png" alt="예약 명령 수신부터 이력 조회와 상태 재구성, 업무 규칙 검사, 스트림 버전 확인 및 이벤트 추가로 이어지는 쓰기 흐름" width="400">
+![공연 예약 명령에 대해 이력을 재생하고 기대 버전으로 이벤트를 추가하며 충돌 시 다시 읽는 흐름](image/event_sourcing_write_flow.png)
+
+그림의 근거 · [Microsoft Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
 
 | 단계 | 공연 예약 예시 |
 | :---: | :--- |
@@ -91,7 +95,9 @@
 - 스냅숏은 특정 이벤트 순번까지 반영한 상태를 저장한 것이다.
 - 재구성할 때 스냅숏을 읽고 그 뒤의 이벤트만 적용한다.
 
-<img src="image/event_sourcing_snapshots.png" alt="이벤트 1,000개를 모두 재생하는 방식과 900번째 스냅숏을 읽고 이후 이벤트 100개만 적용하는 방식의 비교" width="400">
+![이벤트 1,000개를 재생하는 경로와 900번째 스냅숏에서 이후 이벤트 100개만 적용하는 경로의 비교](image/event_sourcing_snapshots.png)
+
+그림의 근거 · [Microsoft Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
 
 | 방식 | 1,000번째 이벤트까지 재구성하는 예시 |
 | :--- | :--- |
@@ -111,7 +117,9 @@
 - 같은 이벤트에서 공연 목록, 좌석 현황과 매출 통계를 각각 만들 수 있다.
 - 프로젝션으로 만든 조회 모델은 원본 이벤트에서 파생된 데이터이다.
 
-<img src="image/event_sourcing_projections.png" alt="하나의 이벤트 저장소에서 프로젝션으로 공연 목록과 좌석 현황 및 매출 통계 조회 모델을 만드는 구조" width="400">
+![공연별 이벤트 저장소에서 공연 목록·좌석 현황·매출 통계를 각 프로젝션으로 만드는 구조](image/event_sourcing_projections.png)
+
+그림의 근거 · [Microsoft Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing) · [Martin Fowler · Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 
 | 구분 | 스냅숏 | 프로젝션으로 만든 조회 모델 |
 | :---: | :--- | :--- |
