@@ -4,9 +4,9 @@
 
 Compose v2 기본 네트워크에서는 같은 프로젝트의 컨테이너가 서비스 이름으로 서로 연결된다. 예시 API와 Worker는 `db:5432` 및 로컬 `chain` 서비스를 사용한다. 호스트에서 접근할 API 포트만 루프백에 공개하고 DB·Queue·RPC는 내부 주소로 유지한다. [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/)
 
-![실습 전용 API, PostgreSQL, Queue와 로컬 체인 사이의 연결](image/02_stablepay_context.png)
+![호스트의 127.0.0.1:8080을 API에 매핑하고, DB·Queue·로컬 체인은 Compose 기본 네트워크에서 서비스 이름으로 연결하는 예시](image/20_compose_lab_network.png)
 
-그림의 근거 · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/) · [Ethereum 개발 네트워크](https://ethereum.org/developers/docs/development-networks/)
+그림의 근거 · [Docker Compose 네트워크](https://docs.docker.com/compose/how-tos/networking/) · [Docker 포트 공개](https://docs.docker.com/engine/network/port-publishing/#publishing-ports) · [Ethereum 개발 네트워크](https://ethereum.org/developers/docs/development-networks/)
 
 ## 2. 준비 상태와 실습 데이터를 관리한다
 

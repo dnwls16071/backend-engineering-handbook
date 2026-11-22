@@ -4,7 +4,9 @@
 
 실제 PostgreSQL을 쓰는 테스트에서 두 Worker를 별도 연결로 실행한다. 같은 `event_id`를 전달하고 두 작업자를 처리 기록 삽입 직전에 맞춘다. 처리 기록 한 행, `ACCEPTED → PROCESSING` 이력 한 행, 최초 `payout_attempt` 한 행을 각각 확인한다. [PostgreSQL 18 제약](https://www.postgresql.org/docs/18/ddl-constraints.html) · [PostgreSQL 18 INSERT](https://www.postgresql.org/docs/18/sql-insert.html) · [PostgreSQL 18 트랜잭션](https://www.postgresql.org/docs/18/tutorial-transactions.html)
 
-![동일 이벤트를 받은 Worker 가운데 한 작업자만 로컬 상태 변경을 커밋하고 다른 작업자는 중복으로 확인하는 흐름](image/11_consumer_idempotency.png)
+![두 Worker가 같은 키로 삽입을 시도하면 B는 A의 트랜잭션 종료를 기다린다. A가 커밋하면 B는 삽입 결과 0행을 받고, A가 롤백하면 B가 삽입과 상태 전이를 이어가는 예시](image/21_concurrent_message_claim.png)
+
+그림은 Read Committed에서 같은 `(consumer_name, event_id)`에 `INSERT … ON CONFLICT DO NOTHING RETURNING`을 실행하는 경우다. [PostgreSQL 18 유일성 검사](https://www.postgresql.org/docs/18/index-unique-checks.html) · [PostgreSQL 18 INSERT](https://www.postgresql.org/docs/18/sql-insert.html) · [PostgreSQL 18 Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)
 
 ## 2. DB 오류를 업무 코드로 매핑한다
 
