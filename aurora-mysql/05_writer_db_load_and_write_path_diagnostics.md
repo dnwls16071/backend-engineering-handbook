@@ -40,3 +40,7 @@ SELECT ROW_COUNT() AS rows_changed;
 ## 5. Writer로 유입된 조회 찾기
 
 Writer의 Top SQL에서 읽기 쿼리를 찾아 API 경로와 풀 설정을 대조한다. 쓰기 직후 최신 확인처럼 Writer가 필요한 조회를 별도로 기록한다. 느슨한 최신성을 허용하는 순위나 목록은 Reader 연결로 보내되, 새 연결과 실제 인스턴스 분포를 검증한다. 변경 뒤 Writer 부하와 Reader의 복제 지연을 함께 본다. [Aurora 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html)
+
+![Aurora MySQL Writer에서 INSERT부터 COMMIT까지 쓰기 대기와 핫 로우, 읽기 유입을 확인하는 경로](image/05_aurora_mysql_writer_write_path_waits.png)
+
+그림의 근거 · [AWS Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [AWS Aurora MySQL redo flush 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)

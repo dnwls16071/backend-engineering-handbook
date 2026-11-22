@@ -52,6 +52,10 @@ ORDER BY total_ms DESC;
 
 전체 DB 부담을 보려면 구간 총 시간, 요청 지연을 설명하려면 실행당 평균과 로그의 느린 개별 실행을 함께 본다. 호출량이 늘었는지, 한 번 실행할 때 더 많은 행을 검사하는지 구분한다. 검사 행 수는 반환 행 수나 디스크 읽기 수와 다르므로 실행 계획의 접근 경로와 대기 유형을 대조한다. [MySQL EXPLAIN](https://dev.mysql.com/doc/refman/8.4/en/explain.html)
 
+![슬로 쿼리 로그와 문장 digest의 쓰임, 이벤트 창의 누적 실행 시간·호출량·검사 행 차이 계산](image/03_aurora_mysql_queries_and_window_deltas.png)
+
+그림의 근거 · [MySQL 슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)
+
 ## 5. 분석 이력과 담당 서비스 연결하기
 
 조사 결과에 인스턴스·스키마·지문, 시작·종료 시각, 배포 버전, 서비스 팀, 대표 계획을 기록한다. 동일 지문을 여러 서비스가 사용할 수 있으므로 앱 추적과 계정·라우팅 정보를 이용해 호출 경로를 확인한다. 수정 후 같은 서비스와 관측 조건의 창에서 효과를 다시 비교한다.

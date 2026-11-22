@@ -16,6 +16,10 @@ SELECT DATABASE(), @@hostname, @@GLOBAL.innodb_read_only;
 
 Aurora MySQL에서 `innodb_read_only`가 켜진 연결은 Reader에 연결된 것이다. 서비스가 요구한 역할과 실제 연결 대상이 일치하는지 요청 로그와 인스턴스 지표를 대조한다. [Aurora MySQL 연결 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html)
 
+![Aurora MySQL Writer와 Reader 엔드포인트에서 새 물리 연결이 배치되는 경로](image/01_aurora_mysql_endpoint_connection_routing.png)
+
+그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)
+
 ## 3. 로컬 실습 환경 만들기
 
 빈 로컬 MySQL 8.4를 사용한다. 예제는 컨테이너 네트워크를 끄고 내부 소켓으로만 접속한다. 서버 초기화가 끝나면 다음 SQL을 실행한다. 실습 종료 후 `docker stop aurora-my-lab`으로 컨테이너를 정리한다. [MySQL 공식 이미지](https://hub.docker.com/_/mysql)

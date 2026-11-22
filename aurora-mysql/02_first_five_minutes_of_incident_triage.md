@@ -32,3 +32,7 @@ LIMIT 20;
 ## 5. 즉시 완화와 원인 해결을 나누기
 
 사용자 실패가 지속되면 영향이 확인된 요청이나 배치만 제한하고 효과를 관찰한다. 운영 조치마다 시작 시각, 기대하는 지표 변화, 원복 조건을 남긴다. 이후 재현 환경에서 인덱스, 쿼리나 트랜잭션 경계를 개선한다. 연결과 재시도, 중복 주문 결과까지 확인한 뒤 사고를 종료한다.
+
+![서비스 지연·오류의 시각을 맞춘 뒤 CPU, DB Load, Top SQL과 대기를 대조하는 절차](image/02_aurora_mysql_incident_first_five_minutes.png)
+
+그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)

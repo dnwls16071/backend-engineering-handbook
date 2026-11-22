@@ -31,3 +31,7 @@ ORDER BY w.wait_age_secs DESC;
 ## 5. 타임아웃과 재시도 증폭 제한하기
 
 풀 획득, 행 락 대기, 메타데이터 락 대기, 전체 요청의 한도를 구분한다. InnoDB의 행 락 대기 `1205`는 기본적으로 실패 문장을 롤백하고, `1213`은 피해 트랜잭션 전체를 롤백한다. 행 락 타임아웃 후 업무 트랜잭션을 실패로 처리했다면 남은 변경도 롤백한다. 실패 분류와 요청 예산에 맞춰 전체 트랜잭션 재시도를 제한하고 지터를 둔다. 결과를 모르는 결제·주문은 멱등 키의 기존 상태를 확인하고 같은 작업을 다시 시작한다. [InnoDB 오류 처리](https://dev.mysql.com/doc/refman/8.4/en/innodb-error-handling.html)
+
+![장기 트랜잭션의 락 대기 체인을 확인하고 데드락, 연결 수, 재시도를 제한하는 경계](image/06_aurora_mysql_wait_chains_and_retry_budget.png)
+
+그림의 근거 · [MySQL InnoDB 락 대기](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)

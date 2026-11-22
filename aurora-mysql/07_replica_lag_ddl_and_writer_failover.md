@@ -65,3 +65,7 @@ SELECT @through_id AS last_committed_id, @changed AS changed_rows;
 새 연결 확보, Writer 역할 확인, 주문 API 성공 시점을 각각 기록한다.
 
 RDS Proxy를 사용하면 유휴 클라이언트 연결은 유지될 수 있고, 전환 시 실행 중인 SQL이나 트랜잭션은 중단될 수 있다. [RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html)
+
+![Aurora MySQL 장애 전환 후 같은 엔드포인트에 새로 연결해 Writer 역할과 응답을 잃은 쓰기의 상태를 각각 확인하는 순서](image/07_aurora_mysql_writer_failover_and_safe_reconnect.png)
+
+그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html) · [AWS Aurora MySQL 연결 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)

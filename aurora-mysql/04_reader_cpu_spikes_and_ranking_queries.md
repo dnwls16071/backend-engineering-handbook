@@ -31,3 +31,7 @@ Redis 미스와 랭킹 요청량이 같은 창에서 증가하는지 비교한�
 ## 5. 쿼리, 호출량, Reader 확장 중 선택하기
 
 실행당 작업량이 크면 과거 기간 제한, 사전 집계, 인덱스나 조회 모델을 검증한다. 호출량을 줄일 수 있으면 중복 조회나 캐시 미스 원인을 고친다. 인스턴스 전반에 분산된 읽기 용량이 부족할 때는 Reader 확장의 효과를 같은 측정 창에서 확인한다. 변경 후 API p95, DB Load, 실행 수와 복제 지연을 함께 비교한다. [Aurora 인스턴스별 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html)
+
+![Reader CPU 급증을 호출량, 단일 실행 비용, 한 Reader의 풀 연결 집중으로 나누어 진단하는 절차](image/04_aurora_mysql_reader_cpu_and_connection_skew.png)
+
+그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [MySQL EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html)
