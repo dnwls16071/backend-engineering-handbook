@@ -75,6 +75,10 @@
 - 공통 인증과 라우팅을 담당하는 API Gateway까지 반드시 제거해야 하는 것은 아니다.
 - 퍼사드가 단일 장애 지점이나 처리 병목이 되지 않게 운영한다.
 
+![퍼사드가 새로 옮긴 상품 조회만 새 시스템으로 보내고 나머지 기능과 데이터 의존을 옮긴 뒤 레거시를 제거하는 세 단계](image/strangler_fig_facade_migration.png)
+
+그림의 근거 · [Microsoft Strangler Fig](https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig) · [Cartwright·Horn·Lewis · Patterns of Legacy Displacement](https://martinfowler.com/articles/patterns-legacy-displacement/)
+
 ## 5. 반복해야 할 네 가지 활동
 
 | 활동 | 핵심 질문 |
@@ -143,6 +147,10 @@
 - 데이터 구조와 업무 규칙의 호환성이 깨지면 라우팅만 바꿔 복귀하기 어렵다.
 - **기존 경로를 유지하는 것과 실제로 복귀 가능한 것은 다르다.**
 - 전환 전에 복귀 조건, 데이터 보정과 검증 방법을 함께 정한다.
+
+![ACL의 모델 번역 경계와 새 시스템이 이미 쓴 데이터의 호환성을 확인한 뒤 복귀하는 판단 흐름](image/strangler_fig_data_compatibility_and_rollback.png)
+
+그림의 근거 · [Microsoft Anti-Corruption Layer](https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer) · [Microsoft Strangler Fig](https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig) · [Cartwright·Horn·Lewis · Patterns of Legacy Displacement](https://martinfowler.com/articles/patterns-legacy-displacement/)
 
 ## 9. 장점과 트레이드오프
 
