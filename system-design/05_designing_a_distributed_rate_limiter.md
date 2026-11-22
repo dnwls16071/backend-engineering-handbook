@@ -2,6 +2,10 @@
 
 Rate Limiter는 계정, API 키 또는 경로별로 요청 허용량을 관리한다. 과금 기능과 공개 검색처럼 처리 비용과 요구가 다르면 각각의 제한 정책을 둔다. [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [RFC 6585](https://www.rfc-editor.org/rfc/rfc6585.html#section-4)
 
+![API 게이트웨이의 인스턴스는 공유 Redis에서 토큰 버킷의 충전과 차감을 한 번에 판정한다. 허용된 요청은 업무 서비스로 보내고, 한도를 넘은 요청에는 429를 응답한다.](image/05_rate_limiter_architecture.png)
+
+그림의 근거 · [RFC 6585](https://www.rfc-editor.org/rfc/rfc6585.html#section-4) · [Redis Lua Scripting](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [AWS Backoff and Jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/)
+
 ## 1. 버스트와 평균 허용량을 각각 정한다
 
 토큰 버킷 예에서는 용량 20, 초당 충전량 10을 둔다. 버킷이 가득 차면 순간적으로 20건을 허용할 수 있고, 소진 뒤에는 충전 속도가 지속 허용량을 정한다. 허용 여부를 판정할 때 경과 시간으로 토큰을 채우고 비용만큼 차감한다. [AWS Backoff and Jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/)
