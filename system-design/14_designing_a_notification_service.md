@@ -2,6 +2,10 @@
 
 알림 요청 접수, 제공자 수락, 단말 전달을 서로 다른 상태로 다룬다. 이메일·문자·푸시는 독립적인 처리량과 보존 조건을 가질 수 있다. [FCM Delivery](https://firebase.google.com/docs/cloud-messaging/understand-delivery) · [FCM Message Lifespan](https://firebase.google.com/docs/cloud-messaging/customize-messages/setting-message-lifespan) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
+![알림 API가 사용자 동의와 알림 ID를 확인하고 요청을 저장한다. 채널별 큐와 워커가 메일·문자·푸시 제공자에 전달하며 결과를 별도 상태로 기록한다.](image/14_notification_delivery_architecture.png)
+
+그림의 근거 · [FCM Delivery](https://firebase.google.com/docs/cloud-messaging/understand-delivery) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [FCM Message Lifespan](https://firebase.google.com/docs/cloud-messaging/customize-messages/setting-message-lifespan) · [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
+
 ## 1. 채널별로 작업을 생성한다
 
 사용자 설정과 수신 동의를 확인한 뒤 알림 ID, 템플릿 버전, 채널, 만료 시각을 저장한다. 큐 작업은 업무 ID·수신자·채널 기준으로 중복을 확인하며, 템플릿 데이터와 수신 주소의 보관을 제한한다. [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
