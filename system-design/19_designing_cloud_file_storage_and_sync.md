@@ -2,6 +2,10 @@
 
 파일 저장소는 큰 콘텐츠와 이름·폴더·권한·버전 같은 메타데이터를 분리한다. 여러 기기가 같은 파일을 수정할 수 있으므로 성공적으로 저장한 버전을 가리키는 기준이 필요하다. [Amazon S3 Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) · [Amazon S3 Conditional Writes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
 
+![클라이언트는 객체 저장소에 파일을 올리고 메타데이터 API에서 기반 버전을 대조해 새 버전을 확정한다. 다른 단말은 변경 로그의 커서로 빠진 변경을 조회한다.](image/19_file_storage_sync_architecture.png)
+
+그림의 근거 · [Amazon S3 Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) · [Amazon S3 Conditional Writes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html) · [Amazon S3 Presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [etcd 3.6 API](https://etcd.io/docs/v3.6/learning/api/)
+
 ## 1. 파일 전송과 메타데이터 확정을 나눈다
 
 업로드 ID와 논리 파일 ID를 만들고 부분 업로드를 시작한다. 완료 후 객체와 크기·무결성을 확인한 다음 메타데이터가 새 버전을 가리키도록 확정한다. 다운로드 권한은 메타데이터에서 확인한 뒤 제한된 접근을 부여한다. [Amazon S3 Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) · [Amazon S3 Presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [Amazon S3 Conditional Writes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html)
