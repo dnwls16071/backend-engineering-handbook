@@ -17,6 +17,10 @@
 | 전환·레거시 | 기존 시스템을 어떻게 점진적으로 바꾸는가? | 2 |
 | 성능·확장성 | 데이터와 요청이 늘어날 때 어떻게 처리하는가? | 3 |
 
+![문서의 24개 패턴을 여섯 문제 영역으로 묶어 후보를 찾고 필요한 패턴을 조합하는 지도](image/patterns_by_problem_area.png)
+
+그림의 근거 · [Microsoft Cloud Design Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/) · [Microsoft CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Chris Richardson · Idempotent Consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
+
 ## 2. 데이터·상태 관리
 
 - **데이터의 소유권, 변경 이력, 서비스 간 정합성을 다룬다.**
