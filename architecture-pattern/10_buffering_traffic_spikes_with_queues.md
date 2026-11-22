@@ -9,7 +9,9 @@
 - 생산자와 소비자는 비동기로 동작한다.
 - **큐는 처리할 일을 없애지 않으며, 당장 처리하지 못한 일을 나중에 처리하도록 보관한다.**
 
-<img src="image/load_leveling_traffic_and_backlog.png" alt="동일한 시간축에서 요청 유입량이 처리 한도를 넘는 동안 큐 적체량이 증가하고, 소비자가 처리 한도를 지키며 누적 작업을 처리해 큐를 비우는 과정" width="400">
+![같은 시간축에서 초당 100건 유입 구간의 큐 적체 증가와 유입이 40건으로 줄어든 후 초당 60건 처리로 큐를 비우는 예](image/load_leveling_traffic_and_backlog.png)
+
+그림의 근거 · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
 ## 2. 앱 서버를 늘리는 것만으로 해결되지 않는 이유
 
@@ -97,6 +99,10 @@
 - **Kafka의 순서 보장 범위는 토픽 전체가 아니라 파티션 내부이다.**
 - 주문번호처럼 순서가 필요한 단위를 키로 사용해 같은 파티션에 배치한다.
 - 소비자가 읽은 뒤 병렬로 처리한다면 같은 파티션 안에서도 완료 순서가 바뀌지 않도록 관리해야 한다.
+
+![Kafka orders 토픽의 네 파티션을 주문 그룹의 두 소비자가 분담하고 알림 그룹이 독립적으로 읽는 예](image/kafka_consumer_group_partition_assignment.png)
+
+그림의 근거 · [Apache Kafka 4.3 KafkaConsumer](https://kafka.apache.org/43/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html) · [Apache Kafka 메시지 순서](https://kafka.apache.org/43/getting-started/introduction/)
 
 ## 7. 소비자 수의 상한은 뒤쪽 처리 능력으로 정한다
 
