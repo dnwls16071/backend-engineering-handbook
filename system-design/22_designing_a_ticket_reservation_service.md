@@ -2,6 +2,10 @@
 
 티켓팅은 동시에 같은 좌석을 요청하는 상황부터 설계한다. 목록과 좌석 배치도는 조회 경로로 제공하되 실제 보유·확정 판정은 해당 좌석을 쓰는 원본에서 내린다. [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
 
+![대기열이나 요청 제한을 통과한 예매 API는 좌석 원본에서 선점과 확정을 판정한다. 결제 승인과 선점 만료는 현재 hold_id와 DB 시각을 확인하며 목록은 조회 경로로 제공한다.](image/22_ticket_reservation_architecture.png)
+
+그림의 근거 · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [AWS Saga Orchestration](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
+
 ## 1. 좌석 선점의 상태와 원본을 정한다
 
 이벤트 ID와 좌석 ID를 묶어 고유하게 관리한다. 좌석은 AVAILABLE → HELD → SOLD로 진행하며, HELD에는 hold_id와 만료 시각을 지정한다. 원본 행 잠금이나 상태·만료 조건을 만족할 때만 쓰는 방법으로 같은 좌석의 중복 확정을 막는다. [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [PostgreSQL 18 UPDATE](https://www.postgresql.org/docs/18/sql-update.html)
