@@ -26,7 +26,9 @@
 
 ## 3. 세 가지 상태와 전이
 
-<img src="image/circuit_breaker_states.png" alt="CLOSED에서 OPEN으로 차단하고 HALF-OPEN에서 복구 기준 충족 여부에 따라 CLOSED 또는 OPEN으로 전환하는 상태 흐름" width="400">
+![임계값을 넘으면 OPEN, 대기 후 제한된 시험 호출을 허용하는 HALF-OPEN, 시험 결과에 따라 재차단 또는 정상 전환하는 상태 흐름](image/circuit_breaker_states.png)
+
+그림의 근거 · [Microsoft Circuit Breaker](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker)
 
 | 상태 | 호출 처리 | 다음 상태로 바뀌는 조건 |
 | :---: | :--- | :--- |
@@ -57,7 +59,9 @@
 - 게이트웨이에만 두면 서비스 내부의 모든 의존 관계를 보호할 수는 없다.
 - 호출자 코드나 호출 경로의 프록시에서 제어할 수 있다.
 
-<img src="image/circuit_breaker_caller_placement.png" alt="Gateway의 주문 호출 경계와 주문 서비스의 결제 호출 경계에 각각 Circuit Breaker를 배치한 구조" width="400">
+![Gateway에서 주문을 호출하는 경계와 주문 서비스가 결제를 호출하는 경계에 Circuit Breaker를 각각 배치한 구조](image/circuit_breaker_caller_placement.png)
+
+그림의 근거 · [Microsoft Circuit Breaker](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) · [Spring Cloud Gateway CircuitBreaker](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/gatewayfilter-factories/circuitbreaker-filter-factory.html) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker)
 
 | 호출 관계 | 적용 위치 | 보호하려는 대상 |
 | :--- | :--- | :--- |
