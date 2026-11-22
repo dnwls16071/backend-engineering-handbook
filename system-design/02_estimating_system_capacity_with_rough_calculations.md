@@ -15,3 +15,9 @@ DAU 1,000,000명, 사용자당 하루 읽기 20건이면 하루 20,000,000건이
 ## 3. 가정을 실험으로 좁힌다
 
 인스턴스 한 대가 SLO 안에서 버티는 RPS를 먼저 구한다. 피크 예상치에 이 용량을 적용한 뒤 장애로 인스턴스가 하나 빠졌을 때도 요청·DB·큐의 한도가 지켜지는지 확인한다. 요청 크기와 캐시 적중률을 달리하면 측정값의 민감도를 알 수 있다. [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+## 4. 피크 추정을 인스턴스 수와 적체 시간으로 바꾼다
+
+부하 시험에서 한 대가 SLO를 지키며 읽기 320 RPS를 처리했다고 가정한다. 피크 1,160 RPS에는 올림 계산으로 최소 4대가 필요하다. 한 대가 빠져도 버티려면 5대를 배치하고, 나머지 4대로 1,160 RPS를 보낼 때 공유 DB와 캐시도 SLO를 지키는지 시험한다. [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/)
+
+비동기 작업이 120초간 초당 1,500건 들어오고 작업자가 초당 1,000건을 처리하면 60,000건이 밀린다. 이후 유입이 초당 700건으로 내려가면 초당 300건씩 줄어 적체를 비우는 데 약 200초가 걸린다. 처리율이 일정하다는 가정으로 얻은 복구 시간이다. 가장 오래 기다린 작업의 체류 시간은 따로 측정해 사용자 기한과 비교한다. [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
