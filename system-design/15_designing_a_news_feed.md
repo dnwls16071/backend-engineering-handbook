@@ -2,6 +2,10 @@
 
 뉴스 피드는 게시글의 본문과 사용자별 홈 목록을 분리해 설계할 수 있다. 어떤 글이 보이는지와 정렬 기준, 게시 후 반영까지 허용되는 지연을 정한다. [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 
+![게시글을 원본에 저장한 뒤 일반 작성자의 글 ID를 팔로워 홈 목록에 전파한다. 조회 API는 홈 목록과 인기 작성자의 최신 글을 병합하고 원본 본문과 현재 공개 범위를 확인한다.](image/15_news_feed_architecture.png)
+
+그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
+
 ## 1. 게시글 원본과 홈 목록을 분리한다
 
 게시글은 작성자 ID와 생성 시각으로 저장한다. 홈 목록은 게시글 ID와 정렬 기준을 보관하는 파생 구조로 두고 목록을 열 때 본문을 묶어 읽는다. 삭제·차단·공개 범위 변경이 있을 수 있으므로 응답 시점의 공개 범위를 확인한다. [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
