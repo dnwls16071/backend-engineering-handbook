@@ -45,6 +45,10 @@ docker exec valkey-c1 valkey-cli -c MGET 'cart:{42}:item' 'cart:{43}:item'
 
 두 `{42}` 키는 슬롯 8000에 속한다. 초기 배치에서 이 슬롯은 `valkey-c2`에 있으므로 `-c` 없이 `valkey-c1`에 보낸 쓰기는 `MOVED`를 받는다. 마지막 `MGET`의 두 키는 다른 슬롯이어서 `CROSSSLOT`을 받는다. 동일한 장바구니처럼 함께 갱신해야 하는 키는 같은 태그를 쓰고, 서로 독립적인 장바구니는 태그를 나눠 한 슬롯에 집중되지 않도록 한다.
 
+![세 프라이머리와 레플리카 구성, 해시 태그 42가 슬롯 8000에 매핑되는 예와 MOVED·ASK를 처리하는 차이](image/07_valkey_cluster_slots_and_redirects.png)
+
+그림의 근거 · [Valkey Cluster specification](https://valkey.io/topics/cluster-spec/) · [Valkey Cluster tutorial](https://valkey.io/topics/cluster-tutorial/) · [Valkey CLUSTER KEYSLOT](https://valkey.io/commands/cluster-keyslot/)
+
 ## 3. 리샤딩과 장애 조치
 
 리샤딩은 슬롯과 해당 키를 다른 프라이머리로 옮긴다. 아래에서는 독립 실습 클러스터의 `valkey-c1`에서 `valkey-c2`로 슬롯 하나를 보낸다. 이동 후에는 `--cluster check`로 슬롯 범위를 검증한다.
@@ -66,6 +70,10 @@ Valkey 9.0부터 서버가 슬롯을 원자적으로 이동시키는 별도 기�
 | --- | --- |
 | Sentinel | 데이터셋이 한 프라이머리에 들어가고, 복제를 통한 장애 조치가 필요하다. |
 | Cluster | 여러 프라이머리에 데이터나 쓰기 부하를 나눠야 한다. 클라이언트와 다중 키 연산도 슬롯을 고려해야 한다. |
+
+![리샤딩에서 다른 샤드로 슬롯을 옮기는 흐름과 장애 조치에서 같은 샤드 레플리카가 기존 슬롯을 이어받는 흐름](image/07_valkey_slot_migration_and_failover.png)
+
+그림의 근거 · [Valkey Cluster specification](https://valkey.io/topics/cluster-spec/) · [Valkey 9.0 릴리스](https://valkey.io/download/9.0/) · [Valkey CLUSTER FAILOVER](https://valkey.io/commands/cluster-failover/)
 
 ## 4. I/O 스레드와 처리량 측정
 
@@ -98,3 +106,7 @@ done
 Redis OSS 7.2 계열에서 옮길 때는 클라이언트, RDB·AOF, ACL, Lua, 모듈, Sentinel과 Cluster 주소 노출을 각각 검증한다. 더 최신 Redis의 기능이나 영속 파일, Valkey 고유 데이터 타입을 사용한 뒤의 역방향 복원은 이 호환 기준에 포함해서 판단하지 않는다. 독립 노드는 복제 또는 스냅샷 복원 방식으로 검증한다. Cluster는 목적지 레플리카를 추가해 복제가 끝난 뒤 순서대로 승격하는 경로를 검토한다.
 
 전환 전 실제 명령 목록과 표본 데이터로 읽기·쓰기·TTL·장애 조치를 검사한다. 전환 후 대표 키와 만료, 애플리케이션 오류를 확인하고, 되돌릴 때 전환 이후 쓰기를 어떻게 복구할지 미리 정한다. [Redis에서 Valkey로 마이그레이션](https://valkey.io/topics/migration/)
+
+![Redis OSS 7.2 계열에서 Valkey 9.2.0으로 전환할 때 버전별 호환성과 레플리카 동기화, 전환 이후 쓰기와 복귀를 검증하는 흐름](image/07_redis_to_valkey_migration_checks.png)
+
+그림의 근거 · [Valkey Redis migration](https://valkey.io/topics/migration/) · [Valkey 9.2 릴리스](https://valkey.io/download/9.2/)

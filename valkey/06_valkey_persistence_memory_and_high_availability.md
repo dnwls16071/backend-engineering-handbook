@@ -32,6 +32,10 @@ docker exec valkey-aof-lab valkey-cli GET lab:aof
 
 재시작 직후 로딩 중이면 `PING`이 성공한 뒤 조회한다. 이 예제의 정상 재시작은 쓰기 손실 가능 구간을 측정하는 장애 시험과는 목적이 다르다.
 
+![Docker 볼륨의 RDB 스냅샷에서 복원하는 경로와 AOF를 재생하는 경로, 두 방식이 활성화되었을 때의 재시작 동작](image/06_valkey_rdb_aof_recovery.png)
+
+그림의 근거 · [Valkey Persistence](https://valkey.io/topics/persistence/) · [Valkey 9.2 릴리스](https://valkey.io/download/9.2/)
+
 ## 2. Maxmemory, eviction, Big Key, Hot Key
 
 `maxmemory` 한도에 도달할 때 `allkeys-lru`·`allkeys-lfu`는 모든 키를 후보로 고르고, `volatile-*` 정책은 TTL이 있는 키를 후보로 고른다. `volatile-*`에 퇴출 후보가 없거나 `noeviction`을 쓰면 메모리를 더 쓰는 명령이 거절될 수 있다. 원본이 있는 캐시와 지속 보관할 데이터에 같은 퇴출 정책을 적용할지는 별도로 판단한다. [Key eviction](https://valkey.io/topics/lru-cache/)
@@ -53,6 +57,10 @@ vk CONFIG SET hotkeys-top-k 5 hotkeys-sampling-percentage 100
 vk HOTKEYS GET
 vk CONFIG SET hotkeys-top-k 0 hotkeys-sampling-percentage 1
 ```
+
+![maxmemory의 퇴출 대상과 메모리 증가 명령 제한, 저장 크기가 큰 키와 호출이 몰리는 키의 진단 경로](image/06_valkey_eviction_and_key_diagnostics.png)
+
+그림의 근거 · [Valkey Key eviction](https://valkey.io/topics/lru-cache/) · [Valkey CLI](https://valkey.io/topics/cli/) · [Valkey MEMORY USAGE](https://valkey.io/commands/memory-usage/) · [Valkey Hot key tracking](https://valkey.io/topics/hotkeys/)
 
 ## 3. 비동기 복제와 Sentinel 자동 승격
 
@@ -105,3 +113,7 @@ docker exec valkey-ha-replica valkey-cli GET lab:failover
 ```
 
 몇 초 간격으로 다시 조회하면 프라이머리 주소가 `valkey-ha-replica`로 바뀌고 그 노드가 쓰기를 받을 수 있다. 운영 클라이언트는 Sentinel 이름과 주소 목록으로 접속하고, 재연결 시 새 프라이머리를 다시 발견한다. `WAIT` 성공도 영속화나 장애 후 무손실을 보장하지 않는다. [WAIT](https://valkey.io/commands/wait/) · [Sentinel 클라이언트 사양](https://valkey.io/topics/sentinel-clients/)
+
+![세 Sentinel 중 quorum 2로 장애를 판정한 뒤 과반 승인을 거쳐 레플리카를 올리고 클라이언트가 다시 연결하는 흐름](image/06_valkey_sentinel_failover_sequence.png)
+
+그림의 근거 · [Valkey Sentinel](https://valkey.io/topics/sentinel/) · [Valkey Sentinel client spec](https://valkey.io/topics/sentinel-clients/) · [Valkey Replication](https://valkey.io/topics/replication/) · [Valkey WAIT](https://valkey.io/commands/wait/)

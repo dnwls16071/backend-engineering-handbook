@@ -22,6 +22,10 @@ vk TTL lab:product:missing
 
 만료된 키는 접근할 때 제거될 수 있고, Valkey는 접근이 없는 키도 주기적으로 검사해 제거한다. 만료 시각과 메모리에서 실제로 정리되는 시점에는 차이가 있을 수 있다. [키 만료 동작](https://valkey.io/commands/expire/)
 
+![TTL을 가진 키를 SET KEEPTTL로 갱신하는 경우, 옵션 없이 교체하는 경우, 만료된 경우의 비교](image/02_valkey_ttl_state_transitions.png)
+
+그림의 근거 · [Valkey SET](https://valkey.io/commands/set/) · [Valkey EXPIRE](https://valkey.io/commands/expire/) · [Valkey TTL](https://valkey.io/commands/ttl/)
+
 ## 2. 객체 캐시와 여러 키 처리
 
 객체를 JSON 문자열로 저장하면 한 번에 읽고 갱신하기 쉽다. 일부 필드만 자주 고친다면 Hash를 고려한다. `MGET`은 여러 문자열 키를 한 번에 읽는다. `MSET`은 값을 묶어서 교체하지만 키별 TTL을 받지 않으며 덮어쓴 키의 기존 TTL은 사라진다.
@@ -50,3 +54,7 @@ COMMANDS
 | 존재하지 않는 키를 반복 조회 | 짧게 미존재 결과를 캐싱하고, 새로 생성될 때 해당 키도 무효화한다. |
 
 운영에서는 적중률과 함께 실제 원본 조회 수, 캐시 미스 경로의 지연, 만료·퇴출 수를 본다. 같은 키가 한 노드에 집중되는 문제는 [메모리와 가용성](06_valkey_persistence_memory_and_high_availability.md)에서 이어서 다룬다. [Cache stampede 완화](../cache/06_mitigating_cache_stampedes.md)
+
+![Valkey 적중과 미스의 분기, 원본 커밋 뒤 무효화와 이전 값을 늦게 채우는 경합](image/02_valkey_cache_aside_and_invalidation.png)
+
+그림의 근거 · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Cloudflare Request collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing)

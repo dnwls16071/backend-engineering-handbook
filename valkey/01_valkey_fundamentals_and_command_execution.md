@@ -39,3 +39,7 @@ docker exec valkey-lab valkey-cli RPUSH lab:blocking-example ready
 ```
 
 차단 목록 명령은 조건이 충족될 때까지 해당 연결을 대기시킨다. 큰 키에 대한 비싼 명령이나 긴 Lua 스크립트는 명령 실행 자체를 오래 점유할 수 있다. 두 경우의 영향을 구분해 지연을 진단한다. [BLPOP](https://valkey.io/commands/blpop/) · [Lua 스크립팅](https://valkey.io/topics/eval-intro/)
+
+![Valkey의 소켓 I/O와 명령 실행 경계, 빈 리스트에서 BLPOP으로 기다리는 A 연결과 PING 및 RPUSH를 보내는 B 연결의 시퀀스](image/01_valkey_io_and_blocking_command_boundary.png)
+
+그림의 근거 · [Valkey 9.2.0 I/O Threads 설계](https://github.com/valkey-io/valkey/blob/9.2.0/design-docs/io-threads.md) · [Valkey BLPOP](https://valkey.io/commands/blpop/) · [Valkey Lua 스크립팅](https://valkey.io/topics/eval-intro/)

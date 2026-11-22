@@ -31,9 +31,13 @@ vk XACK lab:orders warehouse "$event_id"
 vk XPENDING lab:orders warehouse
 ```
 
-`>`는 해당 그룹에서 아직 전달하지 않은 이벤트를 읽는다. 읽은 뒤 `XACK`하기 전까지 PEL(Pending Entries List)에 남는다. 실습은 즉시 인수하기 위해 `XAUTOCLAIM`의 최소 유휴 시간을 0으로 둔다. 운영에서는 보통 처리 시간보다 길게 설정해 정상 처리 중인 작업을 빼앗지 않도록 하고, 반환된 커서로 다음 구간을 조회한다. `XACK`는 그룹의 대기 기록을 정리하며 스트림 항목 자체는 유지한다. [Streams](https://valkey.io/topics/streams/) · [XAUTOCLAIM](https://valkey.io/commands/xautoclaim/)
+`>`는 해당 그룹에서 아직 전달하지 않은 이벤트를 읽는다. 읽은 뒤 `XACK`하기 전까지 PEL(Pending Entries List)에 남는다. 실습은 즉시 인수하기 위해 `XAUTOCLAIM`의 최소 유휴 시간을 0으로 둔다. 운영에서는 보통 처리 시간보다 길게 설정해 정상 처리 중인 작업을 빼앗지 않도록 하고, 반환된 커서로 다음 구간을 조회한다. `XACK`는 그룹의 대기 기록을 정리하며 스트림 항목 자체는 유지한다. [Streams](https://valkey.io/topics/streams-intro/) · [XAUTOCLAIM](https://valkey.io/commands/xautoclaim/)
 
 이벤트 처리기는 원본 저장소의 작업과 중복 처리 기록을 함께 커밋한 후 ACK한다. 처리 결과를 저장하고 ACK하기 전에 중단되면 같은 이벤트를 다시 받을 수 있다. 스트림 보존 기간은 장애 복구 시간과 함께 정한다. 처리 전 트리밍되거나 영속화 전 노드가 손실되면 재처리할 원문도 사라질 수 있다. [Valkey 데이터 영속성](https://valkey.io/topics/persistence/)
+
+![Stream의 e1 이벤트와 그룹 PEL을 구분하고 중단한 소비자의 항목을 인수해 중복 검증 후 ACK하는 흐름](image/05_valkey_stream_pending_and_reclaim.png)
+
+그림의 근거 · [Valkey Streams](https://valkey.io/topics/streams-intro/) · [Valkey XAUTOCLAIM](https://valkey.io/commands/xautoclaim/) · [Valkey XACK](https://valkey.io/commands/xack/)
 
 ## 3. Python으로 캐시와 파이프라인 연결
 
@@ -91,3 +95,7 @@ python sample.py
 ```
 
 캐시 키가 없는 상태에서 실행하면 첫 조회는 `miss`, 두 번째는 `hit`다. 조회 수와 랭킹 갱신은 같은 네트워크 왕복에서 전송된다. 두 지표가 잠시 달라도 되는 예제이므로 `transaction=False`를 사용했다. 처리 결과가 서로 의존한다면 같은 슬롯에서 트랜잭션이나 Lua를 검토한다. [Valkey Python client](https://github.com/valkey-io/valkey-py) · [Pipelining](https://valkey.io/topics/pipelining/)
+
+![Python 파이프라인이 INCR과 ZINCRBY 전송을 묶고 응답을 읽는 동작과 명령 실행의 독립 경계](image/05_valkey_python_pipelining.png)
+
+그림의 근거 · [valkey-py 6.2.0](https://github.com/valkey-io/valkey-py/blob/v6.2.0/README.md) · [Valkey Pipelining](https://valkey.io/topics/pipelining/) · [Valkey Transactions](https://valkey.io/topics/transactions/)

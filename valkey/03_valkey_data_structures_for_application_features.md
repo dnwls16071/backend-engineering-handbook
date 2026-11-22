@@ -55,3 +55,7 @@ vk PFCOUNT lab:visitors:approx
 ```
 
 `INCR`은 이벤트 총량을, Set은 정확한 고유 방문자 수를 센다. HyperLogLog는 멤버 열거 없이 고유 수를 근사하는 용도다. 사용자 ID를 제한된 정수 오프셋으로 매핑할 수 있으면 Bitmap도 사용할 수 있다. 드문 값에 큰 오프셋이 붙으면 높은 위치까지 메모리가 할당될 수 있다. [Lists](https://valkey.io/topics/lists/) · [HyperLogLog](https://valkey.io/topics/hyperloglogs/) · [SETBIT](https://valkey.io/commands/setbit/)
+
+![장바구니에는 Hash, 순위에는 Sorted Set, 최근 기록에는 List를 쓰고 총 이벤트와 고유 방문자 수를 분리하는 구조](image/03_valkey_data_structure_selection.png)
+
+그림의 근거 · [Valkey Hashes](https://valkey.io/topics/hashes/) · [Valkey ZRANGE](https://valkey.io/commands/zrange/) · [Valkey Lists](https://valkey.io/topics/lists/) · [Valkey Sets](https://valkey.io/topics/sets/) · [Valkey HyperLogLog](https://valkey.io/topics/hyperloglogs/) · [Valkey EXPIRE](https://valkey.io/commands/expire/)
