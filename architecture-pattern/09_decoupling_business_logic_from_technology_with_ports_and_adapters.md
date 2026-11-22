@@ -70,7 +70,9 @@
 - 바깥의 JPA 어댑터가 안쪽의 포트를 구현한다.
 - 실행할 때는 사용할 어댑터를 업무 서비스에 주입한다.
 
-<img src="image/hexagonal_execution_vs_dependency.png" alt="실행 시 주문 서비스가 JPA 어댑터를 통해 DB에 저장하는 흐름과, 코드에서는 주문 서비스와 JPA 어댑터가 모두 주문 저장 포트에 의존하는 방향의 비교" width="400">
+![실행 중 주문 서비스가 JPA 어댑터로 저장을 호출하는 실선과 코드에서 주문 서비스·어댑터가 저장 포트를 참조하는 점선](image/hexagonal_execution_vs_dependency.png)
+
+그림의 근거 · [Cockburn · Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture) · [AWS Hexagonal Architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/hexagonal-architecture.html)
 
 - 실행 흐름의 화살표는 호출 방향이고, 코드 의존 방향의 화살표는 타입을 참조하거나 구현하는 방향이다.
 - 파란색은 애플리케이션 안쪽의 업무 서비스와 포트, 보라색은 바깥의 어댑터와 DB이다.
