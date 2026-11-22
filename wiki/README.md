@@ -80,3 +80,45 @@ python3 wiki/wiki.py check --scope mysql --max-age 90
 ## 6. Codex 종료 시 자동 점검 연결하기
 
 [프로젝트 훅 예시](codex-hooks.json)의 `Stop` 항목을 저장소의 `.codex/hooks.json`에 추가한다. 기존 설정이 있으면 `hooks.Stop` 항목에 병합한다. Codex CLI를 저장소에서 연 뒤 `/hooks`에서 정의를 검토하고 신뢰한다. 훅은 현재 Git 변경의 로컬 점검 결과에 문제가 있으면 경고를 표시한다. 검색, 검증, 리뷰는 훅을 등록하기 전에도 직접 실행할 수 있다. [Codex Hooks 공식 문서](https://learn.chatgpt.com/docs/hooks)
+
+## 7. 검색과 LLM 답변의 회귀 확인하기
+
+[기본 평가셋](evaluation-cases.json)은 15개 질문으로 근거를 찾을 수 있는 사례 13건과 답변 보류 사례 2건을 검사한다. 각 질문의 `query`와 `scope`로 기존 위키 검색을 실행하고, 파일별 첫 결과를 기준으로 상위 5개 문서에 기대 경로가 있는지 확인한다. 기본 실행은 첫 검색 결과의 한 줄을 답변으로 사용한다.
+
+```bash
+python3 -B wiki/evaluate.py run --out /tmp/lounge-before.json
+# 위키 문서나 검색을 변경한 뒤 실행
+python3 -B wiki/evaluate.py run --out /tmp/lounge-after.json
+python3 -B wiki/evaluate.py compare /tmp/lounge-before.json /tmp/lounge-after.json
+```
+
+비교는 같은 평가셋, 검색 개수, 답변 모드로 실행한 보고서를 사용한다. 질문별로 새로 실패한 검사, 해결된 검사, 계속 실패하는 검사를 출력한다. JSON 보고서에는 검색된 문서와 줄, 검증된 인용 위치, 실패 사유가 남는다. `run`은 실패한 질문이 있으면 코드 1을 반환하고, `compare`는 새로 실패한 검사가 있으면 코드 1을 반환한다. 입력 또는 실행 오류는 코드 2다.
+
+실제 답변을 평가할 때는 질문 목록을 내보낸다. Codex에 각 질문을 위키 문서로 답하고, 결과를 아래 형식의 JSON 객체에 질문 ID별로 저장하도록 요청한다. 기준과 후보 답변을 각각 만든 뒤 같은 평가셋으로 채점한다.
+
+```bash
+python3 -B wiki/evaluate.py questions > /tmp/lounge-questions.json
+python3 -B wiki/evaluate.py run --answers /tmp/lounge-answers-before.json --out /tmp/lounge-llm-before.json
+python3 -B wiki/evaluate.py run --answers /tmp/lounge-answers-after.json --out /tmp/lounge-llm-after.json
+python3 -B wiki/evaluate.py compare /tmp/lounge-llm-before.json /tmp/lounge-llm-after.json
+```
+
+다음은 답변 파일에서 한 질문에 해당하는 항목이다. 전체 실행에는 질문 목록의 모든 ID가 필요하다.
+
+```json
+{
+  "postgres-serialization-retry": {
+    "status": "answered",
+    "answer": "SQLSTATE 40001을 받으면 트랜잭션 전체를 다시 실행합니다.",
+    "citations": [
+      {
+        "path": "postgresql/05_postgresql_transactions_mvcc_and_hybrid_search.md",
+        "line": 23,
+        "quote": "직렬화 실패 SQLSTATE `40001`을 재시도할 때는 트랜잭션 전체를 다시 실행한다. 중간에 외부 시스템을 호출한다면 같은 요청을 재실행해도 부작용이 중복되지 않도록 설계한다."
+      }
+    ]
+  }
+}
+```
+
+인용은 저장소 상대 경로, 1부터 시작하는 줄 번호, 해당 Markdown 줄 전체를 사용한다. 위키에서 근거를 찾지 못했다면 `status`는 `insufficient_evidence`로 두고, `answer`에 이유를 적고, `citations`는 빈 배열로 둔다. 채점기는 기대 용어가 답변과 실제 인용에 있는지 검사한다. 문장이 같은 뜻인지, 인용이 답변의 모든 주장을 뒷받침하는지는 사람이 검토한다. 명령 자체는 모델을 호출하지 않는다.

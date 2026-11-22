@@ -4,6 +4,7 @@
 import argparse
 from datetime import date
 from difflib import SequenceMatcher
+from itertools import islice
 import json
 import os
 from pathlib import Path
@@ -230,17 +231,20 @@ def format_issue(item):
     return f"{where} [{item['code']}] {item['message']}"
 
 
-def search(scope, query, limit):
-    shown = 0
+def search_matches(scope, query):
     query = query.casefold()
     for path in markdown_paths(scope):
         for number, line in enumerate(read_page(path), 1):
             if query in line.casefold():
-                print(f"{path}:{number}: {line}")
-                shown += 1
-                if shown == limit:
-                    return 0
-    return 0 if shown else 1
+                yield path, number, line
+
+
+def search(scope, query, limit):
+    found = False
+    for path, number, line in islice(search_matches(scope, query), limit):
+        print(f"{path}:{number}: {line}")
+        found = True
+    return 0 if found else 1
 
 
 def review(scope, preview, include_untracked):
