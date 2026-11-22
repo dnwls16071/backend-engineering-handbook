@@ -10,7 +10,9 @@
 - 읽기 모델은 화면이나 조회 목적에 맞는 데이터를 반환한다.
 - **핵심은 모델의 분리이며 저장소 분리는 선택 사항이다.**
 
-<img src="image/cqrs_structure.png" alt="읽기 모델과 쓰기 모델을 분리하고 하나의 DB를 공유하는 CQRS 구조" width="400">
+![상품 등록 명령과 목록 조회가 서로 다른 모델을 거치고 저장소는 공유하는 CQRS 구조](image/cqrs_structure.png)
+
+그림의 근거 · [Microsoft CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Martin Fowler · CQRS](https://martinfowler.com/bliki/CQRS.html)
 
 | 구분 | Command | Query |
 | :---: | :--- | :--- |
@@ -46,7 +48,9 @@
 
 ### 하나의 모델에 서로 다른 요구가 쌓인다
 
-<img src="image/why_structure.png" alt="등록·수정과 목록·상세·검색이 하나의 모델에 집중되는 구조" width="400">
+![쓰기 규칙과 조회용 필터·정렬·표시 요구가 하나의 상품 모델에 모이는 구조](image/why_structure.png)
+
+그림의 근거 · [Martin Fowler · CQRS](https://martinfowler.com/bliki/CQRS.html) · [Microsoft CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 
 - 화면이 늘어나면 조회용 필드와 메서드가 모델에 계속 추가된다.
 - 하나의 화면을 위해 여러 엔티티를 조합하는 조회가 복잡해진다.
@@ -66,7 +70,9 @@
 
 ## 4. 분리 수준에 따른 구조
 
-<img src="image/how_structure.png" alt="모델 분리, 조회용 구조 추가, 저장소 분리의 세 가지 CQRS 구성" width="400">
+![공유 테이블, 같은 DB의 별도 조회 구조, 읽기 저장소 분리에서 쓰기와 읽기 모델을 구성하는 세 예시](image/how_structure.png)
+
+그림의 근거 · [Microsoft CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 
 ### 모델만 분리한다
 
@@ -132,7 +138,9 @@
 
 ### 변경 직후에는 조회 결과가 다를 수 있다
 
-<img src="image/cqrs_tradeoff.png" alt="쓰기 완료와 읽기 반영 사이의 동기화 지연과 최종 일관성" width="400">
+![쓰기 커밋 직후의 조회에는 이전 가격이 보이고 프로젝션 적용 뒤 새 가격이 보이는 비동기 CQRS 예](image/cqrs_tradeoff.png)
+
+그림의 근거 · [Microsoft CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 
 - 최종 일관성에서는 쓰기 결과와 읽기 데이터가 일시적으로 다를 수 있다.
 - 변경 전달과 처리가 정상적으로 완료되면 읽기 데이터에도 결과가 반영된다.
