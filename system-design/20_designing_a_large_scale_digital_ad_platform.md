@@ -2,6 +2,10 @@
 
 광고 선택 요청의 지연 목표와 광고주 보고·과금의 정확도를 따로 정한다. 광고 노출, 클릭, 과금 근거의 식별자가 어떻게 이어지는지 먼저 정의한다. [IAB Tech Lab OpenRTB 2.6](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Flink 2.2 Timely Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/time/)
 
+![광고 선택 API가 후보 인덱스와 예산을 조회해 기한 안에 응답한다. 요청·노출·클릭 이벤트는 별도 로그에 쌓고 식별자로 연결해 과금 및 보고 결과를 계산한다.](image/20_digital_ad_platform_architecture.png)
+
+그림의 근거 · [IAB Tech Lab OpenRTB 2.6](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md) · [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+
 ## 1. 광고 후보를 제한된 시간 안에 고른다
 
 광고 지면 및 정책 조건을 만족하는 캠페인 후보를 캐시나 인덱스에서 찾고, 예산과 노출 빈도를 확인해 광고를 선택한다. 기한 안에 후보를 확정할 수 없으면 광고 없음이나 사전 정의한 기본 응답을 반환한다. [IAB Tech Lab OpenRTB 2.6](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/)
