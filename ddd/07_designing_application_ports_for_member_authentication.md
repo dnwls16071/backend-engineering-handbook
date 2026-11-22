@@ -19,6 +19,10 @@
 
 인증은 호출자의 신원을 확인한다. 인가는 그 신원으로 특정 작업을 할 수 있는지 판단한다. 예를 들어 로그인한 회원도 승인된 강사만 호출할 수 있는 유스케이스에서는 접근이 거절될 수 있다. 로그인 실패 응답은 외부에서 계정 존재 여부나 상태를 쉽게 알아낼 수 없도록 일관된 계약으로 정한다. 내부 진단에 필요한 실패 이유와 외부 응답은 접근 목적이 다른 정보로 다룬다. [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
 
+![인증 서비스가 소유한 입출력 포트와 비밀번호 검증 기술의 경계](image/07_ddd_authentication_ports_and_policy.png)
+
+그림의 근거 · [포트 소유권](https://alistair.cockburn.us/hexagonal-architecture) · [Spring Security 비밀번호 저장](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html) · [외부 인증 실패 응답](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
+
 ## 3. 개발 가이드에 남길 계약
 
 - 어떤 호출자가 포트를 사용하고 어떤 업무를 수행하는가.

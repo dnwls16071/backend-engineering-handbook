@@ -18,6 +18,10 @@
 
 DDD의 전략적 설계는 모델의 범위와 맥락 간 관계를 다룬다. 전술적 설계는 그 범위 안에서 엔티티, 값 객체, 애그리거트 같은 도구로 업무 규칙을 표현한다. 도메인 모델 패턴은 상태와 행동을 객체에 함께 둔다. 업무가 단순하다면 절차 중심의 Transaction Script로도 충분할 수 있으며, 반복되거나 복잡해지는 규칙에는 모델을 도입할 이유가 생긴다. [Martin Fowler · Domain Model](https://martinfowler.com/eaaCatalog/domainModel.html) · [Transaction Script](https://martinfowler.com/eaaCatalog/transactionScript.html)
 
+![회원 관리와 강의 운영의 바운디드 컨텍스트 및 공개 계약](image/01_ddd_bounded_contexts_and_language.png)
+
+그림의 근거 · [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html) · [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html)
+
 ## 3. 모델을 발전시키는 순서
 
 1. 성공 시나리오와 업무가 거절되는 대표 사례를 함께 적는다.

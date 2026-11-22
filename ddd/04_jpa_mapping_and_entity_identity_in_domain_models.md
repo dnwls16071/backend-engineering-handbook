@@ -22,6 +22,10 @@
 
 JPA 표준 매핑을 사용할 때는 엔티티의 선언 요건, 기본 생성자와 필드·프로퍼티 접근 방식을 함께 확인한다. 저장된 데이터를 다시 읽었을 때 도메인 객체의 상태와 값 객체가 올바르게 복원되는지 검증한다. 별도 영속 모델을 둔다면 도메인 객체로 읽은 뒤 처리하고 다시 저장하는 과정에서 낙관적 잠금에 필요한 버전도 보존한다. [Jakarta Persistence 3.2 · Entity와 XML mapping](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2)
 
+![도메인 식별자, JPA 기본 키와 조회용 자연 키의 역할](image/04_ddd_member_identity_and_persistence_mapping.png)
+
+그림의 근거 · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2) · [Hibernate ORM](https://docs.hibernate.org/stable/orm/introduction/html_single/)
+
 ## 3. equals와 hashCode의 수명 주기
 
 엔티티 동등성이 필요하면 같은 회원인지 판단할 안정적인 키를 고른다. 표시 이름, 관계 컬렉션, 바뀔 수 있는 이메일을 비교에 넣으면 수정 후 `HashSet`에서 찾지 못하거나 프록시 비교 과정에서 로딩이 일어날 수 있다. 생성 시 할당되는 불변 `MemberId`나 실제 불변 자연 키는 저장 전후의 해시를 유지하기 쉽다.

@@ -36,3 +36,7 @@ var noComponentCycles = SlicesRuleDefinition.slices()
 ```
 
 순환 검사는 금지된 단방향 참조까지 알려주지 않는다. 예를 들어 `teaching`이 `membership.adapter.out.persistence`만 참조한다면, 순환이 없는 상태에서도 공개 계약을 우회한다. 패키지별 의존 규칙과 공개 타입 검사를 함께 적용한다. ArchUnit은 바이트코드 의존성을 검사하므로 실제 Spring 빈 조합과 DB 트랜잭션 동작은 통합 테스트에서 확인한다. [ArchUnit 테스트 구성 예시](../java-testing/06_architecture_testing_with_archunit.md)
+
+![공개 의존 방향과 슬라이스 순환 검사가 잡는 위반 및 실행 테스트의 범위](image/09_ddd_architecture_rules_and_test_boundaries.png)
+
+그림의 근거 · [ArchUnit 슬라이스](https://www.archunit.org/userguide/html/000_Index.html#_slices) · [ArchUnit 의존성 표현](https://www.archunit.org/userguide/html/000_Index.html#_the_core_api) · [Spring 컴포넌트](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html)

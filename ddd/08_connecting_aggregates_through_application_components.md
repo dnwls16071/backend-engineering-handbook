@@ -16,18 +16,9 @@
 
 강사 등록의 입력 포트는 신청 명령을 받는다. 강사 서비스는 자신이 필요로 하는 `MemberEligibility` 출력 포트에서 회원 자격을 확인한다. 연결 어댑터는 회원 컴포넌트가 공개한 조회 계약을 호출하고 결과를 강사 쪽 의미로 변환한다. 조건이 충족되면 `Instructor`가 신규 신청 상태를 만들고 저장 포트가 이를 저장한다.
 
-```mermaid
-flowchart LR
-    subgraph Teaching["강의 운영"]
-        SERVICE["강사 등록 서비스"]
-        INSTRUCTOR["Instructor 애그리거트"]
-        CHECK["회원 자격 출력 포트"]
-        SERVICE --> INSTRUCTOR
-        SERVICE --> CHECK
-    end
-    CHECK --> BRIDGE["컴포넌트 연결 어댑터"]
-    BRIDGE --> PUBLIC["회원 컴포넌트 공개 조회"]
-```
+![강사 등록이 회원 공개 조회 계약을 거쳐 자격을 확인하는 경로](image/08_ddd_component_collaboration.png)
+
+그림의 근거 · [포트와 어댑터](https://alistair.cockburn.us/hexagonal-architecture) · [애그리거트 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf)
 
 실행 중에는 강사 등록이 회원 조회를 부른다. 코드에서는 연결 어댑터가 강사 쪽의 출력 포트와 회원 쪽의 공개 타입에 의존한다. 회원 컴포넌트의 저장소나 도메인 엔티티를 강사 서비스가 직접 가져오지 않으면, 내부 매핑 변경이 컴포넌트 간 계약으로 퍼지는 범위를 줄일 수 있다. [Alistair Cockburn · Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture)
 

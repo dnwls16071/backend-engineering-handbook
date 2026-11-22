@@ -13,6 +13,10 @@
 
 예를 들어 가입 대기 중 이메일을 바꾸면 이전 주소의 검증을 무효화하고, 활성화 시 현재 주소에 해당하는 검증을 다시 확인한다. 검증된 주소와 계정 상태를 서로 다른 트랜잭션에서 제각각 수정하면 이 규칙을 보장하기 어렵다. 조회 화면에서 두 정보를 함께 보여 주는 요구만 있다면 읽기 모델에서 조합할 수 있다. [Vaughn Vernon · Making Aggregates Work Together](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf)
 
+![회원 루트가 상태와 검증을 보호하는 애그리거트 경계와 강사 식별자 참조](image/05_ddd_aggregate_consistency_boundary.png)
+
+그림의 근거 · [애그리거트 사이의 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf) · [Transactional Outbox](https://microservices.io/patterns/data/transactional-outbox.html)
+
 ## 2. 애그리거트와 유스케이스의 트랜잭션
 
 회원의 프로필 변경을 처리할 때 애플리케이션 서비스는 루트를 불러오고 행동을 호출한 뒤 결과를 저장한다. 저장소 계약은 일반적으로 루트 단위로 구성한다. 자식 엔티티의 테이블이 별도로 있다면 그 테이블의 쓰기는 영속 어댑터 내부에서 처리할 수 있다.

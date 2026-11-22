@@ -21,6 +21,10 @@
 
 `setStatus`를 여러 호출 지점에 노출하면 상태 전이 규칙이 흩어진다. `activate`, `suspend`, `resume`과 같이 업무 행동을 메서드로 표현하면 각 메서드에서 출발 상태와 조건을 확인할 수 있다. 상태를 추가할 때는 먼저 허용과 거절 사례를 보완하고, 반복되는 조건만 의미 있는 이름으로 추출한다. [Martin Fowler · Domain Model](https://martinfowler.com/eaaCatalog/domainModel.html)
 
+![회원 식별자와 값 객체가 유지하는 규칙 및 가입·활성화·정지의 상태 전이](image/02_ddd_member_identity_and_states.png)
+
+그림의 근거 · [DDD 객체 분류](https://martinfowler.com/bliki/EvansClassification.html) · [Value Object](https://martinfowler.com/bliki/ValueObject.html)
+
 ## 2. 값이 없다는 의미와 검증 위치
 
 회원이 존재하지 않는 조회 결과와, 존재하는 회원에서 선택 항목이 비어 있는 상태는 다른 계약이다. 전자는 저장소 포트가 `Optional<Member>` 등으로 표현할 수 있다. 후자는 명시적 nullable 타입이나 도메인 값으로 표현한다. 객체 생성에 꼭 필요한 값은 생성 경계에서 확인한다.

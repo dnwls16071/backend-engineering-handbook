@@ -4,17 +4,11 @@
 
 ## 1. 호출 흐름과 코드 의존성
 
-아래 화살표는 실행 중 호출을 나타낸다. 런타임에 저장소 호출은 JPA 어댑터로 이어지지만, 코드에서 JPA 어댑터가 애플리케이션 소유의 저장소 포트를 구현한다.
+아래 실선은 실행 중 호출을, 점선은 코드 의존을 나타낸다. 런타임에 저장소 호출은 JPA 어댑터로 이어진다. 코드에서 JPA 어댑터는 애플리케이션 소유의 저장소 포트를 구현한다. [Alistair Cockburn · Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture)
 
-```mermaid
-flowchart LR
-    HTTP["HTTP 어댑터"] --> IN["회원 가입 입력 포트"]
-    TEST["테스트"] --> IN
-    IN --> APP["회원 가입 서비스"]
-    APP --> DOMAIN["Member 도메인 모델"]
-    APP --> OUT["회원 저장소 출력 포트"]
-    OUT --> JPA["JPA 어댑터"]
-```
+![회원 가입의 런타임 호출과 JPA 어댑터의 포트 구현 의존 방향](image/03_ddd_hexagonal_member_registration.png)
+
+그림의 근거 · [Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture) · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2)
 
 패키지명이나 인터페이스 개수보다 경계를 건너는 타입이 중요하다. 입력 포트는 가입 명령과 결과를 정의한다. 출력 포트는 가입에 필요한 조회와 저장 능력을 표현한다. 컨트롤러의 요청 객체와 JPA의 조회 타입은 각 어댑터에서 변환한다. 하나의 목적을 수행하는 관련 작업은 한 포트로 묶을 수 있다. [포트와 어댑터 개요](../architecture-pattern/09_decoupling_business_logic_from_technology_with_ports_and_adapters.md)
 

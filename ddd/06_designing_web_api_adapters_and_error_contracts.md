@@ -38,6 +38,10 @@ Spring MVC에서는 `@ControllerAdvice`와 `ProblemDetail`로 오류 응답을 �
 
 `application/problem+json` 응답의 HTTP 상태와 `status` 필드는 일치시킨다. 로그인처럼 실패 상세를 공개하기 어려운 계약은 [인증 포트 설계](07_designing_application_ports_for_member_authentication.md)에서 다룬다.
 
+![회원 가입의 요청 DTO·업무 결과·HTTP 오류 변환 지점](image/06_ddd_http_dto_and_error_contract.png)
+
+그림의 근거 · [Spring MVC 입력 검증](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html) · [Spring MVC 오류 응답](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) · [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html)
+
 ## 3. 테스트 경계 정하기
 
 웹 단위 테스트는 요청 변환, 검증, 상태 코드, 오류 본문을 확인한다. 애플리케이션 포트를 대역으로 둬 각 실패를 쉽게 재현할 수 있다. API 통합 테스트는 실제 요청 경로에서 직렬화, 설정, 예외 변환이 함께 작동하는지 확인한다. 도메인 테스트는 회원 행동 자체에 집중한다. 아키텍처 테스트는 웹 어댑터가 저장소 구현을 직접 참조하는 구조처럼 동작 테스트만으로 드러나지 않는 의존성을 검증한다. [Spring MockMvc](https://docs.spring.io/spring-framework/reference/testing/mockmvc.html) · [테스트와 아키텍처 규칙](09_verifying_hexagonal_architecture_boundaries.md)
