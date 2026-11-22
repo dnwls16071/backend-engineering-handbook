@@ -18,7 +18,9 @@
 - 실행 중 장애가 발생하면 많은 작업을 취소하거나 다시 수행해야 한다.
 - Saga는 잠금을 오래 유지하는 대신 단계별 커밋과 보상을 사용한다.
 
-<img src="image/saga_lock_timeline.png" alt="긴 트랜잭션의 잠금 유지와 Saga의 단계별 커밋 및 잠금 해제를 비교한 시간 흐름도" width="400">
+![한 트랜잭션에서 커밋까지 락을 보유하는 경우와 Saga에서 단계마다 로컬 커밋하고 락을 해제하는 경우의 시간축 비교](image/saga_lock_timeline.png)
+
+그림의 근거 · [Garcia-Molina·Salem · Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf) · [Microsoft Saga](https://learn.microsoft.com/en-us/azure/architecture/patterns/saga)
 
 | 비교 항목 | 하나의 긴 트랜잭션 | Saga |
 | :---: | :--- | :--- |
@@ -47,7 +49,9 @@
 
 ### 항공편 예약을 취소한다
 
-<img src="image/saga_compensation_flow.png" alt="항공편 A와 B를 예약한 후 실패하면 B와 A의 예약을 역순으로 보상하는 흐름" width="400">
+![항공편 A와 B의 예약이 커밋된 뒤 후속 단계가 실패해 B와 A의 예약을 역순으로 취소하는 흐름](image/saga_compensation_flow.png)
+
+그림의 근거 · [Garcia-Molina·Salem · Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf) · [Microsoft Saga](https://learn.microsoft.com/en-us/azure/architecture/patterns/saga)
 
 | 순서 | 작업 | 결과 |
 | :---: | :--- | :--- |
@@ -62,7 +66,9 @@
 
 ## 4. 실패 이후의 복구 전략
 
-<img src="image/saga_recovery_strategies.png" alt="완료한 단계를 역순으로 보상하는 Backward Recovery와 실패한 단계를 재시도하는 Forward Recovery의 비교" width="400">
+![T3 실패 시 역순 보상, 실패 단계 재시도, 저장 지점까지 일부 보상하고 재실행하는 선택지](image/saga_recovery_strategies.png)
+
+그림의 근거 · [Garcia-Molina·Salem · Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf) · [Microsoft Saga](https://learn.microsoft.com/en-us/azure/architecture/patterns/saga)
 
 | 방식 | 복구 방향 | 처리 방법 |
 | :---: | :--- | :--- |
@@ -109,7 +115,9 @@
 - 각 서비스는 자신의 데이터를 변경하고 후속 실행에 필요한 결과를 전달한다.
 - 전체 흐름을 조정하는 방식으로 코레오그래피와 오케스트레이션을 사용한다.
 
-<img src="image/saga_coordination_styles.png" alt="이벤트로 서비스를 연결하는 코레오그래피와 중앙 조정자가 요청과 결과를 관리하는 오케스트레이션의 비교" width="400">
+![서비스가 결과 이벤트를 이어받는 코레오그래피와 조정자가 명령을 보내고 결과를 받는 오케스트레이션](image/saga_coordination_styles.png)
+
+그림의 근거 · [Microsoft Saga](https://learn.microsoft.com/en-us/azure/architecture/patterns/saga) · [Chris Richardson · Saga](https://microservices.io/patterns/data/saga.html)
 
 | 비교 항목 | 코레오그래피 | 오케스트레이션 |
 | :---: | :--- | :--- |
