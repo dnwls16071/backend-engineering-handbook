@@ -76,6 +76,10 @@ fun main() = runBlocking {
 }
 ```
 
+![부모 Job과 자식의 수명 트리, 부모 취소 전파와 정상 완료 조건](image/08_job_tree_and_scope_lifetime.png)
+
+그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html)
+
 ## 3. `CoroutineScope`를 컴포넌트의 수명과 연결하기
 
 호출과 함께 끝나야 하는 작업에는 `coroutineScope`를 쓴다. 컴포넌트가 살아 있는 동안 계속 수행할 작업은 해당 컴포넌트가 소유하는 `CoroutineScope`에서 시작하고, 컴포넌트가 종료될 때 `scope.cancel()`을 호출한다. 서로 독립된 자식의 실패를 격리해야 하면 스코프에 `SupervisorJob`을 사용한다. `SupervisorJob` 자체를 취소하면 그 아래 자식도 취소된다. [kotlinx.coroutines · 사용자 정의 `CoroutineScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) · [kotlinx.coroutines · `SupervisorJob`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-supervisor-job.html)

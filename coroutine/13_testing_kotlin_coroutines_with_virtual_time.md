@@ -150,6 +150,10 @@ class StockServiceTest {
 }
 ```
 
+![advanceTimeBy가 옮긴 가상 시간의 경계에 예약된 작업을 runCurrent로 실행하는 테스트 흐름](image/13_coroutine_test_virtual_time_boundary.png)
+
+그림의 근거 · [Kotlin 1.10.2 TestCoroutineScheduler](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt) · [Kotlin 1.10.2 TestScope](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestScope.kt)
+
 ## 5. 장기 실행 작업과 `Dispatchers.Main` 테스트하기
 
 끝없이 반복하는 작업은 `backgroundScope`에서 시작할 수 있다. 테스트가 끝나면 이 스코프의 작업이 자동으로 취소된다. `advanceUntilIdle()`은 백그라운드 작업만 남으면 시간 전진을 멈춘다. 주기 작업을 검증하려면 `advanceTimeBy()`와 `runCurrent()`로 필요한 구간을 명시한다. [kotlinx.coroutines · `backgroundScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-scope/background-scope.html)

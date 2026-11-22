@@ -102,3 +102,7 @@ fun main() = runBlocking {
     check(events == listOf("immediate", "caller", "queued"))
 }
 ```
+
+![디스패처의 실행 판단과 큐, Default·IO·Main 및 limitedParallelism의 병렬도 제한](image/04_dispatcher_queue_and_parallelism_limits.png)
+
+그림의 근거 · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Dispatchers.IO](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Kotlin limitedParallelism](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html) · [Kotlin Main.immediate](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html)

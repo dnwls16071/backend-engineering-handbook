@@ -171,3 +171,7 @@ fun main() = runBlocking {
     check(!parent.isActive && parent.isCompleted && !parent.isCancelled)
 }
 ```
+
+![LAZY Job의 정상 상태 전이와 취소 때 정리가 끝날 때까지 기다리는 경로](image/05_job_lifecycle_and_join.png)
+
+그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin Job.join](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/join.html)

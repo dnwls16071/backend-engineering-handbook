@@ -151,6 +151,10 @@ fun main() = runBlocking {
 }
 ```
 
+![취소 요청, 자식의 협력적 확인과 정리, cancelAndJoin의 대기 시점](image/01_coroutine_cooperative_cancellation.png)
+
+그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin cancelAndJoin](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)
+
 ## 5. 예외 전파와 `Job`의 상태 변화
 
 | 상태 | `isActive` | `isCompleted` | `isCancelled` |

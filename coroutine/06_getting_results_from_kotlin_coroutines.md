@@ -139,3 +139,7 @@ fun main() = runBlocking {
     check(Thread.currentThread() === caller)
 }
 ```
+
+![async와 awaitAll로 독립 작업의 결과를 모으는 흐름과 withContext의 결과 반환](image/06_deferred_results_and_with_context.png)
+
+그림의 근거 · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin awaitAll](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html) · [Kotlin withContext](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)

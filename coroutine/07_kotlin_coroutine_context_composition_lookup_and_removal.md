@@ -97,3 +97,7 @@ fun main() = runBlocking(CoroutineName("request")) {
     }
 }
 ```
+
+![CoroutineContext에서 오른쪽의 같은 키가 요소를 교체하고 minusKey가 요소를 제외한 값을 반환하는 예](image/07_context_keys_composition_and_removal.png)
+
+그림의 근거 · [Kotlin CoroutineContext.plus](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html) · [Kotlin CoroutineContext.minusKey](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html) · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt)

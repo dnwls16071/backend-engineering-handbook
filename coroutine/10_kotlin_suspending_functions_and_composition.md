@@ -123,3 +123,7 @@ fun main() {
     }
 }
 ```
+
+![앞 단계 결과가 필요한 순차 호출과 독립 조회를 async로 시작한 후 결과를 합치는 흐름](image/10_suspending_function_dependencies_and_fanout.png)
+
+그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt)

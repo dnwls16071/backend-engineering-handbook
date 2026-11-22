@@ -118,3 +118,7 @@ fun main() = runBlocking {
 ```
 
 코루틴 안에서 `Thread.sleep()`이나 블로킹 파일 API를 호출하면 해당 스레드는 계속 차단된다. 블로킹 I/O가 필요한 코드는 `withContext(Dispatchers.IO)`로 실행 위치를 분리할 수 있다. Java 21 이상에서는 가상 스레드로 블로킹 방식의 코드를 구성하는 선택지도 있다. 가상 스레드와 코루틴 모두 대기 작업의 동시성을 높이는 데 쓰이며, CPU 계산 자체를 더 빠르게 만드는 기능은 아니다. [kotlinx.coroutines · `Dispatchers.IO`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Java 21 · 가상 스레드](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html)
+
+![단일 워커에서 Thread.sleep과 delay가 후속 작업의 실행에 미치는 차이](image/03_thread_blocking_vs_coroutine_suspension.png)
+
+그림의 근거 · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)

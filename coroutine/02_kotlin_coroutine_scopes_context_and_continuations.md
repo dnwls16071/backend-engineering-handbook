@@ -143,6 +143,10 @@ fun main() = runBlocking {
 
 `UNDISPATCHED`는 이 예제에서 콜백 등록이 첫 중단 지점까지 진행된 뒤 `complete`나 `cancelAndJoin`을 호출하도록 시작 순서를 맞춘다. 재개 후 실행 위치는 코루틴 컨텍스트에 따른다. [kotlinx.coroutines · `CoroutineStart.UNDISPATCHED`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-start/-u-n-d-i-s-p-a-t-c-h-e-d/)
 
+![CoroutineScope와 Context의 역할, 일시 중단 함수와 Continuation을 거치는 재개 경로](image/02_coroutine_scope_context_and_continuation.png)
+
+그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Continuation](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/)
+
 ## 5. 적용 예시와 선택 기준
 
 한 요청에서 재고와 예약 수량을 각각 조회한다면 `coroutineScope` 안에서 두 조회를 시작하고 `await`로 합칠 수 있다. 두 조회가 모두 필요하므로 하나가 실패하면 남은 조회도 취소되는 구조를 사용한다. 차례대로 처리해야 할 작업은 `suspend` 함수를 순서대로 호출한다. 외부 콜백 API를 사용해야 할 때는 어댑터에 등록과 취소 동작을 함께 둔다. [Kotlin · 중단 함수의 동시 합성](https://kotlinlang.org/docs/composing-suspending-functions.html)

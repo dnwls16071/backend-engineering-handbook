@@ -17,6 +17,10 @@
 
 감독 스코프의 직접 자식이 실패해도 감독 스코프와 다른 직접 자식은 자동으로 취소되지 않는다. 감독 스코프 자체가 취소되거나 `supervisorScope` 블록 밖으로 예외가 나가면 그 자식들도 취소된다. `SupervisorJob(parent)`에 부모가 있으면 부모의 취소도 아래로 전파된다. 각 자식은 자신의 예외를 처리하거나 보고할 방법이 필요하다. [kotlinx.coroutines · `supervisorScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [kotlinx.coroutines · `SupervisorJob`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-supervisor-job.html)
 
+![일반 스코프와 supervisor에서 자식 실패가 형제 작업에 전파되는 범위 비교](image/09_failure_propagation_and_supervision.png)
+
+그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin supervisorScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [Kotlin CoroutineExceptionHandler](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)
+
 ## 3. `CoroutineExceptionHandler`로 미처리 예외 보고하기
 
 `CoroutineExceptionHandler`는 다른 전파 경로가 없는 미처리 예외를 보고하는 마지막 수단이다. 일반 자식 `launch`의 실패는 먼저 부모 쪽으로 전달되므로, 그 자식에만 핸들러를 추가해도 실패 전파를 차단할 수 없다. 감독 스코프의 `launch` 자식에서 처리하지 않은 예외는 핸들러로 보고할 수 있다. 실패한 코루틴에서 대체 결과를 만들거나 재시도하는 일은 해당 작업 안의 `try/catch`로 처리한다. [kotlinx.coroutines · `CoroutineExceptionHandler`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/)

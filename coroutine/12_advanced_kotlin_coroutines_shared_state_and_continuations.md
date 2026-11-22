@@ -211,3 +211,7 @@ fun main() {
 ```
 
 같은 중단 지점에 결과는 한 번만 전달한다. 콜백 API를 감싸면서 코루틴 취소와 콜백 등록 해제도 다뤄야 한다면 [02번의 `suspendCancellableCoroutine` 예제](02_kotlin_coroutine_scopes_context_and_continuations.md)를 참고한다.
+
+![공유 카운터의 갱신 유실과 suspendCoroutine에서 Continuation을 보관하고 재개하는 구조](image/12_shared_state_and_manual_continuation.png)
+
+그림의 근거 · [Kotlin 공유 상태와 동시성](https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html) · [Kotlin suspendCoroutine](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) · [Kotlin Unconfined](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html)
