@@ -26,6 +26,8 @@ Pod가 AWS API를 직접 호출한다면 EKS Pod Identity 또는 IRSA 등 서비
 
 ## 3. 시스템 컨텍스트
 
-![EKS 기반 Spring 서비스와 API 호출자, RDS, ECR, GitHub의 관계](image/context.png)
+![Spring 워크로드와 호출자, RDS, 이미지 저장소 ECR, GitHub의 관계](image/context.png)
+
+그림의 근거 · [AWS EKS 관리형 노드 그룹](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)
 
 Spring 서비스를 하나의 시스템으로 보고, API 호출자와 저장소·배포 의존성을 표시했다. 카탈로그와 RDS의 연결은 여러 서비스 중 하나가 DB를 소유하는 설명용 가정이다. 실제 네트워크 경계는 [EKS 배포 구성](04_deploying_spring_boot_on_eks.md)에서 이어진다.

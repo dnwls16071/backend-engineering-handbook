@@ -22,3 +22,7 @@ Argo CD `Application`에는 Git 저장소, 매니페스트 경로, 대상 클러
 Prometheus는 설정한 타깃에서 메트릭을 수집해 시계열로 저장한다. Grafana 패널에서 요청량, 오류율, 지연 시간과 Pod 준비 상태를 같은 시간 범위로 볼 수 있다. Spring Boot에서는 Prometheus 레지스트리와 Actuator 엔드포인트 설정을 맞춘다. 메트릭의 상세 경로와 실제 지표 이름은 애플리케이션 구성을 확인한다. [Prometheus · Overview](https://prometheus.io/docs/introduction/overview/) · [Grafana · Dashboards](https://grafana.com/docs/grafana/latest/visualizations/dashboards/) · [Spring Boot 3.5 · Actuator Endpoints](https://docs.spring.io/spring-boot/3.5/reference/actuator/endpoints.html)
 
 배포 직후 오류율이 상승하면 배포 리비전, Pod 재시작과 readiness, ALB 타깃 건강 상태를 함께 비교한다. Grafana 조회와 Kubernetes HPA에는 서로 다른 메트릭 전달 경로가 쓰일 수 있다. [Kubernetes · HPA 지표 API](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+
+![HPA의 Pod 수 조정, Cluster Autoscaler의 노드 확장, Argo CD 배포와 Prometheus·Grafana 관측](image/05_eks_scaling_gitops_and_metrics_loops.png)
+
+그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [AWS EKS Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/best-practices/cas.html) · [Argo CD 리소스 상태](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) · [Prometheus 개요](https://prometheus.io/docs/introduction/overview/)

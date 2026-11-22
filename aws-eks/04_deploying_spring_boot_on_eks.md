@@ -2,7 +2,9 @@
 
 ## 1. 배포에 필요한 경계
 
-![퍼블릭 ALB, EKS 워크로드와 프라이빗 RDS의 전달 경로](image/containers.png)
+![공개 ALB, 프라이빗 워커의 Spring Boot와 프라이빗 RDS가 연결되는 VPC 배포 구조](image/containers.png)
+
+그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
 
 Spring Boot 워크로드는 ECR의 컨테이너 이미지를 사용한다. 예시에서는 외부 HTTPS를 ALB에서 종료하고 Spring Cloud Gateway Pod로 HTTP를 전달한다. Gateway는 같은 Namespace의 카탈로그 Service로 요청을 넘긴다. RDS 연결은 해당 데이터를 읽는 카탈로그 서비스에만 배정했다. 이 연결, 리전, 도메인은 설명용으로 정했다.
 

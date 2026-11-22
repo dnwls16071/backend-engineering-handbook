@@ -14,12 +14,16 @@
 
 ## 2. 정상 요청 흐름
 
-![상품 조회가 ALB, Gateway, 카탈로그 서비스, RDS를 거쳐 응답하는 순서](image/normal-sequence.png)
+![상품 조회가 ALB, Spring Cloud Gateway, 카탈로그 서비스와 RDS를 거쳐 응답하는 시퀀스](image/normal-sequence.png)
+
+그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)
 
 DNS 조회가 끝나고 타깃이 요청을 처리할 수 있는 상태에서 읽기 요청을 보낸다고 가정한다. ALB에서 HTTPS를 종료하고 Gateway로 전달한다. 카탈로그 서비스가 RDS에서 상품을 읽고 결과를 반환하면 호출자는 `200`과 상품 데이터를 받는다.
 
 ## 3. 실패 요청 흐름
 
-![카탈로그 서비스에서 DB 연결이 시간 초과된 가상 시나리오](image/failure-sequence.png)
+![카탈로그 서비스가 DB 연결 시간 초과를 만나 Gateway와 ALB를 거쳐 실패 응답이 전달되는 가상 시나리오](image/failure-sequence.png)
+
+그림의 근거 · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [Spring Cloud Gateway 타임아웃](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/http-timeouts-configuration.html)
 
 가상 시나리오에서는 같은 조회가 카탈로그 서비스까지 도달한 뒤 RDS 연결 단계에서 시간 초과된다. 호출자에게 전달되는 HTTP 상태, 서비스별 재시도 정책, 자동 복구 여부는 실제 설정에 따라 달라진다. 운영자는 요청 시각의 서비스 로그와 지표를 보고 DB 엔드포인트, 보안 그룹, 연결 풀 및 RDS 상태를 확인할 수 있다. 이 그림의 예시는 읽기 요청이다. [Amazon RDS · VPC의 DB 연결](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [EKS에서 관측과 운영 확인하기](05_eks_autoscaling_gitops_and_observability.md)

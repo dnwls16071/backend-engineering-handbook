@@ -29,3 +29,7 @@ kubectl get nodes
 [Amazon Route 53 · 도메인 등록](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html) · [Amazon Route 53 · ELB로 트래픽 라우팅](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html)
 
 클러스터 API 엔드포인트는 운영자가 `kubectl`로 접속하는 주소이고, Route 53에서 가리키는 ALB는 애플리케이션 호출자가 사용하는 진입점이다. 두 주소의 접근 범위와 접근 자격을 각각 관리한다.
+
+![EKS 관리 API에 대한 접근 설정과 Route 53 별칭, 브라우저의 HTTPS 요청 경로](image/02_eks_cluster_access_and_route53_alias.png)
+
+그림의 근거 · [AWS EKS API 엔드포인트](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) · [AWS EKS 액세스 항목](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) · [AWS Route 53의 ELB 별칭](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html) · [AWS 프라이빗 EKS 클러스터](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)

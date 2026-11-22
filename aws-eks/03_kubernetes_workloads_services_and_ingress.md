@@ -56,7 +56,9 @@ Service의 `port`는 서비스 호출 포트이고 `targetPort`는 Pod가 받는
 
 ### EKS Ingress의 설정 경로와 요청 경로
 
-![EKS Ingress 설정이 ALB에 반영되고 실제 요청은 ALB에서 Gateway Pod의 8080 포트로 전달되는 흐름](image/eks-ingress-alb-gateway.png)
+![Ingress와 Service의 설정을 읽는 AWS Load Balancer Controller와 ALB가 Gateway Pod IP로 직접 전달하는 요청](image/eks-ingress-alb-gateway.png)
+
+그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 점선은 AWS Load Balancer Controller가 Ingress와 Service 정보를 읽어 ALB 규칙을 설정하고 Pod IP를 타깃으로 등록하는 흐름이다. 실선은 `api.example.com` 요청이 ALB를 거쳐 Gateway Pod의 `8080` 포트에 도달하는 흐름이다.
 
