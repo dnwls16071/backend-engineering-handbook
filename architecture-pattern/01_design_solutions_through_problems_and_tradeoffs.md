@@ -95,7 +95,9 @@
 - DB 변경과 메시지 발행을 따로 수행하면 한쪽만 성공할 수 있다.
 - **실행 순서를 바꾸는 것만으로 정합성 문제를 해결할 수 없다.**
 
-<img src="image/dual_write_limitations.png" alt="Dual Write의 실행 순서별 실패와 정합성 문제" width="400">
+![결제 DB 커밋과 브로커 발행을 두 순서로 실행할 때 한쪽만 성공하는 사건과 후속 처리 영향](image/dual_write_limitations.png)
+
+그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
 | 실행 순서 | 실패 상황 | 결과 |
 | :---: | :--- | :--- |
@@ -104,7 +106,9 @@
 
 ### 2PC와 Transactional Outbox 비교
 
-<img src="image/two_phase_commit.png" alt="2PC의 준비 요청과 응답 및 커밋 또는 중단 결정 흐름" width="400">
+![2PC 조정자가 두 자원에 준비를 요청하고 전체 준비 결과를 확인한 뒤 같은 커밋 또는 중단 결정을 전달하는 시퀀스](image/two_phase_commit.png)
+
+그림의 근거 · [Gray·Lamport · Consensus on Transaction Commit](https://arxiv.org/abs/cs/0408036) · [PostgreSQL 18 PREPARE TRANSACTION](https://www.postgresql.org/docs/18/sql-prepare-transaction.html)
 
 | 비교 항목 | 2PC | Transactional Outbox |
 | :---: | :--- | :--- |
@@ -123,7 +127,9 @@
 - 트랜잭션이 실패하면 두 기록이 함께 취소된다.
 - 별도의 Relay가 Outbox에 저장된 메시지를 읽어 브로커로 전달한다.
 
-<img src="image/transactional_outbox.png" alt="업무 데이터와 Outbox를 함께 저장하고 Relay가 브로커로 전달하는 구조" width="400">
+![하나의 로컬 트랜잭션에 결제와 Outbox 행을 기록하고 커밋 후 Relay가 브로커에 발행하는 구조](image/transactional_outbox.png)
+
+그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
 | 구성 요소 | 역할 |
 | :---: | :--- |
@@ -147,7 +153,9 @@
 
 ### Idempotent Consumer로 중복을 처리한다
 
-<img src="image/outbox_idempotent_consumer.png" alt="Outbox의 중복 전달과 멱등한 소비자의 첫 수신 및 재수신 처리" width="400">
+![발행 완료 기록 전에 Relay가 중단돼 중복 전송된 경우 소비자가 메시지 ID와 배송 생성을 함께 커밋하는 흐름](image/outbox_idempotent_consumer.png)
+
+그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Chris Richardson · Idempotent Consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
 
 - **멱등한 소비자는 같은 메시지를 반복해서 받아도 처리 결과가 달라지지 않게 한다.**
 - 이미 처리한 메시지가 다시 전달되어도 후속 작업을 중복 수행하지 않도록 설계한다.
