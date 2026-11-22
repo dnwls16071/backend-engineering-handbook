@@ -2,6 +2,10 @@
 
 인기 동영상은 전체 누적 조회수, 최근 5분 또는 특정 국가별 조회수처럼 기준이 다를 수 있다. 이 예의 순위는 같은 이벤트 시간 윈도의 조회수와 고유 동영상 ID를 기준으로 한다. [Flink 2.2 Timely Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/time/) · [Flink 2.2 Windows](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/operators/windows/) · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/)
 
+![조회 이벤트를 동영상 ID로 나눠 시간 윈도에서 집계한다. 하나의 점수가 여러 곳에 나뉘면 동영상별로 먼저 합치고, 같은 윈도와 동점 기준으로 지역 후보를 병합한다.](image/26_stream_top_k_architecture.png)
+
+그림의 근거 · [Flink 2.2 Timely Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/time/) · [Kafka 4.3 Introduction](https://kafka.apache.org/43/getting-started/introduction/) · [Flink 2.2 Stateful Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/stateful-stream-processing/) · [Flink 2.2 Windows](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/operators/windows/)
+
 ## 1. 동영상별 카운트를 먼저 모은다
 
 동영상 ID로 파티션을 정하고 같은 윈도의 이벤트를 해당 키에서 집계한다. 윈도 경계, 워터마크, 중복 제거와 동점 순서를 명시한다. 결과는 윈도 시작과 집계 버전으로 식별해 정렬 집합 또는 조회 모델에 반영할 수 있다. [Kafka 4.3 Introduction](https://kafka.apache.org/43/getting-started/introduction/) · [Flink 2.2 Windows](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/operators/windows/) · [Flink 2.2 Stateful Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/concepts/stateful-stream-processing/) · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/)
