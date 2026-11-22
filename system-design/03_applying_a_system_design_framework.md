@@ -15,3 +15,9 @@ POST 요청의 재전송과 중복 생성 정책, GET의 반환 모델, 원본 �
 쓰기 타임아웃, 읽기 복제 지연, 인기 키 만료, DB 장애를 각각 대입한다. 무엇이 이미 커밋됐는지, 사용자가 어떤 상태를 보는지, 어떤 키로 대조하거나 재시도하는지를 기록한다. [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [AWS Saga Orchestration](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 
 마지막에는 설계 선택, 검증할 부하 조건, 알려진 한계를 짧게 남긴다. 수치 추정과 SLO를 연결해 어떤 측정 결과에서 다음 확장안을 검토할지 정한다. [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+## 4. 설계에서 지킬 계약과 선택을 기록한다
+
+게시글 예제에서 작성 직후 본인 상세 조회는 쓰기 DB로 보내고, 일반 목록은 최신성 목표를 따로 둔다. 처음에는 목록도 원본에서 읽고, 트래픽 시험에서 DB 읽기가 상세 조회의 지연 목표를 깨뜨리면 목록 캐시를 검토한다. 이때 목록이 늦게 갱신되어도 되는 시간을 고객 계약으로 먼저 정한다. [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Microsoft · Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+
+설계 리뷰에서는 정상 경로와 함께 두 상황을 설명한다. POST가 커밋된 직후 응답을 잃으면 같은 요청 키로 원래 결과를 조회하고, 목록 캐시가 한꺼번에 비워지면 원본 DB에 들어가는 부하와 상세 조회 성공률을 확인한다. 두 실험 결과를 남겨 다음 설계 선택의 기준으로 삼는다. [AWS · Making Retries Safe with Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/)
