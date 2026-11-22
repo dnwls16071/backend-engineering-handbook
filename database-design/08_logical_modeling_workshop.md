@@ -19,14 +19,9 @@ OrderItem의 `line_no`는 주문 안에서 항목을 구별하는 필수 값이�
 
 ## 참여도와 카디널리티를 제약으로 옮기기
 
-```mermaid
-erDiagram
-    MEMBER ||..o{ ORDER : places
-    ORDER ||..|{ ORDER_ITEM : contains
-    PRODUCT ||..o{ ORDER_ITEM : appears_in
-    ORDER ||..o| PAYMENT : has
-    ORDER ||..o| SHIPMENT : has
-```
+![쇼핑몰의 필수 외래 키와 고유 제약을 표시한 논리 ERD](image/08_database_logical_shop_keys_and_cardinality.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)
 
 - 회원 한 명은 주문이 0건 이상일 수 있고, 주문 한 건에는 회원이 꼭 한 명 있다. `Order.member_id`에 필수 외래 키를 둔다.
 - 주문과 상품 사이의 다대다 관계는 OrderItem으로 해소한다. 각 항목은 정확히 한 주문과 한 상품에 연결된다. 판매된 적 없는 상품은 항목이 없을 수 있다.

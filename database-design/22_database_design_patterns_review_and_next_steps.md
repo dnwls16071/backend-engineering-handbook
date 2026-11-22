@@ -19,6 +19,10 @@
 - **상품 속성**이 유형마다 다르더라도 주문, 가격, 상품의 관계처럼 참조와 범위 검사가 중요한 값은 모델의 키와 열로 표현한다. 추가 속성의 조건 검색이 중요하면 속성 정의와 값을 나눈 모델을 살펴본다. 주로 상품 한 건과 함께 읽는 값이라면 JSON을 검토하고, 자주 검색하는 경로는 별도로 인덱싱할 수 있는지 확인한다. [MySQL JSON 자료형과 인덱스](https://dev.mysql.com/doc/refman/8.4/en/json.html)
 - **일별 주문 통계**를 미리 저장하면 목록 조회에서 원본 주문을 매번 합산하는 비용을 줄일 수 있다. 집계의 기준 시간대와 합산 단위를 기록하고, 지연 도착한 결제·취소를 어느 기간에 다시 반영할지 정한다. 재실행 전후의 통계가 원본과 일치하고, 동일 집계 구간을 다시 처리해도 중복 합산되지 않는지 확인한다. [통계 테이블 설계](18_aggregate_table_design.md)
 
+![상품 속성과 주문 집계의 모델 선택 및 재계산 검증](image/22_database_design_pattern_decisions.png)
+
+그림의 근거 · [JSON 자료형 및 인덱싱](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [집계 키의 덮어쓰기](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
+
 ## 3. 성능과 운영 검증으로 이어가기
 
 실제 요청의 필터와 정렬, 데이터 규모와 분포를 바탕으로 느린 쿼리를 고른다. 실행 계획의 예상 행 수와 실측 처리량을 비교하고, 인덱스나 구조를 바꾼 뒤 같은 조건에서 읽기와 쓰기를 다시 측정한다. 정상 동작뿐 아니라 동시 변경, 재시도, 과거 데이터 정리 후에도 제약과 조회 결과가 맞는지 확인한다. [MySQL Optimization](https://dev.mysql.com/doc/refman/8.4/en/optimization.html) · [실행 계획과 복합 인덱스](../database/08_composite_and_covering_indexes.md)

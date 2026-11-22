@@ -13,6 +13,10 @@
 
 식별 관계에서는 `(주문 42, 항목 2)`로 행을 식별한다. 비식별 관계에서는 `order_item_id`로 행을 식별하고, 주문별 번호는 별도의 업무 제약으로 유지한다. 두 설계 모두 `order_id`의 필수 참여를 보장할 수 있다. 식별 관계에서는 기본 키의 구성 열이므로 필수이고, 비식별 관계에서는 `NOT NULL`을 선언한다. [Oracle Data Modeler의 관계와 식별자](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [PostgreSQL의 기본 키와 외래 키 제약](https://www.postgresql.org/docs/current/ddl-constraints.html)
 
+![부모 키를 자식 기본 키에 포함하는 식별 관계와 독립 키 비교](image/07_database_identifying_and_independent_keys.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)
+
 ## 일대일에서 공유 키와 독립 키 비교하기
 
 회원 상세 정보가 회원당 최대 한 건이라면, 자식의 `member_id`를 기본 키이자 외래 키로 두는 공유 기본 키가 식별 관계의 예다. 상세 정보에 자체 `member_detail_id`를 두고, `member_id`에 `NOT NULL`과 `UNIQUE`를 적용하면 비식별 관계로 같은 개수 제한을 표현할 수 있다.

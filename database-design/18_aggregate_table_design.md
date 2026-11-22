@@ -93,3 +93,7 @@ ORDER BY report_day, channel_code;
 ```
 
 앞의 통계 두 행에 2월 2일 `web`의 `1건 / 15.00`이 추가된다. 원본 집계 부담이 크면 마이크로 배치로 고정된 시간 구간을 재계산하고, **어디까지 집계가 완료됐는지** 보여 주는 경계를 결과와 함께 커밋한다. 독자는 그 경계를 기준으로 통계와 아직 반영되지 않은 원본을 겹치지 않게 읽는다. 늦게 도착한 결제나 환불은 이미 끝난 기간을 바꿀 수 있으므로 일정 기간을 다시 계산하거나 영향받은 날짜를 재처리한다. 같은 범위를 동시에 계산할 수 있다면 오래된 원본을 읽은 배치가 더 최신 결과를 덮지 않도록 실행을 직렬화하거나 원본 버전을 비교한다.
+
+![같은 날짜와 채널의 집계를 덮어쓰고 완료 구간과 최신 원본을 합치는 방식](image/18_database_rollup_grain_and_recompute.png)
+
+그림의 근거 · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) · [중복 키 갱신](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)

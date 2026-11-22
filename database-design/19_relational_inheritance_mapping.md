@@ -63,3 +63,7 @@ ORDER BY p.product_id;
 조회에서 상품 101은 파일 크기 32.50과 무게 `NULL`, 상품 102는 파일 크기 `NULL`과 무게 240을 반환한다. 101에 실물 상세 행을 추가하면 부모의 유형이 다르므로 외래 키 검사에 실패한다. 여기서 부모에 있는 `UNIQUE(product_id, product_kind)`는 유형까지 비교할 외래 키가 참조하는 키다. [MySQL CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html) · [MySQL 외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
 이 DDL은 상품당 상세 행을 최대 한 건으로 제한한다. 부모를 넣은 뒤 상세 행을 누락하거나 상세만 삭제하면 상품 행은 남을 수 있다. 모든 상품에 상세가 반드시 있어야 한다면 등록과 변경을 한 트랜잭션의 쓰기 경로로 묶고, 완료 직전에 해당 유형의 상세가 정확히 하나 있는지 확인한다. ORM으로 매핑하더라도 물리 제약과 조회 SQL을 함께 점검한다. Jakarta Persistence 3.2는 단일 테이블과 조인 전략을 필수 지원으로 규정하고 구현 클래스별 전략을 선택 사항으로 둔다. [Jakarta Persistence 3.2 상속 매핑 지원 범위](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies)
+
+![관계형 상속 매핑 세 가지와 유형을 포함하는 조인 전략의 외래 키](image/19_database_inheritance_and_typed_foreign_keys.png)
+
+그림의 근거 · [JPA 상속 매핑](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)

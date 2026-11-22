@@ -15,6 +15,10 @@
 
 예를 들어 주문당 성공 결제 최대 1건은 먼저 업무 규칙으로 선택한다. 논리 모델은 결제의 주문 참조에 고유 제약을 두고, 물리 모델은 실제 DBMS의 외래 키와 고유 제약으로 구현한다. 여러 차례의 결제를 기록해야 한다는 요구가 생기면, 성공한 결제의 정의와 부분 결제를 허용할지부터 다시 정한다. [Oracle Data Modeler의 설계 단계](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/22.2/dmdug/data-modeler-concepts-usage.html) · [MySQL 외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
+![성공 결제의 최대 수를 개념·논리·물리 단계에서 추적](image/12_database_design_review_payment_rule.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 2. 다음 설계 주제로 이어가기
 
 | 주제 | 모델링을 시작할 질문 |

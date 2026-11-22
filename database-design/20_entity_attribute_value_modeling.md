@@ -85,3 +85,7 @@ ORDER BY p.product_id;
 - 복합 외래 키와 `CHECK`는 존재하는 값 행의 종류와 범위를 검증하는 데 쓸 수 있다. 상품을 게시할 때 필요한 속성 값이 모두 존재하는지는 별도의 쓰기 규칙으로 확인한다. MySQL의 `CHECK`에는 다른 테이블의 열이나 서브쿼리를 넣을 수 없다. [MySQL CHECK 제약의 표현식 범위](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)
 - 속성별 고정 선택지를 강제하려면 가능한 값의 목록을 관계로 두고 그 값을 참조하도록 정의할 수 있다. 값 여러 개가 필요한 속성은 중복 판단 기준과 순서를 정한 뒤 키에 선택지 ID 또는 순번을 포함한다.
 - 속성을 여러 개 조합하면 같은 값 테이블을 여러 번 조인하거나 값을 그룹화해야 한다. 안정적인 핵심 값과 필터가 많은 속성은 전용 열이나 테이블로 두고, 동적으로 추가해야 할 희소 속성에 EAV를 적용할지 검토한다. 엔티티별 속성을 한 번에 읽는 비중이 높다면 [JSON 모델](21_json_data_modeling.md)과 비교한다.
+
+![EAV의 상품·정의·값 테이블과 카테고리 및 종류 제약](image/20_database_eav_definitions_and_typed_values.png)
+
+그림의 근거 · [EAV 설계 원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)

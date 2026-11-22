@@ -55,6 +55,10 @@ WHERE item_id = 10;
 
 결과는 `10, 13.50, catalog/import, catalog/admin-8, PRICE_UPDATE, 1`이다. 현재 행에서는 생성자와 마지막 수정자를 읽을 수 있다. 동일 가격을 다시 입력한 경우 `WHERE`가 제외하므로 예제의 변경 정보를 덮어쓰지 않는다. 사건 발생 시각과 시스템이 기록한 시각의 의미가 다르면 열을 분리한다. [MySQL 시각 열 자동 갱신](https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html) · [TIMESTAMP와 세션 시간대](https://dev.mysql.com/doc/refman/8.4/en/datetime.html)
 
+![상품 현재 행의 감사 열과 별도 변경 이력의 보존 범위](image/15_database_current_audit_and_history.png)
+
+그림의 근거 · [시각 열의 자동 초기화와 갱신](https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)
+
 ## 3. 감사 열과 전체 이력의 차이
 
 이 행을 다시 수정하면 `updated_by`, `change_reason`, `price`의 기존 값은 덮어써진다. 변경 이력이 필요한 경우 어떤 주체가 어떤 레코드에 수행한 변경인지, 전후 값과 기록 시각을 별도 이력에 남긴다. 데이터 수정과 이력 저장이 함께 성공해야 한다면 동일 트랜잭션으로 묶고, 기록 수정 권한과 보존 정책은 현재 데이터와 별도로 관리한다. DB 트리거를 쓰는 경우 직접 SQL 변경도 포착할 수 있지만, 애플리케이션 사용자 식별자는 신뢰할 수 있는 경로로 전달해야 한다. [MySQL 트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)

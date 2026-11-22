@@ -26,6 +26,10 @@
 
 연결 테이블에서 기본 키나 유일성 제약을 두 외래 키의 조합으로 두면 같은 쌍을 한 번만 기록한다. 재등록이나 이력처럼 같은 쌍이 여러 번 생길 수 있다면 회차, 시작 시각, 줄 번호 등 행을 구별하는 기준을 먼저 정한다. [MySQL CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [MySQL FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
+![회원 후보 키와 기본 키 및 변경 가능한 업무 유일 값의 관계](image/04_database_candidate_natural_and_surrogate_keys.png)
+
+그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 4. MySQL 8.4 실습 · 업무 값 변경과 참조 유지
 
 실습 환경은 MySQL 8.4(InnoDB)다. 빈 스키마에서 회원의 이메일을 바꿔도 같은 회원 ID로 주문이 연결되는지 확인한다.

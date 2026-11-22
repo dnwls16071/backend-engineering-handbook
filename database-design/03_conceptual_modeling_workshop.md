@@ -27,14 +27,9 @@
 | 주문 → 결제 | `0..1` | `1` |
 | 주문 → 배송 | `0..1` | `1` |
 
-```mermaid
-flowchart LR
-    Member["회원"] ---|"주문은 회원 1명 · 회원은 주문 0..N건"| Order["주문"]
-    Order ---|"항목은 주문 1건 · 확정 주문은 항목 1..N개"| Item["주문 항목"]
-    Product["상품"] ---|"항목은 상품 1개 · 상품은 항목 0..N개"| Item
-    Order ---|"결제는 주문 1건 · 주문은 결제 0..1건"| Payment["결제"]
-    Order ---|"배송은 주문 1건 · 주문은 배송 0..1건"| Shipment["배송"]
-```
+![회원·주문·항목·상품·결제·배송의 최소 및 최대 참여도](image/03_database_conceptual_shop_relationships.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)
 
 신규 회원과 신규 상품은 주문 기록이 없어도 존재한다. 주문을 만들고 결제를 기다리는 구간에는 결제 기록이 없을 수 있다. 배송은 결제 성공 후 시작한다. 실습에서는 주문당 성공한 결제와 출고를 각각 최대 한 건 기록한다. 재시도 이력, 부분 환불, 분할 배송이 필요해지면 독립된 사건과 관계의 최대 수를 다시 정한다. 확정 주문에 항목이 최소 한 개 필요하다는 규칙은 주문 확정 시점을 기준으로 검증한다. [Oracle Data Modeler의 관계와 카디널리티](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/22.2/dmdug/data-modeler-concepts-usage.html)
 

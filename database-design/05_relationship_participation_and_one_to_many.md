@@ -16,6 +16,10 @@
 
 확정된 주문에 주문 항목이 최소 한 개 필요하다고 가정하자. 항목의 `order_id NOT NULL`과 외래 키는 항목에 주문이 있음을 보장한다. 주문을 먼저 만든 뒤 아무 항목도 넣지 않는 것은 이 제약만으로 막을 수 없으므로 ERD에 `1..N` 규칙을 남기고, 항목 저장과 주문 확정을 같은 트랜잭션에서 처리한다. 확정 후에도 항목을 삭제하거나 다른 주문으로 옮길 수 있다면 마지막 항목을 제거하는 변경 역시 동시 요청을 고려해 통제한다. [MySQL FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션과 격리 수준](../database/10_transactions_and_isolation_levels.md)
 
+![회원과 주문의 일대다 제약 및 LEFT JOIN 건수 집계](image/05_database_one_to_many_and_counts.png)
+
+그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
+
 ## 2. MySQL 8.4 실습 · 주문 목록과 회원별 건수
 
 실습 환경은 MySQL 8.4(InnoDB)다. 빈 스키마에서 회원 두 명을 만들고, 한 명에게만 두 주문을 연결한다.

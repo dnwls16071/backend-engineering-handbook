@@ -64,6 +64,10 @@ ORDER BY m.member_id;
 
 첫 조회에서 `min`의 회원 ID 1은 비활성, ID 4는 활성이다. 두 번째 조회의 주문 수는 회원 2가 `0`, 3이 `1`, 4가 `0`이다. 자식의 삭제 조건을 `ON`에 두면 삭제된 자식만 있는 회원도 0건으로 남는다. 이 상태에서 회원 1의 `deleted_at`을 `NULL`로 복구하려 하면 활성 키가 이미 사용 중이므로 고유 제약이 변경을 거부한다. 복구와 신규 가입은 다른 동작으로 정의하고 기존 주문 연결은 원래 회원 ID에서 유지한다. [MySQL JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [MySQL의 외부 조인 최적화](https://dev.mysql.com/doc/refman/8.4/en/outer-join-optimization.html)
 
+![활성 로그인 ID의 유일성과 소프트 삭제 후 재등록·복구 경계](image/17_database_soft_delete_and_active_uniqueness.png)
+
+그림의 근거 · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 3. 읽기 조건과 정리 작업을 함께 설계하기
 
 기본 조회, 검색, 집계에 활성 조건을 동일하게 적용하고 관리·복구 조회는 별도로 둔다. 활성 행이 대부분이라면 `deleted_at` 단독 인덱스로 줄일 수 있는 범위는 작다. 회원별 주문 조회처럼 업무 조건이 먼저 좁혀지는 경우 `(member_id, deleted_at)`를 후보로 두고, 삭제 시각 범위로 정리하는 배치는 별도의 접근 경로로 검토한다. 실행 계획은 실제 활성·삭제 비율과 읽기 조건을 기준으로 비교한다. [복합 인덱스와 커버링 인덱스](../database/08_composite_and_covering_indexes.md) · [MySQL 복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)

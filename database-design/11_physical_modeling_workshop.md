@@ -117,6 +117,10 @@ WHERE i.order_id = 100 AND i.line_no = 1;
 
 상품 10의 현재가는 15.00이고 주문 100의 첫 항목 단가는 12.50이다. 조회용 총액을 유지하기로 했다면 항목을 수정하는 모든 경로에서 항목과 총액을 함께 저장해야 한다. 동시에 같은 주문을 변경할 수 있다면 주문 행을 잠그는 순서와 집계 시 읽기 범위를 정하고, 병행 실행에서 총액이 어긋나지 않는지 검증한다. [MySQL 트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 
+![현재 상품 가격과 주문 시점 단가의 저장 경계](image/11_database_order_price_snapshot_and_verification.png)
+
+그림의 근거 · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 3. 조회 결과, 실행 계획, 실제 스키마 확인하기
 
 ```sql

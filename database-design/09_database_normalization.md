@@ -23,6 +23,10 @@
 
 Order와 OrderItem을 다시 조인할 때는 양쪽의 공통 열인 `order_id`가 Order의 키이므로 각 항목은 해당 주문 한 건에만 붙는다. 분해할 때는 필요한 사실을 조인으로 복원할 수 있는 무손실 분해인지, 분리한 테이블의 제약만으로 원래 종속성을 확인할 수 있는지도 확인한다. [무손실 분해와 종속성 보존](https://db-book.com/slides-dir/PDF-dir/ch7.pdf) · [쇼핑몰 논리 모델](08_logical_modeling_workshop.md)
 
+![함수 종속성에 따라 현재 회원 정보와 주문 당시 정보를 분해하는 예](image/09_database_functional_dependencies_and_normalization.png)
+
+그림의 근거 · [관계형 설계와 정규화](https://db-book.com/slides-dir/PDF-dir/ch7.pdf)
+
 ## 3NF와 BCNF가 갈리는 예
 
 수강 배정 테이블 `Enrollment(student_id, subject_id, instructor_id)`에서 학생은 한 과목에 한 강사만 배정받고, 강사 한 명은 한 과목만 맡는다고 가정한다. 같은 과목을 여러 강사가 맡을 수 있다.

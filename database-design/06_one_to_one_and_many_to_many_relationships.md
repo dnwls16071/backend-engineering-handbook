@@ -21,6 +21,10 @@
 
 같은 주문의 같은 상품을 한 행으로 합치는 정책에서는 `(order_id, product_id)`로 유일성을 강제할 수 있다. 같은 상품을 옵션이나 단가별로 여러 줄에 담아야 한다면 줄 번호를 포함한 `(order_id, line_no)` 등으로 행의 단위를 바꾼다. 결제가 아직 없는 주문이나 아직 주문되지 않은 상품도 기록할 수 있도록 부모와 연결 행의 참여도를 각각 정한다. [MySQL FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [Relational Keys](04_relational_keys.md)
 
+![결제의 선택적 일대일과 주문 항목으로 푼 다대다 관계](image/06_database_one_to_one_and_junction_rows.png)
+
+그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+
 ## 3. MySQL 8.4 실습 · 결제와 주문 항목 조회
 
 실습 환경은 MySQL 8.4(InnoDB)다. 빈 스키마에서 주문 두 건과 상품 두 종을 만든 뒤, 주문 101의 결제와 항목을 추가한다.

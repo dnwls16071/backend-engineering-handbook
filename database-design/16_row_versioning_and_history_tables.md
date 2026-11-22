@@ -87,3 +87,7 @@ ORDER BY t.as_of;
 ```
 
 잠금 조회에서 상품 ID `1`이 반환된다. 가격 조회 결과는 경계 직전 `80.00`, 경계 시각 `95.00`이다. 생성 열과 고유 제약은 상품별 열린 행을 하나로 제한한다. 닫힌 구간끼리 겹치지 않는지는 이 제약만으로 검사할 수 없다. 쓰기 경로가 동일 상품 행을 먼저 잠그고 유효 시각이 직전 시작보다 늦은지, 닫힌 행이 정확히 하나인지 검사한 뒤 커밋한다. 역일자 변경이 필요하면 영향을 받는 구간을 다시 계산하는 별도의 흐름을 정의한다. 이 설계에서 상품 키는 이력이 남는 동안 보관한다. [MySQL 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [MySQL 생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [트랜잭션과 격리 수준](../database/10_transactions_and_isolation_levels.md)
+
+![가격의 유효 구간과 기록 시각 및 현재 가격과 이력의 공동 커밋](image/16_database_valid_time_and_recorded_time.png)
+
+그림의 근거 · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)

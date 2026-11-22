@@ -31,6 +31,10 @@ MySQL의 `TIMESTAMP`는 세션 시간대를 기준으로 UTC 저장과 조회 �
 
 역정규화는 조회 경로나 집계 비용을 줄이기 위해 계산값이나 중복 데이터를 의도적으로 저장하는 선택이다. 주문 항목에서 계산한 총액을 주문에도 저장한다면 어느 값이 원본인지, 언제 다시 계산하는지, 불일치를 어떻게 발견하는지 정의해야 한다. 상품의 현재 가격과 주문 시점에 기록한 단가는 각각 다른 시점의 사실이다. 주문 단가는 주문 당시 거래를 재현하는 데 사용한다.
 
+![논리 설계의 자료형·인덱스 결정과 물리 검증 흐름](image/10_database_physical_model_and_query_validation.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [MySQL 자료형](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 4. 테이블 정의서에 의도를 남기기
 
 테이블의 목적과 한 행의 단위, 각 열의 업무 의미, 자료형, 필수 여부, 기본값, 키와 인덱스, 참조·삭제 정책을 기록한다. 예를 들어 실습의 `shop_order_items.unit_price_at_order`는 주문 시점에 확정한 단가이며, 상품의 현재 가격이 바뀌어도 보존한다. 정의서의 규칙이 실제 스키마와 일치하도록 DDL과 함께 검토한다. [물리 모델링 실습과 테이블 정의서](11_physical_modeling_workshop.md)

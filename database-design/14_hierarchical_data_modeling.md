@@ -84,6 +84,10 @@ ORDER BY p.depth DESC;
 
 새 잎 노드 `Monitors`의 경로는 `Catalog, 2`, `Computers, 1`, `Monitors, 0`이다. 현재 부모의 조상 경로를 하나씩 늘리고 새 노드의 자기 경로를 추가했다. 삽입 과정에서 부모 관계와 폐쇄 테이블을 같은 트랜잭션으로 갱신하면 중간 상태가 커밋되지 않는다. [MySQL INSERT ... SELECT](https://dev.mysql.com/doc/refman/8.4/en/insert-select.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)
 
+![인접 리스트와 폐쇄 테이블로 카테고리 조상 및 자손 관계를 표현](image/14_database_adjacency_and_closure_tables.png)
+
+그림의 근거 · [재귀 CTE](https://dev.mysql.com/doc/refman/8.4/en/with.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)
+
 ## 3. 사이클과 노드 이동 다루기
 
 외래 키만으로는 노드 자신이나 자기 자손을 부모로 정하는 사이클을 막을 수 없다. 이동 전에 새 부모가 이동 대상 또는 대상의 자손인지 검사하고, 같은 트리의 동시 변경이 검사와 갱신 사이에 끼지 않도록 직렬화한다. 예를 들어 트리를 대표하는 행을 먼저 잠그고 그 트리의 모든 변경 경로가 같은 규칙을 따르게 할 수 있다. 여러 트리에 걸친 이동은 대표 행들을 일정한 순서로 잠근다. [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)

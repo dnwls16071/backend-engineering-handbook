@@ -63,6 +63,10 @@ ORDER BY o.order_id;
 
 결과는 `101, OPEN, Order received`다. 복합 외래 키는 코드가 해당 그룹에 존재하는지, `CHECK`는 주문에서 참조할 그룹이 주문 상태인지 검사한다. 외래 키는 `is_active`까지 확인하지 않는다. 종료된 코드는 기존 참조에 남겨 두고 신규 선택에서는 제외하는 정책이라면, 등록·수정 경로에서 활성 여부를 검사한다. [MySQL CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [복합 외래 키](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)
 
+![그룹과 코드의 조합을 업무 행이 복합 외래 키로 참조하는 구조](image/13_database_code_groups_and_composite_foreign_keys.png)
+
+그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [ENUM 자료형](https://dev.mysql.com/doc/refman/8.4/en/enum.html)
+
 ## 3. 조회 비용과 변경 전파 다루기
 
 코드 표시명을 SQL에서 가져오면 화면에 필요한 그룹마다 조인이 늘 수 있다. 조회를 표준화할 때는 조인을 뷰로 묶을 수 있다. 애플리케이션에서 표시명을 변환할 때는 화면에 필요한 그룹을 한꺼번에 읽어 행마다 추가 조회가 생기는 일을 피한다. 자주 읽는 그룹을 캐시한다면 변경 시 무효화나 TTL을 정하고 허용할 지연을 확인한다. 쓰기 무결성은 DB 제약과 업무 검증을 기준으로 처리한다. [MySQL 뷰](https://dev.mysql.com/doc/refman/8.4/en/create-view.html)

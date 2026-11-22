@@ -79,6 +79,10 @@ ORDER BY v.ordinal;
 
 MySQL에서 예제의 생성 열은 색상 값이 문자열일 때만 인덱스에 사용할 스칼라 값을 만든다. 문서에 값이 없거나 JSON `null`일 때 생성 열 값은 SQL `NULL`이다. 이 생성 열에 `UNIQUE`가 있다면 추출된 문자열의 중복은 거부하지만 여러 SQL `NULL`은 허용한다. 색상이 필수인 경우 키의 존재와 자료형도 검사한다. 인덱스가 어느 행에 실제로 만들어지는지를 정하는 부분 인덱스는 PostgreSQL처럼 지원하는 DBMS에서 별도의 조건으로 정의할 수 있다. [MySQL 생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [MySQL 고유·함수·멀티 밸류 인덱스](https://dev.mysql.com/doc/refman/8.4/en/create-index.html) · [PostgreSQL 부분 인덱스](https://www.postgresql.org/docs/current/indexes-partial.html)
 
+![상품 JSON 스칼라 투영과 배열의 행 변환 및 관계형 열의 경계](image/21_database_json_projection_and_shape.png)
+
+그림의 근거 · [JSON 타입](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [JSON_TABLE](https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html) · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html)
+
 ## 3. 관계형 열, EAV, JSON의 적용 범위
 
 업무 규칙이 안정적이고 외래 키나 개별 값의 유일성이 필요하면 관계형 열과 테이블로 표현한다. 운영자가 속성 정의를 등록하고, 값 행을 별도로 관리해야 하면 [EAV](20_entity_attribute_value_modeling.md)를 후보로 본다. 엔티티별 설정이나 가변 메타데이터를 한 번에 읽고 쓴다면 JSON을 검토한다. 이벤트 데이터를 JSON으로 저장하더라도 발생 시각과 이벤트 종류처럼 공통 필터에 쓰는 값은 일반 열에 둘 수 있다.

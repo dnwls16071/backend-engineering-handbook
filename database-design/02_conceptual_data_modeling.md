@@ -30,6 +30,10 @@
 
 까마귀발 표기에서는 관계 양끝의 원, 세로선, 까마귀발을 조합해 최소와 최대를 나타낸다. 주문과 상품의 다대다 관계에 수량이나 주문 시 단가가 필요하면 `주문 항목`을 연관 엔티티로 둔다. 항목 하나는 주문 하나와 상품 하나에 연결되며, 주문과 항목, 상품과 항목의 두 관계로 나뉜다. 같은 상품을 한 주문에서 별도 항목으로 여러 번 기록할 수 있는지는 요구사항에서 결정한다. [IBM ERD의 참여도와 카디널리티](https://www.ibm.com/think/topics/entity-relationship-diagram)
 
+![쇼핑몰 요구사항에서 업무 대상과 관계 양방향의 참여도를 도출하는 과정](image/02_database_entities_and_cardinality.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)
+
 ## 4. 용어 사전을 ERD와 함께 관리하기
 
 용어 사전에는 업무 이름, 영문 이름, 정의와 적용 예시를 기록한다. 예를 들어 `단가`는 주문 항목에 적용된 한 단위의 가격으로, `판매가`는 현재 상품에 표시하는 가격으로 정의한다. 같은 단어가 쓰인 주문 화면과 통계에서 의미가 달라지는지 검토하고, 합의가 바뀌면 사전과 모델을 함께 갱신한다. [개념 모델링 실습](03_conceptual_modeling_workshop.md)

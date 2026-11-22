@@ -25,3 +25,7 @@
 논리 모델에서는 릴레이션과 속성을 정의하고, 함수 종속을 살펴 같은 사실이 불필요하게 중복되는지 확인한다. 물리 모델에서 인덱스를 결정할 때는 예상 조회 패턴과 쓰기 비용을 함께 본다. 실행 계획에서 병목을 발견하거나 업무 규칙이 바뀌면 앞 단계의 결정을 다시 검토할 수 있다. [IBM Data Modeling](https://www.ibm.com/think/topics/data-modeling) · [Oracle Data Modeler Concepts](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/22.2/dmdug/data-modeler-concepts-usage.html)
 
 다음 문서에서는 업무 설명을 엔티티, 속성, 관계로 정리한다. [개념적 데이터 모델링](02_conceptual_data_modeling.md)
+
+![주문 사실과 현재 상품 사실을 나눠 개념·논리·물리 모델로 구체화](image/01_database_design_from_fact_to_schema.png)
+
+그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)
