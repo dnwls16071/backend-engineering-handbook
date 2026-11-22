@@ -2,6 +2,10 @@
 
 웹 크롤러는 URL 발견, 가져오기, 문서 저장을 분리한다. URL 큐가 커져도 대상 호스트를 과부하시키지 않도록 수집 정책과 일정을 따로 관리한다. [RFC 9309 Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
+![URL 후보는 정규화와 중복 검사를 거쳐 호스트별 큐에 들어간다. 수집 워커는 robots.txt와 호스트 한도를 적용하고, 저장 경로에서 문서와 새 링크를 분리한다.](image/13_web_crawler_architecture.png)
+
+그림의 근거 · [RFC 9309 Robots Exclusion Protocol](https://www.rfc-editor.org/rfc/rfc9309.html) · [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
+
 ## 1. URL을 발견하고 호스트별 작업으로 나눈다
 
 시드 URL에서 발견한 링크를 절대 URL로 바꾸고 정규화한다. 스킴·호스트 같은 표준화 가능한 부분을 먼저 정리하고, 의미가 다른 쿼리 파라미터는 유지한다. 후보 URL과 컨텐츠 해시의 중복 처리는 각각 기록한다. [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
