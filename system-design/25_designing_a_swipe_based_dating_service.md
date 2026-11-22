@@ -2,6 +2,10 @@
 
 후보 추천과 매치 확정은 서로 다른 경로다. 추천이 잠시 오래된 결과를 보내도, 두 사람의 상호 선택과 차단 상태는 매치 확정 경계에서 다시 확인한다. [Redis GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [Microsoft Microservice Boundaries](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries)
 
+![추천 API는 위치 색인으로 후보를 찾는다. 매치 API는 정규화한 사용자 쌍의 상태를 직렬화해 양쪽 선택과 차단을 확인하고, 매치와 알림 이벤트를 함께 기록한다.](image/25_dating_service_architecture.png)
+
+그림의 근거 · [Redis GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+
 ## 1. 후보 조회와 표시 범위를 정한다
 
 대략적 위치와 조건으로 후보를 찾고, 이미 본 대상이나 차단 관계를 제외한다. 위치 색인은 후보 추출에만 쓰고, 상세 위치 정보나 원본 좌표는 후보 응답에 직접 노출할 필요가 없는 경우 반환하지 않는다. [Redis GEOSEARCH](https://redis.io/docs/latest/commands/geosearch/) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
