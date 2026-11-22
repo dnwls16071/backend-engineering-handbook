@@ -2,6 +2,10 @@
 
 서버 수가 바뀔 때 키 매핑을 다시 계산해야 한다. 일관된 해싱은 변경된 노드 주변의 구간에 이동을 제한하도록 키와 노드 토큰을 같은 해시 공간에 둔다. [Karger 외 · Consistent Hashing](https://people.csail.mit.edu/karger/Papers/web.pdf) · [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store)
 
+![요청 라우터는 같은 버전의 해시 링에서 키 다음에 오는 토큰으로 담당 노드를 선택한다. 저장 노드 변경 시에는 버전을 배포하고 영향을 받는 구간을 이관한다.](image/07_consistent_hashing_architecture.png)
+
+그림의 근거 · [Karger 외 · Consistent Hashing](https://people.csail.mit.edu/karger/Papers/web.pdf) · [Amazon · Dynamo](https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store) · [Google SRE · Handling Overload](https://sre.google/sre-book/handling-overload/) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+
 ## 1. 키와 노드를 같은 링에 배치한다
 
 키의 해시값에서 시계 방향으로 첫 노드 토큰을 찾아 담당 노드를 고르는 예다. 이전 토큰과 다음 토큰 사이에 토큰을 추가하면 새 토큰이 직전 토큰 이후부터 자신까지의 구간을 가져간다. [Karger 외 · Consistent Hashing](https://people.csail.mit.edu/karger/Papers/web.pdf)
