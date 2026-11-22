@@ -2,6 +2,10 @@
 
 채팅 연결은 실시간 운반 경로이고 메시지 저장은 재접속의 기준점이다. 송신 수락, 수신 서버 전달, 단말 읽음의 의미를 따로 정의한다. [RFC 6455 WebSocket](https://www.rfc-editor.org/rfc/rfc6455.html) · [Kafka 4.3 Introduction](https://kafka.apache.org/43/getting-started/introduction/) · [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
 
+![메시지 API는 방 시퀀스와 본문을 저장한 뒤 송신을 수락한다. WebSocket 게이트웨이는 연결된 단말로 보내고, 단말이 재접속하면 이력 API로 빠진 방 메시지를 보충한다.](image/16_chat_system_architecture.png)
+
+그림의 근거 · [RFC 6455 WebSocket](https://www.rfc-editor.org/rfc/rfc6455.html) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html)
+
 ## 1. 송신 요청을 멱등하게 저장한다
 
 클라이언트는 client_message_id를 만들고 서버는 방·송신자 범위에서 이를 고유하게 관리한다. 방 시퀀스와 본문을 함께 저장한 뒤 송신 수락을 반환한다. 방 안의 엄격한 순서가 필요하면 방별 쓰기 권한이나 순번 발급을 직렬화한다. [PostgreSQL 18 Constraints](https://www.postgresql.org/docs/18/ddl-constraints.html) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [AWS Idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
