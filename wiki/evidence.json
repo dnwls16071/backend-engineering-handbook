@@ -54526,5 +54526,935 @@
       "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
       "locator": "프록시 모드, Annotation 위치, 메서드 가시성과 속성"
     }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "Spring Data R2DBC는 R2DBC 드라이버 위에서 관계형 DB에 접근하는 리포지토리와 객체 매핑을 제공한다. 이 문서 묶음은 Spring Boot 3.5, Spring Data Relational 3.5, Spring Framework 6.2를 기준으로 한다. [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html",
+      "locator": "R2DBC > Features and recommended data access APIs"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "Spring Data R2DBC는 R2DBC 드라이버 위에서 관계형 DB에 접근하는 리포지토리와 객체 매핑을 제공한다. 이 문서 묶음은 Spring Boot 3.5, Spring Data Relational 3.5, Spring Framework 6.2를 기준으로 한다. [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc",
+      "locator": "Using R2DBC > ConnectionFactory and spring.r2dbc properties"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "WebFlux 핸들러가 반환한 리액티브 파이프라인에서 리포지토리나 템플릿을 호출한다. SQL은 구독이 시작될 때 전송되고, 드라이버는 `ConnectionFactory`에서 얻은 연결로 DB와 통신한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Spring WebFlux > Concurrency Model and reactive non-blocking stack"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "WebFlux 핸들러가 반환한 리액티브 파이프라인에서 리포지토리나 템플릿을 호출한다. SQL은 구독이 시작될 때 전송되고, 드라이버는 `ConnectionFactory`에서 얻은 연결로 DB와 통신한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "WebFlux 핸들러가 반환한 리액티브 파이프라인에서 리포지토리나 템플릿을 호출한다. SQL은 구독이 시작될 때 전송되고, 드라이버는 `ConnectionFactory`에서 얻은 연결로 DB와 통신한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc",
+      "locator": "Using R2DBC > ConnectionFactory and spring.r2dbc properties"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "Spring Boot가 의존성 버전을 관리하는 Gradle 프로젝트에 Spring Data R2DBC 스타터와 PostgreSQL R2DBC 드라이버를 추가한다. [Spring Boot 3.5 Starters](https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html#using.build-systems.starters) · [PostgreSQL R2DBC Driver](https://github.com/pgjdbc/r2dbc-postgresql)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html#using.build-systems.starters",
+      "locator": "Starters > spring-boot-starter-data-r2dbc and dependency management"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "Spring Boot가 의존성 버전을 관리하는 Gradle 프로젝트에 Spring Data R2DBC 스타터와 PostgreSQL R2DBC 드라이버를 추가한다. [Spring Boot 3.5 Starters](https://docs.spring.io/spring-boot/3.5/reference/using/build-systems.html#using.build-systems.starters) · [PostgreSQL R2DBC Driver](https://github.com/pgjdbc/r2dbc-postgresql)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://github.com/pgjdbc/r2dbc-postgresql",
+      "locator": "Maven configuration > org.postgresql:r2dbc-postgresql"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "Boot는 `spring.r2dbc.*` 설정과 URL에 해당하는 드라이버를 사용해 `ConnectionFactory`를 구성한다. 예제는 로컬 PostgreSQL의 `app` 데이터베이스를 가정하며 인증 값은 환경 변수로 받는다. [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc",
+      "locator": "Using R2DBC > ConnectionFactory and spring.r2dbc properties"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "핸들러와 서비스는 `Mono` 또는 `Flux`를 연결해 응답 경로에 반환한다. 서비스에서 직접 `subscribe()`를 호출하거나 I/O 결과를 얻기 위해 `block()`으로 기다리는 코드는 피한다. 조회에 사용할 API는 [02번 문서](02_choosing_r2dbc_query_apis.md)에서 비교한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Spring WebFlux > Concurrency Model and reactive non-blocking stack"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "핸들러와 서비스는 `Mono` 또는 `Flux`를 연결해 응답 경로에 반환한다. 서비스에서 직접 `subscribe()`를 호출하거나 I/O 결과를 얻기 위해 `block()`으로 기다리는 코드는 피한다. 조회에 사용할 API는 [02번 문서](02_choosing_r2dbc_query_apis.md)에서 비교한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "핸들러와 서비스는 `Mono` 또는 `Flux`를 연결해 응답 경로에 반환한다. 서비스에서 직접 `subscribe()`를 호출하거나 I/O 결과를 얻기 위해 `block()`으로 기다리는 코드는 피한다. 조회에 사용할 API는 [02번 문서](02_choosing_r2dbc_query_apis.md)에서 비교한다. [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html",
+      "locator": "Mono API > flatMap, thenReturn, and subscribe"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "단순 CRUD와 고정 조회 조건은 Repository, 호출마다 달라지는 엔티티 조회 조건은 R2dbcEntityTemplate, 직접 제어할 SQL과 결과 매핑은 DatabaseClient로 다룬다. [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html",
+      "locator": "R2DBC > Features and recommended data access APIs"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "단순 CRUD와 고정 조회 조건은 Repository, 호출마다 달라지는 엔티티 조회 조건은 R2dbcEntityTemplate, 직접 제어할 SQL과 결과 매핑은 DatabaseClient로 다룬다. [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "단순 CRUD와 고정 조회 조건은 Repository, 호출마다 달라지는 엔티티 조회 조건은 R2dbcEntityTemplate, 직접 제어할 SQL과 결과 매핑은 DatabaseClient로 다룬다. [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient",
+      "locator": "Using DatabaseClient > Querying, mapping, and binding values"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "`ReactiveCrudRepository`는 기본 CRUD를 제공한다. 아래 파생 쿼리는 [03번 문서](03_mapping_and_saving_r2dbc_entities.md)의 주문 엔티티를 사용하며, 상태를 조건으로 ID 순서대로 조회한다. `Pageable`로 DB에 적용할 조회 범위를 전달할 수 있다. [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html",
+      "locator": "Method Details > save(S entity) and return value"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "`ReactiveCrudRepository`는 기본 CRUD를 제공한다. 아래 파생 쿼리는 [03번 문서](03_mapping_and_saving_r2dbc_entities.md)의 주문 엔티티를 사용하며, 상태를 조건으로 ID 순서대로 조회한다. `Pageable`로 DB에 적용할 조회 범위를 전달할 수 있다. [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html",
+      "locator": "Query Methods > Derived queries, Pageable, and Using @Query"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "`R2dbcEntityTemplate.select(...)`에 조건, 정렬, 조회 한도를 담은 `Query`를 전달한다. SQL 방언과 엔티티 매핑은 Spring Data가 처리한다. 검색 조건을 호출마다 조합하되 동일 엔티티로 읽을 때 쓴다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "`R2dbcEntityTemplate.select(...)`에 조건, 정렬, 조회 한도를 담은 `Query`를 전달한다. SQL 방언과 엔티티 매핑은 Spring Data가 처리한다. 검색 조건을 호출마다 조합하되 동일 엔티티로 읽을 때 쓴다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html",
+      "locator": "R2DBC > Features and recommended data access APIs"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "주문과 주문 항목을 JOIN해 수량을 집계할 때는 SQL에서 결과 컬럼을 정하고 DTO로 매핑한다. 고정 SQL이면 Repository의 `@Query`로 DTO에 직접 매핑할 수 있다. 문자열 `@Query`에 조회 한도를 적용할 때는 SQL에 직접 조건을 넣고 값을 바인딩한다. [Spring Data 3.5 R2DBC Repositories](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/repositories.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/repositories.html",
+      "locator": "R2DBC Repositories > Usage and Result Mapping"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "주문과 주문 항목을 JOIN해 수량을 집계할 때는 SQL에서 결과 컬럼을 정하고 DTO로 매핑한다. 고정 SQL이면 Repository의 `@Query`로 DTO에 직접 매핑할 수 있다. 문자열 `@Query`에 조회 한도를 적용할 때는 SQL에 직접 조건을 넣고 값을 바인딩한다. [Spring Data 3.5 R2DBC Repositories](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/repositories.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html",
+      "locator": "Query Methods > Derived queries, Pageable, and Using @Query"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "아래 코드는 `order_line.order_id`가 `purchase_order.id`를 참조한다고 가정한다. `DatabaseClient`에서 상태를 파라미터로 바인딩하고, 집계 결과를 주문 요약 DTO로 변환한다. [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient",
+      "locator": "Using DatabaseClient > Querying, mapping, and binding values"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "Spring Data의 매핑 애너테이션으로 테이블, 기본 키, 컬럼을 지정한다. 엔티티 변경은 Repository의 save 또는 Template의 update를 호출하는 위치에 드러낸다. [Spring Data 3.5 R2DBC Mapping](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html",
+      "locator": "Mapping > Convention-based Mapping and Mapping Metadata"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "Spring Data의 매핑 애너테이션으로 테이블, 기본 키, 컬럼을 지정한다. 엔티티 변경은 Repository의 save 또는 Template의 update를 호출하는 위치에 드러낸다. [Spring Data 3.5 R2DBC Mapping](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "Spring Data의 매핑 애너테이션으로 테이블, 기본 키, 컬럼을 지정한다. 엔티티 변경은 Repository의 save 또는 Template의 update를 호출하는 위치에 드러낸다. [Spring Data 3.5 R2DBC Mapping](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html",
+      "locator": "Method Details > save(S entity) and return value"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "아래 주문 예제는 `purchase_order` 테이블의 `id`를 DB가 생성하는 숫자 키로 가정한다. `@Id`는 Spring Data의 애너테이션을 사용하고, 자바 속성명과 DB 컬럼명이 다른 `status`에는 `@Column`을 지정한다. [Spring Data 3.5 R2DBC Mapping](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html",
+      "locator": "Mapping > Convention-based Mapping and Mapping Metadata"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "아래 주문 예제는 `purchase_order` 테이블의 `id`를 DB가 생성하는 숫자 키로 가정한다. `@Id`는 Spring Data의 애너테이션을 사용하고, 자바 속성명과 DB 컬럼명이 다른 `status`에는 `@Column`을 지정한다. [Spring Data 3.5 R2DBC Mapping](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/mapping.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "이 모델로 새 주문을 만들 때는 `id`와 `version`을 `null`로 두고 `save`한다. INSERT 뒤에는 생성된 ID와 초기화된 버전을 후속 작업에 전달할 수 있도록 `save`가 내보낸 엔티티를 사용한다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "이 모델로 새 주문을 만들 때는 `id`와 `version`을 `null`로 두고 `save`한다. INSERT 뒤에는 생성된 ID와 초기화된 버전을 후속 작업에 전달할 수 있도록 `save`가 내보낸 엔티티를 사용한다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking",
+      "locator": "Persisting Entities > Optimistic Locking"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "이 모델로 새 주문을 만들 때는 `id`와 `version`을 `null`로 두고 `save`한다. INSERT 뒤에는 생성된 ID와 초기화된 버전을 후속 작업에 전달할 수 있도록 `save`가 내보낸 엔티티를 사용한다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html",
+      "locator": "Method Details > save(S entity) and return value"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "상태를 바꿀 때는 조회한 주문의 ID와 버전을 유지한 새 값을 만들어 `save`로 넘긴다. 호출부가 삽입과 갱신을 직접 구분하고 싶다면 Template의 `insert`와 `update`를 사용한다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "상태를 바꿀 때는 조회한 주문의 ID와 버전을 유지한 새 값을 만들어 `save`로 넘긴다. 호출부가 삽입과 갱신을 직접 구분하고 싶다면 Template의 `insert`와 `update`를 사용한다. [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking",
+      "locator": "Persisting Entities > Optimistic Locking"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "`@Version`이 있으면 갱신 조건에 읽어 온 버전이 들어간다. 같은 버전을 읽은 요청 두 개 중 하나가 먼저 저장하면 DB 버전이 증가한다. 뒤이은 저장은 `OptimisticLockingFailureException`을 전달하므로, 재시도가 필요하면 최신 상태를 읽어 업무 조건을 다시 판단한다. [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking",
+      "locator": "Persisting Entities > Optimistic Locking"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "R2dbcTransactionManager는 한 ConnectionFactory에서 얻은 DB 연결을 구독자의 Reactor Context에 묶는다. 같은 트랜잭션에 참여할 작업은 같은 파이프라인에서 실행한다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "R2dbcTransactionManager는 한 ConnectionFactory에서 얻은 DB 연결을 구독자의 Reactor Context에 묶는다. 같은 트랜잭션에 참여할 작업은 같은 파이프라인에서 실행한다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "주문을 저장하고 Outbox 행을 함께 기록하려면 두 리포지토리가 같은 `ConnectionFactory`를 사용하게 구성한다. Spring이 관리하는 서비스의 `@Transactional` 메서드에서 주문 저장 결과를 받은 후 Outbox를 저장하고, 전체 흐름을 `Mono`로 반환한다. 예제의 `OrderPlaced.from`은 저장된 주문으로 Outbox 행을 만드는 애플리케이션 메서드다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "주문을 저장하고 Outbox 행을 함께 기록하려면 두 리포지토리가 같은 `ConnectionFactory`를 사용하게 구성한다. Spring이 관리하는 서비스의 `@Transactional` 메서드에서 주문 저장 결과를 받은 후 Outbox를 저장하고, 전체 흐름을 `Mono`로 반환한다. 예제의 `OrderPlaced.from`은 저장된 주문으로 Outbox 행을 만드는 애플리케이션 메서드다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "주문을 저장하고 Outbox 행을 함께 기록하려면 두 리포지토리가 같은 `ConnectionFactory`를 사용하게 구성한다. Spring이 관리하는 서비스의 `@Transactional` 메서드에서 주문 저장 결과를 받은 후 Outbox를 저장하고, 전체 흐름을 `Mono`로 반환한다. 예제의 `OrderPlaced.from`은 저장된 주문으로 Outbox 행을 만드는 애플리케이션 메서드다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "Using @Transactional > Proxy mode and self-invocation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "주문을 저장하고 Outbox 행을 함께 기록하려면 두 리포지토리가 같은 `ConnectionFactory`를 사용하게 구성한다. Spring이 관리하는 서비스의 `@Transactional` 메서드에서 주문 저장 결과를 받은 후 Outbox를 저장하고, 전체 흐름을 `Mono`로 반환한다. 예제의 `OrderPlaced.from`은 저장된 주문으로 Outbox 행을 만드는 애플리케이션 메서드다. [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html",
+      "locator": "Mono API > flatMap, thenReturn, and subscribe"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "서비스 내부에서 별도로 `subscribe()`를 호출한 쓰기는 반환한 파이프라인과 구독 경계가 달라진다. 기본 프록시 모드에서는 같은 객체 안에서 직접 호출한 `@Transactional` 메서드에도 새 트랜잭션 경계가 적용되지 않는다. 트랜잭션이 시작되는 호출과 실제로 반환하는 파이프라인을 함께 확인한다. [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "서비스 내부에서 별도로 `subscribe()`를 호출한 쓰기는 반환한 파이프라인과 구독 경계가 달라진다. 기본 프록시 모드에서는 같은 객체 안에서 직접 호출한 `@Transactional` 메서드에도 새 트랜잭션 경계가 적용되지 않는다. 트랜잭션이 시작되는 호출과 실제로 반환하는 파이프라인을 함께 확인한다. [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "Using @Transactional > Proxy mode and self-invocation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "서비스 내부에서 별도로 `subscribe()`를 호출한 쓰기는 반환한 파이프라인과 구독 경계가 달라진다. 기본 프록시 모드에서는 같은 객체 안에서 직접 호출한 `@Transactional` 메서드에도 새 트랜잭션 경계가 적용되지 않는다. 트랜잭션이 시작되는 호출과 실제로 반환하는 파이프라인을 함께 확인한다. [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html",
+      "locator": "Mono API > flatMap, thenReturn, and subscribe"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "메서드 전체보다 좁은 구간을 묶을 때는 `TransactionalOperator`의 `transactional(...)`을 사용할 수 있다. 트랜잭션을 감싼 Publisher에 `take`나 `timeout`으로 취소가 전달되면 롤백되므로, 다중 값을 반환하는 흐름에서는 끝까지 소비하는 조건도 확인한다. [Spring Framework 6.2 TransactionalOperator](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/programmatic.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/programmatic.html",
+      "locator": "Using TransactionalOperator > Operator style and cancel signals"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "![WebFlux가 리액티브 파이프라인을 구독한다. Spring Data R2DBC가 엔티티 매핑이 있는 작업을 만들고, PostgreSQL R2DBC 드라이버가 ConnectionFactory에서 얻은 연결로 PostgreSQL에 SQL을 보낸다.](image/01_webflux_to_postgresql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Spring WebFlux > Concurrency Model and reactive non-blocking stack"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "![WebFlux가 리액티브 파이프라인을 구독한다. Spring Data R2DBC가 엔티티 매핑이 있는 작업을 만들고, PostgreSQL R2DBC 드라이버가 ConnectionFactory에서 얻은 연결로 PostgreSQL에 SQL을 보낸다.](image/01_webflux_to_postgresql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "![WebFlux가 리액티브 파이프라인을 구독한다. Spring Data R2DBC가 엔티티 매핑이 있는 작업을 만들고, PostgreSQL R2DBC 드라이버가 ConnectionFactory에서 얻은 연결로 PostgreSQL에 SQL을 보낸다.](image/01_webflux_to_postgresql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc",
+      "locator": "Using R2DBC > ConnectionFactory and spring.r2dbc properties"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html",
+      "locator": "Spring WebFlux > Concurrency Model and reactive non-blocking stack"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/01_setting_up_reactive_postgresql_access.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 WebFlux](https://docs.spring.io/spring-framework/reference/6.2/web/webflux/new-framework.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Boot 3.5 R2DBC 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.r2dbc",
+      "locator": "Using R2DBC > ConnectionFactory and spring.r2dbc properties"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "![정해진 상태 조건 조회에는 Repository 파생 쿼리, 요청에 따라 조건이 바뀌는 엔티티 조회에는 R2dbcEntityTemplate, 주문 항목 수를 집계하는 조회에는 DatabaseClient와 DTO 매핑을 사용한다.](image/02_repository_template_and_sql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html",
+      "locator": "R2DBC > Features and recommended data access APIs"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "![정해진 상태 조건 조회에는 Repository 파생 쿼리, 요청에 따라 조건이 바뀌는 엔티티 조회에는 R2dbcEntityTemplate, 주문 항목 수를 집계하는 조회에는 DatabaseClient와 DTO 매핑을 사용한다.](image/02_repository_template_and_sql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "![정해진 상태 조건 조회에는 Repository 파생 쿼리, 요청에 따라 조건이 바뀌는 엔티티 조회에는 R2dbcEntityTemplate, 주문 항목 수를 집계하는 조회에는 DatabaseClient와 DTO 매핑을 사용한다.](image/02_repository_template_and_sql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient",
+      "locator": "Using DatabaseClient > Querying, mapping, and binding values"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "![정해진 상태 조건 조회에는 Repository 파생 쿼리, 요청에 따라 조건이 바뀌는 엔티티 조회에는 R2dbcEntityTemplate, 주문 항목 수를 집계하는 조회에는 DatabaseClient와 DTO 매핑을 사용한다.](image/02_repository_template_and_sql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html",
+      "locator": "Method Details > save(S entity) and return value"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "![정해진 상태 조건 조회에는 Repository 파생 쿼리, 요청에 따라 조건이 바뀌는 엔티티 조회에는 R2dbcEntityTemplate, 주문 항목 수를 집계하는 조회에는 DatabaseClient와 DTO 매핑을 사용한다.](image/02_repository_template_and_sql.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html",
+      "locator": "Query Methods > Derived queries, Pageable, and Using @Query"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html",
+      "locator": "R2DBC > Features and recommended data access APIs"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html",
+      "locator": "Persisting Entities > Subscription, Selecting Data, entity writes, and ID Generation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient",
+      "locator": "Using DatabaseClient > Querying, mapping, and binding values"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html",
+      "locator": "Method Details > save(S entity) and return value"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/02_choosing_r2dbc_query_apis.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 R2DBC](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc.html) · [Spring Data 3.5 Persisting Entities](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html) · [Spring Framework 6.2 DatabaseClient](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-DatabaseClient) · [ReactiveCrudRepository.save](https://docs.spring.io/spring-data/commons/docs/3.5.x/api/org/springframework/data/repository/reactive/ReactiveCrudRepository.html) · [Spring Data 3.5 Query Methods](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/query-methods.html",
+      "locator": "Query Methods > Derived queries, Pageable, and Using @Query"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "![두 요청은 주문 버전 3을 읽는다. 요청 A는 버전 3인 행을 갱신해 버전을 4로 올린다. 요청 B가 같은 버전 3으로 갱신하면 대상 행이 0개여서 Spring Data가 OptimisticLockingFailureException을 전달한다.](image/03_optimistic_lock_version_conflict.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking",
+      "locator": "Persisting Entities > Optimistic Locking"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/03_mapping_and_saving_r2dbc_entities.md",
+    "claim": "그림의 근거 · [Spring Data 3.5 Optimistic Locking](https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2 · Java 17 · PostgreSQL R2DBC driver in the examples",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/relational/reference/3.5/r2dbc/entity-persistence.html#r2dbc.entity-persistence.optimistic-locking",
+      "locator": "Persisting Entities > Optimistic Locking"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html",
+      "locator": "Class description, getResources()"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java",
+      "locator": "doGetConnection, getResource(connectionFactory), and doReleaseConnection"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java",
+      "locator": "getConnection() delegates to ConnectionFactoryUtils"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html",
+      "locator": "Class description, getResources()"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java",
+      "locator": "doGetConnection, getResource(connectionFactory), and doReleaseConnection"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java",
+      "locator": "getConnection() delegates to ConnectionFactoryUtils"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "Spring Framework 6.2.19에서 같은 ConnectionFactory의 새 트랜잭션을 시작하면, 구독자의 Reactor Context가 참조하는 TransactionContext 자원 맵에 ConnectionHolder가 등록된다. DatabaseClient는 ConnectionFactoryUtils를 통해 이 팩토리 키를 조회해 같은 연결을 얻는다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "Spring Framework 6.2.19에서 같은 ConnectionFactory의 새 트랜잭션을 시작하면, 구독자의 Reactor Context가 참조하는 TransactionContext 자원 맵에 ConnectionHolder가 등록된다. DatabaseClient는 ConnectionFactoryUtils를 통해 이 팩토리 키를 조회해 같은 연결을 얻는다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html",
+      "locator": "Class description, getResources()"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "Spring Framework 6.2.19에서 같은 ConnectionFactory의 새 트랜잭션을 시작하면, 구독자의 Reactor Context가 참조하는 TransactionContext 자원 맵에 ConnectionHolder가 등록된다. DatabaseClient는 ConnectionFactoryUtils를 통해 이 팩토리 키를 조회해 같은 연결을 얻는다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java",
+      "locator": "doGetConnection, getResource(connectionFactory), and doReleaseConnection"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "Spring Framework 6.2.19에서 같은 ConnectionFactory의 새 트랜잭션을 시작하면, 구독자의 Reactor Context가 참조하는 TransactionContext 자원 맵에 ConnectionHolder가 등록된다. DatabaseClient는 ConnectionFactoryUtils를 통해 이 팩토리 키를 조회해 같은 연결을 얻는다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java",
+      "locator": "getConnection() delegates to ConnectionFactoryUtils"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![R2dbcTransactionManager가 커넥션 C1에서 트랜잭션을 시작하고, 구독자의 Reactor Context가 참조하는 Spring TransactionContext에 ConnectionFactory 키와 ConnectionHolder 값을 등록한다. 주문과 Outbox가 사용하는 DatabaseClient는 ConnectionFactoryUtils를 통해 이 키를 조회하여 C1을 재사용한다.](image/04_reactor_context_connection_binding.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 TransactionContext API](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/transaction/reactive/TransactionContext.html) · [Spring 6.2.19 ConnectionFactoryUtils 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/ConnectionFactoryUtils.java) · [Spring 6.2.19 DefaultDatabaseClient 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/core/DefaultDatabaseClient.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html",
+      "locator": "Rolling Back a Declarative Transaction > default unchecked exceptions"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java",
+      "locator": "ReactiveTransactionSupport.invokeWithinTransaction, commitTransactionAfterReturning, completeTransactionAfterThrowing"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html",
+      "locator": "Rolling Back a Declarative Transaction > default unchecked exceptions"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java",
+      "locator": "ReactiveTransactionSupport.invokeWithinTransaction, commitTransactionAfterReturning, completeTransactionAfterThrowing"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "두 INSERT가 정상적으로 완료되면 Spring은 커밋한다. 기본 롤백 규칙에서 Outbox 저장이 RuntimeException을 전달하면 롤백한다. 새 트랜잭션이 끝나면 매니저는 자원 맵에서 팩토리 키의 바인딩을 제거하고 연결을 반환한다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java",
+      "locator": "doBegin, doCommit, doRollback, doCleanupAfterCompletion"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "두 INSERT가 정상적으로 완료되면 Spring은 커밋한다. 기본 롤백 규칙에서 Outbox 저장이 RuntimeException을 전달하면 롤백한다. 새 트랜잭션이 끝나면 매니저는 자원 맵에서 팩토리 키의 바인딩을 제거하고 연결을 반환한다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html",
+      "locator": "Rolling Back a Declarative Transaction > default unchecked exceptions"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "두 INSERT가 정상적으로 완료되면 Spring은 커밋한다. 기본 롤백 규칙에서 Outbox 저장이 RuntimeException을 전달하면 롤백한다. 새 트랜잭션이 끝나면 매니저는 자원 맵에서 팩토리 키의 바인딩을 제거하고 연결을 반환한다. [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2.19, single ConnectionFactory and a new R2DBC transaction",
+    "source": {
+      "url": "https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java",
+      "locator": "ReactiveTransactionSupport.invokeWithinTransaction, commitTransactionAfterReturning, completeTransactionAfterThrowing"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "Using @Transactional > Proxy mode and self-invocation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "![WebFlux가 트랜잭션 Mono를 구독하면 매니저가 C1에서 트랜잭션을 시작하고 C1을 바인딩한다. 서비스는 C1로 주문을 저장한 뒤 Outbox 저장을 시도한다. 정상 완료 시 COMMIT하고, 롤백 대상 오류가 전달되면 ROLLBACK한다. 이후 매니저가 바인딩을 해제하고 커넥션을 반환한다.](image/04_transaction_commit_and_rollback_sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html",
+      "locator": "Mono API > flatMap, thenReturn, and subscribe"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager",
+      "locator": "Using R2dbcTransactionManager > ConnectionFactory and subscriber Context"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html",
+      "locator": "Declarative Transaction Implementation > Reactor context and reactive return types"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "Using @Transactional > Proxy mode and self-invocation"
+    }
+  },
+  {
+    "page": "spring-data-r2dbc/04_managing_reactive_r2dbc_transactions.md",
+    "claim": "그림의 근거 · [Spring Framework 6.2 R2dbcTransactionManager](https://docs.spring.io/spring-framework/reference/6.2/data-access/r2dbc.html#r2dbc-R2dbcTransactionManager) · [Spring Framework 6.2 리액티브 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-decl-explained.html) · [Spring Framework 6.2 @Transactional](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Project Reactor Mono API](https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html) · [Spring 6.2.19 R2dbcTransactionManager 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-r2dbc/src/main/java/org/springframework/r2dbc/connection/R2dbcTransactionManager.java) · [Spring 6.2 선언적 롤백 규칙](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/rolling-back.html) · [Spring 6.2.19 트랜잭션 인터셉터 소스](https://raw.githubusercontent.com/spring-projects/spring-framework/v6.2.19/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Boot 3.5 · Spring Data Relational 3.5 · Spring Framework 6.2",
+    "source": {
+      "url": "https://projectreactor.io/docs/core/3.7.x/api/reactor/core/publisher/Mono.html",
+      "locator": "Mono API > flatMap, thenReturn, and subscribe"
+    }
   }
 ]
