@@ -12,6 +12,10 @@
 
 InnoDB의 세컨더리 인덱스에는 기본 키 열이 포함된다. 기본 키가 넓으면 여러 세컨더리 인덱스의 크기에도 영향을 준다. 순차적으로 증가하는 기본 키는 새 행이 비슷한 위치에 모이기 쉽고, 무작위로 흩어지는 키는 여러 페이지에 쓰기를 분산시킬 수 있다. 읽기의 지역성과 페이지 분할 영향은 데이터 크기, 버퍼 풀 적중률, 삽입 패턴을 대표하는 부하로 비교한다. [Clustered and Secondary Indexes](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [Physical Structure of an InnoDB Index](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html)
 
+![세컨더리 리프에서 커버링 반환 또는 클러스터드 원본 행 조회로 나뉘는 경로](image/06_mysql_clustered_and_secondary_lookup.png)
+
+그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 2. 실습 · 원본 행으로 돌아가는 조회
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

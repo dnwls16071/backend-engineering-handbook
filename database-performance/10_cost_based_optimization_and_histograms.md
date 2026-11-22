@@ -6,6 +6,10 @@
 
 MySQL에서 일반 `ANALYZE TABLE`은 키 분포를 분석한다. 열 히스토그램은 `UPDATE HISTOGRAM`으로 지정해 생성하며, 특히 인덱스에 없는 열의 상수 비교 조건을 추정할 때 유용하다. 범위 옵티마이저가 행 수를 추정할 수 있으면 그 추정이 히스토그램보다 우선할 수 있다. 히스토그램은 열 단위이므로 두 조건의 값이 함께 나타나는 빈도까지 표현하지 않는다. [ANALYZE TABLE](https://dev.mysql.com/doc/refman/8.4/en/analyze-table.html) · [Optimizer Statistics](https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html)
 
+![키 통계 및 히스토그램이 행 수와 후보 비용 추정에 연결되는 과정](image/10_mysql_histograms_and_cost_estimates.png)
+
+그림의 근거 · [옵티마이저 통계](https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html) · [비용 모델](https://dev.mysql.com/doc/refman/8.4/en/cost-model.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze)
+
 ## 2. 실습 · 자주 나오는 값과 드문 값
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다. `status`에 별도 인덱스가 없는 상태에서 비교한다.

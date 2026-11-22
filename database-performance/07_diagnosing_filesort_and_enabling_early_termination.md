@@ -37,3 +37,7 @@ DROP INDEX perf5_sort_order ON perf5_orders;
 - 일치하는 행이 시각 순서의 뒤쪽에 몰려 있거나 조건을 통과하는 행이 적으면 정렬 우선 접근도 많이 읽는다. `LIMIT`의 출력 행 수와 그 아래 접근 경로의 실제 작업량을 비교한다.
 
 주문 번호는 같은 시각의 행 순서를 결정한다. 두 인덱스를 비교할 때 필터와 정렬이 같은 결과를 내도록 유지한다. [Descending Indexes](https://dev.mysql.com/doc/refman/8.4/en/descending-indexes.html) · [LIMIT Query Optimization](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)
+
+![필터 우선 filesort와 정렬 우선 LIMIT 조기 종료 비교](image/07_mysql_filesort_and_limit_paths.png)
+
+그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)

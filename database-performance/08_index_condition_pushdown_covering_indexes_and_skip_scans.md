@@ -10,6 +10,10 @@
 
 InnoDB의 ICP는 원본 행을 읽어야 하는 세컨더리 인덱스 접근에 적용된다. MySQL의 Skip Scan은 인덱스가 쿼리에 필요한 열을 제공하는 단일 테이블 조회 등 적용 요건이 있으며, 선행 키의 고유 값이 많으면 반복 탐색 비용도 커진다. [Index Condition Pushdown](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [Range Optimization](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN Output Format](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
 
+![ICP·커버링·Skip Scan이 줄이는 작업 비교](image/08_mysql_icp_covering_and_skip_scan.png)
+
+그림의 근거 · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 실습 · 같은 인덱스에서 접근 방식 비교
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

@@ -14,6 +14,10 @@
 
 `Extra`의 `Using index`는 인덱스가 필요한 열을 제공한다는 뜻이다. `Using index condition`은 일부 조건을 인덱스 항목에서 먼저 검사한다는 뜻이다. `Using filesort`와 `Using temporary`는 별도 정렬 작업과 내부 임시 테이블 사용을 각각 나타낸다. 비용을 판단할 때는 표시와 함께 실제로 처리하는 행 수를 본다. [EXPLAIN Output Format](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
 
+![EXPLAIN의 인덱스 후보·접근 방식·예상 행 수](image/02_mysql_explain_access_and_cardinality.png)
+
+그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 2. 실습 · 기본 키 조회와 상태 조회
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

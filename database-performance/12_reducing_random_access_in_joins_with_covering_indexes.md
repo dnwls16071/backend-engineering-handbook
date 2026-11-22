@@ -8,6 +8,10 @@
 - 주문 인덱스 `(customer_id)`는 고객별 주문을 찾을 수 있다. `(customer_id, total_amount)`는 합계 계산에 필요한 금액도 제공한다.
 - 집계 결과에 대한 정렬은 별도의 작업이다. 원본 행 조회를 줄인 뒤에도 그룹 수와 최종 정렬 비용을 확인한다.
 
+![VIP 주문 집계에서 커버링 인덱스가 원본 행 조회 비용을 줄이는 예](image/12_mysql_covering_join_access.png)
+
+그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 2. 실습 · 조인 키 인덱스와 커버링 인덱스
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

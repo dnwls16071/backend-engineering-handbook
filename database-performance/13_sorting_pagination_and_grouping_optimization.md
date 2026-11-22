@@ -39,6 +39,10 @@ DROP INDEX perf5_page_time ON perf5_orders;
 
 두 조회의 출력이 같은지 먼저 보고, 각 계획이 하위 연산자에서 읽은 행 수를 비교한다. 운영 코드에서는 하드코딩한 예제 값 대신 직전 페이지의 마지막 행에서 시각과 주문 번호를 얻는다.
 
+![OFFSET과 두 키 커서의 페이지 시작점 비교](image/13_mysql_offset_and_keyset_navigation.png)
+
+그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)
+
 ## 3. GROUP BY와 인덱스 순서
 
 - MySQL의 Loose Index Scan은 적용 조건을 만족할 때 그룹별로 일부 키만 읽는다. 예를 들어 `(customer_id, total_amount)` 인덱스에서 `GROUP BY customer_id`와 `MIN(total_amount)`를 처리할 수 있다. 전통 형식의 `EXPLAIN`에서는 `Using index for group-by`를 확인한다.

@@ -22,6 +22,10 @@ GROUP BY customer_id;
 
 두 번째 계획에서 정렬이나 임시 테이블 집계 대신 고객 키 순서의 그룹 집계가 선택되는지 확인한다. `COUNT(*)`와 `SUM(total_amount)`는 그룹에 속하는 모든 주문을 읽는다. [조인 집계 실습](12_reducing_random_access_in_joins_with_covering_indexes.md)에서는 고객 쪽 인덱스 순서와 조인 알고리즘도 같은 고객의 주문이 연속해서 도착하는지에 영향을 준다.
 
+![인덱스 순서에서 그룹 집계를 수행하거나 사전 요약을 재사용하는 접근](image/14_mysql_streaming_and_summary_aggregation.png)
+
+그림의 근거 · [GROUP BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
+
 ## 2. 실습 · 반복 집계를 요약 행으로 읽기
 
 같은 집계를 자주 읽으면 고객당 한 행을 계산해 둘 수 있다. 아래 임시 테이블은 한 세션 안에서 한 번 계산한 요약을 보여 준다. 실제 운영에서 영속 테이블로 만들면 갱신 주기, 정정·삭제 반영 규칙, 재처리 시 중복을 막는 방식을 먼저 정한다. [Aggregate Table Design](../database-design/18_aggregate_table_design.md)

@@ -69,6 +69,10 @@ CREATE TABLE mysql_digest_snapshot (
 
 스케줄러는 `collection_enabled`인 행의 `connection_ref`로 대상을 선택한다. 탐지 결과는 `target_id`로 CMDB를 조회해 담당 팀과 티켓 큐, 대시보드에 연결한다. `target_id`와 스키마·지문, 관측 구간, 규칙 버전으로 작업 식별자를 만들어 같은 결과의 재전송이 중복 티켓을 만들지 않게 한다. 동일 문제가 다음 구간에도 이어지면 진행 중인 티켓에 구간 통계와 변화량을 추가할 수 있다. 티켓과 대시보드에는 원문 대신 지문과 집계값을 넘긴다.
 
+![같은 세대의 digest 스냅샷 차이와 CMDB 소유권을 연결하는 흐름](image/17_mysql_digest_snapshots_and_cmdb_routing.png)
+
+그림의 근거 · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html)
+
 ## 8. 실습 · 두 스냅샷에서 부하 이상 찾기
 
 첫 행 이후 실행 횟수는 30회, 총 실행 시간은 6초 증가한다. 두 수집 시점과 수집 세대가 같은 기준을 가리키는지 확인하고 나서 비교한다.

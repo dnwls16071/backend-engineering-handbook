@@ -13,6 +13,10 @@
 
 MySQL은 SQL 서버와 스토리지 엔진을 구분한다. InnoDB는 테이블과 인덱스를 페이지 단위로 관리하고, 버퍼 풀에 페이지를 캐싱한다. redo 로그는 장애 복구에, undo 레코드는 롤백과 일관된 읽기에 쓰인다. 같은 쿼리라도 페이지가 버퍼 풀에 있는지, 잠금 대기가 있는지에 따라 실제 지연이 달라진다. [MySQL InnoDB Architecture](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html)
 
+![SQL 서버 계층과 InnoDB 실행 경로 및 병목 관측](image/01_mysql_execution_layers_and_bottlenecks.png)
+
+그림의 근거 · [InnoDB 구성](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)
+
 ## 2. 병목을 확인하는 순서
 
 1. 슬로 쿼리 로그나 Performance Schema에서 실행 빈도와 누적 시간을 확인해 조사 대상을 정한다.

@@ -11,6 +11,10 @@
 
 MySQL에서 해시 조인과 각 입력은 `EXPLAIN FORMAT=TREE`로 확인한다. 조인 열 인덱스가 있더라도 옵티마이저는 필터와 읽기 비용을 고려한다. [Nested-Loop Join Algorithms](https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html) · [Hash Join Optimization](https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html)
 
+![중첩 루프의 반복 접근과 해시 조인의 Build·Probe 비교](image/11_mysql_join_build_probe_and_loop.png)
+
+그림의 근거 · [중첩 루프 조인](https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html) · [해시 조인](https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+
 ## 2. 실습 · 고객 등급별 주문 조인
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

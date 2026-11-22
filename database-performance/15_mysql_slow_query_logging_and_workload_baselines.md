@@ -67,6 +67,10 @@ LIMIT 10;
 
 실습의 두 주문 조회는 `order_id` 값만 다르다. MySQL의 지문 정규화는 리터럴 값을 매개변수 마커로 바꾸고 공백과 주석을 정규화한다. 통계에서 같은 지문의 `COUNT_STAR`가 증가하는지 확인한다. 같은 지문 안에서도 특정 고객의 데이터가 몰려 있으면 실행 시간과 계획이 달라질 수 있다. 수집기가 별도 로그 파서로 지문을 만든다면 파서 버전을 함께 기록하고 집계 과정에서 MySQL의 `DIGEST`와 같은 값이라고 가정하지 않는다. [MySQL 문장 지문과 샘플링](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html)
 
+![슬로 로그와 digest의 다른 관측 범위 및 총 실행 시간 기준 순위](image/15_mysql_slow_log_and_total_load.png)
+
+그림의 근거 · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)
+
 ## 6. 총 부하로 개선 순서 정하기
 
 같은 한 시간 동안 평균 20ms인 조회가 10,000번 실행되면 누적 200초, 평균 2초인 조회가 10번 실행되면 누적 20초다. 전체 문장 시간 절감이 목표라면 첫 번째 조회가 우선 후보가 된다. 누적 실행 시간은 동시에 실행된 시간의 합일 수 있으므로 CPU 시간이나 시간당 서버 사용률로 읽지 않는다. 핵심 요청 SLA와 잠금 전파가 걸린 쿼리는 별도로 우선순위를 판단한다. 개선 후에는 동일 구간의 실행 수, 실행당 시간, 읽은 행 수를 함께 비교한다. [MySQL 문장 집계의 타이머와 실행 수](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)

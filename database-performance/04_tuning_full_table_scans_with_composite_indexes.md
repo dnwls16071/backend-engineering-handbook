@@ -6,6 +6,10 @@
 
 `(status, ordered_at)`는 먼저 상태로 묶이고 그 안에서 시각순으로 정렬된다. 특정 상태를 동등 조건으로 고정하면 해당 상태의 시각 범위를 연속해서 읽을 수 있다. 시각만 범위로 지정하는 별도 조회는 상태 우선 인덱스와 궁합이 다르므로 그 조회의 빈도와 비용도 따로 확인한다.
 
+![상태가 고정된 복합 키에서 시간 범위를 연속으로 탐색하는 예](image/04_mysql_composite_index_range.png)
+
+그림의 근거 · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)
+
 ## 2. 실습 · 운영 대시보드의 주문 검색
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다. 정확히 같은 조회를 인덱스 추가 전후로 실행한다.

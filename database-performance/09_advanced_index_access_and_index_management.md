@@ -20,6 +20,10 @@
 
 인덱스를 추가하면 쿼리의 읽기 비용은 줄 수 있지만, 변경 시 인덱스도 갱신해야 한다. 인덱스의 크기와 쓰기 부하, 쿼리별 사용 빈도를 함께 측정한다. [CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html) · [Descending Indexes](https://dev.mysql.com/doc/refman/8.4/en/descending-indexes.html) · [Invisible Indexes](https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html) · [Optimizer Hints](https://dev.mysql.com/doc/refman/8.4/en/optimizer-hints.html)
 
+![Index Merge와 MRR의 서로 다른 탐색 단계 및 Invisible Index 검증](image/09_mysql_index_merge_and_mrr.png)
+
+그림의 근거 · [Index Merge](https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html) · [Multi-Range Read](https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html) · [Invisible Index](https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html)
+
 ## 3. 실습 · OR 조건과 인덱스 가시성
 
 실습 환경은 MySQL 8.4(InnoDB)다. [공통 실습 데이터](01_database_performance_and_query_execution_architecture.md#3-공통-실습-데이터)를 사용한다.

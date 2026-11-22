@@ -33,3 +33,7 @@ LIMIT 10;
 ```
 
 `LIMIT` 노드가 반환한 10행과 그 아래 필터와 스캔에서 처리한 행 수를 구분한다. 일부 연산자는 행을 읽는 즉시 상위로 보낼 수 있다. 별도 정렬이 필요하면 상위 10개만 유지하는 최적화가 적용되더라도 어떤 행이 상위 10개인지 판단할 후보는 읽어야 한다. 인덱스 순서로 곧바로 반환할 수 있을 때 하위 읽기도 일찍 끝날 수 있다. [LIMIT Query Optimization](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)
+
+![EXPLAIN ANALYZE의 실행 트리에서 반환 행과 읽은 후보 행을 구분하는 예](image/03_mysql_explain_analyze_operator_work.png)
+
+그림의 근거 · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)

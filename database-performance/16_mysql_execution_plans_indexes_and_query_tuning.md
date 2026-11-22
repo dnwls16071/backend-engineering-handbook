@@ -65,6 +65,10 @@ WHERE c.tier = 'VIP' AND o.status = 'RETURNED';
 
 주문 목록 1건의 SQL 뒤 동일 형태의 관계 조회가 주문마다 반복되는지 한 요청의 쿼리 로그나 추적에서 확인한다. `N+1`의 개수는 1차 캐시에 이미 있는 엔티티와 조회 범위에 따라 달라질 수 있다. 화면에 필요한 값만 DTO로 투영하거나 to-one fetch join을 적용한다. 부모 목록을 페이징하면서 to-many를 가져올 때는 부모 ID 페이지를 먼저 구하고 필요한 관계를 함께 읽으면 컬렉션으로 인해 부모 페이지가 부풀어 오르는 문제를 피할 수 있다. [Hibernate 페치 전략](https://docs.hibernate.org/orm/6.6/userguide/html_single/#fetching) · [두 단계 조회 예제](../high-performance-spring-persistence/07_fetching_pagination_projections_and_query_plans.md)
 
+![EXPLAIN부터 인덱스 변경 전후 실측까지의 튜닝 비교](image/16_mysql_plan_evidence_and_query_tuning.png)
+
+그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)
+
 ## 10. 실습 · 실행 계획의 기준값 기록하기
 
 ```sql
