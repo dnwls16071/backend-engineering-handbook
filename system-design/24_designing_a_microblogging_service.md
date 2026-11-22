@@ -2,6 +2,10 @@
 
 단문 게시물의 원본, 팔로우 관계, 홈 타임라인, 검색 인덱스는 갱신 빈도와 최신성 요구가 다를 수 있다. 게시 직후 내 글을 보는 경로와 다른 이용자의 홈 목록을 별도로 설계한다. [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 
+![쓰기 API가 게시글과 Outbox를 함께 기록한다. 소비자가 일반 작성자의 글로 홈 목록과 검색을 갱신하고, 인기 작성자의 글과 현재 권한은 읽을 때 확인한다.](image/24_microblogging_architecture.png)
+
+그림의 근거 · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Microsoft Queue-Based Load Leveling](https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling) · [Kafka 4.3 Introduction](https://kafka.apache.org/43/getting-started/introduction/)
+
 ## 1. 쓰기와 파생 갱신 경로를 연결한다
 
 게시글을 저장하면서 TweetCreated에 해당하는 내부 이벤트를 Outbox에 남긴다. 게시자 프로필은 원본이나 최신성 보장 경로에서 읽고, 홈 목록과 검색 인덱스는 별도 소비자가 채울 수 있다. 이벤트에는 게시글·작성자 ID와 버전을 넣는다. [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Kafka 4.3 Introduction](https://kafka.apache.org/43/getting-started/introduction/) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
