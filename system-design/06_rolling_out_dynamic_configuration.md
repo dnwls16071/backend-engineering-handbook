@@ -2,6 +2,10 @@
 
 동적 설정은 배포 없이 값이 바뀌는 경로다. 설정 오류 역시 곧바로 서비스 영향으로 이어지므로 검증, 배포 범위, 되돌리기 단위를 설정과 함께 정의한다. [etcd 3.6 API](https://etcd.io/docs/v3.6/learning/api/) · [AWS AppConfig Rollback](https://docs.aws.amazon.com/appconfig/latest/userguide/monitoring-deployments.html)
 
+![운영자가 검증한 설정을 etcd에 저장한다. 카나리 인스턴스가 먼저 적용 결과를 확인하고, 배포 범위를 넓힌 뒤 각 인스턴스의 설정 버전을 관측한다.](image/06_configuration_rollout_architecture.png)
+
+그림의 근거 · [etcd 3.6 API](https://etcd.io/docs/v3.6/learning/api/) · [AWS AppConfig Rollback](https://docs.aws.amazon.com/appconfig/latest/userguide/monitoring-deployments.html) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
 ## 1. 업무 설정을 하나의 버전으로 배포한다
 
 스키마 검증을 통과한 설정 묶음에 버전을 부여한다. 애플리케이션은 값을 하나씩 갈아 끼우는 대신 필요한 값을 모두 검증한 뒤 스냅샷을 교체한다. 잘못된 새 버전은 거부하고 마지막 정상 버전과 거부 이유를 남긴다. [etcd 3.6 API](https://etcd.io/docs/v3.6/learning/api/) · [AWS AppConfig Rollback](https://docs.aws.amazon.com/appconfig/latest/userguide/monitoring-deployments.html)
