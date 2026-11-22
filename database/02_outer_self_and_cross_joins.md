@@ -59,6 +59,10 @@ ORDER BY m.member_id, r.reservation_id;
 
 첫 결과는 `Ara` 1건, `Jun`과 `Mina` 0건이다. `COUNT(r.reservation_id)`는 값이 있는 예약만 세므로, 오른쪽이 `NULL`인 행은 0건으로 계산한다. 같은 위치에서 `COUNT(*)`는 `NULL` 확장 행도 한 행으로 센다. 두 번째 결과에는 `Ara`의 예약 `100`만 남는다. [MySQL COUNT 집계](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html#function_count)
 
+![LEFT JOIN의 ON과 WHERE가 보존 행을 바꾸는 예와 다른 조인 유형](image/02_sql_outer_join_on_where_and_other_joins.png)
+
+그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
+
 ## 3. 셀프 조인으로 같은 테이블의 역할 나누기
 
 직원과 관리자는 같은 직원 목록에서 가져온다. 두 참조에 서로 다른 별칭을 붙여 직원의 `manager_id`와 관리자의 `employee_id`를 연결한다. 최상위 직원까지 조회하려면 직원을 왼쪽에 두고 `LEFT JOIN` 한다. 이 예제에서는 `WITH`로 한 SQL 문 안에 실습 데이터를 정의한다. [MySQL WITH 구문](https://dev.mysql.com/doc/refman/8.4/en/with.html)

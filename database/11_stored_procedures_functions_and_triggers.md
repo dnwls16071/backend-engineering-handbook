@@ -76,6 +76,10 @@ SELECT product_id, previous_stock, current_stock FROM db12_stock_audit;
 
 조회 프로시저는 재고 12를 돌려주고, 계산 함수는 86.00을 반환한다. 첫 변경을 롤백하면 감사 행도 함께 사라져 집계는 0이다. 마지막 변경에서는 상품 7의 재고가 12에서 9로 바뀌며 감사 행 하나가 남는다. 마지막 변경은 기본 `autocommit` 동작을 전제로 한다. [Defining Stored Programs](https://dev.mysql.com/doc/refman/8.4/en/stored-programs-defining.html) · [Trigger Syntax](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)
 
+![명시 호출하는 프로시저·함수와 재고 갱신에서 자동 동작하는 트리거](image/11_sql_procedure_function_and_trigger_execution.png)
+
+그림의 근거 · [프로시저와 함수](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)
+
 ## 3. 권한과 관리 범위
 
 MySQL의 프로시저와 함수는 `SQL SECURITY INVOKER`로 호출자의 권한을 적용하거나 `DEFINER`의 권한으로 실행할 수 있다. 트리거의 실행 권한은 `DEFINER`를 기준으로 확인한다. 바이너리 로그 설정에 따라 함수나 트리거 생성에 추가 권한 또는 선언 조건이 적용될 수 있다. [Stored Object Access Control](https://dev.mysql.com/doc/refman/8.4/en/stored-objects-security.html) · [Stored Program Binary Logging](https://dev.mysql.com/doc/refman/8.4/en/stored-programs-logging.html)

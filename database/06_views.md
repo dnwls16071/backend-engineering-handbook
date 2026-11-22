@@ -79,6 +79,10 @@ ORDER BY table_name;
 
 **공식 문서** [ALTER VIEW](https://dev.mysql.com/doc/refman/8.4/en/alter-view.html) · [수정·삽입 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [WITH CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)
 
+![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)
+
+그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)
+
 ## 3. 접근 권한과 실행 계획 확인하기
 
 - 원본의 `hourly_rate`를 명단에서 제외하고, 보고서 계정에 명단 뷰의 `SELECT` 권한을 부여한다. 조회자가 원본을 직접 읽을 수 있는지 기존 계정과 역할의 권한도 확인한다.

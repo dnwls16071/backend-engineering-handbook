@@ -106,6 +106,10 @@ SELECT 101 NOT IN (102, NULL) AS unknown_result;
 
 첫 결과는 완료 기록이 없는 `201`과 `202`다. 두 번째는 과정별 완료 횟수 `2, 1, 0, 0`을 반환한다. 마지막 표현식은 `NULL`을 반환한다. `NOT IN`의 후보에 `NULL`이 섞이면 일치하는 후보가 없는 값도 비교 결과가 `UNKNOWN`이 될 수 있다. 미매칭을 검사할 때 비교 열이 `NULL`을 허용한다면, 원하는 결합 조건을 명시한 `NOT EXISTS`를 사용한다. [MySQL 비교 연산자와 NULL](https://dev.mysql.com/doc/refman/8.4/en/comparison-operators.html)
 
+![서브쿼리 반환 형태와 바깥 행을 참조하는 EXISTS의 논리적 관계](image/03_sql_subquery_shapes_and_correlation.png)
+
+그림의 근거 · [서브쿼리](https://dev.mysql.com/doc/refman/8.4/en/subqueries.html) · [EXISTS](https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html)
+
 ## 4. 파생 테이블에서 먼저 집계하기
 
 `FROM`에 놓인 서브쿼리를 파생 테이블이라고 하며 별칭을 붙여 참조한다. 이 예제는 완료 기록을 과정별 한 행으로 먼저 집계한 후 과정에 붙인다. `COALESCE`로 미매칭 과정의 횟수를 `0`으로 바꾸면 앞의 상관 `COUNT(*)` 예제와 같은 값이 나온다. [MySQL 파생 테이블](https://dev.mysql.com/doc/refman/8.4/en/derived-tables.html)

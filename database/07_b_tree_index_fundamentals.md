@@ -60,6 +60,10 @@ WHERE price_cents = 2200;
 
 가격 `2200`에 해당하는 ID는 49~52다. MySQL의 `EXPLAIN FORMAT=TRADITIONAL`에서 `possible_keys`는 사용 가능한 후보, `key`는 선택한 인덱스다. `type`은 `ALL`이면 테이블 전체 스캔, `index`이면 인덱스 전체 스캔, `ref`이면 인덱스 키의 동등 조건 조회, `range`이면 인덱스의 하나 이상의 구간을 읽는 접근을 뜻한다. `rows`는 읽을 것으로 추정한 행 수다. 인덱스 생성 전후의 실행 계획을 비교하면 옵티마이저가 예상 비용에 따라 고른 접근 경로를 확인할 수 있다. [CREATE INDEX](https://dev.mysql.com/doc/refman/8.4/en/create-index.html) · [SHOW INDEX](https://dev.mysql.com/doc/refman/8.4/en/show-index.html) · [MySQL의 EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
 
+![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)
+
+그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)
+
 ## 3. 범위와 LIKE 접두어 검색
 
 정렬된 키에서 하한과 상한을 구할 수 있으면 그 구간만 읽을 수 있다. 문자열 접두어 비교에서는 인덱스의 문자열 비교 규칙이 그 범위를 결정한다. 아래 예제에서 `LIKE 'KIT-%'`는 접두어로 범위를 만들 수 있다. `LIKE '%0040'`에 해당하는 키는 여러 접두어 구간에 흩어질 수 있다.

@@ -100,6 +100,10 @@ LIMIT 3;
 
 MySQL에서 실행 비용을 비교할 때는 `EXPLAIN ANALYZE`로 조회를 실제 실행해 예상 행 수와 실측 행 수를 함께 볼 수 있다. [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [Index Condition Pushdown](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html)
 
+![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)
+
+그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 4. 자주 실행하는 조회에서 인덱스 설계하기
 
 반복되는 필터, 조인 키, 정렬 순서에서 후보를 고른다. 예제처럼 특정 창고와 상태를 고정하는 조회에서는 동등 조건의 열을 앞에, 시각 범위나 정렬에 쓰는 열을 뒤에 둔다. 창고 없이 상태만 자주 찾거나 창고 전체의 최신 출고가 중요하면 해당 조회 패턴을 별도로 검토한다.

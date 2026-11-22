@@ -92,3 +92,7 @@ ORDER BY team_code;
 `COUNT(CASE WHEN ... THEN 1 ELSE 0 END)`은 0도 값으로 세므로 모든 입력 행을 집계한다. `GROUP BY` 없이 전체를 집계할 때 입력이 0행이면 `COUNT()`는 0, `SUM()`은 `NULL`을 반환한다.
 
 **공식 문서** [COUNT와 SUM의 NULL 처리](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)
+
+![CASE 결과에 따라 티켓의 상태별 건수와 종료 소요 시간을 집계하는 과정](image/05_sql_case_and_conditional_aggregation.png)
+
+그림의 근거 · [CASE 표현식](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)

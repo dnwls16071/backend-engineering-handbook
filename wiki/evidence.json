@@ -16936,5 +16936,2835 @@
       "url": "https://docs.docker.com/reference/cli/docker/image/pull/#pull-an-image-by-digest-immutable-identifier",
       "locator": "Pull an image by digest (immutable identifier)"
     }
+  },
+  {
+    "page": "ddd/01_domain_models_and_domain_driven_design.md",
+    "claim": "![회원 관리와 강의 운영의 바운디드 컨텍스트 및 공개 계약](image/01_ddd_bounded_contexts_and_language.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원과 강사를 구별하는 이 문서의 개념 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/BoundedContext.html",
+      "locator": "Explicit context boundaries and relationships"
+    }
+  },
+  {
+    "page": "ddd/01_domain_models_and_domain_driven_design.md",
+    "claim": "![회원 관리와 강의 운영의 바운디드 컨텍스트 및 공개 계약](image/01_ddd_bounded_contexts_and_language.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원과 강사를 구별하는 이 문서의 개념 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/UbiquitousLanguage.html",
+      "locator": "Rigorous shared language between developers and users"
+    }
+  },
+  {
+    "page": "ddd/01_domain_models_and_domain_driven_design.md",
+    "claim": "그림의 근거 · [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html) · [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원과 강사를 구별하는 이 문서의 개념 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/BoundedContext.html",
+      "locator": "Explicit context boundaries and relationships"
+    }
+  },
+  {
+    "page": "ddd/01_domain_models_and_domain_driven_design.md",
+    "claim": "그림의 근거 · [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html) · [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원과 강사를 구별하는 이 문서의 개념 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/UbiquitousLanguage.html",
+      "locator": "Rigorous shared language between developers and users"
+    }
+  },
+  {
+    "page": "ddd/02_modeling_members_with_entities_and_value_objects.md",
+    "claim": "![회원 식별자와 값 객체가 유지하는 규칙 및 가입·활성화·정지의 상태 전이](image/02_ddd_member_identity_and_states.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Member의 이메일 검증을 전제로 한 상태 전이 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/EvansClassification.html",
+      "locator": "Entity identity through time and different representations"
+    }
+  },
+  {
+    "page": "ddd/02_modeling_members_with_entities_and_value_objects.md",
+    "claim": "![회원 식별자와 값 객체가 유지하는 규칙 및 가입·활성화·정지의 상태 전이](image/02_ddd_member_identity_and_states.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Member의 이메일 검증을 전제로 한 상태 전이 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/ValueObject.html",
+      "locator": "Equality based on value"
+    }
+  },
+  {
+    "page": "ddd/02_modeling_members_with_entities_and_value_objects.md",
+    "claim": "그림의 근거 · [DDD 객체 분류](https://martinfowler.com/bliki/EvansClassification.html) · [Value Object](https://martinfowler.com/bliki/ValueObject.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Member의 이메일 검증을 전제로 한 상태 전이 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/EvansClassification.html",
+      "locator": "Entity identity through time and different representations"
+    }
+  },
+  {
+    "page": "ddd/02_modeling_members_with_entities_and_value_objects.md",
+    "claim": "그림의 근거 · [DDD 객체 분류](https://martinfowler.com/bliki/EvansClassification.html) · [Value Object](https://martinfowler.com/bliki/ValueObject.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Member의 이메일 검증을 전제로 한 상태 전이 예시.",
+    "source": {
+      "url": "https://martinfowler.com/bliki/ValueObject.html",
+      "locator": "Equality based on value"
+    }
+  },
+  {
+    "page": "ddd/03_designing_a_hexagonal_member_application.md",
+    "claim": "아래 실선은 실행 중 호출을, 점선은 코드 의존을 나타낸다. 런타임에 저장소 호출은 JPA 어댑터로 이어진다. 코드에서 JPA 어댑터는 애플리케이션 소유의 저장소 포트를 구현한다. [Alistair Cockburn · Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture)",
+    "checked_on": "2026-11-22",
+    "applies_to": "포트와 도메인을 안쪽에 둔 회원 가입 사례. 그림의 실선은 호출, 점선은 코드 의존.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "The primary-secondary asymmetry 및 implementation of an adapter"
+    }
+  },
+  {
+    "page": "ddd/03_designing_a_hexagonal_member_application.md",
+    "claim": "![회원 가입의 런타임 호출과 JPA 어댑터의 포트 구현 의존 방향](image/03_ddd_hexagonal_member_registration.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "포트와 도메인을 안쪽에 둔 회원 가입 사례. 그림의 실선은 호출, 점선은 코드 의존.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "The primary-secondary asymmetry 및 implementation of an adapter"
+    }
+  },
+  {
+    "page": "ddd/03_designing_a_hexagonal_member_application.md",
+    "claim": "![회원 가입의 런타임 호출과 JPA 어댑터의 포트 구현 의존 방향](image/03_ddd_hexagonal_member_registration.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "포트와 도메인을 안쪽에 둔 회원 가입 사례. 그림의 실선은 호출, 점선은 코드 의존.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2",
+      "locator": "Entity persistence and constraints"
+    }
+  },
+  {
+    "page": "ddd/03_designing_a_hexagonal_member_application.md",
+    "claim": "그림의 근거 · [Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture) · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2)",
+    "checked_on": "2026-11-22",
+    "applies_to": "포트와 도메인을 안쪽에 둔 회원 가입 사례. 그림의 실선은 호출, 점선은 코드 의존.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "The primary-secondary asymmetry 및 implementation of an adapter"
+    }
+  },
+  {
+    "page": "ddd/03_designing_a_hexagonal_member_application.md",
+    "claim": "그림의 근거 · [Ports and Adapters](https://alistair.cockburn.us/hexagonal-architecture) · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2)",
+    "checked_on": "2026-11-22",
+    "applies_to": "포트와 도메인을 안쪽에 둔 회원 가입 사례. 그림의 실선은 호출, 점선은 코드 의존.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2",
+      "locator": "Entity persistence and constraints"
+    }
+  },
+  {
+    "page": "ddd/04_jpa_mapping_and_entity_identity_in_domain_models.md",
+    "claim": "![도메인 식별자, JPA 기본 키와 조회용 자연 키의 역할](image/04_ddd_member_identity_and_persistence_mapping.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.2와 Hibernate 예시. MemberId는 애플리케이션이 불변 값으로 관리.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2",
+      "locator": "Primary Keys and Entity Identity"
+    }
+  },
+  {
+    "page": "ddd/04_jpa_mapping_and_entity_identity_in_domain_models.md",
+    "claim": "![도메인 식별자, JPA 기본 키와 조회용 자연 키의 역할](image/04_ddd_member_identity_and_persistence_mapping.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.2와 Hibernate 예시. MemberId는 애플리케이션이 불변 값으로 관리.",
+    "source": {
+      "url": "https://docs.hibernate.org/stable/orm/introduction/html_single/",
+      "locator": "Natural IDs 및 equals and hashCode"
+    }
+  },
+  {
+    "page": "ddd/04_jpa_mapping_and_entity_identity_in_domain_models.md",
+    "claim": "그림의 근거 · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2) · [Hibernate ORM](https://docs.hibernate.org/stable/orm/introduction/html_single/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.2와 Hibernate 예시. MemberId는 애플리케이션이 불변 값으로 관리.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2",
+      "locator": "Primary Keys and Entity Identity"
+    }
+  },
+  {
+    "page": "ddd/04_jpa_mapping_and_entity_identity_in_domain_models.md",
+    "claim": "그림의 근거 · [Jakarta Persistence 3.2](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2) · [Hibernate ORM](https://docs.hibernate.org/stable/orm/introduction/html_single/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Jakarta Persistence 3.2와 Hibernate 예시. MemberId는 애플리케이션이 불변 값으로 관리.",
+    "source": {
+      "url": "https://docs.hibernate.org/stable/orm/introduction/html_single/",
+      "locator": "Natural IDs 및 equals and hashCode"
+    }
+  },
+  {
+    "page": "ddd/05_designing_aggregates_and_consistency_boundaries.md",
+    "claim": "![회원 루트가 상태와 검증을 보호하는 애그리거트 경계와 강사 식별자 참조](image/05_ddd_aggregate_consistency_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 활성화 예시. Outbox는 커밋된 상태의 외부 전달과 복구가 필요한 경우.",
+    "source": {
+      "url": "https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf",
+      "locator": "Reference Other Aggregates by Identity 및 eventual consistency"
+    }
+  },
+  {
+    "page": "ddd/05_designing_aggregates_and_consistency_boundaries.md",
+    "claim": "![회원 루트가 상태와 검증을 보호하는 애그리거트 경계와 강사 식별자 참조](image/05_ddd_aggregate_consistency_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 활성화 예시. Outbox는 커밋된 상태의 외부 전달과 복구가 필요한 경우.",
+    "source": {
+      "url": "https://microservices.io/patterns/data/transactional-outbox.html",
+      "locator": "Store the message in the database as part of the transaction"
+    }
+  },
+  {
+    "page": "ddd/05_designing_aggregates_and_consistency_boundaries.md",
+    "claim": "그림의 근거 · [애그리거트 사이의 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf) · [Transactional Outbox](https://microservices.io/patterns/data/transactional-outbox.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 활성화 예시. Outbox는 커밋된 상태의 외부 전달과 복구가 필요한 경우.",
+    "source": {
+      "url": "https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf",
+      "locator": "Reference Other Aggregates by Identity 및 eventual consistency"
+    }
+  },
+  {
+    "page": "ddd/05_designing_aggregates_and_consistency_boundaries.md",
+    "claim": "그림의 근거 · [애그리거트 사이의 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf) · [Transactional Outbox](https://microservices.io/patterns/data/transactional-outbox.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 활성화 예시. Outbox는 커밋된 상태의 외부 전달과 복구가 필요한 경우.",
+    "source": {
+      "url": "https://microservices.io/patterns/data/transactional-outbox.html",
+      "locator": "Store the message in the database as part of the transaction"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "![회원 가입의 요청 DTO·업무 결과·HTTP 오류 변환 지점](image/06_ddd_http_dto_and_error_contract.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html",
+      "locator": "Validation at the controller method"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "![회원 가입의 요청 DTO·업무 결과·HTTP 오류 변환 지점](image/06_ddd_http_dto_and_error_contract.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html",
+      "locator": "ProblemDetail 및 ErrorResponse"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "![회원 가입의 요청 DTO·업무 결과·HTTP 오류 변환 지점](image/06_ddd_http_dto_and_error_contract.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "locator": "3 The Problem Details Object"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "그림의 근거 · [Spring MVC 입력 검증](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html) · [Spring MVC 오류 응답](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) · [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html",
+      "locator": "Validation at the controller method"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "그림의 근거 · [Spring MVC 입력 검증](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html) · [Spring MVC 오류 응답](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) · [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html",
+      "locator": "ProblemDetail 및 ErrorResponse"
+    }
+  },
+  {
+    "page": "ddd/06_designing_web_api_adapters_and_error_contracts.md",
+    "claim": "그림의 근거 · [Spring MVC 입력 검증](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-validation.html) · [Spring MVC 오류 응답](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) · [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring MVC와 RFC 9457을 사용하는 예시이며 오류 계약의 상태·타입은 이 문서의 설계.",
+    "source": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "locator": "3 The Problem Details Object"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "![인증 서비스가 소유한 입출력 포트와 비밀번호 검증 기술의 경계](image/07_ddd_authentication_ports_and_policy.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "Ports and Adapters pattern"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "![인증 서비스가 소유한 입출력 포트와 비밀번호 검증 기술의 경계](image/07_ddd_authentication_ports_and_policy.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html",
+      "locator": "Adaptive one-way functions 및 PasswordEncoder"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "![인증 서비스가 소유한 입출력 포트와 비밀번호 검증 기술의 경계](image/07_ddd_authentication_ports_and_policy.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "locator": "Authentication Responses"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "그림의 근거 · [포트 소유권](https://alistair.cockburn.us/hexagonal-architecture) · [Spring Security 비밀번호 저장](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html) · [외부 인증 실패 응답](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "Ports and Adapters pattern"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "그림의 근거 · [포트 소유권](https://alistair.cockburn.us/hexagonal-architecture) · [Spring Security 비밀번호 저장](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html) · [외부 인증 실패 응답](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html",
+      "locator": "Adaptive one-way functions 및 PasswordEncoder"
+    }
+  },
+  {
+    "page": "ddd/07_designing_application_ports_for_member_authentication.md",
+    "claim": "그림의 근거 · [포트 소유권](https://alistair.cockburn.us/hexagonal-architecture) · [Spring Security 비밀번호 저장](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html) · [외부 인증 실패 응답](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "회원 로그인 예시. 해시 검증 구현은 Spring Security를 사용할 수 있는 외부 어댑터.",
+    "source": {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "locator": "Authentication Responses"
+    }
+  },
+  {
+    "page": "ddd/08_connecting_aggregates_through_application_components.md",
+    "claim": "![강사 등록이 회원 공개 조회 계약을 거쳐 자격을 확인하는 경로](image/08_ddd_component_collaboration.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "같은 배포 단위 안에서 강사 컴포넌트와 회원 컴포넌트가 협력하는 예시.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "The purpose of a port and the adapter"
+    }
+  },
+  {
+    "page": "ddd/08_connecting_aggregates_through_application_components.md",
+    "claim": "![강사 등록이 회원 공개 조회 계약을 거쳐 자격을 확인하는 경로](image/08_ddd_component_collaboration.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "같은 배포 단위 안에서 강사 컴포넌트와 회원 컴포넌트가 협력하는 예시.",
+    "source": {
+      "url": "https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf",
+      "locator": "Reference Other Aggregates by Identity 및 eventual consistency"
+    }
+  },
+  {
+    "page": "ddd/08_connecting_aggregates_through_application_components.md",
+    "claim": "그림의 근거 · [포트와 어댑터](https://alistair.cockburn.us/hexagonal-architecture) · [애그리거트 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf)",
+    "checked_on": "2026-11-22",
+    "applies_to": "같은 배포 단위 안에서 강사 컴포넌트와 회원 컴포넌트가 협력하는 예시.",
+    "source": {
+      "url": "https://alistair.cockburn.us/hexagonal-architecture",
+      "locator": "The purpose of a port and the adapter"
+    }
+  },
+  {
+    "page": "ddd/08_connecting_aggregates_through_application_components.md",
+    "claim": "그림의 근거 · [포트와 어댑터](https://alistair.cockburn.us/hexagonal-architecture) · [애그리거트 협력](https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf)",
+    "checked_on": "2026-11-22",
+    "applies_to": "같은 배포 단위 안에서 강사 컴포넌트와 회원 컴포넌트가 협력하는 예시.",
+    "source": {
+      "url": "https://www.dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf",
+      "locator": "Reference Other Aggregates by Identity 및 eventual consistency"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "![공개 의존 방향과 슬라이스 순환 검사가 잡는 위반 및 실행 테스트의 범위](image/09_ddd_architecture_rules_and_test_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://www.archunit.org/userguide/html/000_Index.html#_slices",
+      "locator": "Slices, cycles between slices"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "![공개 의존 방향과 슬라이스 순환 검사가 잡는 위반 및 실행 테스트의 범위](image/09_ddd_architecture_rules_and_test_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://www.archunit.org/userguide/html/000_Index.html#_the_core_api",
+      "locator": "The Core API 및 JavaClass dependencies"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "![공개 의존 방향과 슬라이스 순환 검사가 잡는 위반 및 실행 테스트의 범위](image/09_ddd_architecture_rules_and_test_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html",
+      "locator": "Classpath scanning and stereotype annotations"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "그림의 근거 · [ArchUnit 슬라이스](https://www.archunit.org/userguide/html/000_Index.html#_slices) · [ArchUnit 의존성 표현](https://www.archunit.org/userguide/html/000_Index.html#_the_core_api) · [Spring 컴포넌트](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://www.archunit.org/userguide/html/000_Index.html#_slices",
+      "locator": "Slices, cycles between slices"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "그림의 근거 · [ArchUnit 슬라이스](https://www.archunit.org/userguide/html/000_Index.html#_slices) · [ArchUnit 의존성 표현](https://www.archunit.org/userguide/html/000_Index.html#_the_core_api) · [Spring 컴포넌트](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://www.archunit.org/userguide/html/000_Index.html#_the_core_api",
+      "locator": "The Core API 및 JavaClass dependencies"
+    }
+  },
+  {
+    "page": "ddd/09_verifying_hexagonal_architecture_boundaries.md",
+    "claim": "그림의 근거 · [ArchUnit 슬라이스](https://www.archunit.org/userguide/html/000_Index.html#_slices) · [ArchUnit 의존성 표현](https://www.archunit.org/userguide/html/000_Index.html#_the_core_api) · [Spring 컴포넌트](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "ArchUnit의 바이트코드 검사와 Spring 통합 테스트를 구분하는 문서 예시.",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html",
+      "locator": "Classpath scanning and stereotype annotations"
+    }
+  },
+  {
+    "page": "database-performance/01_database_performance_and_query_execution_architecture.md",
+    "claim": "![SQL 서버 계층과 InnoDB 실행 경로 및 병목 관측](image/01_mysql_execution_layers_and_bottlenecks.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html",
+      "locator": "InnoDB architecture diagram, memory and disk structures"
+    }
+  },
+  {
+    "page": "database-performance/01_database_performance_and_query_execution_architecture.md",
+    "claim": "![SQL 서버 계층과 InnoDB 실행 경로 및 병목 관측](image/01_mysql_execution_layers_and_bottlenecks.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/01_database_performance_and_query_execution_architecture.md",
+    "claim": "그림의 근거 · [InnoDB 구성](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html",
+      "locator": "InnoDB architecture diagram, memory and disk structures"
+    }
+  },
+  {
+    "page": "database-performance/01_database_performance_and_query_execution_architecture.md",
+    "claim": "그림의 근거 · [InnoDB 구성](https://dev.mysql.com/doc/refman/8.4/en/innodb-architecture.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/02_reading_execution_plans_with_explain.md",
+    "claim": "![EXPLAIN의 인덱스 후보·접근 방식·예상 행 수](image/02_mysql_explain_access_and_cardinality.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/02_reading_execution_plans_with_explain.md",
+    "claim": "그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/03_measuring_query_execution_with_explain_analyze.md",
+    "claim": "![EXPLAIN ANALYZE의 실행 트리에서 반환 행과 읽은 후보 행을 구분하는 예](image/03_mysql_explain_analyze_operator_work.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/03_measuring_query_execution_with_explain_analyze.md",
+    "claim": "![EXPLAIN ANALYZE의 실행 트리에서 반환 행과 읽은 후보 행을 구분하는 예](image/03_mysql_explain_analyze_operator_work.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/03_measuring_query_execution_with_explain_analyze.md",
+    "claim": "그림의 근거 · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/03_measuring_query_execution_with_explain_analyze.md",
+    "claim": "그림의 근거 · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/04_tuning_full_table_scans_with_composite_indexes.md",
+    "claim": "![상태가 고정된 복합 키에서 시간 범위를 연속으로 탐색하는 예](image/04_mysql_composite_index_range.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/04_tuning_full_table_scans_with_composite_indexes.md",
+    "claim": "![상태가 고정된 복합 키에서 시간 범위를 연속으로 탐색하는 예](image/04_mysql_composite_index_range.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database-performance/04_tuning_full_table_scans_with_composite_indexes.md",
+    "claim": "그림의 근거 · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/04_tuning_full_table_scans_with_composite_indexes.md",
+    "claim": "그림의 근거 · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database-performance/05_b_plus_tree_index_internals.md",
+    "claim": "![B+ 트리의 루트에서 리프를 선택하고 연속 범위를 탐색하는 페이지 계층](image/05_mysql_b_plus_tree_page_hierarchy.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "InnoDB 페이지를 단순화한 25·50 분기 예시. 리프 키 순서와 물리 배치는 구분.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
+      "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
+    }
+  },
+  {
+    "page": "database-performance/05_b_plus_tree_index_internals.md",
+    "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "InnoDB 페이지를 단순화한 25·50 분기 예시. 리프 키 순서와 물리 배치는 구분.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
+      "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
+    }
+  },
+  {
+    "page": "database-performance/06_clustered_and_secondary_indexes.md",
+    "claim": "![세컨더리 리프에서 커버링 반환 또는 클러스터드 원본 행 조회로 나뉘는 경로](image/06_mysql_clustered_and_secondary_lookup.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database-performance/06_clustered_and_secondary_indexes.md",
+    "claim": "![세컨더리 리프에서 커버링 반환 또는 클러스터드 원본 행 조회로 나뉘는 경로](image/06_mysql_clustered_and_secondary_lookup.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/06_clustered_and_secondary_indexes.md",
+    "claim": "그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database-performance/06_clustered_and_secondary_indexes.md",
+    "claim": "그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/07_diagnosing_filesort_and_enabling_early_termination.md",
+    "claim": "![필터 우선 filesort와 정렬 우선 LIMIT 조기 종료 비교](image/07_mysql_filesort_and_limit_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html",
+      "locator": "Use of Indexes to Satisfy ORDER BY 및 filesort"
+    }
+  },
+  {
+    "page": "database-performance/07_diagnosing_filesort_and_enabling_early_termination.md",
+    "claim": "![필터 우선 filesort와 정렬 우선 LIMIT 조기 종료 비교](image/07_mysql_filesort_and_limit_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/07_diagnosing_filesort_and_enabling_early_termination.md",
+    "claim": "그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html",
+      "locator": "Use of Indexes to Satisfy ORDER BY 및 filesort"
+    }
+  },
+  {
+    "page": "database-performance/07_diagnosing_filesort_and_enabling_early_termination.md",
+    "claim": "그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "![ICP·커버링·Skip Scan이 줄이는 작업 비교](image/08_mysql_icp_covering_and_skip_scan.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
+      "locator": "How Index Condition Pushdown Works"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "![ICP·커버링·Skip Scan이 줄이는 작업 비교](image/08_mysql_icp_covering_and_skip_scan.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "![ICP·커버링·Skip Scan이 줄이는 작업 비교](image/08_mysql_icp_covering_and_skip_scan.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "그림의 근거 · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
+      "locator": "How Index Condition Pushdown Works"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "그림의 근거 · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/08_index_condition_pushdown_covering_indexes_and_skip_scans.md",
+    "claim": "그림의 근거 · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "![Index Merge와 MRR의 서로 다른 탐색 단계 및 Invisible Index 검증](image/09_mysql_index_merge_and_mrr.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html",
+      "locator": "Union access algorithm"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "![Index Merge와 MRR의 서로 다른 탐색 단계 및 Invisible Index 검증](image/09_mysql_index_merge_and_mrr.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html",
+      "locator": "Disk-Sweep Multi-Range Read"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "![Index Merge와 MRR의 서로 다른 탐색 단계 및 Invisible Index 검증](image/09_mysql_index_merge_and_mrr.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html",
+      "locator": "Indexes remain maintained"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "그림의 근거 · [Index Merge](https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html) · [Multi-Range Read](https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html) · [Invisible Index](https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html",
+      "locator": "Union access algorithm"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "그림의 근거 · [Index Merge](https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html) · [Multi-Range Read](https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html) · [Invisible Index](https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html",
+      "locator": "Disk-Sweep Multi-Range Read"
+    }
+  },
+  {
+    "page": "database-performance/09_advanced_index_access_and_index_management.md",
+    "claim": "그림의 근거 · [Index Merge](https://dev.mysql.com/doc/refman/8.4/en/index-merge-optimization.html) · [Multi-Range Read](https://dev.mysql.com/doc/refman/8.4/en/mrr-optimization.html) · [Invisible Index](https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/invisible-indexes.html",
+      "locator": "Indexes remain maintained"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "![키 통계 및 히스토그램이 행 수와 후보 비용 추정에 연결되는 과정](image/10_mysql_histograms_and_cost_estimates.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html",
+      "locator": "Column Statistics and histogram applicability"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "![키 통계 및 히스토그램이 행 수와 후보 비용 추정에 연결되는 과정](image/10_mysql_histograms_and_cost_estimates.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cost-model.html",
+      "locator": "The Optimizer Cost Model"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "![키 통계 및 히스토그램이 행 수와 후보 비용 추정에 연결되는 과정](image/10_mysql_histograms_and_cost_estimates.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "그림의 근거 · [옵티마이저 통계](https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html) · [비용 모델](https://dev.mysql.com/doc/refman/8.4/en/cost-model.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html",
+      "locator": "Column Statistics and histogram applicability"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "그림의 근거 · [옵티마이저 통계](https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html) · [비용 모델](https://dev.mysql.com/doc/refman/8.4/en/cost-model.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/cost-model.html",
+      "locator": "The Optimizer Cost Model"
+    }
+  },
+  {
+    "page": "database-performance/10_cost_based_optimization_and_histograms.md",
+    "claim": "그림의 근거 · [옵티마이저 통계](https://dev.mysql.com/doc/refman/8.4/en/optimizer-statistics.html) · [비용 모델](https://dev.mysql.com/doc/refman/8.4/en/cost-model.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "![중첩 루프의 반복 접근과 해시 조인의 Build·Probe 비교](image/11_mysql_join_build_probe_and_loop.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html",
+      "locator": "Nested-Loop Join Algorithms"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "![중첩 루프의 반복 접근과 해시 조인의 Build·Probe 비교](image/11_mysql_join_build_probe_and_loop.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html",
+      "locator": "Hash Join Optimization and join buffer"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "![중첩 루프의 반복 접근과 해시 조인의 Build·Probe 비교](image/11_mysql_join_build_probe_and_loop.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "그림의 근거 · [중첩 루프 조인](https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html) · [해시 조인](https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html",
+      "locator": "Nested-Loop Join Algorithms"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "그림의 근거 · [중첩 루프 조인](https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html) · [해시 조인](https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html",
+      "locator": "Hash Join Optimization and join buffer"
+    }
+  },
+  {
+    "page": "database-performance/11_join_algorithms_and_join_order_optimization.md",
+    "claim": "그림의 근거 · [중첩 루프 조인](https://dev.mysql.com/doc/refman/8.4/en/nested-loop-joins.html) · [해시 조인](https://dev.mysql.com/doc/refman/8.4/en/hash-joins.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database-performance/12_reducing_random_access_in_joins_with_covering_indexes.md",
+    "claim": "![VIP 주문 집계에서 커버링 인덱스가 원본 행 조회 비용을 줄이는 예](image/12_mysql_covering_join_access.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database-performance/12_reducing_random_access_in_joins_with_covering_indexes.md",
+    "claim": "![VIP 주문 집계에서 커버링 인덱스가 원본 행 조회 비용을 줄이는 예](image/12_mysql_covering_join_access.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/12_reducing_random_access_in_joins_with_covering_indexes.md",
+    "claim": "그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database-performance/12_reducing_random_access_in_joins_with_covering_indexes.md",
+    "claim": "그림의 근거 · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "![OFFSET과 두 키 커서의 페이지 시작점 비교](image/13_mysql_offset_and_keyset_navigation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html",
+      "locator": "Use of Indexes to Satisfy ORDER BY 및 filesort"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "![OFFSET과 두 키 커서의 페이지 시작점 비교](image/13_mysql_offset_and_keyset_navigation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "![OFFSET과 두 키 커서의 페이지 시작점 비교](image/13_mysql_offset_and_keyset_navigation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html",
+      "locator": "Use of Indexes to Satisfy ORDER BY 및 filesort"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html",
+      "locator": "ORDER BY with LIMIT, index-ordered versus filesort"
+    }
+  },
+  {
+    "page": "database-performance/13_sorting_pagination_and_grouping_optimization.md",
+    "claim": "그림의 근거 · [ORDER BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html) · [LIMIT 최적화](https://dev.mysql.com/doc/refman/8.4/en/limit-optimization.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database-performance/14_streaming_aggregation_and_preaggregated_tables.md",
+    "claim": "![인덱스 순서에서 그룹 집계를 수행하거나 사전 요약을 재사용하는 접근](image/14_mysql_streaming_and_summary_aggregation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html",
+      "locator": "Loose and Tight Index Scan"
+    }
+  },
+  {
+    "page": "database-performance/14_streaming_aggregation_and_preaggregated_tables.md",
+    "claim": "![인덱스 순서에서 그룹 집계를 수행하거나 사전 요약을 재사용하는 접근](image/14_mysql_streaming_and_summary_aggregation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-performance/14_streaming_aggregation_and_preaggregated_tables.md",
+    "claim": "그림의 근거 · [GROUP BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html",
+      "locator": "Loose and Tight Index Scan"
+    }
+  },
+  {
+    "page": "database-performance/14_streaming_aggregation_and_preaggregated_tables.md",
+    "claim": "그림의 근거 · [GROUP BY 최적화](https://dev.mysql.com/doc/refman/8.4/en/group-by-optimization.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "![슬로 로그와 digest의 다른 관측 범위 및 총 실행 시간 기준 순위](image/15_mysql_slow_log_and_total_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "Slow Query Log Contents 및 log timing"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "![슬로 로그와 digest의 다른 관측 범위 및 총 실행 시간 기준 순위](image/15_mysql_slow_log_and_total_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html",
+      "locator": "Statement Digests, normalization and overflow"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "![슬로 로그와 digest의 다른 관측 범위 및 총 실행 시간 기준 순위](image/15_mysql_slow_log_and_total_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "그림의 근거 · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "Slow Query Log Contents 및 log timing"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "그림의 근거 · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html",
+      "locator": "Statement Digests, normalization and overflow"
+    }
+  },
+  {
+    "page": "database-performance/15_mysql_slow_query_logging_and_workload_baselines.md",
+    "claim": "그림의 근거 · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "![EXPLAIN부터 인덱스 변경 전후 실측까지의 튜닝 비교](image/16_mysql_plan_evidence_and_query_tuning.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "![EXPLAIN부터 인덱스 변경 전후 실측까지의 튜닝 비교](image/16_mysql_plan_evidence_and_query_tuning.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "![EXPLAIN부터 인덱스 변경 전후 실측까지의 튜닝 비교](image/16_mysql_plan_evidence_and_query_tuning.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze",
+      "locator": "EXPLAIN ANALYZE, timing, actual rows and loops"
+    }
+  },
+  {
+    "page": "database-performance/16_mysql_execution_plans_indexes_and_query_tuning.md",
+    "claim": "그림의 근거 · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html) · [EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html#explain-analyze) · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 기준. 공통 주문 실습이나 논리적 예시이며 표시한 계획이 모든 쿼리에서 선택되는 것은 아님.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "![같은 세대의 digest 스냅샷 차이와 CMDB 소유권을 연결하는 흐름](image/17_mysql_digest_snapshots_and_cmdb_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "![같은 세대의 digest 스냅샷 차이와 CMDB 소유권을 연결하는 흐름](image/17_mysql_digest_snapshots_and_cmdb_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html",
+      "locator": "Statement Digests, normalization and overflow"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "![같은 세대의 digest 스냅샷 차이와 CMDB 소유권을 연결하는 흐름](image/17_mysql_digest_snapshots_and_cmdb_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "Slow Query Log Contents 및 log timing"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "그림의 근거 · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest and columns COUNT_STAR, SUM_TIMER_WAIT"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "그림의 근거 · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html",
+      "locator": "Statement Digests, normalization and overflow"
+    }
+  },
+  {
+    "page": "database-performance/17_automating_mysql_slow_query_detection_with_a_cmdb.md",
+    "claim": "그림의 근거 · [문장 집계 테이블](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html) · [지문 정규화](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-digests.html) · [슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 누적 카운터. 20회·5초는 해당 실습의 탐지 정책이며 실제 티켓 발행은 범위 밖.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "Slow Query Log Contents 및 log timing"
+    }
+  },
+  {
+    "page": "database-design/01_database_design_fundamentals.md",
+    "claim": "![주문 사실과 현재 상품 사실을 나눠 개념·논리·물리 모델로 구체화](image/01_database_design_from_fact_to_schema.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/01_database_design_fundamentals.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/02_conceptual_data_modeling.md",
+    "claim": "![쇼핑몰 요구사항에서 업무 대상과 관계 양방향의 참여도를 도출하는 과정](image/02_database_entities_and_cardinality.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/02_conceptual_data_modeling.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/03_conceptual_modeling_workshop.md",
+    "claim": "![회원·주문·항목·상품·결제·배송의 최소 및 최대 참여도](image/03_database_conceptual_shop_relationships.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/03_conceptual_modeling_workshop.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/04_relational_keys.md",
+    "claim": "![회원 후보 키와 기본 키 및 변경 가능한 업무 유일 값의 관계](image/04_database_candidate_natural_and_surrogate_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/04_relational_keys.md",
+    "claim": "![회원 후보 키와 기본 키 및 변경 가능한 업무 유일 값의 관계](image/04_database_candidate_natural_and_surrogate_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/04_relational_keys.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/04_relational_keys.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "![회원과 주문의 일대다 제약 및 LEFT JOIN 건수 집계](image/05_database_one_to_many_and_counts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "![회원과 주문의 일대다 제약 및 LEFT JOIN 건수 집계](image/05_database_one_to_many_and_counts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "![회원과 주문의 일대다 제약 및 LEFT JOIN 건수 집계](image/05_database_one_to_many_and_counts.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database-design/05_relationship_participation_and_one_to_many.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-design/06_one_to_one_and_many_to_many_relationships.md",
+    "claim": "![결제의 선택적 일대일과 주문 항목으로 푼 다대다 관계](image/06_database_one_to_one_and_junction_rows.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/06_one_to_one_and_many_to_many_relationships.md",
+    "claim": "![결제의 선택적 일대일과 주문 항목으로 푼 다대다 관계](image/06_database_one_to_one_and_junction_rows.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/06_one_to_one_and_many_to_many_relationships.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/06_one_to_one_and_many_to_many_relationships.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/07_identifying_and_non_identifying_relationships.md",
+    "claim": "![부모 키를 자식 기본 키에 포함하는 식별 관계와 독립 키 비교](image/07_database_identifying_and_independent_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/07_identifying_and_non_identifying_relationships.md",
+    "claim": "![부모 키를 자식 기본 키에 포함하는 식별 관계와 독립 키 비교](image/07_database_identifying_and_independent_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "locator": "Unique Constraints 및 Foreign Keys"
+    }
+  },
+  {
+    "page": "database-design/07_identifying_and_non_identifying_relationships.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/07_identifying_and_non_identifying_relationships.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "locator": "Unique Constraints 및 Foreign Keys"
+    }
+  },
+  {
+    "page": "database-design/08_logical_modeling_workshop.md",
+    "claim": "![쇼핑몰의 필수 외래 키와 고유 제약을 표시한 논리 ERD](image/08_database_logical_shop_keys_and_cardinality.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/08_logical_modeling_workshop.md",
+    "claim": "![쇼핑몰의 필수 외래 키와 고유 제약을 표시한 논리 ERD](image/08_database_logical_shop_keys_and_cardinality.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "locator": "Unique Constraints 및 Foreign Keys"
+    }
+  },
+  {
+    "page": "database-design/08_logical_modeling_workshop.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/08_logical_modeling_workshop.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [관계형 제약](https://www.postgresql.org/docs/18/ddl-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-constraints.html",
+      "locator": "Unique Constraints 및 Foreign Keys"
+    }
+  },
+  {
+    "page": "database-design/09_database_normalization.md",
+    "claim": "![함수 종속성에 따라 현재 회원 정보와 주문 당시 정보를 분해하는 예](image/09_database_functional_dependencies_and_normalization.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://db-book.com/slides-dir/PDF-dir/ch7.pdf",
+      "locator": "Functional Dependencies, Lossless Decomposition and Dependency Preservation"
+    }
+  },
+  {
+    "page": "database-design/09_database_normalization.md",
+    "claim": "그림의 근거 · [관계형 설계와 정규화](https://db-book.com/slides-dir/PDF-dir/ch7.pdf)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://db-book.com/slides-dir/PDF-dir/ch7.pdf",
+      "locator": "Functional Dependencies, Lossless Decomposition and Dependency Preservation"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "![논리 설계의 자료형·인덱스 결정과 물리 검증 흐름](image/10_database_physical_model_and_query_validation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "![논리 설계의 자료형·인덱스 결정과 물리 검증 흐름](image/10_database_physical_model_and_query_validation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/data-types.html",
+      "locator": "Numeric Data Types and Date and Time Data Types"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "![논리 설계의 자료형·인덱스 결정과 물리 검증 흐름](image/10_database_physical_model_and_query_validation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [MySQL 자료형](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [MySQL 자료형](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/data-types.html",
+      "locator": "Numeric Data Types and Date and Time Data Types"
+    }
+  },
+  {
+    "page": "database-design/10_physical_database_modeling.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [MySQL 자료형](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "![현재 상품 가격과 주문 시점 단가의 저장 경계](image/11_database_order_price_snapshot_and_verification.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "![현재 상품 가격과 주문 시점 단가의 저장 경계](image/11_database_order_price_snapshot_and_verification.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+      "locator": "Locking Reads, FOR UPDATE"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "![현재 상품 가격과 주문 시점 단가의 저장 경계](image/11_database_order_price_snapshot_and_verification.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "그림의 근거 · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "그림의 근거 · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+      "locator": "Locking Reads, FOR UPDATE"
+    }
+  },
+  {
+    "page": "database-design/11_physical_modeling_workshop.md",
+    "claim": "그림의 근거 · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/12_database_design_review_and_next_steps.md",
+    "claim": "![성공 결제의 최대 수를 개념·논리·물리 단계에서 추적](image/12_database_design_review_payment_rule.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/12_database_design_review_and_next_steps.md",
+    "claim": "![성공 결제의 최대 수를 개념·논리·물리 단계에서 추적](image/12_database_design_review_payment_rule.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/12_database_design_review_and_next_steps.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html",
+      "locator": "Logical Models, Relational Models 및 Physical Models"
+    }
+  },
+  {
+    "page": "database-design/12_database_design_review_and_next_steps.md",
+    "claim": "그림의 근거 · [모델링 개념](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/24.3/dmdug/data-modeler-concepts-usage.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "관계형 모델링의 설명 예시. 업무 카디널리티와 키는 이 문서의 쇼핑몰 범위를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "![그룹과 코드의 조합을 업무 행이 복합 외래 키로 참조하는 구조](image/13_database_code_groups_and_composite_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "![그룹과 코드의 조합을 업무 행이 복합 외래 키로 참조하는 구조](image/13_database_code_groups_and_composite_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "![그룹과 코드의 조합을 업무 행이 복합 외래 키로 참조하는 구조](image/13_database_code_groups_and_composite_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/enum.html",
+      "locator": "ENUM index values and constraints"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [ENUM 자료형](https://dev.mysql.com/doc/refman/8.4/en/enum.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [ENUM 자료형](https://dev.mysql.com/doc/refman/8.4/en/enum.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/13_reference_data_and_code_tables.md",
+    "claim": "그림의 근거 · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [ENUM 자료형](https://dev.mysql.com/doc/refman/8.4/en/enum.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/enum.html",
+      "locator": "ENUM index values and constraints"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "![인접 리스트와 폐쇄 테이블로 카테고리 조상 및 자손 관계를 표현](image/14_database_adjacency_and_closure_tables.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/with.html",
+      "locator": "Recursive Common Table Expressions"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "![인접 리스트와 폐쇄 테이블로 카테고리 조상 및 자손 관계를 표현](image/14_database_adjacency_and_closure_tables.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "![인접 리스트와 폐쇄 테이블로 카테고리 조상 및 자손 관계를 표현](image/14_database_adjacency_and_closure_tables.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "그림의 근거 · [재귀 CTE](https://dev.mysql.com/doc/refman/8.4/en/with.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/with.html",
+      "locator": "Recursive Common Table Expressions"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "그림의 근거 · [재귀 CTE](https://dev.mysql.com/doc/refman/8.4/en/with.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/14_hierarchical_data_modeling.md",
+    "claim": "그림의 근거 · [재귀 CTE](https://dev.mysql.com/doc/refman/8.4/en/with.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/15_audit_columns_and_change_metadata.md",
+    "claim": "![상품 현재 행의 감사 열과 별도 변경 이력의 보존 범위](image/15_database_current_audit_and_history.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html",
+      "locator": "Automatic Initialization and Updating for TIMESTAMP and DATETIME"
+    }
+  },
+  {
+    "page": "database-design/15_audit_columns_and_change_metadata.md",
+    "claim": "![상품 현재 행의 감사 열과 별도 변경 이력의 보존 범위](image/15_database_current_audit_and_history.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/15_audit_columns_and_change_metadata.md",
+    "claim": "그림의 근거 · [시각 열의 자동 초기화와 갱신](https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html",
+      "locator": "Automatic Initialization and Updating for TIMESTAMP and DATETIME"
+    }
+  },
+  {
+    "page": "database-design/15_audit_columns_and_change_metadata.md",
+    "claim": "그림의 근거 · [시각 열의 자동 초기화와 갱신](https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/16_row_versioning_and_history_tables.md",
+    "claim": "![가격의 유효 구간과 기록 시각 및 현재 가격과 이력의 공동 커밋](image/16_database_valid_time_and_recorded_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+      "locator": "Locking Reads, FOR UPDATE"
+    }
+  },
+  {
+    "page": "database-design/16_row_versioning_and_history_tables.md",
+    "claim": "![가격의 유효 구간과 기록 시각 및 현재 가격과 이력의 공동 커밋](image/16_database_valid_time_and_recorded_time.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/16_row_versioning_and_history_tables.md",
+    "claim": "그림의 근거 · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+      "locator": "Locking Reads, FOR UPDATE"
+    }
+  },
+  {
+    "page": "database-design/16_row_versioning_and_history_tables.md",
+    "claim": "그림의 근거 · [InnoDB 잠금 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "![활성 로그인 ID의 유일성과 소프트 삭제 후 재등록·복구 경계](image/17_database_soft_delete_and_active_uniqueness.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html",
+      "locator": "CREATE TABLE and Generated Columns"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "![활성 로그인 ID의 유일성과 소프트 삭제 후 재등록·복구 경계](image/17_database_soft_delete_and_active_uniqueness.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "![활성 로그인 ID의 유일성과 소프트 삭제 후 재등록·복구 경계](image/17_database_soft_delete_and_active_uniqueness.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "그림의 근거 · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html",
+      "locator": "CREATE TABLE and Generated Columns"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "그림의 근거 · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database-design/17_soft_delete_and_data_lifecycle.md",
+    "claim": "그림의 근거 · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html) · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "![같은 날짜와 채널의 집계를 덮어쓰고 완료 구간과 최신 원본을 합치는 방식](image/18_database_rollup_grain_and_recompute.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "![같은 날짜와 채널의 집계를 덮어쓰고 완료 구간과 최신 원본을 합치는 방식](image/18_database_rollup_grain_and_recompute.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html",
+      "locator": "INSERT … ON DUPLICATE KEY UPDATE"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "![같은 날짜와 채널의 집계를 덮어쓰고 완료 구간과 최신 원본을 합치는 방식](image/18_database_rollup_grain_and_recompute.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "그림의 근거 · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) · [중복 키 갱신](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "그림의 근거 · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) · [중복 키 갱신](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html",
+      "locator": "INSERT … ON DUPLICATE KEY UPDATE"
+    }
+  },
+  {
+    "page": "database-design/18_aggregate_table_design.md",
+    "claim": "그림의 근거 · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) · [중복 키 갱신](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "![관계형 상속 매핑 세 가지와 유형을 포함하는 조인 전략의 외래 키](image/19_database_inheritance_and_typed_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies",
+      "locator": "Inheritance Mapping Strategies"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "![관계형 상속 매핑 세 가지와 유형을 포함하는 조인 전략의 외래 키](image/19_database_inheritance_and_typed_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "![관계형 상속 매핑 세 가지와 유형을 포함하는 조인 전략의 외래 키](image/19_database_inheritance_and_typed_foreign_keys.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "그림의 근거 · [JPA 상속 매핑](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies",
+      "locator": "Inheritance Mapping Strategies"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "그림의 근거 · [JPA 상속 매핑](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/19_relational_inheritance_mapping.md",
+    "claim": "그림의 근거 · [JPA 상속 매핑](https://jakarta.ee/specifications/persistence/3.2/jakarta-persistence-spec-3.2#inheritance-mapping-strategies) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "![EAV의 상품·정의·값 테이블과 카테고리 및 종류 제약](image/20_database_eav_definitions_and_typed_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/",
+      "locator": "EAV Modeling, metadata, and data types"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "![EAV의 상품·정의·값 테이블과 카테고리 및 종류 제약](image/20_database_eav_definitions_and_typed_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "![EAV의 상품·정의·값 테이블과 카테고리 및 종류 제약](image/20_database_eav_definitions_and_typed_values.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "그림의 근거 · [EAV 설계 원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/",
+      "locator": "EAV Modeling, metadata, and data types"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "그림의 근거 · [EAV 설계 원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database-design/20_entity_attribute_value_modeling.md",
+    "claim": "그림의 근거 · [EAV 설계 원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC2110957/) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "![상품 JSON 스칼라 투영과 배열의 행 변환 및 관계형 열의 경계](image/21_database_json_projection_and_shape.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json.html",
+      "locator": "The JSON Data Type and indexing"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "![상품 JSON 스칼라 투영과 배열의 행 변환 및 관계형 열의 경계](image/21_database_json_projection_and_shape.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html",
+      "locator": "JSON Table Functions"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "![상품 JSON 스칼라 투영과 배열의 행 변환 및 관계형 열의 경계](image/21_database_json_projection_and_shape.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html",
+      "locator": "CREATE TABLE and Generated Columns"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "그림의 근거 · [JSON 타입](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [JSON_TABLE](https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html) · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json.html",
+      "locator": "The JSON Data Type and indexing"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "그림의 근거 · [JSON 타입](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [JSON_TABLE](https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html) · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html",
+      "locator": "JSON Table Functions"
+    }
+  },
+  {
+    "page": "database-design/21_json_data_modeling.md",
+    "claim": "그림의 근거 · [JSON 타입](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [JSON_TABLE](https://dev.mysql.com/doc/refman/8.4/en/json-table-functions.html) · [생성 열](https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-generated-columns.html",
+      "locator": "CREATE TABLE and Generated Columns"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "![상품 속성과 주문 집계의 모델 선택 및 재계산 검증](image/22_database_design_pattern_decisions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json.html",
+      "locator": "The JSON Data Type and indexing"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "![상품 속성과 주문 집계의 모델 선택 및 재계산 검증](image/22_database_design_pattern_decisions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html",
+      "locator": "INSERT … ON DUPLICATE KEY UPDATE"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "![상품 속성과 주문 집계의 모델 선택 및 재계산 검증](image/22_database_design_pattern_decisions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JSON 자료형 및 인덱싱](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [집계 키의 덮어쓰기](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/json.html",
+      "locator": "The JSON Data Type and indexing"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JSON 자료형 및 인덱싱](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [집계 키의 덮어쓰기](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html",
+      "locator": "INSERT … ON DUPLICATE KEY UPDATE"
+    }
+  },
+  {
+    "page": "database-design/22_database_design_patterns_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JSON 자료형 및 인덱싱](https://dev.mysql.com/doc/refman/8.4/en/json.html) · [집계 키의 덮어쓰기](https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB 실습의 스키마와 제약을 기준으로 한 예시.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database/01_inner_joins.md",
+    "claim": "![회원과 예매의 INNER JOIN에서 일치 행 수가 늘어나는 예](image/01_sql_inner_join_row_multiplicity.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/01_inner_joins.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/02_outer_self_and_cross_joins.md",
+    "claim": "![LEFT JOIN의 ON과 WHERE가 보존 행을 바꾸는 예와 다른 조인 유형](image/02_sql_outer_join_on_where_and_other_joins.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/02_outer_self_and_cross_joins.md",
+    "claim": "![LEFT JOIN의 ON과 WHERE가 보존 행을 바꾸는 예와 다른 조인 유형](image/02_sql_outer_join_on_where_and_other_joins.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database/02_outer_self_and_cross_joins.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/02_outer_self_and_cross_joins.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database/03_subqueries.md",
+    "claim": "![서브쿼리 반환 형태와 바깥 행을 참조하는 EXISTS의 논리적 관계](image/03_sql_subquery_shapes_and_correlation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/subqueries.html",
+      "locator": "Scalar, row, table, and correlated subqueries"
+    }
+  },
+  {
+    "page": "database/03_subqueries.md",
+    "claim": "![서브쿼리 반환 형태와 바깥 행을 참조하는 EXISTS의 논리적 관계](image/03_sql_subquery_shapes_and_correlation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html",
+      "locator": "EXISTS and NOT EXISTS Subqueries"
+    }
+  },
+  {
+    "page": "database/03_subqueries.md",
+    "claim": "그림의 근거 · [서브쿼리](https://dev.mysql.com/doc/refman/8.4/en/subqueries.html) · [EXISTS](https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/subqueries.html",
+      "locator": "Scalar, row, table, and correlated subqueries"
+    }
+  },
+  {
+    "page": "database/03_subqueries.md",
+    "claim": "그림의 근거 · [서브쿼리](https://dev.mysql.com/doc/refman/8.4/en/subqueries.html) · [EXISTS](https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html",
+      "locator": "EXISTS and NOT EXISTS Subqueries"
+    }
+  },
+  {
+    "page": "database/04_union_and_union_all.md",
+    "claim": "![UNION과 UNION ALL에서 현재·보관 알림의 중복 처리 비교](image/04_sql_union_duplicates_and_column_positions.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-operations.html",
+      "locator": "Set Operations, DISTINCT and ALL, Result Set Column Names"
+    }
+  },
+  {
+    "page": "database/04_union_and_union_all.md",
+    "claim": "그림의 근거 · [집합 연산](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/set-operations.html",
+      "locator": "Set Operations, DISTINCT and ALL, Result Set Column Names"
+    }
+  },
+  {
+    "page": "database/05_case_expressions_and_conditional_aggregation.md",
+    "claim": "![CASE 결과에 따라 티켓의 상태별 건수와 종료 소요 시간을 집계하는 과정](image/05_sql_case_and_conditional_aggregation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html",
+      "locator": "CASE operator"
+    }
+  },
+  {
+    "page": "database/05_case_expressions_and_conditional_aggregation.md",
+    "claim": "![CASE 결과에 따라 티켓의 상태별 건수와 종료 소요 시간을 집계하는 과정](image/05_sql_case_and_conditional_aggregation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database/05_case_expressions_and_conditional_aggregation.md",
+    "claim": "그림의 근거 · [CASE 표현식](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html",
+      "locator": "CASE operator"
+    }
+  },
+  {
+    "page": "database/05_case_expressions_and_conditional_aggregation.md",
+    "claim": "그림의 근거 · [CASE 표현식](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
+      "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-view.html",
+      "locator": "CREATE VIEW Statement"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html",
+      "locator": "Aggregate and GROUP BY restrictions"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html",
+      "locator": "The View WITH CHECK OPTION Clause"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-view.html",
+      "locator": "CREATE VIEW Statement"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html",
+      "locator": "Aggregate and GROUP BY restrictions"
+    }
+  },
+  {
+    "page": "database/06_views.md",
+    "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html",
+      "locator": "The View WITH CHECK OPTION Clause"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
+      "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
+      "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database/07_b_tree_index_fundamentals.md",
+    "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
+      "locator": "How Secondary Indexes Relate to the Clustered Index"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
+      "locator": "How Index Condition Pushdown Works"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
+      "locator": "Leftmost prefixes of the index"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
+      "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
+      "locator": "How Index Condition Pushdown Works"
+    }
+  },
+  {
+    "page": "database/08_composite_and_covering_indexes.md",
+    "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
+      "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database/09_data_integrity_and_constraints.md",
+    "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
+      "locator": "CHECK expressions: TRUE or UNKNOWN"
+    }
+  },
+  {
+    "page": "database/10_transactions_and_isolation_levels.md",
+    "claim": "![두 세션에서 READ COMMITTED와 REPEATABLE READ의 일반 SELECT 값 비교](image/10_sql_innodb_consistent_read_timeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB. 일반 SELECT의 두 읽기 사이에 다른 세션이 커밋하는 실습.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html",
+      "locator": "Consistent Nonlocking Reads"
+    }
+  },
+  {
+    "page": "database/10_transactions_and_isolation_levels.md",
+    "claim": "![두 세션에서 READ COMMITTED와 REPEATABLE READ의 일반 SELECT 값 비교](image/10_sql_innodb_consistent_read_timeline.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB. 일반 SELECT의 두 읽기 사이에 다른 세션이 커밋하는 실습.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html",
+      "locator": "READ COMMITTED and REPEATABLE READ"
+    }
+  },
+  {
+    "page": "database/10_transactions_and_isolation_levels.md",
+    "claim": "그림의 근거 · [InnoDB 일관된 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [격리 수준](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB. 일반 SELECT의 두 읽기 사이에 다른 세션이 커밋하는 실습.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html",
+      "locator": "Consistent Nonlocking Reads"
+    }
+  },
+  {
+    "page": "database/10_transactions_and_isolation_levels.md",
+    "claim": "그림의 근거 · [InnoDB 일관된 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [격리 수준](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 InnoDB. 일반 SELECT의 두 읽기 사이에 다른 세션이 커밋하는 실습.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html",
+      "locator": "READ COMMITTED and REPEATABLE READ"
+    }
+  },
+  {
+    "page": "database/11_stored_procedures_functions_and_triggers.md",
+    "claim": "![명시 호출하는 프로시저·함수와 재고 갱신에서 자동 동작하는 트리거](image/11_sql_procedure_function_and_trigger_execution.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html",
+      "locator": "CREATE PROCEDURE and CREATE FUNCTION"
+    }
+  },
+  {
+    "page": "database/11_stored_procedures_functions_and_triggers.md",
+    "claim": "![명시 호출하는 프로시저·함수와 재고 갱신에서 자동 동작하는 트리거](image/11_sql_procedure_function_and_trigger_execution.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html",
+      "locator": "Trigger Syntax and Examples, OLD and NEW"
+    }
+  },
+  {
+    "page": "database/11_stored_procedures_functions_and_triggers.md",
+    "claim": "그림의 근거 · [프로시저와 함수](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html",
+      "locator": "CREATE PROCEDURE and CREATE FUNCTION"
+    }
+  },
+  {
+    "page": "database/11_stored_procedures_functions_and_triggers.md",
+    "claim": "그림의 근거 · [프로시저와 함수](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html",
+      "locator": "Trigger Syntax and Examples, OLD and NEW"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
+      "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
+      "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
+      "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
+    }
+  },
+  {
+    "page": "database/12_relational_database_review_and_next_steps.md",
+    "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
+      "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
+    }
   }
 ]

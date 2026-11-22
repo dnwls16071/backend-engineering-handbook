@@ -53,6 +53,10 @@ ORDER BY r.reservation_id;
 
 예약 `100`, `101`, `102`가 한 행씩 나온다. `Ara`는 예약마다 한 번씩 나타나고, 예약이 없는 `Mina`는 결과에서 빠진다. 회원 ID가 고유하므로 한 예약이 여러 회원과 연결되는 일은 없다. 회원에서 예약을 조회할 때는 한 회원에 여러 예약이 연결될 수 있다. 결과가 회원당 한 행이어야 한다면 회원 ID로 집계하는 등 결과의 단위를 쿼리에 표현한다.
 
+![회원과 예매의 INNER JOIN에서 일치 행 수가 늘어나는 예](image/01_sql_inner_join_row_multiplicity.png)
+
+그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)
+
 ## 3. 여러 테이블을 연결하고 집계하기
 
 예매와 티켓 종류는 N:M 관계다. 연결 테이블 `lab02_reservation_items`가 각 예매에 포함된 티켓 종류, 수량, 결제 시점의 단가를 기록한다. 집계 전 결과의 한 행은 예매 한 건에 들어 있는 티켓 종류 하나를 뜻한다. `ON`은 행의 연결 조건을, `WHERE`는 집계에 남길 행의 범위를 나타낸다. [MySQL SELECT 구문](https://dev.mysql.com/doc/refman/8.4/en/select.html) · [MySQL 집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)

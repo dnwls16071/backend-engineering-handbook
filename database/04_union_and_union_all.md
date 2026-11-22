@@ -57,6 +57,10 @@ ORDER BY service, score;
 
 **공식 문서** [UNION 문법](https://dev.mysql.com/doc/refman/8.4/en/union.html) · [DISTINCT와 ALL](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html)
 
+![UNION과 UNION ALL에서 현재·보관 알림의 중복 처리 비교](image/04_sql_union_duplicates_and_column_positions.png)
+
+그림의 근거 · [집합 연산](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html)
+
 ## 3. 각 쿼리의 상위 행과 최종 정렬 구분하기
 
 각 쿼리에서 고를 행의 순서와 합친 결과의 표시 순서는 별도로 지정한다. MySQL 8.4에서는 각 쿼리의 후보를 괄호 안의 `ORDER BY`와 `LIMIT`으로 제한한다. 전체 정렬은 마지막 `ORDER BY`에서 첫 번째 `SELECT`가 정한 결과 열 이름이나 별칭으로 지정한다.

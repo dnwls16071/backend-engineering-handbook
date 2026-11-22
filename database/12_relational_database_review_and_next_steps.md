@@ -16,6 +16,10 @@
 | 존재하지 않는 고객의 주문은 어떻게 막고, 주문과 상세의 변경을 어떻게 함께 처리할까? | [Constraints](09_data_integrity_and_constraints.md) · [Transactions](10_transactions_and_isolation_levels.md) |
 | 호출자가 명시적으로 실행하는 로직과 변경 때마다 자동 실행되는 로직은 어디에 둘까? | [Stored Procedures, Functions, and Triggers](11_stored_procedures_functions_and_triggers.md) |
 
+![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)
+
+그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)
+
 ## 2. 설계와 성능 최적화로 이어가기
 
 1. **데이터 모델링**은 고객, 주문, 주문 상세의 관계와 키를 먼저 정한다. 필수 속성, 유일성, 삭제 정책을 제약 조건으로 표현하고, 같은 사실을 여러 곳에 중복 저장해야 하는지 검토한다. [CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [Foreign Key Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)

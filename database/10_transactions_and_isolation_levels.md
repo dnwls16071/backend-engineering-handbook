@@ -79,3 +79,7 @@ COMMIT;
 ```
 
 A는 첫 조회에서 80, 두 번째에서 90을 본다. A의 격리 수준을 `REPEATABLE READ`로 바꾸고 순서를 반복하면 A의 두 조회가 모두 90을 반환한다. B가 커밋한 100은 A의 다음 트랜잭션에서 보인다. 범위나 행을 잠가 다음 쓰기까지 보호해야 할 때는 `SELECT ... FOR UPDATE` 같은 잠금 읽기와 트랜잭션 범위를 함께 검토한다. [SET TRANSACTION](https://dev.mysql.com/doc/refman/8.4/en/set-transaction.html) · [Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
+
+![두 세션에서 READ COMMITTED와 REPEATABLE READ의 일반 SELECT 값 비교](image/10_sql_innodb_consistent_read_timeline.png)
+
+그림의 근거 · [InnoDB 일관된 읽기](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) · [격리 수준](https://dev.mysql.com/doc/refman/8.4/en/innodb-transaction-isolation-levels.html)

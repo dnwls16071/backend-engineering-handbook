@@ -16,6 +16,10 @@
 
 **MySQL 공식 문서** [CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [CHECK Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html) · [Data Type Default Values](https://dev.mysql.com/doc/refman/8.4/en/data-type-defaults.html)
 
+![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)
+
+그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)
+
 ## 2. 외래 키와 삭제 정책
 
 외래 키는 자식에 참조 값을 저장할 때 일치하는 부모 행이 있도록 한다. 참조가 필수라면 외래 키 열에 `NOT NULL`도 선언한다. 부모를 삭제할 수 있는지는 자식 데이터의 수명에 따라 결정한다. 다음 예제에서는 주문이 있는 고객의 삭제를 제한하고, 주문에 종속된 상세 행은 주문을 삭제할 때 함께 지운다.
