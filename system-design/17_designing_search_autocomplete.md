@@ -2,6 +2,10 @@
 
 자동완성은 입력 중인 접두사로 소수의 추천 질의를 반환한다. 문서 전문 검색과 다른 응답 한도, 추천 기준과 갱신 주기를 정한다. [Elasticsearch Completion](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/completion) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 
+![검색 로그를 집계하고 필터링한 후보를 접두사 인덱스로 만든다. 입력 요청은 조회 API가 캐시나 현재 인덱스에서 처리한다.](image/17_search_autocomplete_architecture.png)
+
+그림의 근거 · [Elasticsearch Completion](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/completion) · [Google SRE · Implementing SLOs](https://sre.google/workbook/implementing-slos/) · [Microsoft Cache-Aside](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Google SRE · Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
 ## 1. 후보를 만들고 순위를 매긴다
 
 정규화한 용어와 집계 점수로 접두사 인덱스를 만든다. 구현 예로 trie의 접두사 노드에 상위 후보를 보관하거나, Elasticsearch completion 필드에 input과 weight를 저장할 수 있다. 동점의 결과 순서와 언어별 정책은 명시한다. [Elasticsearch Completion](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/completion)
