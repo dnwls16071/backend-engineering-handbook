@@ -76184,5 +76184,675 @@
       "end": 152,
       "quote": "  const recovered = await service.get('local', id)\n  assert.equal(recovered?.txHash, original.txHash)\n  await testClient.mine({ blocks: 1 })\n  await Promise.all([service.processOnce(), service.processOnce()])\n\n  const lookup = await fetch(`${url}/payouts/${id}`, { headers: { 'X-Merchant-Id': 'local' } })\n  assert.equal(lookup.status, 200)\n  assert.deepEqual(await lookup.json(), {\n    payoutId: id, status: 'COMPLETED', attemptStatus: 'FINALIZED', txHash: original.txHash,\n  })\n  assert.equal(await balance(recipient), 123n)"
     }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool은 로그인한 사용자에게 토큰을 발급한다. 브라우저에 IAM 역할의 임시 AWS 자격 증명을 직접 줄 때는 Identity Pool을 사용한다. 여기서는 백엔드가 URL을 발급하므로 User Pool과 백엔드의 IAM 역할로 구성한다. [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito Identity Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 공개 앱 클라이언트와 Authorization Code + PKCE",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html",
+      "locator": "How Amazon Cognito uses PKCE의 S256 challenge, token 요청과 반환 토큰"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool은 로그인한 사용자에게 토큰을 발급한다. 브라우저에 IAM 역할의 임시 AWS 자격 증명을 직접 줄 때는 Identity Pool을 사용한다. 여기서는 백엔드가 URL을 발급하므로 User Pool과 백엔드의 IAM 역할로 구성한다. [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito Identity Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Identity Pool에 연결한 인증 공급자와 IAM 역할 기반 자격 증명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html",
+      "locator": "Identity pools의 임시 AWS 자격 증명과 User Pool 비교"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool은 로그인한 사용자에게 토큰을 발급한다. 브라우저에 IAM 역할의 임시 AWS 자격 증명을 직접 줄 때는 Identity Pool을 사용한다. 여기서는 백엔드가 URL을 발급하므로 User Pool과 백엔드의 IAM 역할로 구성한다. [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito Identity Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "![브라우저가 PKCE로 코드를 교환하고 access token으로 파일 API를 호출한다. API는 토큰 검증과 파일 단위 인가를 거친 뒤 URL을 발급한다.](image/01_cognito_access_token.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 관리형 로그인 OAuth 코드 흐름",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html",
+      "locator": "GET /oauth2/authorize의 redirect_uri, state 및 PKCE 예시"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "![브라우저가 PKCE로 코드를 교환하고 access token으로 파일 API를 호출한다. API는 토큰 검증과 파일 단위 인가를 거친 뒤 URL을 발급한다.](image/01_cognito_access_token.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 공개 앱 클라이언트와 Authorization Code + PKCE",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html",
+      "locator": "How Amazon Cognito uses PKCE의 S256 challenge, token 요청과 반환 토큰"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "![브라우저가 PKCE로 코드를 교환하고 access token으로 파일 API를 호출한다. API는 토큰 검증과 파일 단위 인가를 거친 뒤 URL을 발급한다.](image/01_cognito_access_token.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 JWT를 검증하는 자체 API",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html",
+      "locator": "Verifying a JWT 및 kid, JWKS 캐시와 키 교체"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "![브라우저가 PKCE로 코드를 교환하고 access token으로 파일 API를 호출한다. API는 토큰 검증과 파일 단위 인가를 거친 뒤 URL을 발급한다.](image/01_cognito_access_token.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "그림의 근거 · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 관리형 로그인 OAuth 코드 흐름",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html",
+      "locator": "GET /oauth2/authorize의 redirect_uri, state 및 PKCE 예시"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "그림의 근거 · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 공개 앱 클라이언트와 Authorization Code + PKCE",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html",
+      "locator": "How Amazon Cognito uses PKCE의 S256 challenge, token 요청과 반환 토큰"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "그림의 근거 · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 JWT를 검증하는 자체 API",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html",
+      "locator": "Verifying a JWT 및 kid, JWKS 캐시와 키 교체"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "그림의 근거 · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html) · [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool에 콜백 URL과 관리형 로그인 도메인을 설정한다. 브라우저는 client secret을 보관할 수 없으므로 공개 앱 클라이언트를 사용한다. `/oauth2/authorize`에 `response_type=code`, `state`, S256 challenge를 보내고, 콜백에서 `state`를 대조한 후 `/oauth2/token`에서 code와 verifier를 교환한다. [Cognito 앱 클라이언트](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "브라우저 앱이 사용하는 Cognito User Pool 공개 앱 클라이언트",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html",
+      "locator": "공개 앱 클라이언트와 기밀 앱 클라이언트의 client secret 보관 모델"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool에 콜백 URL과 관리형 로그인 도메인을 설정한다. 브라우저는 client secret을 보관할 수 없으므로 공개 앱 클라이언트를 사용한다. `/oauth2/authorize`에 `response_type=code`, `state`, S256 challenge를 보내고, 콜백에서 `state`를 대조한 후 `/oauth2/token`에서 code와 verifier를 교환한다. [Cognito 앱 클라이언트](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 관리형 로그인 OAuth 코드 흐름",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html",
+      "locator": "GET /oauth2/authorize의 redirect_uri, state 및 PKCE 예시"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "User Pool에 콜백 URL과 관리형 로그인 도메인을 설정한다. 브라우저는 client secret을 보관할 수 없으므로 공개 앱 클라이언트를 사용한다. `/oauth2/authorize`에 `response_type=code`, `state`, S256 challenge를 보내고, 콜백에서 `state`를 대조한 후 `/oauth2/token`에서 code와 verifier를 교환한다. [Cognito 앱 클라이언트](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) · [Cognito authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) · [Cognito PKCE](https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 공개 앱 클라이언트와 Authorization Code + PKCE",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/using-pkce-in-authorization-code.html",
+      "locator": "How Amazon Cognito uses PKCE의 S256 challenge, token 요청과 반환 토큰"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "브라우저는 사용자 프로필 정보용 ID token과 API 호출용 access token을 구분한다. 파일 API에는 access token만 보내고, 예제의 `files/upload`와 `files/read`는 User Pool 리소스 서버에 등록한 별도 scope로 사용한다. [Cognito ID token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-id-token.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 사용자 신원 정보용 ID token",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-id-token.html",
+      "locator": "ID token payload의 사용자 정보와 aud, token_use"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "브라우저는 사용자 프로필 정보용 ID token과 API 호출용 access token을 구분한다. 파일 API에는 access token만 보내고, 예제의 `files/upload`와 `files/read`는 User Pool 리소스 서버에 등록한 별도 scope로 사용한다. [Cognito ID token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-id-token.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito OAuth 사용자의 access token 및 선택적 resource binding",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html",
+      "locator": "사용자 access token의 sub, iss, client_id, aud, token_use, exp, scope 클레임"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "브라우저는 사용자 프로필 정보용 ID token과 API 호출용 access token을 구분한다. 파일 API에는 access token만 보내고, 예제의 `files/upload`와 `files/read`는 User Pool 리소스 서버에 등록한 별도 scope로 사용한다. [Cognito ID token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-id-token.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool OAuth 리소스 서버에 등록한 사용자 정의 scope",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html",
+      "locator": "Resource servers and custom scopes의 API 권한 범위"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "API는 예상 User Pool의 JWKS에서 `kid`에 맞는 키로 서명을 검증한다. 예상 `iss`, `exp`, `token_use=access`, 허용한 `client_id`와 작업에 필요한 scope를 검사한다. resource binding을 사용한 access token에서는 대상 API의 `aud`도 검사한다. 알 수 없는 `kid`가 나타나면 키 교체를 고려해 JWKS를 갱신한다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 JWT를 검증하는 자체 API",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html",
+      "locator": "Verifying a JWT 및 kid, JWKS 캐시와 키 교체"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "API는 예상 User Pool의 JWKS에서 `kid`에 맞는 키로 서명을 검증한다. 예상 `iss`, `exp`, `token_use=access`, 허용한 `client_id`와 작업에 필요한 scope를 검사한다. resource binding을 사용한 access token에서는 대상 API의 `aud`도 검사한다. 알 수 없는 `kid`가 나타나면 키 교체를 고려해 JWKS를 갱신한다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito OAuth 사용자의 access token 및 선택적 resource binding",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html",
+      "locator": "사용자 access token의 sub, iss, client_id, aud, token_use, exp, scope 클레임"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "API에서는 검증된 `iss`와 `sub`를 서비스 사용자에 연결하고, 파일 소유권 및 공유 상태로 최종 판단한다. 다른 사용자의 파일에 대한 조회·업로드 완료 요청은 scope가 맞더라도 허용하지 않는다. [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito OAuth 사용자의 access token 및 선택적 resource binding",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html",
+      "locator": "사용자 access token의 sub, iss, client_id, aud, token_use, exp, scope 클레임"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "API에서는 검증된 `iss`와 `sub`를 서비스 사용자에 연결하고, 파일 소유권 및 공유 상태로 최종 판단한다. 다른 사용자의 파일에 대한 조회·업로드 완료 요청은 scope가 맞더라도 허용하지 않는다. [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool OAuth 리소스 서버에 등록한 사용자 정의 scope",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html",
+      "locator": "Resource servers and custom scopes의 API 권한 범위"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "API에서는 검증된 `iss`와 `sub`를 서비스 사용자에 연결하고, 파일 소유권 및 공유 상태로 최종 판단한다. 다른 사용자의 파일에 대한 조회·업로드 완료 요청은 scope가 맞더라도 허용하지 않는다. [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 리소스 서버와 scope](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "잘못된 발급자, ID token 오용, 만료 토큰, scope 누락, 파일 소유권 불일치를 각각 시험한다. JWT 서명과 만료만 보는 자체 API는 철회된 토큰을 여전히 받아들일 수 있다. 즉시 차단이 필요한 경우에는 토큰 수명과 별도로 계정·세션 또는 파일의 최신 허용 상태를 확인하는 경계를 둔다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 토큰 철회](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito User Pool의 JWT를 검증하는 자체 API",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html",
+      "locator": "Verifying a JWT 및 kid, JWKS 캐시와 키 교체"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "잘못된 발급자, ID token 오용, 만료 토큰, scope 누락, 파일 소유권 불일치를 각각 시험한다. JWT 서명과 만료만 보는 자체 API는 철회된 토큰을 여전히 받아들일 수 있다. 즉시 차단이 필요한 경우에는 토큰 수명과 별도로 계정·세션 또는 파일의 최신 허용 상태를 확인하는 경계를 둔다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 토큰 철회](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Cognito OAuth 사용자의 access token 및 선택적 resource binding",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html",
+      "locator": "사용자 access token의 sub, iss, client_id, aud, token_use, exp, scope 클레임"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "잘못된 발급자, ID token 오용, 만료 토큰, scope 누락, 파일 소유권 불일치를 각각 시험한다. JWT 서명과 만료만 보는 자체 API는 철회된 토큰을 여전히 받아들일 수 있다. 즉시 차단이 필요한 경우에는 토큰 수명과 별도로 계정·세션 또는 파일의 최신 허용 상태를 확인하는 경계를 둔다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 토큰 철회](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "JWT 서명과 exp를 로컬에서 검증하는 자체 API",
+    "source": {
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html",
+      "locator": "Things to know about revoking tokens의 오프라인 JWT 검증 한계"
+    }
+  },
+  {
+    "page": "aws/01_authenticating_file_api_with_amazon_cognito.md",
+    "claim": "잘못된 발급자, ID token 오용, 만료 토큰, scope 누락, 파일 소유권 불일치를 각각 시험한다. JWT 서명과 만료만 보는 자체 API는 철회된 토큰을 여전히 받아들일 수 있다. 즉시 차단이 필요한 경우에는 토큰 수명과 별도로 계정·세션 또는 파일의 최신 허용 상태를 확인하는 경계를 둔다. [Cognito JWT 검증](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html) · [Cognito access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-access-token.html) · [Cognito 토큰 철회](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "CloudFront Signed URL은 비공개 콘텐츠를 CDN으로 다운로드하거나 스트리밍할 때 뷰어에게 주는 권한이다. 파일 API는 사용자 접근을 허용한 뒤 배포의 비공개 경로를 서명한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "CloudFront Signed URL은 비공개 콘텐츠를 CDN으로 다운로드하거나 스트리밍할 때 뷰어에게 주는 권한이다. 파일 API는 사용자 접근을 허용한 뒤 배포의 비공개 경로를 서명한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 신뢰 키 그룹을 사용하는 뷰어 서명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html",
+      "locator": "Trusted key groups와 공개키, 개인키 관리 및 키 교체"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "![CloudFront가 뷰어 서명을 먼저 확인한다. 캐시 미스에서는 OAC로 서명한 원본 요청을 보내며, 캐시 적중에서는 별도 원본 요청 없이 파일을 전송한다.](image/02_cloudfront_signed_download.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "![CloudFront가 뷰어 서명을 먼저 확인한다. 캐시 미스에서는 OAC로 서명한 원본 요청을 보내며, 캐시 적중에서는 별도 원본 요청 없이 파일을 전송한다.](image/02_cloudfront_signed_download.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 신뢰 키 그룹을 사용하는 뷰어 서명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html",
+      "locator": "Trusted key groups와 공개키, 개인키 관리 및 키 교체"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "![CloudFront가 뷰어 서명을 먼저 확인한다. 캐시 미스에서는 OAC로 서명한 원본 요청을 보내며, 캐시 적중에서는 별도 원본 요청 없이 파일을 전송한다.](image/02_cloudfront_signed_download.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront OAC가 연결된 일반 비공개 S3 버킷 원본",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+      "locator": "OAC prerequisites, Sign requests 및 배포 SourceArn을 제한한 S3 정책"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "그림의 근거 · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "그림의 근거 · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 신뢰 키 그룹을 사용하는 뷰어 서명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html",
+      "locator": "Trusted key groups와 공개키, 개인키 관리 및 키 교체"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "그림의 근거 · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront OAC가 연결된 일반 비공개 S3 버킷 원본",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+      "locator": "OAC prerequisites, Sign requests 및 배포 SourceArn을 제한한 S3 정책"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "파일 API는 예를 들어 `https://media.example.com/ready/<object>`에 대한 정책을 개인키로 서명한다. CloudFront 캐시 동작에 신뢰 키 그룹을 지정하고 그 그룹에 공개키를 등록한다. 단일 파일은 Signed URL을, 허용 범위 안의 여러 파일은 Signed Cookie를 검토한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront 서명 URL과 쿠키 선택](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "파일 API는 예를 들어 `https://media.example.com/ready/<object>`에 대한 정책을 개인키로 서명한다. CloudFront 캐시 동작에 신뢰 키 그룹을 지정하고 그 그룹에 공개키를 등록한다. 단일 파일은 Signed URL을, 허용 범위 안의 여러 파일은 Signed Cookie를 검토한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront 서명 URL과 쿠키 선택](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 신뢰 키 그룹을 사용하는 뷰어 서명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html",
+      "locator": "Trusted key groups와 공개키, 개인키 관리 및 키 교체"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "파일 API는 예를 들어 `https://media.example.com/ready/<object>`에 대한 정책을 개인키로 서명한다. CloudFront 캐시 동작에 신뢰 키 그룹을 지정하고 그 그룹에 공개키를 등록한다. 단일 파일은 Signed URL을, 허용 범위 안의 여러 파일은 Signed Cookie를 검토한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront 신뢰 키 그룹](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) · [CloudFront 서명 URL과 쿠키 선택](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront 비공개 콘텐츠의 뷰어 권한 부여 방식",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html",
+      "locator": "개별 파일의 signed URL과 여러 파일에 대한 signed cookies 적용 사례"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "canned policy는 주로 만료 시각을 명시하는 단순 흐름에 쓴다. 시작 시각, IP 조건, 와일드카드 리소스처럼 더 세밀한 조건이 필요하면 custom policy를 사용한다. 원래 URL의 쿼리 파라미터도 서명 전에 확정한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "CloudFront는 서명·리소스·유효 시간을 검사한 뒤 캐시 객체를 전송하거나 원본에 요청한다. 일반 S3 버킷 원본에는 서명 동작을 `always`로 설정한 OAC를 쓰고, 버킷 정책에서 해당 배포의 `AWS:SourceArn`과 읽기 대상 키를 제한한다. S3 웹사이트 엔드포인트는 이 OAC 구성에 해당하지 않는다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "CloudFront는 서명·리소스·유효 시간을 검사한 뒤 캐시 객체를 전송하거나 원본에 요청한다. 일반 S3 버킷 원본에는 서명 동작을 `always`로 설정한 OAC를 쓰고, 버킷 정책에서 해당 배포의 `AWS:SourceArn`과 읽기 대상 키를 제한한다. S3 웹사이트 엔드포인트는 이 OAC 구성에 해당하지 않는다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront OAC가 연결된 일반 비공개 S3 버킷 원본",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+      "locator": "OAC prerequisites, Sign requests 및 배포 SourceArn을 제한한 S3 정책"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "캐시를 먼저 채운 뒤 서명 누락·변조·만료 요청이 거절되는지 확인한다. S3 원본의 직접 비인증 요청도 별개로 시험한다. 권한 변경 시 새 URL 발급을 차단하고 기존 URL에 남을 수 있는 접근 시간은 짧은 만료로 관리한다. 캐시 무효화는 캐시에서 객체를 제거하는 기능이므로 권한 철회 절차와 구분한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) · [CloudFront 캐시 무효화](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "캐시를 먼저 채운 뒤 서명 누락·변조·만료 요청이 거절되는지 확인한다. S3 원본의 직접 비인증 요청도 별개로 시험한다. 권한 변경 시 새 URL 발급을 차단하고 기존 URL에 남을 수 있는 접근 시간은 짧은 만료로 관리한다. 캐시 무효화는 캐시에서 객체를 제거하는 기능이므로 권한 철회 절차와 구분한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) · [CloudFront 캐시 무효화](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront OAC가 연결된 일반 비공개 S3 버킷 원본",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+      "locator": "OAC prerequisites, Sign requests 및 배포 SourceArn을 제한한 S3 정책"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "캐시를 먼저 채운 뒤 서명 누락·변조·만료 요청이 거절되는지 확인한다. S3 원본의 직접 비인증 요청도 별개로 시험한다. 권한 변경 시 새 URL 발급을 차단하고 기존 URL에 남을 수 있는 접근 시간은 짧은 만료로 관리한다. 캐시 무효화는 캐시에서 객체를 제거하는 기능이므로 권한 철회 절차와 구분한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) · [CloudFront S3 원본 접근 제어](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) · [CloudFront 캐시 무효화](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront 엣지 캐시의 객체 무효화",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html",
+      "locator": "캐시 객체 제거와 후속 원본 조회"
+    }
+  },
+  {
+    "page": "aws/02_serving_private_downloads_with_cloudfront_signed_urls.md",
+    "claim": "전송 중 URL이 만료되면 이미 시작한 다운로드는 완료될 수 있다. 연결이 끊겨 만료 후 다시 요청하면 새로 평가되므로, 큰 파일을 다룰 때는 재요청 경로와 만료 시점을 함께 시험한다. [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "S3 Presigned URL은 엔드포인트, 객체 키, HTTP 메서드와 만료를 지정해 특정 S3 요청을 위임한다. 백엔드는 IAM 역할 자격 증명으로 SigV4 서명을 만들고, 브라우저는 그 URL로 S3에 직접 요청한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "S3 Presigned URL은 엔드포인트, 객체 키, HTTP 메서드와 만료를 지정해 특정 S3 요청을 위임한다. 백엔드는 IAM 역할 자격 증명으로 SigV4 서명을 만들고, 브라우저는 그 URL로 S3에 직접 요청한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "AWS SDK가 생성한 Amazon S3 presigned PUT",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html",
+      "locator": "업로드 동작, 발급자 권한, 같은 객체 키 사용 및 Content-Type 일치"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "![API가 임시 키를 예약하고 Presigned PUT URL을 발급한다. 브라우저의 PUT 뒤 서버가 별도 키로 복사해 검증한 객체만 READY에 연결한다.](image/03_s3_presigned_upload.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "![API가 임시 키를 예약하고 Presigned PUT URL을 발급한다. 브라우저의 PUT 뒤 서버가 별도 키로 복사해 검증한 객체만 READY에 연결한다.](image/03_s3_presigned_upload.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "AWS SDK가 생성한 Amazon S3 presigned PUT",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html",
+      "locator": "업로드 동작, 발급자 권한, 같은 객체 키 사용 및 Content-Type 일치"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "![API가 임시 키를 예약하고 Presigned PUT URL을 발급한다. 브라우저의 PUT 뒤 서버가 별도 키로 복사해 검증한 객체만 READY에 연결한다.](image/03_s3_presigned_upload.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "일반 비공개 S3 버킷의 임시 객체를 새 저장 키로 복사하는 학습 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html",
+      "locator": "Description과 x-amz-copy-source에 따른 원본 및 대상 객체 복사"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "![API가 임시 키를 예약하고 Presigned PUT URL을 발급한다. 브라우저의 PUT 뒤 서버가 별도 키로 복사해 검증한 객체만 READY에 연결한다.](image/03_s3_presigned_upload.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Amazon S3 객체 본문 없는 메타데이터 조회",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html",
+      "locator": "Description의 메타데이터 조회와 응답 필드"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "그림의 근거 · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "그림의 근거 · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "AWS SDK가 생성한 Amazon S3 presigned PUT",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html",
+      "locator": "업로드 동작, 발급자 권한, 같은 객체 키 사용 및 Content-Type 일치"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "그림의 근거 · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "일반 비공개 S3 버킷의 임시 객체를 새 저장 키로 복사하는 학습 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html",
+      "locator": "Description과 x-amz-copy-source에 따른 원본 및 대상 객체 복사"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "그림의 근거 · [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Amazon S3 객체 본문 없는 메타데이터 조회",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html",
+      "locator": "Description의 메타데이터 조회와 응답 필드"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "백엔드는 사용자·파일 권한을 확인하고 새 임시 객체 키와 업로드 예약을 저장한다. 브라우저에는 그 키에 대한 짧은 `PUT` URL과 서명에 포함한 헤더를 돌려준다. 예를 들어 서명에 포함한 `Content-Type`과 체크섬 헤더의 값은 실제 요청과 일치시킨다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "백엔드는 사용자·파일 권한을 확인하고 새 임시 객체 키와 업로드 예약을 저장한다. 브라우저에는 그 키에 대한 짧은 `PUT` URL과 서명에 포함한 헤더를 돌려준다. 예를 들어 서명에 포함한 `Content-Type`과 체크섬 헤더의 값은 실제 요청과 일치시킨다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "AWS SDK가 생성한 Amazon S3 presigned PUT",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html",
+      "locator": "업로드 동작, 발급자 권한, 같은 객체 키 사용 및 Content-Type 일치"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "URL은 보유자가 사용할 수 있고 만료까지 재사용될 수 있다. 유효 시간은 지정한 만료와 서명에 사용한 IAM 역할 세션 만료 중 먼저 도달하는 시점에 제한된다. 필요하면 버킷 정책의 `s3:signatureAge`로 허용 시간을 더 좁히고 URL 쿼리 전체를 일반 앱 로그에 남기지 않는다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "교차 출처 업로드에는 허용할 웹 출처, `PUT`, 실제 전송 헤더에 맞는 S3 CORS 규칙을 둔다. CORS에 맞는 요청도 S3 권한 검사를 통과해야 한다. 스토리지에서 업로드 크기 범위를 폼 정책으로 강제하려면 `content-length-range`를 사용하는 S3 POST 정책을 검토한다. [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 POST 정책](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-HTTPPOSTConstructPolicy.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "브라우저의 교차 출처 S3 객체 업로드",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html",
+      "locator": "CORSRule의 출처, 요청 메서드와 헤더 대조 및 권한 평가"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "교차 출처 업로드에는 허용할 웹 출처, `PUT`, 실제 전송 헤더에 맞는 S3 CORS 규칙을 둔다. CORS에 맞는 요청도 S3 권한 검사를 통과해야 한다. 스토리지에서 업로드 크기 범위를 폼 정책으로 강제하려면 `content-length-range`를 사용하는 S3 POST 정책을 검토한다. [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 POST 정책](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-HTTPPOSTConstructPolicy.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "S3 SigV4 브라우저 POST 폼 업로드",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-HTTPPOSTConstructPolicy.html",
+      "locator": "Conditions의 content-length-range 조건"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "같은 임시 키에 다시 PUT하면 대상 객체가 바뀔 수 있다. 완료 요청은 예약한 사용자와 키를 다시 확인하고, 서버 전용 새 키로 복사한 뒤 그 복사본을 검증한다. `HeadObject`로 크기와 메타데이터를 얻고, 실제 내용 판정이 필요하면 복사본 본문을 검사해 통과한 키만 `READY`에 연결한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "같은 임시 키에 다시 PUT하면 대상 객체가 바뀔 수 있다. 완료 요청은 예약한 사용자와 키를 다시 확인하고, 서버 전용 새 키로 복사한 뒤 그 복사본을 검증한다. `HeadObject`로 크기와 메타데이터를 얻고, 실제 내용 판정이 필요하면 복사본 본문을 검사해 통과한 키만 `READY`에 연결한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "일반 비공개 S3 버킷의 임시 객체를 새 저장 키로 복사하는 학습 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html",
+      "locator": "Description과 x-amz-copy-source에 따른 원본 및 대상 객체 복사"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "같은 임시 키에 다시 PUT하면 대상 객체가 바뀔 수 있다. 완료 요청은 예약한 사용자와 키를 다시 확인하고, 서버 전용 새 키로 복사한 뒤 그 복사본을 검증한다. `HeadObject`로 크기와 메타데이터를 얻고, 실제 내용 판정이 필요하면 복사본 본문을 검사해 통과한 키만 `READY`에 연결한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [S3 HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Amazon S3 객체 본문 없는 메타데이터 조회",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html",
+      "locator": "Description의 메타데이터 조회와 응답 필드"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "메서드·서명 헤더 변경, 만료 URL, CORS 불일치, 다른 사용자의 완료 요청을 각각 재현한다. 통과 시나리오에서는 완료 뒤 임시 키에 파일을 다시 올려도 `READY`가 가리키는 서버 전용 복사본의 바이트가 바뀌지 않는지 확인한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "SigV4를 쓰는 Amazon S3 객체 작업",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+      "locator": "presigned URL의 작업 범위, 재사용, 자격 증명 만료, 체크섬 및 signatureAge"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "메서드·서명 헤더 변경, 만료 URL, CORS 불일치, 다른 사용자의 완료 요청을 각각 재현한다. 통과 시나리오에서는 완료 뒤 임시 키에 파일을 다시 올려도 `READY`가 가리키는 서버 전용 복사본의 바이트가 바뀌지 않는지 확인한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "AWS SDK가 생성한 Amazon S3 presigned PUT",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html",
+      "locator": "업로드 동작, 발급자 권한, 같은 객체 키 사용 및 Content-Type 일치"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "메서드·서명 헤더 변경, 만료 URL, CORS 불일치, 다른 사용자의 완료 요청을 각각 재현한다. 통과 시나리오에서는 완료 뒤 임시 키에 파일을 다시 올려도 `READY`가 가리키는 서버 전용 복사본의 바이트가 바뀌지 않는지 확인한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "브라우저의 교차 출처 S3 객체 업로드",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html",
+      "locator": "CORSRule의 출처, 요청 메서드와 헤더 대조 및 권한 평가"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "메서드·서명 헤더 변경, 만료 URL, CORS 불일치, 다른 사용자의 완료 요청을 각각 재현한다. 통과 시나리오에서는 완료 뒤 임시 키에 파일을 다시 올려도 `READY`가 가리키는 서버 전용 복사본의 바이트가 바뀌지 않는지 확인한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "일반 비공개 S3 버킷의 임시 객체를 새 저장 키로 복사하는 학습 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html",
+      "locator": "Description과 x-amz-copy-source에 따른 원본 및 대상 객체 복사"
+    }
+  },
+  {
+    "page": "aws/03_uploading_objects_with_s3_presigned_urls.md",
+    "claim": "메서드·서명 헤더 변경, 만료 URL, CORS 불일치, 다른 사용자의 완료 요청을 각각 재현한다. 통과 시나리오에서는 완료 뒤 임시 키에 파일을 다시 올려도 `READY`가 가리키는 서버 전용 복사본의 바이트가 바뀌지 않는지 확인한다. [S3 Presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) · [S3 Presigned PUT](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) · [S3 CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) · [S3 CopyObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html) · [CloudFront Signed URL](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html)",
+    "checked_on": "2026-11-23",
+    "applies_to": "CloudFront의 서명 URL을 요구하는 다운로드 캐시 동작",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html",
+      "locator": "How signed URLs work, canned/custom policy 및 만료 판단 시점"
+    }
   }
 ]
