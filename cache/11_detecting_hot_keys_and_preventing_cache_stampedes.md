@@ -52,6 +52,10 @@ assert count_origin_calls(True) == 1
 
 같은 프로세스에서는 진행 중인 로드를 키별로 공유할 수 있다. 합쳐진 요청도 기다릴 수 있는 시간을 제한하고, 로드가 실패하면 대기 요청에 실패를 전달한 뒤 진행 중 상태를 정리한다. 여러 인스턴스가 원본으로 몰리는 경우 분산 조율을 추가할 수 있다. 리스를 얻은 작업자는 로딩 전에 L2를 다시 보고, 완료 후 자신의 소유권을 확인해 해제한다. 리스 만료 뒤 구 작업자가 값을 덮어쓰는 문제는 값 버전이나 단조 증가 토큰으로 별도로 방지한다. [캐시 요청 합치기](06_mitigating_cache_stampedes.md) · [Redis 분산 락의 소유권과 만료](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)
 
+![핫 키와 만료 직후 스탬피드를 구분하고 로컬 single-flight와 인스턴스 간 락으로 캐시 갱신을 조율하는 예](image/11_hot_key_vs_stampede_and_single_flight.png)
+
+그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)
+
 ## 4. 확률적으로 만료 전에 갱신하기
 
 이전 로딩에 걸린 시간 `D`, 현재 시각 `now`, 만료 시각 `expires_at`, 난수 `U`가 있을 때 `now - beta * D * ln(U) >= expires_at`이면 조기 갱신을 시도할 수 있다. `0 < U < 1`이고 `beta > 0`이며 시간 단위를 맞춘다. 만료 시각이 가까워지거나 로딩 비용이 크면 시도 확률이 높아진다. 갱신 후보가 여러 개 생길 수 있으므로 키별 합치기와 원본 동시성 한도를 함께 적용한다. [Optimal Probabilistic Cache Stampede Prevention](https://cseweb.ucsd.edu/~avattani/papers/cache_stampede.pdf)

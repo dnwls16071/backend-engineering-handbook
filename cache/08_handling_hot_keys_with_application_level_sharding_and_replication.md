@@ -20,7 +20,9 @@ Hot Key는 인기 상품이나 공통 설정처럼 캐시 요청이 집중되는
 
 접미사가 다른 키들이 서로 다른 샤드에 배치되어야 샤드 간 분산 효과가 생긴다. 복제 키가 실제로 어느 샤드에 배치되는지 확인한다.
 
-<img src="image/hot_key_replication_across_shards.png" alt="단일 키는 모든 읽기가 같은 샤드에 몰린다. 서로 다른 샤드에 배치한 복제 키는 읽기 부하를 분산하고, 값이 바뀌면 복제 키를 모두 갱신한다." width="400">
+![하나의 핫 키에 집중된 조회와 서로 다른 슬롯 소유 샤드에 별도 키를 배치한 조회 비교](image/hot_key_replication_across_shards.png)
+
+그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Redis CLUSTER KEYSLOT](https://redis.io/docs/latest/commands/cluster-keyslot/)
 
 ## 적용 기준
 

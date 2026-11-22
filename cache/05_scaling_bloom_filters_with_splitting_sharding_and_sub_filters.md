@@ -2,7 +2,9 @@
 
 Bloom Filter에 예상보다 많은 데이터를 넣으면 False Positive 비율이 올라간다. Redis Bitmap의 키당 크기 한계에는 Split을, 읽기·쓰기와 저장 공간 분산에는 Sharding을, 이미 운영 중인 필터의 용량 확대에는 Sub Filter를 적용할 수 있다.
 
-<img src="image/bloom_filter_scaling_strategies.png" alt="Split은 필요한 비트가 담긴 키를 조회하고, Sharding은 원소가 속한 필터 하나를 조회하며, Sub Filter는 기존 필터와 추가 필터의 판정을 합치는 방식" width="400">
+![비트 배열 Split, 원소 Sharding, Sub Filter 확장 방식의 조회 경로](image/bloom_filter_scaling_strategies.png)
+
+그림의 근거 · [Redis BF.RESERVE](https://redis.io/docs/latest/commands/bf.reserve/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
 
 ## Split으로 큰 비트 배열 저장하기
 

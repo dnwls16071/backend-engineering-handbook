@@ -34,7 +34,9 @@ GET mykey
 
 Look-Aside에서는 애플리케이션이 Redis를 먼저 확인하고, 캐시 미스가 나면 원본 저장소에 접근한다. 이후 같은 키의 조회가 캐시 히트면 원본 저장소 호출을 생략한다.
 
-<img src="image/spring_cache_look_aside_read_flow.png" alt="Redis 캐시 히트면 값을 즉시 반환하고, 캐시 미스면 메서드를 실행해 원본 값을 읽고 Redis에 저장한 뒤 반환하는 흐름" width="400">
+![Spring Cache 프록시에서 Redis 적중 시 저장값을 반환하고 미스 시 메서드를 실행해 저장하는 흐름](image/spring_cache_look_aside_read_flow.png)
+
+그림의 근거 · [Spring Cache 애노테이션](https://docs.spring.io/spring-framework/reference/6.2/integration/cache/annotations.html) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)
 
 ## 적용 기준
 

@@ -26,7 +26,9 @@ Write-Through는 데이터의 생성·수정·삭제 시점에 원본 저장소�
 
 예를 들어 최신순으로 `[4, 3, 2]`만 캐시하고 페이지당 2건을 요청하면 첫 페이지는 `[4, 3]`으로 응답한다. 둘째 페이지는 캐시에서 `[2]`만 확보되므로, 이 예제에서는 해당 페이지 전체를 원본에서 조회해 `[2, 1]`을 반환한다.
 
-<img src="image/write_through_list_cache_pages.png" alt="Sorted Set에 최신 ID 4, 3, 2가 있을 때 첫 페이지는 캐시에서 4와 3을 반환하고, 둘째 페이지는 ID가 부족해 원본에서 2와 1을 반환하는 흐름" width="400">
+![Sorted Set의 최신 ID를 써서 페이지를 구성하고 부족한 페이지는 원본에서 조회하는 예](image/write_through_list_cache_pages.png)
+
+그림의 근거 · [Redis Sorted Set](https://redis.io/docs/latest/develop/data-types/sorted-sets/) · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/)
 
 ## 적용 기준
 

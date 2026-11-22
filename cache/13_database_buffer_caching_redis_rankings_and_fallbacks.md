@@ -29,3 +29,7 @@ redis-cli -s "$CACHE_LAB_SOCKET" ZRANGE cache-lab:ranking 0 2 REV WITHSCORES
 Redis 호출에는 요청 예산 안의 타임아웃을 두고, 실패나 지연이 계속되면 회로 차단기가 일정 기간 호출을 중단하도록 한다. 반열림 상태에서는 제한된 수의 요청으로 복구 여부를 확인한다. 모든 요청을 즉시 DB로 돌리면 원본 부하가 급증할 수 있으므로 폴백의 동시성과 비용을 따로 제한한다. [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker)
 
 랭킹처럼 일부 지연을 허용하는 조회는 마지막 랭킹과 생성 시각을 함께 반환하거나, 임시로 결과를 제공할 수 없음을 알린다. 원본에서 즉시 계산하는 폴백은 비용과 타임아웃을 별도로 검증한다. 권한이나 주문 확정에 사용하는 요청은 랭킹 폴백과 다른 일관성 정책을 적용한다. 장애 실험에서 Redis 실패율, DB 폴백 실행 수, 폴백 응답의 나이, 전체 요청의 지연을 기록한다. [일관성 창 정책](12_cache_invalidation_versioned_keys_and_consistency_windows.md)
+
+![Redis Sorted Set의 Top-N 조회와 실패 시 회로 차단, 제한된 폴백, 반열림 복구 확인](image/13_redis_rankings_and_bounded_fallback.png)
+
+그림의 근거 · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker) · [MySQL InnoDB Buffer Pool](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)

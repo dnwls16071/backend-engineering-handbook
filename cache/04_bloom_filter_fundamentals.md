@@ -13,7 +13,9 @@ Bloom Filter는 비트 배열과 해시로 키의 집합 포함 여부를 판정
 
 10비트 예제에서 `1`은 위치 `3, 1, 6`을, `2`는 `4, 2, 7`을 설정한다. 이후 `3`을 조회하면 위치 `5`가 `0`이어서 부재를 판정한다. `4`는 한 번도 등록하지 않았는데 위치 `4, 3, 6`이 모두 `1`이므로 False Positive가 발생한다.
 
-<img src="image/bloom_filter_bit_lookup.png" alt="10비트 배열에서 키 3은 위치 5의 0으로 미등록을 판정하고, 키 4는 필요한 비트가 모두 1이라 False Positive가 발생하는 예" width="400">
+![10비트 Bloom Filter에서 비트 0으로 부재를 판정하고 모두 1인 미등록 키를 원본에서 확인하는 예](image/bloom_filter_bit_lookup.png)
+
+그림의 근거 · [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/) · [Redis Bitmap](https://redis.io/docs/latest/develop/data-types/strings/bitmaps/)
 
 ## 삭제와 데이터 동기화
 

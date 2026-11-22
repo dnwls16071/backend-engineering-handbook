@@ -23,7 +23,9 @@ Spring Boot 예제에서는 Service Layer가 Redis를 먼저 조회하고, 캐�
 
 부재를 나타내는 객체에 데이터가 없거나 비공개 상태인 이유를 담아 캐시에서 확인할 수도 있다.
 
-<img src="image/null_object_repeated_cache_miss.png" alt="같은 미존재 키를 두 번 조회할 때 부재를 캐싱하지 않으면 원본을 두 번 조회하고, Null Object가 유효하면 첫 번째 요청만 원본을 조회하는 비교" width="400">
+![부재 결과를 저장하는 경우와 저장하지 않는 경우의 반복 조회 비교](image/null_object_repeated_cache_miss.png)
+
+그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)
 
 ## 새로 생성된 데이터와 키 개수에 따른 한계
 

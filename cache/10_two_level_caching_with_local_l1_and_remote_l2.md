@@ -6,6 +6,10 @@
 
 L1을 먼저 조회하고 미스면 L2를 확인한다. L2에도 값이 없으면 원본을 읽고 L2와 L1에 채운다. 값 객체는 변경 가능한 공유 참조를 그대로 넘기지 않고 불변 조회 모델로 만든다. 같은 프로세스에서 같은 키를 동시에 채울 때는 Caffeine의 `get(key, mappingFunction)`으로 계산을 합칠 수 있다. 다른 프로세스의 동시 로딩은 별도로 관찰한다. [Caffeine 로딩 API](https://github.com/ben-manes/caffeine/wiki/Population)
 
+![인스턴스별 Caffeine L1과 공유 Redis L2에서 미스가 날 때 다음 저장소를 조회하는 흐름](image/10_local_l1_and_shared_l2_read_path.png)
+
+그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Caffeine 로딩](https://github.com/ben-manes/caffeine/wiki/Population)
+
 ## 2. L1의 크기와 TTL 정하기
 
 아래 예의 최대 10,000개와 2초는 실측을 시작할 설정이다. 항목 크기가 고르면 `maximumSize`, 크기 편차가 크면 `maximumWeight`와 `weigher`를 검토한다. 가중치는 객체 수명과 정확한 JVM 메모리 사용량을 대신하지 않으므로 힙과 GC를 함께 본다. freshness가 중요하면 쓰기 시각 기준인 `expireAfterWrite`를 사용하고 원본 버전이 이미 오래됐는지도 확인한다. [Caffeine eviction](https://github.com/ben-manes/caffeine/wiki/Eviction)

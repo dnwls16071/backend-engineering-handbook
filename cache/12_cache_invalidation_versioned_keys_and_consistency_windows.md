@@ -14,6 +14,10 @@
 
 포인터 비교와 갱신은 경합 중에 오래된 이벤트가 새 버전을 덮어쓰지 못하도록 원자적으로 처리한다. Redis에는 이전 버전을 조회하던 요청이 있을 수 있으므로 값 키의 TTL과 포인터의 수명을 함께 정한다. 포인터가 없어졌다면 신뢰할 수 있는 원본에서 현재 버전을 다시 확인한다. Redis Cluster에서 여러 키를 하나의 원자 연산에 쓰는 경우 키를 같은 슬롯에 배치할 수 있는지 확인한다. [Redis Lua 실행](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Cluster 해시 태그](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/)
 
+![원본과 Outbox 커밋 후 무효화와 버전 포인터 이동, 지연된 이전 버전의 덮어쓰기 방지](image/12_cache_invalidation_and_version_fence.png)
+
+그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Redis 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Pub/Sub](https://redis.io/docs/latest/develop/pubsub/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
+
 ## 3. 일관성 창을 운영 정책으로 정의하기
 
 | 읽기 유형 | 정책 예시 |

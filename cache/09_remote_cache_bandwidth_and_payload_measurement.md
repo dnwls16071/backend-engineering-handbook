@@ -42,6 +42,10 @@ redis-cli -s "$CACHE_LAB_SOCKET" INFO stats | grep -E '^(total_net_output_bytes|
 
 전송률, 요청당 바이트, Redis 적중률과 원본 조회 수, 응답 p95·p99를 함께 비교한다. 요청 구성이 달라지면 전송률만으로 개선 여부를 해석하기 어렵다.
 
+![같은 캐시 적중 요청률에서 값 크기에 따른 전송량 차이와 같은 측정 창의 INFO 통계 비교](image/09_remote_cache_bandwidth_and_measurement.png)
+
+그림의 근거 · [Redis INFO](https://redis.io/docs/latest/commands/info/) · [Redis MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/) · [Redis STRLEN](https://redis.io/docs/latest/commands/strlen/)
+
 ## 5. 압축과 분할의 효과와 한계 판단하기
 
 압축은 같은 데이터를 적은 바이트로 보낼 수 있지만 CPU, 압축 해제 지연, 형식 변경 비용을 추가한다. 분할이 효과적인 경우는 호출이 일부 조각만 읽어도 될 때다. 매번 모든 조각을 모으면 전체 데이터는 여전히 전송되고 키 요청도 늘어난다. 목록과 상세의 필요 필드를 나누고, 페이지나 집계 결과만 읽게 한 뒤 실제 직렬화 바이트와 지연을 다시 비교한다.

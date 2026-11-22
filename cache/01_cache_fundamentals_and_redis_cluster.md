@@ -28,7 +28,9 @@
 
 단일 master에 replica를 추가해도 모든 쓰기는 master가 처리하고, 전체 데이터가 master의 메모리에 들어가야 한다. Redis Cluster에서는 slot을 여러 master에 할당해 수평 확장하고, 각 shard에 replica를 두어 장애에 대응할 수 있다.
 
-<img src="image/redis_cluster_sharding_and_replication.png" alt="키 A와 키 B가 각각의 해시 슬롯을 거쳐 다른 샤드에 배치되고, 각 샤드의 Primary가 Replica로 데이터를 비동기 복제하는 구조" width="400">
+![Redis Cluster에서 키가 해시 슬롯에 매핑되고 각 샤드의 Primary가 Replica에 비동기로 복제하는 구조](image/redis_cluster_sharding_and_replication.png)
+
+그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
 
 ## 적용 기준
 

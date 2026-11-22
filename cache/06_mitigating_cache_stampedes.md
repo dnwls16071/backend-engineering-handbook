@@ -14,7 +14,9 @@ Cache Stampede는 여러 요청이 동시에 캐시 미스를 만나 원본 저�
 
 PER은 만료 전에 해당 키에 요청이 들어와야 조기 갱신할 수 있다. 동시 요청 여러 개가 확률 조건을 충족하면 중복 재계산이 가능하다.
 
-<img src="image/cache_jitter_and_per_timing.png" alt="Jitter는 같은 시각에 저장한 세 키의 TTL을 4초, 5초, 6초로 분산하고, PER은 개별 키의 만료 전 조회를 계기로 확률적으로 갱신한다." width="400">
+![TTL 지터로 서로 다른 키의 만료를 흩뜨리고 요청을 계기로 같은 키를 조기 갱신하는 차이](image/cache_jitter_and_per_timing.png)
+
+그림의 근거 · [Cloudflare 확률적 조기 갱신](https://blog.cloudflare.com/sometimes-i-cache/) · [AWS ElastiCache TTL과 지터](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/PerformanceEfficiencyPillar.html)
 
 ## Request Collapsing으로 동일 키의 갱신 합치기
 
@@ -23,7 +25,9 @@ PER은 만료 전에 해당 키에 요청이 들어와야 조기 갱신할 수 �
 1. 락을 얻은 요청은 캐시를 다시 확인한다. 여전히 미스라면 원본을 조회해 캐시에 저장한다. 처리가 끝나면 락을 해제한다.
 2. 대기하던 요청은 캐시를 다시 조회해 갱신된 값을 받는다.
 
-<img src="image/cache_stampede_request_collapsing.png" alt="같은 키에서 동시에 캐시 미스가 난 요청 세 개가 각각 원본을 조회하는 경우와, Request Collapsing으로 한 요청만 원본을 조회하는 경우의 비교" width="400">
+![동일 만료 키의 세 요청이 원본을 각각 호출하는 경우와 한 요청만 갱신하는 경우](image/cache_stampede_request_collapsing.png)
+
+그림의 근거 · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)
 
 인스턴스별 Local Lock은 조율 범위가 각 인스턴스로 제한되어, 동일 키가 미스일 때 활성 인스턴스 수만큼 원본 조회가 발생할 수 있다. 분산 락을 사용한다면 락 해제 감지에 드는 Polling 비용과 대기 시간을 고려한다. Redis Pub/Sub으로 락 해제를 알리고 Polling을 함께 사용할 수도 있다.
 
