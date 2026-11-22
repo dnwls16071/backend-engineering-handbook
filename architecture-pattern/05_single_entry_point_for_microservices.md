@@ -18,7 +18,9 @@
 - 외부에 노출된 각 서비스에 접근 제어와 보안 정책을 적용해야 한다.
 - 인증과 로깅 같은 공통 기능이 서비스마다 중복될 수 있다.
 
-<img src="image/gateway_direct_vs_entry.png" alt="클라이언트가 서비스를 직접 호출하는 구조와 API Gateway를 공통 진입점으로 사용하는 구조의 비교" width="400">
+![웹과 모바일의 직접 백엔드 호출과 API Gateway가 공통 주소에서 주문·배송 요청을 전달하는 구조](image/gateway_direct_vs_entry.png)
+
+그림의 근거 · [Microsoft API Gateway](https://learn.microsoft.com/en-us/azure/architecture/microservices/design/gateway)
 
 | 비교 항목 | 서비스에 직접 접근한다. | API Gateway를 거친다. |
 | :---: | :--- | :--- |
@@ -69,7 +71,9 @@
 
 ## 4. 응답 조합과 BFF의 차이
 
-<img src="image/gateway_aggregation_vs_bff.png" alt="주문과 배송 응답을 하나로 조합하는 흐름과 웹 및 모바일별 BFF를 두는 구조의 비교" width="400">
+![한 화면의 주문과 배송 응답을 조합하는 경로와 클라이언트별로 웹·모바일 API를 제공하는 구조](image/gateway_aggregation_vs_bff.png)
+
+그림의 근거 · [Microsoft Gateway Aggregation](https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation) · [Microsoft Backends for Frontends](https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
 
 | 비교 항목 | 응답 조합 | BFF |
 | :---: | :--- | :--- |
@@ -86,7 +90,9 @@
 
 ## 5. 게이트웨이 배치 전략
 
-<img src="image/gateway_topologies.png" alt="공용 게이트웨이, 클라이언트별 BFF, Edge와 Internal로 나눈 계층형 게이트웨이의 배치 비교" width="400">
+![공유 Gateway, 웹·모바일 BFF, Edge에서 Internal Gateway를 거치는 계층형 진입점의 배치 비교](image/gateway_topologies.png)
+
+그림의 근거 · [Microsoft API Gateway](https://learn.microsoft.com/en-us/azure/architecture/microservices/design/gateway) · [Microsoft Backends for Frontends](https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
 
 | 방식 | 구성 | 장점 | 고려할 사항 |
 | :---: | :--- | :--- | :--- |
@@ -106,7 +112,9 @@
 - 주문 서비스가 실패해도 무관한 회원 조회까지 영향을 받지 않도록 설계한다.
 - 게이트웨이와 서비스 내부의 장애 대응은 각 호출 경계에 맞게 구성한다.
 
-<img src="image/gateway_failure_isolation.png" alt="Circuit Breaker로 장애가 난 주문 서비스 호출을 차단하고 회원 서비스 호출은 정상 처리하는 예시" width="400">
+![Spring Cloud Gateway에서 주문 경로의 Circuit Breaker가 열렸을 때 호출을 차단하고 회원 경로는 따로 처리하는 예](image/gateway_failure_isolation.png)
+
+그림의 근거 · [Spring Cloud Gateway CircuitBreaker](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/gatewayfilter-factories/circuitbreaker-filter-factory.html) · [Microsoft Circuit Breaker](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) · [Microsoft Gateway Aggregation](https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation)
 
 | 수단 | 처리 방식 |
 | :--- | :--- |
