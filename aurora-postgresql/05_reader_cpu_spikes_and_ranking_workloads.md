@@ -31,3 +31,7 @@ Reader 엔드포인트의 분산 단위는 새 연결이다. 풀의 기존 연�
 ## 5. Reader 증설과 쿼리 개선의 판단 기준
 
 호출량은 안정적인데 한 번의 집계가 많은 행을 읽으면 기간 조건, 사전 집계, 조회 모델 개선을 먼저 검증한다. 각 Reader가 같은 수준으로 지속적으로 포화되고 트래픽이 나눌 수 있는 읽기라면 증설 효과를 측정할 수 있다. 부하가 한 Reader에 치우쳐 있으면 연결 분배를 확인한다. 변경 전후 동일 구간에서 API p95, DB Load의 CPU 부분, 집계 또는 정렬 작업량, 복제 지연을 대조한다.
+
+![Reader CPU 급증을 랭킹 호출 수, 정렬 비용과 특정 Reader로 몰린 연결로 구분하는 절차](image/05_aurora_postgresql_reader_cpu_and_ranking_load.png)
+
+그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)

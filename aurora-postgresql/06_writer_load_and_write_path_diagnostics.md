@@ -40,3 +40,7 @@ RETURNING available;
 ## 5. Writer로 새는 읽기 확인하기
 
 Writer에서 실행되는 SELECT의 `application_name`, 호출 경로, 쿼리 지문을 확인한다. 쓰기 직후 결과 확인처럼 Writer가 필요한 읽기는 분리해 기록한다. 느슨한 최신성을 허용하는 목록이나 집계라면 Reader에 별도 풀을 쓰고 실제 연결 대상과 부하 변화를 확인한다. SQL에 SELECT가 보인다는 이유만으로 쓰기 경로의 트랜잭션을 나누지는 않는다. [Aurora Writer·Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html)
+
+![Aurora PostgreSQL Writer의 행 잠금 대기, 커밋 확인 대기와 읽기 유입을 나눠 검증](image/06_aurora_postgresql_writer_lock_and_commit_waits.png)
+
+그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS Aurora PostgreSQL 커밋 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html) · [PostgreSQL INSERT](https://www.postgresql.org/docs/18/sql-insert.html)

@@ -19766,5 +19766,2705 @@
       "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
       "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
     }
+  },
+  {
+    "page": "cache/01_cache_fundamentals_and_redis_cluster.md",
+    "claim": "![Redis Cluster에서 키가 해시 슬롯에 매핑되고 각 샤드의 Primary가 Replica에 비동기로 복제하는 구조](image/redis_cluster_sharding_and_replication.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/01_cache_fundamentals_and_redis_cluster.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/02_springboot_caching_with_redis.md",
+    "claim": "![Spring Cache 프록시에서 Redis 적중 시 저장값을 반환하고 미스 시 메서드를 실행해 저장하는 흐름](image/spring_cache_look_aside_read_flow.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 프록시 모드와 Spring Data Redis 3.5 RedisCache 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/integration/cache/annotations.html",
+      "locator": "@Cacheable 동작과 기본 프록시 모드의 자기 호출 제한"
+    }
+  },
+  {
+    "page": "cache/02_springboot_caching_with_redis.md",
+    "claim": "![Spring Cache 프록시에서 Redis 적중 시 저장값을 반환하고 미스 시 메서드를 실행해 저장하는 흐름](image/spring_cache_look_aside_read_flow.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 프록시 모드와 Spring Data Redis 3.5 RedisCache 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html",
+      "locator": "RedisCacheConfiguration 예제와 TTL, null 값 캐싱 설정"
+    }
+  },
+  {
+    "page": "cache/02_springboot_caching_with_redis.md",
+    "claim": "그림의 근거 · [Spring Cache 애노테이션](https://docs.spring.io/spring-framework/reference/6.2/integration/cache/annotations.html) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 프록시 모드와 Spring Data Redis 3.5 RedisCache 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/integration/cache/annotations.html",
+      "locator": "@Cacheable 동작과 기본 프록시 모드의 자기 호출 제한"
+    }
+  },
+  {
+    "page": "cache/02_springboot_caching_with_redis.md",
+    "claim": "그림의 근거 · [Spring Cache 애노테이션](https://docs.spring.io/spring-framework/reference/6.2/integration/cache/annotations.html) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Framework 6.2 프록시 모드와 Spring Data Redis 3.5 RedisCache 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html",
+      "locator": "RedisCacheConfiguration 예제와 TTL, null 값 캐싱 설정"
+    }
+  },
+  {
+    "page": "cache/03_preventing_cache_penetration_with_the_null_object_pattern.md",
+    "claim": "![부재 결과를 저장하는 경우와 저장하지 않는 경우의 반복 조회 비교](image/null_object_repeated_cache_miss.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data Redis 3.5에서 null 저장을 끄고 부재 객체에 TTL을 주는 예시",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+      "locator": "Solution과 Considerations의 cache miss, 로컬 캐시와 원본 갱신 후 무효화"
+    }
+  },
+  {
+    "page": "cache/03_preventing_cache_penetration_with_the_null_object_pattern.md",
+    "claim": "![부재 결과를 저장하는 경우와 저장하지 않는 경우의 반복 조회 비교](image/null_object_repeated_cache_miss.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data Redis 3.5에서 null 저장을 끄고 부재 객체에 TTL을 주는 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html",
+      "locator": "RedisCacheConfiguration 예제와 TTL, null 값 캐싱 설정"
+    }
+  },
+  {
+    "page": "cache/03_preventing_cache_penetration_with_the_null_object_pattern.md",
+    "claim": "그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data Redis 3.5에서 null 저장을 끄고 부재 객체에 TTL을 주는 예시",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+      "locator": "Solution과 Considerations의 cache miss, 로컬 캐시와 원본 갱신 후 무효화"
+    }
+  },
+  {
+    "page": "cache/03_preventing_cache_penetration_with_the_null_object_pattern.md",
+    "claim": "그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Spring Data RedisCache](https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Spring Data Redis 3.5에서 null 저장을 끄고 부재 객체에 TTL을 주는 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-data/redis/reference/3.5/redis/redis-cache.html",
+      "locator": "RedisCacheConfiguration 예제와 TTL, null 값 캐싱 설정"
+    }
+  },
+  {
+    "page": "cache/04_bloom_filter_fundamentals.md",
+    "claim": "![10비트 Bloom Filter에서 비트 0으로 부재를 판정하고 모두 1인 미등록 키를 원본에서 확인하는 예](image/bloom_filter_bit_lookup.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/",
+      "locator": "Overview의 부재 판정, 거짓 양성 및 오류율 설명"
+    }
+  },
+  {
+    "page": "cache/04_bloom_filter_fundamentals.md",
+    "claim": "![10비트 Bloom Filter에서 비트 0으로 부재를 판정하고 모두 1인 미등록 키를 원본에서 확인하는 예](image/bloom_filter_bit_lookup.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/strings/bitmaps/",
+      "locator": "GETBIT과 SETBIT으로 문자열의 단일 비트를 조회하고 설정하는 방식"
+    }
+  },
+  {
+    "page": "cache/04_bloom_filter_fundamentals.md",
+    "claim": "그림의 근거 · [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/) · [Redis Bitmap](https://redis.io/docs/latest/develop/data-types/strings/bitmaps/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/",
+      "locator": "Overview의 부재 판정, 거짓 양성 및 오류율 설명"
+    }
+  },
+  {
+    "page": "cache/04_bloom_filter_fundamentals.md",
+    "claim": "그림의 근거 · [Redis Bloom Filter](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/) · [Redis Bitmap](https://redis.io/docs/latest/develop/data-types/strings/bitmaps/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/strings/bitmaps/",
+      "locator": "GETBIT과 SETBIT으로 문자열의 단일 비트를 조회하고 설정하는 방식"
+    }
+  },
+  {
+    "page": "cache/05_scaling_bloom_filters_with_splitting_sharding_and_sub_filters.md",
+    "claim": "![비트 배열 Split, 원소 Sharding, Sub Filter 확장 방식의 조회 경로](image/bloom_filter_scaling_strategies.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/bf.reserve/",
+      "locator": "EXPANSION과 NONSCALING 인수의 서브 필터 생성"
+    }
+  },
+  {
+    "page": "cache/05_scaling_bloom_filters_with_splitting_sharding_and_sub_filters.md",
+    "claim": "![비트 배열 Split, 원소 Sharding, Sub Filter 확장 방식의 조회 경로](image/bloom_filter_scaling_strategies.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/05_scaling_bloom_filters_with_splitting_sharding_and_sub_filters.md",
+    "claim": "그림의 근거 · [Redis BF.RESERVE](https://redis.io/docs/latest/commands/bf.reserve/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/bf.reserve/",
+      "locator": "EXPANSION과 NONSCALING 인수의 서브 필터 생성"
+    }
+  },
+  {
+    "page": "cache/05_scaling_bloom_filters_with_splitting_sharding_and_sub_filters.md",
+    "claim": "그림의 근거 · [Redis BF.RESERVE](https://redis.io/docs/latest/commands/bf.reserve/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "![TTL 지터로 서로 다른 키의 만료를 흩뜨리고 요청을 계기로 같은 키를 조기 갱신하는 차이](image/cache_jitter_and_per_timing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://blog.cloudflare.com/sometimes-i-cache/",
+      "locator": "Probabilistic cache revalidation과 cache lock의 동작 사례"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "![TTL 지터로 서로 다른 키의 만료를 흩뜨리고 요청을 계기로 같은 키를 조기 갱신하는 차이](image/cache_jitter_and_per_timing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/PerformanceEfficiencyPillar.html",
+      "locator": "Caching data 절의 TTL과 동시에 만료되는 키를 줄이는 지터"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "그림의 근거 · [Cloudflare 확률적 조기 갱신](https://blog.cloudflare.com/sometimes-i-cache/) · [AWS ElastiCache TTL과 지터](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/PerformanceEfficiencyPillar.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://blog.cloudflare.com/sometimes-i-cache/",
+      "locator": "Probabilistic cache revalidation과 cache lock의 동작 사례"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "그림의 근거 · [Cloudflare 확률적 조기 갱신](https://blog.cloudflare.com/sometimes-i-cache/) · [AWS ElastiCache TTL과 지터](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/PerformanceEfficiencyPillar.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/PerformanceEfficiencyPillar.html",
+      "locator": "Caching data 절의 TTL과 동시에 만료되는 키를 줄이는 지터"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "![동일 만료 키의 세 요청이 원본을 각각 호출하는 경우와 한 요청만 갱신하는 경우](image/cache_stampede_request_collapsing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing",
+      "locator": "Request collapsing의 한 위치에서 최초 요청만 원본에 전달하는 설명"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "![동일 만료 키의 세 요청이 원본을 각각 호출하는 경우와 한 요청만 갱신하는 경우](image/cache_stampede_request_collapsing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+      "locator": "Correct implementation with a single instance의 만료와 소유 토큰"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "그림의 근거 · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing",
+      "locator": "Request collapsing의 한 위치에서 최초 요청만 원본에 전달하는 설명"
+    }
+  },
+  {
+    "page": "cache/06_mitigating_cache_stampedes.md",
+    "claim": "그림의 근거 · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+      "locator": "Correct implementation with a single instance의 만료와 소유 토큰"
+    }
+  },
+  {
+    "page": "cache/07_write_through_caching_for_dynamic_lists.md",
+    "claim": "![Sorted Set의 최신 ID를 써서 페이지를 구성하고 부족한 페이지는 원본에서 조회하는 예](image/write_through_list_cache_pages.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/sorted-sets/",
+      "locator": "Overview와 Use cases의 점수순 정렬 및 리더보드"
+    }
+  },
+  {
+    "page": "cache/07_write_through_caching_for_dynamic_lists.md",
+    "claim": "![Sorted Set의 최신 ID를 써서 페이지를 구성하고 부족한 페이지는 원본에서 조회하는 예](image/write_through_list_cache_pages.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/zrange/",
+      "locator": "REV의 점수 내림차순과 동점일 때 reverse lexicographical order"
+    }
+  },
+  {
+    "page": "cache/07_write_through_caching_for_dynamic_lists.md",
+    "claim": "그림의 근거 · [Redis Sorted Set](https://redis.io/docs/latest/develop/data-types/sorted-sets/) · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/data-types/sorted-sets/",
+      "locator": "Overview와 Use cases의 점수순 정렬 및 리더보드"
+    }
+  },
+  {
+    "page": "cache/07_write_through_caching_for_dynamic_lists.md",
+    "claim": "그림의 근거 · [Redis Sorted Set](https://redis.io/docs/latest/develop/data-types/sorted-sets/) · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/zrange/",
+      "locator": "REV의 점수 내림차순과 동점일 때 reverse lexicographical order"
+    }
+  },
+  {
+    "page": "cache/08_handling_hot_keys_with_application_level_sharding_and_replication.md",
+    "claim": "![하나의 핫 키에 집중된 조회와 서로 다른 슬롯 소유 샤드에 별도 키를 배치한 조회 비교](image/hot_key_replication_across_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/08_handling_hot_keys_with_application_level_sharding_and_replication.md",
+    "claim": "![하나의 핫 키에 집중된 조회와 서로 다른 슬롯 소유 샤드에 별도 키를 배치한 조회 비교](image/hot_key_replication_across_shards.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/cluster-keyslot/",
+      "locator": "키가 속한 슬롯을 돌려주는 명령"
+    }
+  },
+  {
+    "page": "cache/08_handling_hot_keys_with_application_level_sharding_and_replication.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Redis CLUSTER KEYSLOT](https://redis.io/docs/latest/commands/cluster-keyslot/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/08_handling_hot_keys_with_application_level_sharding_and_replication.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Redis CLUSTER KEYSLOT](https://redis.io/docs/latest/commands/cluster-keyslot/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/cluster-keyslot/",
+      "locator": "키가 속한 슬롯을 돌려주는 명령"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "![같은 캐시 적중 요청률에서 값 크기에 따른 전송량 차이와 같은 측정 창의 INFO 통계 비교](image/09_remote_cache_bandwidth_and_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/info/",
+      "locator": "stats의 total_net_output_bytes"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "![같은 캐시 적중 요청률에서 값 크기에 따른 전송량 차이와 같은 측정 창의 INFO 통계 비교](image/09_remote_cache_bandwidth_and_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/memory-usage/",
+      "locator": "키와 값의 메모리 사용량"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "![같은 캐시 적중 요청률에서 값 크기에 따른 전송량 차이와 같은 측정 창의 INFO 통계 비교](image/09_remote_cache_bandwidth_and_measurement.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/strlen/",
+      "locator": "문자열 값의 길이"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "그림의 근거 · [Redis INFO](https://redis.io/docs/latest/commands/info/) · [Redis MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/) · [Redis STRLEN](https://redis.io/docs/latest/commands/strlen/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/info/",
+      "locator": "stats의 total_net_output_bytes"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "그림의 근거 · [Redis INFO](https://redis.io/docs/latest/commands/info/) · [Redis MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/) · [Redis STRLEN](https://redis.io/docs/latest/commands/strlen/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/memory-usage/",
+      "locator": "키와 값의 메모리 사용량"
+    }
+  },
+  {
+    "page": "cache/09_remote_cache_bandwidth_and_payload_measurement.md",
+    "claim": "그림의 근거 · [Redis INFO](https://redis.io/docs/latest/commands/info/) · [Redis MEMORY USAGE](https://redis.io/docs/latest/commands/memory-usage/) · [Redis STRLEN](https://redis.io/docs/latest/commands/strlen/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/strlen/",
+      "locator": "문자열 값의 길이"
+    }
+  },
+  {
+    "page": "cache/10_two_level_caching_with_local_l1_and_remote_l2.md",
+    "claim": "![인스턴스별 Caffeine L1과 공유 Redis L2에서 미스가 날 때 다음 저장소를 조회하는 흐름](image/10_local_l1_and_shared_l2_read_path.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+      "locator": "Solution과 Considerations의 cache miss, 로컬 캐시와 원본 갱신 후 무효화"
+    }
+  },
+  {
+    "page": "cache/10_two_level_caching_with_local_l1_and_remote_l2.md",
+    "claim": "![인스턴스별 Caffeine L1과 공유 Redis L2에서 미스가 날 때 다음 저장소를 조회하는 흐름](image/10_local_l1_and_shared_l2_read_path.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://github.com/ben-manes/caffeine/wiki/Population",
+      "locator": "Manual loading의 get(K, Function)과 로컬 로딩"
+    }
+  },
+  {
+    "page": "cache/10_two_level_caching_with_local_l1_and_remote_l2.md",
+    "claim": "그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Caffeine 로딩](https://github.com/ben-manes/caffeine/wiki/Population)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+      "locator": "Solution과 Considerations의 cache miss, 로컬 캐시와 원본 갱신 후 무효화"
+    }
+  },
+  {
+    "page": "cache/10_two_level_caching_with_local_l1_and_remote_l2.md",
+    "claim": "그림의 근거 · [Azure Cache-Aside 패턴](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside) · [Caffeine 로딩](https://github.com/ben-manes/caffeine/wiki/Population)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://github.com/ben-manes/caffeine/wiki/Population",
+      "locator": "Manual loading의 get(K, Function)과 로컬 로딩"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "![핫 키와 만료 직후 스탬피드를 구분하고 로컬 single-flight와 인스턴스 간 락으로 캐시 갱신을 조율하는 예](image/11_hot_key_vs_stampede_and_single_flight.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "![핫 키와 만료 직후 스탬피드를 구분하고 로컬 single-flight와 인스턴스 간 락으로 캐시 갱신을 조율하는 예](image/11_hot_key_vs_stampede_and_single_flight.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing",
+      "locator": "Request collapsing의 한 위치에서 최초 요청만 원본에 전달하는 설명"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "![핫 키와 만료 직후 스탬피드를 구분하고 로컬 single-flight와 인스턴스 간 락으로 캐시 갱신을 조율하는 예](image/11_hot_key_vs_stampede_and_single_flight.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+      "locator": "Correct implementation with a single instance의 만료와 소유 토큰"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing",
+      "locator": "Request collapsing의 한 위치에서 최초 요청만 원본에 전달하는 설명"
+    }
+  },
+  {
+    "page": "cache/11_detecting_hot_keys_and_preventing_cache_stampedes.md",
+    "claim": "그림의 근거 · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) · [Cloudflare Request Collapsing](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/#request-collapsing) · [Redis 분산 락](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+      "locator": "Correct implementation with a single instance의 만료와 소유 토큰"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "![원본과 Outbox 커밋 후 무효화와 버전 포인터 이동, 지연된 이전 버전의 덮어쓰기 방지](image/12_cache_invalidation_and_version_fence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "같은 트랜잭션의 변경 기록과 발행의 중복·순서 고려사항"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "![원본과 Outbox 커밋 후 무효화와 버전 포인터 이동, 지연된 이전 버전의 덮어쓰기 방지](image/12_cache_invalidation_and_version_fence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+      "locator": "서버 스크립트의 원자 실행"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "![원본과 Outbox 커밋 후 무효화와 버전 포인터 이동, 지연된 이전 버전의 덮어쓰기 방지](image/12_cache_invalidation_and_version_fence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/pubsub/",
+      "locator": "at-most-once 메시지 전달과 연결 단절에 따른 유실"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "![원본과 Outbox 커밋 후 무효화와 버전 포인터 이동, 지연된 이전 버전의 덮어쓰기 방지](image/12_cache_invalidation_and_version_fence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Redis 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Pub/Sub](https://redis.io/docs/latest/develop/pubsub/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "같은 트랜잭션의 변경 기록과 발행의 중복·순서 고려사항"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Redis 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Pub/Sub](https://redis.io/docs/latest/develop/pubsub/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+      "locator": "서버 스크립트의 원자 실행"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Redis 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Pub/Sub](https://redis.io/docs/latest/develop/pubsub/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/develop/pubsub/",
+      "locator": "at-most-once 메시지 전달과 연결 단절에 따른 유실"
+    }
+  },
+  {
+    "page": "cache/12_cache_invalidation_versioned_keys_and_consistency_windows.md",
+    "claim": "그림의 근거 · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [Redis 스크립트](https://redis.io/docs/latest/develop/programmability/eval-intro/) · [Redis Pub/Sub](https://redis.io/docs/latest/develop/pubsub/) · [Redis Cluster 사양](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/",
+      "locator": "Key distribution model 및 Replication model의 16,384개 슬롯과 비동기 복제"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "![Redis Sorted Set의 Top-N 조회와 실패 시 회로 차단, 제한된 폴백, 반열림 복구 확인](image/13_redis_rankings_and_bounded_fallback.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/zrange/",
+      "locator": "REV의 점수 내림차순과 동점일 때 reverse lexicographical order"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "![Redis Sorted Set의 Top-N 조회와 실패 시 회로 차단, 제한된 폴백, 반열림 복구 확인](image/13_redis_rankings_and_bounded_fallback.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://resilience4j.readme.io/docs/circuitbreaker",
+      "locator": "OPEN과 HALF_OPEN의 제한된 호출"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "![Redis Sorted Set의 Top-N 조회와 실패 시 회로 차단, 제한된 폴백, 반열림 복구 확인](image/13_redis_rankings_and_bounded_fallback.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html",
+      "locator": "디스크 페이지를 메모리에 보관하는 InnoDB buffer pool"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "그림의 근거 · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker) · [MySQL InnoDB Buffer Pool](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://redis.io/docs/latest/commands/zrange/",
+      "locator": "REV의 점수 내림차순과 동점일 때 reverse lexicographical order"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "그림의 근거 · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker) · [MySQL InnoDB Buffer Pool](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://resilience4j.readme.io/docs/circuitbreaker",
+      "locator": "OPEN과 HALF_OPEN의 제한된 호출"
+    }
+  },
+  {
+    "page": "cache/13_database_buffer_caching_redis_rankings_and_fallbacks.md",
+    "claim": "그림의 근거 · [Redis ZRANGE](https://redis.io/docs/latest/commands/zrange/) · [Resilience4j CircuitBreaker](https://resilience4j.readme.io/docs/circuitbreaker) · [MySQL InnoDB Buffer Pool](https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Redis Open Source의 캐시 기능 또는 문서의 애플리케이션 예시, 근거별 버전 및 조건",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-buffer-pool.html",
+      "locator": "디스크 페이지를 메모리에 보관하는 InnoDB buffer pool"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "![취소 요청, 자식의 협력적 확인과 정리, cancelAndJoin의 대기 시점](image/01_coroutine_cooperative_cancellation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "![취소 요청, 자식의 협력적 확인과 정리, cancelAndJoin의 대기 시점](image/01_coroutine_cooperative_cancellation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html",
+      "locator": "Job을 취소하고 완료를 기다리는 동작"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "![취소 요청, 자식의 협력적 확인과 정리, cancelAndJoin의 대기 시점](image/01_coroutine_cooperative_cancellation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin cancelAndJoin](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin cancelAndJoin](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html",
+      "locator": "Job을 취소하고 완료를 기다리는 동작"
+    }
+  },
+  {
+    "page": "coroutine/01_kotlin_coroutine_fundamentals_jobs_and_cancellation.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin cancelAndJoin](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/cancel-and-join.html) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "![CoroutineScope와 Context의 역할, 일시 중단 함수와 Continuation을 거치는 재개 경로](image/02_coroutine_scope_context_and_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "![CoroutineScope와 Context의 역할, 일시 중단 함수와 Continuation을 거치는 재개 경로](image/02_coroutine_scope_context_and_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "![CoroutineScope와 Context의 역할, 일시 중단 함수와 Continuation을 거치는 재개 경로](image/02_coroutine_scope_context_and_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/",
+      "locator": "중단 지점 이후의 continuation 및 resumeWith"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Continuation](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Continuation](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/02_kotlin_coroutine_scopes_context_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Continuation](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/",
+      "locator": "중단 지점 이후의 continuation 및 resumeWith"
+    }
+  },
+  {
+    "page": "coroutine/03_jvm_threads_thread_pools_and_kotlin_coroutines.md",
+    "claim": "![단일 워커에서 Thread.sleep과 delay가 후속 작업의 실행에 미치는 차이](image/03_thread_blocking_vs_coroutine_suspension.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)",
+      "locator": "sleep(long)의 실행 스레드 일시 대기"
+    }
+  },
+  {
+    "page": "coroutine/03_jvm_threads_thread_pools_and_kotlin_coroutines.md",
+    "claim": "![단일 워커에서 Thread.sleep과 delay가 후속 작업의 실행에 미치는 차이](image/03_thread_blocking_vs_coroutine_suspension.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/03_jvm_threads_thread_pools_and_kotlin_coroutines.md",
+    "claim": "그림의 근거 · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)",
+      "locator": "sleep(long)의 실행 스레드 일시 대기"
+    }
+  },
+  {
+    "page": "coroutine/03_jvm_threads_thread_pools_and_kotlin_coroutines.md",
+    "claim": "그림의 근거 · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)) · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "![디스패처의 실행 판단과 큐, Default·IO·Main 및 limitedParallelism의 병렬도 제한](image/04_dispatcher_queue_and_parallelism_limits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "![디스패처의 실행 판단과 큐, Default·IO·Main 및 limitedParallelism의 병렬도 제한](image/04_dispatcher_queue_and_parallelism_limits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html",
+      "locator": "JVM 블로킹 I/O와 Default 스레드 공유"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "![디스패처의 실행 판단과 큐, Default·IO·Main 및 limitedParallelism의 병렬도 제한](image/04_dispatcher_queue_and_parallelism_limits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html",
+      "locator": "동시에 실행하는 스레드 수의 제한과 코루틴 동시성의 차이"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "![디스패처의 실행 판단과 큐, Default·IO·Main 및 limitedParallelism의 병렬도 제한](image/04_dispatcher_queue_and_parallelism_limits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html",
+      "locator": "올바른 컨텍스트에서 별도 재디스패치 없이 실행"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Dispatchers.IO](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Kotlin limitedParallelism](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html) · [Kotlin Main.immediate](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Dispatchers.IO](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Kotlin limitedParallelism](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html) · [Kotlin Main.immediate](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html",
+      "locator": "JVM 블로킹 I/O와 Default 스레드 공유"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Dispatchers.IO](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Kotlin limitedParallelism](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html) · [Kotlin Main.immediate](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html",
+      "locator": "동시에 실행하는 스레드 수의 제한과 코루틴 동시성의 차이"
+    }
+  },
+  {
+    "page": "coroutine/04_kotlin_coroutine_dispatchers_and_parallelism.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin Dispatchers.IO](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-i-o.html) · [Kotlin limitedParallelism](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-dispatcher/limited-parallelism.html) · [Kotlin Main.immediate](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-coroutine-dispatcher/immediate.html",
+      "locator": "올바른 컨텍스트에서 별도 재디스패치 없이 실행"
+    }
+  },
+  {
+    "page": "coroutine/05_controlling_kotlin_coroutines_with_job.md",
+    "claim": "![LAZY Job의 정상 상태 전이와 취소 때 정리가 끝날 때까지 기다리는 경로](image/05_job_lifecycle_and_join.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/05_controlling_kotlin_coroutines_with_job.md",
+    "claim": "![LAZY Job의 정상 상태 전이와 취소 때 정리가 끝날 때까지 기다리는 경로](image/05_job_lifecycle_and_join.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/join.html",
+      "locator": "완료 여부에 따른 반환, LAZY 시작 및 대기 취소"
+    }
+  },
+  {
+    "page": "coroutine/05_controlling_kotlin_coroutines_with_job.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin Job.join](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/05_controlling_kotlin_coroutines_with_job.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin Job.join](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/join.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/join.html",
+      "locator": "완료 여부에 따른 반환, LAZY 시작 및 대기 취소"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "![async와 awaitAll로 독립 작업의 결과를 모으는 흐름과 withContext의 결과 반환](image/06_deferred_results_and_with_context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "![async와 awaitAll로 독립 작업의 결과를 모으는 흐름과 withContext의 결과 반환](image/06_deferred_results_and_with_context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html",
+      "locator": "성공한 결과 목록을 반환하고 실패 시 예외로 재개"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "![async와 awaitAll로 독립 작업의 결과를 모으는 흐름과 withContext의 결과 반환](image/06_deferred_results_and_with_context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html",
+      "locator": "컨텍스트를 합쳐 블록을 실행한 뒤 결과를 반환하는 일시 중단 함수"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "그림의 근거 · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin awaitAll](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html) · [Kotlin withContext](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "그림의 근거 · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin awaitAll](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html) · [Kotlin withContext](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html",
+      "locator": "성공한 결과 목록을 반환하고 실패 시 예외로 재개"
+    }
+  },
+  {
+    "page": "coroutine/06_getting_results_from_kotlin_coroutines.md",
+    "claim": "그림의 근거 · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin awaitAll](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/await-all.html) · [Kotlin withContext](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/with-context.html",
+      "locator": "컨텍스트를 합쳐 블록을 실행한 뒤 결과를 반환하는 일시 중단 함수"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "![CoroutineContext에서 오른쪽의 같은 키가 요소를 교체하고 minusKey가 요소를 제외한 값을 반환하는 예](image/07_context_keys_composition_and_removal.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html",
+      "locator": "같은 키의 왼쪽 요소를 제외한 합성"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "![CoroutineContext에서 오른쪽의 같은 키가 요소를 교체하고 minusKey가 요소를 제외한 값을 반환하는 예](image/07_context_keys_composition_and_removal.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html",
+      "locator": "해당 키의 요소를 제외한 컨텍스트 반환"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "![CoroutineContext에서 오른쪽의 같은 키가 요소를 교체하고 minusKey가 요소를 제외한 값을 반환하는 예](image/07_context_keys_composition_and_removal.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "그림의 근거 · [Kotlin CoroutineContext.plus](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html) · [Kotlin CoroutineContext.minusKey](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html) · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html",
+      "locator": "같은 키의 왼쪽 요소를 제외한 합성"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "그림의 근거 · [Kotlin CoroutineContext.plus](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html) · [Kotlin CoroutineContext.minusKey](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html) · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html",
+      "locator": "해당 키의 요소를 제외한 컨텍스트 반환"
+    }
+  },
+  {
+    "page": "coroutine/07_kotlin_coroutine_context_composition_lookup_and_removal.md",
+    "claim": "그림의 근거 · [Kotlin CoroutineContext.plus](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/plus.html) · [Kotlin CoroutineContext.minusKey](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/minus-key.html) · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Kotlin 표준 라이브러리의 CoroutineContext와 kotlinx.coroutines 1.10.2 Job",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/08_structured_concurrency_in_kotlin_scopes_and_jobs.md",
+    "claim": "![부모 Job과 자식의 수명 트리, 부모 취소 전파와 정상 완료 조건](image/08_job_tree_and_scope_lifetime.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/08_structured_concurrency_in_kotlin_scopes_and_jobs.md",
+    "claim": "![부모 Job과 자식의 수명 트리, 부모 취소 전파와 정상 완료 조건](image/08_job_tree_and_scope_lifetime.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/08_structured_concurrency_in_kotlin_scopes_and_jobs.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt",
+      "locator": "Job lifecycle, 부모·자식 간 취소·완료 전파와 상태 표"
+    }
+  },
+  {
+    "page": "coroutine/08_structured_concurrency_in_kotlin_scopes_and_jobs.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 Job](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/Job.kt) · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "![일반 스코프와 supervisor에서 자식 실패가 형제 작업에 전파되는 범위 비교](image/09_failure_propagation_and_supervision.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "![일반 스코프와 supervisor에서 자식 실패가 형제 작업에 전파되는 범위 비교](image/09_failure_propagation_and_supervision.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html",
+      "locator": "자식 실패 격리와 블록 실패 및 호출부 취소"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "![일반 스코프와 supervisor에서 자식 실패가 형제 작업에 전파되는 범위 비교](image/09_failure_propagation_and_supervision.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/",
+      "locator": "다른 방법으로 처리할 수 없는 예외의 마지막 보고 수단"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "![일반 스코프와 supervisor에서 자식 실패가 형제 작업에 전파되는 범위 비교](image/09_failure_propagation_and_supervision.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin supervisorScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [Kotlin CoroutineExceptionHandler](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin supervisorScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [Kotlin CoroutineExceptionHandler](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html",
+      "locator": "자식 실패 격리와 블록 실패 및 호출부 취소"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin supervisorScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [Kotlin CoroutineExceptionHandler](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/",
+      "locator": "다른 방법으로 처리할 수 없는 예외의 마지막 보고 수단"
+    }
+  },
+  {
+    "page": "coroutine/09_kotlin_coroutine_exception_handling.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin supervisorScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html) · [Kotlin CoroutineExceptionHandler](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "![앞 단계 결과가 필요한 순차 호출과 독립 조회를 async로 시작한 후 결과를 합치는 흐름](image/10_suspending_function_dependencies_and_fanout.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "![앞 단계 결과가 필요한 순차 호출과 독립 조회를 async로 시작한 후 결과를 합치는 흐름](image/10_suspending_function_dependencies_and_fanout.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "![앞 단계 결과가 필요한 순차 호출과 독립 조회를 async로 시작한 후 결과를 합치는 흐름](image/10_suspending_function_dependencies_and_fanout.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html",
+      "locator": "자식 완료 대기와 자식 실패 시 형제 취소"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html",
+      "locator": "Deferred 반환과 구조화된 동시성에서 부모 실패"
+    }
+  },
+  {
+    "page": "coroutine/10_kotlin_suspending_functions_and_composition.md",
+    "claim": "그림의 근거 · [Kotlin coroutineScope](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html) · [Kotlin async](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "![스레드 풀에서 일시 중단한 코루틴을 다른 가용 워커에서 재개하는 예](image/11_coroutine_suspension_and_thread_resume.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "![스레드 풀에서 일시 중단한 코루틴을 다른 가용 워커에서 재개하는 예](image/11_coroutine_suspension_and_thread_resume.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "![스레드 풀에서 일시 중단한 코루틴을 다른 가용 워커에서 재개하는 예](image/11_coroutine_suspension_and_thread_resume.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html",
+      "locator": "같은 디스패처에서 다른 코루틴에 실행 기회 양보"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "![스레드 풀에서 일시 중단한 코루틴을 다른 가용 워커에서 재개하는 예](image/11_coroutine_suspension_and_thread_resume.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)",
+      "locator": "sleep(long)의 실행 스레드 일시 대기"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "그림의 근거 · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin yield](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html) · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long))",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html",
+      "locator": "스레드를 블로킹하지 않는 지연과 취소"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "그림의 근거 · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin yield](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html) · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long))",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt",
+      "locator": "Dispatch procedure의 isDispatchNeeded와 실행 큐"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "그림의 근거 · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin yield](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html) · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long))",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html",
+      "locator": "같은 디스패처에서 다른 코루틴에 실행 기회 양보"
+    }
+  },
+  {
+    "page": "coroutine/11_kotlin_coroutine_execution_suspension_and_threads.md",
+    "claim": "그림의 근거 · [Kotlin delay](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html) · [Kotlin 1.10.2 CoroutineDispatcher](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-core/common/src/CoroutineDispatcher.kt) · [Kotlin yield](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/yield.html) · [Java 17 Thread.sleep](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long))",
+    "checked_on": "2026-11-22",
+    "applies_to": "Java 17 플랫폼 스레드 하나와 kotlinx.coroutines 1.10.2 JVM을 비교하는 예",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#sleep(long)",
+      "locator": "sleep(long)의 실행 스레드 일시 대기"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "![공유 카운터의 갱신 유실과 suspendCoroutine에서 Continuation을 보관하고 재개하는 구조](image/12_shared_state_and_manual_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html",
+      "locator": "AtomicInteger 및 Mutex를 활용한 공유 상태 제어"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "![공유 카운터의 갱신 유실과 suspendCoroutine에서 Continuation을 보관하고 재개하는 구조](image/12_shared_state_and_manual_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html",
+      "locator": "Continuation을 노출하고 값 또는 예외로 재개"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "![공유 카운터의 갱신 유실과 suspendCoroutine에서 Continuation을 보관하고 재개하는 구조](image/12_shared_state_and_manual_continuation.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html",
+      "locator": "중단 후 일시 중단 함수가 사용한 스레드에서 이어지는 재개 설명"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 공유 상태와 동시성](https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html) · [Kotlin suspendCoroutine](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) · [Kotlin Unconfined](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html",
+      "locator": "AtomicInteger 및 Mutex를 활용한 공유 상태 제어"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 공유 상태와 동시성](https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html) · [Kotlin suspendCoroutine](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) · [Kotlin Unconfined](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html",
+      "locator": "Continuation을 노출하고 값 또는 예외로 재개"
+    }
+  },
+  {
+    "page": "coroutine/12_advanced_kotlin_coroutines_shared_state_and_continuations.md",
+    "claim": "그림의 근거 · [Kotlin 공유 상태와 동시성](https://kotlinlang.org/docs/shared-mutable-state-and-concurrency.html) · [Kotlin suspendCoroutine](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/suspend-coroutine.html) · [Kotlin Unconfined](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx.coroutines 1.10.2/JVM, 해당 빌더·디스패처에 대한 설명",
+    "source": {
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-unconfined.html",
+      "locator": "중단 후 일시 중단 함수가 사용한 스레드에서 이어지는 재개 설명"
+    }
+  },
+  {
+    "page": "coroutine/13_testing_kotlin_coroutines_with_virtual_time.md",
+    "claim": "![advanceTimeBy가 옮긴 가상 시간의 경계에 예약된 작업을 runCurrent로 실행하는 테스트 흐름](image/13_coroutine_test_virtual_time_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx-coroutines-test 1.10.2, StandardTestDispatcher가 동일 TestCoroutineScheduler를 공유",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt",
+      "locator": "advanceTimeBy는 목표 시각의 작업을 제외하고 runCurrent는 해당 시각에 예약된 작업을 실행"
+    }
+  },
+  {
+    "page": "coroutine/13_testing_kotlin_coroutines_with_virtual_time.md",
+    "claim": "![advanceTimeBy가 옮긴 가상 시간의 경계에 예약된 작업을 runCurrent로 실행하는 테스트 흐름](image/13_coroutine_test_virtual_time_boundary.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx-coroutines-test 1.10.2, StandardTestDispatcher가 동일 TestCoroutineScheduler를 공유",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestScope.kt",
+      "locator": "backgroundScope의 테스트 완료 시 자동 취소"
+    }
+  },
+  {
+    "page": "coroutine/13_testing_kotlin_coroutines_with_virtual_time.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 TestCoroutineScheduler](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt) · [Kotlin 1.10.2 TestScope](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestScope.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx-coroutines-test 1.10.2, StandardTestDispatcher가 동일 TestCoroutineScheduler를 공유",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt",
+      "locator": "advanceTimeBy는 목표 시각의 작업을 제외하고 runCurrent는 해당 시각에 예약된 작업을 실행"
+    }
+  },
+  {
+    "page": "coroutine/13_testing_kotlin_coroutines_with_virtual_time.md",
+    "claim": "그림의 근거 · [Kotlin 1.10.2 TestCoroutineScheduler](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestCoroutineScheduler.kt) · [Kotlin 1.10.2 TestScope](https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestScope.kt)",
+    "checked_on": "2026-11-22",
+    "applies_to": "kotlinx-coroutines-test 1.10.2, StandardTestDispatcher가 동일 TestCoroutineScheduler를 공유",
+    "source": {
+      "url": "https://github.com/Kotlin/kotlinx.coroutines/blob/1.10.2/kotlinx-coroutines-test/common/src/TestScope.kt",
+      "locator": "backgroundScope의 테스트 완료 시 자동 취소"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "![Spring 워크로드와 호출자, RDS, 이미지 저장소 ECR, GitHub의 관계](image/context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html",
+      "locator": "EKS의 관리형 EC2 워커 노드 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "![Spring 워크로드와 호출자, RDS, 이미지 저장소 ECR, GitHub의 관계](image/context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html",
+      "locator": "인증, 태그 지정과 이미지 푸시"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "![Spring 워크로드와 호출자, RDS, 이미지 저장소 ECR, GitHub의 관계](image/context.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "그림의 근거 · [AWS EKS 관리형 노드 그룹](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html",
+      "locator": "EKS의 관리형 EC2 워커 노드 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "그림의 근거 · [AWS EKS 관리형 노드 그룹](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html",
+      "locator": "인증, 태그 지정과 이미지 푸시"
+    }
+  },
+  {
+    "page": "aws-eks/01_aws_foundations_for_eks.md",
+    "claim": "그림의 근거 · [AWS EKS 관리형 노드 그룹](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "![EKS 관리 API에 대한 접근 설정과 Route 53 별칭, 브라우저의 HTTPS 요청 경로](image/02_eks_cluster_access_and_route53_alias.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html",
+      "locator": "클러스터 API 공개·프라이빗 접근 및 네트워크 조건"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "![EKS 관리 API에 대한 접근 설정과 Route 53 별칭, 브라우저의 HTTPS 요청 경로](image/02_eks_cluster_access_and_route53_alias.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html",
+      "locator": "IAM 주체의 클러스터 액세스와 Kubernetes 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "![EKS 관리 API에 대한 접근 설정과 Route 53 별칭, 브라우저의 HTTPS 요청 경로](image/02_eks_cluster_access_and_route53_alias.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html",
+      "locator": "공개 호스팅 영역에 ALB 별칭을 생성하는 절차"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "![EKS 관리 API에 대한 접근 설정과 Route 53 별칭, 브라우저의 HTTPS 요청 경로](image/02_eks_cluster_access_and_route53_alias.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html",
+      "locator": "ECR API, Docker 레지스트리와 S3에 필요한 VPC 엔드포인트"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "그림의 근거 · [AWS EKS API 엔드포인트](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) · [AWS EKS 액세스 항목](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) · [AWS Route 53의 ELB 별칭](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html) · [AWS 프라이빗 EKS 클러스터](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html",
+      "locator": "클러스터 API 공개·프라이빗 접근 및 네트워크 조건"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "그림의 근거 · [AWS EKS API 엔드포인트](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) · [AWS EKS 액세스 항목](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) · [AWS Route 53의 ELB 별칭](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html) · [AWS 프라이빗 EKS 클러스터](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html",
+      "locator": "IAM 주체의 클러스터 액세스와 Kubernetes 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "그림의 근거 · [AWS EKS API 엔드포인트](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) · [AWS EKS 액세스 항목](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) · [AWS Route 53의 ELB 별칭](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html) · [AWS 프라이빗 EKS 클러스터](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html",
+      "locator": "공개 호스팅 영역에 ALB 별칭을 생성하는 절차"
+    }
+  },
+  {
+    "page": "aws-eks/02_eks_cluster_setup_and_route_53.md",
+    "claim": "그림의 근거 · [AWS EKS API 엔드포인트](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) · [AWS EKS 액세스 항목](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) · [AWS Route 53의 ELB 별칭](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html) · [AWS 프라이빗 EKS 클러스터](https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html",
+      "locator": "ECR API, Docker 레지스트리와 S3에 필요한 VPC 엔드포인트"
+    }
+  },
+  {
+    "page": "aws-eks/03_kubernetes_workloads_services_and_ingress.md",
+    "claim": "![Ingress와 Service의 설정을 읽는 AWS Load Balancer Controller와 ALB가 Gateway Pod IP로 직접 전달하는 요청](image/eks-ingress-alb-gateway.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS, AWS Load Balancer Controller의 ip 타깃 유형, Gateway Pod 포트 8080 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/03_kubernetes_workloads_services_and_ingress.md",
+    "claim": "![Ingress와 Service의 설정을 읽는 AWS Load Balancer Controller와 ALB가 Gateway Pod IP로 직접 전달하는 요청](image/eks-ingress-alb-gateway.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS, AWS Load Balancer Controller의 ip 타깃 유형, Gateway Pod 포트 8080 예시",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+      "locator": "Service 셀렉터, EndpointSlice 갱신 및 port와 targetPort"
+    }
+  },
+  {
+    "page": "aws-eks/03_kubernetes_workloads_services_and_ingress.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS, AWS Load Balancer Controller의 ip 타깃 유형, Gateway Pod 포트 8080 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/03_kubernetes_workloads_services_and_ingress.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS, AWS Load Balancer Controller의 ip 타깃 유형, Gateway Pod 포트 8080 예시",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+      "locator": "Service 셀렉터, EndpointSlice 갱신 및 port와 targetPort"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "![공개 ALB, 프라이빗 워커의 Spring Boot와 프라이빗 RDS가 연결되는 VPC 배포 구조](image/containers.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "![공개 ALB, 프라이빗 워커의 Spring Boot와 프라이빗 RDS가 연결되는 VPC 배포 구조](image/containers.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "![공개 ALB, 프라이빗 워커의 Spring Boot와 프라이빗 RDS가 연결되는 VPC 배포 구조](image/containers.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html",
+      "locator": "인증, 태그 지정과 이미지 푸시"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/04_deploying_spring_boot_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [AWS Amazon ECR 이미지 게시](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html",
+      "locator": "인증, 태그 지정과 이미지 푸시"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "![HPA의 Pod 수 조정, Cluster Autoscaler의 노드 확장, Argo CD 배포와 Prometheus·Grafana 관측](image/05_eks_scaling_gitops_and_metrics_loops.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/",
+      "locator": "CPU 리소스 지표 계산 및 선언 관리 시 replicas 제거"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "![HPA의 Pod 수 조정, Cluster Autoscaler의 노드 확장, Argo CD 배포와 Prometheus·Grafana 관측](image/05_eks_scaling_gitops_and_metrics_loops.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/best-practices/cas.html",
+      "locator": "스케줄할 수 없는 Pod에 맞는 노드 그룹의 확장"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "![HPA의 Pod 수 조정, Cluster Autoscaler의 노드 확장, Argo CD 배포와 Prometheus·Grafana 관측](image/05_eks_scaling_gitops_and_metrics_loops.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://argo-cd.readthedocs.io/en/stable/operator-manual/health/",
+      "locator": "리소스 health와 애플리케이션 상태"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "![HPA의 Pod 수 조정, Cluster Autoscaler의 노드 확장, Argo CD 배포와 Prometheus·Grafana 관측](image/05_eks_scaling_gitops_and_metrics_loops.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://prometheus.io/docs/introduction/overview/",
+      "locator": "HTTP pull 방식의 시계열 수집"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [AWS EKS Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/best-practices/cas.html) · [Argo CD 리소스 상태](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) · [Prometheus 개요](https://prometheus.io/docs/introduction/overview/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/",
+      "locator": "CPU 리소스 지표 계산 및 선언 관리 시 replicas 제거"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [AWS EKS Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/best-practices/cas.html) · [Argo CD 리소스 상태](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) · [Prometheus 개요](https://prometheus.io/docs/introduction/overview/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/best-practices/cas.html",
+      "locator": "스케줄할 수 없는 Pod에 맞는 노드 그룹의 확장"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [AWS EKS Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/best-practices/cas.html) · [Argo CD 리소스 상태](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) · [Prometheus 개요](https://prometheus.io/docs/introduction/overview/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://argo-cd.readthedocs.io/en/stable/operator-manual/health/",
+      "locator": "리소스 health와 애플리케이션 상태"
+    }
+  },
+  {
+    "page": "aws-eks/05_eks_autoscaling_gitops_and_observability.md",
+    "claim": "그림의 근거 · [Kubernetes HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) · [AWS EKS Cluster Autoscaler](https://docs.aws.amazon.com/eks/latest/best-practices/cas.html) · [Argo CD 리소스 상태](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) · [Prometheus 개요](https://prometheus.io/docs/introduction/overview/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://prometheus.io/docs/introduction/overview/",
+      "locator": "HTTP pull 방식의 시계열 수집"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "![상품 조회가 ALB, Spring Cloud Gateway, 카탈로그 서비스와 RDS를 거쳐 응답하는 시퀀스](image/normal-sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "![상품 조회가 ALB, Spring Cloud Gateway, 카탈로그 서비스와 RDS를 거쳐 응답하는 시퀀스](image/normal-sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
+      "locator": "Service의 DNS A/AAAA 레코드"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "![상품 조회가 ALB, Spring Cloud Gateway, 카탈로그 서비스와 RDS를 거쳐 응답하는 시퀀스](image/normal-sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html",
+      "locator": "Ingress의 ALB 구성과 instance·ip 타깃 유형에서 Pod 직접 라우팅"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
+      "locator": "Service의 DNS A/AAAA 레코드"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "그림의 근거 · [AWS EKS의 Application Load Balancer](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) · [Kubernetes Service DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 EC2 워커와 Spring Boot 예시, Kubernetes 및 AWS 관리형 서비스",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "![카탈로그 서비스가 DB 연결 시간 초과를 만나 Gateway와 ALB를 거쳐 실패 응답이 전달되는 가상 시나리오](image/failure-sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 Spring 마이크로서비스를 가정한 장애 예시, 응답 코드는 Gateway 정책에 따름",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "![카탈로그 서비스가 DB 연결 시간 초과를 만나 Gateway와 ALB를 거쳐 실패 응답이 전달되는 가상 시나리오](image/failure-sequence.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 Spring 마이크로서비스를 가정한 장애 예시, 응답 코드는 Gateway 정책에 따름",
+    "source": {
+      "url": "https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/http-timeouts-configuration.html",
+      "locator": "전역·경로별 연결 시간과 응답 시간 설정"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "그림의 근거 · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [Spring Cloud Gateway 타임아웃](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/http-timeouts-configuration.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 Spring 마이크로서비스를 가정한 장애 예시, 응답 코드는 Gateway 정책에 따름",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+      "locator": "DB 서브넷 그룹, 공개 접근 여부, VPC 보안 그룹"
+    }
+  },
+  {
+    "page": "aws-eks/06_deploying_spring_microservices_on_eks.md",
+    "claim": "그림의 근거 · [AWS RDS VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) · [Spring Cloud Gateway 타임아웃](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/http-timeouts-configuration.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Amazon EKS의 Spring 마이크로서비스를 가정한 장애 예시, 응답 코드는 Gateway 정책에 따름",
+    "source": {
+      "url": "https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway-server-webflux/http-timeouts-configuration.html",
+      "locator": "전역·경로별 연결 시간과 응답 시간 설정"
+    }
+  },
+  {
+    "page": "aurora-mysql/01_event_readiness_and_local_mysql_lab.md",
+    "claim": "![Aurora MySQL Writer와 Reader 엔드포인트에서 새 물리 연결이 배치되는 경로](image/01_aurora_mysql_endpoint_connection_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-mysql/01_event_readiness_and_local_mysql_lab.md",
+    "claim": "![Aurora MySQL Writer와 Reader 엔드포인트에서 새 물리 연결이 배치되는 경로](image/01_aurora_mysql_endpoint_connection_routing.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-mysql/01_event_readiness_and_local_mysql_lab.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-mysql/01_event_readiness_and_local_mysql_lab.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-mysql/02_first_five_minutes_of_incident_triage.md",
+    "claim": "![서비스 지연·오류의 시각을 맞춘 뒤 CPU, DB Load, Top SQL과 대기를 대조하는 절차](image/02_aurora_mysql_incident_first_five_minutes.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-mysql/02_first_five_minutes_of_incident_triage.md",
+    "claim": "![서비스 지연·오류의 시각을 맞춘 뒤 CPU, DB Load, Top SQL과 대기를 대조하는 절차](image/02_aurora_mysql_incident_first_five_minutes.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-mysql/02_first_five_minutes_of_incident_triage.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-mysql/02_first_five_minutes_of_incident_triage.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-mysql/03_slow_query_observability_and_workload_windows.md",
+    "claim": "![슬로 쿼리 로그와 문장 digest의 쓰임, 이벤트 창의 누적 실행 시간·호출량·검사 행 차이 계산](image/03_aurora_mysql_queries_and_window_deltas.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 운영 분석 예시, 문장 집계는 MySQL 8.4 호환 계열의 Performance Schema",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "슬로 로그 기록 기준과 개별 실행"
+    }
+  },
+  {
+    "page": "aurora-mysql/03_slow_query_observability_and_workload_windows.md",
+    "claim": "![슬로 쿼리 로그와 문장 digest의 쓰임, 이벤트 창의 누적 실행 시간·호출량·검사 행 차이 계산](image/03_aurora_mysql_queries_and_window_deltas.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 운영 분석 예시, 문장 집계는 MySQL 8.4 호환 계열의 Performance Schema",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest의 그룹 키 및 실행 수·시간·검사 행 누적"
+    }
+  },
+  {
+    "page": "aurora-mysql/03_slow_query_observability_and_workload_windows.md",
+    "claim": "그림의 근거 · [MySQL 슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 운영 분석 예시, 문장 집계는 MySQL 8.4 호환 계열의 Performance Schema",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html",
+      "locator": "슬로 로그 기록 기준과 개별 실행"
+    }
+  },
+  {
+    "page": "aurora-mysql/03_slow_query_observability_and_workload_windows.md",
+    "claim": "그림의 근거 · [MySQL 슬로 쿼리 로그](https://dev.mysql.com/doc/refman/8.4/en/slow-query-log.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 운영 분석 예시, 문장 집계는 MySQL 8.4 호환 계열의 Performance Schema",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest의 그룹 키 및 실행 수·시간·검사 행 누적"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "![Reader CPU 급증을 호출량, 단일 실행 비용, 한 Reader의 풀 연결 집중으로 나누어 진단하는 절차](image/04_aurora_mysql_reader_cpu_and_connection_skew.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "![Reader CPU 급증을 호출량, 단일 실행 비용, 한 Reader의 풀 연결 집중으로 나누어 진단하는 절차](image/04_aurora_mysql_reader_cpu_and_connection_skew.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "![Reader CPU 급증을 호출량, 단일 실행 비용, 한 Reader의 풀 연결 집중으로 나누어 진단하는 절차](image/04_aurora_mysql_reader_cpu_and_connection_skew.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html",
+      "locator": "Obtaining Information with EXPLAIN ANALYZE의 실행 노드 시간과 실제 행 수"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [MySQL EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [MySQL EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-mysql/04_reader_cpu_spikes_and_ranking_queries.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [MySQL EXPLAIN ANALYZE](https://dev.mysql.com/doc/refman/8.4/en/explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/explain.html",
+      "locator": "Obtaining Information with EXPLAIN ANALYZE의 실행 노드 시간과 실제 행 수"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora MySQL Writer에서 INSERT부터 COMMIT까지 쓰기 대기와 핫 로우, 읽기 유입을 확인하는 경로](image/05_aurora_mysql_writer_write_path_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html",
+      "locator": "Performance Insights 대기 이벤트의 엔진과 버전 범위"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora MySQL Writer에서 INSERT부터 COMMIT까지 쓰기 대기와 핫 로우, 읽기 유입을 확인하는 경로](image/05_aurora_mysql_writer_write_path_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html",
+      "locator": "io/redo_log_flush의 원인과 커밋이 잦은 트랜잭션의 영향"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora MySQL Writer에서 INSERT부터 COMMIT까지 쓰기 대기와 핫 로우, 읽기 유입을 확인하는 경로](image/05_aurora_mysql_writer_write_path_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest의 그룹 키 및 실행 수·시간·검사 행 누적"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [AWS Aurora MySQL redo flush 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html",
+      "locator": "Performance Insights 대기 이벤트의 엔진과 버전 범위"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [AWS Aurora MySQL redo flush 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html",
+      "locator": "io/redo_log_flush의 원인과 커밋이 잦은 트랜잭션의 영향"
+    }
+  },
+  {
+    "page": "aurora-mysql/05_writer_db_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora MySQL 대기 이벤트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.Waitevents.html) · [AWS Aurora MySQL redo flush 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/ams-waits.io-redologflush.html) · [MySQL 문장 Digest 집계](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/performance-schema-statement-summary-tables.html",
+      "locator": "events_statements_summary_by_digest의 그룹 키 및 실행 수·시간·검사 행 누적"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![장기 트랜잭션의 락 대기 체인을 확인하고 데드락, 연결 수, 재시도를 제한하는 경계](image/06_aurora_mysql_wait_chains_and_retry_budget.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html",
+      "locator": "innodb_lock_waits 뷰의 대기·차단 트랜잭션"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![장기 트랜잭션의 락 대기 체인을 확인하고 데드락, 연결 수, 재시도를 제한하는 경계](image/06_aurora_mysql_wait_chains_and_retry_budget.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html",
+      "locator": "데드락 시 희생 트랜잭션 롤백과 일관된 잠금 순서"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![장기 트랜잭션의 락 대기 체인을 확인하고 데드락, 연결 수, 재시도를 제한하는 경계](image/06_aurora_mysql_wait_chains_and_retry_budget.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html",
+      "locator": "세션 상태에 따른 DB 연결 고정과 엔진별 조건"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![장기 트랜잭션의 락 대기 체인을 확인하고 데드락, 연결 수, 재시도를 제한하는 경계](image/06_aurora_mysql_wait_chains_and_retry_budget.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [MySQL InnoDB 락 대기](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html",
+      "locator": "innodb_lock_waits 뷰의 대기·차단 트랜잭션"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [MySQL InnoDB 락 대기](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html",
+      "locator": "데드락 시 희생 트랜잭션 롤백과 일관된 잠금 순서"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [MySQL InnoDB 락 대기](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html",
+      "locator": "세션 상태에 따른 DB 연결 고정과 엔진별 조건"
+    }
+  },
+  {
+    "page": "aurora-mysql/06_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [MySQL InnoDB 락 대기](https://dev.mysql.com/doc/refman/8.4/en/sys-innodb-lock-waits.html) · [MySQL InnoDB 데드락](https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlocks.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora MySQL 단일 리전의 관측 또는 복구 예시, 엔진 호환 버전별 차이 고려",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "![Aurora MySQL 장애 전환 후 같은 엔드포인트에 새로 연결해 Writer 역할과 응답을 잃은 쓰기의 상태를 각각 확인하는 순서](image/07_aurora_mysql_writer_failover_and_safe_reconnect.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "![Aurora MySQL 장애 전환 후 같은 엔드포인트에 새로 연결해 Writer 역할과 응답을 잃은 쓰기의 상태를 각각 확인하는 순서](image/07_aurora_mysql_writer_failover_and_safe_reconnect.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html",
+      "locator": "Failover에서 직접 연결의 재개설과 Proxy 유휴·실행 중 연결 차이"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "![Aurora MySQL 장애 전환 후 같은 엔드포인트에 새로 연결해 Writer 역할과 응답을 잃은 쓰기의 상태를 각각 확인하는 순서](image/07_aurora_mysql_writer_failover_and_safe_reconnect.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html",
+      "locator": "Determining which DB instance you are connected to의 innodb_read_only ON/OFF"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "![Aurora MySQL 장애 전환 후 같은 엔드포인트에 새로 연결해 Writer 역할과 응답을 잃은 쓰기의 상태를 각각 확인하는 순서](image/07_aurora_mysql_writer_failover_and_safe_reconnect.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html) · [AWS Aurora MySQL 연결 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html) · [AWS Aurora MySQL 연결 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html",
+      "locator": "Failover에서 직접 연결의 재개설과 Proxy 유휴·실행 중 연결 차이"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html) · [AWS Aurora MySQL 연결 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html",
+      "locator": "Determining which DB instance you are connected to의 innodb_read_only ON/OFF"
+    }
+  },
+  {
+    "page": "aurora-mysql/07_replica_lag_ddl_and_writer_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS RDS Proxy 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.howitworks.html) · [AWS Aurora MySQL 연결 역할 확인](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora MySQL Writer 엔드포인트 직접 연결, RDS Proxy는 별도 동작으로 설명",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-postgresql/01_event_readiness_and_local_postgresql_lab.md",
+    "claim": "![Aurora PostgreSQL Writer·Reader 엔드포인트의 연결 경로와 Replica가 없을 때의 예외](image/01_aurora_postgresql_reader_and_writer_endpoint_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-postgresql/01_event_readiness_and_local_postgresql_lab.md",
+    "claim": "![Aurora PostgreSQL Writer·Reader 엔드포인트의 연결 경로와 Replica가 없을 때의 예외](image/01_aurora_postgresql_reader_and_writer_endpoint_paths.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-postgresql/01_event_readiness_and_local_postgresql_lab.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-postgresql/01_event_readiness_and_local_postgresql_lab.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "![주문 API 503과 CPU, 평균 활성 세션 및 pg_stat_activity의 대기 상태를 같은 시간 창에서 대조](image/02_aurora_postgresql_async_wait_incident_triage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "![주문 API 503과 CPU, 평균 활성 세션 및 pg_stat_activity의 대기 상태를 같은 시간 창에서 대조](image/02_aurora_postgresql_async_wait_incident_triage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "![주문 API 503과 CPU, 평균 활성 세션 및 pg_stat_activity의 대기 상태를 같은 시간 창에서 대조](image/02_aurora_postgresql_async_wait_incident_triage.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW",
+      "locator": "현재 활동 행의 state, wait_event_type, wait_event"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html) · [PostgreSQL pg_stat_activity](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html) · [PostgreSQL pg_stat_activity](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-postgresql/02_first_five_minutes_of_database_incident_triage.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html) · [PostgreSQL pg_stat_activity](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW",
+      "locator": "현재 활동 행의 state, wait_event_type, wait_event"
+    }
+  },
+  {
+    "page": "aurora-postgresql/03_query_observability_and_event_window_analysis.md",
+    "claim": "![pg_stat_statements 스냅샷 차이로 이벤트 구간의 실행 수와 총 실행 시간을 비교하는 예](image/03_aurora_postgresql_query_window_total_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/pgstatstatements.html",
+      "locator": "View의 queryid, calls, total_exec_time 및 통계 리셋·항목 축출"
+    }
+  },
+  {
+    "page": "aurora-postgresql/03_query_observability_and_event_window_analysis.md",
+    "claim": "그림의 근거 · [PostgreSQL pg_stat_statements](https://www.postgresql.org/docs/18/pgstatstatements.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/pgstatstatements.html",
+      "locator": "View의 queryid, calls, total_exec_time 및 통계 리셋·항목 축출"
+    }
+  },
+  {
+    "page": "aurora-postgresql/04_query_risk_assessment_and_incident_prioritization.md",
+    "claim": "![한 재고 행의 락 대기가 주문 요청과 연결 풀에 전파될 때 사용자 영향으로 우선순위를 정하는 예](image/04_aurora_postgresql_lock_impact_and_priority.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html",
+      "locator": "Lock:transactionid의 원인과 차단 트랜잭션 확인"
+    }
+  },
+  {
+    "page": "aurora-postgresql/04_query_risk_assessment_and_incident_prioritization.md",
+    "claim": "![한 재고 행의 락 대기가 주문 요청과 연결 풀에 전파될 때 사용자 영향으로 우선순위를 정하는 예](image/04_aurora_postgresql_lock_impact_and_priority.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-postgresql/04_query_risk_assessment_and_incident_prioritization.md",
+    "claim": "그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html",
+      "locator": "Lock:transactionid의 원인과 차단 트랜잭션 확인"
+    }
+  },
+  {
+    "page": "aurora-postgresql/04_query_risk_assessment_and_incident_prioritization.md",
+    "claim": "그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html",
+      "locator": "평균 활성 세션과 CPU·대기 이벤트 표본"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "![Reader CPU 급증을 랭킹 호출 수, 정렬 비용과 특정 Reader로 몰린 연결로 구분하는 절차](image/05_aurora_postgresql_reader_cpu_and_ranking_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "![Reader CPU 급증을 랭킹 호출 수, 정렬 비용과 특정 Reader로 몰린 연결로 구분하는 절차](image/05_aurora_postgresql_reader_cpu_and_ranking_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "![Reader CPU 급증을 랭킹 호출 수, 정렬 비용과 특정 Reader로 몰린 연결로 구분하는 절차](image/05_aurora_postgresql_reader_cpu_and_ranking_load.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/using-explain.html",
+      "locator": "EXPLAIN ANALYZE와 Sort 노드의 정렬 방식 및 공간"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html",
+      "locator": "CPUUtilization, DatabaseConnections, AuroraReplicaLag"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "새 연결 분산, 쿼리 단위 분산 여부와 복제본이 없는 경우"
+    }
+  },
+  {
+    "page": "aurora-postgresql/05_reader_cpu_spikes_and_ranking_workloads.md",
+    "claim": "그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html) · [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/using-explain.html",
+      "locator": "EXPLAIN ANALYZE와 Sort 노드의 정렬 방식 및 공간"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora PostgreSQL Writer의 행 잠금 대기, 커밋 확인 대기와 읽기 유입을 나눠 검증](image/06_aurora_postgresql_writer_lock_and_commit_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html",
+      "locator": "Lock:transactionid의 원인과 차단 트랜잭션 확인"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora PostgreSQL Writer의 행 잠금 대기, 커밋 확인 대기와 읽기 유입을 나눠 검증](image/06_aurora_postgresql_writer_lock_and_commit_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html",
+      "locator": "IO:XactSync의 Aurora 스토리지 커밋 확인 대기"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "![Aurora PostgreSQL Writer의 행 잠금 대기, 커밋 확인 대기와 읽기 유입을 나눠 검증](image/06_aurora_postgresql_writer_lock_and_commit_waits.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html",
+      "locator": "유일 제약과 ON CONFLICT 처리 동작"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS Aurora PostgreSQL 커밋 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html) · [PostgreSQL INSERT](https://www.postgresql.org/docs/18/sql-insert.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html",
+      "locator": "Lock:transactionid의 원인과 차단 트랜잭션 확인"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS Aurora PostgreSQL 커밋 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html) · [PostgreSQL INSERT](https://www.postgresql.org/docs/18/sql-insert.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html",
+      "locator": "IO:XactSync의 Aurora 스토리지 커밋 확인 대기"
+    }
+  },
+  {
+    "page": "aurora-postgresql/06_writer_load_and_write_path_diagnostics.md",
+    "claim": "그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS Aurora PostgreSQL 커밋 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.xactsync.html) · [PostgreSQL INSERT](https://www.postgresql.org/docs/18/sql-insert.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html",
+      "locator": "유일 제약과 ON CONFLICT 처리 동작"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![락 대기, 데드락 또는 연결 거부를 진단하고 40001에서 전체 트랜잭션을 멱등하게 재시도하는 경계](image/07_aurora_postgresql_deadlock_pool_and_retries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS",
+      "locator": "상반된 잠금 순서와 교착 감지"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![락 대기, 데드락 또는 연결 거부를 진단하고 40001에서 전체 트랜잭션을 멱등하게 재시도하는 경계](image/07_aurora_postgresql_deadlock_pool_and_retries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html",
+      "locator": "40001과 전체 트랜잭션 로직 재시도"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![락 대기, 데드락 또는 연결 거부를 진단하고 40001에서 전체 트랜잭션을 멱등하게 재시도하는 경계](image/07_aurora_postgresql_deadlock_pool_and_retries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html",
+      "locator": "세션 상태에 따른 DB 연결 고정과 엔진별 조건"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "![락 대기, 데드락 또는 연결 거부를 진단하고 40001에서 전체 트랜잭션을 멱등하게 재시도하는 경계](image/07_aurora_postgresql_deadlock_pool_and_retries.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [PostgreSQL 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS) · [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS",
+      "locator": "상반된 잠금 순서와 교착 감지"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [PostgreSQL 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS) · [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html",
+      "locator": "40001과 전체 트랜잭션 로직 재시도"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [PostgreSQL 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS) · [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html",
+      "locator": "세션 상태에 따른 DB 연결 고정과 엔진별 조건"
+    }
+  },
+  {
+    "page": "aurora-postgresql/07_locks_deadlocks_connection_pools_and_retries.md",
+    "claim": "그림의 근거 · [PostgreSQL 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS) · [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "![Aurora PostgreSQL 장애 전환 후 새 물리 연결에서 Writer 역할과 응답이 유실된 커밋의 처리 상태를 확인하는 순서](image/08_aurora_postgresql_failover_and_read_only_recovery.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "![Aurora PostgreSQL 장애 전환 후 새 물리 연결에서 Writer 역할과 응답이 유실된 커밋의 처리 상태를 확인하는 순서](image/08_aurora_postgresql_failover_and_read_only_recovery.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html",
+      "locator": "클러스터 엔드포인트와 DNS 캐시, 기존 연결 교체를 고려한 장애 전환"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "![Aurora PostgreSQL 장애 전환 후 새 물리 연결에서 Writer 역할과 응답이 유실된 커밋의 처리 상태를 확인하는 순서](image/08_aurora_postgresql_failover_and_read_only_recovery.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora PostgreSQL 빠른 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html",
+      "locator": "현재 Writer 연결, 승격 이후 목적지 IP 변경 및 DNS TTL"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora PostgreSQL 빠른 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html",
+      "locator": "클러스터 엔드포인트와 DNS 캐시, 기존 연결 교체를 고려한 장애 전환"
+    }
+  },
+  {
+    "page": "aurora-postgresql/08_replica_lag_online_ddl_and_failover.md",
+    "claim": "그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora PostgreSQL 빠른 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)",
+    "checked_on": "2026-11-22",
+    "applies_to": "단일 리전 Aurora PostgreSQL Writer 엔드포인트 직접 연결, 처리 결과가 불명확한 쓰기의 멱등 복구",
+    "source": {
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/",
+      "locator": "응답 유실 후 요청 ID를 재사용하는 멱등 API 설계"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "![MVCC의 이전 행을 읽을 수 있는 스냅샷과 VACUUM, VACUUM FULL 및 XID 동결의 관계](image/09_aurora_postgresql_mvcc_vacuum_and_xid.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/routine-vacuuming.html",
+      "locator": "공간 재사용과 Transaction ID Wraparound 방지"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "![MVCC의 이전 행을 읽을 수 있는 스냅샷과 VACUUM, VACUUM FULL 및 XID 동결의 관계](image/09_aurora_postgresql_mvcc_vacuum_and_xid.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-vacuum.html",
+      "locator": "VACUUM과 FULL의 공간·잠금 차이"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "![MVCC의 이전 행을 읽을 수 있는 스냅샷과 VACUUM, VACUUM FULL 및 XID 동결의 관계](image/09_aurora_postgresql_mvcc_vacuum_and_xid.png)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html",
+      "locator": "장기 실행 트랜잭션 등 vacuum 작업을 차단하는 요인"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "그림의 근거 · [PostgreSQL VACUUM 유지보수](https://www.postgresql.org/docs/18/routine-vacuuming.html) · [PostgreSQL VACUUM 명령](https://www.postgresql.org/docs/18/sql-vacuum.html) · [AWS Aurora autovacuum 차단 요소](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/routine-vacuuming.html",
+      "locator": "공간 재사용과 Transaction ID Wraparound 방지"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "그림의 근거 · [PostgreSQL VACUUM 유지보수](https://www.postgresql.org/docs/18/routine-vacuuming.html) · [PostgreSQL VACUUM 명령](https://www.postgresql.org/docs/18/sql-vacuum.html) · [AWS Aurora autovacuum 차단 요소](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/sql-vacuum.html",
+      "locator": "VACUUM과 FULL의 공간·잠금 차이"
+    }
+  },
+  {
+    "page": "aurora-postgresql/09_vacuum_bloat_and_transaction_id_monitoring.md",
+    "claim": "그림의 근거 · [PostgreSQL VACUUM 유지보수](https://www.postgresql.org/docs/18/routine-vacuuming.html) · [PostgreSQL VACUUM 명령](https://www.postgresql.org/docs/18/sql-vacuum.html) · [AWS Aurora autovacuum 차단 요소](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html)",
+    "checked_on": "2026-11-22",
+    "applies_to": "Aurora PostgreSQL 단일 리전의 예시, 호환 PostgreSQL과 AWS 문서의 적용 조건",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html",
+      "locator": "장기 실행 트랜잭션 등 vacuum 작업을 차단하는 요인"
+    }
   }
 ]

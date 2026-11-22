@@ -60,3 +60,7 @@ WHERE c.relkind IN ('r', 'm')
 ORDER BY xid_age DESC NULLS LAST
 LIMIT 10;
 ```
+
+![MVCC의 이전 행을 읽을 수 있는 스냅샷과 VACUUM, VACUUM FULL 및 XID 동결의 관계](image/09_aurora_postgresql_mvcc_vacuum_and_xid.png)
+
+그림의 근거 · [PostgreSQL VACUUM 유지보수](https://www.postgresql.org/docs/18/routine-vacuuming.html) · [PostgreSQL VACUUM 명령](https://www.postgresql.org/docs/18/sql-vacuum.html) · [AWS Aurora autovacuum 차단 요소](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.html)

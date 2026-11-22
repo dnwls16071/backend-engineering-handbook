@@ -32,3 +32,7 @@ ORDER BY xact_start NULLS LAST;
 ## 5. 즉시 완화와 원인 수정 분리하기
 
 먼저 승인된 방법으로 문제 경로의 부하를 줄이고, 조치 전후의 오류율과 대기량을 확인한다. 배치를 멈췄다면 재개 위치와 상태를 기록한다. 이후 재현한 계획, 트랜잭션 경계, 연결 분배를 근거로 수정한다. 어떤 조치가 효과 있었는지 구분할 수 있도록 변경 시각과 관측 결과를 같이 남긴다.
+
+![주문 API 503과 CPU, 평균 활성 세션 및 pg_stat_activity의 대기 상태를 같은 시간 창에서 대조](image/02_aurora_postgresql_async_wait_incident_triage.png)
+
+그림의 근거 · [AWS Aurora CloudWatch 지표](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html) · [PostgreSQL pg_stat_activity](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)

@@ -52,6 +52,10 @@ ORDER BY total_ms_in_window DESC;
 
 307ms가 실행당 평균이면 5회 누적은 1,535ms다. 3ms가 실행당 평균인 다른 쿼리는 50회 누적 150ms다. 누적 실행 시간 기준으로는 첫 번째가 먼저지만 주문 실패와 잠금 전파를 설명하는지가 처리 순서에도 영향을 준다. 단일 최대 시간과 평균은 별개이며, 누적 실행 시간은 CPU 시간으로 읽지 않는다. [Aurora 쿼리와 대기 분석](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)
 
+![pg_stat_statements 스냅샷 차이로 이벤트 구간의 실행 수와 총 실행 시간을 비교하는 예](image/03_aurora_postgresql_query_window_total_load.png)
+
+그림의 근거 · [PostgreSQL pg_stat_statements](https://www.postgresql.org/docs/18/pgstatstatements.html)
+
 ## 5. 다음 이벤트에서 같은 쿼리가 돌아오는지 추적하기
 
 쿼리 지문과 함께 서비스, 릴리스, 접속 인스턴스, 대표 실행 계획, 대표 데이터 범위를 기록한다. 다음 이벤트의 같은 길이 구간에서 호출 수, 실행당 시간, 총 시간, 읽은 행을 비교한다. 호출량 증가와 실행당 비용 증가에 다른 조치를 적용한다. 이미 개선한 문장이 재발했다면 인덱스·데이터 분포뿐 아니라 앱이 이전 SQL 경로로 돌아갔는지도 확인한다.

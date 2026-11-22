@@ -33,3 +33,7 @@ PgBouncer의 트랜잭션 풀링은 트랜잭션이 끝나면 백엔드 연결�
 ## 5. 40001을 재시도하면서 중복 결제 방지하기
 
 SQLSTATE `40001`은 직렬화 실패다. 실패한 문장만 다시 보내지 말고, 새 트랜잭션에서 필요한 데이터와 업무 조건을 다시 읽고 전체를 제한적으로 재시도한다. DB의 요청 유일 키와 외부 결제의 멱등 키를 같은 업무 요청에 연결한다. 네트워크가 끊겨 커밋이나 결제 결과를 모르면, 새 요청을 만들기 전에 기존 키로 처리 상태를 확인한다. 재시도 가능한 DB 작업과 외부 호출의 경계를 나누고, 타임아웃과 재시도 총량을 관리한다. [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [외부 결제 호출과 트랜잭션 경계](../mysql/52_long_transactions_and_connection_pool_exhaustion.md)
+
+![락 대기, 데드락 또는 연결 거부를 진단하고 40001에서 전체 트랜잭션을 멱등하게 재시도하는 경계](image/07_aurora_postgresql_deadlock_pool_and_retries.png)
+
+그림의 근거 · [PostgreSQL 데드락](https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-DEADLOCKS) · [PostgreSQL 직렬화 실패 처리](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html) · [AWS RDS Proxy Pinning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-pinning.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)

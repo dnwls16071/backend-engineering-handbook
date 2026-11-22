@@ -17,6 +17,10 @@ SELECT current_database(), pg_is_in_recovery(),
 
 `transaction_read_only`는 현재 트랜잭션의 설정이라 Writer에서도 켜질 수 있다. Aurora 운영 지표와 대조할 때는 연결 대상 인스턴스 식별자도 기록한다. [Aurora PostgreSQL 함수](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.AuroraPostgreSQL.Functions.html)
 
+![Aurora PostgreSQL Writer·Reader 엔드포인트의 연결 경로와 Replica가 없을 때의 예외](image/01_aurora_postgresql_reader_and_writer_endpoint_paths.png)
+
+그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)
+
 ## 3. 로컬 PostgreSQL 초기화하기
 
 폐기 가능한 로컬 PostgreSQL 18의 실습 DB를 사용한다. Docker 예에서는 네트워크를 끄고 컨테이너 안에서 접속한다. `pg_stat_statements`는 서버 시작 시 로드하고 사용할 DB에 확장을 만든다. [PostgreSQL 공식 Docker 이미지](https://hub.docker.com/_/postgres) · [pg_stat_statements 설정](https://www.postgresql.org/docs/18/pgstatstatements.html)

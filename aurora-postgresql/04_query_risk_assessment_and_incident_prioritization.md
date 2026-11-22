@@ -14,6 +14,10 @@
 
 같은 재고 행을 갱신하는 요청은 앞선 트랜잭션이 끝날 때까지 대기할 수 있다. 이 요청들이 연결을 오래 점유하면 공유 풀에서 다른 상품의 주문도 대기한다. 같은 시간대에 풀 사용량, 대기 세션 수, 루트 차단 세션을 확인한다. 앱의 503이 풀 대기에서 났는지, 실제 DB 오류에서 났는지도 구분한다. [Aurora Lock:transactionid](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [차단 관계 진단](07_locks_deadlocks_connection_pools_and_retries.md)
 
+![한 재고 행의 락 대기가 주문 요청과 연결 풀에 전파될 때 사용자 영향으로 우선순위를 정하는 예](image/04_aurora_postgresql_lock_impact_and_priority.png)
+
+그림의 근거 · [AWS Aurora PostgreSQL 행 락 대기](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/apg-waits.locktransactionid.html) · [AWS DB Load와 활성 세션](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.ActiveSessions.html)
+
 ## 4. 즉시, 당일, 계획, 보류로 분류하기
 
 | 시점 | 판단과 실행 예 |

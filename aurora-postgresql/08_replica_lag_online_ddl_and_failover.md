@@ -61,3 +61,7 @@ COMMIT;
 ## 5. 장애 전환과 읽기 전용 연결 복구하기
 
 장애 전환으로 역할과 클러스터 엔드포인트의 실제 목적지가 바뀔 수 있다. 기존 연결이 끊기거나 예전 노드로 남아 쓰기가 읽기 전용 오류로 실패할 수 있다. 문제가 된 연결을 폐기하고 Writer 엔드포인트로 새 연결을 얻어 실제 역할을 확인한다. 이미 보낸 쓰기나 커밋 결과를 모르면 요청 ID로 상태를 먼저 조회한다. 기록에 나온 7초는 관측 사례이며, DNS 갱신, 풀 재연결, 요청 성공까지의 시간을 따로 측정한다. [Aurora PostgreSQL 빠른 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html)
+
+![Aurora PostgreSQL 장애 전환 후 새 물리 연결에서 Writer 역할과 응답이 유실된 커밋의 처리 상태를 확인하는 순서](image/08_aurora_postgresql_failover_and_read_only_recovery.png)
+
+그림의 근거 · [AWS Aurora 클러스터 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Cluster.html) · [AWS Aurora PostgreSQL 빠른 장애 전환](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.BestPractices.FastFailover.html) · [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
