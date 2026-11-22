@@ -2,6 +2,10 @@
 
 마이크로서비스 경계는 배포 단위의 수보다 업무 책임, 데이터를 확정하는 주체, 변경 주기로 정한다. 주문과 PG 승인은 각각 다른 서비스가 확정하는 업무 사실이다. [Microsoft Microservice Boundaries](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries) · [AWS Saga Orchestration](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html)
 
+![주문·결제·재고 서비스는 각자의 쓰기 원본을 관리한다. 로컬 변경과 Outbox를 저장한 뒤 이벤트로 결과를 전파하고, 주문 서비스가 자신의 이행 상태에 반영한다.](image/10_microservice_ownership_architecture.png)
+
+그림의 근거 · [Microsoft Microservice Boundaries](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [AWS Saga Orchestration](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html) · [AWS Backoff and Jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/)
+
 ## 1. 팀과 데이터의 소유권을 명시한다
 
 주문이 이행 상태를, 결제가 승인·취소 기록을, 재고가 가용량과 예약을 소유하는 예다. 서비스 사이의 읽기 계약과 이벤트를 통해 상태를 참조한다. 독립 배포나 확장 이점이 작으면 모듈 간 경계부터 검증할 수 있다. [Microsoft Microservice Boundaries](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries)
