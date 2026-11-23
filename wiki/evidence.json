@@ -81064,5 +81064,1115 @@
       "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
       "locator": "Issues and considerations의 원자적 저장, 중복 전달 및 멱등 처리"
     }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "로컬 LLM은 모델을 내려받아 사용자 장비에서 추론하는 방식이다. 다운로드를 마친 모델로 오프라인 채팅을 실습할 수 있다. 같은 실행 도구에서 클라우드 모델을 선택할 수도 있으므로, 입력이 어디에서 처리되는지는 모델과 실행 모드를 기준으로 확인한다. [LM Studio · Offline Operation](https://lmstudio.ai/docs/app/offline) · [Ollama · Cloud](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 오프라인 실행과 사전 모델 다운로드",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/offline",
+      "locator": "Offline Operation의 오프라인 채팅과 네트워크가 필요한 기능"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "로컬 LLM은 모델을 내려받아 사용자 장비에서 추론하는 방식이다. 다운로드를 마친 모델로 오프라인 채팅을 실습할 수 있다. 같은 실행 도구에서 클라우드 모델을 선택할 수도 있으므로, 입력이 어디에서 처리되는지는 모델과 실행 모드를 기준으로 확인한다. [LM Studio · Offline Operation](https://lmstudio.ai/docs/app/offline) · [Ollama · Cloud](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud, 계정과 로컬 API 경유 또는 클라우드 직접 접속",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개, Ways to connect와 구조화 출력 지원 범위"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "공개 가중치를 받아 직접 실행하려면 모델 아키텍처와 파일 형식을 지원하는 런타임이 필요하다. 모델의 공개 가중치, 사용 권한, 학습에 관한 정보는 각각 확인한다. OSI의 Open Source AI Definition은 수정에 필요한 형태에 파라미터 외에도 코드와 데이터 정보를 포함한다. [Hugging Face · GGUF](https://huggingface.co/docs/hub/gguf) · [OSI · Open Source AI Definition](https://opensource.org/ai/open-source-ai-definition)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 GGUF 모델 파일과 가중치 양자화 형식",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/gguf",
+      "locator": "GGUF, Finding GGUF files, Usage with open-source tools 및 Quantization Types"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "공개 가중치를 받아 직접 실행하려면 모델 아키텍처와 파일 형식을 지원하는 런타임이 필요하다. 모델의 공개 가중치, 사용 권한, 학습에 관한 정보는 각각 확인한다. OSI의 Open Source AI Definition은 수정에 필요한 형태에 파라미터 외에도 코드와 데이터 정보를 포함한다. [Hugging Face · GGUF](https://huggingface.co/docs/hub/gguf) · [OSI · Open Source AI Definition](https://opensource.org/ai/open-source-ai-definition)",
+    "checked_on": "2026-11-23",
+    "applies_to": "OSI Open Source AI Definition 1.0",
+    "source": {
+      "url": "https://opensource.org/ai/open-source-ai-definition",
+      "locator": "Preferred form to make modifications to a machine-learning system의 데이터 정보, 코드, 파라미터"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "모델 카드에서 지원 태스크·언어, 사용법·한계, 기반 모델과 라이선스를 읽고 `Files`에서 실제 파일을 확인한다. 커뮤니티 양자화본을 쓸 때는 게시자와 원본 모델을 함께 기록한다. 재현 기록에는 저장소 ID, 리비전과 파일명을 남긴다. [Hugging Face · Model Cards](https://huggingface.co/docs/hub/model-cards) · [Hugging Face · GGUF](https://huggingface.co/docs/hub/gguf)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub 모델 카드",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/model-cards",
+      "locator": "Model Cards, Model card metadata와 Specifying a license"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "모델 카드에서 지원 태스크·언어, 사용법·한계, 기반 모델과 라이선스를 읽고 `Files`에서 실제 파일을 확인한다. 커뮤니티 양자화본을 쓸 때는 게시자와 원본 모델을 함께 기록한다. 재현 기록에는 저장소 ID, 리비전과 파일명을 남긴다. [Hugging Face · Model Cards](https://huggingface.co/docs/hub/model-cards) · [Hugging Face · GGUF](https://huggingface.co/docs/hub/gguf)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 GGUF 모델 파일과 가중치 양자화 형식",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/gguf",
+      "locator": "GGUF, Finding GGUF files, Usage with open-source tools 및 Quantization Types"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "게이트가 있는 모델은 계정으로 접근을 요청해야 하며 게시자가 자동 또는 수동 승인을 선택할 수 있다. 다운로드 조건과 사용 조건은 모델 카드와 라이선스 원문에서 각각 확인한다. [Hugging Face · Gated Models](https://huggingface.co/docs/hub/models-gated)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 접근 제한 모델",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/models-gated",
+      "locator": "Gated models의 사용자 접근 요청과 자동·수동 승인"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "가중치 양자화는 더 적은 비트로 가중치를 표현해 파일 크기와 메모리 부담을 줄인다. GGUF는 모델을 담는 파일 형식이고 그 안에 여러 정밀도의 텐서를 담을 수 있다. 같은 모델의 양자화 단계별로 한국어 응답 품질, 첫 응답 지연과 생성 속도를 비교한다. [Hugging Face · GGUF와 Quantization Types](https://huggingface.co/docs/hub/gguf)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 GGUF 모델 파일과 가중치 양자화 형식",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/gguf",
+      "locator": "GGUF, Finding GGUF files, Usage with open-source tools 및 Quantization Types"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "모델 파일 크기는 메모리 계획의 출발점이다. 컨텍스트를 늘리면 추론 메모리도 늘어나므로, 실제 사용할 길이로 모델을 로드해 여유 메모리를 확인한다. LM Studio는 `lms load --estimate-only`로 컨텍스트와 GPU 오프로딩 설정을 반영한 추정치를 제공한다. [Ollama · Context Length](https://docs.ollama.com/context-length) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 추론의 컨텍스트 설정",
+    "source": {
+      "url": "https://docs.ollama.com/context-length",
+      "locator": "Context length 및 Setting context length의 메모리 요구량"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "모델 파일 크기는 메모리 계획의 출발점이다. 컨텍스트를 늘리면 추론 메모리도 늘어나므로, 실제 사용할 길이로 모델을 로드해 여유 메모리를 확인한다. LM Studio는 `lms load --estimate-only`로 컨텍스트와 GPU 오프로딩 설정을 반영한 추정치를 제공한다. [Ollama · Context Length](https://docs.ollama.com/context-length) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI 모델 로드 및 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load 옵션의 --context-length, --gpu와 --estimate-only, Preview memory requirements"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "- **MIT 사례인 Microsoft Phi-4.** 모델 저장소의 MIT 라이선스는 사용·수정·배포를 허용하며 복사본 또는 상당 부분에 저작권과 허가 문구를 포함하도록 요구한다. [Microsoft Phi-4 · LICENSE](https://huggingface.co/microsoft/phi-4/blob/main/LICENSE)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Microsoft Phi-4의 LICENSE 파일",
+    "source": {
+      "url": "https://huggingface.co/microsoft/phi-4/blob/main/LICENSE",
+      "locator": "MIT License의 허용 범위와 저작권·허가 문구 보존 조건"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "- **Meta Llama 4.** Llama 4 Community License의 재배포 조건과 표시 의무, 사용 정책을 확인한다. Llama 계열의 다른 버전은 해당 버전의 라이선스를 읽는다. [Meta · Llama 4 Community License](https://dev.meta.ai/llama/llama4/license)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Meta Llama 4 Community License Agreement",
+    "source": {
+      "url": "https://dev.meta.ai/llama/llama4/license",
+      "locator": "License Rights and Redistribution의 표시 및 재배포 조건과 Acceptable Use Policy"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "- **Google Gemma.** 배포 시 적용되는 고지와 사용 제한을 Gemma Terms of Use의 Distribution and Restrictions에서 확인한다. [Google · Gemma Terms of Use](https://gemma.ai/resources/terms/)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Google Gemma Terms of Use",
+    "source": {
+      "url": "https://gemma.ai/resources/terms/",
+      "locator": "Section 3의 Distribution and Redistribution 및 Use Restrictions"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "LM Studio의 macOS 요구 사항은 Apple Silicon이며 RAM은 16GB 이상을 권장한다. 이 수치는 앱의 권장 사양이다. 첫 실습은 작은 인스트럭션 모델과 짧은 컨텍스트로 시작하고, 같은 입력으로 지연과 품질을 기록한 뒤 모델 크기나 컨텍스트 중 하나를 바꾼다. [LM Studio · System Requirements](https://lmstudio.ai/docs/app/system-requirements) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio의 macOS 설치 조건",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/system-requirements",
+      "locator": "System Requirements의 macOS 칩과 권장 RAM"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "LM Studio의 macOS 요구 사항은 Apple Silicon이며 RAM은 16GB 이상을 권장한다. 이 수치는 앱의 권장 사양이다. 첫 실습은 작은 인스트럭션 모델과 짧은 컨텍스트로 시작하고, 같은 입력으로 지연과 품질을 기록한 뒤 모델 크기나 컨텍스트 중 하나를 바꾼다. [LM Studio · System Requirements](https://lmstudio.ai/docs/app/system-requirements) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI 모델 로드 및 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load 옵션의 --context-length, --gpu와 --estimate-only, Preview memory requirements"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "LM Studio를 설치한 뒤 Discover에서 모델과 파일을 고르고 Chat 화면에서 모델을 로드한다. 짧은 한국어 질문으로 첫 응답을 확인한다. 다운로드를 끝낸 모델은 오프라인 채팅에서도 사용할 수 있다. [LM Studio · Get Started](https://lmstudio.ai/docs/app/basics) · [LM Studio · Offline Operation](https://lmstudio.ai/docs/app/offline)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 데스크톱 Discover 및 Chat 화면",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/basics",
+      "locator": "Download an LLM to your computer 및 Start a new chat"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "LM Studio를 설치한 뒤 Discover에서 모델과 파일을 고르고 Chat 화면에서 모델을 로드한다. 짧은 한국어 질문으로 첫 응답을 확인한다. 다운로드를 끝낸 모델은 오프라인 채팅에서도 사용할 수 있다. [LM Studio · Get Started](https://lmstudio.ai/docs/app/basics) · [LM Studio · Offline Operation](https://lmstudio.ai/docs/app/offline)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 오프라인 실행과 사전 모델 다운로드",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/offline",
+      "locator": "Offline Operation의 오프라인 채팅과 네트워크가 필요한 기능"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "시스템 프롬프트에는 응답의 역할과 형식을 적고, 사용자 프롬프트에는 실제 과제를 담는다. Preset은 시스템 프롬프트와 생성 설정을 함께 저장할 수 있으므로 모델과 입력을 고정한 채 서로 다른 설정을 비교하기 좋다. [LM Studio · Config Presets](https://lmstudio.ai/docs/app/presets)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 앱의 Config Presets",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/presets",
+      "locator": "Config Presets 소개와 The Use Case for Presets"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "생성 설정에서 `temperature`는 토큰 선택의 무작위성에 영향을 주고, `top_k`는 후보 개수, `top_p`는 후보 확률의 누적합을 기준으로 범위를 제한한다. `min_p`는 확률이 낮은 후보를 걸러낸다. 한 번에 한 설정만 바꿔 같은 프롬프트로 응답 차이를 확인한다. [LM Studio · Chat Request Parameters](https://lmstudio.ai/docs/developer/rest/chat)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 네이티브 REST v1의 POST /api/v1/chat",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/rest/chat",
+      "locator": "Chat Request Body의 temperature, top_p, top_k, min_p, max_output_tokens, context_length"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "OpenAI 호환 `POST /v1/chat/completions`에서 `response_format.type=json_schema`를 사용하고, 스키마를 `response_format.json_schema`에 전달한다. `choices[0].message.content`는 JSON 문자열이므로 파싱한 뒤 필드와 값의 의미를 검증한다. 공식 문서가 안내하는 모델별 지원 여부를 확인한다. [LM Studio · Structured Output](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio OpenAI 호환 POST /v1/chat/completions",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/openai-compat/structured-output",
+      "locator": "Structured Output curl 예제, JSON Schema, message.content, 모델 지원 조건"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "LM Studio에서 모델 리포지터리가 제공하는 GGUF 또는 MLX 변형과 사용 가능한 런타임을 확인한다. Apple Silicon에서는 모델·양자화·컨텍스트를 기록한 상태로 비교한다. `lms load`의 `--context-length`, `--gpu`, `--estimate-only`로 로드 조건을 점검할 수 있다. [LM Studio · model.yaml](https://lmstudio.ai/docs/app/modelyaml) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio의 model.yaml 모델 정의",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/modelyaml",
+      "locator": "Introduction to model.yaml과 GGUF·MLX 파일 형식 및 런타임 선택"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "LM Studio에서 모델 리포지터리가 제공하는 GGUF 또는 MLX 변형과 사용 가능한 런타임을 확인한다. Apple Silicon에서는 모델·양자화·컨텍스트를 기록한 상태로 비교한다. `lms load`의 `--context-length`, `--gpu`, `--estimate-only`로 로드 조건을 점검할 수 있다. [LM Studio · model.yaml](https://lmstudio.ai/docs/app/modelyaml) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI 모델 로드 및 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load 옵션의 --context-length, --gpu와 --estimate-only, Preview memory requirements"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "추측 디코딩은 초안 모델이 다음 토큰을 제안하고 대상 모델이 이를 검증하는 방식이다. 실제 속도 이득은 모델 조합과 초안의 채택률에 따라 달라진다. 같은 프롬프트로 사용 전후의 생성 속도를 재고, 가능하면 채택된 초안 토큰 수도 기록한다. [LM Studio · Speculative Decoding](https://lmstudio.ai/docs/app/advanced/speculative-decoding) · [LM Studio · SDK Speculative Decoding](https://lmstudio.ai/docs/typescript/llm-prediction/speculative-decoding)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 앱의 추측 디코딩",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/advanced/speculative-decoding",
+      "locator": "What is Speculative Decoding과 대상·초안 모델 선택"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "추측 디코딩은 초안 모델이 다음 토큰을 제안하고 대상 모델이 이를 검증하는 방식이다. 실제 속도 이득은 모델 조합과 초안의 채택률에 따라 달라진다. 같은 프롬프트로 사용 전후의 생성 속도를 재고, 가능하면 채택된 초안 토큰 수도 기록한다. [LM Studio · Speculative Decoding](https://lmstudio.ai/docs/app/advanced/speculative-decoding) · [LM Studio · SDK Speculative Decoding](https://lmstudio.ai/docs/typescript/llm-prediction/speculative-decoding)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio TypeScript SDK의 추측 디코딩",
+    "source": {
+      "url": "https://lmstudio.ai/docs/typescript/llm-prediction/speculative-decoding",
+      "locator": "draftModel 지정과 acceptedDraftTokensCount·predictedTokensCount 통계"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "컨텍스트 길이와 최대 출력 토큰을 따로 설정한다. 긴 문서로 실험할 때는 입력 길이와 출력 설정을 함께 기록하고, 대화 이력이 긴 경우와 짧은 경우를 비교한다. [LM Studio · Chat Request Parameters](https://lmstudio.ai/docs/developer/rest/chat) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 네이티브 REST v1의 POST /api/v1/chat",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/rest/chat",
+      "locator": "Chat Request Body의 temperature, top_p, top_k, min_p, max_output_tokens, context_length"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "컨텍스트 길이와 최대 출력 토큰을 따로 설정한다. 긴 문서로 실험할 때는 입력 길이와 출력 설정을 함께 기록하고, 대화 이력이 긴 경우와 짧은 경우를 비교한다. [LM Studio · Chat Request Parameters](https://lmstudio.ai/docs/developer/rest/chat) · [LM Studio · lms load](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI 모델 로드 및 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load 옵션의 --context-length, --gpu와 --estimate-only, Preview memory requirements"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "Developer 탭에서 서버를 켜고 화면에 표시된 주소를 확인한다. 기본 예시는 포트 `1234`를 사용한다. 네이티브 REST v1에서는 `GET /api/v1/models`로 모델을 확인하고 `POST /api/v1/chat`으로 대화한다. OpenAI 호환 클라이언트는 `/v1`을 베이스 URL로 사용한다. [LM Studio · Local Server](https://lmstudio.ai/docs/developer/core/server) · [LM Studio · REST API v1](https://lmstudio.ai/docs/developer/rest) · [LM Studio · OpenAI-compatible Structured Output](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio Developer 탭의 로컬 서버",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/core/server",
+      "locator": "Running the Server의 Developer 탭과 로컬 접속"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "Developer 탭에서 서버를 켜고 화면에 표시된 주소를 확인한다. 기본 예시는 포트 `1234`를 사용한다. 네이티브 REST v1에서는 `GET /api/v1/models`로 모델을 확인하고 `POST /api/v1/chat`으로 대화한다. OpenAI 호환 클라이언트는 `/v1`을 베이스 URL로 사용한다. [LM Studio · Local Server](https://lmstudio.ai/docs/developer/core/server) · [LM Studio · REST API v1](https://lmstudio.ai/docs/developer/rest) · [LM Studio · OpenAI-compatible Structured Output](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 네이티브 REST API v1",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/rest",
+      "locator": "Endpoints 및 API 비교 표의 /api/v1/models, /api/v1/chat와 OpenAI 호환 경로"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "Developer 탭에서 서버를 켜고 화면에 표시된 주소를 확인한다. 기본 예시는 포트 `1234`를 사용한다. 네이티브 REST v1에서는 `GET /api/v1/models`로 모델을 확인하고 `POST /api/v1/chat`으로 대화한다. OpenAI 호환 클라이언트는 `/v1`을 베이스 URL로 사용한다. [LM Studio · Local Server](https://lmstudio.ai/docs/developer/core/server) · [LM Studio · REST API v1](https://lmstudio.ai/docs/developer/rest) · [LM Studio · OpenAI-compatible Structured Output](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio OpenAI 호환 POST /v1/chat/completions",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/openai-compat/structured-output",
+      "locator": "Structured Output curl 예제, JSON Schema, message.content, 모델 지원 조건"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "앱에서 서버가 이미 실행 중인지 확인하고, 필요한 경우 별도 터미널에서 `ollama serve`로 시작한다. `ollama pull`로 태그를 내려받고 `ollama run`으로 실행한다. `ollama list`는 설치한 모델을, `ollama ps`는 실행 중인 모델을 확인할 때 쓴다. 모델을 고를 때는 태스크와 입력 모달리티, 정확한 태그, 라이선스, 파일 크기와 컨텍스트 요구량을 함께 본다. [Ollama · CLI](https://docs.ollama.com/cli) · [Ollama · Local FAQ](https://docs.ollama.com/faq) · [Ollama · Context Length](https://docs.ollama.com/context-length) · [Ollama · Llama 3.2](https://ollama.com/library/llama3.2)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama CLI와 로컬 서버 실행",
+    "source": {
+      "url": "https://docs.ollama.com/cli",
+      "locator": "CLI Reference의 Serve, Run a model, Download a model, List models 및 List running models"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "앱에서 서버가 이미 실행 중인지 확인하고, 필요한 경우 별도 터미널에서 `ollama serve`로 시작한다. `ollama pull`로 태그를 내려받고 `ollama run`으로 실행한다. `ollama list`는 설치한 모델을, `ollama ps`는 실행 중인 모델을 확인할 때 쓴다. 모델을 고를 때는 태스크와 입력 모달리티, 정확한 태그, 라이선스, 파일 크기와 컨텍스트 요구량을 함께 본다. [Ollama · CLI](https://docs.ollama.com/cli) · [Ollama · Local FAQ](https://docs.ollama.com/faq) · [Ollama · Context Length](https://docs.ollama.com/context-length) · [Ollama · Llama 3.2](https://ollama.com/library/llama3.2)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 실행과 서버 설정",
+    "source": {
+      "url": "https://docs.ollama.com/faq",
+      "locator": "Local FAQ의 실행 모델 확인, 클라우드 비활성화 및 루프백 바인딩"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "앱에서 서버가 이미 실행 중인지 확인하고, 필요한 경우 별도 터미널에서 `ollama serve`로 시작한다. `ollama pull`로 태그를 내려받고 `ollama run`으로 실행한다. `ollama list`는 설치한 모델을, `ollama ps`는 실행 중인 모델을 확인할 때 쓴다. 모델을 고를 때는 태스크와 입력 모달리티, 정확한 태그, 라이선스, 파일 크기와 컨텍스트 요구량을 함께 본다. [Ollama · CLI](https://docs.ollama.com/cli) · [Ollama · Local FAQ](https://docs.ollama.com/faq) · [Ollama · Context Length](https://docs.ollama.com/context-length) · [Ollama · Llama 3.2](https://ollama.com/library/llama3.2)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 추론의 컨텍스트 설정",
+    "source": {
+      "url": "https://docs.ollama.com/context-length",
+      "locator": "Context length 및 Setting context length의 메모리 요구량"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "앱에서 서버가 이미 실행 중인지 확인하고, 필요한 경우 별도 터미널에서 `ollama serve`로 시작한다. `ollama pull`로 태그를 내려받고 `ollama run`으로 실행한다. `ollama list`는 설치한 모델을, `ollama ps`는 실행 중인 모델을 확인할 때 쓴다. 모델을 고를 때는 태스크와 입력 모달리티, 정확한 태그, 라이선스, 파일 크기와 컨텍스트 요구량을 함께 본다. [Ollama · CLI](https://docs.ollama.com/cli) · [Ollama · Local FAQ](https://docs.ollama.com/faq) · [Ollama · Context Length](https://docs.ollama.com/context-length) · [Ollama · Llama 3.2](https://ollama.com/library/llama3.2)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 카탈로그의 llama3.2:1b",
+    "source": {
+      "url": "https://ollama.com/library/llama3.2",
+      "locator": "Llama 3.2 태그 목록의 1B 모델"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "`/api/chat`에 `messages` 배열로 시스템 메시지와 대화 이력을 전달하고 `options`에 요청별 생성 설정을 넣는다. 대화형 CLI의 `/save <이름>`과 `/load <이름>`은 저장한 대화를 이어가는 데 쓸 수 있다. 설치한 버전에서 대화형 `/help`로 지원 명령을 확인한다. [Ollama · Chat API](https://docs.ollama.com/api/chat) · [Ollama · Interactive CLI Source](https://github.com/ollama/ollama/blob/main/cmd/interactive.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 네이티브 POST /api/chat",
+    "source": {
+      "url": "https://docs.ollama.com/api/chat",
+      "locator": "Chat Request Body의 messages, options, stream과 응답의 message.content"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "`/api/chat`에 `messages` 배열로 시스템 메시지와 대화 이력을 전달하고 `options`에 요청별 생성 설정을 넣는다. 대화형 CLI의 `/save <이름>`과 `/load <이름>`은 저장한 대화를 이어가는 데 쓸 수 있다. 설치한 버전에서 대화형 `/help`로 지원 명령을 확인한다. [Ollama · Chat API](https://docs.ollama.com/api/chat) · [Ollama · Interactive CLI Source](https://github.com/ollama/ollama/blob/main/cmd/interactive.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 공개 main 소스의 대화형 CLI",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/main/cmd/interactive.go",
+      "locator": "대화형 도움말과 /save, /load 명령 처리"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "Modelfile의 `FROM`은 기반 모델이나 지원되는 GGUF 파일, `SYSTEM`은 기본 시스템 메시지, `PARAMETER`는 생성 설정, `TEMPLATE`는 모델 입력에 쓰이는 프롬프트 형식을 지정한다. `ollama show --modelfile <태그>`로 기존 구성을 확인하고, GGUF를 가져올 때는 `FROM ./model.gguf`와 `ollama create <이름> -f Modelfile`을 사용한다. [Ollama · Modelfile Reference](https://docs.ollama.com/modelfile) · [Ollama · Importing a Model](https://docs.ollama.com/import)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Modelfile의 선언과 모델 설정",
+    "source": {
+      "url": "https://docs.ollama.com/modelfile",
+      "locator": "Instructions의 FROM, PARAMETER, TEMPLATE, SYSTEM 및 show --modelfile 예제"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "Modelfile의 `FROM`은 기반 모델이나 지원되는 GGUF 파일, `SYSTEM`은 기본 시스템 메시지, `PARAMETER`는 생성 설정, `TEMPLATE`는 모델 입력에 쓰이는 프롬프트 형식을 지정한다. `ollama show --modelfile <태그>`로 기존 구성을 확인하고, GGUF를 가져올 때는 `FROM ./model.gguf`와 `ollama create <이름> -f Modelfile`을 사용한다. [Ollama · Modelfile Reference](https://docs.ollama.com/modelfile) · [Ollama · Importing a Model](https://docs.ollama.com/import)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama에서 GGUF를 가져오는 절차",
+    "source": {
+      "url": "https://docs.ollama.com/import",
+      "locator": "Importing a GGUF based model의 FROM과 ollama create 예제"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "로컬 API의 기본 주소는 `http://localhost:11434/api`다. `POST /api/chat`은 메시지에 답하고, `POST /api/embed`는 입력의 임베딩을 반환한다. 채팅 API는 기본적으로 스트리밍하므로 단일 JSON을 받는 예제는 `stream: false`를 지정한다. 문서 검색은 임베딩 모델로 문서와 질의를 변환하는 흐름부터 실습할 수 있다. [Ollama · API Introduction](https://docs.ollama.com/api/introduction) · [Ollama · Chat API](https://docs.ollama.com/api/chat) · [Ollama · Embed API](https://docs.ollama.com/api/embed)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama API의 로컬·클라우드 기본 주소",
+    "source": {
+      "url": "https://docs.ollama.com/api/introduction",
+      "locator": "Base URLs와 로컬 채팅 호출"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "로컬 API의 기본 주소는 `http://localhost:11434/api`다. `POST /api/chat`은 메시지에 답하고, `POST /api/embed`는 입력의 임베딩을 반환한다. 채팅 API는 기본적으로 스트리밍하므로 단일 JSON을 받는 예제는 `stream: false`를 지정한다. 문서 검색은 임베딩 모델로 문서와 질의를 변환하는 흐름부터 실습할 수 있다. [Ollama · API Introduction](https://docs.ollama.com/api/introduction) · [Ollama · Chat API](https://docs.ollama.com/api/chat) · [Ollama · Embed API](https://docs.ollama.com/api/embed)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 네이티브 POST /api/chat",
+    "source": {
+      "url": "https://docs.ollama.com/api/chat",
+      "locator": "Chat Request Body의 messages, options, stream과 응답의 message.content"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "로컬 API의 기본 주소는 `http://localhost:11434/api`다. `POST /api/chat`은 메시지에 답하고, `POST /api/embed`는 입력의 임베딩을 반환한다. 채팅 API는 기본적으로 스트리밍하므로 단일 JSON을 받는 예제는 `stream: false`를 지정한다. 문서 검색은 임베딩 모델로 문서와 질의를 변환하는 흐름부터 실습할 수 있다. [Ollama · API Introduction](https://docs.ollama.com/api/introduction) · [Ollama · Chat API](https://docs.ollama.com/api/chat) · [Ollama · Embed API](https://docs.ollama.com/api/embed)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 네이티브 POST /api/embed",
+    "source": {
+      "url": "https://docs.ollama.com/api/embed",
+      "locator": "Generate embeddings의 model, input과 embeddings 응답"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "문서 검색 실습에서는 `ollama pull embeddinggemma`로 모델을 준비하고 `/api/embed`에 `model`과 `input`을 보낸다. 문서와 질문은 같은 모델로 변환한다. [Ollama · EmbeddingGemma](https://ollama.com/library/embeddinggemma) · [Ollama · Embed API](https://docs.ollama.com/api/embed)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 카탈로그의 EmbeddingGemma",
+    "source": {
+      "url": "https://ollama.com/library/embeddinggemma",
+      "locator": "CLI/API 예제와 검색·검색 결과 조회를 위한 임베딩 모델 소개"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "문서 검색 실습에서는 `ollama pull embeddinggemma`로 모델을 준비하고 `/api/embed`에 `model`과 `input`을 보낸다. 문서와 질문은 같은 모델로 변환한다. [Ollama · EmbeddingGemma](https://ollama.com/library/embeddinggemma) · [Ollama · Embed API](https://docs.ollama.com/api/embed)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 네이티브 POST /api/embed",
+    "source": {
+      "url": "https://docs.ollama.com/api/embed",
+      "locator": "Generate embeddings의 model, input과 embeddings 응답"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "구조화 출력은 로컬 `/api/chat`의 `format`에 `json` 또는 JSON Schema를 지정한다. 결과의 `message.content`를 파싱하고 필수 필드와 값의 유효성을 확인한다. 공식 문서 확인일 기준으로 Ollama Cloud는 구조화 출력을 지원하지 않는다. [Ollama · Structured Outputs](https://docs.ollama.com/capabilities/structured-outputs) · [Ollama · Cloud](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 구조화 출력",
+    "source": {
+      "url": "https://docs.ollama.com/capabilities/structured-outputs",
+      "locator": "Structured Outputs의 format, JSON Schema 예제와 클라우드 지원 여부"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "구조화 출력은 로컬 `/api/chat`의 `format`에 `json` 또는 JSON Schema를 지정한다. 결과의 `message.content`를 파싱하고 필수 필드와 값의 유효성을 확인한다. 공식 문서 확인일 기준으로 Ollama Cloud는 구조화 출력을 지원하지 않는다. [Ollama · Structured Outputs](https://docs.ollama.com/capabilities/structured-outputs) · [Ollama · Cloud](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud, 계정과 로컬 API 경유 또는 클라우드 직접 접속",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개, Ways to connect와 구조화 출력 지원 범위"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "OpenAI 호환 기능은 로컬 `/v1`에서 제공된다. 예를 들어 채팅은 `POST /v1/chat/completions`로 호출하며, 클라이언트가 요구하는 키 값은 로컬 Ollama 서버가 무시한다. 사용할 엔드포인트와 파라미터는 호환 목록에서 확인한다. [Ollama · OpenAI Compatibility](https://docs.ollama.com/api/openai-compatibility)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 로컬 OpenAI 호환 API",
+    "source": {
+      "url": "https://docs.ollama.com/api/openai-compatibility",
+      "locator": "Using the local Ollama server, /v1/chat/completions 예제와 지원 엔드포인트"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "Claude Code는 설치 후 `ollama launch claude --model <태그>`로 연결할 수 있다. Claude Code 연동의 프로토콜과 모델의 컨텍스트 요구량을 통합 가이드에서 확인한다. [Ollama · Claude Code Integration](https://docs.ollama.com/integrations/claude-code)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama와 Claude Code 연동",
+    "source": {
+      "url": "https://docs.ollama.com/integrations/claude-code",
+      "locator": "Installation, Quick setup, ollama launch claude와 컨텍스트 요구 안내"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "`ollama signin` 후 클라우드 태그를 실행하면 CLI나 로컬 API를 진입점으로 사용할 수 있고 추론은 Ollama Cloud에서 실행된다. `https://ollama.com/api`에 직접 접속하는 방식은 API 키를 사용한다. 로컬 전용이 필요하면 서버 설정에서 클라우드 기능을 끈다. [Ollama · Cloud](https://docs.ollama.com/cloud) · [Ollama · Local FAQ](https://docs.ollama.com/faq)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud, 계정과 로컬 API 경유 또는 클라우드 직접 접속",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개, Ways to connect와 구조화 출력 지원 범위"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "`ollama signin` 후 클라우드 태그를 실행하면 CLI나 로컬 API를 진입점으로 사용할 수 있고 추론은 Ollama Cloud에서 실행된다. `https://ollama.com/api`에 직접 접속하는 방식은 API 키를 사용한다. 로컬 전용이 필요하면 서버 설정에서 클라우드 기능을 끈다. [Ollama · Cloud](https://docs.ollama.com/cloud) · [Ollama · Local FAQ](https://docs.ollama.com/faq)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 실행과 서버 설정",
+    "source": {
+      "url": "https://docs.ollama.com/faq",
+      "locator": "Local FAQ의 실행 모델 확인, 클라우드 비활성화 및 루프백 바인딩"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **Kimi K3.** Ollama 카탈로그의 태그는 `kimi-k3:cloud`이며 Text·Image 입력을 표시한다. `ollama run kimi-k3:cloud`로 실행하고 문서 요약이나 이미지가 포함된 분석 과제를 실습한다. [Ollama · Kimi K3](https://ollama.com/library/kimi-k3)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 카탈로그의 kimi-k3:cloud",
+    "source": {
+      "url": "https://ollama.com/library/kimi-k3",
+      "locator": "CLI 예제와 태그 목록의 Text·Image 입력"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **GLM-5.2.** `ollama run glm-5.2:cloud`로 실행한다. 카탈로그에서 해당 태그는 Text 입력으로 표시되므로 텍스트 요약이나 코드 설명처럼 Kimi K3에도 그대로 줄 수 있는 과제로 비교한다. [Ollama · GLM-5.2](https://ollama.com/library/glm-5.2)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 카탈로그의 glm-5.2:cloud",
+    "source": {
+      "url": "https://ollama.com/library/glm-5.2",
+      "locator": "CLI 예제와 태그 목록의 Text 입력"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "`ollama signin`으로 연결하고 프롬프트는 테스트용 데이터로 고정한다. 결과에 실행 태그, 모달리티, 지연, 평가 기준을 남긴다. 로컬 CLI에서 실행한 경우에도 `:cloud` 태그의 추론 위치는 Ollama Cloud다. [Ollama · Cloud](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud, 계정과 로컬 API 경유 또는 클라우드 직접 접속",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개, Ways to connect와 구조화 출력 지원 범위"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "Muse Glimmer는 Ollama 카탈로그에 30B 로컬 모델로 올라와 있다. `ollama run muse-glimmer`를 사용하며 Apple Silicon용 태그는 `muse-glimmer:30b-mlx`다. 코드 생성 실습은 직접 정한 규칙의 작은 브라우저 게임을 대상으로 잡고, 실행 여부와 규칙 충족 여부를 검증한다. [Ollama · Muse Glimmer](https://ollama.com/library/muse-glimmer)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 카탈로그의 muse-glimmer 및 muse-glimmer:30b-mlx",
+    "source": {
+      "url": "https://ollama.com/library/muse-glimmer",
+      "locator": "Get started의 CLI 예제, Apple Silicon MLX 엔진, Model information"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "**Ollama v0.40.17의 공개 CLI와 채팅 API는 `qwen3.8:27b` 또는 `qwen3.8:27b-mlx`에 `.mp4`나 `.mov` 파일을 직접 입력하는 기능을 지원하지 않는다.** Ollama 카탈로그는 두 태그의 입력을 Text·Image로 표시한다. 영상 입력을 추가하는 Ollama PR #12962는 2026-11-23 확인 당시 열려 있었다. [Ollama · v0.40.17](https://github.com/ollama/ollama/releases/tag/v0.40.17) · [Ollama · Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama · 영상 입력 PR #12962](https://github.com/ollama/ollama/pull/12962)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 공식 릴리스",
+    "source": {
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17",
+      "locator": "Release v0.40.17의 Latest 표시와 공개 변경 사항"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "**Ollama v0.40.17의 공개 CLI와 채팅 API는 `qwen3.8:27b` 또는 `qwen3.8:27b-mlx`에 `.mp4`나 `.mov` 파일을 직접 입력하는 기능을 지원하지 않는다.** Ollama 카탈로그는 두 태그의 입력을 Text·Image로 표시한다. 영상 입력을 추가하는 Ollama PR #12962는 2026-11-23 확인 당시 열려 있었다. [Ollama · v0.40.17](https://github.com/ollama/ollama/releases/tag/v0.40.17) · [Ollama · Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama · 영상 입력 PR #12962](https://github.com/ollama/ollama/pull/12962)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 Qwen3.8 27B 태그 및 MLX 태그",
+    "source": {
+      "url": "https://ollama.com/library/qwen3.8",
+      "locator": "qwen3.8:27b와 qwen3.8:27b-mlx 태그의 Text, Image 입력 표시"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "**Ollama v0.40.17의 공개 CLI와 채팅 API는 `qwen3.8:27b` 또는 `qwen3.8:27b-mlx`에 `.mp4`나 `.mov` 파일을 직접 입력하는 기능을 지원하지 않는다.** Ollama 카탈로그는 두 태그의 입력을 Text·Image로 표시한다. 영상 입력을 추가하는 Ollama PR #12962는 2026-11-23 확인 당시 열려 있었다. [Ollama · v0.40.17](https://github.com/ollama/ollama/releases/tag/v0.40.17) · [Ollama · Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama · 영상 입력 PR #12962](https://github.com/ollama/ollama/pull/12962)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 공개 영상 입력 개발 PR",
+    "source": {
+      "url": "https://github.com/ollama/ollama/pull/12962",
+      "locator": "PR 상태 Open과 Summary의 네이티브 videos, 호환 video_url 및 데스크톱 첨부 지원 제안"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "Qwen3.8-27B 모델 자체는 영상을 이해할 수 있다. Qwen 공식 모델 카드의 `video_url` 예제는 영상 입력을 구현한 서빙 환경을 전제로 하며, 문서는 vLLM에서 프레임 샘플링을 설정하는 방법도 설명한다. [Qwen · Qwen3.8-27B 모델 카드](https://huggingface.co/Qwen/Qwen3.8-27B)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Qwen3.8-27B 공식 모델 카드의 영상 예제",
+    "source": {
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "locator": "Highlights의 이미지·영상 이해, Chat Completions API의 Video Input과 vLLM 샘플링 안내"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **CLI `ollama run`.** v0.40.17의 첨부 경로 파서는 JPG·JPEG·PNG·WebP·WAV 확장자를 인식한다. MP4와 MOV 경로는 첨부 파일로 처리되지 않는다. [Ollama v0.40.17 · CLI 첨부 경로 파서](https://github.com/ollama/ollama/blob/v0.40.17/cmd/interactive.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 대화형 CLI",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.17/cmd/interactive.go",
+      "locator": "extractFileNames의 파일 확장자 정규식과 extractFileData에서 첨부 경로를 읽는 처리"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **네이티브 `POST /api/chat`.** 메시지의 `images` 배열에 Base64로 인코딩한 이미지 데이터를 전달한다. 채팅 요청의 메시지 타입에 `videos` 필드가 없다. [Ollama · Vision API](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 · 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 공개 Vision API",
+    "source": {
+      "url": "https://docs.ollama.com/capabilities/vision",
+      "locator": "Usage with Ollama’s API의 메시지 images 배열과 REST 요청의 Base64 이미지 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **네이티브 `POST /api/chat`.** 메시지의 `images` 배열에 Base64로 인코딩한 이미지 데이터를 전달한다. 채팅 요청의 메시지 타입에 `videos` 필드가 없다. [Ollama · Vision API](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 · 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 네이티브 Chat API",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.17/api/types.go",
+      "locator": "ChatRequest.Messages와 Message 구조체의 images 필드"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **OpenAI 호환 `POST /v1/chat/completions`.** Ollama는 `image_url` 콘텐츠를 이미지로 변환한다. 이 릴리스의 요청 변환기는 `video_url` 콘텐츠를 지원하지 않는다. [Ollama · OpenAI Compatibility](https://docs.ollama.com/api/openai-compatibility) · [Ollama v0.40.17 · 호환 API 메시지 변환기](https://github.com/ollama/ollama/blob/v0.40.17/openai/openai.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama OpenAI 호환 Chat Completions API",
+    "source": {
+      "url": "https://docs.ollama.com/api/openai-compatibility",
+      "locator": "Vision example의 image_url 및 /v1/chat/completions 지원 기능"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "- **OpenAI 호환 `POST /v1/chat/completions`.** Ollama는 `image_url` 콘텐츠를 이미지로 변환한다. 이 릴리스의 요청 변환기는 `video_url` 콘텐츠를 지원하지 않는다. [Ollama · OpenAI Compatibility](https://docs.ollama.com/api/openai-compatibility) · [Ollama v0.40.17 · 호환 API 메시지 변환기](https://github.com/ollama/ollama/blob/v0.40.17/openai/openai.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 OpenAI 호환 채팅 API",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.17/openai/openai.go",
+      "locator": "toMessages의 content type 분기, image_url 처리와 정의되지 않은 타입의 오류"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "Ollama로 영상 내용을 살펴보려면 앱에서 원본 영상의 프레임을 추출하고, 시간순으로 `images`에 넣는다. 질문에는 이미지 순번과 원본 타임스탬프를 함께 적는다. 결과를 검증할 때 원본 영상에서 해당 시점을 열어 관찰 내용과 대조한다. [Ollama · Vision API](https://docs.ollama.com/capabilities/vision)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 공개 Vision API",
+    "source": {
+      "url": "https://docs.ollama.com/capabilities/vision",
+      "locator": "Usage with Ollama’s API의 메시지 images 배열과 REST 요청의 Base64 이미지 예제"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "공식 Quickstart의 운영체제별 설치 절차를 따른다. `ollaya run`은 첫 실행에 모델을 내려받고 필요하면 서버를 자동으로 시작한다. 공식 문서는 CPU에서 시작할 모델로 `laya`를 소개한다. [Ollaya · Quickstart](https://ollaya.dev/docs/quickstart)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya 공식 Quickstart의 로컬 실행",
+    "source": {
+      "url": "https://ollaya.dev/docs/quickstart",
+      "locator": "Install, Ask your first question의 laya 설명과 Ask your own questions 예제"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "결정 모델에는 티켓 본문 같은 `state`와 타입이 정해진 `questions`를 준다. Ollaya는 질문별로 선택, 점수 또는 확률을 반환하며, 로컬 기본 주소에서 `POST /api/decide`로 요청할 수 있다. [Ollaya · API Reference](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "- `choice`는 사전에 정의한 선택지 중 가장 확률이 높은 항목을 반환한다. 티켓 담당팀 분류처럼 후보 집합이 정해진 결정에 쓴다. [Ollaya · Questions and Answers](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "- `score`는 낮은 수준부터 순서대로 정의한 척도의 기댓값을 반환한다. 긴급도를 세 단계로 정의하면 결과가 단계 사이의 소수일 수 있다. [Ollaya · Questions and Answers](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "- `noul`은 주어진 명제가 참일 확률을 반환한다. 환불 요청 유무처럼 예·아니오로 판단할 질문에 쓴다. [Ollaya · Questions and Answers](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "`state`는 문자열, 객체 또는 배열로 전달한다. “환불을 요청했고 오늘 처리가 필요한가?”는 환불 요청 여부와 긴급도를 별도 질문으로 나눠 같은 `state`에 적용한다. `choice`의 각 선택지나 `score`의 각 단계에 무엇이 해당하는지 적고, 요청 본문에 판단에 필요한 근거를 넣는다. [Ollaya · Quickstart의 Custom Questions](https://ollaya.dev/docs/quickstart) · [Ollaya · API Reference](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya 공식 Quickstart의 로컬 실행",
+    "source": {
+      "url": "https://ollaya.dev/docs/quickstart",
+      "locator": "Install, Ask your first question의 laya 설명과 Ask your own questions 예제"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "`state`는 문자열, 객체 또는 배열로 전달한다. “환불을 요청했고 오늘 처리가 필요한가?”는 환불 요청 여부와 긴급도를 별도 질문으로 나눠 같은 `state`에 적용한다. `choice`의 각 선택지나 `score`의 각 단계에 무엇이 해당하는지 적고, 요청 본문에 판단에 필요한 근거를 넣는다. [Ollaya · Quickstart의 Custom Questions](https://ollaya.dev/docs/quickstart) · [Ollaya · API Reference](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "긴 입력은 응답의 `state_truncated`를 확인한다. 네이티브 `/api/decide`는 잘림을 응답 필드로 알릴 수 있으며, TypeSafe 호환 엔드포인트는 같은 조건에서 `422 STATE_TRUNCATED`를 반환한다고 공식 문서가 설명한다. [Ollaya · API Reference](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "기본 `choice`·`score` 응답의 `confidence`는 선택지 수를 반영해 정규화한 최상위 확률이다. `noul`의 기본 응답에서는 `noul` 값을 읽는다. `extras: [\"laya\"]`를 요청하면 추가로 오는 `laya.confidence`는 엔트로피 기반의 별도 값이다. [Ollaya · API Reference](https://ollaya.dev/docs/api)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "업무에서 자동 처리와 검토를 가르는 임계값은 모델과 질문 유형별로 정답이 있는 예제를 돌려 정한다. 확신이 낮거나 근거가 잘린 입력은 검토 대상으로 보내고, 정상 사례와 경계 사례에서 자동 처리율과 오판 수를 함께 기록한다. 다음 실습은 티켓 분류 결과를 생성 모델의 답변 단계에 전달하는 흐름으로 연결할 수 있다. [Ollaya · API Reference](https://ollaya.dev/docs/api) · [Ollaya · Routing](https://ollaya.dev/docs/routing)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 및 TypeSafe 호환 API",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state·choice·score·noul·confidence, Decide의 native fields 및 extras"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "업무에서 자동 처리와 검토를 가르는 임계값은 모델과 질문 유형별로 정답이 있는 예제를 돌려 정한다. 확신이 낮거나 근거가 잘린 입력은 검토 대상으로 보내고, 정상 사례와 경계 사례에서 자동 처리율과 오판 수를 함께 기록한다. 다음 실습은 티켓 분류 결과를 생성 모델의 답변 단계에 전달하는 흐름으로 연결할 수 있다. [Ollaya · API Reference](https://ollaya.dev/docs/api) · [Ollaya · Routing](https://ollaya.dev/docs/routing)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya 분류·점수 기반 라우팅",
+    "source": {
+      "url": "https://ollaya.dev/docs/routing",
+      "locator": "Route from code 및 Your own routes의 불확실한 결정을 처리하는 흐름"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "![Hugging Face에서 모델 카드와 파일을 찾고, 라이선스와 메모리를 확인한 뒤 로컬 런타임에서 한국어 응답 품질과 지연을 비교한다.](image/01_local_llm_model_selection.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 모델 검색과 메타데이터",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/model-cards",
+      "locator": "Model Cards와 Model card metadata의 태스크, 언어, 라이선스"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "![Hugging Face에서 모델 카드와 파일을 찾고, 라이선스와 메모리를 확인한 뒤 로컬 런타임에서 한국어 응답 품질과 지연을 비교한다.](image/01_local_llm_model_selection.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "로컬 모델을 고르는 GGUF 실습",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/gguf",
+      "locator": "Finding GGUF files, Usage with open-source tools와 Quantization Types"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "![Hugging Face에서 모델 카드와 파일을 찾고, 라이선스와 메모리를 확인한 뒤 로컬 런타임에서 한국어 응답 품질과 지연을 비교한다.](image/01_local_llm_model_selection.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI의 로컬 로드와 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load의 --context-length, --gpu, --estimate-only"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "그림 근거 · [Hugging Face 모델 카드](https://huggingface.co/docs/hub/model-cards) · [Hugging Face GGUF](https://huggingface.co/docs/hub/gguf) · [LM Studio 메모리 추정](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Hugging Face Hub의 모델 검색과 메타데이터",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/model-cards",
+      "locator": "Model Cards와 Model card metadata의 태스크, 언어, 라이선스"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "그림 근거 · [Hugging Face 모델 카드](https://huggingface.co/docs/hub/model-cards) · [Hugging Face GGUF](https://huggingface.co/docs/hub/gguf) · [LM Studio 메모리 추정](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "로컬 모델을 고르는 GGUF 실습",
+    "source": {
+      "url": "https://huggingface.co/docs/hub/gguf",
+      "locator": "Finding GGUF files, Usage with open-source tools와 Quantization Types"
+    }
+  },
+  {
+    "page": "local-llm/01_understanding_local_llms_and_model_selection.md",
+    "claim": "그림 근거 · [Hugging Face 모델 카드](https://huggingface.co/docs/hub/model-cards) · [Hugging Face GGUF](https://huggingface.co/docs/hub/gguf) · [LM Studio 메모리 추정](https://lmstudio.ai/docs/cli/local-models/load)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio CLI의 로컬 로드와 메모리 추정",
+    "source": {
+      "url": "https://lmstudio.ai/docs/cli/local-models/load",
+      "locator": "lms load의 --context-length, --gpu, --estimate-only"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "![사용자는 LM Studio의 Discover와 Chat을 이용하고, 애플리케이션은 Developer 탭에서 연 로컬 API를 호출한다. 두 경로는 같은 로컬 추론 런타임을 사용한다.](image/02_lm_studio_local_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 데스크톱의 GUI 실행",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/basics",
+      "locator": "Discover의 모델 다운로드와 Start a new chat의 모델 로드"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "![사용자는 LM Studio의 Discover와 Chat을 이용하고, 애플리케이션은 Developer 탭에서 연 로컬 API를 호출한다. 두 경로는 같은 로컬 추론 런타임을 사용한다.](image/02_lm_studio_local_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 프리셋",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/presets",
+      "locator": "Config Presets의 시스템 프롬프트와 생성 파라미터 저장"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "![사용자는 LM Studio의 Discover와 Chat을 이용하고, 애플리케이션은 Developer 탭에서 연 로컬 API를 호출한다. 두 경로는 같은 로컬 추론 런타임을 사용한다.](image/02_lm_studio_local_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 로컬 서버",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/core/server",
+      "locator": "Developer 탭의 서버 실행과 로컬 모델 API 제공"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "![사용자는 LM Studio의 Discover와 Chat을 이용하고, 애플리케이션은 Developer 탭에서 연 로컬 API를 호출한다. 두 경로는 같은 로컬 추론 런타임을 사용한다.](image/02_lm_studio_local_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 네이티브 REST API v1",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/rest",
+      "locator": "Endpoints 표와 /api/v1/chat, /v1/chat/completions 비교"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "![사용자는 LM Studio의 Discover와 Chat을 이용하고, 애플리케이션은 Developer 탭에서 연 로컬 API를 호출한다. 두 경로는 같은 로컬 추론 런타임을 사용한다.](image/02_lm_studio_local_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio OpenAI 호환 채팅 API",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/openai-compat/structured-output",
+      "locator": "Structured Output의 JSON Schema와 응답 파싱 예제"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "그림 근거 · [LM Studio 시작하기](https://lmstudio.ai/docs/app/basics) · [LM Studio 프리셋](https://lmstudio.ai/docs/app/presets) · [LM Studio API 서버](https://lmstudio.ai/docs/developer/core/server) · [REST API v1](https://lmstudio.ai/docs/developer/rest) · [구조화 응답](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 데스크톱의 GUI 실행",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/basics",
+      "locator": "Discover의 모델 다운로드와 Start a new chat의 모델 로드"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "그림 근거 · [LM Studio 시작하기](https://lmstudio.ai/docs/app/basics) · [LM Studio 프리셋](https://lmstudio.ai/docs/app/presets) · [LM Studio API 서버](https://lmstudio.ai/docs/developer/core/server) · [REST API v1](https://lmstudio.ai/docs/developer/rest) · [구조화 응답](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 프리셋",
+    "source": {
+      "url": "https://lmstudio.ai/docs/app/presets",
+      "locator": "Config Presets의 시스템 프롬프트와 생성 파라미터 저장"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "그림 근거 · [LM Studio 시작하기](https://lmstudio.ai/docs/app/basics) · [LM Studio 프리셋](https://lmstudio.ai/docs/app/presets) · [LM Studio API 서버](https://lmstudio.ai/docs/developer/core/server) · [REST API v1](https://lmstudio.ai/docs/developer/rest) · [구조화 응답](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 로컬 서버",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/core/server",
+      "locator": "Developer 탭의 서버 실행과 로컬 모델 API 제공"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "그림 근거 · [LM Studio 시작하기](https://lmstudio.ai/docs/app/basics) · [LM Studio 프리셋](https://lmstudio.ai/docs/app/presets) · [LM Studio API 서버](https://lmstudio.ai/docs/developer/core/server) · [REST API v1](https://lmstudio.ai/docs/developer/rest) · [구조화 응답](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio 네이티브 REST API v1",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/rest",
+      "locator": "Endpoints 표와 /api/v1/chat, /v1/chat/completions 비교"
+    }
+  },
+  {
+    "page": "local-llm/02_running_local_models_with_lm_studio.md",
+    "claim": "그림 근거 · [LM Studio 시작하기](https://lmstudio.ai/docs/app/basics) · [LM Studio 프리셋](https://lmstudio.ai/docs/app/presets) · [LM Studio API 서버](https://lmstudio.ai/docs/developer/core/server) · [REST API v1](https://lmstudio.ai/docs/developer/rest) · [구조화 응답](https://lmstudio.ai/docs/developer/openai-compat/structured-output)",
+    "checked_on": "2026-11-23",
+    "applies_to": "LM Studio OpenAI 호환 채팅 API",
+    "source": {
+      "url": "https://lmstudio.ai/docs/developer/openai-compat/structured-output",
+      "locator": "Structured Output의 JSON Schema와 응답 파싱 예제"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "![같은 컴퓨터의 CLI와 백엔드가 Ollama 로컬 서버를 호출한다. 로컬 태그는 내 컴퓨터에서 실행하고, 클라우드 태그는 Ollama Cloud에서 추론한다.](image/03_ollama_local_and_cloud_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 CLI와 로컬 서버",
+    "source": {
+      "url": "https://docs.ollama.com/cli",
+      "locator": "Run a model 및 Serve 명령"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "![같은 컴퓨터의 CLI와 백엔드가 Ollama 로컬 서버를 호출한다. 로컬 태그는 내 컴퓨터에서 실행하고, 클라우드 태그는 Ollama Cloud에서 추론한다.](image/03_ollama_local_and_cloud_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 로컬 및 클라우드 API",
+    "source": {
+      "url": "https://docs.ollama.com/api/introduction",
+      "locator": "Base URLs의 localhost:11434, /api 및 /v1"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "![같은 컴퓨터의 CLI와 백엔드가 Ollama 로컬 서버를 호출한다. 로컬 태그는 내 컴퓨터에서 실행하고, 클라우드 태그는 Ollama Cloud에서 추론한다.](image/03_ollama_local_and_cloud_runtime.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud의 계정 연결 및 원격 추론",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개의 추론 위치 및 Ways to connect"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "그림 근거 · [Ollama CLI](https://docs.ollama.com/cli) · [Ollama API 주소](https://docs.ollama.com/api/introduction) · [Ollama Cloud 연결 방식](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 CLI와 로컬 서버",
+    "source": {
+      "url": "https://docs.ollama.com/cli",
+      "locator": "Run a model 및 Serve 명령"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "그림 근거 · [Ollama CLI](https://docs.ollama.com/cli) · [Ollama API 주소](https://docs.ollama.com/api/introduction) · [Ollama Cloud 연결 방식](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 로컬 및 클라우드 API",
+    "source": {
+      "url": "https://docs.ollama.com/api/introduction",
+      "locator": "Base URLs의 localhost:11434, /api 및 /v1"
+    }
+  },
+  {
+    "page": "local-llm/03_running_local_models_and_apis_with_ollama.md",
+    "claim": "그림 근거 · [Ollama CLI](https://docs.ollama.com/cli) · [Ollama API 주소](https://docs.ollama.com/api/introduction) · [Ollama Cloud 연결 방식](https://docs.ollama.com/cloud)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Cloud의 계정 연결 및 원격 추론",
+    "source": {
+      "url": "https://docs.ollama.com/cloud",
+      "locator": "Cloud 소개의 추론 위치 및 Ways to connect"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama kimi-k3:cloud",
+    "source": {
+      "url": "https://ollama.com/library/kimi-k3",
+      "locator": "Cloud 태그 및 ollama run 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama glm-5.2:cloud",
+    "source": {
+      "url": "https://ollama.com/library/glm-5.2",
+      "locator": "Cloud 태그 및 ollama run 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 Muse Glimmer",
+    "source": {
+      "url": "https://ollama.com/library/muse-glimmer",
+      "locator": "Get started의 Ollama 실행 예제와 Model information의 코드·에이전트 과제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 qwen3.8:27b 및 qwen3.8:27b-mlx",
+    "source": {
+      "url": "https://ollama.com/library/qwen3.8",
+      "locator": "카탈로그 태그의 Text·Image 입력과 Vision-Language Understanding"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Vision API",
+    "source": {
+      "url": "https://docs.ollama.com/capabilities/vision",
+      "locator": "Usage with Ollama’s API의 images 배열과 이미지 인코딩 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "![Kimi K3와 GLM-5.2는 클라우드에서 같은 텍스트 과제로 비교한다. Muse Glimmer는 로컬 코드 생성에 쓴다. Qwen3.8 영상 실습은 원본에서 뽑은 이미지 프레임을 로컬 Ollama에 보낸다.](image/04_ollama_open_weight_model_workflows.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 네이티브 채팅 요청",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.17/api/types.go",
+      "locator": "ChatRequest.Messages와 Message의 images 배열"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama kimi-k3:cloud",
+    "source": {
+      "url": "https://ollama.com/library/kimi-k3",
+      "locator": "Cloud 태그 및 ollama run 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama glm-5.2:cloud",
+    "source": {
+      "url": "https://ollama.com/library/glm-5.2",
+      "locator": "Cloud 태그 및 ollama run 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama 로컬 Muse Glimmer",
+    "source": {
+      "url": "https://ollama.com/library/muse-glimmer",
+      "locator": "Get started의 Ollama 실행 예제와 Model information의 코드·에이전트 과제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama의 qwen3.8:27b 및 qwen3.8:27b-mlx",
+    "source": {
+      "url": "https://ollama.com/library/qwen3.8",
+      "locator": "카탈로그 태그의 Text·Image 입력과 Vision-Language Understanding"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama Vision API",
+    "source": {
+      "url": "https://docs.ollama.com/capabilities/vision",
+      "locator": "Usage with Ollama’s API의 images 배열과 이미지 인코딩 예제"
+    }
+  },
+  {
+    "page": "local-llm/04_evaluating_open_weight_models_with_ollama.md",
+    "claim": "그림 근거 · [Kimi K3](https://ollama.com/library/kimi-k3) · [GLM-5.2](https://ollama.com/library/glm-5.2) · [Muse Glimmer](https://ollama.com/library/muse-glimmer) · [Qwen3.8](https://ollama.com/library/qwen3.8) · [Ollama 이미지 입력](https://docs.ollama.com/capabilities/vision) · [Ollama v0.40.17 채팅 메시지 타입](https://github.com/ollama/ollama/blob/v0.40.17/api/types.go)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollama v0.40.17 네이티브 채팅 요청",
+    "source": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.17/api/types.go",
+      "locator": "ChatRequest.Messages와 Message의 images 배열"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "![Ollaya는 state와 questions를 받아 타입별 답변을 반환한다. 예시 애플리케이션은 임계값과 입력 잘림 여부를 확인해 자동 분류 또는 수동 검토로 보낸다.](image/05_ollaya_decision_and_review.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 기반 분류 실습",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state, questions, 답변 타입, confidence 및 state_truncated"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "![Ollaya는 state와 questions를 받아 타입별 답변을 반환한다. 예시 애플리케이션은 임계값과 입력 잘림 여부를 확인해 자동 분류 또는 수동 검토로 보낸다.](image/05_ollaya_decision_and_review.png)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya 결과를 읽는 애플리케이션 예시",
+    "source": {
+      "url": "https://ollaya.dev/docs/routing",
+      "locator": "Route from code와 Your own routes의 결정 결과 기반 분기와 불확실한 입력 처리"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "그림 근거 · [Ollaya API의 요청과 답변 타입](https://ollaya.dev/docs/api) · [Ollaya 결정 결과를 이용한 라우팅](https://ollaya.dev/docs/routing)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya /api/decide 기반 분류 실습",
+    "source": {
+      "url": "https://ollaya.dev/docs/api",
+      "locator": "Questions and answers의 state, questions, 답변 타입, confidence 및 state_truncated"
+    }
+  },
+  {
+    "page": "local-llm/05_running_decision_models_with_ollaya.md",
+    "claim": "그림 근거 · [Ollaya API의 요청과 답변 타입](https://ollaya.dev/docs/api) · [Ollaya 결정 결과를 이용한 라우팅](https://ollaya.dev/docs/routing)",
+    "checked_on": "2026-11-23",
+    "applies_to": "Ollaya 결과를 읽는 애플리케이션 예시",
+    "source": {
+      "url": "https://ollaya.dev/docs/routing",
+      "locator": "Route from code와 Your own routes의 결정 결과 기반 분기와 불확실한 입력 처리"
+    }
   }
 ]
