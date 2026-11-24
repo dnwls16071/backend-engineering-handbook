@@ -82174,5 +82174,375 @@
       "url": "https://ollaya.dev/docs/routing",
       "locator": "Route from code와 Your own routes의 결정 결과 기반 분기와 불확실한 입력 처리"
     }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "PostgreSQL 19.0을 기준으로 같은 데이터베이스의 세션 사이에서 변경을 알리는 방법을 정리한다. `LISTEN`으로 채널을 구독하고 `NOTIFY`로 구독 중인 세션에 알림을 보낸다. [PostgreSQL 릴리스 현황](https://www.postgresql.org/support/versioning/) · [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19.0 릴리스",
+    "source": {
+      "url": "https://www.postgresql.org/support/versioning/",
+      "locator": "Releases 표의 19.0 항목"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "PostgreSQL 19.0을 기준으로 같은 데이터베이스의 세션 사이에서 변경을 알리는 방법을 정리한다. `LISTEN`으로 채널을 구독하고 `NOTIFY`로 구독 중인 세션에 알림을 보낸다. [PostgreSQL 릴리스 현황](https://www.postgresql.org/support/versioning/) · [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 같은 데이터베이스의 세션",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Description의 같은 데이터베이스 내 세션 간 알림"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- `LISTEN catalog_changed`는 현재 세션을 채널에 등록한다. `UNLISTEN catalog_changed`는 해당 채널의 구독을 해제하고, `UNLISTEN *`는 현재 세션의 모든 구독을 해제한다. 세션이 끝나면 구독도 해제된다. [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Description의 현재 세션 구독 등록과 세션 종료 시 등록 해제"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- `LISTEN catalog_changed`는 현재 세션을 채널에 등록한다. `UNLISTEN catalog_changed`는 해당 채널의 구독을 해제하고, `UNLISTEN *`는 현재 세션의 모든 구독을 해제한다. 세션이 끝나면 구독도 해제된다. [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-unlisten.html",
+      "locator": "Description 및 Notes의 단일 채널·전체 채널 구독 해제"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- `NOTIFY catalog_changed, '42'`는 같은 데이터베이스에서 해당 채널을 구독하는 모든 세션에 전달된다. 발행 세션도 구독 중이면 알림을 받는다. 수신 정보는 채널명, 발행 세션의 서버 프로세스 PID, 문자열 payload이며 payload를 생략하면 빈 문자열이 전달된다. [NOTIFY](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 구독 중인 세션, 알림 필드, 생략한 payload 및 발행 세션의 자체 알림"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- `NOTIFY`의 채널명은 SQL 식별자이고 payload는 문자열 리터럴이다. 동적으로 계산한 채널명이나 값을 보내려면 `pg_notify(text, text)`를 사용한다. 기본 구성에서 payload는 8,000바이트 미만이어야 한다. 같은 데이터베이스의 사용자에게 알림이 공개되므로 비밀이나 개인정보를 담지 않고, 상세 데이터는 테이블에 두고 조회에 필요한 키만 보낸다. [NOTIFY의 Description, Parameters, pg_notify](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 기본 서버 구성 및 pg_notify 함수",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 사용자 공개 범위, Parameters의 SQL 문법과 기본 payload 크기, pg_notify 절"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- 구독 등록과 해제는 커밋할 때 적용된다. `LISTEN` 또는 `UNLISTEN`을 실행한 트랜잭션을 롤백하면 기존 구독이 유지된다. [LISTEN의 Notes](https://www.postgresql.org/docs/19/sql-listen.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 LISTEN 및 UNLISTEN 커밋과 롤백"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- `NOTIFY`는 발행 트랜잭션이 커밋된 경우에만 전달된다. 수신 세션에 열린 트랜잭션이 있으면 그 트랜잭션이 커밋되거나 롤백된 뒤에 클라이언트가 알림을 받는다. 발행과 수신 양쪽의 트랜잭션을 짧게 유지하면 전달 지연을 줄일 수 있다. [NOTIFY의 Description](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 발행과 수신 트랜잭션이 알림 전달에 미치는 영향"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "- 같은 트랜잭션에서 채널과 payload가 모두 같은 알림은 하나로 합쳐진다. 남은 알림은 트랜잭션 안에서 발행 순서대로, 트랜잭션 사이에서는 커밋 순서대로 전달된다. 서로 다른 트랜잭션의 알림은 payload가 같아도 각각 전달된다. [NOTIFY의 Description](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 동일 알림 병합과 트랜잭션 안팎의 전달 순서"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "같은 실습 데이터베이스에 `psql` 세션 A와 B를 연다. 먼저 A에서 아래 명령으로 구독을 커밋한다. [LISTEN의 Notes 및 Examples](https://www.postgresql.org/docs/19/sql-listen.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 같은 실습 데이터베이스의 psql 세션",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 커밋 경계와 Examples의 psql LISTEN"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "B에서 아래 두 트랜잭션을 실행한다. A에서는 `42`, `43`을 순서대로 한 번씩 받고 `44`는 받지 않는다. A 화면에 바로 나타나지 않으면 A에서 `SELECT 1;`을 실행해 출력된 알림을 확인한다. [NOTIFY의 Description 및 Examples](https://www.postgresql.org/docs/19/sql-notify.html) · [libpq 비동기 알림](https://www.postgresql.org/docs/19/libpq-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 psql 두 세션 실습",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 중복 병합, 순서, 롤백과 Examples의 pg_notify 및 psql 출력"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "B에서 아래 두 트랜잭션을 실행한다. A에서는 `42`, `43`을 순서대로 한 번씩 받고 `44`는 받지 않는다. A 화면에 바로 나타나지 않으면 A에서 `SELECT 1;`을 실행해 출력된 알림을 확인한다. [NOTIFY의 Description 및 Examples](https://www.postgresql.org/docs/19/sql-notify.html) · [libpq 비동기 알림](https://www.postgresql.org/docs/19/libpq-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 libpq의 소켓 입력과 알림 수신",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/libpq-notify.html",
+      "locator": "Asynchronous Notification의 서버 입력 소비와 SQL 명령 처리 시 알림 확인"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "A에서 `BEGIN;`을 실행한 뒤 B에서 `NOTIFY catalog_changed, '45';`를 자동 커밋으로 실행한다. A에서 `SELECT 1;`을 실행해도 알림이 보류되고, A의 `COMMIT;` 뒤에 `45`가 표시된다. 확인을 마치면 A에서 `UNLISTEN catalog_changed;`를 실행한다. [NOTIFY의 Description](https://www.postgresql.org/docs/19/sql-notify.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 psql 두 세션 실습",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 수신 세션 트랜잭션 종료 후 알림 전달"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "A에서 `BEGIN;`을 실행한 뒤 B에서 `NOTIFY catalog_changed, '45';`를 자동 커밋으로 실행한다. A에서 `SELECT 1;`을 실행해도 알림이 보류되고, A의 `COMMIT;` 뒤에 `45`가 표시된다. 확인을 마치면 A에서 `UNLISTEN catalog_changed;`를 실행한다. [NOTIFY의 Description](https://www.postgresql.org/docs/19/sql-notify.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 psql 두 세션 실습",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-unlisten.html",
+      "locator": "Description의 단일 채널 구독 해제"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "새로 연결하면 먼저 `LISTEN`을 커밋하고, 그다음 새 트랜잭션에서 현재 상태를 읽는다. 이후 알림이 오면 해당 상태를 다시 읽는다. 상태를 먼저 읽으면 조회와 구독 사이에 커밋된 변경을 놓칠 수 있다. 구독을 먼저 해도 초기 조회에 이미 반영된 변경의 알림이 올 수 있다. 캐시 무효화에 사용한다면 알림이 올 때마다 테이블에서 읽은 현재 값으로 캐시를 갱신한다. [LISTEN의 초기 구독 경합 설명](https://www.postgresql.org/docs/19/sql-listen.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 구독 초기화 및 캐시 갱신 예시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 LISTEN 커밋 후 초기 조회와 이미 조회한 변경의 알림 가능성"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "연결이 끊기면 새 연결에서 같은 절차로 구독과 상태를 복구한다. 구독이 없던 동안의 알림은 다시 받을 수 없다. 개별 이벤트마다 처리가 필요하면 업무 변경과 같은 트랜잭션에서 아웃박스 테이블에 이벤트를 저장하고, 소비자가 시작·재연결 시와 주기적으로 미처리 행을 조회하도록 설계한다. 이때 `NOTIFY`는 소비자가 조회를 앞당기는 신호로 쓰고, 중복 처리는 이벤트 ID로 제어한다. [LISTEN의 세션 수명과 초기 조회](https://www.postgresql.org/docs/19/sql-listen.html) · [AWS Transactional outbox 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 리스너의 연결 복구와 상태 재조회",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Description의 현재 구독 세션과 세션 종료 시 해제, Notes의 초기 상태 조회"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "연결이 끊기면 새 연결에서 같은 절차로 구독과 상태를 복구한다. 구독이 없던 동안의 알림은 다시 받을 수 없다. 개별 이벤트마다 처리가 필요하면 업무 변경과 같은 트랜잭션에서 아웃박스 테이블에 이벤트를 저장하고, 소비자가 시작·재연결 시와 주기적으로 미처리 행을 조회하도록 설계한다. 이때 `NOTIFY`는 소비자가 조회를 앞당기는 신호로 쓰고, 중복 처리는 이벤트 ID로 제어한다. [LISTEN의 세션 수명과 초기 조회](https://www.postgresql.org/docs/19/sql-listen.html) · [AWS Transactional outbox 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19에서 NOTIFY를 사용하는 트랜잭션 아웃박스 설계 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Issues and considerations의 중복 메시지와 Using an outbox table with a relational database의 이벤트 기록 및 별도 소비"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "리스너는 구독을 등록한 연결을 유지한다. PgBouncer의 트랜잭션 풀링에서는 `NOTIFY` 발행은 지원하지만 `LISTEN` 구독은 지원하지 않으므로, 리스너에는 세션 풀링 또는 직접 연결을 사용한다. PostgreSQL 핫 스탠바이에서는 `LISTEN`과 `NOTIFY`를 실행할 수 없으므로 기본 서버에 연결한다. [PgBouncer 풀링 기능표](https://www.pgbouncer.org/features.html) · [PostgreSQL Hot Standby](https://www.postgresql.org/docs/19/hot-standby.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PgBouncer 세션 풀링 및 트랜잭션 풀링",
+    "source": {
+      "url": "https://www.pgbouncer.org/features.html",
+      "locator": "SQL feature map for pooling modes의 LISTEN과 NOTIFY 행"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "리스너는 구독을 등록한 연결을 유지한다. PgBouncer의 트랜잭션 풀링에서는 `NOTIFY` 발행은 지원하지만 `LISTEN` 구독은 지원하지 않으므로, 리스너에는 세션 풀링 또는 직접 연결을 사용한다. PostgreSQL 핫 스탠바이에서는 `LISTEN`과 `NOTIFY`를 실행할 수 없으므로 기본 서버에 연결한다. [PgBouncer 풀링 기능표](https://www.pgbouncer.org/features.html) · [PostgreSQL Hot Standby](https://www.postgresql.org/docs/19/hot-standby.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 물리 복제 핫 스탠바이",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/hot-standby.html",
+      "locator": "User's Overview의 핫 스탠바이에서 제한되는 SQL 명령"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "`pg_listening_channels()`는 현재 세션이 구독 중인 채널을 반환한다. `pg_notification_queue_usage()`는 처리 대기 중인 알림이 큐 한도에서 차지하는 비율을 `0`과 `1` 사이의 값으로 반환한다. [PostgreSQL 세션 정보 함수](https://www.postgresql.org/docs/19/functions-info.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/functions-info.html",
+      "locator": "Session Information Functions 표의 pg_listening_channels 및 pg_notification_queue_usage"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "구독 세션이 트랜잭션을 오래 열어 두면 큐 정리가 막힐 수 있다. 큐가 절반 차면 서버 로그에 정리를 막는 세션이 표시된다. 로그에서 해당 세션을 찾아 트랜잭션을 종료할 수 있는지 확인한다. 큐가 가득 차면 `NOTIFY`를 실행한 트랜잭션은 `COMMIT`에서 실패한다. 같은 트랜잭션에 업무 데이터 쓰기를 묶었다면 그 쓰기도 커밋되지 않는다. [NOTIFY의 Notes](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Notes의 장기 트랜잭션, 절반 사용 경고, 큐가 가득 찼을 때의 커밋 실패"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "`max_notify_queue_pages`의 기본값은 1,048,576페이지로, 페이지 크기가 8 KiB이면 큐가 디스크를 최대 8 GiB 사용한다. 이 설정은 서버를 시작할 때 적용된다. [PostgreSQL max_notify_queue_pages](https://www.postgresql.org/docs/19/runtime-config-resource.html#GUC-MAX-NOTIFY-QUEUE-PAGES)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 기본 큐 페이지 수와 8 KiB 페이지",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/runtime-config-resource.html#GUC-MAX-NOTIFY-QUEUE-PAGES",
+      "locator": "Disk 절의 max_notify_queue_pages 기본값 및 서버 시작 시에만 적용되는 조건"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "`LISTEN`, `UNLISTEN`, `NOTIFY`를 실행한 트랜잭션은 2단계 커밋을 위해 `PREPARE TRANSACTION` 할 수 없다. [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html) · [NOTIFY](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 2단계 커밋 제한"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "`LISTEN`, `UNLISTEN`, `NOTIFY`를 실행한 트랜잭션은 2단계 커밋을 위해 `PREPARE TRANSACTION` 할 수 없다. [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html) · [NOTIFY](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-unlisten.html",
+      "locator": "Notes의 2단계 커밋 제한"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "`LISTEN`, `UNLISTEN`, `NOTIFY`를 실행한 트랜잭션은 2단계 커밋을 위해 `PREPARE TRANSACTION` 할 수 없다. [LISTEN](https://www.postgresql.org/docs/19/sql-listen.html) · [UNLISTEN](https://www.postgresql.org/docs/19/sql-unlisten.html) · [NOTIFY](https://www.postgresql.org/docs/19/sql-notify.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 LISTEN·NOTIFY 동작",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Notes의 2단계 커밋 제한"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "PostgreSQL 19부터 `NOTIFY`는 해당 알림을 구독하는 백엔드만 깨우도록 개선됐다. [PostgreSQL 19 릴리스 노트](https://www.postgresql.org/docs/19/release-19.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19의 NOTIFY 내부 처리",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/release-19.html",
+      "locator": "General Performance의 구독 백엔드만 깨우는 NOTIFY 개선"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "![수신 세션 A가 LISTEN을 커밋하고 새 트랜잭션을 시작한다. 발행 세션 B가 NOTIFY를 커밋하면 알림은 A의 트랜잭션이 끝난 뒤 전달된다. B가 롤백하면 알림도 취소된다.](image/13_listen_notify_transaction_boundaries.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 수신 세션의 구독 커밋",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 LISTEN 구독 등록이 적용되는 시점"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "![수신 세션 A가 LISTEN을 커밋하고 새 트랜잭션을 시작한다. 발행 세션 B가 NOTIFY를 커밋하면 알림은 A의 트랜잭션이 끝난 뒤 전달된다. B가 롤백하면 알림도 취소된다.](image/13_listen_notify_transaction_boundaries.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 두 세션의 알림 전달 예시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 발행 트랜잭션 커밋·롤백과 수신 트랜잭션 종료 후 전달"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 시점](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 시점](https://www.postgresql.org/docs/19/sql-notify.html) · [PostgreSQL 공식 로고](https://www.postgresql.org/about/press/presskit19/base/)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 수신 세션의 구독 커밋",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Notes의 LISTEN 구독 등록이 적용되는 시점"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 시점](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 시점](https://www.postgresql.org/docs/19/sql-notify.html) · [PostgreSQL 공식 로고](https://www.postgresql.org/about/press/presskit19/base/)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 두 세션의 알림 전달 예시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 발행 트랜잭션 커밋·롤백과 수신 트랜잭션 종료 후 전달"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 시점](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 시점](https://www.postgresql.org/docs/19/sql-notify.html) · [PostgreSQL 공식 로고](https://www.postgresql.org/about/press/presskit19/base/)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 공식 보도 자료에 게시된 로고",
+    "source": {
+      "url": "https://www.postgresql.org/about/press/presskit19/base/",
+      "locator": "Images and Logos의 PostgreSQL Elephant Logo, PNG format"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "![수신 세션은 연결이 끊긴 동안의 알림을 놓친다. 발행 세션은 업무 변경과 같은 트랜잭션에서 이벤트 46을 아웃박스에 저장한다. 수신 세션은 재연결한 뒤 LISTEN을 커밋하고 새 트랜잭션에서 미처리 행을 조회한다. 이벤트 ID로 중복을 확인하고 처리한다.](image/13_listen_notify_outbox_recovery.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 새 연결의 구독 등록과 초기 조회",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Description의 세션 종료 시 구독 해제와 Notes의 LISTEN 커밋 후 새 트랜잭션에서 초기 조회"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "![수신 세션은 연결이 끊긴 동안의 알림을 놓친다. 발행 세션은 업무 변경과 같은 트랜잭션에서 이벤트 46을 아웃박스에 저장한다. 수신 세션은 재연결한 뒤 LISTEN을 커밋하고 새 트랜잭션에서 미처리 행을 조회한다. 이벤트 ID로 중복을 확인하고 처리한다.](image/13_listen_notify_outbox_recovery.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 구독이 끊긴 세션의 알림 전달 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 이미 구독한 세션에 전달, 발행 트랜잭션 커밋 및 테이블에 상세 데이터 저장"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "![수신 세션은 연결이 끊긴 동안의 알림을 놓친다. 발행 세션은 업무 변경과 같은 트랜잭션에서 이벤트 46을 아웃박스에 저장한다. 수신 세션은 재연결한 뒤 LISTEN을 커밋하고 새 트랜잭션에서 미처리 행을 조회한다. 이벤트 ID로 중복을 확인하고 처리한다.](image/13_listen_notify_outbox_recovery.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19에서 NOTIFY와 트랜잭션 아웃박스를 조합한 재연결 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Issues and considerations의 중복 처리와 Using an outbox table with a relational database 및 Sample code의 같은 트랜잭션 저장과 미처리 행 조회"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 복구 순서](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 조건](https://www.postgresql.org/docs/19/sql-notify.html) · [AWS 트랜잭션 아웃박스 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 새 연결의 구독 등록과 초기 조회",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-listen.html",
+      "locator": "Description의 세션 종료 시 구독 해제와 Notes의 LISTEN 커밋 후 새 트랜잭션에서 초기 조회"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 복구 순서](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 조건](https://www.postgresql.org/docs/19/sql-notify.html) · [AWS 트랜잭션 아웃박스 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19 구독이 끊긴 세션의 알림 전달 조건",
+    "source": {
+      "url": "https://www.postgresql.org/docs/19/sql-notify.html",
+      "locator": "Description의 이미 구독한 세션에 전달, 발행 트랜잭션 커밋 및 테이블에 상세 데이터 저장"
+    }
+  },
+  {
+    "page": "postgresql/13_postgresql_listen_and_notify.md",
+    "claim": "그림 근거 · [LISTEN 구독 복구 순서](https://www.postgresql.org/docs/19/sql-listen.html) · [NOTIFY 전달 조건](https://www.postgresql.org/docs/19/sql-notify.html) · [AWS 트랜잭션 아웃박스 패턴](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 19에서 NOTIFY와 트랜잭션 아웃박스를 조합한 재연결 예시",
+    "source": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+      "locator": "Issues and considerations의 중복 처리와 Using an outbox table with a relational database 및 Sample code의 같은 트랜잭션 저장과 미처리 행 조회"
+    }
   }
 ]
