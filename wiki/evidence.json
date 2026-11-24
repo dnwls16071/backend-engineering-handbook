@@ -82544,5 +82544,625 @@
       "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
       "locator": "Issues and considerations의 중복 처리와 Using an outbox table with a relational database 및 Sample code의 같은 트랜잭션 저장과 미처리 행 조회"
     }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "ShedLock 7.12.0을 기준으로, 여러 Spring 인스턴스에서 같은 `@Scheduled` 작업이 동시에 시작될 때 실행을 조율하는 방법을 정리한다. 예제는 `JdbcTemplateLockProvider`와 공유 PostgreSQL을 사용한다. [Maven Central 배포 정보](https://repo.maven.apache.org/maven2/net/javacrumbs/shedlock/shedlock-spring/maven-metadata.xml) · [ShedLock 7.12.0 공식 문서](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 Spring 스케줄 및 PostgreSQL JDBC 예제",
+    "source": {
+      "url": "https://repo.maven.apache.org/maven2/net/javacrumbs/shedlock/shedlock-spring/maven-metadata.xml",
+      "locator": "versioning의 latest 및 release 7.12.0"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "ShedLock 7.12.0을 기준으로, 여러 Spring 인스턴스에서 같은 `@Scheduled` 작업이 동시에 시작될 때 실행을 조율하는 방법을 정리한다. 예제는 `JdbcTemplateLockProvider`와 공유 PostgreSQL을 사용한다. [Maven Central 배포 정보](https://repo.maven.apache.org/maven2/net/javacrumbs/shedlock/shedlock-spring/maven-metadata.xml) · [ShedLock 7.12.0 공식 문서](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 Spring 스케줄 및 PostgreSQL JDBC 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate",
+      "locator": "JdbcTemplate의 PostgreSQL DDL과 LockProvider 설정"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "각 인스턴스의 Spring 스케줄러가 작업 시각에 메서드를 호출한다. ShedLock은 `@SchedulerLock`이 붙은 메서드를 실행하기 전에 `LockProvider`에 락을 요청한다. 같은 저장소에서 같은 이름으로 요청한 인스턴스 중 락을 얻은 인스턴스가 메서드 본문을 실행하고, 락이 이미 잡혀 있어 얻지 못한 인스턴스는 이번 호출을 건너뛴다. 건너뛴 호출은 대기열에 쌓이거나 락 해제 시 자동으로 재실행되지 않는다. [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [락 실행기 소스](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/DefaultLockingTaskExecutor.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 기본 Spring 메서드 프록시와 공유 LockProvider",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior의 같은 락 이름, 획득 여부 및 건너뛰기"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "각 인스턴스의 Spring 스케줄러가 작업 시각에 메서드를 호출한다. ShedLock은 `@SchedulerLock`이 붙은 메서드를 실행하기 전에 `LockProvider`에 락을 요청한다. 같은 저장소에서 같은 이름으로 요청한 인스턴스 중 락을 얻은 인스턴스가 메서드 본문을 실행하고, 락이 이미 잡혀 있어 얻지 못한 인스턴스는 이번 호출을 건너뛴다. 건너뛴 호출은 대기열에 쌓이거나 락 해제 시 자동으로 재실행되지 않는다. [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [락 실행기 소스](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/DefaultLockingTaskExecutor.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 기본 Spring 메서드 프록시와 공유 LockProvider",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/DefaultLockingTaskExecutor.java",
+      "locator": "executeWithLock의 provider 호출, task 실행 및 TaskResult.notExecuted"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "![인스턴스 A와 B가 공유 PostgreSQL에서 catalogCacheCleanup 락을 요청한다. A는 락을 얻고 작업을 실행한다. 락이 유효한 동안 B가 요청하면 이번 호출은 건너뛴다. A가 작업을 마치면 최소 보유 시간을 반영해 lock_until을 갱신한다.](image/13_shedlock_acquire_skip_and_release.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 JdbcTemplateLockProvider와 PostgreSQL usingDbTime 예시",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior의 락 획득, 건너뛰기 및 최소 보유 시간"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "![인스턴스 A와 B가 공유 PostgreSQL에서 catalogCacheCleanup 락을 요청한다. A는 락을 얻고 작업을 실행한다. 락이 유효한 동안 B가 요청하면 이번 호출은 건너뛴다. A가 작업을 마치면 최소 보유 시간을 반영해 lock_until을 갱신한다.](image/13_shedlock_acquire_skip_and_release.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 JdbcTemplateLockProvider와 PostgreSQL usingDbTime 예시",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java",
+      "locator": "getInsertStatement, updateClause와 getUnlockStatement의 락 획득 및 반납 시각"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "그림의 근거 · [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [PostgreSQL DB 시각 기반 SQL](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL 락 시퀀스 그림",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior의 작업 실행과 스킵"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "그림의 근거 · [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [PostgreSQL DB 시각 기반 SQL](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL 락 시퀀스 그림",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java",
+      "locator": "PostgreSQL 서버 시각 기반 획득 조건 및 반납 시 갱신"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "ShedLock은 만료 시각이 있는 락으로 동시 실행을 줄인다. 예약 회차마다 반드시 한 번 실행돼야 하는 작업은 실행 이력과 누락분 처리 정책이 필요하다. 같은 업무가 재시도되거나 만료 경계를 넘어 겹쳐 실행될 수 있으므로, 쓰기나 외부 호출은 업무 키로 중복 처리를 제어한다. [ShedLock 적용 범위와 제약](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#shedlock-is-not-a-distributed-scheduler) · [ShedLock 만료 시 동작](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#caveats)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0을 사용하는 예약 작업의 실행 이력과 멱등성 설계",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#shedlock-is-not-a-distributed-scheduler",
+      "locator": "스케줄 관리와 락의 범위 및 반복 실행이 안전한 작업 조건"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "ShedLock은 만료 시각이 있는 락으로 동시 실행을 줄인다. 예약 회차마다 반드시 한 번 실행돼야 하는 작업은 실행 이력과 누락분 처리 정책이 필요하다. 같은 업무가 재시도되거나 만료 경계를 넘어 겹쳐 실행될 수 있으므로, 쓰기나 외부 호출은 업무 키로 중복 처리를 제어한다. [ShedLock 적용 범위와 제약](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#shedlock-is-not-a-distributed-scheduler) · [ShedLock 만료 시 동작](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#caveats)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0을 사용하는 예약 작업의 실행 이력과 멱등성 설계",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#caveats",
+      "locator": "락 만료를 넘겨 실행할 때 중복 실행 가능성"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`LockProvider`가 락을 보관할 공유 저장소를 정한다. ShedLock은 JDBC 외에도 Redis, MongoDB 등의 구현을 제공한다. [ShedLock 구성 요소와 저장소](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#components)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0의 공유 저장소별 provider",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#components",
+      "locator": "Components의 Lock provider 역할과 SQL, Mongo, Redis 예시"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "Spring Boot 3.5가 관리하는 `DataSource`를 사용하는 예제다. `shedlock-spring`과 `shedlock-provider-jdbc-template`을 같은 버전으로 두고, 모든 인스턴스의 `spring.datasource.*` 설정이 같은 PostgreSQL 데이터베이스와 `shedlock` 테이블을 사용하도록 맞춘다. ShedLock 7.x의 최소 JVM 버전은 17이다. [Spring Boot DataSource 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource) · [ShedLock Spring 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate) · [호환성 표](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0과 Spring Boot 3.5의 PostgreSQL DataSource 예제",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource",
+      "locator": "Production Database 및 DataSource Configuration의 spring.datasource.* 속성"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "Spring Boot 3.5가 관리하는 `DataSource`를 사용하는 예제다. `shedlock-spring`과 `shedlock-provider-jdbc-template`을 같은 버전으로 두고, 모든 인스턴스의 `spring.datasource.*` 설정이 같은 PostgreSQL 데이터베이스와 `shedlock` 테이블을 사용하도록 맞춘다. ShedLock 7.x의 최소 JVM 버전은 17이다. [Spring Boot DataSource 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource) · [ShedLock Spring 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate) · [호환성 표](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0과 Spring Boot 3.5의 PostgreSQL DataSource 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring",
+      "locator": "Spring 통합에 사용하는 shedlock-spring 의존성"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "Spring Boot 3.5가 관리하는 `DataSource`를 사용하는 예제다. `shedlock-spring`과 `shedlock-provider-jdbc-template`을 같은 버전으로 두고, 모든 인스턴스의 `spring.datasource.*` 설정이 같은 PostgreSQL 데이터베이스와 `shedlock` 테이블을 사용하도록 맞춘다. ShedLock 7.x의 최소 JVM 버전은 17이다. [Spring Boot DataSource 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource) · [ShedLock Spring 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate) · [호환성 표](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0과 Spring Boot 3.5의 PostgreSQL DataSource 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate",
+      "locator": "JdbcTemplate provider 의존성과 공유 락 테이블"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "Spring Boot 3.5가 관리하는 `DataSource`를 사용하는 예제다. `shedlock-spring`과 `shedlock-provider-jdbc-template`을 같은 버전으로 두고, 모든 인스턴스의 `spring.datasource.*` 설정이 같은 PostgreSQL 데이터베이스와 `shedlock` 테이블을 사용하도록 맞춘다. ShedLock 7.x의 최소 JVM 버전은 17이다. [Spring Boot DataSource 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource) · [ShedLock Spring 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate) · [호환성 표](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0과 Spring Boot 3.5의 PostgreSQL DataSource 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix",
+      "locator": "Compatibility matrix의 ShedLock 7.x 및 최소 JVM 17 행"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "Spring Boot 3.5가 관리하는 `DataSource`를 사용하는 예제다. `shedlock-spring`과 `shedlock-provider-jdbc-template`을 같은 버전으로 두고, 모든 인스턴스의 `spring.datasource.*` 설정이 같은 PostgreSQL 데이터베이스와 `shedlock` 테이블을 사용하도록 맞춘다. ShedLock 7.x의 최소 JVM 버전은 17이다. [Spring Boot DataSource 설정](https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.datasource) · [ShedLock Spring 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate) · [호환성 표](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#compatibility-matrix)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0과 Spring Boot 3.5의 PostgreSQL DataSource 예제",
+    "source": {
+      "url": "https://repo.maven.apache.org/maven2/net/javacrumbs/shedlock/shedlock-provider-jdbc-template/maven-metadata.xml",
+      "locator": "JDBC 모듈 versioning의 latest 및 release 7.12.0"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "서비스 시작 전에 DB 마이그레이션으로 락 테이블을 만든다. `name`은 기본 키다. `catalog_cache`는 예제 작업이 사용하는 별도 테이블이다. [ShedLock의 PostgreSQL 테이블 정의](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL용 초기 스키마",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate",
+      "locator": "JdbcTemplate의 PostgreSQL CREATE TABLE과 name 기본 키"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`@EnableScheduling`으로 스케줄링을 켜고 `@EnableSchedulerLock`으로 ShedLock을 연결한다. Spring은 UTC 기준 매분 0초에 실행을 시도한다. 락을 얻은 호출이 만료된 캐시 행을 삭제한다. `usingDbTime()`은 락의 획득과 만료를 계산할 때 PostgreSQL 서버의 UTC 시각을 사용한다. [Spring 스케줄링](https://docs.spring.io/spring-framework/reference/6.2/integration/scheduling.html) · [ShedLock Spring 활성화](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정과 DB 시각](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0, Spring Framework 6.2의 cron과 PostgreSQL 서버 시각",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/integration/scheduling.html",
+      "locator": "Annotation Support의 EnableScheduling, Scheduled 및 Cron Expressions의 초 필드와 시간대"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`@EnableScheduling`으로 스케줄링을 켜고 `@EnableSchedulerLock`으로 ShedLock을 연결한다. Spring은 UTC 기준 매분 0초에 실행을 시도한다. 락을 얻은 호출이 만료된 캐시 행을 삭제한다. `usingDbTime()`은 락의 획득과 만료를 계산할 때 PostgreSQL 서버의 UTC 시각을 사용한다. [Spring 스케줄링](https://docs.spring.io/spring-framework/reference/6.2/integration/scheduling.html) · [ShedLock Spring 활성화](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정과 DB 시각](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0, Spring Framework 6.2의 cron과 PostgreSQL 서버 시각",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring",
+      "locator": "Spring 설정에서 EnableScheduling과 EnableSchedulerLock 활성화"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`@EnableScheduling`으로 스케줄링을 켜고 `@EnableSchedulerLock`으로 ShedLock을 연결한다. Spring은 UTC 기준 매분 0초에 실행을 시도한다. 락을 얻은 호출이 만료된 캐시 행을 삭제한다. `usingDbTime()`은 락의 획득과 만료를 계산할 때 PostgreSQL 서버의 UTC 시각을 사용한다. [Spring 스케줄링](https://docs.spring.io/spring-framework/reference/6.2/integration/scheduling.html) · [ShedLock Spring 활성화](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#enable-and-configure-scheduled-locking-spring) · [JDBC 설정과 DB 시각](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0, Spring Framework 6.2의 cron과 PostgreSQL 서버 시각",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#jdbctemplate",
+      "locator": "usingDbTime으로 사용하는 DB 서버의 UTC 시각"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "기본 `PROXY_METHOD` 모드는 Spring AOP로 `@SchedulerLock` 메서드를 가로챈다. 예제처럼 메서드를 `public`으로 선언하고 `final`을 붙이지 않는다. 같은 빈의 `this`로 호출하면 프록시를 거치지 않는다. `LockAssert.assertLocked()`를 작업 시작에 두면 락 없이 본문에 들어가는 설정 오류를 발견할 수 있다. [ShedLock 프록시 모드](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#modes-of-spring-integration) · [LockAssert](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#lock-assert) · [Spring AOP 공식 문서](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [위키의 자기 호출 예제](12_spring_aop_proxy_limitations_and_self_invocation.md)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 기본 메서드 프록시와 Spring Framework 6.2의 자기 호출",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#modes-of-spring-integration",
+      "locator": "Scheduled Method proxy의 기본 모드, public과 final 제약"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "기본 `PROXY_METHOD` 모드는 Spring AOP로 `@SchedulerLock` 메서드를 가로챈다. 예제처럼 메서드를 `public`으로 선언하고 `final`을 붙이지 않는다. 같은 빈의 `this`로 호출하면 프록시를 거치지 않는다. `LockAssert.assertLocked()`를 작업 시작에 두면 락 없이 본문에 들어가는 설정 오류를 발견할 수 있다. [ShedLock 프록시 모드](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#modes-of-spring-integration) · [LockAssert](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#lock-assert) · [Spring AOP 공식 문서](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [위키의 자기 호출 예제](12_spring_aop_proxy_limitations_and_self_invocation.md)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 기본 메서드 프록시와 Spring Framework 6.2의 자기 호출",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#lock-assert",
+      "locator": "LockAssert.assertLocked를 사용하는 설정 진단"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "기본 `PROXY_METHOD` 모드는 Spring AOP로 `@SchedulerLock` 메서드를 가로챈다. 예제처럼 메서드를 `public`으로 선언하고 `final`을 붙이지 않는다. 같은 빈의 `this`로 호출하면 프록시를 거치지 않는다. `LockAssert.assertLocked()`를 작업 시작에 두면 락 없이 본문에 들어가는 설정 오류를 발견할 수 있다. [ShedLock 프록시 모드](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#modes-of-spring-integration) · [LockAssert](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#lock-assert) · [Spring AOP 공식 문서](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html) · [위키의 자기 호출 예제](12_spring_aop_proxy_limitations_and_self_invocation.md)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 기본 메서드 프록시와 Spring Framework 6.2의 자기 호출",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html",
+      "locator": "Understanding AOP Proxies의 this 자기 호출과 프록시 경계"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "- `lockAtLeastFor`는 락을 획득한 뒤 유지하는 최소 시간이다. 예제에서는 A가 `12:00:00`에 락을 얻고 `12:00:04`에 메서드를 마치면 `12:00:30`부터 다른 인스턴스가 같은 락을 얻을 수 있다. 이를 이용해 매우 짧은 작업이 인스턴스별 실행 시각 차이로 연달아 수행되는 일을 줄인다. [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [PostgreSQL 락 해제 SQL](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL 서버 시각 및 30초 최소 보유 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior의 최소 보유와 짧은 작업의 연속 실행 설명"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "- `lockAtLeastFor`는 락을 획득한 뒤 유지하는 최소 시간이다. 예제에서는 A가 `12:00:00`에 락을 얻고 `12:00:04`에 메서드를 마치면 `12:00:30`부터 다른 인스턴스가 같은 락을 얻을 수 있다. 이를 이용해 매우 짧은 작업이 인스턴스별 실행 시각 차이로 연달아 수행되는 일을 줄인다. [ShedLock 동작 규칙](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [PostgreSQL 락 해제 SQL](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL 서버 시각 및 30초 최소 보유 예제",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java",
+      "locator": "getUnlockStatement의 locked_at과 lockAtLeastFor 합계 및 현재 시각 비교"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "- `lockAtMostFor`는 획득한 노드가 종료 처리를 하지 못했을 때 다음 시도가 락을 다시 얻을 수 있게 하는 만료 시간이다. 연장하지 않는 예제에서는 `12:00:00`에 락을 얻은 A가 종료 처리 없이 죽으면 `12:05:00`부터 다음 요청이 획득할 수 있다. A가 그 시각 이후에도 실행 중이면 다른 노드의 작업과 겹칠 수 있다. 만료 시간이 작업을 중단시키지는 않으므로 최대 예상 실행 시간을 충분히 넘겨 설정한다. [ShedLock 동작 규칙과 예시](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 PostgreSQL JDBC 예제에서 연장 없이 만료되는 락",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior와 Example의 장애 후 만료, 최대 예상 실행 시간과 중복 실행"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "메서드의 `@SchedulerLock`에 `lockAtMostFor`를 생략하면 `@EnableSchedulerLock`의 `defaultLockAtMostFor`를 사용한다. `lockAtLeastFor`는 적용되는 `lockAtMostFor`를 넘을 수 없다. [ShedLock 기본 만료 시간](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [LockConfiguration 검증](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/LockConfiguration.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 Spring 기본 락 기간 및 두 기간의 검증",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior",
+      "locator": "Behavior의 defaultLockAtMostFor 적용 규칙"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "메서드의 `@SchedulerLock`에 `lockAtMostFor`를 생략하면 `@EnableSchedulerLock`의 `defaultLockAtMostFor`를 사용한다. `lockAtLeastFor`는 적용되는 `lockAtMostFor`를 넘을 수 없다. [ShedLock 기본 만료 시간](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#behavior) · [LockConfiguration 검증](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/LockConfiguration.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 Spring 기본 락 기간 및 두 기간의 검증",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/shedlock-core/src/main/java/net/javacrumbs/shedlock/core/LockConfiguration.java",
+      "locator": "생성자의 lockAtLeastFor와 lockAtMostFor 비교"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`usingDbTime()`을 쓰면 PostgreSQL의 락 SQL은 같은 `name`의 행이 없을 때 삽입하고, 행이 있으면 `lock_until`이 DB의 UTC 시각 이하인 경우에만 갱신한다. 획득이 성공하면 `locked_at`과 `locked_by`가 바뀌고, 종료 시에는 `lock_until`이 종료 시각과 최소 유지 시각 중 늦은 값으로 갱신된다. `locked_by`는 마지막 획득 시 기록된 값이므로 현재 작업 실행 여부는 애플리케이션 로그나 메트릭과 대조한다. [PostgreSQL DB 시각 기반 SQL](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 JdbcTemplateLockProvider의 PostgreSQL 서버 시각 기반 SQL",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/providers/sql/shedlock-sql-support/src/main/java/net/javacrumbs/shedlock/provider/sql/PostgresSqlServerTimeStatementsSource.java",
+      "locator": "getInsertStatement, updateClause 및 getUnlockStatement의 UTC 시각과 행 갱신"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "JDBC 락 행은 직접 삭제하지 않는다. Provider가 이미 존재하는 행의 이름을 메모리에 기억하므로 실행 중에 행을 삭제하면 재시작 없이 다시 삽입되지 않을 수 있다. 작업이 실행되지 않으면 `net.javacrumbs.shedlock`의 DEBUG 로그와 락 테이블을 확인한다. [ShedLock JDBC의 행 삭제 주의](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#warning) · [문제 진단](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#troubleshooting)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 JDBC provider의 락 행 캐시 및 진단",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#warning",
+      "locator": "JdbcTemplate Warning의 수동 행 삭제와 인스턴스 메모리 캐시"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "JDBC 락 행은 직접 삭제하지 않는다. Provider가 이미 존재하는 행의 이름을 메모리에 기억하므로 실행 중에 행을 삭제하면 재시작 없이 다시 삽입되지 않을 수 있다. 작업이 실행되지 않으면 `net.javacrumbs.shedlock`의 DEBUG 로그와 락 테이블을 확인한다. [ShedLock JDBC의 행 삭제 주의](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#warning) · [문제 진단](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#troubleshooting)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 JDBC provider의 락 행 캐시 및 진단",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#troubleshooting",
+      "locator": "Troubleshooting의 락 저장소 확인과 DEBUG 로거"
+    }
+  },
+  {
+    "page": "spring-advanced/13_coordinating_scheduled_jobs_with_shedlock.md",
+    "claim": "`shedlock-micrometer`를 추가하고 `MicrometerLockingTaskExecutorListener` 빈을 등록하면 `lock.name` 태그로 획득 시도·성공·미획득과 실행 시간을 볼 수 있다. `shedlock.lock.not.acquired`로 건너뛴 시도를, `shedlock.execution.duration`으로 실행 시간이 만료 설정에 가까워지는지 관찰한다. [ShedLock Micrometer 연동](https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#micrometer-integration-spring)",
+    "checked_on": "2026-11-24",
+    "applies_to": "ShedLock 7.12.0 Spring Micrometer 연동",
+    "source": {
+      "url": "https://github.com/lukas-krecan/ShedLock/blob/shedlock-parent-7.12.0/README.md#micrometer-integration-spring",
+      "locator": "Micrometer 의존성, LockingTaskExecutorListener 빈과 lock.name 메트릭 표"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5를 사용하는 PostgreSQL 예제다. 서비스 메서드의 트랜잭션 선언에 따라 Writer 또는 Reader에서 JDBC 연결을 얻는다. [MyBatis Starter 호환성](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Starter 3.0.5 릴리스](https://github.com/mybatis/spring-boot-starter/releases/tag/mybatis-spring-boot-3.0.5) · [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5 및 PostgreSQL 18",
+    "source": {
+      "url": "https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/",
+      "locator": "Requirements 표의 Starter 3.0과 Spring Boot 3.2–3.5"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5를 사용하는 PostgreSQL 예제다. 서비스 메서드의 트랜잭션 선언에 따라 Writer 또는 Reader에서 JDBC 연결을 얻는다. [MyBatis Starter 호환성](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Starter 3.0.5 릴리스](https://github.com/mybatis/spring-boot-starter/releases/tag/mybatis-spring-boot-3.0.5) · [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5 및 PostgreSQL 18",
+    "source": {
+      "url": "https://github.com/mybatis/spring-boot-starter/releases/tag/mybatis-spring-boot-3.0.5",
+      "locator": "MyBatis Spring Boot 3.0.5 릴리스"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5를 사용하는 PostgreSQL 예제다. 서비스 메서드의 트랜잭션 선언에 따라 Writer 또는 Reader에서 JDBC 연결을 얻는다. [MyBatis Starter 호환성](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Starter 3.0.5 릴리스](https://github.com/mybatis/spring-boot-starter/releases/tag/mybatis-spring-boot-3.0.5) · [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5, Spring Framework 6.2, MyBatis-Spring Boot Starter 3.0.5 및 PostgreSQL 18",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html",
+      "locator": "지연 연결 프록시의 읽기 전용 DataSource 지원"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "`@ReaderTx`는 `@Transactional(readOnly = true)`를, `@WriterTx`는 기본 읽기·쓰기 `@Transactional`을 나타내는 합성 어노테이션이다. 외부 호출이 Spring 트랜잭션 프록시를 통과하면 새 트랜잭션에 읽기 전용 여부가 적용된다. 같은 빈의 `this`를 통한 호출은 프록시를 거치지 않으므로, 별도 경계가 필요한 작업은 다른 빈의 메서드를 호출한다. [Spring의 합성 어노테이션과 프록시 모드](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 기본 트랜잭션 프록시 및 메서드 합성 어노테이션",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "Custom Composed Annotations, @Transactional Settings의 readOnly 기본값, 프록시 모드의 자기 호출 제약"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "`LazyConnectionDataSourceProxy`는 첫 JDBC `Statement`를 만들 때까지 물리 연결 획득을 미룬다. Spring 6.1.2부터 `setReadOnlyDataSource(...)`로 읽기 전용 연결의 대상을 지정할 수 있다. 예제에서는 새 읽기 전용 트랜잭션의 첫 SQL은 Reader에, 새 읽기·쓰기 트랜잭션과 트랜잭션 없는 호출의 첫 SQL은 기본 대상인 Writer에 연결된다. MyBatis 매퍼는 현재 Spring 트랜잭션에 연결된 `SqlSession`을 사용하므로 같은 트랜잭션의 후속 SQL도 같은 연결에서 실행한다. [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring SqlSessionTemplate](https://mybatis.org/spring/sqlsession.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 지연 JDBC 연결과 MyBatis-Spring 3.0 트랜잭션 세션",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html",
+      "locator": "클래스 설명의 첫 JDBC Statement와 setReadOnlyDataSource의 6.1.2 적용 시점"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "`LazyConnectionDataSourceProxy`는 첫 JDBC `Statement`를 만들 때까지 물리 연결 획득을 미룬다. Spring 6.1.2부터 `setReadOnlyDataSource(...)`로 읽기 전용 연결의 대상을 지정할 수 있다. 예제에서는 새 읽기 전용 트랜잭션의 첫 SQL은 Reader에, 새 읽기·쓰기 트랜잭션과 트랜잭션 없는 호출의 첫 SQL은 기본 대상인 Writer에 연결된다. MyBatis 매퍼는 현재 Spring 트랜잭션에 연결된 `SqlSession`을 사용하므로 같은 트랜잭션의 후속 SQL도 같은 연결에서 실행한다. [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring SqlSessionTemplate](https://mybatis.org/spring/sqlsession.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 지연 JDBC 연결과 MyBatis-Spring 3.0 트랜잭션 세션",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-jdbc/src/main/java/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.java",
+      "locator": "LazyConnectionInvocationHandler의 readOnly 플래그, getTargetConnection과 getDataSourceToUse"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "`LazyConnectionDataSourceProxy`는 첫 JDBC `Statement`를 만들 때까지 물리 연결 획득을 미룬다. Spring 6.1.2부터 `setReadOnlyDataSource(...)`로 읽기 전용 연결의 대상을 지정할 수 있다. 예제에서는 새 읽기 전용 트랜잭션의 첫 SQL은 Reader에, 새 읽기·쓰기 트랜잭션과 트랜잭션 없는 호출의 첫 SQL은 기본 대상인 Writer에 연결된다. MyBatis 매퍼는 현재 Spring 트랜잭션에 연결된 `SqlSession`을 사용하므로 같은 트랜잭션의 후속 SQL도 같은 연결에서 실행한다. [Spring JDBC 지연 연결](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring SqlSessionTemplate](https://mybatis.org/spring/sqlsession.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 지연 JDBC 연결과 MyBatis-Spring 3.0 트랜잭션 세션",
+    "source": {
+      "url": "https://mybatis.org/spring/sqlsession.html",
+      "locator": "SqlSessionTemplate이 현재 Spring 트랜잭션에 연결된 세션을 사용하는 규칙"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "![서비스의 ReaderTx 또는 WriterTx가 새 트랜잭션의 읽기 전용 여부를 정한다. MyBatis 매퍼가 첫 JDBC Statement를 만들 때, 지연 연결 데이터 소스는 읽기 전용 트랜잭션에는 Reader 풀을, 읽기·쓰기 트랜잭션에는 Writer 풀을 사용한다.](image/17_mybatis_reader_writer_transaction_routing.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0의 Reader 및 Writer 연결 선택 그림",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "트랜잭션 프록시 진입과 사용자 합성 어노테이션"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "![서비스의 ReaderTx 또는 WriterTx가 새 트랜잭션의 읽기 전용 여부를 정한다. MyBatis 매퍼가 첫 JDBC Statement를 만들 때, 지연 연결 데이터 소스는 읽기 전용 트랜잭션에는 Reader 풀을, 읽기·쓰기 트랜잭션에는 Writer 풀을 사용한다.](image/17_mybatis_reader_writer_transaction_routing.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0의 Reader 및 Writer 연결 선택 그림",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html",
+      "locator": "새 연결의 획득과 읽기 전용 DataSource 선택"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "![서비스의 ReaderTx 또는 WriterTx가 새 트랜잭션의 읽기 전용 여부를 정한다. MyBatis 매퍼가 첫 JDBC Statement를 만들 때, 지연 연결 데이터 소스는 읽기 전용 트랜잭션에는 Reader 풀을, 읽기·쓰기 트랜잭션에는 Writer 풀을 사용한다.](image/17_mybatis_reader_writer_transaction_routing.png)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0의 Reader 및 Writer 연결 선택 그림",
+    "source": {
+      "url": "https://mybatis.org/spring/transactions.html",
+      "locator": "트랜잭션 동안 동일 SqlSession 사용 및 공유 DataSource 조건"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "그림 근거 · [Spring 선언적 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Reader 연결 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0을 연결하는 그림",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "합성 어노테이션에 선언한 트랜잭션 옵션"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "그림 근거 · [Spring 선언적 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Reader 연결 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0을 연결하는 그림",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html",
+      "locator": "첫 Statement에서 Reader 또는 기본 DataSource 연결을 얻는 설명"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "그림 근거 · [Spring 선언적 트랜잭션](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [Reader 연결 선택](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2와 MyBatis-Spring 3.0을 연결하는 그림",
+    "source": {
+      "url": "https://mybatis.org/spring/transactions.html",
+      "locator": "Standard Configuration의 공유 DataSource와 세션 관리"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot의 의존성 관리를 쓰는 프로젝트에 다음 의존성을 추가한다. `jdbc-url`에는 각각 Writer와 Reader의 JDBC 엔드포인트를 지정한다. 두 서버에 같은 업무 스키마가 있어야 하며 Reader 계정에는 필요한 읽기 권한만 부여한다. [MyBatis Starter 설치](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Spring Boot의 Hikari DataSource 설정](https://docs.spring.io/spring-boot/3.5/how-to/data-access.html) · [PostgreSQL 객체 권한](https://www.postgresql.org/docs/18/ddl-priv.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5의 HikariCP 연결 설정과 PostgreSQL 18 Reader 권한 예시",
+    "source": {
+      "url": "https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/",
+      "locator": "Installation의 starter 의존성과 Spring Boot"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot의 의존성 관리를 쓰는 프로젝트에 다음 의존성을 추가한다. `jdbc-url`에는 각각 Writer와 Reader의 JDBC 엔드포인트를 지정한다. 두 서버에 같은 업무 스키마가 있어야 하며 Reader 계정에는 필요한 읽기 권한만 부여한다. [MyBatis Starter 설치](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Spring Boot의 Hikari DataSource 설정](https://docs.spring.io/spring-boot/3.5/how-to/data-access.html) · [PostgreSQL 객체 권한](https://www.postgresql.org/docs/18/ddl-priv.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5의 HikariCP 연결 설정과 PostgreSQL 18 Reader 권한 예시",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/how-to/data-access.html",
+      "locator": "Configure a Custom DataSource의 Hikari jdbc-url 속성과 구성 바인딩"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "Spring Boot의 의존성 관리를 쓰는 프로젝트에 다음 의존성을 추가한다. `jdbc-url`에는 각각 Writer와 Reader의 JDBC 엔드포인트를 지정한다. 두 서버에 같은 업무 스키마가 있어야 하며 Reader 계정에는 필요한 읽기 권한만 부여한다. [MyBatis Starter 설치](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) · [Spring Boot의 Hikari DataSource 설정](https://docs.spring.io/spring-boot/3.5/how-to/data-access.html) · [PostgreSQL 객체 권한](https://www.postgresql.org/docs/18/ddl-priv.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5의 HikariCP 연결 설정과 PostgreSQL 18 Reader 권한 예시",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/ddl-priv.html",
+      "locator": "Privileges의 SELECT 및 객체 권한 부여"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "트랜잭션 매니저와 `SqlSessionFactoryBean`에는 동일한 지연 연결 `DataSource` 빈을 주입한다. 지연 프록시는 Reader 연결의 `Connection.setReadOnly(...)`를 호출하지 않으므로 Reader 풀에 읽기 전용 기본값을 설정한다. 두 풀과 프록시의 기본 자동 커밋 및 격리 수준도 일치시킨다. 예제는 명시한 기본값을 사용해 프록시가 초기 연결 속성을 확인하러 Writer 연결을 먼저 빌리는 일을 피한다. [MyBatis-Spring의 동일 DataSource 조건](https://mybatis.org/spring/transactions.html) · [Spring 지연 연결의 기본 속성](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [HikariCP 풀 속성](https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.3.3)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2.19, MyBatis-Spring 3.0.5 및 HikariCP 6.3.3의 두 풀 구성",
+    "source": {
+      "url": "https://mybatis.org/spring/transactions.html",
+      "locator": "Standard Configuration의 트랜잭션 매니저와 SqlSessionFactoryBean의 동일 DataSource 조건"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "트랜잭션 매니저와 `SqlSessionFactoryBean`에는 동일한 지연 연결 `DataSource` 빈을 주입한다. 지연 프록시는 Reader 연결의 `Connection.setReadOnly(...)`를 호출하지 않으므로 Reader 풀에 읽기 전용 기본값을 설정한다. 두 풀과 프록시의 기본 자동 커밋 및 격리 수준도 일치시킨다. 예제는 명시한 기본값을 사용해 프록시가 초기 연결 속성을 확인하러 Writer 연결을 먼저 빌리는 일을 피한다. [MyBatis-Spring의 동일 DataSource 조건](https://mybatis.org/spring/transactions.html) · [Spring 지연 연결의 기본 속성](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [HikariCP 풀 속성](https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.3.3)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2.19, MyBatis-Spring 3.0.5 및 HikariCP 6.3.3의 두 풀 구성",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html",
+      "locator": "setReadOnlyDataSource의 읽기 전용, autoCommit, isolation 기본값"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "트랜잭션 매니저와 `SqlSessionFactoryBean`에는 동일한 지연 연결 `DataSource` 빈을 주입한다. 지연 프록시는 Reader 연결의 `Connection.setReadOnly(...)`를 호출하지 않으므로 Reader 풀에 읽기 전용 기본값을 설정한다. 두 풀과 프록시의 기본 자동 커밋 및 격리 수준도 일치시킨다. 예제는 명시한 기본값을 사용해 프록시가 초기 연결 속성을 확인하러 Writer 연결을 먼저 빌리는 일을 피한다. [MyBatis-Spring의 동일 DataSource 조건](https://mybatis.org/spring/transactions.html) · [Spring 지연 연결의 기본 속성](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [HikariCP 풀 속성](https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.3.3)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2.19, MyBatis-Spring 3.0.5 및 HikariCP 6.3.3의 두 풀 구성",
+    "source": {
+      "url": "https://github.com/spring-projects/spring-framework/blob/v6.2.19/spring-jdbc/src/main/java/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.java",
+      "locator": "checkDefaultConnectionProperties의 기본값 미설정 시에만 Writer 속성 조회 조건"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "트랜잭션 매니저와 `SqlSessionFactoryBean`에는 동일한 지연 연결 `DataSource` 빈을 주입한다. 지연 프록시는 Reader 연결의 `Connection.setReadOnly(...)`를 호출하지 않으므로 Reader 풀에 읽기 전용 기본값을 설정한다. 두 풀과 프록시의 기본 자동 커밋 및 격리 수준도 일치시킨다. 예제는 명시한 기본값을 사용해 프록시가 초기 연결 속성을 확인하러 Writer 연결을 먼저 빌리는 일을 피한다. [MyBatis-Spring의 동일 DataSource 조건](https://mybatis.org/spring/transactions.html) · [Spring 지연 연결의 기본 속성](https://docs.spring.io/spring-framework/docs/6.2.x/javadoc-api/org/springframework/jdbc/datasource/LazyConnectionDataSourceProxy.html) · [HikariCP 풀 속성](https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.3.3)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2.19, MyBatis-Spring 3.0.5 및 HikariCP 6.3.3의 두 풀 구성",
+    "source": {
+      "url": "https://github.com/brettwooldridge/HikariCP/tree/HikariCP-6.3.3",
+      "locator": "Configuration의 readOnly, autoCommit, transactionIsolation 옵션"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "설정과 서비스는 `@SpringBootApplication`의 컴포넌트 스캔 범위에 두고, 두 합성 어노테이션을 서비스와 같은 `example.routing` 패키지에 둔다. 두 어노테이션의 기본 전파 방식은 `REQUIRED`다. 트랜잭션 시작과 커밋·롤백은 Spring이 관리하므로 서비스에서 MyBatis의 `commit()`이나 `rollback()`을 직접 호출하지 않는다. [Spring Boot의 패키지 구조](https://docs.spring.io/spring-boot/3.5/reference/using/structuring-your-code.html) · [Spring 합성 어노테이션과 기본값](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5 컴포넌트 스캔과 Spring Framework 6.2 트랜잭션 및 MyBatis 세션 관리",
+    "source": {
+      "url": "https://docs.spring.io/spring-boot/3.5/reference/using/structuring-your-code.html",
+      "locator": "Locating the Main Application Class의 기본 컴포넌트 스캔 패키지"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "설정과 서비스는 `@SpringBootApplication`의 컴포넌트 스캔 범위에 두고, 두 합성 어노테이션을 서비스와 같은 `example.routing` 패키지에 둔다. 두 어노테이션의 기본 전파 방식은 `REQUIRED`다. 트랜잭션 시작과 커밋·롤백은 Spring이 관리하므로 서비스에서 MyBatis의 `commit()`이나 `rollback()`을 직접 호출하지 않는다. [Spring Boot의 패키지 구조](https://docs.spring.io/spring-boot/3.5/reference/using/structuring-your-code.html) · [Spring 합성 어노테이션과 기본값](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5 컴포넌트 스캔과 Spring Framework 6.2 트랜잭션 및 MyBatis 세션 관리",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html",
+      "locator": "@Transactional Settings의 REQUIRED 기본값 및 Custom Composed Annotations"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "설정과 서비스는 `@SpringBootApplication`의 컴포넌트 스캔 범위에 두고, 두 합성 어노테이션을 서비스와 같은 `example.routing` 패키지에 둔다. 두 어노테이션의 기본 전파 방식은 `REQUIRED`다. 트랜잭션 시작과 커밋·롤백은 Spring이 관리하므로 서비스에서 MyBatis의 `commit()`이나 `rollback()`을 직접 호출하지 않는다. [Spring Boot의 패키지 구조](https://docs.spring.io/spring-boot/3.5/reference/using/structuring-your-code.html) · [Spring 합성 어노테이션과 기본값](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html) · [MyBatis-Spring 트랜잭션](https://mybatis.org/spring/transactions.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Boot 3.5 컴포넌트 스캔과 Spring Framework 6.2 트랜잭션 및 MyBatis 세션 관리",
+    "source": {
+      "url": "https://mybatis.org/spring/transactions.html",
+      "locator": "Programmatic Transaction Management의 Spring 관리 SqlSession 커밋 및 롤백"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "예제는 `catalog_item(id bigint PRIMARY KEY, name text NOT NULL)` 테이블을 사용한다. `findName`과 `findFreshName`은 같은 매퍼 SQL을 호출한다. 새 트랜잭션이면 서비스 어노테이션에 따라 연결 대상이 달라진다. `createAndRead`가 다른 빈의 `findName`을 호출하면 바깥 Writer 트랜잭션에 참여하므로 같은 트랜잭션에서 방금 삽입한 값을 읽을 수 있다. [Spring REQUIRED 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html) · [PostgreSQL Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 REQUIRED와 PostgreSQL 18 Read Committed의 같은 트랜잭션 읽기",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
+      "locator": "PROPAGATION_REQUIRED의 바깥 연결 및 특성 재사용"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "예제는 `catalog_item(id bigint PRIMARY KEY, name text NOT NULL)` 테이블을 사용한다. `findName`과 `findFreshName`은 같은 매퍼 SQL을 호출한다. 새 트랜잭션이면 서비스 어노테이션에 따라 연결 대상이 달라진다. `createAndRead`가 다른 빈의 `findName`을 호출하면 바깥 Writer 트랜잭션에 참여하므로 같은 트랜잭션에서 방금 삽입한 값을 읽을 수 있다. [Spring REQUIRED 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html) · [PostgreSQL Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 REQUIRED와 PostgreSQL 18 Read Committed의 같은 트랜잭션 읽기",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "SELECT가 같은 트랜잭션에서 앞서 적용한 변경을 읽는 규칙"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "- PostgreSQL 복제본에 커밋이 반영되기까지 시간이 걸릴 수 있다. 쓰기 직후 다른 요청에서 방금 커밋한 값이 필요하면 그 조회의 트랜잭션을 Writer에서 시작한다. Reader는 복제 지연을 허용하는 조회에 사용한다. [PostgreSQL Hot Standby](https://www.postgresql.org/docs/18/hot-standby.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 18의 비동기 복제에서 커밋 직후 조회",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/hot-standby.html",
+      "locator": "User's Overview의 기본 서버와 스탠바이 간 반영 지연 및 재생 후 가시성"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "- 기존 Reader 트랜잭션에서 `@WriterTx`의 `REQUIRED` 메서드를 호출해도 새 연결을 선택하지 않는다. 예제의 `setValidateExistingTransaction(true)`는 읽기 전용 바깥 트랜잭션에 읽기·쓰기 메서드가 참여하려는 경우를 예외로 거부한다. `REQUIRES_NEW`는 별도 연결과 커밋 경계를 만들며 PostgreSQL의 새 트랜잭션은 바깥 트랜잭션의 미커밋 쓰기를 볼 수 없다. [Spring 트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html) · [PostgreSQL Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 기존 트랜잭션 검증과 PostgreSQL 18의 미커밋 변경 가시성",
+    "source": {
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html",
+      "locator": "REQUIRED의 바깥 특성과 validateExistingTransaction의 읽기 전용 불일치, REQUIRES_NEW의 물리 경계"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "- 기존 Reader 트랜잭션에서 `@WriterTx`의 `REQUIRED` 메서드를 호출해도 새 연결을 선택하지 않는다. 예제의 `setValidateExistingTransaction(true)`는 읽기 전용 바깥 트랜잭션에 읽기·쓰기 메서드가 참여하려는 경우를 예외로 거부한다. `REQUIRES_NEW`는 별도 연결과 커밋 경계를 만들며 PostgreSQL의 새 트랜잭션은 바깥 트랜잭션의 미커밋 쓰기를 볼 수 없다. [Spring 트랜잭션 전파](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/tx-propagation.html) · [PostgreSQL Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED)",
+    "checked_on": "2026-11-24",
+    "applies_to": "Spring Framework 6.2 기존 트랜잭션 검증과 PostgreSQL 18의 미커밋 변경 가시성",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED",
+      "locator": "다른 트랜잭션의 미커밋 변경을 읽지 않는 Read Committed 스냅샷"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "- 실제 라우팅은 진단 SQL을 매퍼에 임시로 추가한 뒤 서비스 프록시를 통해 호출해 확인한다. PostgreSQL 물리 복제에서는 `pg_is_in_recovery()`가 `true`면 복구 중인 서버다. Aurora를 사용한다면 Reader 엔드포인트는 쿼리별로 분산하지 않고 연결을 분산하며, 복제본이 없으면 기본 인스턴스에 연결한다. [PostgreSQL 복구 상태 함수](https://www.postgresql.org/docs/18/functions-admin.html#FUNCTIONS-RECOVERY-INFO-TABLE) · [Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 18 복구 상태 확인과 Aurora Reader 엔드포인트의 실제 연결 대상",
+    "source": {
+      "url": "https://www.postgresql.org/docs/18/functions-admin.html#FUNCTIONS-RECOVERY-INFO-TABLE",
+      "locator": "Recovery Information Functions 표의 pg_is_in_recovery"
+    }
+  },
+  {
+    "page": "spring-db/17_routing_mybatis_transactions_to_reader_and_writer.md",
+    "claim": "- 실제 라우팅은 진단 SQL을 매퍼에 임시로 추가한 뒤 서비스 프록시를 통해 호출해 확인한다. PostgreSQL 물리 복제에서는 `pg_is_in_recovery()`가 `true`면 복구 중인 서버다. Aurora를 사용한다면 Reader 엔드포인트는 쿼리별로 분산하지 않고 연결을 분산하며, 복제본이 없으면 기본 인스턴스에 연결한다. [PostgreSQL 복구 상태 함수](https://www.postgresql.org/docs/18/functions-admin.html#FUNCTIONS-RECOVERY-INFO-TABLE) · [Aurora Reader 엔드포인트](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html)",
+    "checked_on": "2026-11-24",
+    "applies_to": "PostgreSQL 18 복구 상태 확인과 Aurora Reader 엔드포인트의 실제 연결 대상",
+    "source": {
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
+      "locator": "연결 단위 분산과 복제본이 없을 때 기본 인스턴스에 연결되는 조건"
+    }
   }
 ]
