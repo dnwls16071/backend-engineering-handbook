@@ -83164,5 +83164,65 @@
       "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Reader.html",
       "locator": "연결 단위 분산과 복제본이 없을 때 기본 인스턴스에 연결되는 조건"
     }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "발행/구독 메시지 전달 패턴의 특징은 전송자(발행하는 쪽)가 데이터(메시지)를 보낼 때, 직접 수신자(구독하는 쪽)로 보내지 않는다는 것이다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 발행/구독 메시지 전달 패턴의 일반 개념",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=28",
+      "locator": "1.1 발행/구독 메시지 전달 첫 문단, 2쪽"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "대신, 전송자(쓰는 쪽)는 어떤 형태로든 메시지를 분류해서 보내고, 수신자(읽는 쪽)는 이렇게 분류된 메시지를 구독한다. 발행/구독 시스템에는 대개 발행된 메시지를 전달받고 중계해주는 중간 지점 역할을 하는 브로커가 있다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 발행/구독 메시지 전달 패턴의 일반 개념",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=28",
+      "locator": "1.1 발행/구독 메시지 전달 첫 문단, 2쪽"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "처음에는 애플리케이션이 모니터링 지표를 대시보드로 직접 보낸다. 장기 분석이나 경보처럼 지표를 쓰는 곳이 늘어나면, 애플리케이션별로 전송 대상을 추가하거나 조회용 연결을 열어야 해서 연결을 관리하기 어려워진다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 지표를 주고받는 애플리케이션 간 직접 연결 사례",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=28",
+      "locator": "1.1.1 초기의 발행/구독 시스템, 그림 1-1·1-2와 본문, 2~3쪽"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "지표 수집을 한곳으로 모으면 각 애플리케이션은 공통 수집 시스템에 지표를 보내고, 대시보드·분석·경보 서비스는 그곳에서 필요한 지표를 얻는다. 발행자와 구독자 사이의 개별 연결이 줄어든다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 공통 지표 수집 시스템을 둔 발행/구독 사례",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=29",
+      "locator": "1.1.1 초기의 발행/구독 시스템, 그림 1-3과 앞 문단, 3쪽"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "지표 수집 방식을 로그와 웹사이트 사용자 활동에도 적용하면, 데이터 종류마다 발행자와 구독자를 분리할 수 있다. 지표는 대시보드와 경보에, 로그는 검색과 보안 분석에, 사용자 활동은 머신러닝과 보고에 활용한다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 지표·로그·사용자 활동에 별도의 발행/구독 시스템을 둔 사례",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=30",
+      "locator": "1.1.2 개별 메시지 큐 시스템, 그림 1-4와 앞 문단, 3~4쪽"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/01_get_started_with_kafka.md",
+    "claim": "용도별로 시스템을 따로 두면 구현과 운영이 중복되고, 시스템마다 다른 버그와 제약을 관리해야 한다. 여러 종류의 데이터를 발행·구독할 수 있는 공통 시스템이 필요해졌고, 카프카는 이 문제를 해결하기 위해 설계됐다.",
+    "checked_on": "2026-08-29",
+    "applies_to": "《카프카 핵심 가이드》 개정증보판 1장의 용도별 메시징 시스템의 운영 중복과 카프카의 설계 배경",
+    "source": {
+      "url": "https://fliphtml5.com/lqxyn/qcfb/%EC%B9%B4%ED%94%84%EC%B9%B4%ED%95%B5%EC%8B%AC%EA%B0%80%EC%9D%B4%EB%93%9C%28%EA%B0%9C%EC%A0%95%EC%A6%9D%EB%B3%B4%ED%8C%90%29_sample/#p=30",
+      "locator": "1.1.2 개별 메시지 큐 시스템 마지막 문단 및 1.2 카프카 입문 첫 문단, 4쪽"
+    }
   }
 ]
