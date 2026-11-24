@@ -1,4 +1,4 @@
-# Lounge
+# Backend Engineering Handbook
 
 💻 백엔드 시스템의 설계·구현·운영을 정리한 학습·실무 위키입니다.
 
