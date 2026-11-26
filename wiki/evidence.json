@@ -115282,5 +115282,295 @@
       "url": "https://www.jaegertracing.io/docs/2.23/architecture/spm/",
       "locator": "Jaeger 2.23 · Service Performance Monitoring"
     }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "호스트 이름을 `0.0.0.0`으로 잡아줄 경우 모든 네트워크 인터페이스로부터 연결을 받게 되며, 이 값을 비워 주면 기본 인터페이스에 대해서만 연결을 받게 된다. [Apache Kafka 3.0 · Broker Configs](https://kafka.apache.org/30/generated/kafka_config.html)",
+    "applies_to": "Apache Kafka 3.0 브로커의 IPv4 리스너 설정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/generated/kafka_config.html",
+      "locator": "listeners의 0.0.0.0과 빈 호스트명 설명"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "기본적으로 하나의 로그 디렉터리에 대해 하나의 스레드만이 사용된다. 이 스레드들은 브로커가 시작될 때와 종료될 때만 사용되기 때문에 작업을 병렬화하기 위해서는 많은 수의 스레드를 할당해주는 것이 좋다. [Apache Kafka 3.0 · Broker Configs](https://kafka.apache.org/30/generated/kafka_config.html)",
+    "applies_to": "Apache Kafka 3.0의 로그 디렉터리별 복구 스레드",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/generated/kafka_config.html",
+      "locator": "num.recovery.threads.per.data.dir의 기본값, 시작 시 복구와 종료 시 플러시"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "  > * 만약 클라우드 서비스를 사용하고 있다면 가상 머신이나 디스크에 초당 입출력(input/output operations per second, IOPS) 제한이 걸려 있는지? 사용중인 클라우드 서비스나 가상 머신 설정에 따라 허용되는 IOPS 상한선이 설정되어 있을 수 있다. 파티션 수가 너무 많으면 병렬 처리 때문에 본의 아니게 IOPS 양이 증가할 수 있다. [원서 2장 · Topic Defaults](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "Kafka 브로커 파티션 수와 클라우드 저장소의 IOPS 한도",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "How to Choose the Number of Partitions의 클라우드 IOPS 항목"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- `acks=all`과 `min.insync.replicas=2`를 함께 사용하면 동기화된 레플리카(ISR)가 최소 2개 있어야 한다. 리더는 모든 ISR에 레코드가 복제된 뒤 프로듀서에 성공을 응답한다. [Apache Kafka 3.0 · Producer Configs](https://kafka.apache.org/30/generated/producer_config.html) · [Apache Kafka 3.0 · Broker Configs](https://kafka.apache.org/30/generated/kafka_config.html)",
+    "applies_to": "Apache Kafka 3.0 프로듀서의 acks=all 설정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/generated/producer_config.html",
+      "locator": "acks의 all 값과 ISR 전체 확인 조건"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- `acks=all`과 `min.insync.replicas=2`를 함께 사용하면 동기화된 레플리카(ISR)가 최소 2개 있어야 한다. 리더는 모든 ISR에 레코드가 복제된 뒤 프로듀서에 성공을 응답한다. [Apache Kafka 3.0 · Producer Configs](https://kafka.apache.org/30/generated/producer_config.html) · [Apache Kafka 3.0 · Broker Configs](https://kafka.apache.org/30/generated/kafka_config.html)",
+    "applies_to": "Apache Kafka 3.0에서 min.insync.replicas=2와 acks=all을 사용하는 쓰기",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/generated/kafka_config.html",
+      "locator": "min.insync.replicas의 최소 복제본 수와 프로듀서 예외 조건"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "네트워크 문제가 불거져 나오는 것을 방지하기 위해서 10Gbps 이상의 네트워크 인터페이스 카드를 사용할 것을 권장한다. [원서 2장 · Networking](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "Kafka 워크로드의 네트워크 하드웨어를 선택하는 원서의 예시",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "Selecting Hardware의 Networking 절에 나오는 10 Gb NIC 권고"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "클러스터에 복제 기능이 설정되어 있다면 브로커 간 복제 트래픽도 네트워크 용량 산정에 반영해야 한다. 디스크 처리량이나 시스템 메모리가 부족하여 발생하는 성능 문제를 해결하려면 클러스터에 브로커를 추가 투입하여 확장해주어야 할 것이다. [원서 2장 · How Many Brokers?](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "브로커 간 복제를 사용하는 Kafka 클러스터의 용량 산정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "Configuring Kafka Clusters에서 네트워크 용량과 복제 트래픽을 고려하는 문단"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "> (파티션 수) x ((파티션 크기) / (세그먼트 크기)) + (브로커에 생성된 네트워크 연결 수) [원서 2장 · Virtual Memory](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "Kafka 브로커의 로그 세그먼트 파일과 열린 연결 수에 따른 추정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "Configuring Kafka Clusters의 파일 디스크립터 근사식과 네트워크 연결 수 설명"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "즉, Kafka 워크로드에서 최소한의 튜닝만으로도 Ext4보다 성능이 더 높기 때문이다. Ext4 역시 좋긴 하지만, 덜 안전한 것으로 여겨지는 튜닝 매개변수를 직접 잡아줄 필요가 있다. [원서 2장 · Disk](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "Linux에서 Kafka 브로커의 로컬 로그 파일시스템을 선택하는 경우",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "Configuring Kafka Clusters의 XFS와 Ext4 비교 문단"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "소켓 설정에 더해서, TCP 소켓의 송신, 수신 버퍼 크기 역시 별도로 설정(`net.ipv4.tcp_wmem`, `net.ipv4.tcp_rmem`)해주어야 한다. [Linux 커널 · IP Sysctl](https://docs.kernel.org/networking/ip-sysctl.html)",
+    "applies_to": "Linux의 IPv4 TCP 송신·수신 버퍼 설정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://docs.kernel.org/networking/ip-sysctl.html",
+      "locator": "IP Variables의 tcp_wmem과 tcp_rmem 항목"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "설정해주면 좋은 네트워크 튜닝 매개변수는 이것 외에도 몇 개가 있다. `net.ipv4.tcp_window_scaling`값을 1로 잡아 줌으로써 TCP 윈도우 스케일링 기능을 활성화시키면 클라이언트가 데이터를 더 효율적으로 전달할 수 있도록 (그리고 브로커가 현재 전달받고 있는 데이터를 버퍼링할 수 있도록) 할 수 있다. [Linux 커널 · IP Sysctl](https://docs.kernel.org/networking/ip-sysctl.html)",
+    "applies_to": "Linux에서 net.ipv4.tcp_window_scaling으로 TCP 윈도우 스케일링 활성화",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://docs.kernel.org/networking/ip-sysctl.html",
+      "locator": "IP Variables의 tcp_window_scaling 항목"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- Kafka 3.0은 `log.roll.ms`를 지정하지 않으면 `log.roll.hours`를 사용한다. 기본값은 168시간이므로 이 경우에도 시간 기준이 적용된다. [Apache Kafka 3.0 · Broker Configs](https://kafka.apache.org/30/generated/kafka_config.html)",
+    "applies_to": "Apache Kafka 3.0 브로커의 로그 세그먼트 교체",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/generated/kafka_config.html",
+      "locator": "log.roll.ms와 log.roll.hours의 대체 관계, 기본값 및 log.segment.bytes의 파일 크기 한도"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- 팔로워 레플리카는 파티션 리더에서 레코드를 가져와 자신의 로그를 동기화한다. [Apache Kafka 3.0 · Replication](https://kafka.apache.org/30/design/design/#replication)",
+    "applies_to": "Apache Kafka 3.0의 파티션 레플리카 동기화",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/30/design/design/#replication",
+      "locator": "Replication의 팔로워가 리더에서 메시지를 가져와 자신의 로그에 적용하는 동작"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- Linux의 `ctime`은 파일 상태가 마지막으로 변경된 시각이다. 파일 생성 시각은 파일시스템이 지원하는 경우 `btime`으로 확인할 수 있다. [Linux 매뉴얼 · inode(7)](https://man7.org/linux/man-pages/man7/inode.7.html)",
+    "applies_to": "Linux inode의 파일 접근·수정·상태 변경 시각 및 파일시스템이 지원하는 생성 시각",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://man7.org/linux/man-pages/man7/inode.7.html",
+      "locator": "File timestamps의 atime, btime, mtime, ctime 설명"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- `MaxGCPauseMillis`의 기본값 200ms는 개별 GC 정지 시간의 목표다. G1은 목표 시간에 맞춰 수집할 영역을 선택하며, 실제 정지 시간은 목표를 넘을 수 있다. [Oracle JDK 8 · G1 GC](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html)",
+    "applies_to": "JDK 8 HotSpot G1의 개별 GC 정지 시간 목표",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html",
+      "locator": "Pause Time Goal의 기본값과 목표 시간에 따른 수집 영역 선택"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- JDK 8의 G1은 `InitiatingHeapOccupancyPercent`를 전체 힙 점유율 기준으로 사용한다. JDK 11은 기본적으로 적응형 IHOP를 사용하며, 이 값은 올드 세대 점유율의 초기 기준이 된다. [Oracle JDK 8 · G1 GC](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html) · [Oracle JDK 11 · G1 GC](https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-g1-garbage-collector3.html)",
+    "applies_to": "JDK 8 HotSpot G1의 동시 마킹 시작 조건",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html",
+      "locator": "Starting a Concurrent Collection Cycle의 전체 힙 점유율 기준과 기본값"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- JDK 8의 G1은 `InitiatingHeapOccupancyPercent`를 전체 힙 점유율 기준으로 사용한다. JDK 11은 기본적으로 적응형 IHOP를 사용하며, 이 값은 올드 세대 점유율의 초기 기준이 된다. [Oracle JDK 8 · G1 GC](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html) · [Oracle JDK 11 · G1 GC](https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-g1-garbage-collector3.html)",
+    "applies_to": "JDK 11 HotSpot G1에서 기본 적응형 IHOP를 사용할 때의 초기 기준",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-g1-garbage-collector3.html",
+      "locator": "Determining Initiating Heap Occupancy와 Ergonomic Defaults for G1 GC의 적응형 IHOP 초기값"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "원서의 예시는 `MaxGCPauseMillis`를 20ms로 설정하고, `InitiatingHeapOccupancyPercent`를 기본값 45%에서 35%로 낮췄다. [원서 2장 · Garbage Collector Options](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 Kafka JVM 튜닝 예시",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Production Concerns의 Garbage Collector Options와 20ms·35% 설정 예시"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "원서는 Java 8 이상을 사용하는 환경에서 G1GC를 권장한다. 아래 예시는 `KAFKA_JVM_PERFORMANCE_OPTS`로 G1GC를 활성화하고 설정 파일 경로를 브로커 시작 명령의 인자로 전달한다. [원서 2장 · Garbage Collector Options](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 Kafka 브로커 실행 예시",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Production Concerns의 Garbage Collector Options에 나오는 Java 버전 설명, 환경 변수 및 Kafka 시작 명령"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "『카프카 핵심 가이드』 개정증보판 2장의 ZooKeeper 기반 브로커 설정과 운영 고려 사항을 정리한다. [원서 2장](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "『카프카 핵심 가이드』 개정증보판의 ZooKeeper 구성과 운영 설정 범위",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Installing Kafka의 General Broker Parameters와 Production Concerns"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "책은 크기 제한과 시간 제한 가운데 먼저 도달한 조건에 따라 세그먼트를 교체한다고 설명한다. `log.roll.ms`를 지정하지 않은 경우에는 크기 기준만 적용된다고 적고 있다. [원서 2장 · log.roll.ms](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장이 설명하는 로그 세그먼트 교체 조건",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Topic Defaults의 log.roll.ms 절"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "책은 데이터 내구성을 높이는 예로 `min.insync.replicas=2`와 `acks=all`을 함께 제시한다. 이 경우 쓰기가 성공하려면 리더와 팔로워를 포함해 최소 두 레플리카의 확인이 필요하다고 설명한다. [원서 2장 · min.insync.replicas](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 min.insync.replicas와 acks=all 예시",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Topic Defaults의 min.insync.replicas 절"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "책은 파일시스템 마운트 옵션을 설명하면서 `ctime`, `mtime`, `atime`을 각각 생성, 수정, 접근 시각으로 소개한다. [원서 2장 · Disk](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장이 소개하는 파일 타임스탬프 표기",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Configuring Kafka Clusters의 Disk 절에서 세 가지 시각을 나열하는 문단"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- 책은 `MaxGCPauseMillis`를 GC 정지 시간의 목표로 소개하고, G1GC가 기본값인 200ms에 맞춰 수집 주기와 한 번에 처리할 영역의 수를 조절한다고 설명한다. [원서 2장 · Garbage Collector Options](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 G1 정지 시간과 기본값 설명",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Production Concerns의 Garbage Collector Options 중 MaxGCPauseMillis 항목"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- 책은 `InitiatingHeapOccupancyPercent`를 G1GC가 수집 사이클을 시작하기 전까지 사용할 수 있는 전체 힙의 비율로 설명한다. 기본값은 45%로 제시한다. [원서 2장 · Garbage Collector Options](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 전체 힙 점유율과 기본값 설명",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Production Concerns의 Garbage Collector Options 중 InitiatingHeapOccupancyPercent 항목"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "책은 초기 카프카와 JVM의 호환성 배경을 설명하며 CMS를 카프카의 기본 가비지 수집기로 소개한다. [원서 2장 · Garbage Collector Options](https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf)",
+    "applies_to": "원서 2장의 초기 Kafka 가비지 수집기 설명",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://d2cvlmmg8c0xrp.cloudfront.net/book/kafka_guide_2022.pdf",
+      "locator": "2장 Production Concerns의 Garbage Collector Options에서 CMS 기본값을 설명하는 문단"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- Kafka 3.0.0 배포판의 실행 스크립트는 `KAFKA_JVM_PERFORMANCE_OPTS`가 비어 있으면 `-XX:+UseG1GC`를 기본 옵션으로 넣는다. [Apache Kafka 3.0.0 · kafka-run-class.sh](https://raw.githubusercontent.com/apache/kafka/3.0.0/bin/kafka-run-class.sh)",
+    "applies_to": "Apache Kafka 3.0.0 배포판의 셸 실행 스크립트",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://raw.githubusercontent.com/apache/kafka/3.0.0/bin/kafka-run-class.sh",
+      "locator": "JVM performance options의 KAFKA_JVM_PERFORMANCE_OPTS 기본값 분기"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- Kafka 4.0부터 ZooKeeper 모드가 제거되고 KRaft만 지원된다. 기존 ZooKeeper 클러스터를 4.x로 업그레이드하려면 먼저 KRaft로 마이그레이션해야 한다. [Apache Kafka 4.0 · Upgrading](https://kafka.apache.org/40/getting-started/upgrade/)",
+    "applies_to": "Apache Kafka 4.0 이후 및 ZooKeeper 모드에서의 업그레이드",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/40/getting-started/upgrade/",
+      "locator": "Upgrading Servers의 KRaft 전용 지원과 ZooKeeper 클러스터의 마이그레이션 선행 조건"
+    }
+  },
+  {
+    "page": "kafka-the-definitive-guide/02_installing_kafka.md",
+    "claim": "- KRaft에서는 컨트롤러 쿼럼이 클러스터 메타데이터를 관리한다. `zookeeper.connect`는 제거되었으며, 서버 식별에는 `node.id`를 사용한다. [Apache Kafka 4.0 · KRaft vs ZooKeeper](https://kafka.apache.org/40/getting-started/zk2kraft/)",
+    "applies_to": "Apache Kafka 4.0 KRaft 컨트롤러와 서버 식별 설정",
+    "checked_on": "2026-11-26",
+    "source": {
+      "url": "https://kafka.apache.org/40/getting-started/zk2kraft/",
+      "locator": "Configurations의 컨트롤러 역할, node.id 및 제거된 zookeeper.connect 설명"
+    }
   }
 ]
