@@ -4,7 +4,7 @@ TDD의 피드백 속도는 테스트를 얼마나 빨리 실행하고, 실패 �
 
 ## 1. IntelliJ IDEA와 명령줄에서 빠르게 실행하기
 
-프로젝트의 JDK 버전을 맞추고 Git과 IntelliJ IDEA에서 같은 빌드 설정을 사용한다. 강의는 JDK 21을 사용한다. 실제 프로젝트에서는 빌드 스크립트나 Gradle Toolchain에 지정된 버전을 따른다.
+빌드 스크립트나 Gradle Toolchain에 지정된 JDK 버전을 확인하고, 명령줄과 IntelliJ IDEA에서 같은 빌드 설정을 사용한다.
 
 | 확인할 범위 | 실행 방법 |
 | --- | --- |

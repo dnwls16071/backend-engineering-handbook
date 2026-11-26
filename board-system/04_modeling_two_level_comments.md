@@ -1,6 +1,6 @@
 # Modeling Two-Level Comments
 
-강의 21~25의 테이블·쓰기 API·목록 API는 루트 댓글 하나와 그 아래 한 단계의 답글을 기준으로 묶는다. 실습은 루트와 답글에 같은 테이블을 쓰고, `parent_id`와 `depth`로 두 층을 구분한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+댓글 테이블·쓰기 API·목록 API는 루트 댓글 하나와 그 아래 한 단계의 답글을 기준으로 묶는다. 실습은 루트와 답글에 같은 테이블을 쓰고, `parent_id`와 `depth`로 두 층을 구분한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
 ![두 단계 댓글의 삭제된 루트는 답글을 위해 자리 표시자로 남고, 세 번째 단계의 답글 쓰기는 거부된다.](image/04_two_level_comment_model.png)
 

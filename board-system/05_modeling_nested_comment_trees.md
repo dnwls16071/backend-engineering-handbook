@@ -1,6 +1,6 @@
 # Modeling Nested Comment Trees
 
-강의 26~28의 깊이 제한 없는 댓글은 부모 ID를 연결하는 인접 리스트로 정리한다. 실습의 `TREE` 모드는 두 단계 제약을 해제하고, 부모·자식이 같은 게시글과 모드를 공유하는 제약은 유지한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
+깊이 제한 없는 댓글은 부모 ID를 연결하는 인접 리스트로 정리한다. 실습의 `TREE` 모드는 두 단계 제약을 해제하고, 부모·자식이 같은 게시글과 모드를 공유하는 제약은 유지한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
 ![더 깊은 댓글 트리는 부모 관계로 연결한다. 가지 조회는 부모와 페이지 커서 범위에 맞춰 읽는다.](image/05_nested_comment_traversal.png)
 

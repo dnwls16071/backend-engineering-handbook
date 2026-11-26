@@ -1,6 +1,6 @@
 # Building a Kafka-Backed Popular Posts Projection
 
-인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. 학습 범위는 강의 41~48이다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)
+인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)
 
 ![MySQL 변경 이벤트는 Kafka를 통해 인기글 투영을 갱신하며, 순위는 점수와 고유 ID로 정한다.](image/08_kafka_popular_posts_projection.png)
 

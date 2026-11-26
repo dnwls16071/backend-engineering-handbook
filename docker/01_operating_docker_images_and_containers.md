@@ -12,12 +12,12 @@ Docker Hub에서 이미지를 고를 때는 배포 주체, 버전 태그, 필요
 docker version
 
 image=alpine:3.23
-lab_dir=$(mktemp -d "${TMPDIR:-/tmp}/lounge-docker.XXXXXXXX")
+lab_dir=$(mktemp -d "${TMPDIR:-/tmp}/backend-engineering-handbook-docker.XXXXXXXX")
 lab=${lab_dir##*/}
 short_run="${lab}-short"
 worker="${lab}-worker"
 shell_box="${lab}-shell"
-lab_image="lounge-docker-study:$lab"
+lab_image="backend-engineering-handbook-docker-study:$lab"
 
 docker image pull "$image"
 docker image ls --digests "$image"

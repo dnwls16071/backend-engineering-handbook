@@ -1,6 +1,6 @@
 # Publishing Board Events with a Transactional Outbox
 
-게시글과 반응을 저장하는 MySQL 트랜잭션 안에 발행할 변경을 함께 기록한다. 별도 릴레이가 커밋된 아웃박스를 읽어 Kafka로 보내고, 소비자가 읽기 모델을 갱신한다. 학습 범위는 강의 49~53이다. [AWS · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
+게시글과 반응을 저장하는 MySQL 트랜잭션 안에 발행할 변경을 함께 기록한다. 별도 릴레이가 커밋된 아웃박스를 읽어 Kafka로 보내고, 소비자가 읽기 모델을 갱신한다. [AWS · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)
 
 ![원본과 함께 커밋한 아웃박스는 Kafka 중단 시 대기하고, 재시도 뒤 발행 상태와 조회 투영을 갱신한다.](image/09_outbox_failure_and_recovery.png)
 

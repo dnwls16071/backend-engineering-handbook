@@ -10,7 +10,7 @@ Gateway가 주문 생성 요청을 Orders에 넘기고 Orders가 Catalogs에 상
 
 ## 2. Spring Boot 4.2의 계측과 전파
 
-Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. 이전 강의의 Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)
+Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)
 
 HTTP 양쪽이 W3C Trace Context를 사용하면 발신자는 `traceparent`에 Trace ID와 부모 Span 식별자를 담고 수신자는 이를 읽어 같은 Trace의 다음 Span을 만든다. Spring Boot가 자동 구성한 `RestClient.Builder` 또는 `WebClient.Builder`로 만든 HTTP 클라이언트를 사용하면 전파가 연결된다. Gateway Span은 보이는데 다음 서비스만 새 Trace를 시작한다면 발신 클라이언트 구성과 수신 서비스의 헤더 형식을 비교한다. [W3C · Trace Context](https://www.w3.org/TR/trace-context/) · [Spring Boot 4.2 · Trace 전파](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html#actuator.tracing.propagating-traces)
 

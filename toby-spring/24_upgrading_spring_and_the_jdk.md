@@ -1,6 +1,6 @@
 # Upgrading Spring and the JDK
 
-업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 강의 환경의 세부 버전은 목차에서 확인할 수 없으므로 사용 중인 프레임워크의 공식 호환 범위를 먼저 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)
+업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 업그레이드 전에는 현재 버전과 목표 버전의 공식 호환 범위를 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)
 
 ## 1. 빌드와 실행의 버전을 맞춘다
 

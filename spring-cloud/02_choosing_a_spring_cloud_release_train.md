@@ -1,8 +1,8 @@
 # Spring Cloud 릴리스 트레인을 선택하기
 
-2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. 첨부 목차의 Boot 3.2와 Cloud 2023.0은 강의 재현에 해당하는 별도 조합이다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)
+2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. Spring Boot 3.2와 Spring Cloud 2023.0은 기존 환경의 버전 조합 예시다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)
 
-![Boot 3.2와 Cloud 2023.0인 강의 예제를 식별한 뒤 공식 릴리스와 호환표를 확인해 Boot 4.2와 Cloud 2026.0을 기준으로 선택한다.](image/02_release_train_compatibility.png)
+![Boot 3.2와 Cloud 2023.0으로 구성된 기존 환경의 버전을 확인한 뒤, 공식 호환표를 바탕으로 Boot 4.2와 Cloud 2026.0을 선택한다.](image/02_release_train_compatibility.png)
 
 그림의 근거 · [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)
 

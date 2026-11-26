@@ -1,20 +1,20 @@
-# Lounge Wiki Workflow
+# backend-engineering-handbook Wiki Workflow
 
-`lounge`의 주제별 Markdown은 다른 업무 프로젝트를 구현할 때도 검색할 수 있다. `lounge` 자체를 열었을 때는 저장소의 `AGENTS.md`가 위키 관리 방법을 안내한다. 로컬 검색과 검증에는 Python 3.9 이상과 Git이 필요하다.
+`backend-engineering-handbook`의 주제별 Markdown은 다른 업무 프로젝트를 구현할 때도 검색할 수 있다. `backend-engineering-handbook` 자체를 열었을 때는 저장소의 `AGENTS.md`가 위키 관리 방법을 안내한다. 로컬 검색과 검증에는 Python 3.9 이상과 Git이 필요하다.
 
 ## 1. 업무 프로젝트를 구현하면서 위키 참고하기
 
-Codex를 **구현할 업무 저장소**에서 열고 기능이나 수정 사항을 요청한다. Codex는 현재 프로젝트의 코드, 의존성 버전, 테스트를 확인한다. 설계나 운영 판단에 관련된 `lounge` 문서를 찾아 읽고, 사용할 API와 동작 조건은 Context7에서 해당 버전의 공식 문서로 대조한다. 확인한 내용을 바탕으로 현재 프로젝트에 맞게 구현하고 테스트한다.
+Codex를 **구현할 업무 저장소**에서 열고 기능이나 수정 사항을 요청한다. Codex는 현재 프로젝트의 코드, 의존성 버전, 테스트를 확인한다. 설계나 운영 판단에 관련된 `backend-engineering-handbook` 문서를 찾아 읽고, 사용할 API와 동작 조건은 Context7에서 해당 버전의 공식 문서로 대조한다. 확인한 내용을 바탕으로 현재 프로젝트에 맞게 구현하고 테스트한다.
 
-> 결제 API의 타임아웃 재시도에서 중복 결제를 막도록 구현해 줘. 먼저 이 프로젝트의 결제 처리와 테스트를 읽고, `lounge`에서 멱등 키와 커밋 응답 유실 사례를 찾아 설계에 참고해. 사용할 Spring·DB 동작은 이 프로젝트 버전의 공식 문서를 Context7에서 확인해. 구현과 검증은 이 업무 저장소에서 진행해 줘.
+> 결제 API의 타임아웃 재시도에서 중복 결제를 막도록 구현해 줘. 먼저 이 프로젝트의 결제 처리와 테스트를 읽고, `backend-engineering-handbook`에서 멱등 키와 커밋 응답 유실 사례를 찾아 설계에 참고해. 사용할 Spring·DB 동작은 이 프로젝트 버전의 공식 문서를 Context7에서 확인해. 구현과 검증은 이 업무 저장소에서 진행해 줘.
 
-같은 흐름을 매번 요청하고 싶지 않다면 업무 저장소의 `AGENTS.md`에 아래 지침을 추가한다. 로컬 체크아웃 위치가 다르면 `lounge` 경로를 바꾼다.
+같은 흐름을 매번 요청하고 싶지 않다면 업무 저장소의 `AGENTS.md`에 아래 지침을 추가한다. 로컬 체크아웃 위치가 다르면 `backend-engineering-handbook` 경로를 바꾼다.
 
 ```md
 ## 구현 작업에서 기술 자료 확인하기
 
 - 먼저 이 프로젝트의 기존 코드, 테스트, 실제 의존성 버전과 설정을 확인한다.
-- 설계 결정이나 장애 대응에 관련된 사례가 필요하면 `python3 /Users/jwj/Desktop/lounge/wiki/wiki.py search "검색어" --limit 8`로 위키를 검색하고, 관련 결과의 앞뒤 문맥을 읽는다. 주제가 명확하면 `--scope <주제 폴더>`를 사용한다.
+- 설계 결정이나 장애 대응에 관련된 사례가 필요하면 `python3 /Users/jwj/Desktop/backend-engineering-handbook/wiki/wiki.py search "검색어" --limit 8`로 위키를 검색하고, 관련 결과의 앞뒤 문맥을 읽는다. 주제가 명확하면 `--scope <주제 폴더>`를 사용한다.
 - 사용할 외부 API나 제품 동작과 제약은 이 프로젝트가 사용하는 버전의 공식 문서를 Context7에서 찾아 확인한다. 문의에는 공개 기술 용어만 사용한다.
 - 확인한 설계와 API를 이 프로젝트의 코드와 테스트에 반영한다. 중요한 판단에 참고한 위키 경로와 공식 근거를 작업 결과에 남긴다.
 - 업무 코드 변경의 리뷰는 요청할 때 이 업무 저장소의 CodeRabbit 절차를 따른다. 위키에서 오류를 발견하면 문서 경로와 근거를 보고하고, 위키 수정이 요청되면 별도로 반영한다.
@@ -23,7 +23,7 @@ Codex를 **구현할 업무 저장소**에서 열고 기능이나 수정 사항�
 위키 파일을 복사하거나 업무 저장소에 추가할 필요 없이 외부 경로로 읽을 수 있다. 예를 들어 어느 디렉터리에서든 다음 명령으로 Aurora MySQL 노트를 검색한다.
 
 ```bash
-python3 /Users/jwj/Desktop/lounge/wiki/wiki.py search '멱등' --scope aurora-mysql --limit 3
+python3 /Users/jwj/Desktop/backend-engineering-handbook/wiki/wiki.py search '멱등' --scope aurora-mysql --limit 3
 ```
 
 ## 2. 위키를 검색하고 공식 원문으로 확인하기
@@ -86,10 +86,10 @@ python3 wiki/wiki.py check --scope mysql --max-age 90
 [기본 평가셋](evaluation-cases.json)은 15개 질문으로 근거를 찾을 수 있는 사례 13건과 답변 보류 사례 2건을 검사한다. 각 질문의 `query`와 `scope`로 기존 위키 검색을 실행하고, 파일별 첫 결과를 기준으로 상위 5개 문서에 기대 경로가 있는지 확인한다. 기본 실행은 첫 검색 결과의 한 줄을 답변으로 사용한다.
 
 ```bash
-python3 -B wiki/evaluate.py run --out /tmp/lounge-before.json
+python3 -B wiki/evaluate.py run --out /tmp/backend-engineering-handbook-before.json
 # 위키 문서나 검색을 변경한 뒤 실행
-python3 -B wiki/evaluate.py run --out /tmp/lounge-after.json
-python3 -B wiki/evaluate.py compare /tmp/lounge-before.json /tmp/lounge-after.json
+python3 -B wiki/evaluate.py run --out /tmp/backend-engineering-handbook-after.json
+python3 -B wiki/evaluate.py compare /tmp/backend-engineering-handbook-before.json /tmp/backend-engineering-handbook-after.json
 ```
 
 비교는 같은 평가셋, 검색 개수, 답변 모드로 실행한 보고서를 사용한다. 질문별로 새로 실패한 검사, 해결된 검사, 계속 실패하는 검사를 출력한다. JSON 보고서에는 검색된 문서와 줄, 검증된 인용 위치, 실패 사유가 남는다. `run`은 실패한 질문이 있으면 코드 1을 반환하고, `compare`는 새로 실패한 검사가 있으면 코드 1을 반환한다. 입력 또는 실행 오류는 코드 2다.
@@ -97,10 +97,10 @@ python3 -B wiki/evaluate.py compare /tmp/lounge-before.json /tmp/lounge-after.js
 실제 답변을 평가할 때는 질문 목록을 내보낸다. Codex에 각 질문을 위키 문서로 답하고, 결과를 아래 형식의 JSON 객체에 질문 ID별로 저장하도록 요청한다. 기준과 후보 답변을 각각 만든 뒤 같은 평가셋으로 채점한다.
 
 ```bash
-python3 -B wiki/evaluate.py questions > /tmp/lounge-questions.json
-python3 -B wiki/evaluate.py run --answers /tmp/lounge-answers-before.json --out /tmp/lounge-llm-before.json
-python3 -B wiki/evaluate.py run --answers /tmp/lounge-answers-after.json --out /tmp/lounge-llm-after.json
-python3 -B wiki/evaluate.py compare /tmp/lounge-llm-before.json /tmp/lounge-llm-after.json
+python3 -B wiki/evaluate.py questions > /tmp/backend-engineering-handbook-questions.json
+python3 -B wiki/evaluate.py run --answers /tmp/backend-engineering-handbook-answers-before.json --out /tmp/backend-engineering-handbook-llm-before.json
+python3 -B wiki/evaluate.py run --answers /tmp/backend-engineering-handbook-answers-after.json --out /tmp/backend-engineering-handbook-llm-after.json
+python3 -B wiki/evaluate.py compare /tmp/backend-engineering-handbook-llm-before.json /tmp/backend-engineering-handbook-llm-after.json
 ```
 
 다음은 답변 파일에서 한 질문에 해당하는 항목이다. 전체 실행에는 질문 목록의 모든 ID가 필요하다.

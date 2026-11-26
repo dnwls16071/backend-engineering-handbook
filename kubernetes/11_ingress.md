@@ -18,7 +18,7 @@
 | TLS Secret | 서버 인증서와 개인 키를 보관한다. | Ingress의 `spec.tls[].secretName`으로 참조한다. |
 
 - Controller용 Service와 앱 Service는 역할이 다르다. 외부에 Controller를 노출했다고 모든 앱 Service도 외부용 `LoadBalancer`로 만들 필요는 없다.
-- 이 문서의 `nginx.ingress.kubernetes.io/*` 설정은 강의에서 사용한 커뮤니티 **ingress-nginx**의 기능이다. 해당 프로젝트는 2026년 3월 유지보수 종료 대상으로 공지되었으며 이후 버그·보안 수정이 제공되지 않는다. 신규 구성에서는 유지보수되는 Controller나 Gateway API 구현을 검토한다. Ingress API와 다른 Nginx 기반 제품의 지원 수명은 별개이다. [공식 종료 안내](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/)
+- 이 문서의 `nginx.ingress.kubernetes.io/*` 설정은 커뮤니티 **ingress-nginx**의 기능이다. 해당 프로젝트는 2026년 3월 유지보수 종료 대상으로 공지되었으며 이후 버그·보안 수정이 제공되지 않는다. 신규 구성에서는 유지보수되는 Controller나 Gateway API 구현을 검토한다. Ingress API와 다른 Nginx 기반 제품의 지원 수명은 별개이다. [공식 종료 안내](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/)
 
 ## 2. 설정을 읽는 경로와 사용자 요청 경로를 구분한다
 

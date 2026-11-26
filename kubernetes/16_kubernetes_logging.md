@@ -5,7 +5,7 @@
 - **앱이 `stdout`·`stderr`로 출력하면 컨테이너 런타임이 노드에 로그 파일을 기록한다.** 일반적인 Linux 노드에서 기본 경로는 `/var/log/pods`이며 kubelet이 로그 회전을 관리한다. Pod 교체나 노드 장애 뒤에도 로그를 조회하려면 외부 백엔드에 전송해 보관한다. [Kubernetes 로깅 아키텍처](https://kubernetes.io/docs/concepts/cluster-administration/logging/), [Pod 종료 상태와 이전 로그](09_pod.md)
 - 노드 로그를 읽는 수집기는 보통 DaemonSet으로 배치한다. 앱에서 OpenTelemetry SDK로 계측하는 경우에는 로그를 OTLP로 Collector에 보낼 수도 있다. 같은 로그를 표준 출력과 OTLP 양쪽으로 수집하면 중복 저장될 수 있다. [DaemonSet과 노드별 수집](13_kubernetes_patterns.md), [OpenTelemetry Collector 배포 형태](https://opentelemetry.io/docs/platforms/kubernetes/helm/collector/)
 
-| 계층 | 강의에 나온 도구 | 역할 |
+| 계층 | 도구 예시 | 역할 |
 | :--- | :--- | :--- |
 | 수집·전송 | Logstash, Fluent Bit, Promtail, Grafana Alloy, OpenTelemetry Collector | 노드 로그나 앱이 보낸 데이터를 받아 파싱·변환하고 백엔드에 전달한다. |
 | 저장·검색 | Elasticsearch, OpenSearch, Loki | 로그를 보관하고 쿼리를 처리한다. Loki는 스트림 라벨과 시간으로 검색 범위를 좁힌다. |
@@ -18,7 +18,7 @@
 | 배포 방식 | 구성 | 운영에서 달라지는 점 |
 | :--- | :--- | :--- |
 | Monolithic | 읽기·쓰기·저장 관리 컴포넌트를 한 프로세스에서 실행한다. | 소규모에 구성이 단순하다. 고가용성이 필요하면 공유 객체 저장소와 복제 설정을 함께 검토한다. |
-| Simple Scalable(SSD) | 컴포넌트를 `read`, `write`, `backend` 세 그룹으로 나눈다. | 강의의 아키텍처가 사용하는 방식이다. Loki 4.0부터 이 배포 모드를 사용할 수 없다. |
+| Simple Scalable(SSD) | 컴포넌트를 `read`, `write`, `backend` 세 그룹으로 나눈다. | Loki 4.0부터 이 배포 모드를 사용할 수 없다. |
 | Distributed·Microservices | Distributor, Ingester, Querier 등 컴포넌트를 개별 배포한다. | 읽기와 쓰기 병목에 맞춰 각각 확장할 수 있으며 배포·운영할 대상이 많아진다. |
 
 - 일일 로그 유입량과 함께 피크 쓰기량, 동시 쿼리 수, 보존 기간, 고가용성 요구를 본다. Loki 인스턴스마다 독립 파일 저장소를 두고 Service로 분산하면 조회 대상에 따라 결과가 달라질 수 있다. 여러 인스턴스가 같은 로그를 조회해야 한다면 공유 저장소와 복제 구성을 함께 설계한다. [Loki 배포 모드](https://grafana.com/docs/loki/latest/get-started/deployment-modes/)

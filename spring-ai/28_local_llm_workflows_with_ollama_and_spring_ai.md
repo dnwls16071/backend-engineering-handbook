@@ -7,12 +7,12 @@ Ollama를 Docker에서 실행하면 외부 키 없이 로컬 채팅 모델을 �
 기존 Ollama 컨테이너가 있으면 해당 인스턴스를 사용한다. 아래 명령은 모델을 보존하는 볼륨과 호스트 루프백 포트를 사용한다. `ollama/ollama`의 기본 태그를 쓰는 개발 예제이므로, 재현용 실행 기록에는 이미지와 모델 버전을 남긴다.
 
 ```bash
-docker run -d --name lounge-ollama \
+docker run -d --name backend-engineering-handbook-ollama \
   -p 127.0.0.1:11434:11434 \
-  -v lounge-ollama-models:/root/.ollama \
+  -v backend-engineering-handbook-ollama-models:/root/.ollama \
   ollama/ollama
-docker exec lounge-ollama ollama pull llama3.2:1b
-docker exec lounge-ollama ollama list
+docker exec backend-engineering-handbook-ollama ollama pull llama3.2:1b
+docker exec backend-engineering-handbook-ollama ollama list
 ```
 
 호스트에서 실행하는 Spring 애플리케이션에 `spring-ai-starter-model-ollama`를 추가하고 다음과 같이 연결한다. 앱도 같은 Compose 네트워크에서 실행하면 `localhost` 대신 해당 서비스 이름을 지정한다. [Spring AI · Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)

@@ -9,7 +9,7 @@
 `-p 호스트주소:호스트포트:컨테이너포트`는 호스트 주소와 포트로 들어온 트래픽을 컨테이너의 해당 포트로 전달한다. 예를 들어 `-p 127.0.0.1:8080:80`이면 호스트의 `127.0.0.1:8080`이 컨테이너의 `80/tcp`에 연결된다. 실습에서는 호스트 주소를 `127.0.0.1`로 지정하고 포트 자리를 비워 빈 포트를 할당받는다. 호스트 주소를 생략하면 Docker의 기본 설정에서 모든 호스트 인터페이스에 포트를 게시한다.
 
 ```sh
-lab_dir="$(mktemp -d "${TMPDIR:-/tmp}/lounge-docker-s4.XXXXXXXX")"
+lab_dir="$(mktemp -d "${TMPDIR:-/tmp}/backend-engineering-handbook-docker-s4.XXXXXXXX")"
 lab_name="${lab_dir##*/}"
 web_container="${lab_name}-nginx"
 
@@ -44,8 +44,8 @@ mysql_env="$lab_dir/mysql.env"
     umask 077
     cat > "$mysql_env" <<'ENV'
 MYSQL_ROOT_PASSWORD=lab-root-only-84
-MYSQL_DATABASE=lounge_lab
-MYSQL_USER=lounge_user
+MYSQL_DATABASE=backend_engineering_handbook_lab
+MYSQL_USER=backend_engineering_handbook_usr
 MYSQL_PASSWORD=lab-user-only-84
 ENV
 )
@@ -63,14 +63,14 @@ docker logs --follow "$mysql_container"
 
 ```sh
 mysql_address="$(docker port "$mysql_container" 3306/tcp)"
-mysql --protocol=TCP -h 127.0.0.1 -P "${mysql_address##*:}" -u lounge_user -p lounge_lab
+mysql --protocol=TCP -h 127.0.0.1 -P "${mysql_address##*:}" -u backend_engineering_handbook_usr -p backend_engineering_handbook_lab
 ```
 
 호스트에 클라이언트가 없으면 컨테이너 이미지에 포함된 `mysql`을 사용한다. 이 명령의 `127.0.0.1`과 `3306`은 컨테이너 내부의 주소와 포트다.
 
 ```sh
 docker exec -it "$mysql_container" \
-    mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u lounge_user -p lounge_lab
+    mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u backend_engineering_handbook_usr -p backend_engineering_handbook_lab
 ```
 
 접속한 클라이언트에서 행을 추가하고 읽는다. `exit`로 클라이언트를 종료하고 컨테이너와 볼륨은 5절까지 유지한다.
@@ -136,7 +136,7 @@ docker run --rm --mount "type=bind,src=$bind_dir,dst=/shared,readonly" \
 
 ## 5. 이름 있는 볼륨을 재사용하고 정리하기
 
-2절에서 `docker volume create`로 만든 볼륨은 `docker volume inspect`로 확인할 수 있다. 기존 MySQL 컨테이너를 정상 종료하고 삭제한 뒤 새 컨테이너에 같은 볼륨을 붙인다. 이번에는 초기화용 데이터베이스 이름을 `lounge_recreated`로 전달한다.
+2절에서 `docker volume create`로 만든 볼륨은 `docker volume inspect`로 확인할 수 있다. 기존 MySQL 컨테이너를 정상 종료하고 삭제한 뒤 새 컨테이너에 같은 볼륨을 붙인다. 이번에는 초기화용 데이터베이스 이름을 `backend_engineering_handbook_recreated`로 전달한다.
 
 ```sh
 docker volume inspect "$mysql_volume"
@@ -144,7 +144,7 @@ docker stop "$mysql_container"
 docker rm "$mysql_container"
 
 docker run --detach --name "$mysql_container" \
-    --env MYSQL_DATABASE=lounge_recreated \
+    --env MYSQL_DATABASE=backend_engineering_handbook_recreated \
     --publish 127.0.0.1::3306 \
     --mount "type=volume,src=$mysql_volume,dst=/var/lib/mysql" \
     mysql:8.4
@@ -161,7 +161,7 @@ SELECT id, label FROM notes;
 
 ```sh
 docker exec -it "$mysql_container" mysql -u root -p \
-    -e "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'lounge_recreated'"
+    -e "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'backend_engineering_handbook_recreated'"
 ```
 
 스키마 조회 결과는 비어 있다. MySQL 공식 이미지의 `MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_ROOT_PASSWORD`는 데이터 디렉터리를 처음 초기화할 때 적용된다. 이미 초기화한 볼륨의 스키마나 계정을 바꾸려면 실행 중인 서버에서 SQL로 변경한다.
@@ -188,7 +188,7 @@ rmdir "$bind_dir"
 
 ```sh
 build_dir="$lab_dir/site"
-site_image="lounge-docker-s4-site:$lab_name"
+site_image="backend-engineering-handbook-docker-s4-site:$lab_name"
 mkdir "$build_dir"
 
 cat > "$build_dir/.dockerignore" <<'IGNORE'

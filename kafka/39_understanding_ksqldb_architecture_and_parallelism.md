@@ -43,7 +43,7 @@ services:
       KSQL_BOOTSTRAP_SERVERS: "${KSQL_LAB_BOOTSTRAP:-kafka:29092}"
       KSQL_HOST_NAME: ksqldb
       KSQL_LISTENERS: http://0.0.0.0:8088
-      KSQL_KSQL_SERVICE_ID: lounge_ksql_
+      KSQL_KSQL_SERVICE_ID: backend_engineering_handbook_ksql_
       KSQL_KSQL_INTERNAL_TOPIC_REPLICAS: "1"
       KSQL_KSQL_STREAMS_REPLICATION_FACTOR: "1"
       KSQL_KSQL_STREAMS_NUM_STREAM_THREADS: "2"

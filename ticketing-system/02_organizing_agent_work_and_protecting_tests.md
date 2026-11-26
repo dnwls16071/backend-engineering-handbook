@@ -1,6 +1,6 @@
 # Organizing Agent Work and Protecting Tests
 
-실습 작업을 요구사항·API 계약, 좌석·결제 구현, 검증으로 나눈다. 작업자가 여럿이면 같은 파일을 동시에 수정하지 않도록 변경 담당과 통합 순서를 적고, 계약 변경은 검증 담당이 같이 확인한다. 이 저장소의 [위키 작업 규칙](../AGENTS.md)과 [테스트 실패를 다루는 방법](../test-driven-development/04_test_failures_and_safe_design_changes.md)을 작업 요청에 연결한다. [Lounge · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)
+실습 작업을 요구사항·API 계약, 좌석·결제 구현, 검증으로 나눈다. 작업자가 여럿이면 같은 파일을 동시에 수정하지 않도록 변경 담당과 통합 순서를 적고, 계약 변경은 검증 담당이 같이 확인한다. 이 저장소의 [위키 작업 규칙](../AGENTS.md)과 [테스트 실패를 다루는 방법](../test-driven-development/04_test_failures_and_safe_design_changes.md)을 작업 요청에 연결한다. [backend-engineering-handbook · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)
 
 ![요구사항·계약, 좌석·결제 구현, 검증 담당이 변경을 함께 검토한다. Testcontainers의 PostgreSQL에 독립 트랜잭션으로 같은 좌석을 요청하고 HTTP 응답과 유효 선점·주문 수를 검사한다.](image/02_agent_roles_and_booking_test_boundary.png)
 
@@ -16,4 +16,4 @@
 
 ## 3. 계약과 테스트를 함께 검토한다
 
-PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [Lounge · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)
+PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [backend-engineering-handbook · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)

@@ -2903,7 +2903,7 @@
     "page": "spring-ai/28_local_llm_workflows_with_ollama_and_spring_ai.md",
     "claim": "![호스트 Spring 앱이 루프백 11434번 포트를 통해 Docker Ollama에 요청한다. Ollama 모델 파일은 /root/.ollama에 마운트한 이름 있는 볼륨으로 보존한다.](image/28_ollama_local_runtime_and_model_volume.png)",
     "checked_on": "2026-11-21",
-    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, lounge-ollama 컨테이너, llama3.2:1b 모델 예시",
+    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, backend-engineering-handbook-ollama 컨테이너, llama3.2:1b 모델 예시",
     "source": {
       "url": "https://docs.ollama.com/docker",
       "locator": "Docker run ports, model volume and model management"
@@ -2913,7 +2913,7 @@
     "page": "spring-ai/28_local_llm_workflows_with_ollama_and_spring_ai.md",
     "claim": "그림의 근거 · [Ollama Docker](https://docs.ollama.com/docker) · [Spring AI Ollama Chat](https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html)",
     "checked_on": "2026-11-21",
-    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, lounge-ollama 컨테이너, llama3.2:1b 모델 예시",
+    "applies_to": "Spring AI v2.0.2 · 문서의 호스트 앱, backend-engineering-handbook-ollama 컨테이너, llama3.2:1b 모델 예시",
     "source": {
       "url": "https://docs.spring.io/spring-ai/reference/2.0/api/chat/ollama-chat.html",
       "locator": "Connection properties, spring.ai.model.chat and Ollama chat model"
@@ -9411,7 +9411,7 @@
     "page": "kubernetes/11_ingress.md",
     "claim": "![브라우저의 HTTPS 요청을 받은 Nginx 컨트롤러가 TLS를 종료하고 더 길게 일치하는 Prefix를 선택한다. 경로 매칭 이후 URI 재작성과 백엔드 HTTPS는 별도로 구성한다.](image/11_ingress_tls_and_longest_prefix.png)",
     "checked_on": "2026-11-21",
-    "applies_to": "커뮤니티 ingress-nginx 기반 강의 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
+    "applies_to": "커뮤니티 ingress-nginx 기반 설정 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
     "source": {
       "url": "https://kubernetes.io/docs/concepts/services-networking/ingress/",
       "locator": "Multiple matches와 TLS termination"
@@ -9421,7 +9421,7 @@
     "page": "kubernetes/11_ingress.md",
     "claim": "![브라우저의 HTTPS 요청을 받은 Nginx 컨트롤러가 TLS를 종료하고 더 길게 일치하는 Prefix를 선택한다. 경로 매칭 이후 URI 재작성과 백엔드 HTTPS는 별도로 구성한다.](image/11_ingress_tls_and_longest_prefix.png)",
     "checked_on": "2026-11-21",
-    "applies_to": "커뮤니티 ingress-nginx 기반 강의 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
+    "applies_to": "커뮤니티 ingress-nginx 기반 설정 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
     "source": {
       "url": "https://kubernetes.github.io/ingress-nginx/examples/rewrite/",
       "locator": "Rewrite Target 예시"
@@ -9431,7 +9431,7 @@
     "page": "kubernetes/11_ingress.md",
     "claim": "그림의 근거 · [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) · [ingress-nginx Rewrite 문서](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)",
     "checked_on": "2026-11-21",
-    "applies_to": "커뮤니티 ingress-nginx 기반 강의 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
+    "applies_to": "커뮤니티 ingress-nginx 기반 설정 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
     "source": {
       "url": "https://kubernetes.io/docs/concepts/services-networking/ingress/",
       "locator": "Multiple matches와 TLS termination"
@@ -9441,7 +9441,7 @@
     "page": "kubernetes/11_ingress.md",
     "claim": "그림의 근거 · [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) · [ingress-nginx Rewrite 문서](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)",
     "checked_on": "2026-11-21",
-    "applies_to": "커뮤니티 ingress-nginx 기반 강의 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
+    "applies_to": "커뮤니티 ingress-nginx 기반 설정 예시. 표준 Prefix 규칙을 비교하고 기본 URI 전달을 표시.",
     "source": {
       "url": "https://kubernetes.github.io/ingress-nginx/examples/rewrite/",
       "locator": "Rewrite Target 예시"
@@ -19191,7 +19191,7 @@
     "page": "database/01_inner_joins.md",
     "claim": "![회원과 예매의 INNER JOIN에서 일치 행 수가 늘어나는 예](image/01_sql_inner_join_row_multiplicity.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19201,7 +19201,7 @@
     "page": "database/01_inner_joins.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19211,7 +19211,7 @@
     "page": "database/02_outer_self_and_cross_joins.md",
     "claim": "![LEFT JOIN의 ON과 WHERE가 보존 행을 바꾸는 예와 다른 조인 유형](image/02_sql_outer_join_on_where_and_other_joins.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19221,7 +19221,7 @@
     "page": "database/02_outer_self_and_cross_joins.md",
     "claim": "![LEFT JOIN의 ON과 WHERE가 보존 행을 바꾸는 예와 다른 조인 유형](image/02_sql_outer_join_on_where_and_other_joins.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
       "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
@@ -19231,7 +19231,7 @@
     "page": "database/02_outer_self_and_cross_joins.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19241,7 +19241,7 @@
     "page": "database/02_outer_self_and_cross_joins.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
       "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
@@ -19251,7 +19251,7 @@
     "page": "database/03_subqueries.md",
     "claim": "![서브쿼리 반환 형태와 바깥 행을 참조하는 EXISTS의 논리적 관계](image/03_sql_subquery_shapes_and_correlation.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/subqueries.html",
       "locator": "Scalar, row, table, and correlated subqueries"
@@ -19261,7 +19261,7 @@
     "page": "database/03_subqueries.md",
     "claim": "![서브쿼리 반환 형태와 바깥 행을 참조하는 EXISTS의 논리적 관계](image/03_sql_subquery_shapes_and_correlation.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html",
       "locator": "EXISTS and NOT EXISTS Subqueries"
@@ -19271,7 +19271,7 @@
     "page": "database/03_subqueries.md",
     "claim": "그림의 근거 · [서브쿼리](https://dev.mysql.com/doc/refman/8.4/en/subqueries.html) · [EXISTS](https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/subqueries.html",
       "locator": "Scalar, row, table, and correlated subqueries"
@@ -19281,7 +19281,7 @@
     "page": "database/03_subqueries.md",
     "claim": "그림의 근거 · [서브쿼리](https://dev.mysql.com/doc/refman/8.4/en/subqueries.html) · [EXISTS](https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/exists-and-not-exists-subqueries.html",
       "locator": "EXISTS and NOT EXISTS Subqueries"
@@ -19291,7 +19291,7 @@
     "page": "database/04_union_and_union_all.md",
     "claim": "![UNION과 UNION ALL에서 현재·보관 알림의 중복 처리 비교](image/04_sql_union_duplicates_and_column_positions.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/set-operations.html",
       "locator": "Set Operations, DISTINCT and ALL, Result Set Column Names"
@@ -19301,7 +19301,7 @@
     "page": "database/04_union_and_union_all.md",
     "claim": "그림의 근거 · [집합 연산](https://dev.mysql.com/doc/refman/8.4/en/set-operations.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/set-operations.html",
       "locator": "Set Operations, DISTINCT and ALL, Result Set Column Names"
@@ -19311,7 +19311,7 @@
     "page": "database/05_case_expressions_and_conditional_aggregation.md",
     "claim": "![CASE 결과에 따라 티켓의 상태별 건수와 종료 소요 시간을 집계하는 과정](image/05_sql_case_and_conditional_aggregation.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html",
       "locator": "CASE operator"
@@ -19321,7 +19321,7 @@
     "page": "database/05_case_expressions_and_conditional_aggregation.md",
     "claim": "![CASE 결과에 따라 티켓의 상태별 건수와 종료 소요 시간을 집계하는 과정](image/05_sql_case_and_conditional_aggregation.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
       "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
@@ -19331,7 +19331,7 @@
     "page": "database/05_case_expressions_and_conditional_aggregation.md",
     "claim": "그림의 근거 · [CASE 표현식](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html",
       "locator": "CASE operator"
@@ -19341,7 +19341,7 @@
     "page": "database/05_case_expressions_and_conditional_aggregation.md",
     "claim": "그림의 근거 · [CASE 표현식](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html) · [집계 함수](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html",
       "locator": "COUNT(expr), COUNT(*) 및 SUM(expr)"
@@ -19351,7 +19351,7 @@
     "page": "database/06_views.md",
     "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-view.html",
       "locator": "CREATE VIEW Statement"
@@ -19361,7 +19361,7 @@
     "page": "database/06_views.md",
     "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html",
       "locator": "Aggregate and GROUP BY restrictions"
@@ -19371,7 +19371,7 @@
     "page": "database/06_views.md",
     "claim": "![원본 데이터로 만든 필터 뷰와 팀 집계 뷰의 노출·갱신 경계](image/06_sql_view_visibility_and_updatability.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html",
       "locator": "The View WITH CHECK OPTION Clause"
@@ -19381,7 +19381,7 @@
     "page": "database/06_views.md",
     "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-view.html",
       "locator": "CREATE VIEW Statement"
@@ -19391,7 +19391,7 @@
     "page": "database/06_views.md",
     "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html",
       "locator": "Aggregate and GROUP BY restrictions"
@@ -19401,7 +19401,7 @@
     "page": "database/06_views.md",
     "claim": "그림의 근거 · [뷰 만들기](https://dev.mysql.com/doc/refman/8.4/en/create-view.html) · [갱신 가능한 뷰](https://dev.mysql.com/doc/refman/8.4/en/view-updatability.html) · [뷰 CHECK OPTION](https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/view-check-option.html",
       "locator": "The View WITH CHECK OPTION Clause"
@@ -19411,7 +19411,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
       "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
@@ -19421,7 +19421,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
       "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
@@ -19431,7 +19431,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "![B-tree에서 SKU 경계로 리프에 도달해 범위를 읽는 경로](image/07_sql_btree_seek_and_range.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
       "locator": "How Secondary Indexes Relate to the Clustered Index"
@@ -19441,7 +19441,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html",
       "locator": "The Physical Structure of an InnoDB Index, leaf pages and page size"
@@ -19451,7 +19451,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
       "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
@@ -19461,7 +19461,7 @@
     "page": "database/07_b_tree_index_fundamentals.md",
     "claim": "그림의 근거 · [InnoDB 인덱스 페이지](https://dev.mysql.com/doc/refman/8.4/en/innodb-physical-structure.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [클러스터드·세컨더리 인덱스](https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-index-types.html",
       "locator": "How Secondary Indexes Relate to the Clustered Index"
@@ -19471,7 +19471,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
       "locator": "Leftmost prefixes of the index"
@@ -19481,7 +19481,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
       "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
@@ -19491,7 +19491,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
       "locator": "How Index Condition Pushdown Works"
@@ -19501,7 +19501,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "![복합 키의 왼쪽 접두어에 따른 범위 탐색과 커버링·ICP 비교](image/08_sql_composite_prefix_and_covering.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
       "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
@@ -19511,7 +19511,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html",
       "locator": "Leftmost prefixes of the index"
@@ -19521,7 +19521,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html",
       "locator": "Range Access Method for Multiple-Part Indexes 및 Skip Scan Range Access Method"
@@ -19531,7 +19531,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html",
       "locator": "How Index Condition Pushdown Works"
@@ -19541,7 +19541,7 @@
     "page": "database/08_composite_and_covering_indexes.md",
     "claim": "그림의 근거 · [복합 인덱스](https://dev.mysql.com/doc/refman/8.4/en/multiple-column-indexes.html) · [범위 최적화](https://dev.mysql.com/doc/refman/8.4/en/range-optimization.html) · [ICP](https://dev.mysql.com/doc/refman/8.4/en/index-condition-pushdown-optimization.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
       "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
@@ -19551,7 +19551,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
       "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
@@ -19561,7 +19561,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
       "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
@@ -19571,7 +19571,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "![고객 외래 키와 주문 항목 수량 제약의 쓰기 검증 예](image/09_sql_constraint_failure_boundaries.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
       "locator": "CHECK expressions: TRUE or UNKNOWN"
@@ -19581,7 +19581,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table.html",
       "locator": "CREATE TABLE, PRIMARY KEY 및 UNIQUE"
@@ -19591,7 +19591,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
       "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
@@ -19601,7 +19601,7 @@
     "page": "database/09_data_integrity_and_constraints.md",
     "claim": "그림의 근거 · [테이블과 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [CHECK 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html",
       "locator": "CHECK expressions: TRUE or UNKNOWN"
@@ -19651,7 +19651,7 @@
     "page": "database/11_stored_procedures_functions_and_triggers.md",
     "claim": "![명시 호출하는 프로시저·함수와 재고 갱신에서 자동 동작하는 트리거](image/11_sql_procedure_function_and_trigger_execution.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html",
       "locator": "CREATE PROCEDURE and CREATE FUNCTION"
@@ -19661,7 +19661,7 @@
     "page": "database/11_stored_procedures_functions_and_triggers.md",
     "claim": "![명시 호출하는 프로시저·함수와 재고 갱신에서 자동 동작하는 트리거](image/11_sql_procedure_function_and_trigger_execution.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html",
       "locator": "Trigger Syntax and Examples, OLD and NEW"
@@ -19671,7 +19671,7 @@
     "page": "database/11_stored_procedures_functions_and_triggers.md",
     "claim": "그림의 근거 · [프로시저와 함수](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html",
       "locator": "CREATE PROCEDURE and CREATE FUNCTION"
@@ -19681,7 +19681,7 @@
     "page": "database/11_stored_procedures_functions_and_triggers.md",
     "claim": "그림의 근거 · [프로시저와 함수](https://dev.mysql.com/doc/refman/8.4/en/create-procedure.html) · [트리거](https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html",
       "locator": "Trigger Syntax and Examples, OLD and NEW"
@@ -19691,7 +19691,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19701,7 +19701,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
       "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
@@ -19711,7 +19711,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
       "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
@@ -19721,7 +19721,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "![주문 조회를 설계하고 제약, 트랜잭션, 실행 계획을 검증하는 복습 흐름](image/12_sql_relational_design_and_query_review.png)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
       "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
@@ -19731,7 +19731,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/join.html",
       "locator": "JOIN Clause, ON, WHERE 및 LEFT JOIN"
@@ -19741,7 +19741,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html",
       "locator": "FOREIGN KEY Constraints, Conditions and Restrictions 및 Referential Actions"
@@ -19751,7 +19751,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/commit.html",
       "locator": "START TRANSACTION, COMMIT, and ROLLBACK"
@@ -19761,7 +19761,7 @@
     "page": "database/12_relational_database_review_and_next_steps.md",
     "claim": "그림의 근거 · [JOIN](https://dev.mysql.com/doc/refman/8.4/en/join.html) · [외래 키 제약](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html) · [트랜잭션 제어](https://dev.mysql.com/doc/refman/8.4/en/commit.html) · [EXPLAIN 출력](https://dev.mysql.com/doc/refman/8.4/en/explain-output.html)",
     "checked_on": "2026-11-22",
-    "applies_to": "MySQL 8.4 강의의 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
+    "applies_to": "MySQL 8.4 관계형 SQL 실습. 표시한 행이나 키는 해당 데이터 또는 명시된 단순화 예시를 전제로 함.",
     "source": {
       "url": "https://dev.mysql.com/doc/refman/8.4/en/explain-output.html",
       "locator": "EXPLAIN Output Columns, Join Types 및 Extra"
@@ -31219,7 +31219,7 @@
   },
   {
     "page": "toby-spring/24_upgrading_spring_and_the_jdk.md",
-    "claim": "업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 강의 환경의 세부 버전은 목차에서 확인할 수 없으므로 사용 중인 프레임워크의 공식 호환 범위를 먼저 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)",
+    "claim": "업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 업그레이드 전에는 현재 버전과 목표 버전의 공식 호환 범위를 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)",
     "checked_on": "2026-11-22",
     "applies_to": "Spring Framework 6.2, Java HTTP 클라이언트와 환율 조회 어댑터를 사용하는 예제",
     "source": {
@@ -31229,7 +31229,7 @@
   },
   {
     "page": "toby-spring/24_upgrading_spring_and_the_jdk.md",
-    "claim": "업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 강의 환경의 세부 버전은 목차에서 확인할 수 없으므로 사용 중인 프레임워크의 공식 호환 범위를 먼저 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)",
+    "claim": "업그레이드 실습은 Spring Framework 6.2와 Java 21 조합을 예로 든다. 업그레이드 전에는 현재 버전과 목표 버전의 공식 호환 범위를 비교한다. [Spring Framework 6.x Upgrade Guide](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x) · [JDK 21 Migration Guide](https://docs.oracle.com/en/java/javase/21/migrate/)",
     "checked_on": "2026-11-22",
     "applies_to": "Spring Framework 6.2, Java HTTP 클라이언트와 환율 조회 어댑터를 사용하는 예제",
     "source": {
@@ -50339,7 +50339,7 @@
   },
   {
     "page": "distributed-tracing/16_running_the_tracing_stack_with_docker_compose.md",
-    "claim": "준비 확인이 실패하면 `docker compose -p lounge-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
+    "claim": "준비 확인이 실패하면 `docker compose -p backend-engineering-handbook-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
     "checked_on": "2026-11-22",
     "applies_to": "Grafana 12.4.11 · Tempo 2.10.8 classic monolithic · OpenTelemetry Collector core 0.144.0 · Docker Compose v2 on a local workstation",
     "source": {
@@ -50349,7 +50349,7 @@
   },
   {
     "page": "distributed-tracing/16_running_the_tracing_stack_with_docker_compose.md",
-    "claim": "준비 확인이 실패하면 `docker compose -p lounge-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
+    "claim": "준비 확인이 실패하면 `docker compose -p backend-engineering-handbook-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
     "checked_on": "2026-11-22",
     "applies_to": "Grafana 12.4.11 · Tempo 2.10.8 classic monolithic · OpenTelemetry Collector core 0.144.0 · Docker Compose v2 on a local workstation",
     "source": {
@@ -50359,7 +50359,7 @@
   },
   {
     "page": "distributed-tracing/16_running_the_tracing_stack_with_docker_compose.md",
-    "claim": "준비 확인이 실패하면 `docker compose -p lounge-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
+    "claim": "준비 확인이 실패하면 `docker compose -p backend-engineering-handbook-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)",
     "checked_on": "2026-11-22",
     "applies_to": "Grafana 12.4.11 · Tempo 2.10.8 classic monolithic · OpenTelemetry Collector core 0.144.0 · Docker Compose v2 on a local workstation",
     "source": {
@@ -55459,19 +55459,9 @@
   },
   {
     "page": "system-design/01_designing_services_for_a_million_users.md",
-    "claim": "《가상 면접 사례로 배우는 대규모 시스템 설계 기초》 1권의 확장·용량·면접 접근법은 01~03번에서, 단축 URL부터 파일 동기화까지의 사례는 위 표에서 찾을 수 있다. 2권의 주제는 아래 경로로 이어서 읽는다. [교보문고 1권](https://product.kyobobook.co.kr/detail/S000001033116) · [교보문고 2권](https://product.kyobobook.co.kr/detail/S000211656186) · [ByteByteGo · 두 권의 목차](https://blog.bytebytego.com/p/system-design-interview-books-volume)",
-    "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
-    "source": {
-      "url": "https://blog.bytebytego.com/p/system-design-interview-books-volume",
-      "locator": "Table of content for volume 1 및 volume 2"
-    }
-  },
-  {
-    "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **위치 검색·공유와 지도** — [28 반경 검색](28_designing_a_proximity_search_service.md), [29 주변 친구](29_designing_a_nearby_friends_service.md), [30 지도·경로](30_designing_a_map_and_routing_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/28_designing_a_proximity_search_service.md",
       "start": 1,
@@ -55483,7 +55473,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **위치 검색·공유와 지도** — [28 반경 검색](28_designing_a_proximity_search_service.md), [29 주변 친구](29_designing_a_nearby_friends_service.md), [30 지도·경로](30_designing_a_map_and_routing_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/29_designing_a_nearby_friends_service.md",
       "start": 1,
@@ -55495,7 +55485,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **위치 검색·공유와 지도** — [28 반경 검색](28_designing_a_proximity_search_service.md), [29 주변 친구](29_designing_a_nearby_friends_service.md), [30 지도·경로](30_designing_a_map_and_routing_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/30_designing_a_map_and_routing_service.md",
       "start": 1,
@@ -55507,7 +55497,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **데이터 수집·처리와 보관** — [31 메시지 로그](31_designing_a_distributed_message_log.md), [32 지표·경보](32_designing_a_metrics_and_alerting_system.md), [21 광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [35 객체 저장소](35_designing_an_object_storage_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/31_designing_a_distributed_message_log.md",
       "start": 1,
@@ -55519,7 +55509,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **데이터 수집·처리와 보관** — [31 메시지 로그](31_designing_a_distributed_message_log.md), [32 지표·경보](32_designing_a_metrics_and_alerting_system.md), [21 광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [35 객체 저장소](35_designing_an_object_storage_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/32_designing_a_metrics_and_alerting_system.md",
       "start": 1,
@@ -55531,7 +55521,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **데이터 수집·처리와 보관** — [31 메시지 로그](31_designing_a_distributed_message_log.md), [32 지표·경보](32_designing_a_metrics_and_alerting_system.md), [21 광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [35 객체 저장소](35_designing_an_object_storage_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/21_aggregating_ad_clicks_at_scale.md",
       "start": 1,
@@ -55543,7 +55533,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **데이터 수집·처리와 보관** — [31 메시지 로그](31_designing_a_distributed_message_log.md), [32 지표·경보](32_designing_a_metrics_and_alerting_system.md), [21 광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [35 객체 저장소](35_designing_an_object_storage_service.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/35_designing_an_object_storage_service.md",
       "start": 1,
@@ -55555,7 +55545,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **운영과 제품 사례** — [33 호텔 예약](33_designing_a_hotel_reservation_service.md), [34 분산 이메일](34_designing_a_distributed_email_service.md), [36 게임 랭킹](36_designing_a_realtime_game_leaderboard.md), [37 거래소 매칭](37_designing_an_exchange_matching_engine.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/33_designing_a_hotel_reservation_service.md",
       "start": 1,
@@ -55567,7 +55557,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **운영과 제품 사례** — [33 호텔 예약](33_designing_a_hotel_reservation_service.md), [34 분산 이메일](34_designing_a_distributed_email_service.md), [36 게임 랭킹](36_designing_a_realtime_game_leaderboard.md), [37 거래소 매칭](37_designing_an_exchange_matching_engine.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/34_designing_a_distributed_email_service.md",
       "start": 1,
@@ -55579,7 +55569,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **운영과 제품 사례** — [33 호텔 예약](33_designing_a_hotel_reservation_service.md), [34 분산 이메일](34_designing_a_distributed_email_service.md), [36 게임 랭킹](36_designing_a_realtime_game_leaderboard.md), [37 거래소 매칭](37_designing_an_exchange_matching_engine.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/36_designing_a_realtime_game_leaderboard.md",
       "start": 1,
@@ -55591,7 +55581,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **운영과 제품 사례** — [33 호텔 예약](33_designing_a_hotel_reservation_service.md), [34 분산 이메일](34_designing_a_distributed_email_service.md), [36 게임 랭킹](36_designing_a_realtime_game_leaderboard.md), [37 거래소 매칭](37_designing_an_exchange_matching_engine.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "system-design/37_designing_an_exchange_matching_engine.md",
       "start": 1,
@@ -55603,7 +55593,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **결제와 지갑** — [결제 시스템 설계](../payment-system/01_designing_a_payment_system.md), [Wallet Service](../payment-system/06_building_a_wallet_service.md), [복식 원장](../payment-system/07_building_a_double_entry_ledger.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "payment-system/01_designing_a_payment_system.md",
       "start": 1,
@@ -55615,7 +55605,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **결제와 지갑** — [결제 시스템 설계](../payment-system/01_designing_a_payment_system.md), [Wallet Service](../payment-system/06_building_a_wallet_service.md), [복식 원장](../payment-system/07_building_a_double_entry_ledger.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "payment-system/06_building_a_wallet_service.md",
       "start": 1,
@@ -55627,7 +55617,7 @@
     "page": "system-design/01_designing_services_for_a_million_users.md",
     "claim": "- **결제와 지갑** — [결제 시스템 설계](../payment-system/01_designing_a_payment_system.md), [Wallet Service](../payment-system/06_building_a_wallet_service.md), [복식 원장](../payment-system/07_building_a_double_entry_ledger.md)",
     "checked_on": "2026-11-22",
-    "applies_to": "Lounge 시스템 설계 인덱스와 대규모 시스템 설계 기초 두 권의 공개 목차",
+    "applies_to": "backend-engineering-handbook 시스템 설계 주제별 색인",
     "source": {
       "path": "payment-system/07_building_a_double_entry_ledger.md",
       "start": 1,
@@ -59017,7 +59007,7 @@
   },
   {
     "page": "ticketing-system/02_organizing_agent_work_and_protecting_tests.md",
-    "claim": "실습 작업을 요구사항·API 계약, 좌석·결제 구현, 검증으로 나눈다. 작업자가 여럿이면 같은 파일을 동시에 수정하지 않도록 변경 담당과 통합 순서를 적고, 계약 변경은 검증 담당이 같이 확인한다. 이 저장소의 [위키 작업 규칙](../AGENTS.md)과 [테스트 실패를 다루는 방법](../test-driven-development/04_test_failures_and_safe_design_changes.md)을 작업 요청에 연결한다. [Lounge · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
+    "claim": "실습 작업을 요구사항·API 계약, 좌석·결제 구현, 검증으로 나눈다. 작업자가 여럿이면 같은 파일을 동시에 수정하지 않도록 변경 담당과 통합 순서를 적고, 계약 변경은 검증 담당이 같이 확인한다. 이 저장소의 [위키 작업 규칙](../AGENTS.md)과 [테스트 실패를 다루는 방법](../test-driven-development/04_test_failures_and_safe_design_changes.md)을 작업 요청에 연결한다. [backend-engineering-handbook · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
     "checked_on": "2026-11-22",
     "applies_to": "티켓 예매 실습 작업 분담, Spring Boot 3.5 Testcontainers와 PostgreSQL 18",
     "source": {
@@ -59089,7 +59079,7 @@
   },
   {
     "page": "ticketing-system/02_organizing_agent_work_and_protecting_tests.md",
-    "claim": "PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [Lounge · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
+    "claim": "PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [backend-engineering-handbook · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
     "checked_on": "2026-11-22",
     "applies_to": "티켓 예매 실습 작업 분담, Spring Boot 3.5 Testcontainers와 PostgreSQL 18",
     "source": {
@@ -59099,7 +59089,7 @@
   },
   {
     "page": "ticketing-system/02_organizing_agent_work_and_protecting_tests.md",
-    "claim": "PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [Lounge · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
+    "claim": "PR에는 OpenAPI 변경, 상태 전이, 경합 테스트 결과를 함께 남긴다. 예매 불변식의 완화가 필요한 경우 실패 출력을 삭제하는 대신 요구사항과 모델·테스트를 함께 업데이트한다. [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) · [backend-engineering-handbook · 계약이 바뀔 때의 테스트](../test-driven-development/04_test_failures_and_safe_design_changes.md#3-요구사항-변경에-따라-테스트-고치기)",
     "checked_on": "2026-11-22",
     "applies_to": "티켓 예매 실습 작업 분담, Spring Boot 3.5 Testcontainers와 PostgreSQL 18",
     "source": {
@@ -65937,7 +65927,7 @@
   },
   {
     "page": "board-system/04_modeling_two_level_comments.md",
-    "claim": "강의 21~25의 테이블·쓰기 API·목록 API는 루트 댓글 하나와 그 아래 한 단계의 답글을 기준으로 묶는다. 실습은 루트와 답글에 같은 테이블을 쓰고, `parent_id`와 `depth`로 두 층을 구분한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "claim": "댓글 테이블·쓰기 API·목록 API는 루트 댓글 하나와 그 아래 한 단계의 답글을 기준으로 묶는다. 실습은 루트와 답글에 같은 테이블을 쓰고, `parent_id`와 `depth`로 두 층을 구분한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
     "checked_on": "2026-11-22",
     "applies_to": "Spring Boot 3.5.16·MySQL 8.4 두 단계 댓글 API",
     "source": {
@@ -66087,7 +66077,7 @@
   },
   {
     "page": "board-system/05_modeling_nested_comment_trees.md",
-    "claim": "강의 26~28의 깊이 제한 없는 댓글은 부모 ID를 연결하는 인접 리스트로 정리한다. 실습의 `TREE` 모드는 두 단계 제약을 해제하고, 부모·자식이 같은 게시글과 모드를 공유하는 제약은 유지한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
+    "claim": "깊이 제한 없는 댓글은 부모 ID를 연결하는 인접 리스트로 정리한다. 실습의 `TREE` 모드는 두 단계 제약을 해제하고, 부모·자식이 같은 게시글과 모드를 공유하는 제약은 유지한다. [MySQL 8.4 · FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)",
     "checked_on": "2026-11-22",
     "applies_to": "MySQL 8.4 부모 참조 트리와 댓글 커서",
     "source": {
@@ -66497,7 +66487,7 @@
   },
   {
     "page": "board-system/08_building_a_kafka_backed_popular_posts_projection.md",
-    "claim": "인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. 학습 범위는 강의 41~48이다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)",
+    "claim": "인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)",
     "checked_on": "2026-11-22",
     "applies_to": "Kafka 4.3과 MySQL 8.4 기반 게시판별 인기글",
     "source": {
@@ -66507,7 +66497,7 @@
   },
   {
     "page": "board-system/08_building_a_kafka_backed_popular_posts_projection.md",
-    "claim": "인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. 학습 범위는 강의 41~48이다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)",
+    "claim": "인기글은 게시판별로 정렬된 별도 읽기 모델에서 조회한다. 로컬 실습은 Kafka에 게시물 변경 알림을 보내고, MySQL에 게시글 내용과 좋아요·댓글의 현재 수를 투영한다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) · [Spring for Apache Kafka 3.3 · Receiving Messages](https://docs.spring.io/spring-kafka/reference/3.3/kafka/receiving-messages.html)",
     "checked_on": "2026-11-22",
     "applies_to": "Kafka 4.3과 MySQL 8.4 기반 게시판별 인기글",
     "source": {
@@ -66637,7 +66627,7 @@
   },
   {
     "page": "board-system/09_publishing_board_events_with_a_transactional_outbox.md",
-    "claim": "게시글과 반응을 저장하는 MySQL 트랜잭션 안에 발행할 변경을 함께 기록한다. 별도 릴레이가 커밋된 아웃박스를 읽어 Kafka로 보내고, 소비자가 읽기 모델을 갱신한다. 학습 범위는 강의 49~53이다. [AWS · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
+    "claim": "게시글과 반응을 저장하는 MySQL 트랜잭션 안에 발행할 변경을 함께 기록한다. 별도 릴레이가 커밋된 아웃박스를 읽어 Kafka로 보내고, 소비자가 읽기 모델을 갱신한다. [AWS · Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html)",
     "checked_on": "2026-11-22",
     "applies_to": "MySQL 8.4 및 Spring for Apache Kafka 3.3의 아웃박스",
     "source": {
@@ -66737,7 +66727,7 @@
   },
   {
     "page": "board-system/10_optimizing_post_details_with_cqrs.md",
-    "claim": "상세 조회용 모델에서 제목·본문과 좋아요·댓글의 현재 투영값을 함께 읽는다. 쓰기 경로는 게시글 원본에 책임을 두고, 조회 모델의 최적화와 갱신 정책을 따로 설계한다. 학습 범위는 강의 54~60이다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)",
+    "claim": "상세 조회용 모델에서 제목·본문과 좋아요·댓글의 현재 투영값을 함께 읽는다. 쓰기 경로는 게시글 원본에 책임을 두고, 조회 모델의 최적화와 갱신 정책을 따로 설계한다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)",
     "checked_on": "2026-11-22",
     "applies_to": "MySQL 8.4·Kafka 4.3 CQRS 게시글 상세 투영",
     "source": {
@@ -77047,7 +77037,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. 첨부 목차의 Boot 3.2와 Cloud 2023.0은 강의 재현에 해당하는 별도 조합이다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
+    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. Spring Boot 3.2와 Spring Cloud 2023.0은 기존 환경의 버전 조합 예시다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 2026.0.0 GA·Boot 4.2.0의 공개 릴리스",
     "source": {
@@ -77057,7 +77047,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. 첨부 목차의 Boot 3.2와 Cloud 2023.0은 강의 재현에 해당하는 별도 조합이다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
+    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. Spring Boot 3.2와 Spring Cloud 2023.0은 기존 환경의 버전 조합 예시다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 프로젝트와 호환 릴리스 트레인",
     "source": {
@@ -77067,7 +77057,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. 첨부 목차의 Boot 3.2와 Cloud 2023.0은 강의 재현에 해당하는 별도 조합이다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
+    "claim": "2026-11-23 기준 공식 최신 GA는 Spring Cloud 2026.0.0(Paddington)이며, 그 릴리스의 기준은 Spring Boot 4.2.0이다. Spring Boot 3.2와 Spring Cloud 2023.0은 기존 환경의 버전 조합 예시다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Cloud 프로젝트](https://spring.io/projects/spring-cloud/) · [Spring Cloud 지원 버전](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 프로젝트의 릴리스 트레인 지원",
     "source": {
@@ -77077,7 +77067,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "![Boot 3.2와 Cloud 2023.0인 강의 예제를 식별한 뒤 공식 릴리스와 호환표를 확인해 Boot 4.2와 Cloud 2026.0을 기준으로 선택한다.](image/02_release_train_compatibility.png)",
+    "claim": "![Boot 3.2와 Cloud 2023.0으로 구성된 기존 환경의 버전을 확인한 뒤, 공식 호환표를 바탕으로 Boot 4.2와 Cloud 2026.0을 선택한다.](image/02_release_train_compatibility.png)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 2026.0.0 GA·Boot 4.2.0의 공개 릴리스",
     "source": {
@@ -77087,7 +77077,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "![Boot 3.2와 Cloud 2023.0인 강의 예제를 식별한 뒤 공식 릴리스와 호환표를 확인해 Boot 4.2와 Cloud 2026.0을 기준으로 선택한다.](image/02_release_train_compatibility.png)",
+    "claim": "![Boot 3.2와 Cloud 2023.0으로 구성된 기존 환경의 버전을 확인한 뒤, 공식 호환표를 바탕으로 Boot 4.2와 Cloud 2026.0을 선택한다.](image/02_release_train_compatibility.png)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 프로젝트와 호환 릴리스 트레인",
     "source": {
@@ -77097,7 +77087,7 @@
   },
   {
     "page": "spring-cloud/02_choosing_a_spring_cloud_release_train.md",
-    "claim": "![Boot 3.2와 Cloud 2023.0인 강의 예제를 식별한 뒤 공식 릴리스와 호환표를 확인해 Boot 4.2와 Cloud 2026.0을 기준으로 선택한다.](image/02_release_train_compatibility.png)",
+    "claim": "![Boot 3.2와 Cloud 2023.0으로 구성된 기존 환경의 버전을 확인한 뒤, 공식 호환표를 바탕으로 Boot 4.2와 Cloud 2026.0을 선택한다.](image/02_release_train_compatibility.png)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 프로젝트의 릴리스 트레인 지원",
     "source": {
@@ -77977,7 +77967,7 @@
   },
   {
     "page": "spring-cloud/07_modeling_users_catalogs_and_orders.md",
-    "claim": "첨부 목차의 Swagger/OAS 3.0은 강의 버전이다. 현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)",
+    "claim": "현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)",
     "checked_on": "2026-11-23",
     "applies_to": "OpenAPI 3.2.1 HTTP API 계약 설명",
     "source": {
@@ -77987,7 +77977,7 @@
   },
   {
     "page": "spring-cloud/07_modeling_users_catalogs_and_orders.md",
-    "claim": "첨부 목차의 Swagger/OAS 3.0은 강의 버전이다. 현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)",
+    "claim": "현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)",
     "checked_on": "2026-11-23",
     "applies_to": "HTTP API의 생성·접수·충돌 응답 의미",
     "source": {
@@ -79927,7 +79917,7 @@
   },
   {
     "page": "spring-cloud/16_tracing_cross_service_requests.md",
-    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. 이전 강의의 Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
+    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud 2026.0.0 및 Spring Boot 4.2.0",
     "source": {
@@ -79937,7 +79927,7 @@
   },
   {
     "page": "spring-cloud/16_tracing_cross_service_requests.md",
-    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. 이전 강의의 Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
+    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Boot 4.2.0 Actuator Micrometer Tracing과 Brave/Zipkin 예시",
     "source": {
@@ -79947,7 +79937,7 @@
   },
   {
     "page": "spring-cloud/16_tracing_cross_service_requests.md",
-    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. 이전 강의의 Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
+    "claim": "Spring Cloud 2026.0.0은 Spring Boot 4.2.0 기반이다. 이 기준에서는 Actuator의 Micrometer Observation이 요청 작업을 관측하고 Micrometer Tracing이 이를 추적 데이터로 연결한다. 쇼핑몰 예시에서는 Brave와 Zipkin 조합으로 Span을 내보낸다. Spring Cloud Sleuth는 3.1이 마지막 마이너 버전이고 지원한 Boot의 마지막 메이저 계열은 2.x다. [Spring Cloud 2026.0.0 릴리스](https://spring.io/blog/2026/11/20/spring-cloud-2026-0-0-has-been-released/) · [Spring Boot 4.2 · Tracing](https://docs.spring.io/spring-boot/4.2/reference/actuator/tracing.html) · [Spring Cloud Sleuth · 프로젝트 공지](https://github.com/spring-attic/spring-cloud-sleuth#important)",
     "checked_on": "2026-11-23",
     "applies_to": "Spring Cloud Sleuth 3.1과 Spring Boot 2.x",
     "source": {
@@ -83517,6 +83507,16 @@
       "start": 27,
       "end": 31,
       "quote": "## 4. 호출 예산과 테스트 기준을 정한다\n\n연결·응답 타임아웃과 전체 요청 기한을 함께 정한다. 재시도는 한 계층에서 제한된 횟수로 수행하고, 일시 장애에는 백오프와 지터를 적용한다. 요청 기한이 끝났는데 결과를 모르면 상태 조회와 복구 작업으로 넘긴다. [AWS 타임아웃·백오프·지터](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) · [Microsoft Asynchronous Request-Reply](https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply)\n\nPG가 승인한 직후 응답이 끊기는 경우와 PG 호출이 실제로 실행되기 전에 장애가 난 경우를 각각 테스트한다. 같은 시도로 재시도했을 때 승인 수와 내부 승인 반영 수를 따로 센다. [AWS 멱등 재시도](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) · [토스페이먼츠 결제 조회](https://docs.tosspayments.com/reference)"
+    }
+  },
+  {
+    "page": "kafka/30_ingesting_csv_files_with_kafka_connect_spooldir.md",
+    "claim": "실습에 HTTPie, `jq`, `kcat`을 사용한다. `kcat`의 이전 이름은 `kafkacat`이다. HTTPie의 `http`로 설정을 검증하고, `error_count`가 0인 경우 등록한다. `RUNNING` 상태가 표시된 뒤 Kafka에 레코드가 도착했는지, CSV가 완료 경로에 있는지 확인한다. [HTTPie · Redirected Input](https://httpie.io/docs/cli/redirected-input) · [Apache Kafka · Connect REST API](https://kafka.apache.org/43/kafka-connect/user-guide/#rest-api) · [kcat · README](https://github.com/edenhill/kcat)",
+    "checked_on": "2026-11-26",
+    "applies_to": "Kafka 실습에서 사용하는 kcat 명령줄 도구",
+    "source": {
+      "url": "https://github.com/edenhill/kcat",
+      "locator": "README의 What happened to kafkacat? 절"
     }
   }
 ]

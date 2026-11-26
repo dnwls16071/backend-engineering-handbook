@@ -13,9 +13,9 @@
 
 주문 목록을 읽는 호출이 느리다면 애플리케이션 요청에서 생성한 SQL 수와 반환 행 수를 먼저 확인한다. SQL 한 건의 비용이 크면 실제 바인딩 조건과 유사한 값으로 실행 계획을 확인한다. DB 실행은 짧고 연결 대기가 길다면 풀 지표에서 대여 지연과 점유 시간을 확인한다. [Hibernate 아키텍처](https://docs.hibernate.org/orm/6.6/userguide/html_single/#architecture) · [PostgreSQL EXPLAIN](https://www.postgresql.org/docs/17/using-explain.html)
 
-## 2. 강의 예제 저장소 사용하기
+## 2. 예제 저장소에서 테스트 실행하기
 
-저자가 공개한 저장소에는 책과 강의의 JDBC, JPA, Hibernate 예제가 있다. 같은 주제라도 모듈마다 Hibernate 버전과 DB 방언이 다를 수 있으므로 선택한 모듈의 빌드 파일과 테스트 데이터소스를 먼저 확인한다. 실습에서는 테스트 클래스 한 개를 실행해 초기화, 트랜잭션 경계, SQL, 결과 단언의 순서로 읽는다. 재현 결과에는 소스 리비전과 의존성 버전, DB 버전을 함께 기록한다. [강의 공식 예제 저장소](https://github.com/vladmihalcea/high-performance-java-persistence)
+JDBC, JPA, Hibernate 예제는 아래 저장소에서 실행할 수 있다. 같은 주제라도 모듈마다 Hibernate 버전과 DB 방언이 다를 수 있으므로 선택한 모듈의 빌드 파일과 테스트 데이터소스를 먼저 확인한다. 실습에서는 테스트 클래스 한 개를 실행해 초기화, 트랜잭션 경계, SQL, 결과 단언의 순서로 읽는다. 재현 결과에는 소스 리비전과 의존성 버전, DB 버전을 함께 기록한다. [JDBC·JPA·Hibernate 예제 저장소](https://github.com/vladmihalcea/high-performance-java-persistence)
 
 ## 3. 실행 SQL과 바인딩 값 기록하기
 

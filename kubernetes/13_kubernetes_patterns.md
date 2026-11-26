@@ -86,14 +86,14 @@ spec:
 | Ambassador | 외부 시스템과의 통신을 로컬 프록시로 중계한다. | 앱이 `localhost`의 HTTP 프록시를 호출하면 프록시가 외부 gRPC 서버와 통신한다. 서비스 메시의 Sidecar Proxy도 통신 중계에 쓰인다. |
 
 - **Adapter는 데이터 형식 변환이 중심이고 Ambassador는 통신 중계가 중심이다.** 둘 다 메인 앱과 함께 배포하는 Sidecar로 구현할 수 있다. 앱별 파일을 읽고 앱과 함께 교체할 기능은 Sidecar, 노드 전체의 파일을 수집할 기능은 DaemonSet으로 구성할 수 있다.
-- 강의 예시처럼 보조 컨테이너를 `containers`에 넣으면 일반 앱 컨테이너로 실행된다. 목록 순서로 기동을 제어할 수 없으므로 앱이 프록시를 사용하려면 연결 재시도나 준비 상태를 고려한다.
+- 보조 컨테이너를 `containers`에 넣으면 일반 앱 컨테이너로 실행된다. 목록 순서로 기동을 제어할 수 없으므로 앱이 프록시를 사용하려면 연결 재시도나 준비 상태를 고려한다.
 - Kubernetes의 네이티브 Sidecar는 `initContainers` 항목에 `restartPolicy: Always`를 지정한다. 앱 시작 전에 기동해 계속 실행되고, `startupProbe`로 다음 초기화 단계의 진행을 제어할 수 있다. Job에서는 메인 작업이 끝나면 이 Sidecar가 Job 완료를 막지 않는다. 이 기능은 Kubernetes v1.33에서 안정화되었다. [Kubernetes Sidecar Containers 문서](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/)
 
 ## 6. CRD는 선언 형식을 등록하고 컨트롤러가 동작을 구현한다
 
-- **CRD(CustomResourceDefinition)는 새 API 타입의 이름·버전·스키마를 등록한다.** Custom Resource는 등록한 타입으로 만든 개별 객체이다. 강의의 `MyDatabase`는 DB 이름과 복제본 수를 담는 API이며, 이를 감시하는 컨트롤러를 구현하면 StatefulSet·Service·Secret 같은 하위 리소스를 생성하고 관리할 수 있다. [Kubernetes CRD 문서](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)
+- **CRD(CustomResourceDefinition)는 새 API 타입의 이름·버전·스키마를 등록한다.** Custom Resource는 등록한 타입으로 만든 개별 객체이다. 예제의 `MyDatabase`는 DB 이름과 복제본 수를 담는 API이며, 이를 감시하는 컨트롤러를 구현하면 StatefulSet·Service·Secret 같은 하위 리소스를 생성하고 관리할 수 있다. [Kubernetes CRD 문서](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)
 
-| CRD의 설정 | 강의 예 | 의미 |
+| CRD의 설정 | 예시 값 | 의미 |
 | :--- | :--- | :--- |
 | `metadata.name`, `spec.group` | `mydatabases.1pro.com`, `1pro.com` | CRD 이름은 `<plural>.<group>` 형식이고, 그룹은 인스턴스의 `apiVersion`에 사용된다. |
 | `spec.names` | `kind: MyDatabase`, `plural: mydatabases`, `shortNames: [mydb]` | YAML의 타입 이름과 `kubectl get`에서 사용할 리소스 이름을 정한다. |
@@ -101,7 +101,7 @@ spec:
 | `spec.versions[]` | `name: v1`, `served: true`, `storage: true` | API로 제공할 버전과 저장에 사용할 버전을 지정한다. 저장 버전은 하나만 지정한다. |
 | `schema.openAPIV3Schema` | `spec.name`은 문자열, `spec.replicas`는 정수 | API 서버가 인스턴스의 필드 구조와 타입을 검증한다. |
 
-- 다음 YAML은 강의의 `mydatabases.1pro.com` CRD가 먼저 등록되어 있다고 가정한다. `metadata.name`은 Kubernetes에서 조회할 객체 이름이고, `spec.name`은 이 API가 컨트롤러에 전달하는 설정이다.
+- 다음 YAML은 `mydatabases.1pro.com` CRD가 먼저 등록되어 있다고 가정한다. `metadata.name`은 Kubernetes에서 조회할 객체 이름이고, `spec.name`은 이 API가 컨트롤러에 전달하는 설정이다.
 
 ```yaml
 apiVersion: 1pro.com/v1

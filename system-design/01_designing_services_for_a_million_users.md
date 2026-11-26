@@ -31,9 +31,7 @@
 | 12~20 서비스 사례 I | [URL 단축기](12_designing_a_url_shortener.md), [뉴스 피드](15_designing_a_news_feed.md), [동영상 플랫폼](18_designing_a_video_on_demand_platform.md) | [RFC 9110 HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html) · [AWS Transactional Outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) · [AWS Video on Demand](https://docs.aws.amazon.com/solutions/latest/video-on-demand-on-aws/architecture-overview.html) |
 | 21~27 서비스 사례 II | [광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [좌석 예매](22_designing_a_ticket_reservation_service.md), [종단간 암호화 메신저](27_designing_an_end_to_end_encrypted_messaging_service.md) | [Flink 2.2 Windows](https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/dev/datastream/operators/windows/) · [PostgreSQL 18 SELECT](https://www.postgresql.org/docs/18/sql-select.html#SQL-FOR-UPDATE-SHARE) · [Signal Sesame](https://signal.org/docs/specifications/sesame/) |
 
-## 5. 두 권의 설계 사례를 따라 읽는다
-
-《가상 면접 사례로 배우는 대규모 시스템 설계 기초》 1권의 확장·용량·면접 접근법은 01~03번에서, 단축 URL부터 파일 동기화까지의 사례는 위 표에서 찾을 수 있다. 2권의 주제는 아래 경로로 이어서 읽는다. [교보문고 1권](https://product.kyobobook.co.kr/detail/S000001033116) · [교보문고 2권](https://product.kyobobook.co.kr/detail/S000211656186) · [ByteByteGo · 두 권의 목차](https://blog.bytebytego.com/p/system-design-interview-books-volume)
+## 5. 주제별 설계 사례를 더 살펴본다
 
 - **위치 검색·공유와 지도** — [28 반경 검색](28_designing_a_proximity_search_service.md), [29 주변 친구](29_designing_a_nearby_friends_service.md), [30 지도·경로](30_designing_a_map_and_routing_service.md)
 - **데이터 수집·처리와 보관** — [31 메시지 로그](31_designing_a_distributed_message_log.md), [32 지표·경보](32_designing_a_metrics_and_alerting_system.md), [21 광고 클릭 집계](21_aggregating_ad_clicks_at_scale.md), [35 객체 저장소](35_designing_an_object_storage_service.md)

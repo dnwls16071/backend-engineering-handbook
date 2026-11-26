@@ -14,7 +14,7 @@ Orders는 주문 ID, 구매 시점의 상품명·단가와 수량을 저장한�
 
 예시에서 사용자 생성 커밋이 완료되면 `201 Created`와 조회 위치로 응답한다. 유일한 사용자 식별자 충돌은 `409 Conflict`로 정의한다. 주문 접수가 재고 예약까지 기다리지 않는 계약이면 `202 Accepted`와 진행 상태 조회 위치를 제공한다. [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes) · [AWS Saga 오케스트레이션](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html)
 
-첨부 목차의 Swagger/OAS 3.0은 강의 버전이다. 현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)
+현재 공개 OpenAPI 3.2.1 명세를 참고해 외부 경로·요청 스키마·응답 코드·인증 요구를 계약으로 기록한다. 실제 문서 생성기와 소비 도구가 지원하는 OAS 버전을 함께 확인해 고른다. [OpenAPI 3.2.1 명세](https://spec.openapis.org/oas/v3.2.1.html) · [RFC 9110 HTTP 상태 코드](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes)
 
 ## 3. 경계 간 조합과 실패의 책임을 정한다
 

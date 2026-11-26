@@ -1,6 +1,6 @@
 # Optimizing Post Details with CQRS
 
-상세 조회용 모델에서 제목·본문과 좋아요·댓글의 현재 투영값을 함께 읽는다. 쓰기 경로는 게시글 원본에 책임을 두고, 조회 모델의 최적화와 갱신 정책을 따로 설계한다. 학습 범위는 강의 54~60이다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
+상세 조회용 모델에서 제목·본문과 좋아요·댓글의 현재 투영값을 함께 읽는다. 쓰기 경로는 게시글 원본에 책임을 두고, 조회 모델의 최적화와 갱신 정책을 따로 설계한다. [Microsoft · CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 
 ![Spring Boot API의 원본 경로와 CQRS 조회 투영 경로, Kafka 이벤트를 통한 조회 행 갱신을 나타낸다.](image/10_cqrs_post_detail_projection.png)
 

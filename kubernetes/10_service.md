@@ -18,15 +18,15 @@
 
 - 준비되지 않은 Pod도 EndpointSlice에 기록될 수 있다. **목록에 주소가 존재하는 것과 일반 트래픽 대상으로 사용되는 것은 다르다.** 기본적으로 준비된 대상을 사용하며 `publishNotReadyAddresses` 같은 예외 설정을 구분한다.
 - Readiness 실패는 Service의 일반 요청 대상에서 제외하는 동작이다. Pod IP 직접 접근이나 기존 연결까지 일괄 차단하는 네트워크 정책은 아니다.
-- 강의의 `Endpoint` 그림은 기존 `Endpoints` 오브젝트를 나타낸다. 현재 대상 조회에는 EndpointSlice를 사용한다. Service 하나에 여러 Slice가 연결될 수 있으며 이름이 Service와 같을 필요도 없다. [EndpointSlice 공식 문서](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
+- Service의 대상 조회에는 기존 `Endpoints` 대신 EndpointSlice를 사용한다. Service 하나에 여러 Slice가 연결될 수 있으며 이름이 Service와 같을 필요도 없다. [EndpointSlice 공식 문서](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/)
 
 ## 2. DNS 조회와 패킷 전달은 서로 다른 구성 요소가 담당한다
 
 | 인프라 영역·구성 요소 | 역할 |
 | :--- | :--- |
-| 노드 네트워크 | VM·물리 서버의 IP로 노드와 외부 장비가 통신한다. 강의의 예시는 `192.168.56.0/24`이다. |
+| 노드 네트워크 | VM·물리 서버의 IP로 노드와 외부 장비가 통신한다. 예시 대역은 `192.168.56.0/24`이다. |
 | Pod 네트워크 | Pod IP로 앱 사이의 통신을 제공한다. CNI 플러그인과 네트워크 구성이 실제 연결을 담당한다. |
-| Service 네트워크 | 일반 Service의 가상 IP를 할당하는 대역이다. 강의의 예시는 `10.96.0.0/12`이다. |
+| Service 네트워크 | 일반 Service의 가상 IP를 할당하는 대역이다. 예시 대역은 `10.96.0.0/12`이다. |
 | CoreDNS | Service 이름을 ClusterIP, Pod IP 목록이나 별칭으로 해석한다. 사내·외부 이름은 DNS 전달 설정에 따라 조회한다. |
 | kube-proxy 등 Service 구현 | Service와 EndpointSlice 변경을 반영해 패킷 전달·분산 규칙을 구성한다. |
 | 외부 로드밸런서·라우터·방화벽 | 클러스터 밖의 요청을 접근 가능한 진입 주소와 포트로 전달한다. |
@@ -39,7 +39,7 @@
 - ClusterIP는 특정 노드에 배치된 앱 서버의 주소가 아니다. Service 오브젝트 자체가 별도 서버 프로세스로 실행되는 것도 아니다.
 - kube-proxy는 일반적으로 커널의 패킷 처리 규칙을 관리한다. 요청마다 kube-apiserver를 호출하거나 모든 패킷을 kube-proxy 프로세스가 직접 중계하는 구조로 이해하지 않는다.
 - 실제 전달 방식은 클러스터 구성에 따라 달라지며, CNI 구현이 kube-proxy의 역할을 대체할 수도 있다. CoreDNS 역시 Control Plane 노드에만 고정되는 구성 요소는 아니다.
-- 강의에 나온 네트워크 대역은 실습 예시이다. 실제 환경에서는 노드·Pod·Service·사내망 사이의 주소 충돌과 라우팅 조건을 확인한다.
+- 실제 환경에서는 노드·Pod·Service·사내망 사이의 주소 충돌과 라우팅 조건을 확인한다.
 
 ![클라이언트가 DNS에서 orders Service의 ClusterIP를 얻는다. Service 구현이 EndpointSlice 등에서 전달 규칙을 갱신하고 패킷은 준비된 Pod IP와 포트로 전달된다.](image/10_service_dns_control_and_packets.png)
 
@@ -85,7 +85,7 @@ spec:
 
 - 대상 Pod에는 `app: orders` 라벨과 `name: http`인 컨테이너 포트가 있어야 한다. 앱도 해당 포트에서 실제로 수신해야 한다.
 - NodePort는 대상 Pod가 없는 노드에서도 진입점이 될 수 있다. 실제 접근 가능 여부는 노드 주소 설정·방화벽과 트래픽 정책에 따라 달라진다.
-- NodePort의 기본 범위는 `30000~32767`이며, 수동 지정도 클러스터의 설정 범위 안에서 해야 한다. 강의의 `32768` 표기와 구분한다. [NodePort 공식 문서](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+- NodePort의 기본 범위는 `30000~32767`이며, 수동 지정도 클러스터의 설정 범위 안에서 해야 한다. [NodePort 공식 문서](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
 - 요청이 Service라는 별도 서버를 순서대로 방문하는 것은 아니다. `NodePort → Service → Pod`는 노출 포트와 대상 선택 관계를 설명하는 논리적 경로이다.
 
 ## 4. LoadBalancer와 externalIPs는 외부 주소를 준비하는 방식이 다르다
@@ -95,7 +95,7 @@ spec:
 | 선언 위치 | `spec.type: LoadBalancer`이다. | `spec.externalIPs` 목록이다. 별도의 Service 유형이 아니다. |
 | 주소 준비 | 연동된 클라우드·로드밸런서 구현이 주소와 외부 장비를 관리한다. | 관리자가 해당 IP로 들어온 패킷이 노드에 도달하도록 구성해야 한다. |
 | 호출 주소 | 로드밸런서의 IP 또는 호스트명과 공개 포트이다. | 지정한 IP와 Service의 `port`이다. |
-| 강의의 활용 예 | 외부 사용자와 사내 시스템에 서비스를 공개한다. | 실습에서 특정 노드 IP의 `80`, `443` 포트로 접근한다. |
+| 활용 예 | 외부 사용자와 사내 시스템에 서비스를 공개한다. | 실습에서 특정 노드 IP의 `80`, `443` 포트로 접근한다. |
 
 - **`type: LoadBalancer`를 선언하는 것만으로 모든 환경에서 외부 장비나 공인 IP가 생기지는 않는다.** 클라우드 연동이나 온프레미스용 로드밸런서 구현이 필요하다.
 - 일반적인 경로는 `외부 클라이언트 → 로드밸런서 → NodePort → Pod`이다. Pod로 직접 전달하는 구현에서는 `allocateLoadBalancerNodePorts: false`를 사용할 수 있으므로 NodePort가 항상 필수인 것은 아니다.

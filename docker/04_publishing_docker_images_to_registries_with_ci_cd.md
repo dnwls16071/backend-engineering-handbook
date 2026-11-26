@@ -12,7 +12,7 @@ ENTRYPOINT ["/bin/echo", "docker-release-lab"]
 ```
 
 ```bash
-local_image=lounge-docker-release:local
+local_image=backend-engineering-handbook-docker-release:local
 docker build -t "$local_image" . &&
   output=$(docker run --rm --pull=never "$local_image") &&
   test "$output" = docker-release-lab

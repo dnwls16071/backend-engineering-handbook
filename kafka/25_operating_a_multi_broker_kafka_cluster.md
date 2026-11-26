@@ -11,7 +11,7 @@ Kafka 4.3.2의 3노드 KRaft 클러스터에서 컨트롤러 쿼럼과 파티션
 
 실습에서는 각 프로세스가 `broker,controller` 두 역할을 맡는다. 운영 환경에서는 브로커와 컨트롤러를 따로 배치해 브로커 재시작과 트래픽이 컨트롤러 쿼럼에 주는 영향을 줄인다. [Apache Kafka · KRaft](https://kafka.apache.org/43/operations/kraft/) · [Apache Kafka · Replication](https://kafka.apache.org/43/design/design/#replication)
 
-Kafka 3.x의 ZooKeeper 모드를 점검하던 강의에서는 `zookeeper-shell.sh <호스트>:2181`에 접속해 `ls /brokers/ids`로 등록된 브로커를, `get /controller`로 활성 컨트롤러를, `get /brokers/topics/<토픽>/partitions/<번호>/state`로 파티션의 리더와 ISR을 확인했다. Kafka 4.0부터는 KRaft만 지원한다. 4.3.2에서는 `kafka-metadata-quorum.sh`로 컨트롤러를, `kafka-topics.sh --describe`로 파티션 상태를 확인한다. [Apache Kafka 3.9.2 · ZooKeeper 경로](https://github.com/apache/kafka/blob/3.9.2/core/src/main/scala/kafka/zk/ZkData.scala) · [Apache Kafka · 4.0 업그레이드](https://kafka.apache.org/40/getting-started/upgrade/)
+Kafka 3.x의 ZooKeeper 모드를 점검하려면 `zookeeper-shell.sh <호스트>:2181`에 접속해 `ls /brokers/ids`로 등록된 브로커를, `get /controller`로 활성 컨트롤러를, `get /brokers/topics/<토픽>/partitions/<번호>/state`로 파티션의 리더와 ISR을 확인한다. Kafka 4.0부터는 KRaft만 지원한다. 4.3.2에서는 `kafka-metadata-quorum.sh`로 컨트롤러를, `kafka-topics.sh --describe`로 파티션 상태를 확인한다. [Apache Kafka 3.9.2 · ZooKeeper 경로](https://github.com/apache/kafka/blob/3.9.2/core/src/main/scala/kafka/zk/ZkData.scala) · [Apache Kafka · 4.0 업그레이드](https://kafka.apache.org/40/getting-started/upgrade/)
 
 ## 2. 3노드 실습 환경 시작하기
 

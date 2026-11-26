@@ -49,14 +49,14 @@ volumes:
 Compose 파일을 먼저 해석하고 Collector 바이너리로 설정을 검사한 뒤 실행한다. `depends_on`은 시작 순서를 정하므로 애플리케이션을 켜기 전에 Tempo의 `/ready`가 HTTP 200을 반환하는지 확인한다. [Docker Compose 시작 순서](https://docs.docker.com/compose/how-tos/startup-order/) · [Collector 구성](https://opentelemetry.io/docs/collector/configuration/) · [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/)
 
 ```bash
-docker compose -p lounge-tracing config --quiet
-docker compose -p lounge-tracing run --rm --no-deps collector \
+docker compose -p backend-engineering-handbook-tracing config --quiet
+docker compose -p backend-engineering-handbook-tracing run --rm --no-deps collector \
   validate --config=/etc/otelcol/config.yaml
-docker compose -p lounge-tracing up -d
-docker compose -p lounge-tracing ps
+docker compose -p backend-engineering-handbook-tracing up -d
+docker compose -p backend-engineering-handbook-tracing ps
 curl --fail --silent --show-error http://127.0.0.1:13200/ready
 ```
 
 ## 3. 로그 확인과 종료
 
-준비 확인이 실패하면 `docker compose -p lounge-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)
+준비 확인이 실패하면 `docker compose -p backend-engineering-handbook-tracing logs tempo collector grafana`에서 설정 파싱, 포트 충돌, 전송 오류를 확인한다. `down`은 기본적으로 Named Volume을 보존한다. 실습 데이터도 지울 때만 `down --volumes`를 사용한다. [Tempo 2.10 HTTP API](https://grafana.com/docs/tempo/v2.10.x/api_docs/) · [Collector 복원력](https://opentelemetry.io/docs/collector/resiliency/) · [Docker Volume](https://docs.docker.com/engine/storage/volumes/)

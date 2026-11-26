@@ -58,7 +58,7 @@
 | `Burstable` | `Guaranteed` 조건을 충족하지 않으며 하나 이상의 컨테이너에 CPU나 메모리의 request 또는 limit가 있다. | 노드에 여유가 있으면 요청량을 초과해 사용할 수 있다. |
 | `BestEffort` | 어느 컨테이너에도 CPU·메모리 requests·limits가 없다. | 노드의 남은 자원을 쓰며, 자원 압박 상황에서 퇴거될 가능성이 높다. |
 
-- 표는 강의에서 다룬 컨테이너 수준 설정 기준이다. Pod 수준의 자원 설정을 사용하는 경우에는 해당 기준도 적용된다. 특정 QoS 클래스를 모든 앱에 일괄 적용하기보다 앱의 자원 변화와 배치 여유를 함께 본다. [Kubernetes Pod QoS 문서](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/)
+- 표는 컨테이너 수준의 자원 설정을 기준으로 한다. Pod 수준의 자원 설정을 사용하는 경우에는 해당 기준도 적용된다. 특정 QoS 클래스를 모든 앱에 일괄 적용하기보다 앱의 자원 변화와 배치 여유를 함께 본다. [Kubernetes Pod QoS 문서](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/)
 - 노드 압박 시 kubelet은 요청량 초과 여부, Pod Priority, 요청량 대비 사용량을 고려해 퇴거 순서를 정한다. `OOMKilled`는 프로세스가 메모리 부족으로 종료된 단서이고, kubelet의 노드 압박 퇴거는 Pod 이벤트와 노드 상태에서 확인한다. [Kubernetes 노드 압박 퇴거 문서](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/), [Pod 상태와 종료 원인](09_pod.md)
 
 ## 6. Grafana에서는 노드 여유와 워크로드 상태를 연결한다

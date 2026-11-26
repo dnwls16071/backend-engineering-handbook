@@ -75,7 +75,7 @@ mv spool/in/orders-001.csv.part spool/in/orders-001.csv
 }
 ```
 
-실습에 HTTPie, `jq`, `kcat`을 사용한다. `kcat`은 예전 강의에서 `kafkacat`으로 부르던 도구다. HTTPie의 `http`로 설정을 검증하고, `error_count`가 0인 경우 등록한다. `RUNNING` 상태가 표시된 뒤 Kafka에 레코드가 도착했는지, CSV가 완료 경로에 있는지 확인한다. [HTTPie · Redirected Input](https://httpie.io/docs/cli/redirected-input) · [Apache Kafka · Connect REST API](https://kafka.apache.org/43/kafka-connect/user-guide/#rest-api) · [kcat · README](https://github.com/edenhill/kcat)
+실습에 HTTPie, `jq`, `kcat`을 사용한다. `kcat`의 이전 이름은 `kafkacat`이다. HTTPie의 `http`로 설정을 검증하고, `error_count`가 0인 경우 등록한다. `RUNNING` 상태가 표시된 뒤 Kafka에 레코드가 도착했는지, CSV가 완료 경로에 있는지 확인한다. [HTTPie · Redirected Input](https://httpie.io/docs/cli/redirected-input) · [Apache Kafka · Connect REST API](https://kafka.apache.org/43/kafka-connect/user-guide/#rest-api) · [kcat · README](https://github.com/edenhill/kcat)
 
 ```bash
 http --check-status PUT "$connect_url/connector-plugins/$connector_class/config/validate" \
